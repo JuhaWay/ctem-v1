@@ -20,3 +20,12 @@ D:\Work\MyProject\ctem-v1\SourceCode\ChiTonPrivateEnterpriseManagement\ChiTonPri
 D:\Work\MyProject\ctem-v1\SourceCode\ChiTonPrivateEnterpriseManagement\ChiTonPrivateEnterpriseManagement\obj\Debug\GenerateResource-ResGen.write.1.tlog
 E:\Projects\ctem-v1\SourceCode\ChiTonPrivateEnterpriseManagement\ChiTonPrivateEnterpriseManagement\obj\Debug\ChiTonPrivateEnterpriseManagement.exe
 E:\Projects\ctem-v1\SourceCode\ChiTonPrivateEnterpriseManagement\ChiTonPrivateEnterpriseManagement\obj\Debug\ChiTonPrivateEnterpriseManagement.pdb
+E:\Projects\ctem-v1\SourceCode\ChiTonPrivateEnterpriseManagement\ChiTonPrivateEnterpriseManagement\obj\Debug\ResolveAssemblyReference.cache
+E:\Projects\ctem-v1\SourceCode\ChiTonPrivateEnterpriseManagement\ChiTonPrivateEnterpriseManagement\obj\Debug\ChiTonPrivateEnterpriseManagement.LoginForm.resources
+E:\Projects\ctem-v1\SourceCode\ChiTonPrivateEnterpriseManagement\ChiTonPrivateEnterpriseManagement\obj\Debug\ChiTonPrivateEnterpriseManagement.Properties.Resources.resources
+E:\Projects\ctem-v1\SourceCode\ChiTonPrivateEnterpriseManagement\ChiTonPrivateEnterpriseManagement\obj\Debug\GenerateResource-ResGen.read.1.tlog
+E:\Projects\ctem-v1\SourceCode\ChiTonPrivateEnterpriseManagement\ChiTonPrivateEnterpriseManagement\obj\Debug\GenerateResource-ResGen.read.4.tlog
+E:\Projects\ctem-v1\SourceCode\ChiTonPrivateEnterpriseManagement\ChiTonPrivateEnterpriseManagement\obj\Debug\GenerateResource.read.1.tlog
+E:\Projects\ctem-v1\SourceCode\ChiTonPrivateEnterpriseManagement\ChiTonPrivateEnterpriseManagement\obj\Debug\GenerateResource-ResGen.write.1.tlog
+E:\Projects\ctem-v1\SourceCode\ChiTonPrivateEnterpriseManagement\ChiTonPrivateEnterpriseManagement\bin\Debug\ChiTonPrivateEnterpriseManagement.exe
+E:\Projects\ctem-v1\SourceCode\ChiTonPrivateEnterpriseManagement\ChiTonPrivateEnterpriseManagement\bin\Debug\ChiTonPrivateEnterpriseManagement.pdb

@@ -36,7 +36,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            if (obj.GetType() != typeof (UserDTO)) return false;
+            if (obj.GetType() != typeof(WorkerDTO)) return false;
             return Equals((WorkerDTO)obj);
         }
 
@@ -56,6 +56,11 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
         public static bool operator !=(WorkerDTO left, WorkerDTO right)
         {
             return !Equals(left, right);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 }
