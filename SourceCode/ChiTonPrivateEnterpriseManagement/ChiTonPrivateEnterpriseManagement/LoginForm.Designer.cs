@@ -48,7 +48,7 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(682, 385);
+            this.pictureBox1.Size = new System.Drawing.Size(682, 415);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
@@ -57,9 +57,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(43, 184);
+            this.label1.Location = new System.Drawing.Point(43, 198);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 13);
+            this.label1.Size = new System.Drawing.Size(82, 14);
             this.label1.TabIndex = 3;
             this.label1.Text = "Tên Đăng Nhập";
             // 
@@ -67,41 +67,41 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(74, 217);
+            this.label2.Location = new System.Drawing.Point(74, 234);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 13);
+            this.label2.Size = new System.Drawing.Size(52, 14);
             this.label2.TabIndex = 4;
             this.label2.Text = "Mật Khẩu";
             // 
             // kryptonTextBox1
             // 
-            this.kryptonTextBox1.Location = new System.Drawing.Point(133, 180);
+            this.kryptonTextBox1.Location = new System.Drawing.Point(133, 194);
             this.kryptonTextBox1.Name = "kryptonTextBox1";
-            this.kryptonTextBox1.Size = new System.Drawing.Size(174, 22);
+            this.kryptonTextBox1.Size = new System.Drawing.Size(174, 20);
             this.kryptonTextBox1.TabIndex = 5;
             this.kryptonTextBox1.TextChanged += new System.EventHandler(this.kryptonTextBox1_TextChanged);
             // 
             // kryptonTextBox2
             // 
-            this.kryptonTextBox2.Location = new System.Drawing.Point(133, 213);
+            this.kryptonTextBox2.Location = new System.Drawing.Point(133, 229);
             this.kryptonTextBox2.Name = "kryptonTextBox2";
             this.kryptonTextBox2.PasswordChar = '*';
-            this.kryptonTextBox2.Size = new System.Drawing.Size(174, 22);
+            this.kryptonTextBox2.Size = new System.Drawing.Size(174, 20);
             this.kryptonTextBox2.TabIndex = 6;
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(133, 241);
+            this.btnLogin.Location = new System.Drawing.Point(133, 260);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(74, 25);
+            this.btnLogin.Size = new System.Drawing.Size(74, 27);
             this.btnLogin.TabIndex = 7;
             this.btnLogin.Values.Text = "Login";
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(633, 12);
+            this.btnExit.Location = new System.Drawing.Point(633, 13);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(37, 23);
+            this.btnExit.Size = new System.Drawing.Size(37, 25);
             this.btnExit.TabIndex = 8;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
@@ -109,10 +109,10 @@
             // LoginForm
             // 
             this.AcceptButton = this.btnLogin;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(682, 385);
+            this.ClientSize = new System.Drawing.Size(682, 415);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.kryptonTextBox2);
