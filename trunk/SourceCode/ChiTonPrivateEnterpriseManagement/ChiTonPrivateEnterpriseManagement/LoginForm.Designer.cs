@@ -37,6 +37,7 @@
             this.kryptonTextBox1 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.kryptonTextBox2 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.btnLogin = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnExit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,6 +85,7 @@
             // 
             this.kryptonTextBox2.Location = new System.Drawing.Point(133, 213);
             this.kryptonTextBox2.Name = "kryptonTextBox2";
+            this.kryptonTextBox2.PasswordChar = '*';
             this.kryptonTextBox2.Size = new System.Drawing.Size(174, 22);
             this.kryptonTextBox2.TabIndex = 6;
             // 
@@ -95,6 +97,15 @@
             this.btnLogin.TabIndex = 7;
             this.btnLogin.Values.Text = "Login";
             // 
+            // btnExit
+            // 
+            this.btnExit.Location = new System.Drawing.Point(633, 12);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(37, 23);
+            this.btnExit.TabIndex = 8;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseVisualStyleBackColor = true;
+            // 
             // LoginForm
             // 
             this.AcceptButton = this.btnLogin;
@@ -102,6 +113,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(682, 385);
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.kryptonTextBox2);
             this.Controls.Add(this.kryptonTextBox1);
@@ -128,6 +140,7 @@
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox kryptonTextBox1;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox kryptonTextBox2;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnLogin;
+        private System.Windows.Forms.Button btnExit;
     }
 }
 
