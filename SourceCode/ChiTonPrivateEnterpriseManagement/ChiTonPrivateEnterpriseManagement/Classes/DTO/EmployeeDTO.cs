@@ -14,6 +14,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
         public string Address { get; set; }
         public string Email { get; set; }
         public string Note { get; set; }
+        public long RoleID { get; set; }
         public string Position { get; set; }
         public long RightsValue { get; set; }
         public string CMND { get; set; }
@@ -32,7 +33,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
             Username = "";
             Password = "";
             Fullname = "";
-            Position = "";
+            RoleID = 0;
             RightsValue = 0;
             Status = "";            
         }
