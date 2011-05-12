@@ -54,6 +54,9 @@
     <Reference Include="ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
+    <Reference Include="FastDataAccess">
+      <HintPath>..\..\..\..\..\Project\.NET\VivuFace\Development\VivuFace_V2\VivuFace_V2\bin\FastDataAccess.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -63,12 +66,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\BUS\RightBUS.cs" />
+    <Compile Include="Classes\BUS\EmployeeBUS.cs" />
+    <Compile Include="Classes\DAO\RightDAO.cs" />
+    <Compile Include="Classes\DAO\EmployeeDAO.cs" />
     <Compile Include="Classes\DTO\ConstructionDTO.cs" />
     <Compile Include="Classes\DTO\WorkerDTO.cs" />
     <Compile Include="Classes\DTO\WorkerConstructionDTO.cs" />
     <Compile Include="Classes\DTO\RightDTO.cs" />
     <Compile Include="Classes\DTO\EmployeeDTO.cs" />
     <Compile Include="Classes\DTO\EmployerConstructionDTO.cs" />
+    <Compile Include="Classes\Global\Constants.cs" />
+    <Compile Include="Classes\Global\DatabaseInfo.cs" />
+    <Compile Include="Classes\Global\DataProvider.cs" />
+    <Compile Include="Classes\Global\Ini.cs" />
+    <Compile Include="DBInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DBInfoForm.designer.cs">
+      <DependentUpon>DBInfoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +100,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DBInfoForm.resx">
+      <DependentUpon>DBInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <SubType>Designer</SubType>
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -129,9 +149,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Classes\BUS\" />
-    <Folder Include="Classes\DAO\" />
-    <Folder Include="Classes\Global\" />
     <Folder Include="Database\Backup\" />
   </ItemGroup>
   <ItemGroup>
