@@ -62,5 +62,10 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
         {
             return !Equals(left, right);
         }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }
