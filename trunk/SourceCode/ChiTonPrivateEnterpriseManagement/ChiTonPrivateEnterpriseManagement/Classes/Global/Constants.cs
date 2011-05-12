@@ -21,6 +21,6 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
         public static string ROLE_ACCOUNTANT = "accountant";
 
         //Encrypt key 
-        public static string Encryptkey = "!@hello@FDS2o1o@!";
+        public static string Encryptkey = "!@CTEM@ADS2o1o@!";
     }
 }

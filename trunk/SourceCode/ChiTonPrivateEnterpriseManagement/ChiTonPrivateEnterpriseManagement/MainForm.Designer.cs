@@ -36,12 +36,12 @@
             this.pnlLineLeft = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.pnlMain = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.pnlContent = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.pnlLineRight = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.pnlLineTop = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.pnlMainMenu = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.pnlLineMid = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.pnlLineBot = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.pnlMainContent = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.pnlLineBot = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.pnlLineMid = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.pnlMainMenu = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.pnlLineTop = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.pnlLineRight = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             ((System.ComponentModel.ISupportInitialize)(this.hdgMenu)).BeginInit();
             this.hdgMenu.Panel.SuspendLayout();
             this.hdgMenu.SuspendLayout();
@@ -50,12 +50,12 @@
             this.pnlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnlContent)).BeginInit();
             this.pnlContent.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pnlLineRight)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pnlLineTop)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pnlMainMenu)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pnlLineMid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pnlLineBot)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlMainContent)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pnlLineBot)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pnlLineMid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pnlMainMenu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pnlLineTop)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pnlLineRight)).BeginInit();
             this.SuspendLayout();
             // 
             // hdgMenu
@@ -72,7 +72,7 @@
             // hdgMenu.Panel
             // 
             this.hdgMenu.Panel.Controls.Add(this.tvwMenu);
-            this.hdgMenu.Size = new System.Drawing.Size(200, 522);
+            this.hdgMenu.Size = new System.Drawing.Size(200, 562);
             this.hdgMenu.TabIndex = 1;
             this.hdgMenu.ValuesPrimary.Heading = "Menu";
             this.hdgMenu.MouseLeave += new System.EventHandler(this.hdgMenu_MouseLeave);
@@ -90,7 +90,7 @@
             this.tvwMenu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tvwMenu.Location = new System.Drawing.Point(0, 0);
             this.tvwMenu.Name = "tvwMenu";
-            this.tvwMenu.Size = new System.Drawing.Size(198, 492);
+            this.tvwMenu.Size = new System.Drawing.Size(198, 530);
             this.tvwMenu.TabIndex = 0;
             this.tvwMenu.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvwMenu_NodeMouseDoubleClick);
             // 
@@ -101,7 +101,7 @@
             this.pnlLineLeft.Name = "pnlLineLeft";
             this.pnlLineLeft.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleOrange;
             this.pnlLineLeft.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlClient;
-            this.pnlLineLeft.Size = new System.Drawing.Size(5, 522);
+            this.pnlLineLeft.Size = new System.Drawing.Size(5, 562);
             this.pnlLineLeft.TabIndex = 3;
             // 
             // pnlMain
@@ -112,7 +112,7 @@
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMain.Location = new System.Drawing.Point(0, 0);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(1024, 522);
+            this.pnlMain.Size = new System.Drawing.Size(1024, 562);
             this.pnlMain.TabIndex = 0;
             // 
             // pnlContent
@@ -126,18 +126,44 @@
             this.pnlContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContent.Location = new System.Drawing.Point(205, 0);
             this.pnlContent.Name = "pnlContent";
-            this.pnlContent.Size = new System.Drawing.Size(819, 522);
+            this.pnlContent.Size = new System.Drawing.Size(819, 562);
             this.pnlContent.TabIndex = 4;
             // 
-            // pnlLineRight
+            // pnlMainContent
             // 
-            this.pnlLineRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlLineRight.Location = new System.Drawing.Point(814, 0);
-            this.pnlLineRight.Name = "pnlLineRight";
-            this.pnlLineRight.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleOrange;
-            this.pnlLineRight.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlClient;
-            this.pnlLineRight.Size = new System.Drawing.Size(5, 522);
-            this.pnlLineRight.TabIndex = 3;
+            this.pnlMainContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlMainContent.Location = new System.Drawing.Point(0, 63);
+            this.pnlMainContent.Name = "pnlMainContent";
+            this.pnlMainContent.Size = new System.Drawing.Size(814, 494);
+            this.pnlMainContent.TabIndex = 9;
+            // 
+            // pnlLineBot
+            // 
+            this.pnlLineBot.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlLineBot.Location = new System.Drawing.Point(0, 557);
+            this.pnlLineBot.Name = "pnlLineBot";
+            this.pnlLineBot.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleOrange;
+            this.pnlLineBot.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlClient;
+            this.pnlLineBot.Size = new System.Drawing.Size(814, 5);
+            this.pnlLineBot.TabIndex = 8;
+            // 
+            // pnlLineMid
+            // 
+            this.pnlLineMid.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlLineMid.Location = new System.Drawing.Point(0, 58);
+            this.pnlLineMid.Name = "pnlLineMid";
+            this.pnlLineMid.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleOrange;
+            this.pnlLineMid.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlClient;
+            this.pnlLineMid.Size = new System.Drawing.Size(814, 5);
+            this.pnlLineMid.TabIndex = 7;
+            // 
+            // pnlMainMenu
+            // 
+            this.pnlMainMenu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlMainMenu.Location = new System.Drawing.Point(0, 5);
+            this.pnlMainMenu.Name = "pnlMainMenu";
+            this.pnlMainMenu.Size = new System.Drawing.Size(814, 53);
+            this.pnlMainMenu.TabIndex = 6;
             // 
             // pnlLineTop
             // 
@@ -149,47 +175,21 @@
             this.pnlLineTop.Size = new System.Drawing.Size(814, 5);
             this.pnlLineTop.TabIndex = 4;
             // 
-            // pnlMainMenu
+            // pnlLineRight
             // 
-            this.pnlMainMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlMainMenu.Location = new System.Drawing.Point(0, 5);
-            this.pnlMainMenu.Name = "pnlMainMenu";
-            this.pnlMainMenu.Size = new System.Drawing.Size(814, 49);
-            this.pnlMainMenu.TabIndex = 6;
-            // 
-            // pnlLineMid
-            // 
-            this.pnlLineMid.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlLineMid.Location = new System.Drawing.Point(0, 54);
-            this.pnlLineMid.Name = "pnlLineMid";
-            this.pnlLineMid.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleOrange;
-            this.pnlLineMid.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlClient;
-            this.pnlLineMid.Size = new System.Drawing.Size(814, 5);
-            this.pnlLineMid.TabIndex = 7;
-            // 
-            // pnlLineBot
-            // 
-            this.pnlLineBot.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlLineBot.Location = new System.Drawing.Point(0, 517);
-            this.pnlLineBot.Name = "pnlLineBot";
-            this.pnlLineBot.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleOrange;
-            this.pnlLineBot.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlClient;
-            this.pnlLineBot.Size = new System.Drawing.Size(814, 5);
-            this.pnlLineBot.TabIndex = 8;
-            // 
-            // pnlMainContent
-            // 
-            this.pnlMainContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlMainContent.Location = new System.Drawing.Point(0, 59);
-            this.pnlMainContent.Name = "pnlMainContent";
-            this.pnlMainContent.Size = new System.Drawing.Size(814, 458);
-            this.pnlMainContent.TabIndex = 9;
+            this.pnlLineRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pnlLineRight.Location = new System.Drawing.Point(814, 0);
+            this.pnlLineRight.Name = "pnlLineRight";
+            this.pnlLineRight.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleOrange;
+            this.pnlLineRight.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlClient;
+            this.pnlLineRight.Size = new System.Drawing.Size(5, 562);
+            this.pnlLineRight.TabIndex = 3;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1024, 522);
+            this.ClientSize = new System.Drawing.Size(1024, 562);
             this.Controls.Add(this.pnlMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
@@ -206,12 +206,12 @@
             this.pnlMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pnlContent)).EndInit();
             this.pnlContent.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pnlLineRight)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pnlLineTop)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pnlMainMenu)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pnlLineMid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pnlLineBot)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlMainContent)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pnlLineBot)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pnlLineMid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pnlMainMenu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pnlLineTop)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pnlLineRight)).EndInit();
             this.ResumeLayout(false);
 
         }
