@@ -10,9 +10,9 @@ using ChiTonPrivateEnterpriseManagement.Classes.DTO;
 
 namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
 {
-    class EmployeeDAO
+    class EmployerDAO
     {
-        public EmployeeDAO()
+        public EmployerDAO()
         {
             Transaction = null;
         }
@@ -38,7 +38,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             }
         }
 
-        public List<EmployerDTO> GetEmployerByUsername(string username)
+        public EmployerDTO GetEmployerByUsername(string username)
         {
             var cmd = new SqlCommand("[dbo].[GetEmployerByUsername]", Connection);
 
@@ -46,21 +46,42 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             {
                 cmd.Transaction = Transaction;
             }
+            cmd.Parameters.Add(new SqlParameter("@username", username));
             cmd.CommandType = CommandType.StoredProcedure;
             try
             {
                 SqlDataReader reader = cmd.ExecuteReader();
-                var result = new List<EmployerDTO>();
-                while (reader.Read())
+                EmployerDTO employer = null;
+                if (reader.Read())
                 {
-                    var tmp = new EmployerDTO
+                    employer = new EmployerDTO
                     {
                         Username = Convert.ToString(reader["Username"]),
-                        Passport = Convert.ToString(reader["Password"]),
+                        Password = Convert.ToString(reader["Password"]),
+                        Fullname = Convert.ToString(reader["FullName"]),
+                        Address = Convert.ToString(reader["Address"]),
+                        Email = Convert.ToString(reader["Email"]),
+                        Note = Convert.ToString(reader["Note"]),
+                        RoleID = Convert.ToInt64(reader["RoleID"]),
+                        Position = Convert.ToString(reader["RoleName"]),
+                        RightsValue = Convert.ToInt64(reader["RightsValue"]),
+                        CMND = Convert.ToString(reader["CMND"]),
+                        Passport = Convert.ToString(reader["Passport"]),
+                        MobilePhone = Convert.ToString(reader["MobilePhone"]),
+                        HomePhone = Convert.ToString(reader["HomePhone"]),
+                        CreatedBy = Convert.ToString(reader["CreatedBy"]),
+                        UpdatedBy = Convert.ToString(reader["UpdatedBy"]),
+                        Status = Convert.ToString(reader["Status"])
                     };
-                    result.Add(tmp);
+                    try
+                    {
+                        employer.DOB = DateTime.ParseExact(Convert.ToString(reader["DOB"]), "dd/MM/yyyy", null);
+                    }
+                    catch (Exception)
+                    {
+                    }
                 }
-                return result;
+                return employer;
             }
             catch (SqlException sql)
             {

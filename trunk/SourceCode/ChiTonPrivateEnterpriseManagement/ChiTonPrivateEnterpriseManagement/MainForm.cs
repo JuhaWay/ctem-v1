@@ -12,35 +12,9 @@ namespace ChiTonPrivateEnterpriseManagement
 {
     public partial class MainForm : ComponentFactory.Krypton.Toolkit.KryptonForm
     {
-        Constants constant = new Constants();
         public MainForm()
         {
             InitializeComponent();
-            LoadMenu(Constants.ROLE_ADMIN);
-        }
-
-        private void LoadMenu (string role)
-        {
-            if (role.Equals(Constants.ROLE_ADMIN))
-            {
-                LoadMenuManageEmployees(role);
-            }
-
-            if (role.Equals(Constants.ROLE_MANAGER))
-            {
-                LoadMenuManageEmployees(role);
-                LoadMenuManageConstruction(role);
-            }
-
-            if (role.Equals(Constants.ROLE_CHIEF_ACCOUNTANT))
-            {
-
-            }
-
-            if (role.Equals(Constants.ROLE_ACCOUNTANT))
-            {
-
-            }
         }
 
         private void LoadMenuManageEmployees(string right)
@@ -114,6 +88,15 @@ namespace ChiTonPrivateEnterpriseManagement
             {
                 abc();
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DBInfoForm dbInfoForm = new DBInfoForm();
+            this.IsMdiContainer = true;
+            dbInfoForm.MdiParent = this;
+            pnlMainContent.Controls.Add(dbInfoForm);
+            dbInfoForm.Show();
         }
     }
 }

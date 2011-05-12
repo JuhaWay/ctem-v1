@@ -42,7 +42,7 @@
             this.pnlMainMenu = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.pnlLineTop = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.pnlLineRight = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.kryptonDateTimePicker1 = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.hdgMenu)).BeginInit();
             this.hdgMenu.Panel.SuspendLayout();
             this.hdgMenu.SuspendLayout();
@@ -52,10 +52,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pnlContent)).BeginInit();
             this.pnlContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnlMainContent)).BeginInit();
-            this.pnlMainContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnlLineBot)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlLineMid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlMainMenu)).BeginInit();
+            this.pnlMainMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnlLineTop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlLineRight)).BeginInit();
             this.SuspendLayout();
@@ -133,7 +133,6 @@
             // 
             // pnlMainContent
             // 
-            this.pnlMainContent.Controls.Add(this.kryptonDateTimePicker1);
             this.pnlMainContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMainContent.Location = new System.Drawing.Point(0, 63);
             this.pnlMainContent.Name = "pnlMainContent";
@@ -162,6 +161,7 @@
             // 
             // pnlMainMenu
             // 
+            this.pnlMainMenu.Controls.Add(this.button1);
             this.pnlMainMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlMainMenu.Location = new System.Drawing.Point(0, 5);
             this.pnlMainMenu.Name = "pnlMainMenu";
@@ -188,12 +188,15 @@
             this.pnlLineRight.Size = new System.Drawing.Size(5, 562);
             this.pnlLineRight.TabIndex = 3;
             // 
-            // kryptonDateTimePicker1
+            // button1
             // 
-            this.kryptonDateTimePicker1.Location = new System.Drawing.Point(196, 152);
-            this.kryptonDateTimePicker1.Name = "kryptonDateTimePicker1";
-            this.kryptonDateTimePicker1.Size = new System.Drawing.Size(150, 21);
-            this.kryptonDateTimePicker1.TabIndex = 0;
+            this.button1.Location = new System.Drawing.Point(42, 20);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // MainForm
             // 
@@ -217,10 +220,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pnlContent)).EndInit();
             this.pnlContent.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pnlMainContent)).EndInit();
-            this.pnlMainContent.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pnlLineBot)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlLineMid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlMainMenu)).EndInit();
+            this.pnlMainMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pnlLineTop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlLineRight)).EndInit();
             this.ResumeLayout(false);
@@ -242,7 +245,7 @@
         private ComponentFactory.Krypton.Toolkit.KryptonPanel pnlLineRight;
         private ComponentFactory.Krypton.Toolkit.KryptonPanel pnlLineBot;
         private ComponentFactory.Krypton.Toolkit.KryptonPanel pnlMainContent;
-        private ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker kryptonDateTimePicker1;
+        private System.Windows.Forms.Button button1;
     }
 }
 

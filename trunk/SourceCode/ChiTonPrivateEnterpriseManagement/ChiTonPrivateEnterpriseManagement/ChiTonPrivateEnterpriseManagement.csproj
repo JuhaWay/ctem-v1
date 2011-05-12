@@ -69,7 +69,7 @@
     <Compile Include="Classes\BUS\RightBUS.cs" />
     <Compile Include="Classes\BUS\EmployeeBUS.cs" />
     <Compile Include="Classes\DAO\RightDAO.cs" />
-    <Compile Include="Classes\DAO\EmployeeDAO.cs" />
+    <Compile Include="Classes\DAO\EmployerDAO.cs" />
     <Compile Include="Classes\DTO\ConstructionDTO.cs" />
     <Compile Include="Classes\DTO\WorkerDTO.cs" />
     <Compile Include="Classes\DTO\WorkerConstructionDTO.cs" />

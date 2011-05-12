@@ -38,6 +38,7 @@
             this.txtPassword = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.btnLogin = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnExit = new System.Windows.Forms.Button();
+            this.btnDatabaseInfo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,7 +49,7 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(682, 385);
+            this.pictureBox1.Size = new System.Drawing.Size(682, 415);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
@@ -57,9 +58,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(43, 184);
+            this.label1.Location = new System.Drawing.Point(41, 180);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 13);
+            this.label1.Size = new System.Drawing.Size(82, 14);
             this.label1.TabIndex = 3;
             this.label1.Text = "Tên Đăng Nhập";
             // 
@@ -67,53 +68,64 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(74, 217);
+            this.label2.Location = new System.Drawing.Point(72, 216);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 13);
+            this.label2.Size = new System.Drawing.Size(52, 14);
             this.label2.TabIndex = 4;
             this.label2.Text = "Mật Khẩu";
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(133, 180);
+            this.txtUsername.Location = new System.Drawing.Point(131, 176);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(174, 22);
+            this.txtUsername.Size = new System.Drawing.Size(174, 20);
             this.txtUsername.TabIndex = 5;
             this.txtUsername.TextChanged += new System.EventHandler(this.kryptonTextBox1_TextChanged);
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(133, 213);
+            this.txtPassword.Location = new System.Drawing.Point(131, 211);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(174, 22);
+            this.txtPassword.Size = new System.Drawing.Size(174, 20);
             this.txtPassword.TabIndex = 6;
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(133, 241);
+            this.btnLogin.Location = new System.Drawing.Point(131, 242);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(74, 25);
+            this.btnLogin.Size = new System.Drawing.Size(74, 27);
             this.btnLogin.TabIndex = 7;
             this.btnLogin.Values.Text = "Đăng Nhập";
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(633, 12);
+            this.btnExit.Location = new System.Drawing.Point(633, 13);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(37, 23);
+            this.btnExit.Size = new System.Drawing.Size(37, 25);
             this.btnExit.TabIndex = 8;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
             // 
+            // btnDatabaseInfo
+            // 
+            this.btnDatabaseInfo.Location = new System.Drawing.Point(582, 15);
+            this.btnDatabaseInfo.Name = "btnDatabaseInfo";
+            this.btnDatabaseInfo.Size = new System.Drawing.Size(36, 23);
+            this.btnDatabaseInfo.TabIndex = 9;
+            this.btnDatabaseInfo.Text = "DB";
+            this.btnDatabaseInfo.UseVisualStyleBackColor = true;
+            this.btnDatabaseInfo.Click += new System.EventHandler(this.btnDatabaseInfo_Click);
+            // 
             // LoginForm
             // 
             this.AcceptButton = this.btnLogin;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(682, 385);
+            this.ClientSize = new System.Drawing.Size(682, 415);
+            this.Controls.Add(this.btnDatabaseInfo);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtPassword);
@@ -126,6 +138,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.TransparencyKey = System.Drawing.Color.LightSteelBlue;
+            this.Load += new System.EventHandler(this.LoginForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -142,6 +155,7 @@
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtPassword;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnLogin;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button btnDatabaseInfo;
     }
 }
 
