@@ -44,3 +44,6 @@ E:\My Work\Projects\ctem-v1\SourceCode\ChiTonPrivateEnterpriseManagement\ChiTonP
 E:\My Work\Projects\ctem-v1\SourceCode\ChiTonPrivateEnterpriseManagement\ChiTonPrivateEnterpriseManagement\obj\Debug\GenerateResource-ResGen.write.1.tlog
 E:\My Work\Projects\ctem-v1\SourceCode\ChiTonPrivateEnterpriseManagement\ChiTonPrivateEnterpriseManagement\obj\Debug\GenerateResource.write.122.tlog
 E:\My Work\Projects\ctem-v1\SourceCode\ChiTonPrivateEnterpriseManagement\ChiTonPrivateEnterpriseManagement\obj\Debug\GenerateResource.write.149.tlog
+D:\Work\MyProject\ctem-v1\SourceCode\ChiTonPrivateEnterpriseManagement\ChiTonPrivateEnterpriseManagement\obj\Debug\ChiTonPrivateEnterpriseManagement.MainForm.resources
+D:\Work\MyProject\ctem-v1\SourceCode\ChiTonPrivateEnterpriseManagement\ChiTonPrivateEnterpriseManagement\obj\Debug\GenerateResource.write.122.tlog
+D:\Work\MyProject\ctem-v1\SourceCode\ChiTonPrivateEnterpriseManagement\ChiTonPrivateEnterpriseManagement\obj\Debug\GenerateResource.write.149.tlog
