@@ -16,28 +16,28 @@ namespace ChiTonPrivateEnterpriseManagement
         public MainForm()
         {
             InitializeComponent();
-            LoadMenu(constant.ROLE_ADMIN);
+            LoadMenu(Constants.ROLE_ADMIN);
         }
 
         private void LoadMenu (string role)
         {
-            if (role.Equals(constant.ROLE_ADMIN))
+            if (role.Equals(Constants.ROLE_ADMIN))
             {
                 LoadMenuManageEmployees(role);
             }
 
-            if (role.Equals(constant.ROLE_MANAGER))
+            if (role.Equals(Constants.ROLE_MANAGER))
             {
                 LoadMenuManageEmployees(role);
                 LoadMenuManageConstruction(role);
             }
 
-            if (role.Equals(constant.ROLE_CHIEF_ACCOUNTANT))
+            if (role.Equals(Constants.ROLE_CHIEF_ACCOUNTANT))
             {
 
             }
 
-            if (role.Equals(constant.ROLE_ACCOUNTANT))
+            if (role.Equals(Constants.ROLE_ACCOUNTANT))
             {
 
             }
@@ -45,11 +45,11 @@ namespace ChiTonPrivateEnterpriseManagement
 
         private void LoadMenuManageEmployees(string right)
         {
-            tvwMenu.Nodes.Add(constant.MANAGE_EMPLOYEES).Name = constant.MANAGE_EMPLOYEES;
-            var Manage_Employees = tvwMenu.Nodes[constant.MANAGE_EMPLOYEES];
-            if (right.Equals(constant.ROLE_ADMIN))
+            tvwMenu.Nodes.Add(Constants.MANAGE_EMPLOYEES).Name = Constants.MANAGE_EMPLOYEES;
+            var Manage_Employees = tvwMenu.Nodes[Constants.MANAGE_EMPLOYEES];
+            if (right.Equals(Constants.ROLE_ADMIN))
             {
-                Manage_Employees.Nodes.Add(constant.MANAGE_EMPLOYEES_INFO).Name = constant.MANAGE_EMPLOYEES_INFO;
+                Manage_Employees.Nodes.Add(Constants.MANAGE_EMPLOYEES_INFO).Name = Constants.MANAGE_EMPLOYEES_INFO;
 
             }
         }
@@ -61,11 +61,11 @@ namespace ChiTonPrivateEnterpriseManagement
 
         private void LoadMenuManageConstruction(string right)
         {
-            tvwMenu.Nodes.Add(constant.MANAGE_CONSTRUCTION).Name = constant.MANAGE_CONSTRUCTION;
-            var Manage_Construction = tvwMenu.Nodes[constant.MANAGE_CONSTRUCTION];
-            if (right.Equals(constant.ROLE_MANAGER))
+            tvwMenu.Nodes.Add(Constants.MANAGE_CONSTRUCTION).Name = Constants.MANAGE_CONSTRUCTION;
+            var Manage_Construction = tvwMenu.Nodes[Constants.MANAGE_CONSTRUCTION];
+            if (right.Equals(Constants.ROLE_MANAGER))
             {
-                Manage_Construction.Nodes.Add(constant.MANAGE_CONSTRUCTION_INFO);
+                Manage_Construction.Nodes.Add(Constants.MANAGE_CONSTRUCTION_INFO);
             }
         }
 
@@ -78,14 +78,14 @@ namespace ChiTonPrivateEnterpriseManagement
             if (btnhdgMenuHideShow.Type == PaletteButtonSpecStyle.ArrowRight)
             {
                 hdgMenu.HeaderPositionPrimary = VisualOrientation.Left;
-                hdgMenu.Width = constant.WIDTH_MENU_HIDE;
+                hdgMenu.Width = Constants.WIDTH_MENU_HIDE;
                 btnhdgMenuHideShow.Type = PaletteButtonSpecStyle.ArrowRight;
                 hdgMenu.PaletteMode = PaletteMode.SparklePurple;                
             }
             else
             {
                 hdgMenu.HeaderPositionPrimary = VisualOrientation.Top;
-                hdgMenu.Width = constant.WIDTH_MENU_SHOW;
+                hdgMenu.Width = Constants.WIDTH_MENU_SHOW;
                 btnhdgMenuHideShow.Type = PaletteButtonSpecStyle.ArrowLeft;
                 hdgMenu.PaletteMode = PaletteMode.Global;
             }
@@ -110,7 +110,7 @@ namespace ChiTonPrivateEnterpriseManagement
 
         private void tvwMenu_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-            if (tvwMenu.Nodes[constant.MANAGE_EMPLOYEES].Nodes[constant.MANAGE_EMPLOYEES_INFO].IsSelected)
+            if (tvwMenu.Nodes[Constants.MANAGE_EMPLOYEES].Nodes[Constants.MANAGE_EMPLOYEES_INFO].IsSelected)
             {
                 abc();
             }
