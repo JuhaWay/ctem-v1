@@ -7,44 +7,54 @@ using System.Text;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 using ChiTonPrivateEnterpriseManagement.Classes.Global;
+using ChiTonPrivateEnterpriseManagement.Classes.DTO;
+using ChiTonPrivateEnterpriseManagement.Classes.BUS;
 
 namespace ChiTonPrivateEnterpriseManagement
 {
     public partial class MainForm : ComponentFactory.Krypton.Toolkit.KryptonForm
     {
+        Global global = new Global();
+        private EmployerDTO employerDTO;
+        private EmployeeBUS employeeBUS;
         public MainForm()
         {
             InitializeComponent();
         }
 
-        private void LoadMenuManageEmployees(string right)
+        public MainForm(EmployerDTO _employerDTO)
         {
-            tvwMenu.Nodes.Add(Constants.MANAGE_EMPLOYEES).Name = Constants.MANAGE_EMPLOYEES;
-            var Manage_Employees = tvwMenu.Nodes[Constants.MANAGE_EMPLOYEES];
-            if (right.Equals(Constants.ROLE_ADMIN))
-            {
-                Manage_Employees.Nodes.Add(Constants.MANAGE_EMPLOYEES_INFO).Name = Constants.MANAGE_EMPLOYEES_INFO;
-
-            }
-        }
-
-        private void abc()
-        {
-            MessageBox.Show("abc");
-        }
-
-        private void LoadMenuManageConstruction(string right)
-        {
-            tvwMenu.Nodes.Add(Constants.MANAGE_CONSTRUCTION).Name = Constants.MANAGE_CONSTRUCTION;
-            var Manage_Construction = tvwMenu.Nodes[Constants.MANAGE_CONSTRUCTION];
-            if (right.Equals(Constants.ROLE_MANAGER))
-            {
-                Manage_Construction.Nodes.Add(Constants.MANAGE_CONSTRUCTION_INFO);
-            }
+            this.employerDTO = _employerDTO;
+            InitializeComponent();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            loadMenu();
+        }
+
+        private void loadMenu()
+        {
+            LeftMenuBUS leftMenuBUS = new LeftMenuBUS();
+            List<LeftMenuDTO> listMenus = new List<LeftMenuDTO>();
+            listMenus = leftMenuBUS.GetMenuByRoleID(employerDTO.RoleID);
+            foreach (var menuparent in listMenus)
+            {
+                if (menuparent.MenuParent == 0)
+                {
+                    string NodekeyParent = menuparent.MenuName.Replace(" ", "-").ToUpper();
+                    tvwMenu.Nodes.Add(menuparent.MenuName).Name = NodekeyParent;
+                    var ParentNode = tvwMenu.Nodes[NodekeyParent];
+                    foreach (var menuchild in listMenus)
+                    {
+                        if (menuchild.MenuParent == menuparent.MenuID)
+                        {
+                            string NodekeyChild = menuchild.MenuName.Replace(" ", "-").ToUpper();
+                            ParentNode.Nodes.Add(menuchild.MenuName).Name = NodekeyChild;
+                        }
+                    }
+                }
+            }
         }
 
         private void btnhdgMenuHideShow_Click(object sender, EventArgs e)
@@ -53,6 +63,8 @@ namespace ChiTonPrivateEnterpriseManagement
             {
                 hdgMenu.HeaderPositionPrimary = VisualOrientation.Left;
                 hdgMenu.Width = Constants.WIDTH_MENU_HIDE;
+                slcMain.SplitterDistance = Constants.WIDTH_MENU_HIDE;
+                slcMain.IsSplitterFixed = true;
                 btnhdgMenuHideShow.Type = PaletteButtonSpecStyle.ArrowRight;
                 hdgMenu.PaletteMode = PaletteMode.SparklePurple;                
             }
@@ -60,6 +72,8 @@ namespace ChiTonPrivateEnterpriseManagement
             {
                 hdgMenu.HeaderPositionPrimary = VisualOrientation.Top;
                 hdgMenu.Width = Constants.WIDTH_MENU_SHOW;
+                slcMain.SplitterDistance = Constants.WIDTH_MENU_SHOW;
+                slcMain.IsSplitterFixed = false;
                 btnhdgMenuHideShow.Type = PaletteButtonSpecStyle.ArrowLeft;
                 hdgMenu.PaletteMode = PaletteMode.Global;
             }
@@ -86,17 +100,21 @@ namespace ChiTonPrivateEnterpriseManagement
         {
             if (tvwMenu.Nodes[Constants.MANAGE_EMPLOYEES].Nodes[Constants.MANAGE_EMPLOYEES_INFO].IsSelected)
             {
-                abc();
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DBInfoForm dbInfoForm = new DBInfoForm();
-            this.IsMdiContainer = true;
-            dbInfoForm.MdiParent = this;
-            pnlMainContent.Controls.Add(dbInfoForm);
-            dbInfoForm.Show();
+        }
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            global.DrawPanelBorder(panel1, Color.WhiteSmoke, Color.DimGray);
         }
     }
 }

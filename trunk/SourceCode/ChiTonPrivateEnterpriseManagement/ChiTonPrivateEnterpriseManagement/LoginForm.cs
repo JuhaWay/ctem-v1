@@ -15,6 +15,7 @@ namespace ChiTonPrivateEnterpriseManagement
     public partial class LoginForm : KryptonForm
     {
         EmployeeBUS EmployeeBUS = new EmployeeBUS();
+        private EmployerDTO employerDTO;
 
         public LoginForm()
         {
@@ -28,15 +29,18 @@ namespace ChiTonPrivateEnterpriseManagement
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            EmployerDTO employeeDTO = new EmployerDTO();
             string username = txtUsername.Text;
             string password = txtPassword.Text;
-            bool isLogin = false;
-            isLogin = EmployeeBUS.CheckLogin(username, password);
-            if (isLogin)
+            if (username.Equals("") || password.Equals(""))
             {
-                MainForm mainForm = new MainForm();
+                MessageBox.Show("Chua nhap thong tin");
+            }
+            employerDTO = EmployeeBUS.CheckLogin(username, password);
+            if (employerDTO != null)
+            {
+                MainForm mainForm = new MainForm(employerDTO);
                 mainForm.Show();
+                this.Hide();
             }
             else
             {
@@ -48,7 +52,6 @@ namespace ChiTonPrivateEnterpriseManagement
         {
             DBInfoForm dbInfoForm = new DBInfoForm();
             dbInfoForm.Show();
-            this.Hide();
         }
 
         private void LoginForm_Load(object sender, EventArgs e)

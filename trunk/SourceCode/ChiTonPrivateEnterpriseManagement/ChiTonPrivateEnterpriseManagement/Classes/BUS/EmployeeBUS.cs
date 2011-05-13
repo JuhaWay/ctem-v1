@@ -16,9 +16,8 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
         public EmployerDTO employerDTO = new EmployerDTO();
         private EmployerDAO employerDAO = new EmployerDAO();
 
-        public bool CheckLogin (string username, string password)
+        public EmployerDTO CheckLogin(string username, string password)
         {
-            bool isLogin = false;
             if (!username.Equals("admin"))
             {
                 password = DataProvider.Encrypt(password);                
@@ -26,9 +25,9 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
             employerDTO = employerDAO.GetEmployerByUsername(username);
             if (password.Equals(employerDTO.Password))
             {
-                isLogin = true;
+                return employerDTO;
             }
-            return isLogin;
+            return null;
         }
     }
 }
