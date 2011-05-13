@@ -66,11 +66,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\BUS\LeftMenuBUS.cs" />
     <Compile Include="Classes\BUS\RightBUS.cs" />
     <Compile Include="Classes\BUS\EmployeeBUS.cs" />
+    <Compile Include="Classes\DAO\LeftMenuDAO.cs" />
     <Compile Include="Classes\DAO\RightDAO.cs" />
     <Compile Include="Classes\DAO\EmployerDAO.cs" />
     <Compile Include="Classes\DTO\ConstructionDTO.cs" />
+    <Compile Include="Classes\DTO\LeftMenuDTO.cs" />
     <Compile Include="Classes\DTO\WorkerDTO.cs" />
     <Compile Include="Classes\DTO\WorkerConstructionDTO.cs" />
     <Compile Include="Classes\DTO\RightDTO.cs" />
@@ -79,6 +82,7 @@
     <Compile Include="Classes\Global\Constants.cs" />
     <Compile Include="Classes\Global\DatabaseInfo.cs" />
     <Compile Include="Classes\Global\DataProvider.cs" />
+    <Compile Include="Classes\Global\Global.cs" />
     <Compile Include="Classes\Global\Ini.cs" />
     <Compile Include="DBInfoForm.cs">
       <SubType>Form</SubType>
@@ -98,6 +102,24 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModuleForms\CommonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForms\CommonForm.Designer.cs">
+      <DependentUpon>CommonForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleForms\ManageMenu\MenuManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForms\ManageMenu\MenuManagement.Designer.cs">
+      <DependentUpon>MenuManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleForms\ManageMenu\NewMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForms\ManageMenu\NewMenu.Designer.cs">
+      <DependentUpon>NewMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="DBInfoForm.resx">
@@ -109,6 +131,16 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\CommonForm.resx">
+      <DependentUpon>CommonForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\ManageMenu\MenuManagement.resx">
+      <DependentUpon>MenuManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\ManageMenu\NewMenu.resx">
+      <DependentUpon>NewMenu.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

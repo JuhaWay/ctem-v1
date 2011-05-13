@@ -22,5 +22,9 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
 
         //Encrypt key 
         public static string Encryptkey = "!@CTEM@ADS2o1o@!";
+
+        public static string MENU_PARENT_DISPLAYMEMBER = "MenuName";
+
+        public static string MENU_PARENT_VALUEMEMBER = "MenuID";
     }
 }
