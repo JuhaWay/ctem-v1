@@ -26,5 +26,13 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
         public static string MENU_PARENT_DISPLAYMEMBER = "MenuName";
 
         public static string MENU_PARENT_VALUEMEMBER = "MenuID";
+
+        public static string ROLE_DISPLAYMEMBER = "RoleName";
+
+        public static string ROLE_VALUEMEMBER = "RoleID";
+
+        public static string MANAGE_MENU = "MANAGE-MENU";
+
+        public static string MANAGE_MENU_INFO = "MANAGE-MENU-INFORMATION";
     }
 }

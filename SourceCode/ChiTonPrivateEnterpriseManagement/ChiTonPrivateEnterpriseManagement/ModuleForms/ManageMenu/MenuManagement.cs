@@ -17,17 +17,10 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageMenu
     {
         Global global = new Global();
         List<LeftMenuDTO> listMenus;
+        LeftMenuBUS leftMenuBUS = new LeftMenuBUS();
         public MenuManagement()
         {
             InitializeComponent();
-        }
-
-        private void CommonForm_Load(object sender, EventArgs e)
-        {
-            DatabaseInfo dbInfo;
-            dbInfo = new DatabaseInfo();
-            dbInfo.LoadInfo();
-            loadMenu();
         }
 
         private void loadMenu()
@@ -37,7 +30,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageMenu
             {
                 tvwMenu.Nodes.Remove(tvwMenu.Nodes[0]);
             }
-            LeftMenuBUS leftMenuBUS = new LeftMenuBUS();
             listMenus  = new List<LeftMenuDTO>();
             listMenus = leftMenuBUS.LoadAllMenu();
             foreach (var menuparent in listMenus)
@@ -68,6 +60,66 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageMenu
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             loadMenu();
+        }
+
+        private void MenuManagementForm_Load(object sender, EventArgs e)
+        {
+            DatabaseInfo dbInfo;
+            dbInfo = new DatabaseInfo();
+            dbInfo.LoadInfo();
+            loadMenu();
+        }
+
+        private void btnEditMenu_Click(object sender, EventArgs e)
+        {
+            var currMenu = tvwMenu.SelectedNode;
+            if (currMenu == null)
+            {
+                MessageBox.Show("Please Choose Menu To Edit");
+                return;
+            }
+            foreach (var menu in listMenus)
+            {
+                if (menu.MenuName.Equals(currMenu.Text))
+                {
+                    NewMenu newMenu = new NewMenu(listMenus, menu);
+                    newMenu.ShowDialog();
+                    return;
+                }
+            }
+        }
+
+        private void btnDeleteMenu_Click(object sender, EventArgs e)
+        {
+            bool success = false;
+            var currNode = tvwMenu.SelectedNode;
+            if (currNode == null)
+            {
+                MessageBox.Show("You don't choose one menu to delete", "Confirm");
+                return;
+            }
+            
+            if (MessageBox.Show("Are you sure to delete this Menu", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                foreach (var menu in listMenus)
+                {
+                    if (menu.MenuName.Equals(currNode.Text))
+                    {
+                        leftMenuBUS.DeleteMenu(menu.MenuID);
+                        loadMenu();
+                        success = true;
+                        return;
+                    }
+                }
+            }
+            else
+            {
+                return;
+            }
+            if (!success)
+            {
+                MessageBox.Show("Delete Faile");
+            }
         }
     }
 }

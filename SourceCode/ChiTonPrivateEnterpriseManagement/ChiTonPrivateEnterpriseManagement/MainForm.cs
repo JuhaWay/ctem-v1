@@ -9,6 +9,7 @@ using ComponentFactory.Krypton.Toolkit;
 using ChiTonPrivateEnterpriseManagement.Classes.Global;
 using ChiTonPrivateEnterpriseManagement.Classes.DTO;
 using ChiTonPrivateEnterpriseManagement.Classes.BUS;
+using ChiTonPrivateEnterpriseManagement.ModuleForms.ManageMenu;
 
 namespace ChiTonPrivateEnterpriseManagement
 {
@@ -30,6 +31,7 @@ namespace ChiTonPrivateEnterpriseManagement
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            this.IsMdiContainer = true;
             loadMenu();
         }
 
@@ -98,8 +100,12 @@ namespace ChiTonPrivateEnterpriseManagement
 
         private void tvwMenu_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-            if (tvwMenu.Nodes[Constants.MANAGE_EMPLOYEES].Nodes[Constants.MANAGE_EMPLOYEES_INFO].IsSelected)
+            if (tvwMenu.Nodes[Constants.MANAGE_MENU].Nodes[Constants.MANAGE_MENU_INFO].IsSelected)
             {
+                MenuManagement menuManagement = new MenuManagement();
+                menuManagement.MdiParent = this;
+                pnlMainContent.Controls.Add(menuManagement);
+                menuManagement.Show();
             }
         }
 
@@ -110,11 +116,6 @@ namespace ChiTonPrivateEnterpriseManagement
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-            global.DrawPanelBorder(panel1, Color.WhiteSmoke, Color.DimGray);
         }
     }
 }
