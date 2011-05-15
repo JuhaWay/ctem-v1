@@ -66,13 +66,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\BUS\RoleBUS.cs" />
     <Compile Include="Classes\BUS\LeftMenuBUS.cs" />
     <Compile Include="Classes\BUS\RightBUS.cs" />
     <Compile Include="Classes\BUS\EmployeeBUS.cs" />
+    <Compile Include="Classes\DAO\RoleDAO.cs" />
     <Compile Include="Classes\DAO\LeftMenuDAO.cs" />
     <Compile Include="Classes\DAO\RightDAO.cs" />
     <Compile Include="Classes\DAO\EmployerDAO.cs" />
     <Compile Include="Classes\DTO\ConstructionDTO.cs" />
+    <Compile Include="Classes\DTO\Role.cs" />
     <Compile Include="Classes\DTO\LeftMenuDTO.cs" />
     <Compile Include="Classes\DTO\WorkerDTO.cs" />
     <Compile Include="Classes\DTO\WorkerConstructionDTO.cs" />

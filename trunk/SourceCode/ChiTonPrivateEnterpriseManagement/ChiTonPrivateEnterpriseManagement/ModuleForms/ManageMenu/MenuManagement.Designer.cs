@@ -37,6 +37,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageMenu
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonPanel4 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonGroupBox2 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
+            this.btnRefresh = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryptonPanel3 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonGroupBox1 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.btnDeleteAll = new ComponentFactory.Krypton.Toolkit.KryptonButton();
@@ -44,7 +45,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageMenu
             this.btnEditMenu = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnNewMenu = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryptonPanel2 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.btnRefresh = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel7)).BeginInit();
@@ -72,16 +72,16 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageMenu
             this.kryptonPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonPanel.Location = new System.Drawing.Point(0, 0);
             this.kryptonPanel.Name = "kryptonPanel";
-            this.kryptonPanel.Size = new System.Drawing.Size(518, 607);
+            this.kryptonPanel.Size = new System.Drawing.Size(518, 456);
             this.kryptonPanel.TabIndex = 0;
             // 
             // kryptonPanel7
             // 
             this.kryptonPanel7.Controls.Add(this.tvwMenu);
             this.kryptonPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kryptonPanel7.Location = new System.Drawing.Point(0, 80);
+            this.kryptonPanel7.Location = new System.Drawing.Point(0, 85);
             this.kryptonPanel7.Name = "kryptonPanel7";
-            this.kryptonPanel7.Size = new System.Drawing.Size(518, 527);
+            this.kryptonPanel7.Size = new System.Drawing.Size(518, 371);
             this.kryptonPanel7.TabIndex = 9;
             // 
             // tvwMenu
@@ -90,13 +90,13 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageMenu
             this.tvwMenu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tvwMenu.Location = new System.Drawing.Point(0, 0);
             this.tvwMenu.Name = "tvwMenu";
-            this.tvwMenu.Size = new System.Drawing.Size(518, 527);
+            this.tvwMenu.Size = new System.Drawing.Size(518, 371);
             this.tvwMenu.TabIndex = 0;
             // 
             // kryptonPanel6
             // 
             this.kryptonPanel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.kryptonPanel6.Location = new System.Drawing.Point(0, 75);
+            this.kryptonPanel6.Location = new System.Drawing.Point(0, 80);
             this.kryptonPanel6.Name = "kryptonPanel6";
             this.kryptonPanel6.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlClient;
             this.kryptonPanel6.Size = new System.Drawing.Size(518, 5);
@@ -105,7 +105,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageMenu
             // kryptonPanel1
             // 
             this.kryptonPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.kryptonPanel1.Location = new System.Drawing.Point(0, 70);
+            this.kryptonPanel1.Location = new System.Drawing.Point(0, 75);
             this.kryptonPanel1.Name = "kryptonPanel1";
             this.kryptonPanel1.Size = new System.Drawing.Size(518, 5);
             this.kryptonPanel1.TabIndex = 7;
@@ -119,7 +119,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageMenu
             this.kryptonPanel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.kryptonPanel4.Location = new System.Drawing.Point(0, 0);
             this.kryptonPanel4.Name = "kryptonPanel4";
-            this.kryptonPanel4.Size = new System.Drawing.Size(518, 70);
+            this.kryptonPanel4.Size = new System.Drawing.Size(518, 75);
             this.kryptonPanel4.TabIndex = 3;
             // 
             // kryptonGroupBox2
@@ -132,16 +132,25 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageMenu
             // kryptonGroupBox2.Panel
             // 
             this.kryptonGroupBox2.Panel.Controls.Add(this.btnRefresh);
-            this.kryptonGroupBox2.Size = new System.Drawing.Size(211, 70);
+            this.kryptonGroupBox2.Size = new System.Drawing.Size(211, 75);
             this.kryptonGroupBox2.TabIndex = 7;
             this.kryptonGroupBox2.Values.Heading = "";
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Location = new System.Drawing.Point(16, 25);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(90, 27);
+            this.btnRefresh.TabIndex = 0;
+            this.btnRefresh.Values.Text = "Refresh";
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // kryptonPanel3
             // 
             this.kryptonPanel3.Dock = System.Windows.Forms.DockStyle.Left;
             this.kryptonPanel3.Location = new System.Drawing.Point(216, 0);
             this.kryptonPanel3.Name = "kryptonPanel3";
-            this.kryptonPanel3.Size = new System.Drawing.Size(5, 70);
+            this.kryptonPanel3.Size = new System.Drawing.Size(5, 75);
             this.kryptonPanel3.TabIndex = 6;
             // 
             // kryptonGroupBox1
@@ -157,39 +166,41 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageMenu
             this.kryptonGroupBox1.Panel.Controls.Add(this.btnDeleteMenu);
             this.kryptonGroupBox1.Panel.Controls.Add(this.btnEditMenu);
             this.kryptonGroupBox1.Panel.Controls.Add(this.btnNewMenu);
-            this.kryptonGroupBox1.Size = new System.Drawing.Size(211, 70);
+            this.kryptonGroupBox1.Size = new System.Drawing.Size(211, 75);
             this.kryptonGroupBox1.TabIndex = 5;
             this.kryptonGroupBox1.Values.Heading = "";
             // 
             // btnDeleteAll
             // 
-            this.btnDeleteAll.Location = new System.Drawing.Point(151, 21);
+            this.btnDeleteAll.Location = new System.Drawing.Point(151, 23);
             this.btnDeleteAll.Name = "btnDeleteAll";
-            this.btnDeleteAll.Size = new System.Drawing.Size(40, 25);
+            this.btnDeleteAll.Size = new System.Drawing.Size(40, 27);
             this.btnDeleteAll.TabIndex = 3;
             this.btnDeleteAll.Values.Text = "Del A";
             // 
             // btnDeleteMenu
             // 
-            this.btnDeleteMenu.Location = new System.Drawing.Point(105, 21);
+            this.btnDeleteMenu.Location = new System.Drawing.Point(105, 23);
             this.btnDeleteMenu.Name = "btnDeleteMenu";
-            this.btnDeleteMenu.Size = new System.Drawing.Size(40, 25);
+            this.btnDeleteMenu.Size = new System.Drawing.Size(40, 27);
             this.btnDeleteMenu.TabIndex = 2;
             this.btnDeleteMenu.Values.Text = "Del";
+            this.btnDeleteMenu.Click += new System.EventHandler(this.btnDeleteMenu_Click);
             // 
             // btnEditMenu
             // 
-            this.btnEditMenu.Location = new System.Drawing.Point(59, 21);
+            this.btnEditMenu.Location = new System.Drawing.Point(59, 23);
             this.btnEditMenu.Name = "btnEditMenu";
-            this.btnEditMenu.Size = new System.Drawing.Size(40, 25);
+            this.btnEditMenu.Size = new System.Drawing.Size(40, 27);
             this.btnEditMenu.TabIndex = 1;
             this.btnEditMenu.Values.Text = "Edit";
+            this.btnEditMenu.Click += new System.EventHandler(this.btnEditMenu_Click);
             // 
             // btnNewMenu
             // 
-            this.btnNewMenu.Location = new System.Drawing.Point(13, 21);
+            this.btnNewMenu.Location = new System.Drawing.Point(13, 23);
             this.btnNewMenu.Name = "btnNewMenu";
-            this.btnNewMenu.Size = new System.Drawing.Size(40, 25);
+            this.btnNewMenu.Size = new System.Drawing.Size(40, 27);
             this.btnNewMenu.TabIndex = 0;
             this.btnNewMenu.Values.Text = "New";
             this.btnNewMenu.Click += new System.EventHandler(this.btnNewMenu_Click);
@@ -199,23 +210,14 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageMenu
             this.kryptonPanel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.kryptonPanel2.Location = new System.Drawing.Point(0, 0);
             this.kryptonPanel2.Name = "kryptonPanel2";
-            this.kryptonPanel2.Size = new System.Drawing.Size(5, 70);
+            this.kryptonPanel2.Size = new System.Drawing.Size(5, 75);
             this.kryptonPanel2.TabIndex = 4;
-            // 
-            // btnRefresh
-            // 
-            this.btnRefresh.Location = new System.Drawing.Point(16, 23);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(90, 25);
-            this.btnRefresh.TabIndex = 0;
-            this.btnRefresh.Values.Text = "Refresh";
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // MenuManagement
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(518, 607);
+            this.ClientSize = new System.Drawing.Size(518, 456);
             this.Controls.Add(this.kryptonPanel);
             this.Name = "MenuManagement";
             this.ShowIcon = false;
@@ -223,8 +225,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageMenu
             this.Tag = "";
             this.Text = "Menu Management";
             this.TextExtra = "";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.CommonForm_Load);
+            this.Load += new System.EventHandler(this.MenuManagementForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).EndInit();
             this.kryptonPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel7)).EndInit();

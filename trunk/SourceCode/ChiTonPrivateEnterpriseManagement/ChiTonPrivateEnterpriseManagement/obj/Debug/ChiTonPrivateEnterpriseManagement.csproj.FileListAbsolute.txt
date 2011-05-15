@@ -26,3 +26,8 @@ D:\Work\MyProject\ctem-v1\SourceCode\ChiTonPrivateEnterpriseManagement\ChiTonPri
 D:\Work\MyProject\ctem-v1\SourceCode\ChiTonPrivateEnterpriseManagement\ChiTonPrivateEnterpriseManagement\obj\Debug\ChiTonPrivateEnterpriseManagement.ModuleForms.CommonForm.resources
 D:\Work\MyProject\ctem-v1\SourceCode\ChiTonPrivateEnterpriseManagement\ChiTonPrivateEnterpriseManagement\obj\Debug\ChiTonPrivateEnterpriseManagement.ModuleForms.ManageMenu.MenuManagement.resources
 D:\Work\MyProject\ctem-v1\SourceCode\ChiTonPrivateEnterpriseManagement\ChiTonPrivateEnterpriseManagement\obj\Debug\ChiTonPrivateEnterpriseManagement.ModuleForms.ManageMenu.NewMenu.resources
+E:\My Work\Projects\ctem-v1\SourceCode\ChiTonPrivateEnterpriseManagement\ChiTonPrivateEnterpriseManagement\obj\Debug\ChiTonPrivateEnterpriseManagement.ModuleForms.CommonForm.resources
+E:\My Work\Projects\ctem-v1\SourceCode\ChiTonPrivateEnterpriseManagement\ChiTonPrivateEnterpriseManagement\obj\Debug\ChiTonPrivateEnterpriseManagement.ModuleForms.ManageMenu.MenuManagement.resources
+E:\My Work\Projects\ctem-v1\SourceCode\ChiTonPrivateEnterpriseManagement\ChiTonPrivateEnterpriseManagement\obj\Debug\ChiTonPrivateEnterpriseManagement.ModuleForms.ManageMenu.NewMenu.resources
+E:\My Work\Projects\ctem-v1\SourceCode\ChiTonPrivateEnterpriseManagement\ChiTonPrivateEnterpriseManagement\obj\Debug\GenerateResource-ResGen.read.4.tlog
+E:\My Work\Projects\ctem-v1\SourceCode\ChiTonPrivateEnterpriseManagement\ChiTonPrivateEnterpriseManagement\obj\Debug\GenerateResource.read.1.tlog

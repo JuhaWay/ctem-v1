@@ -31,6 +31,8 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageMenu
             this.components = new System.ComponentModel.Container();
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.kryptonPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.lbxListRole = new ComponentFactory.Krypton.Toolkit.KryptonListBox();
+            this.btnSave = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.cbbRole = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.cbbMenuParent = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.txtDescription = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
@@ -39,7 +41,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageMenu
             this.kryptonLabel3 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.btnSave = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnAddRole = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbbRole)).BeginInit();
@@ -48,6 +50,8 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageMenu
             // 
             // kryptonPanel
             // 
+            this.kryptonPanel.Controls.Add(this.btnAddRole);
+            this.kryptonPanel.Controls.Add(this.lbxListRole);
             this.kryptonPanel.Controls.Add(this.btnSave);
             this.kryptonPanel.Controls.Add(this.cbbRole);
             this.kryptonPanel.Controls.Add(this.cbbMenuParent);
@@ -60,85 +64,102 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageMenu
             this.kryptonPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonPanel.Location = new System.Drawing.Point(0, 0);
             this.kryptonPanel.Name = "kryptonPanel";
-            this.kryptonPanel.Size = new System.Drawing.Size(389, 334);
+            this.kryptonPanel.Size = new System.Drawing.Size(389, 489);
             this.kryptonPanel.TabIndex = 0;
+            // 
+            // lbxListRole
+            // 
+            this.lbxListRole.Location = new System.Drawing.Point(114, 297);
+            this.lbxListRole.Name = "lbxListRole";
+            this.lbxListRole.Size = new System.Drawing.Size(224, 147);
+            this.lbxListRole.TabIndex = 11;
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(163, 450);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(90, 27);
+            this.btnSave.TabIndex = 10;
+            this.btnSave.Values.Text = "SAVE";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // cbbRole
             // 
             this.cbbRole.DropDownWidth = 224;
-            this.cbbRole.Location = new System.Drawing.Point(114, 249);
+            this.cbbRole.Location = new System.Drawing.Point(114, 268);
             this.cbbRole.Name = "cbbRole";
-            this.cbbRole.Size = new System.Drawing.Size(224, 22);
+            this.cbbRole.Size = new System.Drawing.Size(189, 21);
             this.cbbRole.TabIndex = 9;
             // 
             // cbbMenuParent
             // 
             this.cbbMenuParent.DropDownWidth = 224;
-            this.cbbMenuParent.Location = new System.Drawing.Point(114, 104);
+            this.cbbMenuParent.Location = new System.Drawing.Point(114, 112);
             this.cbbMenuParent.Name = "cbbMenuParent";
-            this.cbbMenuParent.Size = new System.Drawing.Size(224, 22);
+            this.cbbMenuParent.Size = new System.Drawing.Size(224, 21);
             this.cbbMenuParent.TabIndex = 8;
             // 
             // txtDescription
             // 
-            this.txtDescription.Location = new System.Drawing.Point(114, 143);
+            this.txtDescription.Location = new System.Drawing.Point(114, 154);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(224, 95);
+            this.txtDescription.Size = new System.Drawing.Size(224, 102);
             this.txtDescription.TabIndex = 6;
             // 
             // txtMenuName
             // 
-            this.txtMenuName.Location = new System.Drawing.Point(114, 68);
+            this.txtMenuName.Location = new System.Drawing.Point(114, 73);
             this.txtMenuName.Name = "txtMenuName";
-            this.txtMenuName.Size = new System.Drawing.Size(224, 22);
+            this.txtMenuName.Size = new System.Drawing.Size(224, 20);
             this.txtMenuName.TabIndex = 4;
             // 
             // kryptonLabel4
             // 
-            this.kryptonLabel4.Location = new System.Drawing.Point(50, 252);
+            this.kryptonLabel4.Location = new System.Drawing.Point(50, 271);
             this.kryptonLabel4.Name = "kryptonLabel4";
-            this.kryptonLabel4.Size = new System.Drawing.Size(58, 19);
+            this.kryptonLabel4.Size = new System.Drawing.Size(62, 20);
             this.kryptonLabel4.TabIndex = 3;
             this.kryptonLabel4.Values.Text = "Role User";
             // 
             // kryptonLabel3
             // 
-            this.kryptonLabel3.Location = new System.Drawing.Point(41, 143);
+            this.kryptonLabel3.Location = new System.Drawing.Point(41, 154);
             this.kryptonLabel3.Name = "kryptonLabel3";
-            this.kryptonLabel3.Size = new System.Drawing.Size(67, 19);
+            this.kryptonLabel3.Size = new System.Drawing.Size(73, 20);
             this.kryptonLabel3.TabIndex = 2;
             this.kryptonLabel3.Values.Text = "Description";
             // 
             // kryptonLabel2
             // 
-            this.kryptonLabel2.Location = new System.Drawing.Point(36, 107);
+            this.kryptonLabel2.Location = new System.Drawing.Point(36, 115);
             this.kryptonLabel2.Name = "kryptonLabel2";
-            this.kryptonLabel2.Size = new System.Drawing.Size(74, 19);
+            this.kryptonLabel2.Size = new System.Drawing.Size(81, 20);
             this.kryptonLabel2.TabIndex = 1;
             this.kryptonLabel2.Values.Text = "Menu Parent";
             // 
             // kryptonLabel1
             // 
-            this.kryptonLabel1.Location = new System.Drawing.Point(36, 71);
+            this.kryptonLabel1.Location = new System.Drawing.Point(36, 76);
             this.kryptonLabel1.Name = "kryptonLabel1";
-            this.kryptonLabel1.Size = new System.Drawing.Size(72, 19);
+            this.kryptonLabel1.Size = new System.Drawing.Size(78, 20);
             this.kryptonLabel1.TabIndex = 0;
             this.kryptonLabel1.Values.Text = "Menu Name";
             // 
-            // btnSave
+            // btnAddRole
             // 
-            this.btnSave.Location = new System.Drawing.Point(172, 287);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(90, 25);
-            this.btnSave.TabIndex = 10;
-            this.btnSave.Values.Text = "SAVE";
+            this.btnAddRole.Location = new System.Drawing.Point(305, 266);
+            this.btnAddRole.Name = "btnAddRole";
+            this.btnAddRole.Size = new System.Drawing.Size(33, 25);
+            this.btnAddRole.TabIndex = 12;
+            this.btnAddRole.Values.Text = "Add";
+            this.btnAddRole.Click += new System.EventHandler(this.btnAddRole_Click);
             // 
             // NewMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(389, 334);
+            this.ClientSize = new System.Drawing.Size(389, 489);
             this.Controls.Add(this.kryptonPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -168,6 +189,8 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageMenu
         private ComponentFactory.Krypton.Toolkit.KryptonComboBox cbbRole;
         private ComponentFactory.Krypton.Toolkit.KryptonComboBox cbbMenuParent;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnSave;
+        private ComponentFactory.Krypton.Toolkit.KryptonListBox lbxListRole;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnAddRole;
     }
 }
 
