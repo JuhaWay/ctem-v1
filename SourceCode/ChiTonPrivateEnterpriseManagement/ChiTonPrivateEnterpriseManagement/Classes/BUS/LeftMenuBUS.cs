@@ -58,5 +58,17 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
             bool success = leftMenuDAO.DeleteMenu(menuID);
             return success;
         }
+
+        public bool EditMenu(LeftMenuDTO currentMenu, int menuParent, string description, List<LeftMenuDTO> listMenus, List<RoleDTO> listMenuRole)
+        {
+            bool sucess = false;
+            bool sucess_delete = DeleteMenu(currentMenu.MenuID);
+            bool sucess_add = AddMenu(currentMenu.MenuName, menuParent, description, listMenus, listMenuRole);
+            if (sucess_delete && sucess_add)
+            {
+                sucess = true;
+            }
+            return sucess;
+        }
     }
 }

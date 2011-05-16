@@ -111,6 +111,30 @@
     <Compile Include="ModuleForms\CommonForm.Designer.cs">
       <DependentUpon>CommonForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModuleForms\ManageRights\NewRight.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForms\ManageRights\NewRight.Designer.cs">
+      <DependentUpon>NewRight.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleForms\ManageRights\RightsManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForms\ManageRights\RightsManagement.Designer.cs">
+      <DependentUpon>RightsManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleForms\ManageRole\RoleManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForms\ManageRole\RoleManagement.Designer.cs">
+      <DependentUpon>RoleManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleForms\ManageRole\NewRole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForms\ManageRole\NewRole.Designer.cs">
+      <DependentUpon>NewRole.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModuleForms\ManageMenu\MenuManagement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,6 +162,20 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ModuleForms\CommonForm.resx">
       <DependentUpon>CommonForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\ManageRights\NewRight.resx">
+      <DependentUpon>NewRight.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\ManageRights\RightsManagement.resx">
+      <DependentUpon>RightsManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\ManageRole\RoleManagement.resx">
+      <DependentUpon>RoleManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\ManageRole\NewRole.resx">
+      <DependentUpon>NewRole.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="ModuleForms\ManageMenu\MenuManagement.resx">
       <DependentUpon>MenuManagement.cs</DependentUpon>
