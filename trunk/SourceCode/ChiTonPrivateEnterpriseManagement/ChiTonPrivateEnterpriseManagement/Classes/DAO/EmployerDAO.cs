@@ -40,7 +40,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
 
         public EmployerDTO GetEmployerByUsername(string username)
         {
-            var cmd = new SqlCommand("[dbo].[GetEmployerByUsername]", Connection);
+            var cmd = new SqlCommand("[dbo].[Employer_GetByUsername]", Connection);
 
             if (Transaction != null)
             {

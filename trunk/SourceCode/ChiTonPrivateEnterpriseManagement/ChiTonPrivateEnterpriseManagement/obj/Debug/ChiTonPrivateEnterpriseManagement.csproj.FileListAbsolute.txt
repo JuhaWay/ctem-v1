@@ -31,3 +31,7 @@ E:\My Work\Projects\ctem-v1\SourceCode\ChiTonPrivateEnterpriseManagement\ChiTonP
 E:\My Work\Projects\ctem-v1\SourceCode\ChiTonPrivateEnterpriseManagement\ChiTonPrivateEnterpriseManagement\obj\Debug\ChiTonPrivateEnterpriseManagement.ModuleForms.ManageMenu.NewMenu.resources
 E:\My Work\Projects\ctem-v1\SourceCode\ChiTonPrivateEnterpriseManagement\ChiTonPrivateEnterpriseManagement\obj\Debug\GenerateResource-ResGen.read.4.tlog
 E:\My Work\Projects\ctem-v1\SourceCode\ChiTonPrivateEnterpriseManagement\ChiTonPrivateEnterpriseManagement\obj\Debug\GenerateResource.read.1.tlog
+D:\Work\MyProject\ctem-v1\SourceCode\ChiTonPrivateEnterpriseManagement\ChiTonPrivateEnterpriseManagement\obj\Debug\ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRole.RoleManagement.resources
+D:\Work\MyProject\ctem-v1\SourceCode\ChiTonPrivateEnterpriseManagement\ChiTonPrivateEnterpriseManagement\obj\Debug\ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRole.NewRole.resources
+D:\Work\MyProject\ctem-v1\SourceCode\ChiTonPrivateEnterpriseManagement\ChiTonPrivateEnterpriseManagement\obj\Debug\ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRights.NewRight.resources
+D:\Work\MyProject\ctem-v1\SourceCode\ChiTonPrivateEnterpriseManagement\ChiTonPrivateEnterpriseManagement\obj\Debug\ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRights.RightsManagement.resources

@@ -10,9 +10,9 @@ using ChiTonPrivateEnterpriseManagement.Classes.DTO;
 using ChiTonPrivateEnterpriseManagement.Classes.Global;
 using ChiTonPrivateEnterpriseManagement.Classes.BUS;
 
-namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageMenu
+namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRole
 {
-    public partial class NewMenu : ComponentFactory.Krypton.Toolkit.KryptonForm
+    public partial class NewRole : ComponentFactory.Krypton.Toolkit.KryptonForm
     {
         List<LeftMenuDTO> listMenus;
         List<RoleDTO> listRoles;
@@ -22,19 +22,19 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageMenu
         bool isNew = false;
         bool isEdit = false;
 
-        public NewMenu()
+        public NewRole()
         {
             InitializeComponent();
         }
 
-        public NewMenu(List<LeftMenuDTO> _listMenus)
+        public NewRole(List<LeftMenuDTO> _listMenus)
         {
             InitializeComponent();
             listMenus = _listMenus;
             isNew = true;
         }
 
-        public NewMenu(List<LeftMenuDTO> _listMenus, LeftMenuDTO _currentMenu)
+        public NewRole(List<LeftMenuDTO> _listMenus, LeftMenuDTO _currentMenu)
         {
             InitializeComponent();
             listMenus = _listMenus;

@@ -1,6 +1,6 @@
-namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageMenu
+namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRights
 {
-    partial class NewMenu
+    partial class NewRight
     {
         /// <summary>
         /// Required designer variable.
@@ -31,6 +31,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageMenu
             this.components = new System.ComponentModel.Container();
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.kryptonPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.btnAddRole = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.lbxListRole = new ComponentFactory.Krypton.Toolkit.KryptonListBox();
             this.btnSave = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.cbbRole = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
@@ -41,7 +42,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageMenu
             this.kryptonLabel3 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.btnAddRole = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbbRole)).BeginInit();
@@ -50,6 +50,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageMenu
             // 
             // kryptonPanel
             // 
+            this.kryptonPanel.Controls.Add(this.btnAddRole);
             this.kryptonPanel.Controls.Add(this.lbxListRole);
             this.kryptonPanel.Controls.Add(this.btnSave);
             this.kryptonPanel.Controls.Add(this.cbbRole);
@@ -65,6 +66,15 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageMenu
             this.kryptonPanel.Name = "kryptonPanel";
             this.kryptonPanel.Size = new System.Drawing.Size(389, 454);
             this.kryptonPanel.TabIndex = 0;
+            // 
+            // btnAddRole
+            // 
+            this.btnAddRole.Location = new System.Drawing.Point(305, 247);
+            this.btnAddRole.Name = "btnAddRole";
+            this.btnAddRole.Size = new System.Drawing.Size(33, 23);
+            this.btnAddRole.TabIndex = 12;
+            this.btnAddRole.Values.Text = "Add";
+            this.btnAddRole.Click += new System.EventHandler(this.btnAddRole_Click);
             // 
             // lbxListRole
             // 
@@ -84,20 +94,14 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageMenu
             // 
             // cbbRole
             // 
-            this.cbbRole.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cbbRole.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbbRole.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
-            this.btnAddRole});
             this.cbbRole.DropDownWidth = 224;
-            this.cbbRole.Location = new System.Drawing.Point(114, 245);
+            this.cbbRole.Location = new System.Drawing.Point(114, 249);
             this.cbbRole.Name = "cbbRole";
-            this.cbbRole.Size = new System.Drawing.Size(224, 25);
+            this.cbbRole.Size = new System.Drawing.Size(189, 22);
             this.cbbRole.TabIndex = 9;
             // 
             // cbbMenuParent
             // 
-            this.cbbMenuParent.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cbbMenuParent.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbbMenuParent.DropDownWidth = 224;
             this.cbbMenuParent.Location = new System.Drawing.Point(114, 104);
             this.cbbMenuParent.Name = "cbbMenuParent";
@@ -151,12 +155,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageMenu
             this.kryptonLabel1.TabIndex = 0;
             this.kryptonLabel1.Values.Text = "Menu Name";
             // 
-            // btnAddRole
-            // 
-            this.btnAddRole.ExtraText = "Add";
-            this.btnAddRole.UniqueName = "C17CC95BDF414C11F18E346DE154172E";
-            this.btnAddRole.Click += new System.EventHandler(this.btnAddRole_Click);
-            // 
             // NewMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -192,7 +190,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageMenu
         private ComponentFactory.Krypton.Toolkit.KryptonComboBox cbbMenuParent;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnSave;
         private ComponentFactory.Krypton.Toolkit.KryptonListBox lbxListRole;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnAddRole;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnAddRole;
     }
 }
 

@@ -11,14 +11,14 @@ using ChiTonPrivateEnterpriseManagement.Classes.DTO;
 using ChiTonPrivateEnterpriseManagement.Classes.Global;
 using ChiTonPrivateEnterpriseManagement.Classes.Modules;
 
-namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageMenu
+namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRole
 {
-    public partial class MenuManagement: KryptonForm
+    public partial class RoleManagement: KryptonForm
     {
         Global global = new Global();
         List<LeftMenuDTO> listMenus;
         LeftMenuBUS leftMenuBUS = new LeftMenuBUS();
-        public MenuManagement()
+        public RoleManagement()
         {
             InitializeComponent();
         }
@@ -53,7 +53,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageMenu
 
         private void btnNewMenu_Click(object sender, EventArgs e)
         {
-            NewMenu newMenu = new NewMenu(listMenus);
+            NewRole newMenu = new NewRole(listMenus);
             newMenu.ShowDialog();
             loadMenu();
         }
@@ -65,7 +65,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageMenu
 
         private void MenuManagementForm_Load(object sender, EventArgs e)
         {
-            CenterToParent();
             DatabaseInfo dbInfo;
             dbInfo = new DatabaseInfo();
             dbInfo.LoadInfo();
@@ -84,7 +83,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageMenu
             {
                 if (menu.MenuName.Equals(currMenu.Text))
                 {
-                    NewMenu newMenu = new NewMenu(listMenus, menu);
+                    NewRole newMenu = new NewRole(listMenus, menu);
                     newMenu.ShowDialog();
                     loadMenu();
                     return;

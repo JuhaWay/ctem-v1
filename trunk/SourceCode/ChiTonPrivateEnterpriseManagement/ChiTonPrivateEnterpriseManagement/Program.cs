@@ -16,7 +16,7 @@ namespace ChiTonPrivateEnterpriseManagement
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MenuManagement());
+            Application.Run(new LoginForm());
         }
     }
 }
