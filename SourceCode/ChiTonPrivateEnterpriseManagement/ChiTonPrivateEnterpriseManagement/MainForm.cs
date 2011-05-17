@@ -10,6 +10,7 @@ using ChiTonPrivateEnterpriseManagement.Classes.Global;
 using ChiTonPrivateEnterpriseManagement.Classes.DTO;
 using ChiTonPrivateEnterpriseManagement.Classes.BUS;
 using ChiTonPrivateEnterpriseManagement.ModuleForms.ManageMenu;
+using ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRights;
 
 namespace ChiTonPrivateEnterpriseManagement
 {
@@ -106,6 +107,13 @@ namespace ChiTonPrivateEnterpriseManagement
                 menuManagement.MdiParent = this;
                 pnlMainContent.Controls.Add(menuManagement);
                 menuManagement.Show();
+            }
+            if (tvwMenu.Nodes[Constants.MANAGE_RIGHT].Nodes[Constants.MANAGE_RIGHT_INFO].IsSelected)
+            {
+                RightsManagement rightsManagement = new RightsManagement(employerDTO);
+                rightsManagement.MdiParent = this;
+                pnlMainContent.Controls.Add(rightsManagement);
+                rightsManagement.Show();
             }
         }
 

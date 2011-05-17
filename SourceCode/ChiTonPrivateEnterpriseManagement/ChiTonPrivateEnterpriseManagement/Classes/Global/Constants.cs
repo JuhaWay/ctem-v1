@@ -34,5 +34,9 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
         public static string MANAGE_MENU = "MANAGE-MENU";
 
         public static string MANAGE_MENU_INFO = "MANAGE-MENU-INFORMATION";
+
+        public static string MANAGE_RIGHT_INFO = "MANAGE-RIGHT-INFORMATION";
+
+        public static string MANAGE_RIGHT = "MANAGE-RIGHT";
     }
 }
