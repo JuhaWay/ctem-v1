@@ -40,5 +40,12 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
             sucess = rightDao.CreateRight(RightID, rightName, description, value, isActive, CreateBy);
             return sucess;
         }
+
+        public bool DeleteRight(long RightID)
+        {
+            bool success = false;
+            success = rightDao.DeleteRight(RightID);
+            return success;
+        }
     }
 }
