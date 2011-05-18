@@ -61,17 +61,16 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         Value = Convert.ToInt64(reader["Value"]),
                         isActive = Convert.ToBoolean(reader["isActive"]),
                         CreatedBy = Convert.ToString(reader["CreatedBy"]),
-                        UpdatedBy = Convert.ToString(reader["UpdatedBy"])
+                        UpdatedBy = Convert.ToString(reader["UpdatedBy"]),
+                        EnumAlias = Convert.ToString(reader["EnumAlias"])
                     };
                     try
                     {
-                        right.CreatedDate = DateTime.ParseExact(Convert.ToString(reader["CreateDate"]), "dd/MM/yyyy", null);
-                        right.LastUpdated = DateTime.ParseExact(Convert.ToString(reader["LastUpdated"]), "dd/MM/yyyy", null);
+                        right.CreatedDate = Convert.ToDateTime(reader["CreatedDate"]);
+                        right.LastUpdated = Convert.ToDateTime(reader["LastUpdated"]);
                     }
                     catch (Exception)
                     {
-                        
-                        throw;
                     }
                     listRights.Add(right);
                 }
@@ -145,6 +144,31 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.Parameters.Add(new SqlParameter("@isActive", isActive));
                 cmd.Parameters.Add(new SqlParameter("@createdBy", CreateBy));
                 cmd.Parameters.Add(new SqlParameter("@updatedBy", CreateBy));
+
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException sql)
+            {
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null)
+                    Connection.Close();
+            }
+        }
+
+        public bool DeleteRight(long RightID)
+        {
+            var cmd = new SqlCommand("[dbo].[Rights_Delete]", Connection) { CommandType = CommandType.StoredProcedure };
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@rightID", RightID));
 
                 cmd.ExecuteNonQuery();
                 return true;

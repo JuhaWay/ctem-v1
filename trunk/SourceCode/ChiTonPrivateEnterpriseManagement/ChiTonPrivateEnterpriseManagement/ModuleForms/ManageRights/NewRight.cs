@@ -16,6 +16,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRights
     {
         EmployerDTO employer;
         List<RightDTO> listRights;
+        long rightID;
         RightBUS rightBUS = new RightBUS();
         bool isNew = false;
         bool isEdit = false;
@@ -23,6 +24,13 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRights
         public NewRight(EmployerDTO _employer, List<RightDTO> _listRights)
         {
             employer = _employer;
+            listRights = _listRights;
+            InitializeComponent();
+        }
+
+        public NewRight(long _rightID, List<RightDTO> _listRights)
+        {
+            rightID = _rightID;
             listRights = _listRights;
             InitializeComponent();
         }
