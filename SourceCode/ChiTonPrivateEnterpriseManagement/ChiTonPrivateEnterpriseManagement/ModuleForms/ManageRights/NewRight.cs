@@ -23,16 +23,34 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRights
 
         public NewRight(EmployerDTO _employer, List<RightDTO> _listRights)
         {
+            isNew = true;
             employer = _employer;
             listRights = _listRights;
             InitializeComponent();
         }
 
-        public NewRight(long _rightID, List<RightDTO> _listRights)
+        public NewRight(EmployerDTO _employer, long _rightID, List<RightDTO> _listRights)
         {
+            isEdit = true;
+            employer = _employer;
             rightID = _rightID;
             listRights = _listRights;
             InitializeComponent();
+            setInitValue();
+        }
+
+        private void setInitValue()
+        {
+            foreach (var right in listRights)
+            {
+                if (right.RightID == rightID)
+                {
+                    txtRightName.Text = right.RightName;
+                    txtDescription.Text = right.Description;
+                    ckbisActive.Checked = right.isActive;
+                    return;
+                }
+            }
         }
 
         private void NewMenu_Load(object sender, EventArgs e)
@@ -40,17 +58,22 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRights
             CenterToParent();
         }
 
-        private void kryptonCheckBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnSave_Click(object sender, EventArgs e)
         {
-            string rightName = txtRightName.Text;
-            string description = txtDescription.Text;
-            bool isActive = ckbisActive.Checked;
-            rightBUS.AddRight(rightName, isActive, description, employer, listRights);
+            if (isNew)
+            {
+                string rightName = txtRightName.Text;
+                string description = txtDescription.Text;
+                bool isActive = ckbisActive.Checked;
+                rightBUS.AddRight(rightName, isActive, description, employer, listRights);
+            }
+            if (isEdit)
+            {
+                string rightName = txtRightName.Text;
+                string description = txtDescription.Text;
+                bool isActive = ckbisActive.Checked;
+                rightBUS.EditRight(rightID, rightName, isActive, description, employer, listRights);
+            }
         }
     }
 }

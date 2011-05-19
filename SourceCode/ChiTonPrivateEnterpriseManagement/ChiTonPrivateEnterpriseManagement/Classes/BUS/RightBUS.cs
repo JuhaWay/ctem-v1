@@ -47,5 +47,13 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
             success = rightDao.DeleteRight(RightID);
             return success;
         }
+
+        public bool EditRight(long rightID, string rightName, bool isActive, string description, EmployerDTO employer, List<RightDTO> listRights)
+        {
+            bool success = false;
+            string updateBy = employer.Username;
+            success = rightDao.UpdateRight(rightID, rightName, description, isActive, updateBy);
+            return success;
+        }
     }
 }

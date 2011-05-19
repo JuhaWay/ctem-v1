@@ -183,5 +183,34 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                     Connection.Close();
             }
         }
+
+        internal bool UpdateRight(long rightID, string rightName, string description, bool isActive, string updateBy)
+        {
+            var cmd = new SqlCommand("[dbo].[Rights_Update]", Connection) { CommandType = CommandType.StoredProcedure };
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@rightID", rightID));
+                cmd.Parameters.Add(new SqlParameter("@rightName", rightName));
+                cmd.Parameters.Add(new SqlParameter("@description", description));
+                cmd.Parameters.Add(new SqlParameter("@isActive", isActive));
+                cmd.Parameters.Add(new SqlParameter("@updatedBy", updateBy));
+
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException sql)
+            {
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null)
+                    Connection.Close();
+            }
+        }
     }
 }

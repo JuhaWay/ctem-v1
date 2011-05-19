@@ -141,7 +141,8 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRights
                 {
                     string strRightID = row.Cells["RightID"].Value.ToString();
                     long RightID = Convert.ToInt64(strRightID);
-                    NewRight newRight = new NewRight(RightID, listRights);
+                    NewRight newRight = new NewRight(employer, RightID, listRights);
+                    newRight.ShowDialog();
                 }
             }
         }
