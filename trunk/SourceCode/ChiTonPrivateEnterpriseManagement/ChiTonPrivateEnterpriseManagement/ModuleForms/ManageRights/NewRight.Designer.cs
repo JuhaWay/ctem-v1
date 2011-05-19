@@ -112,7 +112,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRights
             this.ckbisActive.Size = new System.Drawing.Size(19, 13);
             this.ckbisActive.TabIndex = 11;
             this.ckbisActive.Values.Text = "";
-            this.ckbisActive.CheckedChanged += new System.EventHandler(this.kryptonCheckBox1_CheckedChanged);
             // 
             // NewRight
             // 
