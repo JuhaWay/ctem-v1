@@ -37,8 +37,7 @@
             this.txtUsername = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.txtPassword = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.btnLogin = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.btnExit = new System.Windows.Forms.Button();
-            this.btnDatabaseInfo = new System.Windows.Forms.Button();
+            this.btnExit = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,7 +57,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(41, 180);
+            this.label1.Location = new System.Drawing.Point(46, 193);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(82, 14);
             this.label1.TabIndex = 3;
@@ -68,7 +67,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(72, 216);
+            this.label2.Location = new System.Drawing.Point(76, 219);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(52, 14);
             this.label2.TabIndex = 4;
@@ -76,23 +75,24 @@
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(131, 176);
+            this.txtUsername.Location = new System.Drawing.Point(134, 187);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(174, 20);
             this.txtUsername.TabIndex = 5;
-            this.txtUsername.TextChanged += new System.EventHandler(this.kryptonTextBox1_TextChanged);
+            this.txtUsername.Leave += new System.EventHandler(this.txtUsername_Leave);
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(131, 211);
+            this.txtPassword.Location = new System.Drawing.Point(134, 213);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(174, 20);
             this.txtPassword.TabIndex = 6;
+            this.txtPassword.Leave += new System.EventHandler(this.txtPassword_Leave);
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(131, 242);
+            this.btnLogin.Location = new System.Drawing.Point(234, 239);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(74, 27);
             this.btnLogin.TabIndex = 7;
@@ -101,22 +101,12 @@
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(633, 13);
+            this.btnExit.Location = new System.Drawing.Point(134, 239);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(37, 25);
-            this.btnExit.TabIndex = 8;
-            this.btnExit.Text = "Exit";
-            this.btnExit.UseVisualStyleBackColor = true;
-            // 
-            // btnDatabaseInfo
-            // 
-            this.btnDatabaseInfo.Location = new System.Drawing.Point(582, 15);
-            this.btnDatabaseInfo.Name = "btnDatabaseInfo";
-            this.btnDatabaseInfo.Size = new System.Drawing.Size(36, 23);
-            this.btnDatabaseInfo.TabIndex = 9;
-            this.btnDatabaseInfo.Text = "DB";
-            this.btnDatabaseInfo.UseVisualStyleBackColor = true;
-            this.btnDatabaseInfo.Click += new System.EventHandler(this.btnDatabaseInfo_Click);
+            this.btnExit.Size = new System.Drawing.Size(74, 27);
+            this.btnExit.TabIndex = 10;
+            this.btnExit.Values.Text = "Thoát";
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // LoginForm
             // 
@@ -125,7 +115,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(682, 415);
-            this.Controls.Add(this.btnDatabaseInfo);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtPassword);
@@ -154,8 +143,7 @@
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtUsername;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtPassword;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnLogin;
-        private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.Button btnDatabaseInfo;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnExit;
     }
 }
 

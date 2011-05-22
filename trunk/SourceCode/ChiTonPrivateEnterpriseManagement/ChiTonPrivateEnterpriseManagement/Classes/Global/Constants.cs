@@ -38,5 +38,13 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
         public static string MANAGE_RIGHT_INFO = "MANAGE-RIGHT-INFORMATION";
 
         public static string MANAGE_RIGHT = "MANAGE-RIGHT";
+
+        public static string VALIDATE_USERNAME_PASSWORD = "Chưa Nhập Đầy Đủ Nhập Tên Đăng Nhập và Mật Khẩu";
+        public static string VALIDATE_USERNAME = "Tên Đăng Nhập không được để trống";
+        public static string VALIDATE_PASSWORD = "Mật Khẩu không được để trống";
+        public static string INVALID_USERNAME_PASSWORD = "Tên Đăng Nhập hoặc Mất Khẩu Bị Sai";
+        public static string CONFIRM = "Thông Báo";
+        public static string EMPTY_TEXT = "";
+        public static string PASSWORD_DATABASE = "1";
     }
 }

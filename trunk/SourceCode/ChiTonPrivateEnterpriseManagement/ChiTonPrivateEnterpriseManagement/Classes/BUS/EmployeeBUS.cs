@@ -23,11 +23,14 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
                 password = DataProvider.Encrypt(password);                
             }
             employerDTO = employerDAO.GetEmployerByUsername(username);
-            if (password.Equals(employerDTO.Password))
+            if (employerDTO != null)
             {
-                return employerDTO;
+                if (password.Equals(employerDTO.Password))
+                {
+                    return employerDTO;
+                }
             }
-            return null;
+            return null;               
         }
     }
 }
