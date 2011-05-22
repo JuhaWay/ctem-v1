@@ -41,9 +41,9 @@
             this.kryptonPanel4 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonPanel2 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.btnRefresh = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.pnlMainMenu = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.pnlLineRight = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.btnRefresh = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)(this.pnlMain)).BeginInit();
             this.pnlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnlContent)).BeginInit();
@@ -200,6 +200,15 @@
             this.kryptonPanel1.Size = new System.Drawing.Size(814, 81);
             this.kryptonPanel1.TabIndex = 15;
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Location = new System.Drawing.Point(17, 26);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(90, 25);
+            this.btnRefresh.TabIndex = 0;
+            this.btnRefresh.Values.Text = "Refresh";
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
             // pnlMainMenu
             // 
             this.pnlMainMenu.Dock = System.Windows.Forms.DockStyle.Top;
@@ -219,15 +228,6 @@
             this.pnlLineRight.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonCustom1;
             this.pnlLineRight.Size = new System.Drawing.Size(5, 562);
             this.pnlLineRight.TabIndex = 3;
-            // 
-            // btnRefresh
-            // 
-            this.btnRefresh.Location = new System.Drawing.Point(70, 33);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(90, 25);
-            this.btnRefresh.TabIndex = 0;
-            this.btnRefresh.Values.Text = "Refresh";
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // MainForm
             // 
