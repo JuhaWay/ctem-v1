@@ -86,16 +86,16 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRights
             this.kryptonPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonPanel.Location = new System.Drawing.Point(0, 0);
             this.kryptonPanel.Name = "kryptonPanel";
-            this.kryptonPanel.Size = new System.Drawing.Size(660, 427);
+            this.kryptonPanel.Size = new System.Drawing.Size(660, 460);
             this.kryptonPanel.TabIndex = 0;
             // 
             // kryptonPanel7
             // 
             this.kryptonPanel7.Controls.Add(this.dgvRights);
             this.kryptonPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kryptonPanel7.Location = new System.Drawing.Point(0, 80);
+            this.kryptonPanel7.Location = new System.Drawing.Point(0, 85);
             this.kryptonPanel7.Name = "kryptonPanel7";
-            this.kryptonPanel7.Size = new System.Drawing.Size(660, 347);
+            this.kryptonPanel7.Size = new System.Drawing.Size(660, 375);
             this.kryptonPanel7.TabIndex = 9;
             // 
             // dgvRights
@@ -121,7 +121,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRights
             this.dgvRights.Name = "dgvRights";
             this.dgvRights.RowHeadersWidth = 25;
             this.dgvRights.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dgvRights.Size = new System.Drawing.Size(660, 347);
+            this.dgvRights.Size = new System.Drawing.Size(660, 375);
             this.dgvRights.TabIndex = 0;
             this.dgvRights.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRights_CellClick);
             // 
@@ -209,7 +209,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRights
             // kryptonPanel6
             // 
             this.kryptonPanel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.kryptonPanel6.Location = new System.Drawing.Point(0, 75);
+            this.kryptonPanel6.Location = new System.Drawing.Point(0, 80);
             this.kryptonPanel6.Name = "kryptonPanel6";
             this.kryptonPanel6.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlClient;
             this.kryptonPanel6.Size = new System.Drawing.Size(660, 5);
@@ -218,7 +218,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRights
             // kryptonPanel1
             // 
             this.kryptonPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.kryptonPanel1.Location = new System.Drawing.Point(0, 70);
+            this.kryptonPanel1.Location = new System.Drawing.Point(0, 75);
             this.kryptonPanel1.Name = "kryptonPanel1";
             this.kryptonPanel1.Size = new System.Drawing.Size(660, 5);
             this.kryptonPanel1.TabIndex = 7;
@@ -232,7 +232,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRights
             this.kryptonPanel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.kryptonPanel4.Location = new System.Drawing.Point(0, 0);
             this.kryptonPanel4.Name = "kryptonPanel4";
-            this.kryptonPanel4.Size = new System.Drawing.Size(660, 70);
+            this.kryptonPanel4.Size = new System.Drawing.Size(660, 75);
             this.kryptonPanel4.TabIndex = 3;
             // 
             // kryptonGroupBox2
@@ -245,15 +245,15 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRights
             // kryptonGroupBox2.Panel
             // 
             this.kryptonGroupBox2.Panel.Controls.Add(this.btnRefresh);
-            this.kryptonGroupBox2.Size = new System.Drawing.Size(211, 70);
+            this.kryptonGroupBox2.Size = new System.Drawing.Size(211, 75);
             this.kryptonGroupBox2.TabIndex = 7;
             this.kryptonGroupBox2.Values.Heading = "";
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(16, 23);
+            this.btnRefresh.Location = new System.Drawing.Point(16, 25);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(90, 25);
+            this.btnRefresh.Size = new System.Drawing.Size(90, 27);
             this.btnRefresh.TabIndex = 0;
             this.btnRefresh.Values.Text = "Refresh";
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
@@ -263,7 +263,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRights
             this.kryptonPanel3.Dock = System.Windows.Forms.DockStyle.Left;
             this.kryptonPanel3.Location = new System.Drawing.Point(216, 0);
             this.kryptonPanel3.Name = "kryptonPanel3";
-            this.kryptonPanel3.Size = new System.Drawing.Size(5, 70);
+            this.kryptonPanel3.Size = new System.Drawing.Size(5, 75);
             this.kryptonPanel3.TabIndex = 6;
             // 
             // kryptonGroupBox1
@@ -279,41 +279,41 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRights
             this.kryptonGroupBox1.Panel.Controls.Add(this.btnDeleteRight);
             this.kryptonGroupBox1.Panel.Controls.Add(this.btnEditRight);
             this.kryptonGroupBox1.Panel.Controls.Add(this.btnNewRight);
-            this.kryptonGroupBox1.Size = new System.Drawing.Size(211, 70);
+            this.kryptonGroupBox1.Size = new System.Drawing.Size(211, 75);
             this.kryptonGroupBox1.TabIndex = 5;
             this.kryptonGroupBox1.Values.Heading = "";
             // 
             // btnDeleteAll
             // 
-            this.btnDeleteAll.Location = new System.Drawing.Point(151, 21);
+            this.btnDeleteAll.Location = new System.Drawing.Point(151, 23);
             this.btnDeleteAll.Name = "btnDeleteAll";
-            this.btnDeleteAll.Size = new System.Drawing.Size(40, 25);
+            this.btnDeleteAll.Size = new System.Drawing.Size(40, 27);
             this.btnDeleteAll.TabIndex = 3;
             this.btnDeleteAll.Values.Text = "Del A";
             // 
             // btnDeleteRight
             // 
-            this.btnDeleteRight.Location = new System.Drawing.Point(105, 21);
+            this.btnDeleteRight.Location = new System.Drawing.Point(105, 23);
             this.btnDeleteRight.Name = "btnDeleteRight";
-            this.btnDeleteRight.Size = new System.Drawing.Size(40, 25);
+            this.btnDeleteRight.Size = new System.Drawing.Size(40, 27);
             this.btnDeleteRight.TabIndex = 2;
             this.btnDeleteRight.Values.Text = "Del";
             this.btnDeleteRight.Click += new System.EventHandler(this.btnDeleteRight_Click);
             // 
             // btnEditRight
             // 
-            this.btnEditRight.Location = new System.Drawing.Point(59, 21);
+            this.btnEditRight.Location = new System.Drawing.Point(59, 23);
             this.btnEditRight.Name = "btnEditRight";
-            this.btnEditRight.Size = new System.Drawing.Size(40, 25);
+            this.btnEditRight.Size = new System.Drawing.Size(40, 27);
             this.btnEditRight.TabIndex = 1;
             this.btnEditRight.Values.Text = "Edit";
             this.btnEditRight.Click += new System.EventHandler(this.btnEditRight_Click);
             // 
             // btnNewRight
             // 
-            this.btnNewRight.Location = new System.Drawing.Point(13, 21);
+            this.btnNewRight.Location = new System.Drawing.Point(13, 23);
             this.btnNewRight.Name = "btnNewRight";
-            this.btnNewRight.Size = new System.Drawing.Size(40, 25);
+            this.btnNewRight.Size = new System.Drawing.Size(40, 27);
             this.btnNewRight.TabIndex = 0;
             this.btnNewRight.Values.Text = "New";
             this.btnNewRight.Click += new System.EventHandler(this.btnNewRight_Click);
@@ -323,14 +323,14 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRights
             this.kryptonPanel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.kryptonPanel2.Location = new System.Drawing.Point(0, 0);
             this.kryptonPanel2.Name = "kryptonPanel2";
-            this.kryptonPanel2.Size = new System.Drawing.Size(5, 70);
+            this.kryptonPanel2.Size = new System.Drawing.Size(5, 75);
             this.kryptonPanel2.TabIndex = 4;
             // 
             // RightsManagement
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(660, 427);
+            this.ClientSize = new System.Drawing.Size(660, 460);
             this.Controls.Add(this.kryptonPanel);
             this.Name = "RightsManagement";
             this.ShowIcon = false;

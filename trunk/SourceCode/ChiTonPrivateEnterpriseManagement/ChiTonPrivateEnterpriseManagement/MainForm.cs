@@ -38,6 +38,11 @@ namespace ChiTonPrivateEnterpriseManagement
 
         private void loadMenu()
         {
+            int numRootNodes = tvwMenu.Nodes.Count;
+            for (int i = 0; i < numRootNodes; i++)
+            {
+                tvwMenu.Nodes.Remove(tvwMenu.Nodes[0]);
+            }
             LeftMenuBUS leftMenuBUS = new LeftMenuBUS();
             List<LeftMenuDTO> listMenus = new List<LeftMenuDTO>();
             listMenus = leftMenuBUS.GetMenuByRoleID(employerDTO.RoleID);
@@ -124,6 +129,11 @@ namespace ChiTonPrivateEnterpriseManagement
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            loadMenu();
         }
     }
 }
