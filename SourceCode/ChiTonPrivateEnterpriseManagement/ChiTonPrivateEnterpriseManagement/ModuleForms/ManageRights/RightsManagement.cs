@@ -111,7 +111,23 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRights
 
         }
 
-        private void dgvRights_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void btnEditRight_Click(object sender, EventArgs e)
+        {
+            bool success = false;
+            foreach (DataGridViewRow row in dgvRights.Rows)
+            {
+                DataGridViewCell c = dgvRights.Rows[row.Index].Cells[0];
+                if (c.AccessibilityObject.Value.Equals("True"))
+                {
+                    string strRightID = row.Cells["RightID"].Value.ToString();
+                    long RightID = Convert.ToInt64(strRightID);
+                    NewRight newRight = new NewRight(employer, RightID, listRights);
+                    newRight.ShowDialog();
+                }
+            }
+        }
+
+        private void dgvRights_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == 0 && e.RowIndex != -1)
             {
@@ -127,22 +143,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRights
                     dgvRights[e.ColumnIndex, e.RowIndex].Value = true;
                     c.AccessibilityObject.Value = "True";
                     dgvRights.Rows[e.RowIndex].Selected = true;
-                }
-            }
-        }
-
-        private void btnEditRight_Click(object sender, EventArgs e)
-        {
-            bool success = false;
-            foreach (DataGridViewRow row in dgvRights.Rows)
-            {
-                DataGridViewCell c = dgvRights.Rows[row.Index].Cells[0];
-                if (c.AccessibilityObject.Value.Equals("True"))
-                {
-                    string strRightID = row.Cells["RightID"].Value.ToString();
-                    long RightID = Convert.ToInt64(strRightID);
-                    NewRight newRight = new NewRight(employer, RightID, listRights);
-                    newRight.ShowDialog();
                 }
             }
         }
