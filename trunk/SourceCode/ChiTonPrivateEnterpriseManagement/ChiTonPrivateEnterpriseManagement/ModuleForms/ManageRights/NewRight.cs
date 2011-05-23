@@ -74,6 +74,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRights
                 bool isActive = ckbisActive.Checked;
                 rightBUS.EditRight(rightID, rightName, isActive, description, employer, listRights);
             }
+            this.Close();
         }
     }
 }
