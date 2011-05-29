@@ -73,7 +73,7 @@
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMain.Location = new System.Drawing.Point(0, 0);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(1024, 562);
+            this.pnlMain.Size = new System.Drawing.Size(1024, 522);
             this.pnlMain.TabIndex = 0;
             // 
             // pnlContent
@@ -83,7 +83,7 @@
             this.pnlContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContent.Location = new System.Drawing.Point(0, 0);
             this.pnlContent.Name = "pnlContent";
-            this.pnlContent.Size = new System.Drawing.Size(1024, 562);
+            this.pnlContent.Size = new System.Drawing.Size(1024, 522);
             this.pnlContent.TabIndex = 4;
             // 
             // slcMain
@@ -107,7 +107,7 @@
             this.slcMain.Panel2.Controls.Add(this.kryptonPanel1);
             this.slcMain.Panel2.Controls.Add(this.pnlMainMenu);
             this.slcMain.SeparatorStyle = ComponentFactory.Krypton.Toolkit.SeparatorStyle.HighProfile;
-            this.slcMain.Size = new System.Drawing.Size(1019, 562);
+            this.slcMain.Size = new System.Drawing.Size(1019, 522);
             this.slcMain.SplitterDistance = 200;
             this.slcMain.SplitterWidth = 4;
             this.slcMain.TabIndex = 10;
@@ -126,7 +126,7 @@
             // hdgMenu.Panel
             // 
             this.hdgMenu.Panel.Controls.Add(this.tvwMenu);
-            this.hdgMenu.Size = new System.Drawing.Size(200, 562);
+            this.hdgMenu.Size = new System.Drawing.Size(200, 522);
             this.hdgMenu.TabIndex = 2;
             this.hdgMenu.ValuesPrimary.Heading = "Menu";
             this.hdgMenu.MouseLeave += new System.EventHandler(this.hdgMenu_MouseLeave);
@@ -144,7 +144,7 @@
             this.tvwMenu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tvwMenu.Location = new System.Drawing.Point(0, 0);
             this.tvwMenu.Name = "tvwMenu";
-            this.tvwMenu.Size = new System.Drawing.Size(198, 530);
+            this.tvwMenu.Size = new System.Drawing.Size(198, 490);
             this.tvwMenu.TabIndex = 0;
             this.tvwMenu.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvwMenu_NodeMouseDoubleClick);
             // 
@@ -152,7 +152,7 @@
             // 
             this.kryptonSplitContainer1.Cursor = System.Windows.Forms.Cursors.Default;
             this.kryptonSplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kryptonSplitContainer1.Location = new System.Drawing.Point(0, 91);
+            this.kryptonSplitContainer1.Location = new System.Drawing.Point(0, 85);
             this.kryptonSplitContainer1.Name = "kryptonSplitContainer1";
             this.kryptonSplitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -160,8 +160,8 @@
             // 
             this.kryptonSplitContainer1.Panel1.Controls.Add(this.pnlMainContent);
             this.kryptonSplitContainer1.SeparatorStyle = ComponentFactory.Krypton.Toolkit.SeparatorStyle.HighProfile;
-            this.kryptonSplitContainer1.Size = new System.Drawing.Size(815, 466);
-            this.kryptonSplitContainer1.SplitterDistance = 433;
+            this.kryptonSplitContainer1.Size = new System.Drawing.Size(815, 432);
+            this.kryptonSplitContainer1.SplitterDistance = 401;
             this.kryptonSplitContainer1.SplitterWidth = 4;
             this.kryptonSplitContainer1.TabIndex = 18;
             // 
@@ -170,13 +170,13 @@
             this.pnlMainContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMainContent.Location = new System.Drawing.Point(0, 0);
             this.pnlMainContent.Name = "pnlMainContent";
-            this.pnlMainContent.Size = new System.Drawing.Size(815, 433);
+            this.pnlMainContent.Size = new System.Drawing.Size(815, 401);
             this.pnlMainContent.TabIndex = 19;
             // 
             // kryptonPanel4
             // 
             this.kryptonPanel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.kryptonPanel4.Location = new System.Drawing.Point(0, 557);
+            this.kryptonPanel4.Location = new System.Drawing.Point(0, 517);
             this.kryptonPanel4.Name = "kryptonPanel4";
             this.kryptonPanel4.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2007Blue;
             this.kryptonPanel4.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonCustom1;
@@ -186,7 +186,7 @@
             // kryptonPanel2
             // 
             this.kryptonPanel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.kryptonPanel2.Location = new System.Drawing.Point(0, 86);
+            this.kryptonPanel2.Location = new System.Drawing.Point(0, 80);
             this.kryptonPanel2.Name = "kryptonPanel2";
             this.kryptonPanel2.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2007Blue;
             this.kryptonPanel2.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonCustom1;
@@ -199,14 +199,14 @@
             this.kryptonPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.kryptonPanel1.Location = new System.Drawing.Point(0, 5);
             this.kryptonPanel1.Name = "kryptonPanel1";
-            this.kryptonPanel1.Size = new System.Drawing.Size(815, 81);
+            this.kryptonPanel1.Size = new System.Drawing.Size(815, 75);
             this.kryptonPanel1.TabIndex = 15;
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(17, 26);
+            this.btnRefresh.Location = new System.Drawing.Point(17, 24);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(90, 25);
+            this.btnRefresh.Size = new System.Drawing.Size(90, 23);
             this.btnRefresh.TabIndex = 0;
             this.btnRefresh.Values.Text = "Refresh";
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
@@ -228,20 +228,21 @@
             this.pnlLineRight.Name = "pnlLineRight";
             this.pnlLineRight.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2007Blue;
             this.pnlLineRight.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonCustom1;
-            this.pnlLineRight.Size = new System.Drawing.Size(5, 562);
+            this.pnlLineRight.Size = new System.Drawing.Size(5, 522);
             this.pnlLineRight.TabIndex = 3;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1024, 562);
+            this.ClientSize = new System.Drawing.Size(1024, 522);
             this.Controls.Add(this.pnlMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MainForm";
             this.Text = "MainForm";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.Load += new System.EventHandler(this.MainForm_Load);
