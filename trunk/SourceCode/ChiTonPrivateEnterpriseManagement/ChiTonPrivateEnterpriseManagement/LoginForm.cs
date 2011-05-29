@@ -34,7 +34,7 @@ namespace ChiTonPrivateEnterpriseManagement
                 return;
             }
 
-            if (username.Equals("CTEM-DB"))
+            if (username.Equals(Constants.USERNAME_MANAGE_DB))
             {
                 if (password.Equals(Constants.PASSWORD_DATABASE))
                 {

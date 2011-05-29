@@ -60,18 +60,8 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         Description = Convert.ToString(reader["Description"]),
                         Value = Convert.ToInt64(reader["Value"]),
                         isActive = Convert.ToBoolean(reader["isActive"]),
-                        CreatedBy = Convert.ToString(reader["CreatedBy"]),
-                        UpdatedBy = Convert.ToString(reader["UpdatedBy"]),
                         EnumAlias = Convert.ToString(reader["EnumAlias"])
                     };
-                    try
-                    {
-                        right.CreatedDate = Convert.ToDateTime(reader["CreatedDate"]);
-                        right.LastUpdated = Convert.ToDateTime(reader["LastUpdated"]);
-                    }
-                    catch (Exception)
-                    {
-                    }
                     listRights.Add(right);
                 }
                 return listRights;
@@ -109,9 +99,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         RoleName = Convert.ToString(reader["RoleName"]),
                         Description = Convert.ToString(reader["Description"]),
                         RightsValue = Convert.ToInt64(reader["RightsValue"]),
-                        IsActive = Convert.ToBoolean(reader["IsActive"]),
-                        CreatedBy = Convert.ToString(reader["CreatedBy"]),
-                        UpdatedBy = Convert.ToString(reader["UpdatedBy"])
+                        IsActive = Convert.ToBoolean(reader["IsActive"])
                     };
                     listMenus.Add(menu);
                 }
@@ -128,7 +116,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             }
         }
 
-        public bool CreateRight(long RightID, string rightName, string description, long value, bool isActive, string CreateBy)
+        public bool CreateRight(long RightID, string rightName, string description, long value, bool isActive)
         {
             var cmd = new SqlCommand("[dbo].[Rights_Create]", Connection) { CommandType = CommandType.StoredProcedure };
             if (Transaction != null)
@@ -142,9 +130,6 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.Parameters.Add(new SqlParameter("@description", description));
                 cmd.Parameters.Add(new SqlParameter("@value", value));
                 cmd.Parameters.Add(new SqlParameter("@isActive", isActive));
-                cmd.Parameters.Add(new SqlParameter("@createdBy", CreateBy));
-                cmd.Parameters.Add(new SqlParameter("@updatedBy", CreateBy));
-
                 cmd.ExecuteNonQuery();
                 return true;
             }
@@ -197,7 +182,6 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.Parameters.Add(new SqlParameter("@rightName", rightName));
                 cmd.Parameters.Add(new SqlParameter("@description", description));
                 cmd.Parameters.Add(new SqlParameter("@isActive", isActive));
-                cmd.Parameters.Add(new SqlParameter("@updatedBy", updateBy));
 
                 cmd.ExecuteNonQuery();
                 return true;

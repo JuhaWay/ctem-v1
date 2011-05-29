@@ -65,7 +65,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRights
                 string rightName = txtRightName.Text;
                 string description = txtDescription.Text;
                 bool isActive = ckbisActive.Checked;
-                rightBUS.AddRight(rightName, isActive, description, employer, listRights);
+                rightBUS.AddRight(rightName, isActive, description, listRights);
             }
             if (isEdit)
             {

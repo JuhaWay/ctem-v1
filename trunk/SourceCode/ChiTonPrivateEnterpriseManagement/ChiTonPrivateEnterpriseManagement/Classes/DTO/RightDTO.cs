@@ -13,11 +13,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
         public string RightName { get; set; }
         public string Description { get; set; }
         public long Value { get; set; }
-        public bool isActive { get; set; }
-        public DateTime CreatedDate { get; set; }
-        public DateTime LastUpdated { get; set; }
-        public string CreatedBy { get; set; }
-        public string UpdatedBy { get; set; }
+        public bool isActive { get; set; }       
         public string EnumAlias { get; set; }
 
         public RightDTO()
@@ -26,9 +22,6 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
             RightName = "";
             Description = "";
             Value = 0;
-            CreatedBy = "";
-            UpdatedBy = "";
-            UpdatedBy = "";
         }
 
         public override bool Equals(object obj)

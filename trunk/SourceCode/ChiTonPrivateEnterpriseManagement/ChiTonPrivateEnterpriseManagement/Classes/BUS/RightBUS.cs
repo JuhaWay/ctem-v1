@@ -31,13 +31,12 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
             throw new System.NotImplementedException();
         }
 
-        public bool AddRight(string rightName, bool isActive, string description, EmployerDTO employer, List<RightDTO> listRights)
+        public bool AddRight(string rightName, bool isActive, string description, List<RightDTO> listRights)
         {
             bool sucess = false;
             long RightID = listRights.Count + 1;
             long value = (long)Math.Pow(2, RightID);
-            string CreateBy = employer.Username;
-            sucess = rightDao.CreateRight(RightID, rightName, description, value, isActive, CreateBy);
+            sucess = rightDao.CreateRight(RightID, rightName, description, value, isActive);
             return sucess;
         }
 

@@ -96,6 +96,12 @@
     <Compile Include="DBInfoForm.designer.cs">
       <DependentUpon>DBInfoForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="GenPasswordsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GenPasswordsForm.Designer.cs">
+      <DependentUpon>GenPasswordsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +148,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="DBInfoForm.resx">
       <DependentUpon>DBInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GenPasswordsForm.resx">
+      <DependentUpon>GenPasswordsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <SubType>Designer</SubType>
