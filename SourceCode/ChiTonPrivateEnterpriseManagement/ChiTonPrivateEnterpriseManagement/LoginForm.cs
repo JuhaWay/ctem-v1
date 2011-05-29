@@ -36,7 +36,7 @@ namespace ChiTonPrivateEnterpriseManagement
 
             if (username.Equals(Constants.USERNAME_MANAGE_DB))
             {
-                if (password.Equals(Constants.PASSWORD_DATABASE))
+                if (DataProvider.Encrypt(password).Equals(Constants.PASSWORD_DATABASE))
                 {
                     DBInfoForm dbInfoForm = new DBInfoForm();
                     dbInfoForm.ShowDialog();
