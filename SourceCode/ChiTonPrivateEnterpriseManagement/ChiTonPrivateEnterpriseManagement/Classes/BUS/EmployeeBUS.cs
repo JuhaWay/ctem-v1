@@ -18,10 +18,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
 
         public EmployerDTO CheckLogin(string username, string password)
         {
-            if (!username.Equals("admin"))
-            {
-                password = DataProvider.Encrypt(password);                
-            }
+            password = DataProvider.Encrypt(password);
             employerDTO = employerDAO.GetEmployerByUsername(username);
             if (employerDTO != null)
             {

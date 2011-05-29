@@ -60,8 +60,6 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         Description = Convert.ToString(reader["Description"]),
                         RightsValue = Convert.ToInt64(reader["RightsValue"]),
                         IsActive = Convert.ToBoolean(reader["IsActive"]),
-                        CreatedBy = Convert.ToString(reader["CreatedBy"]),
-                        UpdatedBy = Convert.ToString(reader["UpdatedBy"])
                     };
                     listMenus.Add(menu);
                 }
@@ -100,9 +98,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         RoleName = Convert.ToString(reader["RoleName"]),
                         Description = Convert.ToString(reader["Description"]),
                         RightsValue = Convert.ToInt64(reader["RightsValue"]),
-                        IsActive = Convert.ToBoolean(reader["IsActive"]),
-                        CreatedBy = Convert.ToString(reader["CreatedBy"]),
-                        UpdatedBy = Convert.ToString(reader["UpdatedBy"])
+                        IsActive = Convert.ToBoolean(reader["IsActive"])
                     };
                     listMenus.Add(menu);
                 }

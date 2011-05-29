@@ -50,19 +50,58 @@ namespace ChiTonPrivateEnterpriseManagement
             {
                 if (menuparent.MenuParent == 0)
                 {
-                    string NodekeyParent = menuparent.MenuName.Replace(" ", "-").ToUpper();
+                    string NodekeyParent = GenerateNodeKey(menuparent.MenuName);
                     tvwMenu.Nodes.Add(menuparent.MenuName).Name = NodekeyParent;
                     var ParentNode = tvwMenu.Nodes[NodekeyParent];
                     foreach (var menuchild in listMenus)
                     {
                         if (menuchild.MenuParent == menuparent.MenuID)
                         {
-                            string NodekeyChild = menuchild.MenuName.Replace(" ", "-").ToUpper();
+                            string NodekeyChild = GenerateNodeKey(menuchild.MenuName);
                             ParentNode.Nodes.Add(menuchild.MenuName).Name = NodekeyChild;
                         }
                     }
                 }
             }
+        }
+
+        private string GenerateNodeKey(string MenuName)
+        {
+            string NodeKey = Constants.EMPTY_TEXT;
+            if (MenuName.Equals(Constants.MANAGE_MENU_VN))
+            {
+                NodeKey = Constants.MANAGE_MENU_EN;
+            }
+            if (MenuName.Equals(Constants.MANAGE_ROLE_VN))
+            {
+                NodeKey = Constants.MANAGE_ROLE_EN;
+            }
+            if (MenuName.Equals(Constants.MANAGE_RIGHT_VN))
+            {
+                NodeKey = Constants.MANAGE_RIGHT_EN;
+            }
+            if (MenuName.Equals(Constants.MANAGE_USER_VN))
+            {
+                NodeKey = Constants.MANAGE_USER_EN;
+            }
+
+            if (MenuName.Equals(Constants.MANAGE_MENU_INFO_VN))
+            {
+                NodeKey = Constants.MANAGE_MENU_INFO_EN;
+            }
+            if (MenuName.Equals(Constants.MANAGE_ROLE_INFO_VN))
+            {
+                NodeKey = Constants.MANAGE_ROLE_INFO_EN;
+            }
+            if (MenuName.Equals(Constants.MANAGE_RIGHT_INFO_VN))
+            {
+                NodeKey = Constants.MANAGE_RIGHT_INFO_EN;
+            }
+            if (MenuName.Equals(Constants.MANAGE_USER_INFO_VN))
+            {
+                NodeKey = Constants.MANAGE_USER_INFO_EN;
+            }
+            return NodeKey;
         }
 
         private void btnhdgMenuHideShow_Click(object sender, EventArgs e)
@@ -85,7 +124,6 @@ namespace ChiTonPrivateEnterpriseManagement
                 btnhdgMenuHideShow.Type = PaletteButtonSpecStyle.ArrowLeft;
                 hdgMenu.PaletteMode = PaletteMode.Global;
             }
-            
         }
 
         private void hdgMenu_MouseHover(object sender, EventArgs e)
@@ -106,19 +144,39 @@ namespace ChiTonPrivateEnterpriseManagement
 
         private void tvwMenu_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-            if (tvwMenu.Nodes[Constants.MANAGE_MENU].Nodes[Constants.MANAGE_MENU_INFO].IsSelected)
+            try
             {
-                MenuManagement menuManagement = new MenuManagement();
-                menuManagement.MdiParent = this;
-                pnlMainContent.Controls.Add(menuManagement);
-                menuManagement.Show();
+                if (tvwMenu.Nodes[Constants.MANAGE_MENU_EN].Nodes[Constants.MANAGE_MENU_INFO_EN].IsSelected)
+                {
+                    MenuManagement menuManagement = new MenuManagement();
+                    menuManagement.MdiParent = this;
+                    pnlMainContent.Controls.Add(menuManagement);
+                    menuManagement.Show();
+                }
+                if (tvwMenu.Nodes[Constants.MANAGE_ROLE_EN].Nodes[Constants.MANAGE_ROLE_INFO_EN].IsSelected)
+                {
+                    //RightsManagement rightsManagement = new RightsManagement(employerDTO);
+                    //rightsManagement.MdiParent = this;
+                    //pnlMainContent.Controls.Add(rightsManagement);
+                    //rightsManagement.Show();
+                }
+                if (tvwMenu.Nodes[Constants.MANAGE_RIGHT_EN].Nodes[Constants.MANAGE_RIGHT_INFO_EN].IsSelected)
+                {
+                    RightsManagement rightsManagement = new RightsManagement(employerDTO);
+                    rightsManagement.MdiParent = this;
+                    pnlMainContent.Controls.Add(rightsManagement);
+                    rightsManagement.Show();
+                }
+                if (tvwMenu.Nodes[Constants.MANAGE_USER_EN].Nodes[Constants.MANAGE_USER_INFO_EN].IsSelected)
+                {
+                    //RightsManagement rightsManagement = new RightsManagement(employerDTO);
+                    //rightsManagement.MdiParent = this;
+                    //pnlMainContent.Controls.Add(rightsManagement);
+                    //rightsManagement.Show();
+                }
             }
-            if (tvwMenu.Nodes[Constants.MANAGE_RIGHT].Nodes[Constants.MANAGE_RIGHT_INFO].IsSelected)
+            catch (Exception)
             {
-                RightsManagement rightsManagement = new RightsManagement(employerDTO);
-                rightsManagement.MdiParent = this;
-                pnlMainContent.Controls.Add(rightsManagement);
-                rightsManagement.Show();
             }
         }
 
