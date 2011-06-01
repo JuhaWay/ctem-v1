@@ -1,6 +1,6 @@
-namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRights
+namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRole
 {
-    partial class RightsManagement
+    partial class RoleManagement
     {
         /// <summary>
         /// Required designer variable.
@@ -33,8 +33,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRights
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.kryptonPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonPanel7 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.dgvRights = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.rightDTOBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.dgvRole = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.kryptonPanel6 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonPanel4 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
@@ -43,24 +42,23 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRights
             this.kryptonPanel3 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonGroupBox1 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.btnDeleteAll = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.btnDeleteRight = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.btnEditRight = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.btnNewRight = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnDeleteRole = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnEditRole = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnNewRole = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryptonPanel2 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.rightDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.roleDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rightDTOBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.Column1 = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewCheckBoxColumn();
-            this.rightIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rightNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.roleIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.roleNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rightsValueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isActiveDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.enumAliasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel7)).BeginInit();
             this.kryptonPanel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRights)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rightDTOBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRole)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel4)).BeginInit();
@@ -73,7 +71,8 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRights
             this.kryptonGroupBox1.Panel.SuspendLayout();
             this.kryptonGroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rightDTOBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleDTOBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rightDTOBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // kryptonPanel
@@ -90,36 +89,33 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRights
             // 
             // kryptonPanel7
             // 
-            this.kryptonPanel7.Controls.Add(this.dgvRights);
+            this.kryptonPanel7.Controls.Add(this.dgvRole);
             this.kryptonPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonPanel7.Location = new System.Drawing.Point(0, 85);
             this.kryptonPanel7.Name = "kryptonPanel7";
             this.kryptonPanel7.Size = new System.Drawing.Size(660, 375);
             this.kryptonPanel7.TabIndex = 9;
             // 
-            // dgvRights
+            // dgvRole
             // 
-            this.dgvRights.AutoGenerateColumns = false;
-            this.dgvRights.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvRole.AllowUserToAddRows = false;
+            this.dgvRole.AllowUserToDeleteRows = false;
+            this.dgvRole.AutoGenerateColumns = false;
+            this.dgvRole.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
-            this.rightIDDataGridViewTextBoxColumn,
-            this.rightNameDataGridViewTextBoxColumn,
-            this.descriptionDataGridViewTextBoxColumn,
-            this.valueDataGridViewTextBoxColumn,
+            this.roleIDDataGridViewTextBoxColumn,
+            this.roleNameDataGridViewTextBoxColumn,
+            this.rightsValueDataGridViewTextBoxColumn,
             this.isActiveDataGridViewCheckBoxColumn,
-            this.enumAliasDataGridViewTextBoxColumn});
-            this.dgvRights.DataSource = this.rightDTOBindingSource1;
-            this.dgvRights.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvRights.Location = new System.Drawing.Point(0, 0);
-            this.dgvRights.Name = "dgvRights";
-            this.dgvRights.RowHeadersWidth = 25;
-            this.dgvRights.Size = new System.Drawing.Size(660, 375);
-            this.dgvRights.TabIndex = 0;
-            this.dgvRights.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRights_CellContentClick);
-            // 
-            // rightDTOBindingSource1
-            // 
-            this.rightDTOBindingSource1.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.RightDTO);
+            this.descriptionDataGridViewTextBoxColumn});
+            this.dgvRole.DataSource = this.roleDTOBindingSource;
+            this.dgvRole.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvRole.Location = new System.Drawing.Point(0, 0);
+            this.dgvRole.Name = "dgvRole";
+            this.dgvRole.RowHeadersWidth = 25;
+            this.dgvRole.Size = new System.Drawing.Size(660, 375);
+            this.dgvRole.TabIndex = 0;
+            this.dgvRole.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRole_CellContentClick);
             // 
             // kryptonPanel6
             // 
@@ -191,9 +187,9 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRights
             // kryptonGroupBox1.Panel
             // 
             this.kryptonGroupBox1.Panel.Controls.Add(this.btnDeleteAll);
-            this.kryptonGroupBox1.Panel.Controls.Add(this.btnDeleteRight);
-            this.kryptonGroupBox1.Panel.Controls.Add(this.btnEditRight);
-            this.kryptonGroupBox1.Panel.Controls.Add(this.btnNewRight);
+            this.kryptonGroupBox1.Panel.Controls.Add(this.btnDeleteRole);
+            this.kryptonGroupBox1.Panel.Controls.Add(this.btnEditRole);
+            this.kryptonGroupBox1.Panel.Controls.Add(this.btnNewRole);
             this.kryptonGroupBox1.Size = new System.Drawing.Size(211, 75);
             this.kryptonGroupBox1.TabIndex = 5;
             this.kryptonGroupBox1.Values.Heading = "";
@@ -206,32 +202,32 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRights
             this.btnDeleteAll.TabIndex = 3;
             this.btnDeleteAll.Values.Text = "Del A";
             // 
-            // btnDeleteRight
+            // btnDeleteRole
             // 
-            this.btnDeleteRight.Location = new System.Drawing.Point(105, 23);
-            this.btnDeleteRight.Name = "btnDeleteRight";
-            this.btnDeleteRight.Size = new System.Drawing.Size(40, 27);
-            this.btnDeleteRight.TabIndex = 2;
-            this.btnDeleteRight.Values.Text = "Del";
-            this.btnDeleteRight.Click += new System.EventHandler(this.btnDeleteRight_Click);
+            this.btnDeleteRole.Location = new System.Drawing.Point(105, 23);
+            this.btnDeleteRole.Name = "btnDeleteRole";
+            this.btnDeleteRole.Size = new System.Drawing.Size(40, 27);
+            this.btnDeleteRole.TabIndex = 2;
+            this.btnDeleteRole.Values.Text = "Del";
+            this.btnDeleteRole.Click += new System.EventHandler(this.btnDeleteRole_Click);
             // 
-            // btnEditRight
+            // btnEditRole
             // 
-            this.btnEditRight.Location = new System.Drawing.Point(59, 23);
-            this.btnEditRight.Name = "btnEditRight";
-            this.btnEditRight.Size = new System.Drawing.Size(40, 27);
-            this.btnEditRight.TabIndex = 1;
-            this.btnEditRight.Values.Text = "Edit";
-            this.btnEditRight.Click += new System.EventHandler(this.btnEditRight_Click);
+            this.btnEditRole.Location = new System.Drawing.Point(59, 23);
+            this.btnEditRole.Name = "btnEditRole";
+            this.btnEditRole.Size = new System.Drawing.Size(40, 27);
+            this.btnEditRole.TabIndex = 1;
+            this.btnEditRole.Values.Text = "Edit";
+            this.btnEditRole.Click += new System.EventHandler(this.btnEditRole_Click);
             // 
-            // btnNewRight
+            // btnNewRole
             // 
-            this.btnNewRight.Location = new System.Drawing.Point(13, 23);
-            this.btnNewRight.Name = "btnNewRight";
-            this.btnNewRight.Size = new System.Drawing.Size(40, 27);
-            this.btnNewRight.TabIndex = 0;
-            this.btnNewRight.Values.Text = "New";
-            this.btnNewRight.Click += new System.EventHandler(this.btnNewRight_Click);
+            this.btnNewRole.Location = new System.Drawing.Point(13, 23);
+            this.btnNewRole.Name = "btnNewRole";
+            this.btnNewRole.Size = new System.Drawing.Size(40, 27);
+            this.btnNewRole.TabIndex = 0;
+            this.btnNewRole.Values.Text = "New";
+            this.btnNewRole.Click += new System.EventHandler(this.btnNewRole_Click);
             // 
             // kryptonPanel2
             // 
@@ -241,9 +237,13 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRights
             this.kryptonPanel2.Size = new System.Drawing.Size(5, 75);
             this.kryptonPanel2.TabIndex = 4;
             // 
-            // rightDTOBindingSource
+            // roleDTOBindingSource
             // 
-            this.rightDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.RightDTO);
+            this.roleDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.RoleDTO);
+            // 
+            // rightDTOBindingSource1
+            // 
+            this.rightDTOBindingSource1.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.RightDTO);
             // 
             // Column1
             // 
@@ -257,17 +257,29 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRights
             this.Column1.TrueValue = null;
             this.Column1.Width = 25;
             // 
-            // rightIDDataGridViewTextBoxColumn
+            // roleIDDataGridViewTextBoxColumn
             // 
-            this.rightIDDataGridViewTextBoxColumn.DataPropertyName = "RightID";
-            this.rightIDDataGridViewTextBoxColumn.HeaderText = "RightID";
-            this.rightIDDataGridViewTextBoxColumn.Name = "rightIDDataGridViewTextBoxColumn";
+            this.roleIDDataGridViewTextBoxColumn.DataPropertyName = "RoleID";
+            this.roleIDDataGridViewTextBoxColumn.HeaderText = "RoleID";
+            this.roleIDDataGridViewTextBoxColumn.Name = "roleIDDataGridViewTextBoxColumn";
             // 
-            // rightNameDataGridViewTextBoxColumn
+            // roleNameDataGridViewTextBoxColumn
             // 
-            this.rightNameDataGridViewTextBoxColumn.DataPropertyName = "RightName";
-            this.rightNameDataGridViewTextBoxColumn.HeaderText = "RightName";
-            this.rightNameDataGridViewTextBoxColumn.Name = "rightNameDataGridViewTextBoxColumn";
+            this.roleNameDataGridViewTextBoxColumn.DataPropertyName = "RoleName";
+            this.roleNameDataGridViewTextBoxColumn.HeaderText = "RoleName";
+            this.roleNameDataGridViewTextBoxColumn.Name = "roleNameDataGridViewTextBoxColumn";
+            // 
+            // rightsValueDataGridViewTextBoxColumn
+            // 
+            this.rightsValueDataGridViewTextBoxColumn.DataPropertyName = "RightsValue";
+            this.rightsValueDataGridViewTextBoxColumn.HeaderText = "RightsValue";
+            this.rightsValueDataGridViewTextBoxColumn.Name = "rightsValueDataGridViewTextBoxColumn";
+            // 
+            // isActiveDataGridViewCheckBoxColumn
+            // 
+            this.isActiveDataGridViewCheckBoxColumn.DataPropertyName = "IsActive";
+            this.isActiveDataGridViewCheckBoxColumn.HeaderText = "IsActive";
+            this.isActiveDataGridViewCheckBoxColumn.Name = "isActiveDataGridViewCheckBoxColumn";
             // 
             // descriptionDataGridViewTextBoxColumn
             // 
@@ -275,44 +287,25 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRights
             this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
             this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
             // 
-            // valueDataGridViewTextBoxColumn
-            // 
-            this.valueDataGridViewTextBoxColumn.DataPropertyName = "Value";
-            this.valueDataGridViewTextBoxColumn.HeaderText = "Value";
-            this.valueDataGridViewTextBoxColumn.Name = "valueDataGridViewTextBoxColumn";
-            // 
-            // isActiveDataGridViewCheckBoxColumn
-            // 
-            this.isActiveDataGridViewCheckBoxColumn.DataPropertyName = "isActive";
-            this.isActiveDataGridViewCheckBoxColumn.HeaderText = "isActive";
-            this.isActiveDataGridViewCheckBoxColumn.Name = "isActiveDataGridViewCheckBoxColumn";
-            // 
-            // enumAliasDataGridViewTextBoxColumn
-            // 
-            this.enumAliasDataGridViewTextBoxColumn.DataPropertyName = "EnumAlias";
-            this.enumAliasDataGridViewTextBoxColumn.HeaderText = "EnumAlias";
-            this.enumAliasDataGridViewTextBoxColumn.Name = "enumAliasDataGridViewTextBoxColumn";
-            // 
-            // RightsManagement
+            // RoleManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(660, 460);
             this.Controls.Add(this.kryptonPanel);
-            this.Name = "RightsManagement";
+            this.Name = "RoleManagement";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Tag = "";
             this.Text = "Menu Management";
             this.TextExtra = "";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.RightsManagementForm_Load);
+            this.Load += new System.EventHandler(this.RoleManagementForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).EndInit();
             this.kryptonPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel7)).EndInit();
             this.kryptonPanel7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRights)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rightDTOBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRole)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel4)).EndInit();
@@ -325,7 +318,8 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRights
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).EndInit();
             this.kryptonGroupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rightDTOBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleDTOBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rightDTOBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -343,24 +337,23 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRights
         private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel3;
         private ComponentFactory.Krypton.Toolkit.KryptonGroupBox kryptonGroupBox1;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnDeleteAll;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnDeleteRight;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnEditRight;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnNewRight;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnDeleteRole;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnEditRole;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnNewRole;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnRefresh;
-        private System.Windows.Forms.BindingSource rightDTOBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn CreatedDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn LastUpdated;
         private System.Windows.Forms.DataGridViewTextBoxColumn CreatedBy;
         private System.Windows.Forms.DataGridViewTextBoxColumn UpdatedBy;
-        private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dgvRights;
         private System.Windows.Forms.BindingSource rightDTOBindingSource1;
+        private System.Windows.Forms.BindingSource roleDTOBindingSource;
+        private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dgvRole;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewCheckBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rightIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rightNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn valueDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn roleIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn roleNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rightsValueDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn isActiveDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn enumAliasDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
     }
 }
 
