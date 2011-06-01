@@ -38,3 +38,5 @@ E:\My Work\Projects\ctem-v1\SourceCode\ChiTonPrivateEnterpriseManagement\ChiTonP
 E:\My Work\Projects\ctem-v1\SourceCode\ChiTonPrivateEnterpriseManagement\ChiTonPrivateEnterpriseManagement\obj\Debug\ChiTonPrivateEnterpriseManagement.GenPasswordsForm.resources
 F:\ADSoft\Project\ctem-v1\SourceCode\ChiTonPrivateEnterpriseManagement\ChiTonPrivateEnterpriseManagement\obj\Debug\ChiTonPrivateEnterpriseManagement.exe
 F:\ADSoft\Project\ctem-v1\SourceCode\ChiTonPrivateEnterpriseManagement\ChiTonPrivateEnterpriseManagement\obj\Debug\ChiTonPrivateEnterpriseManagement.pdb
+E:\My Work\Projects\ctem-v1\SourceCode\ChiTonPrivateEnterpriseManagement\ChiTonPrivateEnterpriseManagement\obj\Debug\ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRole.NewRole.resources
+E:\My Work\Projects\ctem-v1\SourceCode\ChiTonPrivateEnterpriseManagement\ChiTonPrivateEnterpriseManagement\obj\Debug\ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRole.RoleManagement.resources

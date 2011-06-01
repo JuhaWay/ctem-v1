@@ -23,6 +23,16 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
         {
             return roleDAO.GetRoleByMenuID(menuID);
         }
+
+        public List<RoleDTO> LoadAllRole()
+        {
+            return roleDAO.GetAllRole();
+        }
+
+        public bool DeleteRole(long RoleID)
+        {
+            return roleDAO.DeleteRole(RoleID);
+        }
     }
 }
     

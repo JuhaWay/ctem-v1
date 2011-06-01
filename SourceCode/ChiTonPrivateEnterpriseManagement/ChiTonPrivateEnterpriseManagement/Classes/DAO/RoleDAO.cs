@@ -114,5 +114,30 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 if (Transaction == null) Connection.Close();
             }
         }
+
+        public bool DeleteRole(long RoleID)
+        {
+            var cmd = new SqlCommand("[dbo].[Role_Delete]", Connection) { CommandType = CommandType.StoredProcedure };
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@rightID", RoleID));
+
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException sql)
+            {
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null)
+                    Connection.Close();
+            }
+        }
     }
 }

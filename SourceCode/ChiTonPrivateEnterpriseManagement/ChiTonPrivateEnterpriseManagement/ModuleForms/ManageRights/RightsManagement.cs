@@ -43,8 +43,8 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRights
             dbInfo = new DatabaseInfo();
             dbInfo.LoadInfo();
             dgvRights.Columns[0].Width = 25;
-            //dgvRights.Columns[0].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            //dgvRights.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvRights.Columns[0].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvRights.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             ckBox = new CheckBox();
             //Get the column header cell bounds
             Rectangle rect = this.dgvRights.GetCellDisplayRectangle(0, -1, true);
