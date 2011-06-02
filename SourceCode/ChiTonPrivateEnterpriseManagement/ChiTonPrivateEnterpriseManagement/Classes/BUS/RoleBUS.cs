@@ -33,6 +33,11 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
         {
             return roleDAO.DeleteRole(RoleID);
         }
+
+        public void AddRole(string RoleName, string description, long rightsValue, bool isActive)
+        {
+            roleDAO.CreateRole(RoleName, description, rightsValue, isActive);
+        }
     }
 }
     
