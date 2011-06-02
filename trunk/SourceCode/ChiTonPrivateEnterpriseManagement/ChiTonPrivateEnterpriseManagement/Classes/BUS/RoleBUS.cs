@@ -38,6 +38,11 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
         {
             roleDAO.CreateRole(RoleName, description, rightsValue, isActive);
         }
+
+        public void EditRole(long RoleID, string RoleName, string description, long rightsValue, bool isActive)
+        {
+            roleDAO.UpdateRole(RoleID, RoleName, description, rightsValue, isActive);
+        }
     }
 }
     

@@ -54,13 +54,10 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRole
             rect.Location = new Point(30, 4);
             ckBox.Location = rect.Location;
             ckBox.CheckedChanged += new EventHandler(ckBox_CheckedChanged);
-            //Add the CheckBox into the DataGridView
             this.dgvRole.Controls.Add(ckBox);
             for (int i = 1; i < dgvRole.ColumnCount; i++)
             {
                 dgvRole.Columns[i].Width = (dgvRole.Width - dgvRole.RowHeadersWidth - dgvRole.Columns[0].Width) / (dgvRole.ColumnCount - 1);
-                //dgvRole.Columns[i].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                //dgvRole.Columns[i].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             }           
             loadRole();
         }
@@ -69,6 +66,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRole
         {
             NewRole newRole = new NewRole(employer, listRole);
             newRole.ShowDialog();
+            loadRole();
         }
 
         private void btnDeleteRole_Click(object sender, EventArgs e)
@@ -87,13 +85,10 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRole
                         if (success == false)
                         {
                             MessageBox.Show("Faile");
-                        }
-                        else
-                        {
-                            loadRole();
-                        }
+                        }                        
                     }
                 }
+                loadRole();
             }
         }
 

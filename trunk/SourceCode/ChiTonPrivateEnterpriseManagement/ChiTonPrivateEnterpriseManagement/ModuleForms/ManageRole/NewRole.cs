@@ -84,24 +84,21 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRole
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (isNew)
+            string RoleName = txtRoleName.Text;
+            string description = txtDescription.Text;
+            bool isActive = ckbisActive.Checked;
+            long rightsValue = 0;
+            foreach (RightDTO right in lbxRights.Items)
             {
-                string RoleName = txtRoleName.Text;
-                string description = txtDescription.Text;
-                bool isActive = ckbisActive.Checked;
-                long rightsValue = 0;
-                foreach (RightDTO right in lbxRights.Items)
-                {
-                    rightsValue += right.Value;
-                }
+                rightsValue += right.Value;
+            }
+            if (isNew)
+            {                
                 roleBUS.AddRole(RoleName, description, rightsValue, isActive);
             }
             if (isEdit)
             {
-                string RoleName = txtRoleName.Text;
-                string description = txtDescription.Text;
-                bool isActive = ckbisActive.Checked;
-                //RoleBUS.EditRole(RoleID, RoleName, isActive, description, employer, listRole);
+                roleBUS.EditRole(RoleID, RoleName, description, rightsValue, isActive);
             }
             this.Close();
         }
