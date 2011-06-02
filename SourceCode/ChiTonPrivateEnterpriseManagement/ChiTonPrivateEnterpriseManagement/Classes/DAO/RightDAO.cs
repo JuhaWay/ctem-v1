@@ -76,46 +76,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 if (Transaction == null) Connection.Close();
             }
         }
-
-        public List<RoleDTO> GetRoleByMenuID(int menuID)
-        {
-            var cmd = new SqlCommand("[dbo].[Role_GetByMenuID]", Connection);
-
-            if (Transaction != null)
-            {
-                cmd.Transaction = Transaction;
-            }
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Add(new SqlParameter("@menuID", menuID));
-            try
-            {
-                SqlDataReader reader = cmd.ExecuteReader();
-                List<RoleDTO> listMenus = new List<RoleDTO>();
-                while (reader.Read())
-                {
-                    RoleDTO menu = new RoleDTO
-                    {
-                        RoleID = Convert.ToInt64(reader["RoleID"]),
-                        RoleName = Convert.ToString(reader["RoleName"]),
-                        Description = Convert.ToString(reader["Description"]),
-                        RightsValue = Convert.ToInt64(reader["RightsValue"]),
-                        IsActive = Convert.ToBoolean(reader["IsActive"])
-                    };
-                    listMenus.Add(menu);
-                }
-                return listMenus;
-            }
-            catch (SqlException sql)
-            {
-                MessageBox.Show(sql.Message, "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return null;
-            }
-            finally
-            {
-                if (Transaction == null) Connection.Close();
-            }
-        }
-
+        
         public bool CreateRight(long RightID, string rightName, string description, long value, bool isActive)
         {
             var cmd = new SqlCommand("[dbo].[Rights_Create]", Connection) { CommandType = CommandType.StoredProcedure };
@@ -194,6 +155,46 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             {
                 if (Transaction == null)
                     Connection.Close();
+            }
+        }
+
+        public List<RightDTO> GetRightByRoleID(long rightValue)
+        {
+            var cmd = new SqlCommand("[dbo].[Rights_GetByRightValue]", Connection);
+
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@rightValue", rightValue));
+            try
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                List<RightDTO> listRights = new List<RightDTO>();
+                while (reader.Read())
+                {
+                    RightDTO right = new RightDTO
+                    {
+                        RightID = Convert.ToInt64(reader["RightID"]),
+                        RightName = Convert.ToString(reader["RightName"]),
+                        Description = Convert.ToString(reader["Description"]),
+                        Value = Convert.ToInt64(reader["Value"]),
+                        isActive = Convert.ToBoolean(reader["isActive"]),
+                        EnumAlias = Convert.ToString(reader["EnumAlias"])
+                    };
+                    listRights.Add(right);
+                }
+                return listRights;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message, "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                if (Transaction == null) Connection.Close();
             }
         }
     }

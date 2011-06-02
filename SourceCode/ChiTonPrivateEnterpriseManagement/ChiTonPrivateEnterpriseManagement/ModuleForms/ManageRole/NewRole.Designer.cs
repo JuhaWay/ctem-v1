@@ -86,6 +86,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRole
             // 
             this.btnAddRight.Text = "Add";
             this.btnAddRight.UniqueName = "2F91BDBCE5974A376883FD18A7BF0A0C";
+            this.btnAddRight.Click += new System.EventHandler(this.btnAddRight_Click);
             // 
             // kryptonLabel4
             // 

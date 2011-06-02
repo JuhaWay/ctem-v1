@@ -33,30 +33,31 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
         public const string MANAGE_RIGHT_INFO_EN = "MANAGE_RIGHT_INFO";
         public const string MANAGE_USER_INFO_EN = "MANAGE_USER_INFO";
 
-        public static string ROLE_ADMIN = "admin";
-        public static string ROLE_MANAGER = "manager";
-        public static string ROLE_CHIEF_ACCOUNTANT = "chief accountant";
-        public static string ROLE_ACCOUNTANT = "accountant";
+        public const string ROLE_ADMIN = "admin";
+        public const string ROLE_MANAGER = "manager";
+        public const string ROLE_CHIEF_ACCOUNTANT = "chief accountant";
+        public const string ROLE_ACCOUNTANT = "accountant";
 
         //Encrypt key 
-        public static string Encryptkey = "!@CTEM@ADS2o1o@!";
+        public const string Encryptkey = "!@CTEM@ADS2o1o@!";
 
-        public static string MENU_PARENT_DISPLAYMEMBER = "MenuName";
+        public const string MENU_PARENT_DISPLAYMEMBER = "MenuName";
+        public const string MENU_PARENT_VALUEMEMBER = "MenuID";
 
-        public static string MENU_PARENT_VALUEMEMBER = "MenuID";
+        public const string ROLE_DISPLAYMEMBER = "RoleName";
+        public const string ROLE_VALUEMEMBER = "RoleID";
 
-        public static string ROLE_DISPLAYMEMBER = "RoleName";
+        public const string RIGHT_DISPLAYMEMBER = "RightName";
+        public const string RIGHT_VALUEMEMBER = "RightID";
 
-        public static string ROLE_VALUEMEMBER = "RoleID";
+        public const string VALIDATE_USERNAME_PASSWORD = "Chưa Nhập Đầy Đủ Nhập Tên Đăng Nhập và Mật Khẩu";
+        public const string VALIDATE_USERNAME = "Tên Đăng Nhập không được để trống";
+        public const string VALIDATE_PASSWORD = "Mật Khẩu không được để trống";
+        public const string INVALID_USERNAME_PASSWORD = "Tên Đăng Nhập hoặc Mất Khẩu Bị Sai";
+        public const string CONFIRM = "Thông Báo";
+        public const string EMPTY_TEXT = "";
 
-        public static string VALIDATE_USERNAME_PASSWORD = "Chưa Nhập Đầy Đủ Nhập Tên Đăng Nhập và Mật Khẩu";
-        public static string VALIDATE_USERNAME = "Tên Đăng Nhập không được để trống";
-        public static string VALIDATE_PASSWORD = "Mật Khẩu không được để trống";
-        public static string INVALID_USERNAME_PASSWORD = "Tên Đăng Nhập hoặc Mất Khẩu Bị Sai";
-        public static string CONFIRM = "Thông Báo";
-        public static string EMPTY_TEXT = "";
-
-        public static string PASSWORD_DATABASE = "rXheHWP2/EFNOQJiHMHyGA==";
-        public static string USERNAME_MANAGE_DB = "CTEM-DB";
+        public const string PASSWORD_DATABASE = "rXheHWP2/EFNOQJiHMHyGA==";
+        public const string USERNAME_MANAGE_DB = "CTEM-DB";
     }
 }

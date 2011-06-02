@@ -34,6 +34,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRole
             this.kryptonPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonPanel7 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.dgvRole = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.roleDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.kryptonPanel6 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonPanel4 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
@@ -46,19 +47,19 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRole
             this.btnEditRole = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnNewRole = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryptonPanel2 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.roleDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.rightDTOBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.Column1 = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewCheckBoxColumn();
-            this.roleIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.roleNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rightsValueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RoleID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RoleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RightsValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isActiveDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel7)).BeginInit();
             this.kryptonPanel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRole)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleDTOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel4)).BeginInit();
@@ -71,7 +72,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRole
             this.kryptonGroupBox1.Panel.SuspendLayout();
             this.kryptonGroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.roleDTOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rightDTOBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -103,11 +103,11 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRole
             this.dgvRole.AutoGenerateColumns = false;
             this.dgvRole.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
-            this.roleIDDataGridViewTextBoxColumn,
-            this.roleNameDataGridViewTextBoxColumn,
-            this.rightsValueDataGridViewTextBoxColumn,
+            this.RoleID,
+            this.RoleName,
+            this.RightsValue,
             this.isActiveDataGridViewCheckBoxColumn,
-            this.descriptionDataGridViewTextBoxColumn});
+            this.Description});
             this.dgvRole.DataSource = this.roleDTOBindingSource;
             this.dgvRole.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvRole.Location = new System.Drawing.Point(0, 0);
@@ -116,6 +116,10 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRole
             this.dgvRole.Size = new System.Drawing.Size(660, 375);
             this.dgvRole.TabIndex = 0;
             this.dgvRole.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRole_CellContentClick);
+            // 
+            // roleDTOBindingSource
+            // 
+            this.roleDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.RoleDTO);
             // 
             // kryptonPanel6
             // 
@@ -237,10 +241,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRole
             this.kryptonPanel2.Size = new System.Drawing.Size(5, 75);
             this.kryptonPanel2.TabIndex = 4;
             // 
-            // roleDTOBindingSource
-            // 
-            this.roleDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.RoleDTO);
-            // 
             // rightDTOBindingSource1
             // 
             this.rightDTOBindingSource1.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.RightDTO);
@@ -257,23 +257,23 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRole
             this.Column1.TrueValue = null;
             this.Column1.Width = 25;
             // 
-            // roleIDDataGridViewTextBoxColumn
+            // RoleID
             // 
-            this.roleIDDataGridViewTextBoxColumn.DataPropertyName = "RoleID";
-            this.roleIDDataGridViewTextBoxColumn.HeaderText = "RoleID";
-            this.roleIDDataGridViewTextBoxColumn.Name = "roleIDDataGridViewTextBoxColumn";
+            this.RoleID.DataPropertyName = "RoleID";
+            this.RoleID.HeaderText = "RoleID";
+            this.RoleID.Name = "RoleID";
             // 
-            // roleNameDataGridViewTextBoxColumn
+            // RoleName
             // 
-            this.roleNameDataGridViewTextBoxColumn.DataPropertyName = "RoleName";
-            this.roleNameDataGridViewTextBoxColumn.HeaderText = "RoleName";
-            this.roleNameDataGridViewTextBoxColumn.Name = "roleNameDataGridViewTextBoxColumn";
+            this.RoleName.DataPropertyName = "RoleName";
+            this.RoleName.HeaderText = "RoleName";
+            this.RoleName.Name = "RoleName";
             // 
-            // rightsValueDataGridViewTextBoxColumn
+            // RightsValue
             // 
-            this.rightsValueDataGridViewTextBoxColumn.DataPropertyName = "RightsValue";
-            this.rightsValueDataGridViewTextBoxColumn.HeaderText = "RightsValue";
-            this.rightsValueDataGridViewTextBoxColumn.Name = "rightsValueDataGridViewTextBoxColumn";
+            this.RightsValue.DataPropertyName = "RightsValue";
+            this.RightsValue.HeaderText = "RightsValue";
+            this.RightsValue.Name = "RightsValue";
             // 
             // isActiveDataGridViewCheckBoxColumn
             // 
@@ -281,11 +281,11 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRole
             this.isActiveDataGridViewCheckBoxColumn.HeaderText = "IsActive";
             this.isActiveDataGridViewCheckBoxColumn.Name = "isActiveDataGridViewCheckBoxColumn";
             // 
-            // descriptionDataGridViewTextBoxColumn
+            // Description
             // 
-            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
-            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
-            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            this.Description.DataPropertyName = "Description";
+            this.Description.HeaderText = "Description";
+            this.Description.Name = "Description";
             // 
             // RoleManagement
             // 
@@ -306,6 +306,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRole
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel7)).EndInit();
             this.kryptonPanel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRole)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleDTOBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel4)).EndInit();
@@ -318,7 +319,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRole
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).EndInit();
             this.kryptonGroupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.roleDTOBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rightDTOBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
@@ -349,11 +349,11 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRole
         private System.Windows.Forms.BindingSource roleDTOBindingSource;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dgvRole;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewCheckBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn roleIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn roleNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rightsValueDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RoleID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RoleName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RightsValue;
         private System.Windows.Forms.DataGridViewCheckBoxColumn isActiveDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Description;
     }
 }
 

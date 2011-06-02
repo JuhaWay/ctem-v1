@@ -16,8 +16,11 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRole
     {
         EmployerDTO employer;
         List<RoleDTO> listRole;
+        List<RightDTO> listRights;
         long RoleID;
-        RoleBUS RoleBUS = new RoleBUS();
+        long rightVaule;
+        RoleBUS roleBUS = new RoleBUS();
+        RightBUS rightBUS = new RightBUS();
         bool isNew = false;
         bool isEdit = false;
 
@@ -29,11 +32,12 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRole
             InitializeComponent();
         }
 
-        public NewRole(EmployerDTO _employer, long _RoleID, List<RoleDTO> _listRole)
+        public NewRole(EmployerDTO _employer, long _RoleID, long _rightValue, List<RoleDTO> _listRole)
         {
             isEdit = true;
             employer = _employer;
             RoleID = _RoleID;
+            rightVaule = _rightValue;
             listRole = _listRole;
             InitializeComponent();
             setInitValue();
@@ -41,13 +45,21 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRole
 
         private void setInitValue()
         {
+            listRights = rightBUS.GetRightByRoleID(rightVaule);
+            foreach (var right in listRights)
+            {
+                lbxRights.Items.Add(right);
+            }
+            lbxRights.DisplayMember = Constants.RIGHT_DISPLAYMEMBER;
+            lbxRights.ValueMember = Constants.RIGHT_VALUEMEMBER;
+
             foreach (var Role in listRole)
             {
                 if (Role.RoleID == RoleID)
                 {
                     txtRoleName.Text = Role.RoleName;
                     txtDescription.Text = Role.Description;
-                    ckbisActive.Checked = Role.IsActive;
+                    ckbisActive.Checked = Role.IsActive;                    
                     return;
                 }
             }
@@ -56,6 +68,18 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRole
         private void NewRole_Load(object sender, EventArgs e)
         {
             CenterToParent();
+            LoadRights();
+        }
+
+        private void LoadRights()
+        {
+            listRights = rightBUS.LoadAllRight();
+            foreach (var role in listRights)
+            {
+                cbxRights.Items.Add(role);
+            }
+            cbxRights.DisplayMember = Constants.RIGHT_DISPLAYMEMBER;
+            cbxRights.ValueMember = Constants.RIGHT_VALUEMEMBER;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -65,7 +89,12 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRole
                 string RoleName = txtRoleName.Text;
                 string description = txtDescription.Text;
                 bool isActive = ckbisActive.Checked;
-                //RoleBUS.AddRole(RoleName, isActive, description, listRole);
+                long rightsValue = 0;
+                foreach (RightDTO right in lbxRights.Items)
+                {
+                    rightVaule += right.Value;
+                }
+                roleBUS.AddRole(RoleName, description, rightsValue, isActive);
             }
             if (isEdit)
             {
@@ -75,6 +104,21 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRole
                 //RoleBUS.EditRole(RoleID, RoleName, isActive, description, employer, listRole);
             }
             this.Close();
+        }
+
+        private void btnAddRight_Click(object sender, EventArgs e)
+        {
+            foreach (var item in lbxRights.Items)
+            {
+                if (item.Equals(cbxRights.SelectedItem))
+                {
+                    MessageBox.Show("This Right was been added");
+                    return;
+                }
+            }
+            lbxRights.Items.Add(cbxRights.SelectedItem);
+            lbxRights.ValueMember = Constants.RIGHT_VALUEMEMBER;
+            lbxRights.DisplayMember = Constants.RIGHT_DISPLAYMEMBER;
         }
     }
 }

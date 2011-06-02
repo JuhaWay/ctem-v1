@@ -120,8 +120,10 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRole
                 if (c.AccessibilityObject.Value.Equals("True"))
                 {
                     string strRoleID = row.Cells["RoleID"].Value.ToString();
+                    string strRightValue = row.Cells["RightsValue"].Value.ToString();
                     long RoleID = Convert.ToInt64(strRoleID);
-                    NewRole newRole = new NewRole(employer, RoleID, listRole);
+                    long RightValue = Convert.ToInt64(strRightValue);
+                    NewRole newRole = new NewRole(employer, RoleID, RightValue, listRole);
                     newRole.ShowDialog();
                 }
             }
