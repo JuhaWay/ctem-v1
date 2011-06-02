@@ -54,5 +54,10 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
             success = rightDao.UpdateRight(rightID, rightName, description, isActive, updateBy);
             return success;
         }
+
+        public List<RightDTO> GetRightByRoleID(long rightValue)
+        {
+            return rightDao.GetRightByRoleID(rightValue);
+        }
     }
 }

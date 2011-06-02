@@ -86,7 +86,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageMenu
             }
             cbbRole.DisplayMember = Constants.ROLE_DISPLAYMEMBER;
             cbbRole.ValueMember = Constants.ROLE_VALUEMEMBER;
-
         }
 
         private void loadMenuParent()
