@@ -139,5 +139,32 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                     Connection.Close();
             }
         }
+
+        public bool CreateRole(string RoleName, string description, long rightsValue, bool isActive)
+        {
+            var cmd = new SqlCommand("[dbo].[Role_Create]", Connection) { CommandType = CommandType.StoredProcedure };
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@roleName", RoleName));
+                cmd.Parameters.Add(new SqlParameter("@description", description));
+                cmd.Parameters.Add(new SqlParameter("@rightsValue", rightsValue));
+                cmd.Parameters.Add(new SqlParameter("@isActive", isActive));
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException sql)
+            {
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null)
+                    Connection.Close();
+            }            
+        }
     }
 }

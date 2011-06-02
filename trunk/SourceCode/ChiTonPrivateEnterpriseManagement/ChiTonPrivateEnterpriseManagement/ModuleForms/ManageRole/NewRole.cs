@@ -18,7 +18,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRole
         List<RoleDTO> listRole;
         List<RightDTO> listRights;
         long RoleID;
-        long rightVaule;
+        long rightValue;
         RoleBUS roleBUS = new RoleBUS();
         RightBUS rightBUS = new RightBUS();
         bool isNew = false;
@@ -37,7 +37,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRole
             isEdit = true;
             employer = _employer;
             RoleID = _RoleID;
-            rightVaule = _rightValue;
+            rightValue = _rightValue;
             listRole = _listRole;
             InitializeComponent();
             setInitValue();
@@ -45,7 +45,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRole
 
         private void setInitValue()
         {
-            listRights = rightBUS.GetRightByRoleID(rightVaule);
+            listRights = rightBUS.GetRightByRoleID(rightValue);
             foreach (var right in listRights)
             {
                 lbxRights.Items.Add(right);
@@ -92,7 +92,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRole
                 long rightsValue = 0;
                 foreach (RightDTO right in lbxRights.Items)
                 {
-                    rightVaule += right.Value;
+                    rightsValue += right.Value;
                 }
                 roleBUS.AddRole(RoleName, description, rightsValue, isActive);
             }
