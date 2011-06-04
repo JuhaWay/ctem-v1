@@ -29,5 +29,10 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
             }
             return null;               
         }
+
+        public List<EmployerDTO> LoadAllEmployee()
+        {
+            return employerDAO.GetAll();
+        }
     }
 }

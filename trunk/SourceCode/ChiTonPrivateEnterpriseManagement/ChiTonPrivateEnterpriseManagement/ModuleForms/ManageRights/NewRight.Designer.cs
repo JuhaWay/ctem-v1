@@ -31,13 +31,13 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRights
             this.components = new System.ComponentModel.Container();
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.kryptonPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.ckbisActive = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
             this.btnSave = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.txtDescription = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.txtRightName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.kryptonLabel3 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.ckbisActive = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             this.SuspendLayout();
@@ -54,70 +54,73 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRights
             this.kryptonPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonPanel.Location = new System.Drawing.Point(0, 0);
             this.kryptonPanel.Name = "kryptonPanel";
-            this.kryptonPanel.Size = new System.Drawing.Size(389, 319);
+            this.kryptonPanel.Size = new System.Drawing.Size(389, 344);
             this.kryptonPanel.TabIndex = 0;
+            // 
+            // ckbisActive
+            // 
+            this.ckbisActive.Checked = true;
+            this.ckbisActive.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ckbisActive.Location = new System.Drawing.Point(114, 122);
+            this.ckbisActive.Name = "ckbisActive";
+            this.ckbisActive.Size = new System.Drawing.Size(19, 13);
+            this.ckbisActive.TabIndex = 11;
+            this.ckbisActive.Values.Text = "";
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(166, 257);
+            this.btnSave.Location = new System.Drawing.Point(166, 277);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(90, 25);
+            this.btnSave.Size = new System.Drawing.Size(90, 27);
             this.btnSave.TabIndex = 10;
             this.btnSave.Values.Text = "SAVE";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // txtDescription
             // 
-            this.txtDescription.Location = new System.Drawing.Point(114, 143);
+            this.txtDescription.Location = new System.Drawing.Point(114, 154);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(224, 95);
+            this.txtDescription.Size = new System.Drawing.Size(224, 102);
             this.txtDescription.TabIndex = 6;
             // 
             // txtRightName
             // 
-            this.txtRightName.Location = new System.Drawing.Point(114, 68);
+            this.txtRightName.Location = new System.Drawing.Point(114, 73);
             this.txtRightName.Name = "txtRightName";
-            this.txtRightName.Size = new System.Drawing.Size(224, 22);
+            this.txtRightName.Size = new System.Drawing.Size(224, 20);
             this.txtRightName.TabIndex = 4;
             // 
             // kryptonLabel3
             // 
-            this.kryptonLabel3.Location = new System.Drawing.Point(41, 143);
+            this.kryptonLabel3.Location = new System.Drawing.Point(41, 154);
             this.kryptonLabel3.Name = "kryptonLabel3";
-            this.kryptonLabel3.Size = new System.Drawing.Size(67, 19);
+            this.kryptonLabel3.Size = new System.Drawing.Size(73, 20);
             this.kryptonLabel3.TabIndex = 2;
             this.kryptonLabel3.Values.Text = "Description";
             // 
             // kryptonLabel2
             // 
-            this.kryptonLabel2.Location = new System.Drawing.Point(36, 107);
+            this.kryptonLabel2.Location = new System.Drawing.Point(36, 115);
             this.kryptonLabel2.Name = "kryptonLabel2";
-            this.kryptonLabel2.Size = new System.Drawing.Size(52, 19);
+            this.kryptonLabel2.Size = new System.Drawing.Size(56, 20);
             this.kryptonLabel2.TabIndex = 1;
             this.kryptonLabel2.Values.Text = "Is Active";
             // 
             // kryptonLabel1
             // 
-            this.kryptonLabel1.Location = new System.Drawing.Point(36, 71);
+            this.kryptonLabel1.Location = new System.Drawing.Point(36, 76);
             this.kryptonLabel1.Name = "kryptonLabel1";
-            this.kryptonLabel1.Size = new System.Drawing.Size(70, 19);
+            this.kryptonLabel1.Size = new System.Drawing.Size(75, 20);
             this.kryptonLabel1.TabIndex = 0;
             this.kryptonLabel1.Values.Text = "Right Name";
             // 
-            // ckbisActive
-            // 
-            this.ckbisActive.Location = new System.Drawing.Point(114, 113);
-            this.ckbisActive.Name = "ckbisActive";
-            this.ckbisActive.Size = new System.Drawing.Size(19, 13);
-            this.ckbisActive.TabIndex = 11;
-            this.ckbisActive.Values.Text = "";
-            // 
             // NewRight
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AcceptButton = this.btnSave;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(389, 319);
+            this.ClientSize = new System.Drawing.Size(389, 344);
             this.Controls.Add(this.kryptonPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;

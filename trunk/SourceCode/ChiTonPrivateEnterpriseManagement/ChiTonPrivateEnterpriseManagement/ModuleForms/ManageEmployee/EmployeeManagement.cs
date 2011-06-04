@@ -17,7 +17,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
     {
         EmployerDTO employer;
         Global global = new Global();
-        EmployeeBUS EmployeeBUS = new EmployeeBUS();
+        EmployeeBUS employeeBUS = new EmployeeBUS();
         List<EmployerDTO> listEmployee;
         CheckBox ckBox;
         public EmployeeManagement(EmployerDTO _employer)
@@ -28,7 +28,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
 
         private void loadEmployee()
         {
-            //listEmployee = EmployeeBUS.LoadAllEmployee();
+            listEmployee = employeeBUS.LoadAllEmployee();
             dgvEmployee.DataSource = listEmployee;
         }
 
@@ -64,8 +64,8 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
 
         private void btnNewEmployee_Click(object sender, EventArgs e)
         {
-            //NewEmployee newEmployee = new NewEmployee(employer, listEmployee);
-            //newEmployee.ShowDialog();
+            NewEmployee newEmployee = new NewEmployee();
+            newEmployee.ShowDialog();
             loadEmployee();
         }
 

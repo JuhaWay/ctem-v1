@@ -73,12 +73,12 @@
     <Compile Include="Classes\BUS\LeftMenuBUS.cs" />
     <Compile Include="Classes\BUS\RightBUS.cs" />
     <Compile Include="Classes\BUS\EmployeeBUS.cs" />
+    <Compile Include="Classes\DAO\EmployerDAO.cs" />
     <Compile Include="Classes\DAO\RoleDAO.cs" />
     <Compile Include="Classes\DAO\LeftMenuDAO.cs" />
     <Compile Include="Classes\DAO\RightDAO.cs" />
-    <Compile Include="Classes\DAO\EmployerDAO.cs" />
     <Compile Include="Classes\DTO\ConstructionDTO.cs" />
-    <Compile Include="Classes\DTO\Role.cs" />
+    <Compile Include="Classes\DTO\RoleDTO.cs" />
     <Compile Include="Classes\DTO\LeftMenuDTO.cs" />
     <Compile Include="Classes\DTO\WorkerDTO.cs" />
     <Compile Include="Classes\DTO\WorkerConstructionDTO.cs" />
@@ -119,6 +119,18 @@
     </Compile>
     <Compile Include="ModuleForms\CommonForm.Designer.cs">
       <DependentUpon>CommonForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleForms\ManageEmployee\EmployeeManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForms\ManageEmployee\EmployeeManagement.Designer.cs">
+      <DependentUpon>EmployeeManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleForms\ManageEmployee\NewEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForms\ManageEmployee\NewEmployee.Designer.cs">
+      <DependentUpon>NewEmployee.cs</DependentUpon>
     </Compile>
     <Compile Include="ModuleForms\ManageRole\NewRole.cs">
       <SubType>Form</SubType>
@@ -176,6 +188,14 @@
     <EmbeddedResource Include="ModuleForms\CommonForm.resx">
       <DependentUpon>CommonForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\ManageEmployee\EmployeeManagement.resx">
+      <DependentUpon>EmployeeManagement.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\ManageEmployee\NewEmployee.resx">
+      <DependentUpon>NewEmployee.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="ModuleForms\ManageRole\NewRole.resx">
       <DependentUpon>NewRole.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -209,6 +229,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.EmployerDTO.datasource" />
     <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.RightDTO.datasource" />
     <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.RoleDTO.datasource" />
     <None Include="Properties\Settings.settings">

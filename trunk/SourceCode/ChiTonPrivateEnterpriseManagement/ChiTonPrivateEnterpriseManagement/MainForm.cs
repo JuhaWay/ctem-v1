@@ -12,6 +12,7 @@ using ChiTonPrivateEnterpriseManagement.Classes.BUS;
 using ChiTonPrivateEnterpriseManagement.ModuleForms.ManageMenu;
 using ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRights;
 using ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRole;
+using ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee;
 
 namespace ChiTonPrivateEnterpriseManagement
 {
@@ -38,7 +39,7 @@ namespace ChiTonPrivateEnterpriseManagement
         }
 
         private void loadMenu()
-        {
+        {            
             int numRootNodes = tvwMenu.Nodes.Count;
             for (int i = 0; i < numRootNodes; i++)
             {
@@ -151,29 +152,29 @@ namespace ChiTonPrivateEnterpriseManagement
                 {
                     MenuManagement menuManagement = new MenuManagement();
                     menuManagement.MdiParent = this;
-                    pnlMainContent.Controls.Add(menuManagement);
+                    k.Controls.Add(menuManagement);
                     menuManagement.Show();
                 }
                 if (tvwMenu.Nodes[Constants.MANAGE_ROLE_EN].Nodes[Constants.MANAGE_ROLE_INFO_EN].IsSelected)
                 {
                     RoleManagement roleManagement = new RoleManagement(employerDTO);
                     roleManagement.MdiParent = this;
-                    pnlMainContent.Controls.Add(roleManagement);
+                    k.Controls.Add(roleManagement);
                     roleManagement.Show();
                 }
                 if (tvwMenu.Nodes[Constants.MANAGE_RIGHT_EN].Nodes[Constants.MANAGE_RIGHT_INFO_EN].IsSelected)
                 {
                     RightsManagement rightsManagement = new RightsManagement(employerDTO);
                     rightsManagement.MdiParent = this;
-                    pnlMainContent.Controls.Add(rightsManagement);
+                    k.Controls.Add(rightsManagement);
                     rightsManagement.Show();
                 }
                 if (tvwMenu.Nodes[Constants.MANAGE_USER_EN].Nodes[Constants.MANAGE_USER_INFO_EN].IsSelected)
                 {
-                    //RightsManagement rightsManagement = new RightsManagement(employerDTO);
-                    //rightsManagement.MdiParent = this;
-                    //pnlMainContent.Controls.Add(rightsManagement);
-                    //rightsManagement.Show();
+                    EmployeeManagement employeeManagement = new EmployeeManagement(employerDTO);
+                    employeeManagement.MdiParent = this;
+                    k.Controls.Add(employeeManagement);
+                    employeeManagement.Show();
                 }
             }
             catch (Exception)

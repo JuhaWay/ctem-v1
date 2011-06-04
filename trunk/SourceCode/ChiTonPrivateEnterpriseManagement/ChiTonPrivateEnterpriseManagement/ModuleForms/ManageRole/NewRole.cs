@@ -45,7 +45,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRole
 
         private void setInitValue()
         {
-            listRights = rightBUS.GetRightByRoleID(rightValue);
+            listRights = rightBUS.GetRightByRole(rightValue);
             foreach (var right in listRights)
             {
                 lbxRights.Items.Add(right);

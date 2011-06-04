@@ -40,3 +40,5 @@ F:\ADSoft\Project\ctem-v1\SourceCode\ChiTonPrivateEnterpriseManagement\ChiTonPri
 F:\ADSoft\Project\ctem-v1\SourceCode\ChiTonPrivateEnterpriseManagement\ChiTonPrivateEnterpriseManagement\obj\Debug\ChiTonPrivateEnterpriseManagement.pdb
 E:\My Work\Projects\ctem-v1\SourceCode\ChiTonPrivateEnterpriseManagement\ChiTonPrivateEnterpriseManagement\obj\Debug\ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRole.NewRole.resources
 E:\My Work\Projects\ctem-v1\SourceCode\ChiTonPrivateEnterpriseManagement\ChiTonPrivateEnterpriseManagement\obj\Debug\ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRole.RoleManagement.resources
+E:\My Work\Projects\ctem-v1\SourceCode\ChiTonPrivateEnterpriseManagement\ChiTonPrivateEnterpriseManagement\obj\Debug\ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee.EmployeeManagement.resources
+E:\My Work\Projects\ctem-v1\SourceCode\ChiTonPrivateEnterpriseManagement\ChiTonPrivateEnterpriseManagement\obj\Debug\ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee.NewEmployee.resources

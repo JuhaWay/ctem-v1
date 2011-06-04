@@ -35,12 +35,17 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
             this.kryptonPanel7 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.dgvEmployee = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.Column1 = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewCheckBoxColumn();
-            this.RoleID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RoleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RightsValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.isActiveDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.roleDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fullname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Position = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CMND = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DOB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IsActive = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.employerDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.kryptonPanel6 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonPanel4 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
@@ -53,13 +58,14 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
             this.btnEditEmployee = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnNewEmployee = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryptonPanel2 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.roleDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.rightDTOBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel7)).BeginInit();
             this.kryptonPanel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployee)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.roleDTOBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employerDTOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel4)).BeginInit();
@@ -72,6 +78,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
             this.kryptonGroupBox1.Panel.SuspendLayout();
             this.kryptonGroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleDTOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rightDTOBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -98,23 +105,27 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
             // 
             // dgvEmployee
             // 
-            this.dgvEmployee.AllowUserToAddRows = false;
-            this.dgvEmployee.AllowUserToDeleteRows = false;
             this.dgvEmployee.AutoGenerateColumns = false;
             this.dgvEmployee.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
-            this.RoleID,
-            this.RoleName,
-            this.RightsValue,
-            this.isActiveDataGridViewCheckBoxColumn,
-            this.Description});
-            this.dgvEmployee.DataSource = this.roleDTOBindingSource;
+            this.Username,
+            this.Fullname,
+            this.Address,
+            this.Email,
+            this.Note,
+            this.Position,
+            this.CMND,
+            this.DOB,
+            this.PhoneNumber,
+            this.IsActive});
+            this.dgvEmployee.DataSource = this.employerDTOBindingSource;
             this.dgvEmployee.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvEmployee.Location = new System.Drawing.Point(0, 0);
             this.dgvEmployee.Name = "dgvEmployee";
             this.dgvEmployee.RowHeadersWidth = 25;
             this.dgvEmployee.Size = new System.Drawing.Size(660, 375);
             this.dgvEmployee.TabIndex = 0;
+            this.dgvEmployee.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmployee_CellContentClick);
             // 
             // Column1
             // 
@@ -128,39 +139,69 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
             this.Column1.TrueValue = null;
             this.Column1.Width = 25;
             // 
-            // RoleID
+            // Username
             // 
-            this.RoleID.DataPropertyName = "RoleID";
-            this.RoleID.HeaderText = "RoleID";
-            this.RoleID.Name = "RoleID";
+            this.Username.DataPropertyName = "Username";
+            this.Username.HeaderText = "Username";
+            this.Username.Name = "Username";
             // 
-            // RoleName
+            // Fullname
             // 
-            this.RoleName.DataPropertyName = "RoleName";
-            this.RoleName.HeaderText = "RoleName";
-            this.RoleName.Name = "RoleName";
+            this.Fullname.DataPropertyName = "Fullname";
+            this.Fullname.HeaderText = "Fullname";
+            this.Fullname.Name = "Fullname";
             // 
-            // RightsValue
+            // Address
             // 
-            this.RightsValue.DataPropertyName = "RightsValue";
-            this.RightsValue.HeaderText = "RightsValue";
-            this.RightsValue.Name = "RightsValue";
+            this.Address.DataPropertyName = "Address";
+            this.Address.HeaderText = "Address";
+            this.Address.Name = "Address";
             // 
-            // isActiveDataGridViewCheckBoxColumn
+            // Email
             // 
-            this.isActiveDataGridViewCheckBoxColumn.DataPropertyName = "IsActive";
-            this.isActiveDataGridViewCheckBoxColumn.HeaderText = "IsActive";
-            this.isActiveDataGridViewCheckBoxColumn.Name = "isActiveDataGridViewCheckBoxColumn";
+            this.Email.DataPropertyName = "Email";
+            this.Email.HeaderText = "Email";
+            this.Email.Name = "Email";
             // 
-            // Description
+            // Note
             // 
-            this.Description.DataPropertyName = "Description";
-            this.Description.HeaderText = "Description";
-            this.Description.Name = "Description";
+            this.Note.DataPropertyName = "Note";
+            this.Note.HeaderText = "Note";
+            this.Note.Name = "Note";
             // 
-            // roleDTOBindingSource
+            // Position
             // 
-            this.roleDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.RoleDTO);
+            this.Position.DataPropertyName = "Position";
+            this.Position.HeaderText = "Position";
+            this.Position.Name = "Position";
+            // 
+            // CMND
+            // 
+            this.CMND.DataPropertyName = "CMND";
+            this.CMND.HeaderText = "CMND";
+            this.CMND.Name = "CMND";
+            // 
+            // DOB
+            // 
+            this.DOB.DataPropertyName = "DOB";
+            this.DOB.HeaderText = "DOB";
+            this.DOB.Name = "DOB";
+            // 
+            // PhoneNumber
+            // 
+            this.PhoneNumber.DataPropertyName = "PhoneNumber";
+            this.PhoneNumber.HeaderText = "PhoneNumber";
+            this.PhoneNumber.Name = "PhoneNumber";
+            // 
+            // IsActive
+            // 
+            this.IsActive.DataPropertyName = "IsActive";
+            this.IsActive.HeaderText = "IsActive";
+            this.IsActive.Name = "IsActive";
+            // 
+            // employerDTOBindingSource
+            // 
+            this.employerDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.EmployerDTO);
             // 
             // kryptonPanel6
             // 
@@ -270,6 +311,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
             this.btnNewEmployee.Size = new System.Drawing.Size(40, 27);
             this.btnNewEmployee.TabIndex = 0;
             this.btnNewEmployee.Values.Text = "New";
+            this.btnNewEmployee.Click += new System.EventHandler(this.btnNewEmployee_Click);
             // 
             // kryptonPanel2
             // 
@@ -278,6 +320,10 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
             this.kryptonPanel2.Name = "kryptonPanel2";
             this.kryptonPanel2.Size = new System.Drawing.Size(5, 75);
             this.kryptonPanel2.TabIndex = 4;
+            // 
+            // roleDTOBindingSource
+            // 
+            this.roleDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.RoleDTO);
             // 
             // rightDTOBindingSource1
             // 
@@ -296,12 +342,13 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
             this.Text = "Menu Management";
             this.TextExtra = "";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.EmployeeManagementForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).EndInit();
             this.kryptonPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel7)).EndInit();
             this.kryptonPanel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployee)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.roleDTOBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employerDTOBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel4)).EndInit();
@@ -314,6 +361,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).EndInit();
             this.kryptonGroupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleDTOBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rightDTOBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
@@ -342,13 +390,21 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
         private System.Windows.Forms.DataGridViewTextBoxColumn UpdatedBy;
         private System.Windows.Forms.BindingSource rightDTOBindingSource1;
         private System.Windows.Forms.BindingSource roleDTOBindingSource;
+        private System.Windows.Forms.BindingSource employerDTOBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mobilePhoneDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn homePhoneDataGridViewTextBoxColumn;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dgvEmployee;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewCheckBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RoleID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RoleName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RightsValue;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn isActiveDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Description;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Username;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fullname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Address;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Email;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Note;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Position;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CMND;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DOB;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PhoneNumber;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn IsActive;
     }
 }
 
