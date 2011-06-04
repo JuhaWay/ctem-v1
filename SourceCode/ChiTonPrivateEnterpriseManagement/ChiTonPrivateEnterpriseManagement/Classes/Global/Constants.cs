@@ -59,5 +59,8 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
 
         public const string PASSWORD_DATABASE = "rXheHWP2/EFNOQJiHMHyGA==";
         public const string USERNAME_MANAGE_DB = "CTEM-DB";
+
+        public const string ACTIVE = "Hoạt Động";
+        public const string INACTIVE = "Ngừng Hoạt Động";
     }
 }

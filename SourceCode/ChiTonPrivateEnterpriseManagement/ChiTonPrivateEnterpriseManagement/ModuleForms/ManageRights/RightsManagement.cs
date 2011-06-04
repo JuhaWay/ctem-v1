@@ -88,12 +88,9 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRights
                         {
                             MessageBox.Show("Faile");
                         }
-                        else
-                        {
-                            loadRights();
-                        }
                     }
                 }
+                loadRights();
             }
         }
 

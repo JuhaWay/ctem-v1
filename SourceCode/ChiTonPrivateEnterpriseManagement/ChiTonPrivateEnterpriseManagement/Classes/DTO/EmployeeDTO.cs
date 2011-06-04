@@ -17,16 +17,10 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
         public long RoleID { get; set; }
         public string Position { get; set; }
         public long RightsValue { get; set; }
-        public string CMND { get; set; }
-        public string Passport { get; set; }
+        public string CMND { get; set; }       
         public DateTime DOB { get; set; }
-        public string MobilePhone { get; set; }
-        public string HomePhone { get; set; }
-        public DateTime? CreatedDate { get; set; }
-        public DateTime? LastUpdated { get; set; }
-        public string CreatedBy { get; set; }
-        public string UpdatedBy { get; set; }
-        public string Status { get; set; }
+        public string PhoneNumber { get; set; }
+        public bool IsActive { get; set; }
 
         public EmployerDTO()
         {
@@ -35,7 +29,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
             Fullname = "";
             RoleID = 0;
             RightsValue = 0;
-            Status = "";            
+            IsActive = true;
         }
 
         public override bool Equals(object obj)
