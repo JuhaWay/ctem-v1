@@ -22,42 +22,43 @@
       <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:Classes/d:BUS/f:RightBUS.cs" caret="1952" fromTop="48" />
       <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:Classes/d:DTO/f:RoleDTO.cs" caret="343" fromTop="14" />
       <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageRole/f:NewRole.cs" caret="1488" fromTop="0" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:Classes/d:Global/f:Constants.cs" caret="2086" fromTop="16" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewEmployee.cs" caret="1039" fromTop="18" />
       <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:EmployeeManagement.cs" caret="2725" fromTop="46" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewEmployee.Designer.cs" caret="19993" fromTop="28" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageRights/f:RightsManagement.cs" caret="5749" fromTop="24" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:Classes/d:Global/f:Constants.cs" caret="2917" fromTop="13" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewEmployee.Designer.cs" caret="20257" fromTop="9" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewEmployee.cs" caret="4637" fromTop="27" />
     </RecentFiles>
     <RecentEdits>
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewEmployee.Designer.cs" caret="17984" fromTop="17" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:Classes/d:DTO/f:EmployeeDTO.cs" caret="976" fromTop="32" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:Classes/d:DTO/f:EmployeeDTO.cs" caret="621" fromTop="19" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:Classes/d:DAO/f:EmployerDAO.cs" caret="4582" fromTop="15" />
       <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:EmployeeManagement.cs" caret="6139" fromTop="30" />
       <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:Classes/d:DAO/f:EmployerDAO.cs" caret="2365" fromTop="11" />
       <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:EmployeeManagement.Designer.cs" caret="19340" fromTop="12" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewEmployee.cs" caret="2535" fromTop="12" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewEmployee.cs" caret="2332" fromTop="5" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewEmployee.cs" caret="2482" fromTop="22" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewEmployee.cs" caret="2750" fromTop="30" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewEmployee.cs" caret="2279" fromTop="15" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewEmployee.cs" caret="2985" fromTop="26" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:EmployeeManagement.cs" caret="6139" fromTop="18" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewEmployee.cs" caret="1137" fromTop="14" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewEmployee.cs" caret="1588" fromTop="28" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewEmployee.cs" caret="1237" fromTop="19" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewEmployee.cs" caret="2773" fromTop="12" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewEmployee.cs" caret="2570" fromTop="5" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewEmployee.cs" caret="2517" fromTop="15" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewEmployee.cs" caret="3223" fromTop="26" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewEmployee.cs" caret="1826" fromTop="28" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewEmployee.cs" caret="1475" fromTop="19" />
       <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/f:Program.cs" caret="708" fromTop="19" />
       <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:Classes/d:BUS/f:RightBUS.cs" caret="1952" fromTop="17" />
       <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageRole/f:NewRole.cs" caret="1488" fromTop="12" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:Classes/d:Global/f:Constants.cs" caret="2847" fromTop="17" />
       <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:Classes/d:Global/f:Constants.cs" caret="2100" fromTop="17" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewEmployee.cs" caret="1483" fromTop="17" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewEmployee.cs" caret="1928" fromTop="14" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewEmployee.cs" caret="3763" fromTop="22" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewEmployee.cs" caret="3405" fromTop="15" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewEmployee.cs" caret="1721" fromTop="17" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewEmployee.cs" caret="2166" fromTop="14" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewEmployee.cs" caret="4001" fromTop="22" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewEmployee.cs" caret="3643" fromTop="15" />
       <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewEmployee.cs" caret="870" fromTop="11" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewEmployee.cs" caret="4014" fromTop="11" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewEmployee.cs" caret="1039" fromTop="18" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:EmployeeManagement.cs" caret="2718" fromTop="19" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:EmployeeManagement.cs" caret="2725" fromTop="46" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:EmployeeManagement.cs" caret="6139" fromTop="46" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageRights/f:RightsManagement.cs" caret="6041" fromTop="16" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageRights/f:RightsManagement.cs" caret="3964" fromTop="23" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageRights/f:RightsManagement.cs" caret="6041" fromTop="24" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewEmployee.cs" caret="1326" fromTop="28" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:Classes/d:Global/f:Constants.cs" caret="2917" fromTop="13" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewEmployee.cs" caret="2721" fromTop="23" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewEmployee.cs" caret="2989" fromTop="31" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewEmployee.cs" caret="1111" fromTop="17" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewEmployee.Designer.cs" caret="20257" fromTop="9" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewEmployee.cs" caret="4512" fromTop="20" />
     </RecentEdits>
   </RecentFiles>
   <NAntValidationSettings>
@@ -75,10 +76,10 @@
     <ItemStatistics item="Default">
       <Item value="tvwMenu" priority="0" />
       <Item value="timerLayoutSLC" priority="3" />
-      <Item value="true" priority="6" />
+      <Item value="true" priority="7" />
       <Item value="bool" priority="1" />
       <Item value="false" priority="7" />
-      <Item value="if" priority="0" />
+      <Item value="if" priority="1" />
       <Item value="isNext" priority="1" />
       <Item value="while" priority="0" />
       <Item value="slcMain" priority="6" />
@@ -89,7 +90,7 @@
       <Item value="dtpDOB" priority="3" />
       <Item value="this" priority="4" />
       <Item value="WindowTarget" priority="0" />
-      <Item value="clbRights" priority="22" />
+      <Item value="clbRights" priority="24" />
       <Item value="SelectionMode`0" priority="0" />
       <Item value="e" priority="2" />
       <Item value="KryptonCheckedListBox`0" priority="0" />
@@ -101,11 +102,11 @@
       <Item value="PaletteMode`0" priority="1" />
       <Item value="IsActive" priority="1" />
       <Item value="LoginForm`0" priority="1" />
-      <Item value="private" priority="3" />
-      <Item value="void" priority="1" />
+      <Item value="private" priority="4" />
+      <Item value="void" priority="2" />
       <Item value="listRights" priority="1" />
       <Item value="rightBUS" priority="1" />
-      <Item value="foreach" priority="2" />
+      <Item value="foreach" priority="3" />
       <Item value="right" priority="5" />
       <Item value="Constraint`0" priority="0" />
       <Item value="loadRight`0" priority="0" />
@@ -116,15 +117,15 @@
       <Item value="List&lt;RightDTO&gt;" priority="2" />
       <Item value="RoleBUS" priority="0" />
       <Item value="RightBUS" priority="0" />
-      <Item value="cbbRole" priority="1" />
+      <Item value="cbbRole" priority="2" />
       <Item value="RoleDTO`0" priority="1" />
       <Item value="selectedRole" priority="0" />
       <Item value="for" priority="1" />
       <Item value="List" priority="0" />
-      <Item value="RightDTO`0" priority="0" />
+      <Item value="RightDTO`0" priority="1" />
       <Item value="listRightForRole" priority="1" />
       <Item value="ClientSize" priority="1" />
-      <Item value="Constants`0" priority="1" />
+      <Item value="Constants`0" priority="3" />
       <Item value="ViewDrawMenuColorBlock`0" priority="0" />
       <Item value="sender" priority="0" />
       <Item value="index" priority="0" />
@@ -133,6 +134,10 @@
       <Item value="Form" priority="0" />
       <Item value="MainForm`0" priority="0" />
       <Item value="CenterToParent`0" priority="0" />
+      <Item value="Load" priority="0" />
+      <Item value="cbbStatus" priority="1" />
+      <Item value="const" priority="1" />
+      <Item value="rdbFull" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Windows.Forms.TreeView">
       <Item value="Nodes" priority="0" />
@@ -169,9 +174,9 @@
     </ItemStatistics>
     <ItemStatistics item="Qualified:ComponentFactory.Krypton.Toolkit.KryptonCheckedListBox">
       <Item value="SelectionMode" priority="1" />
-      <Item value="Items" priority="4" />
+      <Item value="Items" priority="5" />
       <Item value="SelectedValue" priority="0" />
-      <Item value="ListBox" priority="9" />
+      <Item value="ListBox" priority="11" />
       <Item value="CheckedItems" priority="0" />
       <Item value="SelectedItem" priority="2" />
       <Item value="SetItemChecked`0" priority="2" />
@@ -220,6 +225,8 @@
     </ItemStatistics>
     <ItemStatistics item="Qualified:ComponentFactory.Krypton.Toolkit.KryptonComboBox">
       <Item value="SelectedItem" priority="1" />
+      <Item value="Items" priority="1" />
+      <Item value="SelectedIndex" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:ChiTonPrivateEnterpriseManagement.Classes.DTO.RoleDTO">
       <Item value="RightsValue" priority="0" />
@@ -230,6 +237,12 @@
       <Item value="ValueMember" priority="0" />
       <Item value="DisplayMember" priority="0" />
       <Item value="SelectedIndex" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.ComboBox+ObjectCollection">
+      <Item value="Add`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ComponentFactory.Krypton.Toolkit.KryptonRadioButton">
+      <Item value="Checked" priority="0" />
     </ItemStatistics>
   </CompletionStatisticsManager>
 </Configuration>
