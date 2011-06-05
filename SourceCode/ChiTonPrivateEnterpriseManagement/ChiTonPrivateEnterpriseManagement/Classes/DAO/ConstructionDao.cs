@@ -12,11 +12,12 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
 {
     class ConstructionDao
     {
+
+
         public ConstructionDao()
         {
             Transaction = null;
         }
-
 
         public SqlTransaction Transaction { get; set; }
         private SqlConnection _con;
@@ -40,5 +41,81 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
         }
 
 
+        public List<ConstructionDTO> LoadAllConstructions()
+        {
+            var cmd = new SqlCommand("[dbo].[Construction_GetAll]", Connection);
+
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                List<ConstructionDTO> listcons = new List<ConstructionDTO>();
+                while (reader.Read())
+                {
+                    ConstructionDTO consDto = new ConstructionDTO
+                    {
+                        ConstructionID = Convert.ToInt64(reader["ConstructionID"]),
+                        ConstructionName = Convert.ToString(reader["ConstructionName"]),
+                        Description = Convert.ToString(reader["Description"]),
+                        ConstructionAddress = Convert.ToString(reader["ConstructionAddress"]),
+                        CommencementDate = Convert.ToDateTime(reader["CommencementDate"]),
+                        CompletionDate = Convert.ToDateTime(reader["CompletionDate"])
+                    };
+                    listcons.Add(consDto);
+                }
+                return listcons;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message, "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                if (Transaction == null) Connection.Close();
+            }
+        }
+
+
+        public bool CreateConstruction(string constructionName, string description,String constructionAddress ,
+                                       DateTime commencementDate, DateTime completionDate, long totalEstimateCost,
+                                        string status)
+        {
+            var cmd = new SqlCommand("[dbo].[Construction_Create]", Connection) { CommandType = CommandType.StoredProcedure };
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@constructionName", constructionName));
+                cmd.Parameters.Add(new SqlParameter("@description", description));
+                cmd.Parameters.Add(new SqlParameter("@constructionAddress", constructionAddress));
+                cmd.Parameters.Add(new SqlParameter("@commencementDate", commencementDate));
+                cmd.Parameters.Add(new SqlParameter("@completionDate", completionDate));
+                cmd.Parameters.Add(new SqlParameter("@totalEstimateCost", totalEstimateCost));
+                cmd.Parameters.Add(new SqlParameter("@status", status));
+                cmd.Parameters.Add(new SqlParameter("@hasEstimate", true));
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message);
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null)
+                    Connection.Close();
+            }
+        }
+
     }
+
+
 }
