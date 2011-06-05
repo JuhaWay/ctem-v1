@@ -9,6 +9,7 @@ using ComponentFactory.Krypton.Toolkit;
 using ChiTonPrivateEnterpriseManagement.Classes.Global;
 using ChiTonPrivateEnterpriseManagement.Classes.DTO;
 using ChiTonPrivateEnterpriseManagement.Classes.BUS;
+using ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction;
 using ChiTonPrivateEnterpriseManagement.ModuleForms.ManageMenu;
 using ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRights;
 using ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRole;
@@ -103,6 +104,10 @@ namespace ChiTonPrivateEnterpriseManagement
             {
                 NodeKey = Constants.MANAGE_USER_INFO_EN;
             }
+            if (MenuName.Equals(Constants.MANAGE_CONSTRUCTION_INFO_VN))
+            {
+                NodeKey = Constants.MANAGE_CONSTRUCTION_INFO_VN;
+            }
             return NodeKey;
         }
 
@@ -152,28 +157,35 @@ namespace ChiTonPrivateEnterpriseManagement
                 {
                     MenuManagement menuManagement = new MenuManagement();
                     menuManagement.MdiParent = this;
-                    k.Controls.Add(menuManagement);
+                    pnlMainContent.Controls.Add(menuManagement);
                     menuManagement.Show();
                 }
                 if (tvwMenu.Nodes[Constants.MANAGE_ROLE_EN].Nodes[Constants.MANAGE_ROLE_INFO_EN].IsSelected)
                 {
                     RoleManagement roleManagement = new RoleManagement(employerDTO);
                     roleManagement.MdiParent = this;
-                    k.Controls.Add(roleManagement);
+                    pnlMainContent.Controls.Add(roleManagement);
                     roleManagement.Show();
                 }
                 if (tvwMenu.Nodes[Constants.MANAGE_RIGHT_EN].Nodes[Constants.MANAGE_RIGHT_INFO_EN].IsSelected)
                 {
                     RightsManagement rightsManagement = new RightsManagement(employerDTO);
                     rightsManagement.MdiParent = this;
-                    k.Controls.Add(rightsManagement);
+                    pnlMainContent.Controls.Add(rightsManagement);
                     rightsManagement.Show();
+                }
+                if (tvwMenu.Nodes[Constants.MANAGE_CONSTRUCTION_INFO_VN].IsSelected)
+                {
+                    ConstructionManagement conManagement = new ConstructionManagement();
+                    conManagement.MdiParent = this;
+                    pnlMainContent.Controls.Add(conManagement);
+                    conManagement.Show();
                 }
                 if (tvwMenu.Nodes[Constants.MANAGE_USER_EN].Nodes[Constants.MANAGE_USER_INFO_EN].IsSelected)
                 {
                     EmployeeManagement employeeManagement = new EmployeeManagement(employerDTO);
                     employeeManagement.MdiParent = this;
-                    k.Controls.Add(employeeManagement);
+                    pnlMainContent.Controls.Add(employeeManagement);
                     employeeManagement.Show();
                 }
             }
