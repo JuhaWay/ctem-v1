@@ -14,6 +14,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
         public const string MANAGE_ROLE_VN = "QUẢN LÝ CHỨC VỤ";
         public const string MANAGE_RIGHT_VN = "QUẢN LÝ QUYỀN";
         public const string MANAGE_USER_VN = "QUẢN LÝ NHÂN VIÊN";
+        public const string MANAGE_CONSTRUCTION_INFO_VN = "QUẢN LÝ CÔNG TRÌNH";
         
         // Child Menus VN
         public const string MANAGE_MENU_INFO_VN = "Xem Toàn Bộ Thông Tin Menu";
