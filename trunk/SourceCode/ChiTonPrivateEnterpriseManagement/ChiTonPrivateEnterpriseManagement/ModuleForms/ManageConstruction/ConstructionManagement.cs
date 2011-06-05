@@ -35,7 +35,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
 
 
             listConstructions = _constructionBus.LoadAllConstructions();
-            kryptonDataGridView1.DataSource = listConstructions;
+            dgvCons.DataSource = listConstructions;
 
         }
 
@@ -43,6 +43,19 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
         {
             AddConstruction panel = new AddConstruction();
             panel.ShowDialog();
+        }
+
+        private void editButton_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in dgvCons.Rows)
+            {
+                DataGridViewCell c = dgvCons.Rows[row.Index].Cells[0];
+                if (c.AccessibilityObject.Value.Equals("True"))
+                {
+                    string strConstructionID = row.Cells["ConstructionID"].Value.ToString();
+                    long ConstructionID = Convert.ToInt64(strConstructionID);
+                }
+            }
         }
     }
 }
