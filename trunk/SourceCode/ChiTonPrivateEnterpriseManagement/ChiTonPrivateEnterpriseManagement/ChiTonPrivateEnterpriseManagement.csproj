@@ -69,17 +69,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\BUS\ConstructionBus.cs" />
     <Compile Include="Classes\BUS\RoleBUS.cs" />
     <Compile Include="Classes\BUS\LeftMenuBUS.cs" />
     <Compile Include="Classes\BUS\RightBUS.cs" />
     <Compile Include="Classes\BUS\EmployeeBUS.cs" />
+    <Compile Include="Classes\BUS\SubcontractorBUS.cs" />
+    <Compile Include="Classes\DAO\ConstructionDao.cs" />
     <Compile Include="Classes\DAO\EmployerDAO.cs" />
     <Compile Include="Classes\DAO\RoleDAO.cs" />
     <Compile Include="Classes\DAO\LeftMenuDAO.cs" />
     <Compile Include="Classes\DAO\RightDAO.cs" />
+    <Compile Include="Classes\DAO\SubcontractorDao.cs" />
     <Compile Include="Classes\DTO\ConstructionDTO.cs" />
     <Compile Include="Classes\DTO\RoleDTO.cs" />
     <Compile Include="Classes\DTO\LeftMenuDTO.cs" />
+    <Compile Include="Classes\DTO\SubcontractorDTO.cs" />
     <Compile Include="Classes\DTO\WorkerDTO.cs" />
     <Compile Include="Classes\DTO\WorkerConstructionDTO.cs" />
     <Compile Include="Classes\DTO\RightDTO.cs" />
@@ -119,6 +124,24 @@
     </Compile>
     <Compile Include="ModuleForms\CommonForm.Designer.cs">
       <DependentUpon>CommonForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleForms\ManageConstruction\AddConstruction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForms\ManageConstruction\AddConstruction.Designer.cs">
+      <DependentUpon>AddConstruction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleForms\ManageConstruction\ConstructionManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForms\ManageConstruction\ConstructionManagement.Designer.cs">
+      <DependentUpon>ConstructionManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleForms\ManageConstruction\SelectSubConstructionBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForms\ManageConstruction\SelectSubConstructionBox.Designer.cs">
+      <DependentUpon>SelectSubConstructionBox.cs</DependentUpon>
     </Compile>
     <Compile Include="ModuleForms\ManageEmployee\EmployeeManagement.cs">
       <SubType>Form</SubType>
@@ -187,6 +210,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ModuleForms\CommonForm.resx">
       <DependentUpon>CommonForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\ManageConstruction\AddConstruction.resx">
+      <DependentUpon>AddConstruction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\ManageConstruction\ConstructionManagement.resx">
+      <DependentUpon>ConstructionManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\ManageConstruction\SelectSubConstructionBox.resx">
+      <DependentUpon>SelectSubConstructionBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModuleForms\ManageEmployee\EmployeeManagement.resx">
       <DependentUpon>EmployeeManagement.cs</DependentUpon>
