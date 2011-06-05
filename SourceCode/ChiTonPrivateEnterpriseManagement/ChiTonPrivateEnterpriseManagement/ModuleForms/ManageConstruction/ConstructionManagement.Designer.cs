@@ -29,27 +29,28 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.kryptonPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonGroupBox1 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.editButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.removeButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.addButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.kryptonDataGridView1 = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.ConstructionID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvCons = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
+            this.checkBox = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).BeginInit();
             this.kryptonGroupBox1.Panel.SuspendLayout();
             this.kryptonGroupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonDataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCons)).BeginInit();
             this.SuspendLayout();
             // 
             // kryptonPanel
             // 
             this.kryptonPanel.Controls.Add(this.kryptonGroupBox1);
-            this.kryptonPanel.Controls.Add(this.kryptonDataGridView1);
+            this.kryptonPanel.Controls.Add(this.dgvCons);
             this.kryptonPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonPanel.Location = new System.Drawing.Point(0, 0);
             this.kryptonPanel.Name = "kryptonPanel";
@@ -76,6 +77,7 @@
             this.editButton.Size = new System.Drawing.Size(90, 25);
             this.editButton.TabIndex = 2;
             this.editButton.Values.Text = "Sửa công trình";
+            this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
             // removeButton
             // 
@@ -95,20 +97,26 @@
             this.addButton.Values.Text = "Tạo công trình";
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
-            // kryptonDataGridView1
+            // dgvCons
             // 
-            this.kryptonDataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ConstructionID});
-            this.kryptonDataGridView1.Location = new System.Drawing.Point(3, 96);
-            this.kryptonDataGridView1.Name = "kryptonDataGridView1";
-            this.kryptonDataGridView1.Size = new System.Drawing.Size(932, 460);
-            this.kryptonDataGridView1.TabIndex = 0;
+            this.dgvCons.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.checkBox});
+            this.dgvCons.Location = new System.Drawing.Point(3, 96);
+            this.dgvCons.Name = "dgvCons";
+            this.dgvCons.Size = new System.Drawing.Size(932, 460);
+            this.dgvCons.TabIndex = 0;
             // 
-            // ConstructionID
+            // checkBox
             // 
-            this.ConstructionID.DataPropertyName = "ConstructionID";
-            this.ConstructionID.HeaderText = "ConstructionID";
-            this.ConstructionID.Name = "ConstructionID";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.NullValue = false;
+            this.checkBox.DefaultCellStyle = dataGridViewCellStyle1;
+            this.checkBox.FalseValue = null;
+            this.checkBox.HeaderText = "";
+            this.checkBox.IndeterminateValue = null;
+            this.checkBox.Name = "checkBox";
+            this.checkBox.TrueValue = null;
+            this.checkBox.Width = 30;
             // 
             // ConstructionManagement
             // 
@@ -124,7 +132,7 @@
             this.kryptonGroupBox1.Panel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).EndInit();
             this.kryptonGroupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonDataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCons)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -134,12 +142,12 @@
         private ComponentFactory.Krypton.Toolkit.KryptonManager kryptonManager;
         private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel;
         private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPalette1;
-        private ComponentFactory.Krypton.Toolkit.KryptonDataGridView kryptonDataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ConstructionID;
+        private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dgvCons;
         private ComponentFactory.Krypton.Toolkit.KryptonGroupBox kryptonGroupBox1;
         private ComponentFactory.Krypton.Toolkit.KryptonButton addButton;
         private ComponentFactory.Krypton.Toolkit.KryptonButton editButton;
         private ComponentFactory.Krypton.Toolkit.KryptonButton removeButton;
+        private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewCheckBoxColumn checkBox;
     }
 }
 

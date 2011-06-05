@@ -218,6 +218,7 @@
             // 
             // dtEndDate
             // 
+            this.dtEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtEndDate.Location = new System.Drawing.Point(453, 56);
             this.dtEndDate.Name = "dtEndDate";
             this.dtEndDate.Size = new System.Drawing.Size(172, 20);
@@ -289,11 +290,11 @@
             // 
             // lbSubcons
             // 
-            this.lbSubcons.Location = new System.Drawing.Point(60, 13);
+            this.lbSubcons.Location = new System.Drawing.Point(75, 7);
             this.lbSubcons.Name = "lbSubcons";
-            this.lbSubcons.Size = new System.Drawing.Size(18, 19);
+            this.lbSubcons.Size = new System.Drawing.Size(148, 19);
             this.lbSubcons.TabIndex = 0;
-            this.lbSubcons.Values.Text = "...";
+            this.lbSubcons.Values.Text = "Chưa có nhà thầu phụ nào :";
             // 
             // rdhasEstimate
             // 
