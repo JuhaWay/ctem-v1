@@ -21,10 +21,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
             InitializeComponent();
         }
 
-        public AddConstruction()
-        {
-           
-        }
 
         private void rdSubcon_CheckedChanged(object sender, EventArgs e)
         {
