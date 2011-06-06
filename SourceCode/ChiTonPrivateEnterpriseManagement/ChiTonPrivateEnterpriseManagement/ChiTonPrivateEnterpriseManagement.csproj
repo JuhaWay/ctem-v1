@@ -58,7 +58,7 @@
       <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="ExpandableGridView">
-      <HintPath>C:\Documents and Settings\vuong.nguyen\Desktop\TreeGridView\bin\Debug\ExpandableGridView.dll</HintPath>
+      <HintPath>..\..\..\Tools\dll\ExpandableGridView.dll</HintPath>
     </Reference>
     <Reference Include="FastDataAccess">
       <HintPath>..\..\..\..\ViVuFace\source\VivuFace_V2\bin\FastDataAccess.dll</HintPath>
