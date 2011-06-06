@@ -57,6 +57,9 @@
     <Reference Include="ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
+    <Reference Include="ExpandableGridView">
+      <HintPath>C:\Documents and Settings\vuong.nguyen\Desktop\TreeGridView\bin\Debug\ExpandableGridView.dll</HintPath>
+    </Reference>
     <Reference Include="FastDataAccess">
       <HintPath>..\..\..\..\ViVuFace\source\VivuFace_V2\bin\FastDataAccess.dll</HintPath>
     </Reference>
