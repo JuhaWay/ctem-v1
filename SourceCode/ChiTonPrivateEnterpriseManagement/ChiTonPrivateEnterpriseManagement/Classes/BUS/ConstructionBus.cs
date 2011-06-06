@@ -22,5 +22,18 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
                                                         status);
         }
 
+        public ConstructionDTO LoadConstructionById(long id)
+        {
+            return _constructionDao.LoadConstructionById(id);
+        }
+        public bool updateConstruction(long constructionID,string constructionName, string description, String constructionAddress,
+                                       DateTime commencementDate, DateTime completionDate, long totalEstimateCost,
+                                        string status)
+        {
+            return _constructionDao.UpdateConstrction(constructionID,constructionName, description, constructionAddress,
+                                                        commencementDate, completionDate, totalEstimateCost,
+                                                        status);
+        }
+
     }
 }
