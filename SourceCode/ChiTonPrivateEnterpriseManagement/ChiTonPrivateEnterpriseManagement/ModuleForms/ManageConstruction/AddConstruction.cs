@@ -15,11 +15,26 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
     {
         private List<SubcontractorDTO> subCons = new List<SubcontractorDTO>();
         private ConstructionBus _constructionBus = new ConstructionBus();
+        private long ConstructionID;
+        private bool update = false;
 
         public AddConstruction()
         {
             InitializeComponent();
         }
+
+        public AddConstruction(long constructionId)
+        {
+            InitializeComponent();
+            update = true;
+            ConstructionDTO dto = _constructionBus.LoadConstructionById(constructionId);
+            ConstructionID = dto.ConstructionID;
+            ipConstructionName.Text = dto.ConstructionName;
+            ipDes.Text = dto.ConstructionAddress;
+            ipAddress.Text = dto.ConstructionAddress;
+            cbStatus.SelectedItem = dto.Status;
+        }
+
 
 
         private void rdSubcon_CheckedChanged(object sender, EventArgs e)
@@ -48,12 +63,24 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
 
         private void btSave_Click(object sender, EventArgs e)
         {
-            DateTime startDate = DateTime.Parse(dtStartDate.Text);
-            DateTime endDate = DateTime.Parse(dtEndDate.Text);
-            bool test = 
-                _constructionBus.CreateConstruction(ipConstructionName.Text,ipDes.Text,ipAddress.Text,
-                               startDate, endDate,Convert.ToInt64(ipTotalCost.Text),cbStatus.Text);
-            MessageBox.Show("" + test);
+            if (!update)
+            {
+                DateTime startDate = DateTime.Parse(dtStartDate.Text);
+                DateTime endDate = DateTime.Parse(dtEndDate.Text);
+                bool test =
+                    _constructionBus.CreateConstruction(ipConstructionName.Text, ipDes.Text, ipAddress.Text,
+                                   startDate, endDate, Convert.ToInt64(ipTotalCost.Text), cbStatus.Text);
+                MessageBox.Show("" + test);
+            }
+            else
+            {
+                DateTime startDate = DateTime.Parse(dtStartDate.Text);
+                DateTime endDate = DateTime.Parse(dtEndDate.Text);
+                bool test =
+                    _constructionBus.updateConstruction(ConstructionID,ipConstructionName.Text, ipDes.Text, ipAddress.Text,
+                                   startDate, endDate, Convert.ToInt64(ipTotalCost.Text), cbStatus.Text);
+                MessageBox.Show("" + test);
+            }
         }
 
         private void rdhasEstimate_CheckedChanged(object sender, EventArgs e)

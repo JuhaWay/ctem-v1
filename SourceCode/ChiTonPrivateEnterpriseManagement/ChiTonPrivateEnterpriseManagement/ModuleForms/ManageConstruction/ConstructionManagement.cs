@@ -30,6 +30,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
 
         private void ConstructionManagement_Load(object sender, EventArgs e)
         {
+            
             DatabaseInfo dbInfo;
             dbInfo = new DatabaseInfo();
             dbInfo.LoadInfo();
@@ -39,9 +40,9 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
                 //dgvCons.DataSource = listConstructions;
                 foreach (ConstructionDTO dto in listConstructions)
                 {
-                    TreeGridNode node = dgvCons.Nodes.Add(null, dto.ConstructionName, dto.Description, dto.ConstructionAddress,
+                    TreeGridNode node = dgvCons.Nodes.Add(null,dto.ConstructionID, dto.ConstructionName, dto.Description, dto.ConstructionAddress,
                         dto.CommencementDate.ToString(), dto.CompletionDate.ToString(), "123");
-                    node.Nodes.Add(null, dto.ConstructionName, dto.Description, dto.ConstructionAddress,
+                    node.Nodes.Add(null, dto.ConstructionID, dto.ConstructionName, dto.Description, dto.ConstructionAddress,
                         dto.CommencementDate.ToString(), dto.CompletionDate.ToString(), "123"); ;
                 }
           
@@ -56,7 +57,32 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
 
         private void editButton_Click(object sender, EventArgs e)
         {
-            
+            AddConstruction form = new AddConstruction();
+
+            foreach (DataGridViewRow row in dgvCons.Rows)
+            {
+                DataGridViewCell c = dgvCons.Rows[row.Index].Cells[0];
+                if (c.AccessibilityObject.Value.Equals("True"))
+                {
+                    string strRightID = row.Cells["ConstructionID"].Value.ToString();
+                    long ConstructionID = Convert.ToInt64(strRightID);
+                    AddConstruction editForm = new AddConstruction(ConstructionID);
+                    editForm.ShowDialog();
+                }
+            }
         }
+
+        private void dgvCons_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if(e.ColumnIndex==0){
+            dgvCons.BeginEdit(true);
+            DataGridViewCell c = dgvCons.Rows[e.RowIndex].Cells[0];
+            if (c.AccessibilityObject.Value.Equals("False"))
+                    c.AccessibilityObject.Value = "True";
+            else
+                c.AccessibilityObject.Value = "False";
+            }
+        }
+
     }
 }
