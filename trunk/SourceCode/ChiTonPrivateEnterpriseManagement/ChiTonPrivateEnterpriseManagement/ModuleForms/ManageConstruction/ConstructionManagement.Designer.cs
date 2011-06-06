@@ -38,7 +38,8 @@
             this.removeButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.addButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
-            this.checkBox = new System.Windows.Forms.DataGridViewImageColumn();
+            this.checkBox = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewCheckBoxColumn();
+            this.ConstructionID = new AdvancedDataGridView.TreeGridColumn();
             this.ConstructionName = new AdvancedDataGridView.TreeGridColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ConstructionAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,6 +70,7 @@
             this.dgvCons.AllowUserToDeleteRows = false;
             this.dgvCons.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.checkBox,
+            this.ConstructionID,
             this.ConstructionName,
             this.Description,
             this.ConstructionAddress,
@@ -79,8 +81,9 @@
             this.dgvCons.ImageList = null;
             this.dgvCons.Location = new System.Drawing.Point(3, 96);
             this.dgvCons.Name = "dgvCons";
-            this.dgvCons.Size = new System.Drawing.Size(929, 466);
+            this.dgvCons.Size = new System.Drawing.Size(929, 463);
             this.dgvCons.TabIndex = 2;
+            this.dgvCons.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvCons_CellMouseDown);
             // 
             // kryptonGroupBox1
             // 
@@ -124,23 +127,35 @@
             // 
             // checkBox
             // 
-
             this.checkBox.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.NullValue = null;
+            dataGridViewCellStyle1.NullValue = false;
             this.checkBox.DefaultCellStyle = dataGridViewCellStyle1;
+            this.checkBox.FalseValue = null;
             this.checkBox.FillWeight = 51.53443F;
             this.checkBox.HeaderText = "";
+            this.checkBox.IndeterminateValue = null;
             this.checkBox.MinimumWidth = 25;
             this.checkBox.Name = "checkBox";
             this.checkBox.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.checkBox.TrueValue = null;
             this.checkBox.Width = 25;
+            // 
+            // ConstructionID
+            // 
+            this.ConstructionID.DefaultNodeImage = null;
+            this.ConstructionID.HeaderText = "ConstructionID";
+            this.ConstructionID.Name = "ConstructionID";
+            this.ConstructionID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ConstructionID.Visible = false;
             // 
             // ConstructionName
             // 
+            this.ConstructionName.DefaultNodeImage = null;
             this.ConstructionName.HeaderText = "Tên công trình";
             this.ConstructionName.Name = "ConstructionName";
             this.ConstructionName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ConstructionName.Width = 250;
             // 
             // Description
             // 
@@ -201,7 +216,8 @@
         private ComponentFactory.Krypton.Toolkit.KryptonButton editButton;
         private ComponentFactory.Krypton.Toolkit.KryptonButton removeButton;
         private AdvancedDataGridView.TreeGridView dgvCons;
-        private System.Windows.Forms.DataGridViewImageColumn checkBox;
+        private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewCheckBoxColumn checkBox;
+        private AdvancedDataGridView.TreeGridColumn ConstructionID;
         private AdvancedDataGridView.TreeGridColumn ConstructionName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Description;
         private System.Windows.Forms.DataGridViewTextBoxColumn ConstructionAddress;
