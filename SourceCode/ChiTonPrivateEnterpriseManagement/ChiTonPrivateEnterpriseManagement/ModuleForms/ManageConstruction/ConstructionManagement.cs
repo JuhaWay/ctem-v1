@@ -9,6 +9,7 @@ using ComponentFactory.Krypton.Toolkit;
 using ChiTonPrivateEnterpriseManagement.Classes.Modules;
 using ChiTonPrivateEnterpriseManagement.Classes.BUS;
 using ChiTonPrivateEnterpriseManagement.Classes.DTO;
+using AdvancedDataGridView;
 
 namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
 {
@@ -33,9 +34,17 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
             dbInfo = new DatabaseInfo();
             dbInfo.LoadInfo();
 
-
-            listConstructions = _constructionBus.LoadAllConstructions();
-            dgvCons.DataSource = listConstructions;
+          
+                listConstructions = _constructionBus.LoadAllConstructions();
+                //dgvCons.DataSource = listConstructions;
+                foreach (ConstructionDTO dto in listConstructions)
+                {
+                    TreeGridNode node = dgvCons.Nodes.Add(null, dto.ConstructionName, dto.Description, dto.ConstructionAddress,
+                        dto.CommencementDate.ToString(), dto.CompletionDate.ToString(), "123");
+                    node.Nodes.Add(null, dto.ConstructionName, dto.Description, dto.ConstructionAddress,
+                        dto.CommencementDate.ToString(), dto.CompletionDate.ToString(), "123"); ;
+                }
+          
 
         }
 
@@ -47,15 +56,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
 
         private void editButton_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in dgvCons.Rows)
-            {
-                DataGridViewCell c = dgvCons.Rows[row.Index].Cells[0];
-                if (c.AccessibilityObject.Value.Equals("True"))
-                {
-                    string strConstructionID = row.Cells["ConstructionID"].Value.ToString();
-                    long ConstructionID = Convert.ToInt64(strConstructionID);
-                }
-            }
+            
         }
     }
 }

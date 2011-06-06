@@ -32,30 +32,55 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.kryptonPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.dgvCons = new AdvancedDataGridView.TreeGridView();
             this.kryptonGroupBox1 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.editButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.removeButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.addButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.dgvCons = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
-            this.checkBox = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewCheckBoxColumn();
+            this.checkBox = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ConstructionName = new AdvancedDataGridView.TreeGridColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ConstructionAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CommencementDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CompletionDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalEstimateCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).BeginInit();
             this.kryptonGroupBox1.Panel.SuspendLayout();
             this.kryptonGroupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCons)).BeginInit();
             this.SuspendLayout();
             // 
             // kryptonPanel
             // 
-            this.kryptonPanel.Controls.Add(this.kryptonGroupBox1);
             this.kryptonPanel.Controls.Add(this.dgvCons);
+            this.kryptonPanel.Controls.Add(this.kryptonGroupBox1);
             this.kryptonPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonPanel.Location = new System.Drawing.Point(0, 0);
             this.kryptonPanel.Name = "kryptonPanel";
             this.kryptonPanel.Size = new System.Drawing.Size(935, 562);
             this.kryptonPanel.TabIndex = 0;
+            // 
+            // dgvCons
+            // 
+            this.dgvCons.AllowUserToAddRows = false;
+            this.dgvCons.AllowUserToDeleteRows = false;
+            this.dgvCons.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.checkBox,
+            this.ConstructionName,
+            this.Description,
+            this.ConstructionAddress,
+            this.CommencementDate,
+            this.CompletionDate,
+            this.TotalEstimateCost});
+            this.dgvCons.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvCons.ImageList = null;
+            this.dgvCons.Location = new System.Drawing.Point(3, 96);
+            this.dgvCons.Name = "dgvCons";
+            this.dgvCons.Size = new System.Drawing.Size(929, 466);
+            this.dgvCons.TabIndex = 2;
             // 
             // kryptonGroupBox1
             // 
@@ -97,26 +122,55 @@
             this.addButton.Values.Text = "Tạo công trình";
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
-            // dgvCons
-            // 
-            this.dgvCons.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.checkBox});
-            this.dgvCons.Location = new System.Drawing.Point(3, 96);
-            this.dgvCons.Name = "dgvCons";
-            this.dgvCons.Size = new System.Drawing.Size(932, 460);
-            this.dgvCons.TabIndex = 0;
-            // 
             // checkBox
             // 
+
+            this.checkBox.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.NullValue = false;
+            dataGridViewCellStyle1.NullValue = null;
             this.checkBox.DefaultCellStyle = dataGridViewCellStyle1;
-            this.checkBox.FalseValue = null;
+            this.checkBox.FillWeight = 51.53443F;
             this.checkBox.HeaderText = "";
-            this.checkBox.IndeterminateValue = null;
+            this.checkBox.MinimumWidth = 25;
             this.checkBox.Name = "checkBox";
-            this.checkBox.TrueValue = null;
-            this.checkBox.Width = 30;
+            this.checkBox.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.checkBox.Width = 25;
+            // 
+            // ConstructionName
+            // 
+            this.ConstructionName.HeaderText = "Tên công trình";
+            this.ConstructionName.Name = "ConstructionName";
+            this.ConstructionName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Description
+            // 
+            this.Description.HeaderText = "Mô tả";
+            this.Description.Name = "Description";
+            this.Description.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // ConstructionAddress
+            // 
+            this.ConstructionAddress.HeaderText = "Địa chỉ";
+            this.ConstructionAddress.Name = "ConstructionAddress";
+            this.ConstructionAddress.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // CommencementDate
+            // 
+            this.CommencementDate.HeaderText = "Ngày khởi công";
+            this.CommencementDate.Name = "CommencementDate";
+            this.CommencementDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // CompletionDate
+            // 
+            this.CompletionDate.HeaderText = "Hạn hoàn thành";
+            this.CompletionDate.Name = "CompletionDate";
+            this.CompletionDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // TotalEstimateCost
+            // 
+            this.TotalEstimateCost.HeaderText = "Chi phí dự toán";
+            this.TotalEstimateCost.Name = "TotalEstimateCost";
+            this.TotalEstimateCost.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // ConstructionManagement
             // 
@@ -129,10 +183,10 @@
             this.Load += new System.EventHandler(this.ConstructionManagement_Load);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).EndInit();
             this.kryptonPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCons)).EndInit();
             this.kryptonGroupBox1.Panel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).EndInit();
             this.kryptonGroupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCons)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -142,12 +196,18 @@
         private ComponentFactory.Krypton.Toolkit.KryptonManager kryptonManager;
         private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel;
         private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPalette1;
-        private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dgvCons;
         private ComponentFactory.Krypton.Toolkit.KryptonGroupBox kryptonGroupBox1;
         private ComponentFactory.Krypton.Toolkit.KryptonButton addButton;
         private ComponentFactory.Krypton.Toolkit.KryptonButton editButton;
         private ComponentFactory.Krypton.Toolkit.KryptonButton removeButton;
-        private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewCheckBoxColumn checkBox;
+        private AdvancedDataGridView.TreeGridView dgvCons;
+        private System.Windows.Forms.DataGridViewImageColumn checkBox;
+        private AdvancedDataGridView.TreeGridColumn ConstructionName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Description;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ConstructionAddress;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CommencementDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CompletionDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalEstimateCost;
     }
 }
 
