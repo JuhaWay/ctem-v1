@@ -34,6 +34,9 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
                                                         commencementDate, completionDate, totalEstimateCost,
                                                         status);
         }
-
+        public ConstructionDTO LoadConstructionByName(string name)
+        {
+            return _constructionDao.LoadConstructionByName(name);
+        }
     }
 }
