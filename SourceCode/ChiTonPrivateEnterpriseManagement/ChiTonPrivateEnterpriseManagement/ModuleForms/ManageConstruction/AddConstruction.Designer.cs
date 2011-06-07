@@ -33,7 +33,6 @@
             this.panel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.btCancel = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btSave = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.btEditSubcons = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryptonGroupBox2 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.dtStartDate = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
             this.ipDes = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
@@ -52,11 +51,13 @@
             this.ipConstructionName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.lbConstructionName = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.pnSubcons = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
-            this.lbSubcons = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.rdhasEstimate = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
             this.rdSubcon = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
             this.rdNoEstimate = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
             this.lbSCType = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.cbSubcon = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.lbSubcon = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.btCreateSubcon = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)(this.panel)).BeginInit();
             this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox2)).BeginInit();
@@ -67,6 +68,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pnSubcons)).BeginInit();
             this.pnSubcons.Panel.SuspendLayout();
             this.pnSubcons.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbSubcon)).BeginInit();
             this.SuspendLayout();
             // 
             // panel
@@ -102,16 +104,6 @@
             this.btSave.Values.Text = "Lưu";
             this.btSave.Click += new System.EventHandler(this.btSave_Click);
             // 
-            // btEditSubcons
-            // 
-            this.btEditSubcons.Enabled = false;
-            this.btEditSubcons.Location = new System.Drawing.Point(15, 7);
-            this.btEditSubcons.Name = "btEditSubcons";
-            this.btEditSubcons.Size = new System.Drawing.Size(39, 25);
-            this.btEditSubcons.TabIndex = 8;
-            this.btEditSubcons.Values.Text = "Sửa";
-            this.btEditSubcons.Click += new System.EventHandler(this.btEditSubcons_Click);
-            // 
             // kryptonGroupBox2
             // 
             this.kryptonGroupBox2.Location = new System.Drawing.Point(19, 135);
@@ -143,7 +135,7 @@
             this.dtStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtStartDate.Location = new System.Drawing.Point(178, 55);
             this.dtStartDate.Name = "dtStartDate";
-            this.dtStartDate.Size = new System.Drawing.Size(159, 20);
+            this.dtStartDate.Size = new System.Drawing.Size(159, 18);
             this.dtStartDate.TabIndex = 19;
             // 
             // ipDes
@@ -159,7 +151,7 @@
             // 
             this.lbDes.Location = new System.Drawing.Point(60, 200);
             this.lbDes.Name = "lbDes";
-            this.lbDes.Size = new System.Drawing.Size(45, 19);
+            this.lbDes.Size = new System.Drawing.Size(45, 16);
             this.lbDes.TabIndex = 17;
             this.lbDes.Values.Text = "Mô tả :";
             // 
@@ -168,7 +160,7 @@
             this.cbParent.DropDownWidth = 159;
             this.cbParent.Location = new System.Drawing.Point(178, 150);
             this.cbParent.Name = "cbParent";
-            this.cbParent.Size = new System.Drawing.Size(159, 22);
+            this.cbParent.Size = new System.Drawing.Size(159, 20);
             this.cbParent.TabIndex = 16;
             this.cbParent.Text = "chọn...";
             // 
@@ -176,7 +168,7 @@
             // 
             this.lbParent.Location = new System.Drawing.Point(60, 150);
             this.lbParent.Name = "lbParent";
-            this.lbParent.Size = new System.Drawing.Size(89, 19);
+            this.lbParent.Size = new System.Drawing.Size(90, 16);
             this.lbParent.TabIndex = 15;
             this.lbParent.Values.Text = "Công trình cha :";
             // 
@@ -189,7 +181,7 @@
             "Treo"});
             this.cbStatus.Location = new System.Drawing.Point(453, 105);
             this.cbStatus.Name = "cbStatus";
-            this.cbStatus.Size = new System.Drawing.Size(172, 22);
+            this.cbStatus.Size = new System.Drawing.Size(172, 20);
             this.cbStatus.TabIndex = 14;
             this.cbStatus.Text = "chọn...";
             // 
@@ -197,7 +189,7 @@
             // 
             this.lbState.Location = new System.Drawing.Point(348, 108);
             this.lbState.Name = "lbState";
-            this.lbState.Size = new System.Drawing.Size(67, 19);
+            this.lbState.Size = new System.Drawing.Size(67, 16);
             this.lbState.TabIndex = 13;
             this.lbState.Values.Text = "Tình trạng :";
             // 
@@ -205,14 +197,14 @@
             // 
             this.ipTotalCost.Location = new System.Drawing.Point(178, 108);
             this.ipTotalCost.Name = "ipTotalCost";
-            this.ipTotalCost.Size = new System.Drawing.Size(159, 22);
+            this.ipTotalCost.Size = new System.Drawing.Size(159, 20);
             this.ipTotalCost.TabIndex = 12;
             // 
             // lbTotalCost
             // 
             this.lbTotalCost.Location = new System.Drawing.Point(60, 111);
             this.lbTotalCost.Name = "lbTotalCost";
-            this.lbTotalCost.Size = new System.Drawing.Size(93, 19);
+            this.lbTotalCost.Size = new System.Drawing.Size(92, 16);
             this.lbTotalCost.TabIndex = 11;
             this.lbTotalCost.Values.Text = "Chi phí dự toán :";
             // 
@@ -221,14 +213,14 @@
             this.dtEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtEndDate.Location = new System.Drawing.Point(453, 56);
             this.dtEndDate.Name = "dtEndDate";
-            this.dtEndDate.Size = new System.Drawing.Size(172, 20);
+            this.dtEndDate.Size = new System.Drawing.Size(172, 18);
             this.dtEndDate.TabIndex = 10;
             // 
             // lbEndDate
             // 
             this.lbEndDate.Location = new System.Drawing.Point(343, 56);
             this.lbEndDate.Name = "lbEndDate";
-            this.lbEndDate.Size = new System.Drawing.Size(86, 19);
+            this.lbEndDate.Size = new System.Drawing.Size(85, 16);
             this.lbEndDate.TabIndex = 9;
             this.lbEndDate.Values.Text = "Ngày kết thúc :";
             // 
@@ -236,7 +228,7 @@
             // 
             this.lbStartDate.Location = new System.Drawing.Point(60, 57);
             this.lbStartDate.Name = "lbStartDate";
-            this.lbStartDate.Size = new System.Drawing.Size(95, 19);
+            this.lbStartDate.Size = new System.Drawing.Size(94, 16);
             this.lbStartDate.TabIndex = 7;
             this.lbStartDate.Values.Text = "Ngày khởi công :";
             // 
@@ -244,14 +236,14 @@
             // 
             this.ipAddress.Location = new System.Drawing.Point(453, 3);
             this.ipAddress.Name = "ipAddress";
-            this.ipAddress.Size = new System.Drawing.Size(172, 22);
+            this.ipAddress.Size = new System.Drawing.Size(172, 20);
             this.ipAddress.TabIndex = 6;
             // 
             // lbAddress
             // 
             this.lbAddress.Location = new System.Drawing.Point(348, 6);
             this.lbAddress.Name = "lbAddress";
-            this.lbAddress.Size = new System.Drawing.Size(50, 19);
+            this.lbAddress.Size = new System.Drawing.Size(51, 16);
             this.lbAddress.TabIndex = 4;
             this.lbAddress.Values.Text = "Địa chỉ :";
             // 
@@ -259,14 +251,14 @@
             // 
             this.ipConstructionName.Location = new System.Drawing.Point(178, 3);
             this.ipConstructionName.Name = "ipConstructionName";
-            this.ipConstructionName.Size = new System.Drawing.Size(159, 22);
+            this.ipConstructionName.Size = new System.Drawing.Size(159, 20);
             this.ipConstructionName.TabIndex = 3;
             // 
             // lbConstructionName
             // 
             this.lbConstructionName.Location = new System.Drawing.Point(66, 3);
             this.lbConstructionName.Name = "lbConstructionName";
-            this.lbConstructionName.Size = new System.Drawing.Size(89, 19);
+            this.lbConstructionName.Size = new System.Drawing.Size(89, 16);
             this.lbConstructionName.TabIndex = 2;
             this.lbConstructionName.Values.Text = "Tên công trình :";
             // 
@@ -278,8 +270,9 @@
             // 
             // pnSubcons.Panel
             // 
-            this.pnSubcons.Panel.Controls.Add(this.lbSubcons);
-            this.pnSubcons.Panel.Controls.Add(this.btEditSubcons);
+            this.pnSubcons.Panel.Controls.Add(this.btCreateSubcon);
+            this.pnSubcons.Panel.Controls.Add(this.lbSubcon);
+            this.pnSubcons.Panel.Controls.Add(this.cbSubcon);
             this.pnSubcons.Size = new System.Drawing.Size(697, 71);
             this.pnSubcons.StateDisabled.Border.Color1 = System.Drawing.Color.Silver;
             this.pnSubcons.StateDisabled.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
@@ -288,19 +281,11 @@
             this.pnSubcons.TabIndex = 6;
             this.pnSubcons.Values.Heading = "Nhà thầu phụ";
             // 
-            // lbSubcons
-            // 
-            this.lbSubcons.Location = new System.Drawing.Point(75, 7);
-            this.lbSubcons.Name = "lbSubcons";
-            this.lbSubcons.Size = new System.Drawing.Size(148, 19);
-            this.lbSubcons.TabIndex = 0;
-            this.lbSubcons.Values.Text = "Chưa có nhà thầu phụ nào :";
-            // 
             // rdhasEstimate
             // 
             this.rdhasEstimate.Location = new System.Drawing.Point(211, 12);
             this.rdhasEstimate.Name = "rdhasEstimate";
-            this.rdhasEstimate.Size = new System.Drawing.Size(78, 19);
+            this.rdhasEstimate.Size = new System.Drawing.Size(77, 16);
             this.rdhasEstimate.TabIndex = 5;
             this.rdhasEstimate.Values.Text = "Có dự toán";
             this.rdhasEstimate.CheckedChanged += new System.EventHandler(this.rdhasEstimate_CheckedChanged);
@@ -309,7 +294,7 @@
             // 
             this.rdSubcon.Location = new System.Drawing.Point(114, 12);
             this.rdSubcon.Name = "rdSubcon";
-            this.rdSubcon.Size = new System.Drawing.Size(91, 19);
+            this.rdSubcon.Size = new System.Drawing.Size(90, 16);
             this.rdSubcon.TabIndex = 4;
             this.rdSubcon.Values.Text = "Nhà thầu phụ";
             this.rdSubcon.CheckedChanged += new System.EventHandler(this.rdSubcon_CheckedChanged);
@@ -318,7 +303,7 @@
             // 
             this.rdNoEstimate.Location = new System.Drawing.Point(295, 12);
             this.rdNoEstimate.Name = "rdNoEstimate";
-            this.rdNoEstimate.Size = new System.Drawing.Size(97, 19);
+            this.rdNoEstimate.Size = new System.Drawing.Size(96, 16);
             this.rdNoEstimate.TabIndex = 3;
             this.rdNoEstimate.Values.Text = "Không dự toán";
             this.rdNoEstimate.CheckedChanged += new System.EventHandler(this.rdNoEstimate_CheckedChanged);
@@ -327,9 +312,35 @@
             // 
             this.lbSCType.Location = new System.Drawing.Point(19, 12);
             this.lbSCType.Name = "lbSCType";
-            this.lbSCType.Size = new System.Drawing.Size(91, 19);
+            this.lbSCType.Size = new System.Drawing.Size(90, 16);
             this.lbSCType.TabIndex = 2;
             this.lbSCType.Values.Text = "Loại công trình :";
+            // 
+            // cbSubcon
+            // 
+            this.cbSubcon.DropDownWidth = 121;
+            this.cbSubcon.Location = new System.Drawing.Point(234, 14);
+            this.cbSubcon.Name = "cbSubcon";
+            this.cbSubcon.Size = new System.Drawing.Size(121, 20);
+            this.cbSubcon.TabIndex = 0;
+            this.cbSubcon.Text = "chọn...";
+            // 
+            // lbSubcon
+            // 
+            this.lbSubcon.Location = new System.Drawing.Point(133, 18);
+            this.lbSubcon.Name = "lbSubcon";
+            this.lbSubcon.Size = new System.Drawing.Size(83, 16);
+            this.lbSubcon.TabIndex = 1;
+            this.lbSubcon.Values.Text = "Tên nhà thầu :";
+            // 
+            // btCreateSubcon
+            // 
+            this.btCreateSubcon.Location = new System.Drawing.Point(361, 14);
+            this.btCreateSubcon.Name = "btCreateSubcon";
+            this.btCreateSubcon.Size = new System.Drawing.Size(67, 20);
+            this.btCreateSubcon.TabIndex = 2;
+            this.btCreateSubcon.Values.Text = "Tạo mới";
+            this.btCreateSubcon.Click += new System.EventHandler(this.btCreateSubcon_Click);
             // 
             // AddConstruction
             // 
@@ -355,6 +366,7 @@
             this.pnSubcons.Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnSubcons)).EndInit();
             this.pnSubcons.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cbSubcon)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -371,7 +383,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox ipConstructionName;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel lbConstructionName;
         private ComponentFactory.Krypton.Toolkit.KryptonGroupBox pnSubcons;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btEditSubcons;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox ipDes;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel lbDes;
         private ComponentFactory.Krypton.Toolkit.KryptonComboBox cbParent;
@@ -385,10 +396,12 @@
         private ComponentFactory.Krypton.Toolkit.KryptonLabel lbStartDate;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox ipAddress;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel lbAddress;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel lbSubcons;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btCancel;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btSave;
         private ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker dtStartDate;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btCreateSubcon;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel lbSubcon;
+        private ComponentFactory.Krypton.Toolkit.KryptonComboBox cbSubcon;
     }
 }
 
