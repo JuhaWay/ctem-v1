@@ -156,6 +156,49 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             }
         }
 
+
+        public ConstructionDTO LoadConstructionByName(string name)
+        {
+            var cmd = new SqlCommand("[dbo].[Construction_GetByName]", Connection);
+
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@constructionName", name));
+            try
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    ConstructionDTO consDto = new ConstructionDTO
+                    {
+                        ConstructionID = Convert.ToInt64(reader["ConstructionID"]),
+                        ConstructionName = Convert.ToString(reader["ConstructionName"]),
+                        Description = Convert.ToString(reader["Description"]),
+                        ConstructionAddress = Convert.ToString(reader["ConstructionAddress"]),
+                        CommencementDate = Convert.ToDateTime(reader["CommencementDate"]),
+                        CompletionDate = Convert.ToDateTime(reader["CompletionDate"])
+                    };
+                    return consDto;
+                }
+                return null;
+
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message, "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                if (Transaction == null) Connection.Close();
+            }
+        }
+
+
+
         internal bool UpdateConstrction(long constructionID,string constructionName, string description, String constructionAddress,
                                        DateTime commencementDate, DateTime completionDate, long totalEstimateCost,
                                         string status)
