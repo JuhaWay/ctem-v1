@@ -73,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\BUS\ConstructionBus.cs" />
+    <Compile Include="Classes\BUS\EstimateBUS.cs" />
     <Compile Include="Classes\BUS\RoleBUS.cs" />
     <Compile Include="Classes\BUS\LeftMenuBUS.cs" />
     <Compile Include="Classes\BUS\RightBUS.cs" />
@@ -80,11 +81,13 @@
     <Compile Include="Classes\BUS\SubcontractorBUS.cs" />
     <Compile Include="Classes\DAO\ConstructionDao.cs" />
     <Compile Include="Classes\DAO\EmployerDAO.cs" />
+    <Compile Include="Classes\DAO\EstimateDAO.cs" />
     <Compile Include="Classes\DAO\RoleDAO.cs" />
     <Compile Include="Classes\DAO\LeftMenuDAO.cs" />
     <Compile Include="Classes\DAO\RightDAO.cs" />
     <Compile Include="Classes\DAO\SubcontractorDao.cs" />
     <Compile Include="Classes\DTO\ConstructionDTO.cs" />
+    <Compile Include="Classes\DTO\EstimateDTO.cs" />
     <Compile Include="Classes\DTO\RoleDTO.cs" />
     <Compile Include="Classes\DTO\LeftMenuDTO.cs" />
     <Compile Include="Classes\DTO\SubcontractorDTO.cs" />
@@ -158,6 +161,12 @@
     <Compile Include="ModuleForms\ManageEmployee\NewEmployee.Designer.cs">
       <DependentUpon>NewEmployee.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModuleForms\ManageEstimation\EstimateManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForms\ManageEstimation\EstimateManagement.Designer.cs">
+      <DependentUpon>EstimateManagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModuleForms\ManageRole\NewRole.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -230,6 +239,9 @@
     <EmbeddedResource Include="ModuleForms\ManageEmployee\NewEmployee.resx">
       <DependentUpon>NewEmployee.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\ManageEstimation\EstimateManagement.resx">
+      <DependentUpon>EstimateManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModuleForms\ManageRole\NewRole.resx">
       <DependentUpon>NewRole.cs</DependentUpon>
