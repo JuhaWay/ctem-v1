@@ -23,5 +23,17 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
         {
             dgvEstimate.DataSource = _estimateBUS.LoadAllEstimates();
         }
+
+        private void btCreateEst_Click(object sender, EventArgs e)
+        {
+            AddNewEstimate addForm = new AddNewEstimate();
+            addForm.ShowDialog();
+        }
+
+        private void btViewEst_Click(object sender, EventArgs e)
+        {
+            EstimateDetail esDetail = new EstimateDetail();
+            esDetail.ShowDialog();
+        }
     }
 }
