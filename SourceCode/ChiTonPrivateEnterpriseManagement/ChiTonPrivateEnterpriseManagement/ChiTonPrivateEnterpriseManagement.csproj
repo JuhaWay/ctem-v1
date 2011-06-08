@@ -74,6 +74,8 @@
   <ItemGroup>
     <Compile Include="Classes\BUS\ConstructionBus.cs" />
     <Compile Include="Classes\BUS\EstimateBUS.cs" />
+    <Compile Include="Classes\BUS\EstimateDetailBUS.cs" />
+    <Compile Include="Classes\BUS\MaterialBUS.cs" />
     <Compile Include="Classes\BUS\RoleBUS.cs" />
     <Compile Include="Classes\BUS\LeftMenuBUS.cs" />
     <Compile Include="Classes\BUS\RightBUS.cs" />
@@ -82,12 +84,16 @@
     <Compile Include="Classes\DAO\ConstructionDao.cs" />
     <Compile Include="Classes\DAO\EmployerDAO.cs" />
     <Compile Include="Classes\DAO\EstimateDAO.cs" />
+    <Compile Include="Classes\DAO\EstimateDetailDAO.cs" />
+    <Compile Include="Classes\DAO\MaterialDAO.cs" />
     <Compile Include="Classes\DAO\RoleDAO.cs" />
     <Compile Include="Classes\DAO\LeftMenuDAO.cs" />
     <Compile Include="Classes\DAO\RightDAO.cs" />
     <Compile Include="Classes\DAO\SubcontractorDao.cs" />
     <Compile Include="Classes\DTO\ConstructionDTO.cs" />
+    <Compile Include="Classes\DTO\EstimateDetailDTO.cs" />
     <Compile Include="Classes\DTO\EstimateDTO.cs" />
+    <Compile Include="Classes\DTO\MaterialDTO.cs" />
     <Compile Include="Classes\DTO\RoleDTO.cs" />
     <Compile Include="Classes\DTO\LeftMenuDTO.cs" />
     <Compile Include="Classes\DTO\SubcontractorDTO.cs" />
