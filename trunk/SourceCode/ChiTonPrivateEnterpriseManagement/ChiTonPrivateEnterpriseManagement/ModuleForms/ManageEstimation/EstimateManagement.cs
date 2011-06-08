@@ -32,8 +32,18 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
 
         private void btViewEst_Click(object sender, EventArgs e)
         {
-            EstimateDetail esDetail = new EstimateDetail();
-            esDetail.ShowDialog();
+
+            foreach (DataGridViewRow row in dgvEstimate.Rows)
+            {
+                DataGridViewCell c = dgvEstimate.Rows[row.Index].Cells[0];
+                if (c.AccessibilityObject.Value.Equals("True"))
+                {
+                    string strRightID = row.Cells["EstimateID"].Value.ToString();
+                    long EstimateID = Convert.ToInt64(strRightID);
+                    EstimateDetail editForm = new EstimateDetail(EstimateID);
+                    editForm.ShowDialog();
+                }
+            }
         }
     }
 }
