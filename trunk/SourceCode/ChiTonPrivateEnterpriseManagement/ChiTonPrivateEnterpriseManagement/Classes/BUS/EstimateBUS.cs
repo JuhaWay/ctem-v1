@@ -24,5 +24,10 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
             return _estimateDAO.LoadAllEstimates();
         }
 
+        public bool UpdateEstimate(long EstimateID, long TotalCostEstimate)
+        {
+            return _estimateDAO.UpdateEstimate(EstimateID, TotalCostEstimate);
+        }
+
     }
 }
