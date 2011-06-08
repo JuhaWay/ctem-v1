@@ -33,11 +33,12 @@
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.kryptonPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.dgvEstimate = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.checkBox = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewCheckBoxColumn();
             this.kryptonGroupBox1 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.btViewEst = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btEditEst = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btCreateEst = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.checkBox = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewCheckBoxColumn();
+            this.EstimateID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEstimate)).BeginInit();
@@ -59,24 +60,13 @@
             // dgvEstimate
             // 
             this.dgvEstimate.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.checkBox});
+            this.checkBox,
+            this.EstimateID});
             this.dgvEstimate.Location = new System.Drawing.Point(0, 104);
             this.dgvEstimate.Name = "dgvEstimate";
             this.dgvEstimate.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEstimate.Size = new System.Drawing.Size(913, 427);
             this.dgvEstimate.TabIndex = 1;
-            // 
-            // checkBox
-            // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.NullValue = false;
-            this.checkBox.DefaultCellStyle = dataGridViewCellStyle1;
-            this.checkBox.FalseValue = null;
-            this.checkBox.HeaderText = "Column1";
-            this.checkBox.IndeterminateValue = null;
-            this.checkBox.Name = "checkBox";
-            this.checkBox.TrueValue = null;
-            this.checkBox.Width = 50;
             // 
             // kryptonGroupBox1
             // 
@@ -117,6 +107,25 @@
             this.btCreateEst.Values.Text = "Tạo dự toán ";
             this.btCreateEst.Click += new System.EventHandler(this.btCreateEst_Click);
             // 
+            // checkBox
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.NullValue = false;
+            this.checkBox.DefaultCellStyle = dataGridViewCellStyle1;
+            this.checkBox.FalseValue = null;
+            this.checkBox.HeaderText = "Column1";
+            this.checkBox.IndeterminateValue = null;
+            this.checkBox.Name = "checkBox";
+            this.checkBox.TrueValue = null;
+            this.checkBox.Width = 50;
+            // 
+            // EstimateID
+            // 
+            this.EstimateID.DataPropertyName = "EstimateID";
+            this.EstimateID.HeaderText = "EstimateID";
+            this.EstimateID.Name = "EstimateID";
+            this.EstimateID.Visible = false;
+            // 
             // EstimateManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -144,9 +153,10 @@
         private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dgvEstimate;
         private ComponentFactory.Krypton.Toolkit.KryptonGroupBox kryptonGroupBox1;
-        private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewCheckBoxColumn checkBox;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btViewEst;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btEditEst;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btCreateEst;
+        private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewCheckBoxColumn checkBox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EstimateID;
     }
 }
