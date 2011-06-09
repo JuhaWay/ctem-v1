@@ -27,5 +27,18 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
             g.DrawLine(pen2, p2, p4);
             g.DrawLine(pen2, p3, p4);
         }
+        public static bool isNumber(string text)
+        {
+            bool textIsNumeric = true;
+            try
+            {
+               long.Parse(text);
+            }
+            catch
+            {
+                textIsNumeric = false;
+            }
+            return textIsNumeric;
+        }
     }
 }
