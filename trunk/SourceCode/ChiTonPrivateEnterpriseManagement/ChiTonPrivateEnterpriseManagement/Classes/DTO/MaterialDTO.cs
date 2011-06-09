@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
 {
-    class MaterialDTO
+    public class MaterialDTO
     {
         public long MaterialID { get; set; }
         public string MaterialName { get; set; }
