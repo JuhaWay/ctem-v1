@@ -58,8 +58,10 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                     EstimateDetailDTO edDto = new EstimateDetailDTO
                     {
                         EstimateDetailID = Convert.ToInt64(reader["EstimateDetailID"]),
+                        MaterialName = Convert.ToString(reader["MaterialName"]),
                         EstimateID = Convert.ToInt64(reader["EstimateID"]),
-                        MaterialID = Convert.ToInt64(reader["MaterialID"]),                      
+                        MaterialID = Convert.ToInt64(reader["MaterialID"]),
+                        QuantityEstimate = Convert.ToInt32(reader["QuantityEstimate"]), 
                         UnitCostEstimate = Convert.ToInt32(reader["UnitCostEstimate"]),
                         TotalCostEstimate = Convert.ToInt64(reader["TotalCostEstimate"])
                     };
