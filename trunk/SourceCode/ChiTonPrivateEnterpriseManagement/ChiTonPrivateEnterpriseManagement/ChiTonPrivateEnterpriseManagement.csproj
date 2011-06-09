@@ -302,9 +302,18 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.ConstructionDTO.datasource" />
+    <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.EmployerConstructionDTO.datasource" />
     <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.EmployerDTO.datasource" />
+    <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.EstimateDetailDTO.datasource" />
+    <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.EstimateDTO.datasource" />
+    <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.LeftMenuDTO.datasource" />
+    <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.MaterialDTO.datasource" />
     <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.RightDTO.datasource" />
     <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.RoleDTO.datasource" />
+    <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.SubcontractorDTO.datasource" />
+    <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.WorkerConstructionDTO.datasource" />
+    <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.WorkerDTO.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
