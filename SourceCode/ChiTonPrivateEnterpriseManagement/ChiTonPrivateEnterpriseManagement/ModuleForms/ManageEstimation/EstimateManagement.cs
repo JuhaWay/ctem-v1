@@ -48,5 +48,10 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
             dgvEstimate.DataSource = _estimateBUS.LoadAllEstimates();
 
         }
+
+        private void btEditEst_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
