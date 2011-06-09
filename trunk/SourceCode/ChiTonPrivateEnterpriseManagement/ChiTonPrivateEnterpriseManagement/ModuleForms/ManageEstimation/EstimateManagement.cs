@@ -44,6 +44,9 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
                     editForm.ShowDialog();
                 }
             }
+
+            dgvEstimate.DataSource = _estimateBUS.LoadAllEstimates();
+
         }
     }
 }

@@ -39,6 +39,15 @@
             this.btCreateEst = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.checkBox = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewCheckBoxColumn();
             this.EstimateID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ConstructionName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EstimateName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalCostEstimate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalCostReal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CreatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UpdatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CreatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UpdatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ConstructionID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEstimate)).BeginInit();
@@ -61,7 +70,16 @@
             // 
             this.dgvEstimate.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.checkBox,
-            this.EstimateID});
+            this.EstimateID,
+            this.ConstructionName,
+            this.EstimateName,
+            this.TotalCostEstimate,
+            this.TotalCostReal,
+            this.CreatedDate,
+            this.UpdatedDate,
+            this.CreatedBy,
+            this.UpdatedBy,
+            this.ConstructionID});
             this.dgvEstimate.Location = new System.Drawing.Point(0, 104);
             this.dgvEstimate.Name = "dgvEstimate";
             this.dgvEstimate.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -113,7 +131,7 @@
             dataGridViewCellStyle1.NullValue = false;
             this.checkBox.DefaultCellStyle = dataGridViewCellStyle1;
             this.checkBox.FalseValue = null;
-            this.checkBox.HeaderText = "Column1";
+            this.checkBox.HeaderText = "#";
             this.checkBox.IndeterminateValue = null;
             this.checkBox.Name = "checkBox";
             this.checkBox.TrueValue = null;
@@ -125,6 +143,67 @@
             this.EstimateID.HeaderText = "EstimateID";
             this.EstimateID.Name = "EstimateID";
             this.EstimateID.Visible = false;
+            // 
+            // ConstructionName
+            // 
+            this.ConstructionName.DataPropertyName = "ConstructionName";
+            this.ConstructionName.HeaderText = "Tên công trình";
+            this.ConstructionName.Name = "ConstructionName";
+            this.ConstructionName.Width = 150;
+            // 
+            // EstimateName
+            // 
+            this.EstimateName.DataPropertyName = "EstimateName";
+            this.EstimateName.HeaderText = "Tên dự toán";
+            this.EstimateName.Name = "EstimateName";
+            // 
+            // TotalCostEstimate
+            // 
+            this.TotalCostEstimate.DataPropertyName = "TotalCostEstimate";
+            this.TotalCostEstimate.HeaderText = "Tổng chi phí dự toán";
+            this.TotalCostEstimate.Name = "TotalCostEstimate";
+            this.TotalCostEstimate.Width = 120;
+            // 
+            // TotalCostReal
+            // 
+            this.TotalCostReal.DataPropertyName = "TotalCostReal";
+            this.TotalCostReal.HeaderText = "Tổng chi phí thực tế";
+            this.TotalCostReal.Name = "TotalCostReal";
+            this.TotalCostReal.Width = 120;
+            // 
+            // CreatedDate
+            // 
+            this.CreatedDate.DataPropertyName = "CreatedDate";
+            this.CreatedDate.HeaderText = "Ngày bắt đầu";
+            this.CreatedDate.Name = "CreatedDate";
+            this.CreatedDate.Width = 80;
+            // 
+            // UpdatedDate
+            // 
+            this.UpdatedDate.DataPropertyName = "UpdatedDate";
+            this.UpdatedDate.HeaderText = "Ngày cập nhật";
+            this.UpdatedDate.Name = "UpdatedDate";
+            // 
+            // CreatedBy
+            // 
+            this.CreatedBy.DataPropertyName = "CreatedBy";
+            this.CreatedBy.HeaderText = "Tạo bởi";
+            this.CreatedBy.Name = "CreatedBy";
+            this.CreatedBy.Width = 80;
+            // 
+            // UpdatedBy
+            // 
+            this.UpdatedBy.DataPropertyName = "UpdatedBy";
+            this.UpdatedBy.HeaderText = "Cập nhật bởi";
+            this.UpdatedBy.Name = "UpdatedBy";
+            this.UpdatedBy.Width = 80;
+            // 
+            // ConstructionID
+            // 
+            this.ConstructionID.DataPropertyName = "ConstructionID";
+            this.ConstructionID.HeaderText = "ConstructionID";
+            this.ConstructionID.Name = "ConstructionID";
+            this.ConstructionID.Visible = false;
             // 
             // EstimateManagement
             // 
@@ -158,5 +237,14 @@
         private ComponentFactory.Krypton.Toolkit.KryptonButton btCreateEst;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewCheckBoxColumn checkBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn EstimateID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ConstructionName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EstimateName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalCostEstimate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalCostReal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CreatedDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UpdatedDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CreatedBy;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UpdatedBy;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ConstructionID;
     }
 }

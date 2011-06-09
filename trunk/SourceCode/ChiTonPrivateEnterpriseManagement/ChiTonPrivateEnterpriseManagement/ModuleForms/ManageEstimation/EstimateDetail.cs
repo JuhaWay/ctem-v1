@@ -31,6 +31,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
             InitializeComponent();
             resetDataSource(estimateId);
             cbMaterial.Items.AddRange(_materialBUS.LoadAllMaterials().ToArray());
+            cbMaterial.DisplayMember = "MaterialName";
             
         }
 
@@ -41,8 +42,8 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
 
         private void kryptonButton1_Click(object sender, EventArgs e)
         {
-
-            _estimateDetailBUS.CreateEstimateDetail(_estimateId,1,long.Parse(ipQuantity.Text),
+            MaterialDTO dto = cbMaterial.SelectedItem as MaterialDTO;
+            _estimateDetailBUS.CreateEstimateDetail(_estimateId,dto.MaterialID, long.Parse(ipQuantity.Text),
                                                         long.Parse(ipPrice.Text), _totalCost);
             List<EstimateDetailDTO> esDetails =_estimateDetailBUS.LoadAllEstimateDetails(_estimateId);
             _estimateBUS.UpdateEstimate(_estimateId, getTotalCost(esDetails));
