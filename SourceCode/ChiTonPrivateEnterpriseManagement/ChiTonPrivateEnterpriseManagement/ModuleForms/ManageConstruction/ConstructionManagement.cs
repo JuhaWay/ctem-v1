@@ -40,7 +40,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
                 //dgvCons.DataSource = listConstructions;
                 foreach (ConstructionDTO dto in listConstructions)
                 {
-                    TreeGridNode node = dgvCons.Nodes.Add(null,dto.ConstructionID, dto.ConstructionName, dto.Description, dto.ConstructionAddress,
+                    TreeGridNode node = dgvCons.Nodes.Add(null,dto.ConstructionID, dto.ConstructionName,dto.SubcontractorName, dto.Description, dto.ConstructionAddress,
                         dto.CommencementDate.ToString(), dto.CompletionDate.ToString(), "123");
                     node.Nodes.Add(null, dto.ConstructionID, dto.ConstructionName, dto.Description, dto.ConstructionAddress,
                         dto.CommencementDate.ToString(), dto.CompletionDate.ToString(), "123"); ;
