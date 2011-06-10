@@ -36,6 +36,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
         public AddConstruction(long constructionId)
         {
             InitializeComponent();
+            loadSubcons();
             update = true;
             ConstructionDTO dto = _constructionBus.LoadConstructionById(constructionId);
             ConstructionID = dto.ConstructionID;

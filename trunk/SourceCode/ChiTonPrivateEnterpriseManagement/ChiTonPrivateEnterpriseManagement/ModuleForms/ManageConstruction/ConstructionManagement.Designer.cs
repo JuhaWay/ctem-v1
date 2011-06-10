@@ -41,6 +41,7 @@
             this.checkBox = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewCheckBoxColumn();
             this.ConstructionID = new AdvancedDataGridView.TreeGridColumn();
             this.ConstructionName = new AdvancedDataGridView.TreeGridColumn();
+            this.SubcontractorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ConstructionAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CommencementDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,6 +73,7 @@
             this.checkBox,
             this.ConstructionID,
             this.ConstructionName,
+            this.SubcontractorName,
             this.Description,
             this.ConstructionAddress,
             this.CommencementDate,
@@ -157,6 +159,13 @@
             this.ConstructionName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.ConstructionName.Width = 250;
             // 
+            // SubcontractorName
+            // 
+            this.SubcontractorName.DataPropertyName = "SubcontractorName";
+            this.SubcontractorName.HeaderText = "Nhà thầu phụ";
+            this.SubcontractorName.Name = "SubcontractorName";
+            this.SubcontractorName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
             // Description
             // 
             this.Description.HeaderText = "Mô tả";
@@ -219,6 +228,7 @@
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewCheckBoxColumn checkBox;
         private AdvancedDataGridView.TreeGridColumn ConstructionID;
         private AdvancedDataGridView.TreeGridColumn ConstructionName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SubcontractorName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Description;
         private System.Windows.Forms.DataGridViewTextBoxColumn ConstructionAddress;
         private System.Windows.Forms.DataGridViewTextBoxColumn CommencementDate;
