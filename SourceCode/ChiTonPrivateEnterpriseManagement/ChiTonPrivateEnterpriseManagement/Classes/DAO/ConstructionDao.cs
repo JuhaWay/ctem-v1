@@ -81,7 +81,46 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             }
         }
 
+        public List<ConstructionDTO> LoadAllConstructionsHaveWarehouse()
+        {
+            var cmd = new SqlCommand("[dbo].[Construction_GetHaveWarehouse]", Connection);
 
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                List<ConstructionDTO> listcons = new List<ConstructionDTO>();
+                while (reader.Read())
+                {
+                    ConstructionDTO consDto = new ConstructionDTO
+                    {
+                        ConstructionID = Convert.ToInt64(reader["ConstructionID"]),
+                        WarehouseID = Convert.ToInt64(reader["WarehouseID"]),
+                        SubcontractorName = Convert.ToString(reader["SubcontractorName"]),
+                        ConstructionName = Convert.ToString(reader["ConstructionName"]),
+                        Description = Convert.ToString(reader["Description"]),
+                        ConstructionAddress = Convert.ToString(reader["ConstructionAddress"]),
+                        CommencementDate = Convert.ToDateTime(reader["CommencementDate"]),
+                        CompletionDate = Convert.ToDateTime(reader["CompletionDate"])
+                    };
+                    listcons.Add(consDto);
+                }
+                return listcons;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message, "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                if (Transaction == null) Connection.Close();
+            }
+        }
         public bool CreateConstruction(string constructionName, string description,String constructionAddress ,
                                        DateTime commencementDate, DateTime completionDate, long totalEstimateCost,
                                         string status)

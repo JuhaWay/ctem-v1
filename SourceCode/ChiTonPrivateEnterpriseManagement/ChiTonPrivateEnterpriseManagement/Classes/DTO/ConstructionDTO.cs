@@ -9,6 +9,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
     public class ConstructionDTO
     {
         public long ConstructionID { get; set; }
+        public long WarehouseID { get; set; }
         public string SubcontractorName { get; set; }
         public string ConstructionName { get; set; }
         public string Description { get; set; }
