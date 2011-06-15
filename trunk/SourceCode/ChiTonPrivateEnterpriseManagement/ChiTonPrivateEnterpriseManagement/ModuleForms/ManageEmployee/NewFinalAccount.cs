@@ -10,226 +10,171 @@ using ChiTonPrivateEnterpriseManagement.Classes.DTO;
 using ChiTonPrivateEnterpriseManagement.Classes.Global;
 using ComponentFactory.Krypton.Toolkit;
 
-namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
+namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
 {
-    public partial class NewSalary : KryptonForm
+    public partial class NewFinalAccount : ComponentFactory.Krypton.Toolkit.KryptonForm
     {
-        public int locationXpnlNewItem;
-        List<EmployeeSalaryDTO> listSalary = new List<EmployeeSalaryDTO>();
-        List<EmployerDTO> listEmployee = new List<EmployerDTO>();
-        EmployeeBUS employeeBUS = new EmployeeBUS();
-        public NewSalary()
+        private List<FinalAccountDetailDTO> listFinalAccountDetail;
+        private List<ConstructionDTO> listConstructionHaveWarehouse;
+        private List<DebtDTO> listDebt;
+        private List<WarehouseDTO> listMainWarehouse;
+        private List<MaterialDTO> listMaterialInEstimate;
+        ConstructionBus constructionBUS = new ConstructionBus();
+        WarehouseBUS warehouseBUS = new WarehouseBUS();
+        DebtBUS debtBUS = new DebtBUS();
+        MaterialBUS materialBUS = new MaterialBUS();
+        FinalAccountBUS finalaccountBUS = new FinalAccountBUS();
+
+        public NewFinalAccount()
         {
             InitializeComponent();
         }
 
-        private void NewSalary_Load(object sender, EventArgs e)
+        private void NewFinalAccount_Load(object sender, EventArgs e)
         {
-            CenterToParent();
-            setDefaultComboBox();
-            Global.CenterToParent(btnMoveUp, pnlMoveUp, Constants.HORISONTAL_TOP, 0);
-            Global.CenterToParent(btnMoveDown, pnlMoveDown, Constants.HORISONTAL_TOP, 0);
-            Global.CenterToParent(pnlNewSalaryItem, pnlMain, Constants.HORISONTAL_BOT_CUSTOM, pnlMoveUp.Height);
+            setLauout();
+            setData();
         }
 
-        private void setDefaultComboBox()
+        private void RefreshDisplayData()
         {
-            listEmployee = employeeBUS.LoadAllEmployee();
-            foreach (EmployerDTO employer in listEmployee)
-            {
-                cbbEmployee.Items.Add(employer);
-            }
-            cbbEmployee.DisplayMember = "Username";
-            cbbEmployee.ValueMember = "employeeID";
-
-            cbbIsPay.Items.Add(Constants.PAY);
-            cbbIsPay.Items.Add(Constants.NOTPAY);
-            cbbIsPay.SelectedIndex = 0;
-        }        
-
-        public void Refreshdgv()
-        {
-            dgvSalary.DataSource = null;
-            dgvSalary.DataSource = listSalary;
-            dgvSalary.Refresh();
+            dgvContentBot.DataSource = null;
+            dgvContentBot.DataSource = listFinalAccountDetail;
         }
 
-        private void btnMoveUp_Click(object sender, EventArgs e)
+        private void setLauout()
         {
-            locationXpnlNewItem = pnlMain.Width / 2 - pnlNewSalaryItem.Height / 2;
-            int locationY = pnlNewSalaryItem.Location.Y;
-            while (pnlNewSalaryItem.Location.Y > (Height/2 - pnlNewSalaryItem.Height/2))
-            {
-                locationY -= 40;
-                pnlNewSalaryItem.Location = new Point(locationXpnlNewItem, locationY);
-                Refresh();
-            }
-            pnlMoveUp.Visible = false;
-            pnlMoveDown.Visible = true;
+            pnlNewItem.Visible = false;
+            Global.CenterToParent(pnlNewItem, this, Constants.CENTER, 0);
         }
 
-        private void btnMoveDown_Click(object sender, EventArgs e)
+        private void setData()
         {
-            int locationY = pnlNewSalaryItem.Location.Y;
-            locationXpnlNewItem = pnlMain.Width/2 - pnlNewSalaryItem.Height/2;
-            while (pnlNewSalaryItem.Location.Y < (pnlMain.Height - pnlMoveUp.Height))
-            {
-                locationY += 40;
-                pnlNewSalaryItem.Location = new Point(locationXpnlNewItem, locationY);
-                Refresh();
-            }
-            if (pnlNewSalaryItem.Location.Y > pnlMain.Height - pnlMoveUp.Height)
-            {
-                pnlNewSalaryItem.Location = new Point(locationXpnlNewItem, pnlMain.Height - pnlMoveUp.Height);
-            }
-            pnlMoveUp.Visible = true;
-            pnlMoveDown.Visible = false;
+            cbbToPlace.Items.Add(Constants.TO_CONSTRUCTION_WAREHOUSE);
+            cbbToPlace.Items.Add(Constants.TO_MAIN_WAREHOUSE);
+            cbbToPlace.SelectedIndex = 0;
+
+            cbbStatus.Items.Add(Constants.PAY);
+            cbbStatus.Items.Add(Constants.NOTPAY);
+            cbbStatus.SelectedIndex = 0;
+
+            listConstructionHaveWarehouse = constructionBUS.LoadAllConstructionsHaveWarehouse();
+            cbbConstruction.DataSource = listConstructionHaveWarehouse;
+            cbbConstruction.ValueMember = Constants.CONSTRUCTION_VALUEMEMBER;
+            cbbConstruction.DisplayMember = Constants.CONSTRUCTION_DISPLAYMEMBER;
+
+            listMainWarehouse = warehouseBUS.LoadAllMainWarehouses();
+            cbbMainWarehouse.DataSource = listMainWarehouse;
+            cbbMainWarehouse.ValueMember = Constants.WAREHOUSE_VALUEMEMBER;
+            cbbMainWarehouse.DisplayMember = Constants.WAREHOUSE_DISPLAYMEMBER;
+
+            listDebt = debtBUS.LoadAllDebt();
+            cbbDebt.DataSource = listDebt;
+            cbbDebt.ValueMember = Constants.DEBT_VALUEMEMBER;   
+            cbbDebt.DisplayMember = Constants.DEBT_DISPLAYMEMBER;
+
+            listMaterialInEstimate = materialBUS.LoadALlMaterialsEstimate();
+            cbbMaterial.DataSource = listMaterialInEstimate;
+            cbbMaterial.ValueMember = Constants.MATERIAL_VALUEMEMBER;
+            cbbMaterial.DisplayMember = Constants.MATERIAL_DISPLAYMEMBER;
         }
 
-        private void NewSalary_SizeChanged(object sender, EventArgs e)
+        private void btnAddItem_Click(object sender, EventArgs e)
         {
-            if (pnlMoveDown.Visible)
-            {
-                Global.CenterToParent(pnlNewSalaryItem, pnlMain, Constants.CENTER, 0);                
-                Refresh();
-            }
-            else
-            {
-                Global.CenterToParent(pnlNewSalaryItem, pnlMain, Constants.HORISONTAL_BOT_CUSTOM, pnlMoveUp.Height);
-                Refresh();
-            }
+            MaterialDTO material = (MaterialDTO) cbbMaterial.SelectedItem;
+            FinalAccountDetailDTO finalaccountitem = new FinalAccountDetailDTO();
+            finalaccountitem.FinalAccountID = Convert.ToInt64(txtNo.Text);
+            finalaccountitem.MaterialID = material.MaterialID;
+            finalaccountitem.MaterialName = material.MaterialName;
+            finalaccountitem.Quantity = Convert.ToInt32(txtQuantity.Text);
+            finalaccountitem.UnitCost = Convert.ToInt32(txtUnitCost.Text);
+            finalaccountitem.Note = txtNoteItem.Text;
+            listFinalAccountDetail.Add(finalaccountitem);
+            RefreshDisplayData();
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void btnAddFinalAccountItem_Click(object sender, EventArgs e)
         {
-            string month = dtpMonth.Text;
-            DateTime dtmonth = DateTime.ParseExact("01/" + month, "dd/MM/yyyy", null);
-            string strmonth = dtmonth.ToString("yyyyMM");
-            EmployerDTO employer = (EmployerDTO) cbbEmployee.SelectedItem;
-            long empId = employer.employeeID;
-            long salary = Convert.ToInt64(txtSalary.Text);
-            long allowance = Convert.ToInt64(txtAllowance.Text);
-            long phoneCost = Convert.ToInt64(txtPhoneCost.Text);
-            long debtPay = Convert.ToInt64(txtDebtPay.Text);
-            long actualIncome = Convert.ToInt64(txtActualIncome.Text);
-            int isPay = GenerateStatus(cbbIsPay.Text);
-            string notes = txtNote.Text;
-            EmployeeSalaryDTO salaryDTO = new EmployeeSalaryDTO()
-                                           {
-                                               EmployeeID = empId,
-                                               Month = strmonth,
-                                               Salary = salary,
-                                               Allowance = allowance,
-                                               PhoneCost = phoneCost,
-                                               DebtPay = debtPay,
-                                               ActualIncome = actualIncome,
-                                               IsPay = isPay,
-                                               Note = notes
-                                           };
-            for (int i = 0; i < listEmployee.Count; i++ )
-            {
-                EmployerDTO employee = listEmployee[i];
-                if (employee.employeeID == empId)
-                {
-                    salaryDTO.Fullname = employee.Fullname;
-                    salaryDTO.Username = employee.Username;
-                }
-            }
-            listSalary.Add(salaryDTO);
-            Refreshdgv();
-            ClearInput();
+            pnlNewItem.Visible = true;
         }
 
-        private int GenerateStatus(string strStatus)
+        private void btnCloseNewItem_Click(object sender, EventArgs e)
         {
-            int isActie;
-            if (strStatus.Equals(Constants.PAY))
-            {
-                isActie = Constants.ISACTIVE_TRUE;
-            }
-            else
-            {
-                isActie = Constants.ISACTIVE_FALSE;
-            }
-            return isActie;
-        }
-
-        private void ClearInput()
-        {
-            txtSalary.Text = Constants.EMPTY_TEXT;
-            txtAllowance.Text = Constants.EMPTY_TEXT;
-            txtPhoneCost.Text = Constants.EMPTY_TEXT;
-            txtDebtPay.Text = Constants.EMPTY_TEXT;
-            txtActualIncome.Text = Constants.EMPTY_TEXT;
-            txtNote.Text = Constants.EMPTY_TEXT;
-            cbbEmployee.SelectedItem = 0;
-            cbbIsPay.SelectedItem = 0;
+            pnlNewItem.Visible = false;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            foreach (EmployeeSalaryDTO salary in listSalary)
+            long finalAccountID = Convert.ToInt64(txtNo.Text);
+            string finalAccountName = txtNameFinalAccount.Text;
+            string accountPerson = txtPersonAccount.Text;
+            DebtDTO debt = (DebtDTO) cbbDebt.SelectedItem;
+            long debtId = debt.DebtID;
+            DateTime dateaccount = DateTime.Parse(dtpDateAccount.Text);
+            long transportationCost = Convert.ToInt64(txtTransportationCost.Text);
+            long totalCost = Convert.ToInt64(txtTotalCost.Text);
+            string note = txtNote.Text;
+            int ispay;            
+            if (cbbStatus.Text.Equals(Constants.PAY))
             {
-                employeeBUS.CreateEmployeeSalary(salary);
-            }            
-        }
-
-        private void btnNewSalary_Click(object sender, EventArgs e)
-        {
-            pnlNewSalaryItem.Visible = true;
-            Global.CenterToParent(pnlNewSalaryItem, pnlMain, Constants.CENTER, 0);
-            pnlMoveUp.Visible = false;
-            pnlMoveDown.Visible = true;
-        }
-
-        private void btnClosedNewItem_Click(object sender, EventArgs e)
-        {
-            pnlNewSalaryItem.Visible = false;
-        }
-
-        private void textboxNewSalary_Enter(object sender, EventArgs e)
-        {
-            KryptonTextBox textBox = (KryptonTextBox)sender;
-            ClearTextboxSalary(textBox);
-        }
-
-        private void textboxNewSalary_Leave(object sender, EventArgs e)
-        {
-            KryptonTextBox textBox = (KryptonTextBox) sender;
-            SetInitValueTexboxSalary(textBox);
-            if (!Global.ValidateULongNumber(textBox.Text))
+                ispay = 1;
+            }
+            else
             {
-                textBox.Focus();
-                textBox.Text = Constants.EMPTY_TEXT;
-            }            
-        }
-
-        private void ClearTextboxSalary(KryptonTextBox textBox)
-        {
-            if (textBox.Text.Equals("0"))
+                ispay = 0;
+            }
+            long constructionID;
+            long warehouseID;
+            if (cbbConstruction.Enabled)
             {
-                textBox.Text = Constants.EMPTY_TEXT;
+                ConstructionDTO construction = (ConstructionDTO) cbbConstruction.SelectedItem;
+                constructionID = construction.ConstructionID;
+                warehouseID = construction.WarehouseID;
+            }
+            else
+            {
+                WarehouseDTO warehouse = (WarehouseDTO) cbbMainWarehouse.SelectedItem;
+                constructionID = 0;
+                warehouseID = warehouse.WarehouseID;                
+            }
+            FinalAccountDTO finalAccount = new FinalAccountDTO()
+                                               {
+                                                   FinalAccountID = finalAccountID,
+                                                   FinalAccountName = finalAccountName,
+                                                   ConstructionID = constructionID,
+                                                   DateAccount = dateaccount,
+                                                   DebtID = debtId,
+                                                   TransportationCost = transportationCost,
+                                                   TotalCost = totalCost,
+                                                   IsPay = ispay,
+                                                   WarehouseID = warehouseID,
+                                                   PersonAccount = accountPerson,
+                                                   Note = note
+                                               };
+            finalaccountBUS.CreateFinalAccount(finalAccount);
+            foreach (FinalAccountDetailDTO item in listFinalAccountDetail)
+            {
+                finalaccountBUS.CreateFinalAccountDetail(item);
             }
         }
 
-        private void SetInitValueTexboxSalary(KryptonTextBox textBox)
+        private void cbbToPlace_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (textBox.Text.Equals(Constants.EMPTY_TEXT))
+            if (cbbToPlace.Text.Equals(Constants.TO_MAIN_WAREHOUSE))
             {
-                textBox.Text = "0";
+                cbbMainWarehouse.Enabled = true;
+                cbbConstruction.Enabled = false;
+            }
+            else
+            {
+                cbbMainWarehouse.Enabled = false;
+                cbbConstruction.Enabled = true;
             }
         }
 
-        private void genarateToolStripMenuItem_Click(object sender, EventArgs e)
+        private void NewFinalAccount_SizeChanged(object sender, EventArgs e)
         {
-            try
-            {
-                ActiveControl.Text += "000";                    
-            }
-            catch (Exception)
-            {                
-            }
+            Global.CenterToParent(pnlNewItem, this, Constants.CENTER, 0);
         }
-        
     }
 }

@@ -1,6 +1,6 @@
-﻿namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
+﻿namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWarehouse
 {
-    partial class FinalAccountManagement
+    partial class WarehouseManagement
     {
         /// <summary>
         /// Required designer variable.
@@ -40,25 +40,20 @@
             this.gbcRightBot = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.gbcMenuBot = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
+            this.btnEdit = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnAddWarehouse = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.finalAccountIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.finalAccountNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.constructionNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateAccountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.debtNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.transportationCostDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalCostDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.comparationDebtIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.personAccountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.isPayDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.noteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.createdDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastUpdatedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.createdByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.updatedByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.finalAccountDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.finalAccountDetailDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.btnEdit = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.warehouseDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.warehouseIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.warehouseNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.constructionIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.constructionNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.managerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isActiveDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel3)).BeginInit();
@@ -80,6 +75,7 @@
             this.gbcMenuBot.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.finalAccountDTOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.finalAccountDetailDTOBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.warehouseDTOBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // kryptonPanel6
@@ -152,22 +148,16 @@
             // 
             this.dgvLeftBot.AutoGenerateColumns = false;
             this.dgvLeftBot.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.finalAccountIDDataGridViewTextBoxColumn,
-            this.finalAccountNameDataGridViewTextBoxColumn,
+            this.warehouseIDDataGridViewTextBoxColumn,
+            this.warehouseNameDataGridViewTextBoxColumn,
+            this.constructionIDDataGridViewTextBoxColumn,
             this.constructionNameDataGridViewTextBoxColumn,
-            this.dateAccountDataGridViewTextBoxColumn,
-            this.debtNameDataGridViewTextBoxColumn,
-            this.transportationCostDataGridViewTextBoxColumn,
-            this.totalCostDataGridViewTextBoxColumn,
-            this.comparationDebtIDDataGridViewTextBoxColumn,
-            this.personAccountDataGridViewTextBoxColumn,
-            this.isPayDataGridViewTextBoxColumn,
-            this.noteDataGridViewTextBoxColumn,
-            this.createdDateDataGridViewTextBoxColumn,
-            this.lastUpdatedDataGridViewTextBoxColumn,
-            this.createdByDataGridViewTextBoxColumn,
-            this.updatedByDataGridViewTextBoxColumn});
-            this.dgvLeftBot.DataSource = this.finalAccountDTOBindingSource;
+            this.managerNameDataGridViewTextBoxColumn,
+            this.descriptionDataGridViewTextBoxColumn,
+            this.addressDataGridViewTextBoxColumn,
+            this.typeDataGridViewTextBoxColumn,
+            this.isActiveDataGridViewTextBoxColumn});
+            this.dgvLeftBot.DataSource = this.warehouseDTOBindingSource;
             this.dgvLeftBot.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvLeftBot.Location = new System.Drawing.Point(0, 0);
             this.dgvLeftBot.Name = "dgvLeftBot";
@@ -205,104 +195,22 @@
             this.gbcMenuBot.TabIndex = 5;
             this.gbcMenuBot.Values.Heading = "";
             // 
-            // btnAddFinalAccount
+            // btnEdit
+            // 
+            this.btnEdit.Location = new System.Drawing.Point(146, 27);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(90, 25);
+            this.btnEdit.TabIndex = 1;
+            this.btnEdit.Values.Text = "Sửa";
+            // 
+            // btnAddWarehouse
             // 
             this.btnAddWarehouse.Location = new System.Drawing.Point(28, 27);
-            this.btnAddWarehouse.Name = "btnAddFinalAccount";
+            this.btnAddWarehouse.Name = "btnAddWarehouse";
             this.btnAddWarehouse.Size = new System.Drawing.Size(90, 25);
             this.btnAddWarehouse.TabIndex = 0;
             this.btnAddWarehouse.Values.Text = "Thêm";
-            this.btnAddWarehouse.Click += new System.EventHandler(this.btnAddFinalAccount_Click);
-            // 
-            // finalAccountIDDataGridViewTextBoxColumn
-            // 
-            this.finalAccountIDDataGridViewTextBoxColumn.DataPropertyName = "FinalAccountID";
-            this.finalAccountIDDataGridViewTextBoxColumn.HeaderText = "Mã Số";
-            this.finalAccountIDDataGridViewTextBoxColumn.Name = "finalAccountIDDataGridViewTextBoxColumn";
-            // 
-            // finalAccountNameDataGridViewTextBoxColumn
-            // 
-            this.finalAccountNameDataGridViewTextBoxColumn.DataPropertyName = "FinalAccountName";
-            this.finalAccountNameDataGridViewTextBoxColumn.HeaderText = "Tên";
-            this.finalAccountNameDataGridViewTextBoxColumn.Name = "finalAccountNameDataGridViewTextBoxColumn";
-            // 
-            // constructionNameDataGridViewTextBoxColumn
-            // 
-            this.constructionNameDataGridViewTextBoxColumn.DataPropertyName = "ConstructionName";
-            this.constructionNameDataGridViewTextBoxColumn.HeaderText = "Công Trình";
-            this.constructionNameDataGridViewTextBoxColumn.Name = "constructionNameDataGridViewTextBoxColumn";
-            // 
-            // dateAccountDataGridViewTextBoxColumn
-            // 
-            this.dateAccountDataGridViewTextBoxColumn.DataPropertyName = "DateAccount";
-            this.dateAccountDataGridViewTextBoxColumn.HeaderText = "Ngày";
-            this.dateAccountDataGridViewTextBoxColumn.Name = "dateAccountDataGridViewTextBoxColumn";
-            // 
-            // debtNameDataGridViewTextBoxColumn
-            // 
-            this.debtNameDataGridViewTextBoxColumn.DataPropertyName = "DebtName";
-            this.debtNameDataGridViewTextBoxColumn.HeaderText = "Khách Hàng";
-            this.debtNameDataGridViewTextBoxColumn.Name = "debtNameDataGridViewTextBoxColumn";
-            // 
-            // transportationCostDataGridViewTextBoxColumn
-            // 
-            this.transportationCostDataGridViewTextBoxColumn.DataPropertyName = "TransportationCost";
-            this.transportationCostDataGridViewTextBoxColumn.HeaderText = "Tiền Vận Chuyễn";
-            this.transportationCostDataGridViewTextBoxColumn.Name = "transportationCostDataGridViewTextBoxColumn";
-            // 
-            // totalCostDataGridViewTextBoxColumn
-            // 
-            this.totalCostDataGridViewTextBoxColumn.DataPropertyName = "TotalCost";
-            this.totalCostDataGridViewTextBoxColumn.HeaderText = "TotalCost";
-            this.totalCostDataGridViewTextBoxColumn.Name = "totalCostDataGridViewTextBoxColumn";
-            // 
-            // comparationDebtIDDataGridViewTextBoxColumn
-            // 
-            this.comparationDebtIDDataGridViewTextBoxColumn.DataPropertyName = "ComparationDebtID";
-            this.comparationDebtIDDataGridViewTextBoxColumn.HeaderText = "ComparationDebtID";
-            this.comparationDebtIDDataGridViewTextBoxColumn.Name = "comparationDebtIDDataGridViewTextBoxColumn";
-            // 
-            // personAccountDataGridViewTextBoxColumn
-            // 
-            this.personAccountDataGridViewTextBoxColumn.DataPropertyName = "PersonAccount";
-            this.personAccountDataGridViewTextBoxColumn.HeaderText = "PersonAccount";
-            this.personAccountDataGridViewTextBoxColumn.Name = "personAccountDataGridViewTextBoxColumn";
-            // 
-            // isPayDataGridViewTextBoxColumn
-            // 
-            this.isPayDataGridViewTextBoxColumn.DataPropertyName = "IsPay";
-            this.isPayDataGridViewTextBoxColumn.HeaderText = "IsPay";
-            this.isPayDataGridViewTextBoxColumn.Name = "isPayDataGridViewTextBoxColumn";
-            // 
-            // noteDataGridViewTextBoxColumn
-            // 
-            this.noteDataGridViewTextBoxColumn.DataPropertyName = "Note";
-            this.noteDataGridViewTextBoxColumn.HeaderText = "Note";
-            this.noteDataGridViewTextBoxColumn.Name = "noteDataGridViewTextBoxColumn";
-            // 
-            // createdDateDataGridViewTextBoxColumn
-            // 
-            this.createdDateDataGridViewTextBoxColumn.DataPropertyName = "CreatedDate";
-            this.createdDateDataGridViewTextBoxColumn.HeaderText = "CreatedDate";
-            this.createdDateDataGridViewTextBoxColumn.Name = "createdDateDataGridViewTextBoxColumn";
-            // 
-            // lastUpdatedDataGridViewTextBoxColumn
-            // 
-            this.lastUpdatedDataGridViewTextBoxColumn.DataPropertyName = "LastUpdated";
-            this.lastUpdatedDataGridViewTextBoxColumn.HeaderText = "LastUpdated";
-            this.lastUpdatedDataGridViewTextBoxColumn.Name = "lastUpdatedDataGridViewTextBoxColumn";
-            // 
-            // createdByDataGridViewTextBoxColumn
-            // 
-            this.createdByDataGridViewTextBoxColumn.DataPropertyName = "CreatedBy";
-            this.createdByDataGridViewTextBoxColumn.HeaderText = "CreatedBy";
-            this.createdByDataGridViewTextBoxColumn.Name = "createdByDataGridViewTextBoxColumn";
-            // 
-            // updatedByDataGridViewTextBoxColumn
-            // 
-            this.updatedByDataGridViewTextBoxColumn.DataPropertyName = "UpdatedBy";
-            this.updatedByDataGridViewTextBoxColumn.HeaderText = "UpdatedBy";
-            this.updatedByDataGridViewTextBoxColumn.Name = "updatedByDataGridViewTextBoxColumn";
+            this.btnAddWarehouse.Click += new System.EventHandler(this.btnAddWarehouse_Click);
             // 
             // finalAccountDTOBindingSource
             // 
@@ -312,15 +220,65 @@
             // 
             this.finalAccountDetailDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.FinalAccountDetailDTO);
             // 
-            // btnEdit
+            // warehouseDTOBindingSource
             // 
-            this.btnEdit.Location = new System.Drawing.Point(146, 27);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(90, 25);
-            this.btnEdit.TabIndex = 1;
-            this.btnEdit.Values.Text = "Sửa";
+            this.warehouseDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.WarehouseDTO);
             // 
-            // FinalAccountManagement
+            // warehouseIDDataGridViewTextBoxColumn
+            // 
+            this.warehouseIDDataGridViewTextBoxColumn.DataPropertyName = "WarehouseID";
+            this.warehouseIDDataGridViewTextBoxColumn.HeaderText = "WarehouseID";
+            this.warehouseIDDataGridViewTextBoxColumn.Name = "warehouseIDDataGridViewTextBoxColumn";
+            // 
+            // warehouseNameDataGridViewTextBoxColumn
+            // 
+            this.warehouseNameDataGridViewTextBoxColumn.DataPropertyName = "WarehouseName";
+            this.warehouseNameDataGridViewTextBoxColumn.HeaderText = "WarehouseName";
+            this.warehouseNameDataGridViewTextBoxColumn.Name = "warehouseNameDataGridViewTextBoxColumn";
+            // 
+            // constructionIDDataGridViewTextBoxColumn
+            // 
+            this.constructionIDDataGridViewTextBoxColumn.DataPropertyName = "ConstructionID";
+            this.constructionIDDataGridViewTextBoxColumn.HeaderText = "ConstructionID";
+            this.constructionIDDataGridViewTextBoxColumn.Name = "constructionIDDataGridViewTextBoxColumn";
+            // 
+            // constructionNameDataGridViewTextBoxColumn
+            // 
+            this.constructionNameDataGridViewTextBoxColumn.DataPropertyName = "ConstructionName";
+            this.constructionNameDataGridViewTextBoxColumn.HeaderText = "ConstructionName";
+            this.constructionNameDataGridViewTextBoxColumn.Name = "constructionNameDataGridViewTextBoxColumn";
+            // 
+            // managerNameDataGridViewTextBoxColumn
+            // 
+            this.managerNameDataGridViewTextBoxColumn.DataPropertyName = "ManagerName";
+            this.managerNameDataGridViewTextBoxColumn.HeaderText = "ManagerName";
+            this.managerNameDataGridViewTextBoxColumn.Name = "managerNameDataGridViewTextBoxColumn";
+            // 
+            // descriptionDataGridViewTextBoxColumn
+            // 
+            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
+            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
+            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            // 
+            // addressDataGridViewTextBoxColumn
+            // 
+            this.addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
+            this.addressDataGridViewTextBoxColumn.HeaderText = "Address";
+            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
+            // 
+            // typeDataGridViewTextBoxColumn
+            // 
+            this.typeDataGridViewTextBoxColumn.DataPropertyName = "Type";
+            this.typeDataGridViewTextBoxColumn.HeaderText = "Type";
+            this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
+            // 
+            // isActiveDataGridViewTextBoxColumn
+            // 
+            this.isActiveDataGridViewTextBoxColumn.DataPropertyName = "IsActive";
+            this.isActiveDataGridViewTextBoxColumn.HeaderText = "IsActive";
+            this.isActiveDataGridViewTextBoxColumn.Name = "isActiveDataGridViewTextBoxColumn";
+            // 
+            // WarehouseManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -329,9 +287,9 @@
             this.Controls.Add(this.kryptonPanel3);
             this.Controls.Add(this.kryptonPanel2);
             this.Controls.Add(this.kryptonPanel6);
-            this.Name = "FinalAccountManagement";
+            this.Name = "WarehouseManagement";
             this.Text = "FinalAccountManagement";
-            this.Load += new System.EventHandler(this.FinalAccountManagement_Load);
+            this.Load += new System.EventHandler(this.WarehouseManagement_Load);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel3)).EndInit();
@@ -353,6 +311,7 @@
             this.gbcMenuBot.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.finalAccountDTOBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.finalAccountDetailDTOBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.warehouseDTOBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -373,22 +332,17 @@
         private System.Windows.Forms.BindingSource finalAccountDetailDTOBindingSource;
         private System.Windows.Forms.BindingSource finalAccountDTOBindingSource;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dgvLeftBot;
-        private System.Windows.Forms.DataGridViewTextBoxColumn finalAccountIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn finalAccountNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn constructionNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateAccountDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn debtNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn transportationCostDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn totalCostDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn comparationDebtIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn personAccountDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn isPayDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn noteDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn createdDateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lastUpdatedDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn createdByDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn updatedByDataGridViewTextBoxColumn;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnEdit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn warehouseIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn warehouseNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn constructionIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn constructionNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn managerNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn isActiveDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource warehouseDTOBindingSource;
     }
 }
 
