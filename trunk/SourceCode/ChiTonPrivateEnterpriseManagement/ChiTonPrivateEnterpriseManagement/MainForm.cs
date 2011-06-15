@@ -104,6 +104,10 @@ namespace ChiTonPrivateEnterpriseManagement
             {
                 NodeKey = Constants.MANAGE_USER_INFO_EN;
             }
+            if (MenuName.Equals(Constants.MANAGE_EMPLOYEE_SALARY_VN))
+            {
+                NodeKey = Constants.MANAGE_EMPLOYEE_SALARY_EN;
+            }
             if (MenuName.Equals(Constants.MANAGE_CONSTRUCTION_INFO_VN))
             {
                 NodeKey = Constants.MANAGE_CONSTRUCTION_INFO_VN;
@@ -174,19 +178,26 @@ namespace ChiTonPrivateEnterpriseManagement
                     pnlMainContent.Controls.Add(rightsManagement);
                     rightsManagement.Show();
                 }
-                if (tvwMenu.Nodes[Constants.MANAGE_CONSTRUCTION_INFO_VN].IsSelected)
-                {
-                    ConstructionManagement conManagement = new ConstructionManagement();
-                    conManagement.MdiParent = this;
-                    pnlMainContent.Controls.Add(conManagement);
-                    conManagement.Show();
-                }
+                //if (tvwMenu.Nodes[Constants.MANAGE_CONSTRUCTION_INFO_VN].IsSelected)
+                //{
+                //    ConstructionManagement conManagement = new ConstructionManagement();
+                //    conManagement.MdiParent = this;
+                //    pnlMainContent.Controls.Add(conManagement);
+                //    conManagement.Show();
+                //}
                 if (tvwMenu.Nodes[Constants.MANAGE_USER_EN].Nodes[Constants.MANAGE_USER_INFO_EN].IsSelected)
                 {
                     EmployeeManagement employeeManagement = new EmployeeManagement(employerDTO);
                     employeeManagement.MdiParent = this;
                     pnlMainContent.Controls.Add(employeeManagement);
                     employeeManagement.Show();
+                }
+                if (tvwMenu.Nodes[Constants.MANAGE_USER_EN].Nodes[Constants.MANAGE_EMPLOYEE_SALARY_EN].IsSelected)
+                {
+                    SalaryManagement salaryManagement = new SalaryManagement();
+                    salaryManagement.MdiParent = this;
+                    pnlMainContent.Controls.Add(salaryManagement);
+                    salaryManagement.Show();
                 }
             }
             catch (Exception)
@@ -206,6 +217,14 @@ namespace ChiTonPrivateEnterpriseManagement
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             loadMenu();
+        }
+
+        private void tvwMenu_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                tvwMenu_NodeMouseDoubleClick(null, null);
+            }
         }
     }
 }
