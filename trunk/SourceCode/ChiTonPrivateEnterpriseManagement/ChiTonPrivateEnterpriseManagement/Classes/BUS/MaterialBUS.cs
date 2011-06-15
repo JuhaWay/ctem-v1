@@ -13,5 +13,10 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
         {
             return _materialDAO.LoadAllMaterials();
         }
+
+        public List<MaterialDTO> LoadALlMaterialsEstimate()
+        {
+            return _materialDAO.LoadAllMaterialsEstimate();
+        }
     }
 }
