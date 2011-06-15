@@ -8,9 +8,6 @@ using ChiTonPrivateEnterpriseManagement.Classes.DAO;
 
 namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
 {
-    /// <summary>
-    /// Business Logic layer of Employee Entity
-    /// </summary>
     public class EmployeeBUS
     {
         public EmployerDTO employerDTO = new EmployerDTO();
@@ -33,6 +30,23 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
         public List<EmployerDTO> LoadAllEmployee()
         {
             return employerDAO.GetAll();
+        }
+
+        public bool CreateEmployee(string username, string password, string fullname, string address, string email, string CMND, string DOB, long roleID, long rightsValue, int isActive, string notes, string phonenumber, long totalDebt)
+        {
+            return employerDAO.CreateEmployee(username, password, fullname, address, email, CMND, DOB, roleID,
+                                              rightsValue, isActive, notes, phonenumber, totalDebt);
+        }
+
+        public bool UpdateEmployee(long employeeID, string username, string password, string fullname, string address, string email, string CMND, string DOB, long roleID, long rightsValue, int isActive, string notes, string phonenumber, long totalDebt)
+        {
+            return employerDAO.UpdateEmployee(employeeID, username, password, fullname, address, email, CMND, DOB, roleID,
+                                       rightsValue, isActive, notes, phonenumber, totalDebt);
+        }
+
+        public bool CreateEmployeeSalary(EmployeeSalaryDTO salary)
+        {
+            return employerDAO.CreateEmployeeSalary(salary);
         }
     }
 }

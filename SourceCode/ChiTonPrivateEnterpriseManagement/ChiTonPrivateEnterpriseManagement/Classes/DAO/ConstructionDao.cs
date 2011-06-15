@@ -20,8 +20,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
         }
 
         public SqlTransaction Transaction { get; set; }
-        private SqlConnection _con;
-
+        private SqlConnection _con;        
         SqlConnection Connection
         {
             get

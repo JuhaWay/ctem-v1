@@ -19,7 +19,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Modules
             string passWord;
             string databaseName;
 
-            FileStream objFile = new FileStream("SQLConnection.config", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            FileStream objFile = new FileStream("SQLConnection.config", FileMode.OpenOrCreate, FileAccess.ReadWrite);            
             StreamReader Open = new StreamReader(objFile);
 
             try
