@@ -98,7 +98,6 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
             child.Location = new Point(locationX, locationY);
 
         }
-<<<<<<< .mine
 
         public static void CenterToParent(KryptonPanel child, KryptonPanel parent, string direction, int space)
         {
