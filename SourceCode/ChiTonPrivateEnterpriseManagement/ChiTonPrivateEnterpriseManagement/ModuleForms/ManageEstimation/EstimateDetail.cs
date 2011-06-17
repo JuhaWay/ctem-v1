@@ -17,18 +17,21 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
         private  EstimateDetailBUS _estimateDetailBUS = new EstimateDetailBUS();
         private EstimateBUS _estimateBUS = new EstimateBUS();
         private MaterialBUS _materialBUS = new MaterialBUS();
+        private ConstructionBus _constructionBus = new ConstructionBus();
 
 
         private long _estimateId;
+        private long _constructionID;
         private long _totalCost;
         public EstimateDetail()
         {
             InitializeComponent();
         }
 
-        public EstimateDetail(long estimateId)
+        public EstimateDetail(long estimateId, long ConstructionID)
         {
             _estimateId = estimateId;
+            _constructionID = ConstructionID;
             InitializeComponent();
             resetDataSource(estimateId);
             cbMaterial.Items.AddRange(_materialBUS.LoadAllMaterials().ToArray());
@@ -60,6 +63,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
                     List<EstimateDetailDTO> esDetails =
                         _estimateDetailBUS.LoadAllEstimateDetails(_estimateId);
                     _estimateBUS.UpdateEstimate(_estimateId, getTotalCost(esDetails));
+                    _constructionBus.UpdateConstructionTotalEstimateCost(_constructionID, getTotalCost(esDetails));
                     resetDataSource(_estimateId);
                 }
 
@@ -153,7 +157,38 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
 
         private void btDelete_Click(object sender, EventArgs e)
         {
+            foreach (DataGridViewRow row in dgvEstimateDetails.Rows)
+            {
+                DataGridViewCell c = dgvEstimateDetails.Rows[row.Index].Cells[0];
+                if (c.AccessibilityObject.Value.Equals("True"))
+                {
+                    string strRightID = row.Cells["EstimateDetailID"].Value.ToString();
+                    long EstimateDetailID = Convert.ToInt64(strRightID);
+                    _estimateDetailBUS.DeleteEstimateDetail(EstimateDetailID);
+                }
+            }
+            resetDataSource(_estimateId);
+           
+        }
 
+        private void dgvEstimateDetails_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 0 && e.RowIndex != -1)
+            {
+                DataGridViewCell c = dgvEstimateDetails.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                if (c.AccessibilityObject.Value.Equals("True"))
+                {
+                    dgvEstimateDetails[e.ColumnIndex, e.RowIndex].Value = false;
+                    c.AccessibilityObject.Value = "False";
+                    dgvEstimateDetails.Rows[e.RowIndex].Selected = false;
+                }
+                else
+                {
+                    dgvEstimateDetails[e.ColumnIndex, e.RowIndex].Value = true;
+                    c.AccessibilityObject.Value = "True";
+                    dgvEstimateDetails.Rows[e.RowIndex].Selected = true;
+                }
+            }
         }
     }
 }
