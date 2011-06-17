@@ -1,7 +1,7 @@
 USE [master]
 GO
 
-/****** Object:  Database [CTEM-DB-v1]    Script Date: 06/05/2011 21:16:43 ******/
+/****** Object:  Database [CTEM-DB-v1]    Script Date: 06/17/2011 07:33:10 ******/
 CREATE DATABASE [CTEM-DB-v1] ON  PRIMARY 
 ( NAME = N'CTEM-DB-v1', FILENAME = N'D:\Program Files\Microsoft SQL Server\MSSQL10.MSSQLSERVER\MSSQL\DATA\CTEM-DB-v1.mdf' , SIZE = 3072KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
  LOG ON 
