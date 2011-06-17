@@ -30,9 +30,18 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.kryptonPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.dgvEstimate = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.kryptonGroupBox1 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
+            this.btDelete = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btViewEst = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btEditEst = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btCreateEst = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.checkBox = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewCheckBoxColumn();
             this.EstimateID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ConstructionName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,10 +53,6 @@
             this.CreatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UpdatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ConstructionID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kryptonGroupBox1 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
-            this.btViewEst = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.btEditEst = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.btCreateEst = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEstimate)).BeginInit();
@@ -86,6 +91,56 @@
             this.dgvEstimate.Size = new System.Drawing.Size(913, 427);
             this.dgvEstimate.TabIndex = 1;
             // 
+            // kryptonGroupBox1
+            // 
+            this.kryptonGroupBox1.Location = new System.Drawing.Point(0, 0);
+            this.kryptonGroupBox1.Name = "kryptonGroupBox1";
+            // 
+            // kryptonGroupBox1.Panel
+            // 
+            this.kryptonGroupBox1.Panel.Controls.Add(this.btDelete);
+            this.kryptonGroupBox1.Panel.Controls.Add(this.btViewEst);
+            this.kryptonGroupBox1.Panel.Controls.Add(this.btEditEst);
+            this.kryptonGroupBox1.Panel.Controls.Add(this.btCreateEst);
+            this.kryptonGroupBox1.Size = new System.Drawing.Size(913, 98);
+            this.kryptonGroupBox1.TabIndex = 0;
+            // 
+            // btDelete
+            // 
+            this.btDelete.Location = new System.Drawing.Point(187, 30);
+            this.btDelete.Name = "btDelete";
+            this.btDelete.Size = new System.Drawing.Size(90, 25);
+            this.btDelete.TabIndex = 3;
+            this.btDelete.Values.Text = "Xóa";
+            this.btDelete.Click += new System.EventHandler(this.btDelete_Click);
+            // 
+            // btViewEst
+            // 
+            this.btViewEst.Location = new System.Drawing.Point(283, 30);
+            this.btViewEst.Name = "btViewEst";
+            this.btViewEst.Size = new System.Drawing.Size(78, 25);
+            this.btViewEst.TabIndex = 2;
+            this.btViewEst.Values.Text = "Chi tiết";
+            this.btViewEst.Click += new System.EventHandler(this.btViewEst_Click);
+            // 
+            // btEditEst
+            // 
+            this.btEditEst.Location = new System.Drawing.Point(99, 30);
+            this.btEditEst.Name = "btEditEst";
+            this.btEditEst.Size = new System.Drawing.Size(82, 25);
+            this.btEditEst.TabIndex = 1;
+            this.btEditEst.Values.Text = "Sửa dự toán";
+            this.btEditEst.Click += new System.EventHandler(this.btEditEst_Click);
+            // 
+            // btCreateEst
+            // 
+            this.btCreateEst.Location = new System.Drawing.Point(10, 30);
+            this.btCreateEst.Name = "btCreateEst";
+            this.btCreateEst.Size = new System.Drawing.Size(83, 25);
+            this.btCreateEst.TabIndex = 0;
+            this.btCreateEst.Values.Text = "Tạo dự toán ";
+            this.btCreateEst.Click += new System.EventHandler(this.btCreateEst_Click);
+            // 
             // checkBox
             // 
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -108,6 +163,9 @@
             // ConstructionName
             // 
             this.ConstructionName.DataPropertyName = "ConstructionName";
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConstructionName.DefaultCellStyle = dataGridViewCellStyle2;
             this.ConstructionName.HeaderText = "Tên công trình";
             this.ConstructionName.Name = "ConstructionName";
             this.ConstructionName.Width = 150;
@@ -115,12 +173,17 @@
             // EstimateName
             // 
             this.EstimateName.DataPropertyName = "EstimateName";
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EstimateName.DefaultCellStyle = dataGridViewCellStyle3;
             this.EstimateName.HeaderText = "Tên dự toán";
             this.EstimateName.Name = "EstimateName";
             // 
             // TotalCostEstimate
             // 
             this.TotalCostEstimate.DataPropertyName = "TotalCostEstimate";
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Lime;
+            this.TotalCostEstimate.DefaultCellStyle = dataGridViewCellStyle4;
             this.TotalCostEstimate.HeaderText = "Tổng chi phí dự toán";
             this.TotalCostEstimate.Name = "TotalCostEstimate";
             this.TotalCostEstimate.Width = 120;
@@ -128,6 +191,8 @@
             // TotalCostReal
             // 
             this.TotalCostReal.DataPropertyName = "TotalCostReal";
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Lime;
+            this.TotalCostReal.DefaultCellStyle = dataGridViewCellStyle5;
             this.TotalCostReal.HeaderText = "Tổng chi phí thực tế";
             this.TotalCostReal.Name = "TotalCostReal";
             this.TotalCostReal.Width = 120;
@@ -166,46 +231,6 @@
             this.ConstructionID.Name = "ConstructionID";
             this.ConstructionID.Visible = false;
             // 
-            // kryptonGroupBox1
-            // 
-            this.kryptonGroupBox1.Location = new System.Drawing.Point(0, 0);
-            this.kryptonGroupBox1.Name = "kryptonGroupBox1";
-            // 
-            // kryptonGroupBox1.Panel
-            // 
-            this.kryptonGroupBox1.Panel.Controls.Add(this.btViewEst);
-            this.kryptonGroupBox1.Panel.Controls.Add(this.btEditEst);
-            this.kryptonGroupBox1.Panel.Controls.Add(this.btCreateEst);
-            this.kryptonGroupBox1.Size = new System.Drawing.Size(913, 98);
-            this.kryptonGroupBox1.TabIndex = 0;
-            // 
-            // btViewEst
-            // 
-            this.btViewEst.Location = new System.Drawing.Point(196, 30);
-            this.btViewEst.Name = "btViewEst";
-            this.btViewEst.Size = new System.Drawing.Size(78, 25);
-            this.btViewEst.TabIndex = 2;
-            this.btViewEst.Values.Text = "Chi tiết";
-            this.btViewEst.Click += new System.EventHandler(this.btViewEst_Click);
-            // 
-            // btEditEst
-            // 
-            this.btEditEst.Location = new System.Drawing.Point(99, 30);
-            this.btEditEst.Name = "btEditEst";
-            this.btEditEst.Size = new System.Drawing.Size(82, 25);
-            this.btEditEst.TabIndex = 1;
-            this.btEditEst.Values.Text = "Sửa dự toán";
-            this.btEditEst.Click += new System.EventHandler(this.btEditEst_Click);
-            // 
-            // btCreateEst
-            // 
-            this.btCreateEst.Location = new System.Drawing.Point(10, 30);
-            this.btCreateEst.Name = "btCreateEst";
-            this.btCreateEst.Size = new System.Drawing.Size(83, 25);
-            this.btCreateEst.TabIndex = 0;
-            this.btCreateEst.Values.Text = "Tạo dự toán ";
-            this.btCreateEst.Click += new System.EventHandler(this.btCreateEst_Click);
-            // 
             // EstimateManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -236,6 +261,7 @@
         private ComponentFactory.Krypton.Toolkit.KryptonButton btViewEst;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btEditEst;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btCreateEst;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btDelete;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewCheckBoxColumn checkBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn EstimateID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ConstructionName;
