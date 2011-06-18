@@ -58,6 +58,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                     EstimateDTO consDto = new EstimateDTO
                     {
                         ConstructionName = Convert.ToString(reader["ConstructionName"]),
+                        ConstructionID = Convert.ToInt64(reader["ConstructionID"]),
                         EstimateID = Convert.ToInt64(reader["EstimateID"]),
                         EstimateName = Convert.ToString(reader["EstimateName"]),
                         TotalCostEstimate = Convert.ToInt64(reader["TotalCostEstimate"]),
@@ -142,6 +143,28 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                     Connection.Close();
             }
         }
-
+        internal bool DeleteEstimate(long estimateID)
+        {
+            var cmd = new SqlCommand("[dbo].[Estimate_Delete]", Connection) { CommandType = CommandType.StoredProcedure };
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@estimateID", estimateID));
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException sql)
+            {
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null)
+                    Connection.Close();
+            }
+        }
     }
 }

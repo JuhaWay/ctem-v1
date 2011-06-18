@@ -63,7 +63,10 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         Description = Convert.ToString(reader["Description"]),
                         ConstructionAddress = Convert.ToString(reader["ConstructionAddress"]),
                         CommencementDate = Convert.ToDateTime(reader["CommencementDate"]),
-                        CompletionDate = Convert.ToDateTime(reader["CompletionDate"])
+                        CompletionDate = Convert.ToDateTime(reader["CompletionDate"]),
+                        TotalEstimateCost = Convert.ToInt64(reader["TotalEstimateCost"]),
+                        HasEstimate = Convert.ToBoolean(reader["HasEstimate"]),
+                        ParentID = Convert.ToInt64(reader["ParentID"])
                     };
                     listcons.Add(consDto);
                 }
@@ -120,9 +123,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 if (Transaction == null) Connection.Close();
             }
         }
-        public bool CreateConstruction(string constructionName, string description,String constructionAddress ,
-                                       DateTime commencementDate, DateTime completionDate, long totalEstimateCost,
-                                        string status)
+        public bool CreateConstruction(ConstructionDTO dto)
         {
             var cmd = new SqlCommand("[dbo].[Construction_Create]", Connection) { CommandType = CommandType.StoredProcedure };
             if (Transaction != null)
@@ -131,14 +132,16 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             }
             try
             {
-                cmd.Parameters.Add(new SqlParameter("@constructionName", constructionName));
-                cmd.Parameters.Add(new SqlParameter("@description", description));
-                cmd.Parameters.Add(new SqlParameter("@constructionAddress", constructionAddress));
-                cmd.Parameters.Add(new SqlParameter("@commencementDate", commencementDate));
-                cmd.Parameters.Add(new SqlParameter("@completionDate", completionDate));
-                cmd.Parameters.Add(new SqlParameter("@totalEstimateCost", totalEstimateCost));
-                cmd.Parameters.Add(new SqlParameter("@status", status));
-                cmd.Parameters.Add(new SqlParameter("@hasEstimate", true));
+                cmd.Parameters.Add(new SqlParameter("@constructionName", dto.ConstructionName));
+                cmd.Parameters.Add(new SqlParameter("@subconstractorID", dto.SubconstractorID));
+                cmd.Parameters.Add(new SqlParameter("@description", dto.Description));
+                cmd.Parameters.Add(new SqlParameter("@constructionAddress", dto.ConstructionAddress));
+                cmd.Parameters.Add(new SqlParameter("@commencementDate", dto.CommencementDate));
+                cmd.Parameters.Add(new SqlParameter("@completionDate", dto.CompletionDate));
+                cmd.Parameters.Add(new SqlParameter("@totalEstimateCost", dto.TotalEstimateCost));
+                cmd.Parameters.Add(new SqlParameter("@status", dto.Status));
+                cmd.Parameters.Add(new SqlParameter("@hasEstimate", dto.HasEstimate));
+                cmd.Parameters.Add(new SqlParameter("@parentID", dto.ParentID));
                 cmd.ExecuteNonQuery();
                 return true;
             }
@@ -177,7 +180,9 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         Description = Convert.ToString(reader["Description"]),
                         ConstructionAddress = Convert.ToString(reader["ConstructionAddress"]),
                         CommencementDate = Convert.ToDateTime(reader["CommencementDate"]),
-                        CompletionDate = Convert.ToDateTime(reader["CompletionDate"])
+                        CompletionDate = Convert.ToDateTime(reader["CompletionDate"]),
+                        HasEstimate = Convert.ToBoolean(reader["HasEstimate"]),
+                        SubconstractorID = Convert.ToInt64(reader["SubconstractorID"])
                     };
                     return consDto;
                 }
@@ -194,6 +199,52 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 if (Transaction == null) Connection.Close();
             }
         }
+
+        public List<ConstructionDTO> LoadChildenById(long id)
+        {
+            var cmd = new SqlCommand("[dbo].[Construction_GetChildren]", Connection);
+
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            List<ConstructionDTO> listcons = new List<ConstructionDTO>();
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@constructionID", id));
+            try
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    ConstructionDTO consDto = new ConstructionDTO
+                    {
+                        ConstructionID = Convert.ToInt64(reader["ConstructionID"]),
+                        SubcontractorName = Convert.ToString(reader["SubcontractorName"]),
+                        ConstructionName = Convert.ToString(reader["ConstructionName"]),
+                        Description = Convert.ToString(reader["Description"]),
+                        ConstructionAddress = Convert.ToString(reader["ConstructionAddress"]),
+                        CommencementDate = Convert.ToDateTime(reader["CommencementDate"]),
+                        CompletionDate = Convert.ToDateTime(reader["CompletionDate"]),
+                        TotalEstimateCost = Convert.ToInt64(reader["TotalEstimateCost"]),
+                        HasEstimate = Convert.ToBoolean(reader["HasEstimate"]),
+                        ParentID = Convert.ToInt64(reader["ParentID"])
+                    };
+                    listcons.Add(consDto);
+                }
+                return listcons;
+
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message, "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                if (Transaction == null) Connection.Close();
+            }
+        }
+
 
 
         public ConstructionDTO LoadConstructionByName(string name)
@@ -238,9 +289,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
 
 
 
-        internal bool UpdateConstrction(long constructionID,string constructionName, string description, String constructionAddress,
-                                       DateTime commencementDate, DateTime completionDate, long totalEstimateCost,
-                                        string status)
+        internal bool UpdateConstruction(ConstructionDTO dto)
         {
             var cmd = new SqlCommand("[dbo].[Construction_Update]", Connection) { CommandType = CommandType.StoredProcedure };
             if (Transaction != null)
@@ -249,16 +298,67 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             }
             try
             {
-                cmd.Parameters.Add(new SqlParameter("@constructionID", constructionID));
-                cmd.Parameters.Add(new SqlParameter("@constructionName", constructionName));
-                cmd.Parameters.Add(new SqlParameter("@description", description));
-                cmd.Parameters.Add(new SqlParameter("@constructionAddress", constructionAddress));
-                cmd.Parameters.Add(new SqlParameter("@commencementDate", commencementDate));
-                cmd.Parameters.Add(new SqlParameter("@completionDate", completionDate));
-                cmd.Parameters.Add(new SqlParameter("@totalEstimateCost", totalEstimateCost));
-                cmd.Parameters.Add(new SqlParameter("@status", status));
-                cmd.Parameters.Add(new SqlParameter("@hasEstimate", true));
+                cmd.Parameters.Add(new SqlParameter("@constructionID", dto.ConstructionID));
+                cmd.Parameters.Add(new SqlParameter("@subconstractorID", dto.SubconstractorID));
+                cmd.Parameters.Add(new SqlParameter("@constructionName", dto.ConstructionName));
+                cmd.Parameters.Add(new SqlParameter("@description", dto.Description));
+                cmd.Parameters.Add(new SqlParameter("@constructionAddress", dto.ConstructionAddress));
+                cmd.Parameters.Add(new SqlParameter("@commencementDate", dto.CommencementDate));
+                cmd.Parameters.Add(new SqlParameter("@completionDate", dto.CompletionDate));
+                cmd.Parameters.Add(new SqlParameter("@totalEstimateCost", dto.TotalEstimateCost));
+                cmd.Parameters.Add(new SqlParameter("@status", dto.Status));
+                cmd.Parameters.Add(new SqlParameter("@hasEstimate", dto.HasEstimate));
 
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException sql)
+            {
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null)
+                    Connection.Close();
+            }
+        }
+        internal bool UpdateConstructionTotalEstimateCost(long ConstructionID, long TotalEstimateCost)
+        {
+            var cmd = new SqlCommand("[dbo].[Construction_UpdateTotalEstimateCost]", Connection) { CommandType = CommandType.StoredProcedure };
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@constructionID",ConstructionID));
+                cmd.Parameters.Add(new SqlParameter("@totalEstimateCost",TotalEstimateCost));
+
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException sql)
+            {
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null)
+                    Connection.Close();
+            }
+        }
+
+
+        internal bool DeleteConstruction(long ConstructionID)
+        {
+            var cmd = new SqlCommand("[dbo].[Construction_Delete]", Connection) { CommandType = CommandType.StoredProcedure };
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@constructionID", ConstructionID));
                 cmd.ExecuteNonQuery();
                 return true;
             }
