@@ -13,30 +13,37 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
             return _constructionDao.LoadAllConstructions();
         }
 
-        public bool CreateConstruction(string constructionName, string description,String constructionAddress ,
-                                       DateTime commencementDate, DateTime completionDate, long totalEstimateCost,
-                                        string status)
+        public bool CreateConstruction(ConstructionDTO dto)
         {
-            return _constructionDao.CreateConstruction(constructionName, description, constructionAddress,
-                                                        commencementDate, completionDate, totalEstimateCost,
-                                                        status);
+            return _constructionDao.CreateConstruction(dto);
         }
 
         public ConstructionDTO LoadConstructionById(long id)
         {
             return _constructionDao.LoadConstructionById(id);
         }
-        public bool updateConstruction(long constructionID,string constructionName, string description, String constructionAddress,
-                                       DateTime commencementDate, DateTime completionDate, long totalEstimateCost,
-                                        string status)
+        public bool updateConstruction(ConstructionDTO dto)
         {
-            return _constructionDao.UpdateConstrction(constructionID,constructionName, description, constructionAddress,
-                                                        commencementDate, completionDate, totalEstimateCost,
-                                                        status);
+            return _constructionDao.UpdateConstruction(dto);
         }
         public ConstructionDTO LoadConstructionByName(string name)
         {
             return _constructionDao.LoadConstructionByName(name);
+        }
+
+        public List<ConstructionDTO> LoadChildenById(long parentID)
+        {
+            return _constructionDao.LoadChildenById(parentID);
+        }
+
+        public bool DeleteConstruction(long ConstructionID )
+        {
+            return _constructionDao.DeleteConstruction(ConstructionID);
+        }
+
+        public bool UpdateConstructionTotalEstimateCost(long ConstructionID, long TotalEstimateCost)
+        {
+            return _constructionDao.UpdateConstructionTotalEstimateCost(ConstructionID, TotalEstimateCost);
         }
 
         public List<ConstructionDTO> LoadAllConstructionsHaveWarehouse()
