@@ -11,6 +11,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
         public long ConstructionID { get; set; }
         public long WarehouseID { get; set; }
         public string SubcontractorName { get; set; }
+        public long SubconstractorID { get; set; }
         public string ConstructionName { get; set; }
         public string Description { get; set; }
         public string ConstructionAddress { get; set; }
@@ -21,6 +22,9 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
         public string CreatedBy { get; set; }
         public string UpdatedBy { get; set; }
         public string Status { get; set; }
+        public bool HasEstimate { get; set; }
+        public long TotalEstimateCost { get; set; }
+        public long ParentID { get; set; }
 
         public ConstructionDTO()
         {
