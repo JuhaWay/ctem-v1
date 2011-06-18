@@ -30,29 +30,44 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
 
         private void ConstructionManagement_Load(object sender, EventArgs e)
         {
-            
-            DatabaseInfo dbInfo;
-            dbInfo = new DatabaseInfo();
-            dbInfo.LoadInfo();
 
+
+
+            loadData();
           
-                listConstructions = _constructionBus.LoadAllConstructions();
-                //dgvCons.DataSource = listConstructions;
-                foreach (ConstructionDTO dto in listConstructions)
+
+        }
+
+
+        public void loadData(){
+            listConstructions = _constructionBus.LoadAllConstructions();
+            dgvCons.Nodes.Clear();
+            foreach (ConstructionDTO dto in listConstructions)
+            {
+                if (dto.ParentID == 0)
                 {
-                    TreeGridNode node = dgvCons.Nodes.Add(null,dto.ConstructionID, dto.ConstructionName,dto.SubcontractorName, dto.Description, dto.ConstructionAddress,
-                        dto.CommencementDate.ToString(), dto.CompletionDate.ToString(), "123");
-                    node.Nodes.Add(null, dto.ConstructionID, dto.ConstructionName, dto.Description, dto.ConstructionAddress,
-                        dto.CommencementDate.ToString(), dto.CompletionDate.ToString(), "123"); ;
-                }
-          
 
+                    TreeGridNode node = dgvCons.Nodes.Add(null, dto.ConstructionID, dto.ConstructionName, dto.HasEstimate, dto.TotalEstimateCost, dto.SubcontractorName, dto.Description, dto.ConstructionAddress,
+                        dto.CommencementDate.ToString(), dto.CompletionDate.ToString(),dto.ParentID);
+                    
+                    List<ConstructionDTO> children = _constructionBus.LoadChildenById(dto.ConstructionID);
+                    foreach (ConstructionDTO child in children)
+                    {
+                        node.Nodes.Add(null, child.ConstructionID, child.ConstructionName, child.HasEstimate, child.TotalEstimateCost, child.SubcontractorName, child.Description, child.ConstructionAddress,
+                        child.CommencementDate.ToString(), child.CompletionDate.ToString(),  child.ParentID);
+                    }
+                    node.Expand();   
+
+                }
+            }
         }
 
         private void addButton_Click(object sender, EventArgs e)
         {
             AddConstruction panel = new AddConstruction();
             panel.ShowDialog();
+            loadData();
+
         }
 
         private void editButton_Click(object sender, EventArgs e)
@@ -65,11 +80,21 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
                 if (c.AccessibilityObject.Value.Equals("True"))
                 {
                     string strRightID = row.Cells["ConstructionID"].Value.ToString();
+                    long ParentId = Convert.ToInt64(row.Cells["ParentId"].Value.ToString());
                     long ConstructionID = Convert.ToInt64(strRightID);
-                    AddConstruction editForm = new AddConstruction(ConstructionID);
-                    editForm.ShowDialog();
+                    if (ParentId==0)
+                    {
+                        AddConstruction editForm = new AddConstruction(ConstructionID);
+                        editForm.ShowDialog();
+                    }
+                    else
+                    {
+                        AddSubconstruction editForm = new AddSubconstruction(ConstructionID);
+                        editForm.ShowDialog();
+                    }
                 }
             }
+            loadData();
         }
 
         private void dgvCons_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
@@ -82,6 +107,60 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
             else
                 c.AccessibilityObject.Value = "False";
             }
+        }
+
+        private void btSubcon_Click(object sender, EventArgs e)
+        {
+
+            foreach (DataGridViewRow row in dgvCons.Rows)
+            {
+                DataGridViewCell c = dgvCons.Rows[row.Index].Cells[0];
+                if (c.AccessibilityObject.Value.Equals("True"))
+                {
+                    string strRightID = row.Cells["ConstructionID"].Value.ToString();
+                    long ConstructionID = Convert.ToInt64(strRightID);
+                    AddSubconstruction editForm = new AddSubconstruction(ConstructionID,false);
+                    editForm.ShowDialog();
+                }
+            }
+            loadData();
+        }
+
+        private void removeButton_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in dgvCons.Rows)
+            {
+                DataGridViewCell c = dgvCons.Rows[row.Index].Cells[0];
+                if (c.AccessibilityObject.Value.Equals("True"))
+                {
+                    string strRightID = row.Cells["ConstructionID"].Value.ToString();
+                    long ConstructionID = Convert.ToInt64(strRightID);
+                    _constructionBus.DeleteConstruction(ConstructionID);
+                }
+            }
+            loadData();
+        }
+
+        private void dgvCons_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                ContextMenu m = new ContextMenu();
+                m.MenuItems.Add(new MenuItem("Cut"));
+                m.MenuItems.Add(new MenuItem("Copy"));
+                m.MenuItems.Add(new MenuItem("Paste"));
+
+                int currentMouseOverRow = dgvCons.HitTest(e.X, e.Y).RowIndex;
+
+                if (currentMouseOverRow >= 0)
+                {
+                    m.MenuItems.Add(new MenuItem(string.Format("Do something to row {0}", currentMouseOverRow.ToString())));
+                }
+
+                m.Show(dgvCons, new Point(e.X, e.Y));
+
+            }
+
         }
 
     }

@@ -1,6 +1,6 @@
 ﻿namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
 {
-    partial class AddConstruction
+    partial class AddSubconstruction
     {
         /// <summary>
         /// Required designer variable.
@@ -34,6 +34,9 @@
             this.btCancel = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btSave = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryptonGroupBox2 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
+            this.btcreateSubcon = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.cbSubconName = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.dtStartDate = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
             this.ipDes = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.lbDes = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
@@ -46,14 +49,12 @@
             this.lbAddress = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.ipConstructionName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.lbConstructionName = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.rdhasEstimate = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
-            this.rdNoEstimate = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
-            this.lbSCType = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             ((System.ComponentModel.ISupportInitialize)(this.panel)).BeginInit();
             this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox2)).BeginInit();
             this.kryptonGroupBox2.Panel.SuspendLayout();
             this.kryptonGroupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbSubconName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbStatus)).BeginInit();
             this.SuspendLayout();
             // 
@@ -93,13 +94,13 @@
             // 
             // kryptonGroupBox2.Panel
             // 
+            this.kryptonGroupBox2.Panel.Controls.Add(this.btcreateSubcon);
+            this.kryptonGroupBox2.Panel.Controls.Add(this.cbSubconName);
+            this.kryptonGroupBox2.Panel.Controls.Add(this.kryptonLabel1);
             this.kryptonGroupBox2.Panel.Controls.Add(this.dtStartDate);
             this.kryptonGroupBox2.Panel.Controls.Add(this.ipDes);
             this.kryptonGroupBox2.Panel.Controls.Add(this.lbDes);
-            this.kryptonGroupBox2.Panel.Controls.Add(this.rdhasEstimate);
-            this.kryptonGroupBox2.Panel.Controls.Add(this.rdNoEstimate);
             this.kryptonGroupBox2.Panel.Controls.Add(this.cbStatus);
-            this.kryptonGroupBox2.Panel.Controls.Add(this.lbSCType);
             this.kryptonGroupBox2.Panel.Controls.Add(this.lbState);
             this.kryptonGroupBox2.Panel.Controls.Add(this.dtEndDate);
             this.kryptonGroupBox2.Panel.Controls.Add(this.lbEndDate);
@@ -111,6 +112,32 @@
             this.kryptonGroupBox2.Size = new System.Drawing.Size(697, 536);
             this.kryptonGroupBox2.TabIndex = 7;
             this.kryptonGroupBox2.Values.Heading = "";
+            // 
+            // btcreateSubcon
+            // 
+            this.btcreateSubcon.Location = new System.Drawing.Point(343, 81);
+            this.btcreateSubcon.Name = "btcreateSubcon";
+            this.btcreateSubcon.Size = new System.Drawing.Size(37, 22);
+            this.btcreateSubcon.TabIndex = 22;
+            this.btcreateSubcon.Values.Text = "+";
+            this.btcreateSubcon.Click += new System.EventHandler(this.kryptonButton1_Click);
+            // 
+            // cbSubconName
+            // 
+            this.cbSubconName.DropDownWidth = 159;
+            this.cbSubconName.Location = new System.Drawing.Point(178, 81);
+            this.cbSubconName.Name = "cbSubconName";
+            this.cbSubconName.Size = new System.Drawing.Size(159, 22);
+            this.cbSubconName.TabIndex = 21;
+            this.cbSubconName.Text = "chọn...";
+            // 
+            // kryptonLabel1
+            // 
+            this.kryptonLabel1.Location = new System.Drawing.Point(89, 81);
+            this.kryptonLabel1.Name = "kryptonLabel1";
+            this.kryptonLabel1.Size = new System.Drawing.Size(81, 19);
+            this.kryptonLabel1.TabIndex = 20;
+            this.kryptonLabel1.Values.Text = "Tên nhà thầu :";
             // 
             // dtStartDate
             // 
@@ -212,33 +239,7 @@
             this.lbConstructionName.TabIndex = 2;
             this.lbConstructionName.Values.Text = "Tên công trình :";
             // 
-            // rdhasEstimate
-            // 
-            this.rdhasEstimate.Location = new System.Drawing.Point(176, 76);
-            this.rdhasEstimate.Name = "rdhasEstimate";
-            this.rdhasEstimate.Size = new System.Drawing.Size(78, 19);
-            this.rdhasEstimate.TabIndex = 5;
-            this.rdhasEstimate.Values.Text = "Có dự toán";
-            this.rdhasEstimate.CheckedChanged += new System.EventHandler(this.rdhasEstimate_CheckedChanged);
-            // 
-            // rdNoEstimate
-            // 
-            this.rdNoEstimate.Location = new System.Drawing.Point(269, 76);
-            this.rdNoEstimate.Name = "rdNoEstimate";
-            this.rdNoEstimate.Size = new System.Drawing.Size(97, 19);
-            this.rdNoEstimate.TabIndex = 3;
-            this.rdNoEstimate.Values.Text = "Không dự toán";
-            this.rdNoEstimate.CheckedChanged += new System.EventHandler(this.rdNoEstimate_CheckedChanged);
-            // 
-            // lbSCType
-            // 
-            this.lbSCType.Location = new System.Drawing.Point(79, 76);
-            this.lbSCType.Name = "lbSCType";
-            this.lbSCType.Size = new System.Drawing.Size(91, 19);
-            this.lbSCType.TabIndex = 2;
-            this.lbSCType.Values.Text = "Loại công trình :";
-            // 
-            // AddConstruction
+            // AddSubconstruction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -246,7 +247,7 @@
             this.Controls.Add(this.panel);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "AddConstruction";
+            this.Name = "AddSubconstruction";
             this.Text = "AddConstruction";
             this.Load += new System.EventHandler(this.AddConstruction_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panel)).EndInit();
@@ -255,6 +256,7 @@
             this.kryptonGroupBox2.Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox2)).EndInit();
             this.kryptonGroupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cbSubconName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbStatus)).EndInit();
             this.ResumeLayout(false);
 
@@ -264,9 +266,6 @@
 
         private ComponentFactory.Krypton.Toolkit.KryptonManager kryptonManager;
         private ComponentFactory.Krypton.Toolkit.KryptonPanel panel;
-        private ComponentFactory.Krypton.Toolkit.KryptonRadioButton rdhasEstimate;
-        private ComponentFactory.Krypton.Toolkit.KryptonRadioButton rdNoEstimate;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel lbSCType;
         private ComponentFactory.Krypton.Toolkit.KryptonGroupBox kryptonGroupBox2;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox ipConstructionName;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel lbConstructionName;
@@ -282,6 +281,9 @@
         private ComponentFactory.Krypton.Toolkit.KryptonButton btCancel;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btSave;
         private ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker dtStartDate;
+        private ComponentFactory.Krypton.Toolkit.KryptonComboBox cbSubconName;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel1;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btcreateSubcon;
     }
 }
 
