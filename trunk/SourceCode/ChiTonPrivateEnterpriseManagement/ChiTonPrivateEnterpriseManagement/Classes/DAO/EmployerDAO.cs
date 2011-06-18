@@ -68,7 +68,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         CMND = Convert.ToString(reader["CMND"]),
                         PhoneNumber = Convert.ToString(reader["PhoneNumber"]),
                         IsActive = Convert.ToBoolean(reader["IsActive"]),
-                        totalDebt = Convert.ToInt64(reader["TotalDebt"])
+                        //totalDebt = Convert.ToInt64(reader["TotalDebt"])
                     };
                     try
                     {
