@@ -5,6 +5,11 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt;
+using ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation;
+using ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount;
+using ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWarehouse;
+using ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker;
 using ComponentFactory.Krypton.Toolkit;
 using ChiTonPrivateEnterpriseManagement.Classes.Global;
 using ChiTonPrivateEnterpriseManagement.Classes.DTO;
@@ -19,28 +24,21 @@ namespace ChiTonPrivateEnterpriseManagement
 {
     public partial class MainForm : ComponentFactory.Krypton.Toolkit.KryptonForm
     {
-        Global global = new Global();
-        private EmployerDTO employerDTO;
         private EmployeeBUS employeeBUS;
         public MainForm()
         {
             InitializeComponent();
-        }
-
-        public MainForm(EmployerDTO _employerDTO)
-        {
-            this.employerDTO = _employerDTO;
-            InitializeComponent();
-        }
+        }        
 
         private void MainForm_Load(object sender, EventArgs e)
         {
             this.IsMdiContainer = true;
+            txtProfiles.Text = Global.CurrentUser.Username + " (" + Global.CurrentUser.Fullname + ")";
             loadMenu();
         }
 
         private void loadMenu()
-        {            
+        {
             int numRootNodes = tvwMenu.Nodes.Count;
             for (int i = 0; i < numRootNodes; i++)
             {
@@ -48,72 +46,23 @@ namespace ChiTonPrivateEnterpriseManagement
             }
             LeftMenuBUS leftMenuBUS = new LeftMenuBUS();
             List<LeftMenuDTO> listMenus = new List<LeftMenuDTO>();
-            listMenus = leftMenuBUS.GetMenuByRoleID(employerDTO.RoleID);
+            listMenus = leftMenuBUS.GetMenuByRoleID(Global.CurrentUser.RoleID);
             foreach (var menuparent in listMenus)
             {
                 if (menuparent.MenuParent == 0)
                 {
-                    string NodekeyParent = GenerateNodeKey(menuparent.MenuName);
-                    tvwMenu.Nodes.Add(menuparent.MenuName).Name = NodekeyParent;
-                    var ParentNode = tvwMenu.Nodes[NodekeyParent];
+                    tvwMenu.Nodes.Add(menuparent.MenuName).Name = menuparent.MenuName;
+                    var ParentNode = tvwMenu.Nodes[menuparent.MenuName];
                     foreach (var menuchild in listMenus)
                     {
                         if (menuchild.MenuParent == menuparent.MenuID)
                         {
-                            string NodekeyChild = GenerateNodeKey(menuchild.MenuName);
-                            ParentNode.Nodes.Add(menuchild.MenuName).Name = NodekeyChild;
+                            ParentNode.Nodes.Add(menuchild.MenuName).Name = menuchild.MenuName;
                         }
                     }
                 }
             }
-        }
-
-        private string GenerateNodeKey(string MenuName)
-        {
-            string NodeKey = Constants.EMPTY_TEXT;
-            if (MenuName.Equals(Constants.MANAGE_MENU_VN))
-            {
-                NodeKey = Constants.MANAGE_MENU_EN;
-            }
-            if (MenuName.Equals(Constants.MANAGE_ROLE_VN))
-            {
-                NodeKey = Constants.MANAGE_ROLE_EN;
-            }
-            if (MenuName.Equals(Constants.MANAGE_RIGHT_VN))
-            {
-                NodeKey = Constants.MANAGE_RIGHT_EN;
-            }
-            if (MenuName.Equals(Constants.MANAGE_USER_VN))
-            {
-                NodeKey = Constants.MANAGE_USER_EN;
-            }
-
-            if (MenuName.Equals(Constants.MANAGE_MENU_INFO_VN))
-            {
-                NodeKey = Constants.MANAGE_MENU_INFO_EN;
-            }
-            if (MenuName.Equals(Constants.MANAGE_ROLE_INFO_VN))
-            {
-                NodeKey = Constants.MANAGE_ROLE_INFO_EN;
-            }
-            if (MenuName.Equals(Constants.MANAGE_RIGHT_INFO_VN))
-            {
-                NodeKey = Constants.MANAGE_RIGHT_INFO_EN;
-            }
-            if (MenuName.Equals(Constants.MANAGE_USER_INFO_VN))
-            {
-                NodeKey = Constants.MANAGE_USER_INFO_EN;
-            }
-            if (MenuName.Equals(Constants.MANAGE_EMPLOYEE_SALARY_VN))
-            {
-                NodeKey = Constants.MANAGE_EMPLOYEE_SALARY_EN;
-            }
-            if (MenuName.Equals(Constants.MANAGE_CONSTRUCTION_INFO_VN))
-            {
-                NodeKey = Constants.MANAGE_CONSTRUCTION_INFO_VN;
-            }
-            return NodeKey;
-        }
+        }        
 
         private void btnhdgMenuHideShow_Click(object sender, EventArgs e)
         {
@@ -157,61 +106,241 @@ namespace ChiTonPrivateEnterpriseManagement
         {
             try
             {
-                if (tvwMenu.Nodes[Constants.MANAGE_MENU_EN].Nodes[Constants.MANAGE_MENU_INFO_EN].IsSelected)
+                if (tvwMenu.Nodes[Constants.MANAGE_MENU].IsSelected)
                 {
                     MenuManagement menuManagement = new MenuManagement();
                     menuManagement.MdiParent = this;
                     pnlMainContent.Controls.Add(menuManagement);
                     menuManagement.Show();
+                    return;
                 }
-                if (tvwMenu.Nodes[Constants.MANAGE_ROLE_EN].Nodes[Constants.MANAGE_ROLE_INFO_EN].IsSelected)
+            }
+            catch { }
+
+            try
+            {
+                if (tvwMenu.Nodes[Constants.MANAGE_ROLE].IsSelected)
                 {
-                    RoleManagement roleManagement = new RoleManagement(employerDTO);
+                    RoleManagement roleManagement = new RoleManagement();
                     roleManagement.MdiParent = this;
                     pnlMainContent.Controls.Add(roleManagement);
                     roleManagement.Show();
+                    return;
                 }
-                if (tvwMenu.Nodes[Constants.MANAGE_RIGHT_EN].Nodes[Constants.MANAGE_RIGHT_INFO_EN].IsSelected)
+            }
+            catch { }
+
+            try
+            {
+                if (tvwMenu.Nodes[Constants.MANAGE_RIGHT].IsSelected)
                 {
-                    RightsManagement rightsManagement = new RightsManagement(employerDTO);
+                    RightsManagement rightsManagement = new RightsManagement();
                     rightsManagement.MdiParent = this;
                     pnlMainContent.Controls.Add(rightsManagement);
                     rightsManagement.Show();
+                    return;
                 }
-                //if (tvwMenu.Nodes[Constants.MANAGE_CONSTRUCTION_INFO_VN].IsSelected)
-                //{
-                //    ConstructionManagement conManagement = new ConstructionManagement();
-                //    conManagement.MdiParent = this;
-                //    pnlMainContent.Controls.Add(conManagement);
-                //    conManagement.Show();
-                //}
-                if (tvwMenu.Nodes[Constants.MANAGE_USER_EN].Nodes[Constants.MANAGE_USER_INFO_EN].IsSelected)
+            }
+            catch { }
+
+            try
+            {
+                if (tvwMenu.Nodes[Constants.MANAGE_USER].IsSelected)
                 {
-                    EmployeeManagement employeeManagement = new EmployeeManagement(employerDTO);
+                    EmployeeManagement employeeManagement = new EmployeeManagement();
                     employeeManagement.MdiParent = this;
                     pnlMainContent.Controls.Add(employeeManagement);
                     employeeManagement.Show();
+                    return;
                 }
-                if (tvwMenu.Nodes[Constants.MANAGE_USER_EN].Nodes[Constants.MANAGE_EMPLOYEE_SALARY_EN].IsSelected)
+            }
+            catch { }
+
+            try
+            {
+                if (tvwMenu.Nodes[Constants.MANAGE_CONSTRUCTION].IsSelected)
+                {
+                    ConstructionManagement constructionManagement = new ConstructionManagement();
+                    constructionManagement.MdiParent = this;
+                    pnlMainContent.Controls.Add(constructionManagement);
+                    constructionManagement.Show();
+                    return;
+                }
+            }
+            catch { }
+
+            try
+            {
+                if (tvwMenu.Nodes[Constants.MANAGE_DEBT].IsSelected)
+                {
+                    DebtManagement debtManagement = new DebtManagement();
+                    debtManagement.MdiParent = this;
+                    pnlMainContent.Controls.Add(debtManagement);
+                    debtManagement.Show();
+                    return;
+                }
+            }
+            catch { }
+
+            try
+            {
+                if (tvwMenu.Nodes[Constants.MANAGE_MATERIAL].IsSelected)
+                {
+                    return;
+                }
+            }
+            catch { }
+    
+            try
+            {
+                if (tvwMenu.Nodes[Constants.MANAGE_SYSTEM].IsSelected)
+                {
+                    return;
+                }
+            }
+            catch { }
+
+            try
+            {
+                if (tvwMenu.Nodes[Constants.MANAGE_USER].Nodes[Constants.MANAGE_EMPLOYEE_SALARY].IsSelected)
                 {
                     SalaryManagement salaryManagement = new SalaryManagement();
                     salaryManagement.MdiParent = this;
                     pnlMainContent.Controls.Add(salaryManagement);
                     salaryManagement.Show();
+                    return;
                 }
             }
-            catch (Exception)
+            catch { }
+
+            try
             {
+                if (tvwMenu.Nodes[Constants.MANAGE_USER].Nodes[Constants.MANAGE_EMPLOYEE_ADVANCE].IsSelected)
+                {
+                    AdvanceManagement advanceManagement = new AdvanceManagement();
+                    advanceManagement.MdiParent = this;
+                    pnlMainContent.Controls.Add(advanceManagement);
+                    advanceManagement.Show();
+                    return;
+                }
             }
-        }
+            catch { }
 
-        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-        }
+            try
+            {
+                if (tvwMenu.Nodes[Constants.MANAGE_USER].Nodes[Constants.RESET_PASSWORD].IsSelected)
+                {
+                    return;
+                }
+            }
+            catch { }
 
-        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Application.Exit();
+            try
+            {
+                if (tvwMenu.Nodes[Constants.MANAGE_CONSTRUCTION].Nodes[Constants.MANAGE_SUBCONTRACTORS].IsSelected)
+                {
+                    return;
+                }
+            }
+            catch { }
+
+            try
+            {
+                if (tvwMenu.Nodes[Constants.MANAGE_CONSTRUCTION].Nodes[Constants.MANAGE_WORKER].IsSelected)
+                {
+                    WorkerSalaryManagement workerSalaryManagement = new WorkerSalaryManagement();
+                    workerSalaryManagement.MdiParent = this;
+                    pnlMainContent.Controls.Add(workerSalaryManagement);
+                    workerSalaryManagement.Show();
+                    return;
+                }
+            }
+            catch { }
+
+            try
+            {
+                if (tvwMenu.Nodes[Constants.MANAGE_ESTIMATE_ACCOUNT].Nodes[Constants.MANAGE_ESTIMATE].IsSelected)
+                {
+                    EstimateManagement estimateManagement = new EstimateManagement();
+                    estimateManagement.MdiParent = this;
+                    pnlMainContent.Controls.Add(estimateManagement);
+                    estimateManagement.Show();
+                    return;
+                }
+            }
+            catch { }
+
+            try
+            {
+                if (tvwMenu.Nodes[Constants.MANAGE_ESTIMATE_ACCOUNT].Nodes[Constants.MANAGE_ACCOUNT].IsSelected)
+                {
+                    FinalAccountManagement finalAccountManagement = new FinalAccountManagement();
+                    finalAccountManagement.MdiParent = this;
+                    pnlMainContent.Controls.Add(finalAccountManagement);
+                    finalAccountManagement.Show();
+                    return;
+                }
+            }
+            catch { }
+
+            try
+            {
+                if (tvwMenu.Nodes[Constants.MANAGE_ESTIMATE_ACCOUNT].Nodes[Constants.MANAGE_PROCESS].IsSelected)
+                {
+                    return;
+                }
+            }
+            catch { }
+
+
+            try
+            {
+                if (tvwMenu.Nodes[Constants.MANAGE_WAREHOUSE].Nodes[Constants.MANAGE_MAIN_WAREHOUSE].IsSelected)
+                {
+                    WarehouseManagement warehouseManagement = new WarehouseManagement(Constants.MAIN_WAREHOUSE);
+                    warehouseManagement.MdiParent = this;
+                    pnlMainContent.Controls.Add(warehouseManagement);
+                    warehouseManagement.Show();
+                    return;
+                }
+            }
+            catch { }
+
+            try
+            {
+                if (tvwMenu.Nodes[Constants.MANAGE_WAREHOUSE].Nodes[Constants.MANAGE_CONSTRUCTION_WAREHOUSE].IsSelected)
+                {
+                    WarehouseManagement warehouseManagement = new WarehouseManagement(Constants.CONSTRUCTION_WAREHOUSE);
+                    warehouseManagement.MdiParent = this;
+                    pnlMainContent.Controls.Add(warehouseManagement);
+                    warehouseManagement.Show();
+                    return;
+                }
+            }
+            catch { }
+
+            try
+            {
+                if (tvwMenu.Nodes[Constants.MANAGE_WAREHOUSE].Nodes[Constants.MANAGE_STOCK].IsSelected)
+                {
+                    return;
+                }
+            }
+            catch { }
+
+            try
+            {
+                if (tvwMenu.Nodes[Constants.MANAGE_DEBT].Nodes[Constants.MANAGE_COMPARE_DEBT].IsSelected)
+                {
+                    CompareDebtManagement compareDebtManagement = new CompareDebtManagement();
+                    compareDebtManagement.MdiParent = this;
+                    pnlMainContent.Controls.Add(compareDebtManagement);
+                    compareDebtManagement.Show();
+                    return;
+                } 
+            }
+            catch { }
+                
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
@@ -225,6 +354,24 @@ namespace ChiTonPrivateEnterpriseManagement
             {
                 tvwMenu_NodeMouseDoubleClick(null, null);
             }
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            LoginForm.IsLogout = true;
+            Close();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            LoginForm.IsLogout = false;
+            Close();
+        }
+
+        private void txtProfiles_LinkClicked(object sender, EventArgs e)
+        {
+            Profiles profileForm = new Profiles(Global.CurrentUser);
+            profileForm.ShowDialog();
         }
     }
 }
