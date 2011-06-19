@@ -312,5 +312,79 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                     Connection.Close();
             }      
         }
+
+        public bool CreateEmployeeAdvance(EmployeeAdvanceDTO advanceObj)
+        {
+            var cmd = new SqlCommand("[dbo].[Employee_CreateAdvance]", Connection) { CommandType = CommandType.StoredProcedure };
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@EmployeeID", advanceObj.EmployeeID));
+                cmd.Parameters.Add(new SqlParameter("@TotalAdvance", advanceObj.TotalAdvance));
+                cmd.Parameters.Add(new SqlParameter("@Reason", advanceObj.Reason));
+                cmd.Parameters.Add(new SqlParameter("@Note", advanceObj.Note));
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException sql)
+            {
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null)
+                    Connection.Close();
+            }  
+        }
+
+        public List<EmployeeAdvanceDTO> GetAllAdvance()
+        {
+            var cmd = new SqlCommand("[dbo].[Employee_GetAdvance]", Connection);
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                var listAdvance = new List<EmployeeAdvanceDTO>();
+                while (reader.Read())
+                {
+                    var advance = new EmployeeAdvanceDTO
+                    {
+                        AdvanceID = Convert.ToInt64(reader["AdvanceID"]),
+                        EmployeeID = Convert.ToInt64(reader["EmployeeID"]),
+                        Username = Convert.ToString(reader["Username"]),
+                        Fullname = Convert.ToString(reader["FullName"]),
+                        TotalAdvance = Convert.ToInt64(reader["TotalAdvance"]),
+                        Reason = Convert.ToString(reader["Reason"]),
+                        Note = Convert.ToString(reader["Note"]),
+                    };
+                    try
+                    {
+                        advance.CreatedDate = Convert.ToDateTime(reader["CreatedDate"]);
+                        advance.LastUpdate = Convert.ToDateTime(reader["LastUpdate"]);
+                    }
+                    catch (Exception)
+                    {
+                    }
+                    listAdvance.Add(advance);
+                }
+                return listAdvance;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message, "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                if (Transaction == null) Connection.Close();
+            }
+        }
     }
 }

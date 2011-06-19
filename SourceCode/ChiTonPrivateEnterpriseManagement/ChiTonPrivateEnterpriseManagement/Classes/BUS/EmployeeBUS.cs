@@ -48,5 +48,15 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
         {
             return employerDAO.CreateEmployeeSalary(salary);
         }
+
+        public bool CreateEmployeeAdvance(EmployeeAdvanceDTO advanceObj)
+        {
+            return employerDAO.CreateEmployeeAdvance(advanceObj);
+        }
+
+        public List<EmployeeAdvanceDTO> LoadAllAdvance()
+        {
+            return employerDAO.GetAllAdvance();
+        }
     }
 }

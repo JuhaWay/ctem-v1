@@ -8,15 +8,10 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
     class WarehouseBUS
     {
         private WarehouseDAO warehouseDao = new WarehouseDAO();
-        public List<WarehouseDTO> LoadAllWarehouses()
+        public List<WarehouseDTO> LoadWarehouses(string type)
         {
-            return warehouseDao.LoadAllWarehouses();
-        }
-
-        public List<WarehouseDTO> LoadAllMainWarehouses()
-        {
-            return warehouseDao.LoadAllMainWarehouses();
-        }
+            return warehouseDao.LoadWarehouses(type);
+        }     
 
         public bool CreateWarehouse(WarehouseDTO warehouse)
         {

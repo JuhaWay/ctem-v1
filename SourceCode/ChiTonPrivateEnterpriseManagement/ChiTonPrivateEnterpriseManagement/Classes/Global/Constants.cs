@@ -10,37 +10,42 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
         public static int WIDTH_MENU_SHOW = 200;
 
         // Parent Menus VN
-        public const string MANAGE_MENU_VN = "QUẢN LÝ MENU";
-        public const string MANAGE_ROLE_VN = "QUẢN LÝ CHỨC VỤ";
-        public const string MANAGE_RIGHT_VN = "QUẢN LÝ QUYỀN";
-        public const string MANAGE_USER_VN = "QUẢN LÝ NHÂN VIÊN";
-        public const string MANAGE_CONSTRUCTION_INFO_VN = "QUẢN LÝ CÔNG TRÌNH";
-        public const string MANAGE_ESTIMATE_INFO_VN = "QUẢN LÝ DỰ TOÁN";
+        public const string MANAGE_MENU = "QUẢN LÝ MENU";
+        public const string MANAGE_ROLE = "QUẢN LÝ CHỨC VỤ";
+        public const string MANAGE_RIGHT = "QUẢN LÝ QUYỀN";
+        public const string MANAGE_USER = "QUẢN LÝ NHÂN VIÊN";
+        public const string MANAGE_CONSTRUCTION = "QUẢN LÝ CÔNG TRÌNH";
+        public const string MANAGE_ESTIMATE_ACCOUNT = "QUẢN LÝ DỰ TOÁN QUYẾT TOÁN TIẾN ĐỘ";
+        public const string MANAGE_WAREHOUSE = "QUẢN LÝ KHO";
+        public const string MANAGE_DEBT = "QUẢN LÝ CÔNG NỢ";
+        public const string MANAGE_MATERIAL = "QUẢN LÝ VẬT TƯ VẬT LIỆU";
+        public const string MANAGE_SYSTEM = "QUẢN LÝ HỆ THỐNG";
         
-        // Child Menus VN
-        public const string MANAGE_MENU_INFO_VN = "Xem Toàn Bộ Thông Tin Menu";
-        public const string MANAGE_ROLE_INFO_VN = "Xem Toàn Bộ Thông Tin Chức Vụ";
-        public const string MANAGE_RIGHT_INFO_VN = "Xem Toàn Bộ Thông Tin Quyền";
-        public const string MANAGE_USER_INFO_VN = "Xem Toàn Bộ Thông Tin Nhân Viên";
-        public const string MANAGE_EMPLOYEE_SALARY_VN = "Quản Lý Lương Nhân Viên";
+        // Child Menus    
+        public const string MANAGE_EMPLOYEE_SALARY = "Quản Lý Lương";
+        public const string MANAGE_EMPLOYEE_ADVANCE = "Quản Lý Tiền Ứng";
+        public const string RESET_PASSWORD = "Làm Mới Password";
 
-        // Parent Manus EN
-        public const string MANAGE_MENU_EN = "MANAGE_MENU";
-        public const string MANAGE_ROLE_EN = "MANAGE_ROLE";
-        public const string MANAGE_RIGHT_EN = "MANAGE_RIGHT";
-        public const string MANAGE_USER_EN = "MANAGE_USER";
+        public const string MANAGE_SUBCONTRACTORS = "Quản Lý Nhà Thầu Phụ";
+        public const string MANAGE_WORKER = "Quản Lý Công Nhân";
 
-        // Child Menus EN
-        public const string MANAGE_MENU_INFO_EN = "MANAGE_MENU_INFO";
-        public const string MANAGE_ROLE_INFO_EN = "MANAGE_ROLE_INFO";
-        public const string MANAGE_RIGHT_INFO_EN = "MANAGE_RIGHT_INFO";
-        public const string MANAGE_USER_INFO_EN = "MANAGE_USER_INFO";
-        public const string MANAGE_EMPLOYEE_SALARY_EN = "MANAGE_EMPLOYEE_SALARY";
+        public const string MANAGE_ESTIMATE = "Quản Lý Dự Toán";
+        public const string MANAGE_ACCOUNT = "Quản Lý Quyết Toán";
+        public const string MANAGE_PROCESS = "Quản Lý Tiến Độ";
 
-        public const string ROLE_ADMIN = "admin";
-        public const string ROLE_MANAGER = "manager";
-        public const string ROLE_CHIEF_ACCOUNTANT = "chief accountant";
-        public const string ROLE_ACCOUNTANT = "accountant";
+        public const string MANAGE_MAIN_WAREHOUSE = "Quản Lý Kho Chính";
+        public const string MANAGE_CONSTRUCTION_WAREHOUSE = "Quản Lý Kho Công Trình";
+        public const string MANAGE_STOCK = "Lịch Xuất Kho";
+
+        public const string MANAGE_COMPARE_DEBT = "Lịch Đọ Sổ";
+
+        // Role
+        public const string ROLE_SUPPER_ADMIN = "Supper Admin";
+        public const string ROLE_ADMIN = "Admin";
+        public const string ROLE_MANAGER = "Manager";
+        public const string ROLE_CHIEF_ACCOUNTANT = "Chief Accountant";
+        public const string ROLE_ACCOUNTANT = "Accountant";
+        public const string ROLE_CASHIER = "Cashier";
 
         //Encrypt key 
         public const string Encryptkey = "!@CTEM@ADS2o1o@!";
@@ -106,5 +111,15 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
 
         public const string CONSTRUCTION_WAREHOUSE = "Kho Công Trình";
         public const string MAIN_WAREHOUSE = "Kho Chính";
+
+        public const string CREATE_NEW_EMPLOYEE = "Create New Employee";
+
+        public const string NOT_PERMISSION = "Bạn Không Có Quyền Cho Chức Năng Này";
+
+        public const string EMPLOYEE = "Employee";
+
+        public const string NUMBER = "number";
+
+        public const string ZERO_NUMBER = "0";
     }
 }
