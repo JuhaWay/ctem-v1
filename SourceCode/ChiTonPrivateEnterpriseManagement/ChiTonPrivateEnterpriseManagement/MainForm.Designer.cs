@@ -36,14 +36,21 @@
             this.hdgMenu = new ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup();
             this.btnhdgMenuHideShow = new ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup();
             this.tvwMenu = new System.Windows.Forms.TreeView();
+            this.imageListMenu = new System.Windows.Forms.ImageList(this.components);
             this.kryptonSplitContainer1 = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
             this.pnlMainContent = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonPanel4 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonPanel2 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.txtProfiles = new ComponentFactory.Krypton.Toolkit.KryptonLinkLabel();
+            this.btnExit = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnLogout = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnRefresh = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.pnlMainMenu = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.pnlLineRight = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kryptonGroupBox1 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.pnlMain)).BeginInit();
             this.pnlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnlContent)).BeginInit();
@@ -65,6 +72,10 @@
             this.kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnlMainMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlLineRight)).BeginInit();
+            this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).BeginInit();
+            this.kryptonGroupBox1.Panel.SuspendLayout();
+            this.kryptonGroupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlMain
@@ -140,12 +151,21 @@
             // 
             this.tvwMenu.BackColor = System.Drawing.Color.LightSteelBlue;
             this.tvwMenu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tvwMenu.ImageIndex = 0;
+            this.tvwMenu.ImageList = this.imageListMenu;
             this.tvwMenu.Location = new System.Drawing.Point(0, 0);
             this.tvwMenu.Name = "tvwMenu";
+            this.tvwMenu.SelectedImageIndex = 0;
             this.tvwMenu.Size = new System.Drawing.Size(197, 530);
             this.tvwMenu.TabIndex = 0;
             this.tvwMenu.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvwMenu_NodeMouseDoubleClick);
             this.tvwMenu.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tvwMenu_KeyDown);
+            // 
+            // imageListMenu
+            // 
+            this.imageListMenu.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageListMenu.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageListMenu.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // kryptonSplitContainer1
             // 
@@ -194,12 +214,46 @@
             // 
             // kryptonPanel1
             // 
+            this.kryptonPanel1.Controls.Add(this.kryptonGroupBox1);
+            this.kryptonPanel1.Controls.Add(this.txtProfiles);
             this.kryptonPanel1.Controls.Add(this.btnRefresh);
+            this.kryptonPanel1.Controls.Add(this.menuStrip1);
             this.kryptonPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.kryptonPanel1.Location = new System.Drawing.Point(0, 5);
             this.kryptonPanel1.Name = "kryptonPanel1";
             this.kryptonPanel1.Size = new System.Drawing.Size(815, 81);
             this.kryptonPanel1.TabIndex = 15;
+            // 
+            // txtProfiles
+            // 
+            this.txtProfiles.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtProfiles.LinkBehavior = ComponentFactory.Krypton.Toolkit.KryptonLinkBehavior.HoverUnderline;
+            this.txtProfiles.Location = new System.Drawing.Point(638, 7);
+            this.txtProfiles.Name = "txtProfiles";
+            this.txtProfiles.Size = new System.Drawing.Size(170, 20);
+            this.txtProfiles.TabIndex = 3;
+            this.txtProfiles.Values.Text = "Tên Đăng Nhập (Tên Đầy Đủ)";
+            this.txtProfiles.LinkClicked += new System.EventHandler(this.txtProfiles_LinkClicked);
+            // 
+            // btnExit
+            // 
+            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExit.Location = new System.Drawing.Point(117, 7);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(90, 25);
+            this.btnExit.TabIndex = 2;
+            this.btnExit.Values.Text = "Thoát";
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLogout.Location = new System.Drawing.Point(3, 7);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(90, 25);
+            this.btnLogout.TabIndex = 1;
+            this.btnLogout.Values.Text = "Đăng Xuất";
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // btnRefresh
             // 
@@ -230,6 +284,36 @@
             this.pnlLineRight.Size = new System.Drawing.Size(5, 562);
             this.pnlLineRight.TabIndex = 3;
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(815, 24);
+            this.menuStrip1.TabIndex = 4;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "&File";
+            // 
+            // kryptonGroupBox1
+            // 
+            this.kryptonGroupBox1.Location = new System.Drawing.Point(581, 31);
+            this.kryptonGroupBox1.Name = "kryptonGroupBox1";
+            // 
+            // kryptonGroupBox1.Panel
+            // 
+            this.kryptonGroupBox1.Panel.Controls.Add(this.btnLogout);
+            this.kryptonGroupBox1.Panel.Controls.Add(this.btnExit);
+            this.kryptonGroupBox1.Size = new System.Drawing.Size(214, 47);
+            this.kryptonGroupBox1.TabIndex = 5;
+            this.kryptonGroupBox1.Values.Heading = "";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
@@ -237,11 +321,10 @@
             this.ClientSize = new System.Drawing.Size(1024, 562);
             this.Controls.Add(this.pnlMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.Text = "MainForm";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pnlMain)).EndInit();
             this.pnlMain.ResumeLayout(false);
@@ -262,8 +345,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).EndInit();
             this.kryptonPanel1.ResumeLayout(false);
+            this.kryptonPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnlMainMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlLineRight)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            this.kryptonGroupBox1.Panel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).EndInit();
+            this.kryptonGroupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -285,6 +374,13 @@
         private ComponentFactory.Krypton.Toolkit.KryptonSplitContainer kryptonSplitContainer1;
         private ComponentFactory.Krypton.Toolkit.KryptonPanel pnlMainContent;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnRefresh;
+        private System.Windows.Forms.ImageList imageListMenu;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnLogout;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnExit;
+        private ComponentFactory.Krypton.Toolkit.KryptonLinkLabel txtProfiles;
+        private ComponentFactory.Krypton.Toolkit.KryptonGroupBox kryptonGroupBox1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
     }
 }
 
