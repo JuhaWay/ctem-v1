@@ -40,7 +40,11 @@
             this.gbcRightBot = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.gbcMenuBot = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
+            this.btnEdit = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnAddWarehouse = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.finalAccountDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.finalAccountDetailDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.finalAccountIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.finalAccountNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.constructionNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,9 +60,6 @@
             this.lastUpdatedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.createdByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updatedByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.finalAccountDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.finalAccountDetailDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.btnEdit = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel3)).BeginInit();
@@ -152,6 +153,7 @@
             // 
             this.dgvLeftBot.AutoGenerateColumns = false;
             this.dgvLeftBot.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
             this.finalAccountIDDataGridViewTextBoxColumn,
             this.finalAccountNameDataGridViewTextBoxColumn,
             this.constructionNameDataGridViewTextBoxColumn,
@@ -205,14 +207,36 @@
             this.gbcMenuBot.TabIndex = 5;
             this.gbcMenuBot.Values.Heading = "";
             // 
-            // btnAddFinalAccount
+            // btnEdit
+            // 
+            this.btnEdit.Location = new System.Drawing.Point(146, 27);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(90, 25);
+            this.btnEdit.TabIndex = 1;
+            this.btnEdit.Values.Text = "Sửa";
+            // 
+            // btnAddWarehouse
             // 
             this.btnAddWarehouse.Location = new System.Drawing.Point(28, 27);
-            this.btnAddWarehouse.Name = "btnAddFinalAccount";
+            this.btnAddWarehouse.Name = "btnAddWarehouse";
             this.btnAddWarehouse.Size = new System.Drawing.Size(90, 25);
             this.btnAddWarehouse.TabIndex = 0;
             this.btnAddWarehouse.Values.Text = "Thêm";
             this.btnAddWarehouse.Click += new System.EventHandler(this.btnAddFinalAccount_Click);
+            // 
+            // finalAccountDTOBindingSource
+            // 
+            this.finalAccountDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.FinalAccountDTO);
+            // 
+            // finalAccountDetailDTOBindingSource
+            // 
+            this.finalAccountDetailDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.FinalAccountDetailDTO);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "";
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 25;
             // 
             // finalAccountIDDataGridViewTextBoxColumn
             // 
@@ -304,22 +328,6 @@
             this.updatedByDataGridViewTextBoxColumn.HeaderText = "UpdatedBy";
             this.updatedByDataGridViewTextBoxColumn.Name = "updatedByDataGridViewTextBoxColumn";
             // 
-            // finalAccountDTOBindingSource
-            // 
-            this.finalAccountDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.FinalAccountDTO);
-            // 
-            // finalAccountDetailDTOBindingSource
-            // 
-            this.finalAccountDetailDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.FinalAccountDetailDTO);
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.Location = new System.Drawing.Point(146, 27);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(90, 25);
-            this.btnEdit.TabIndex = 1;
-            this.btnEdit.Values.Text = "Sửa";
-            // 
             // FinalAccountManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
@@ -373,6 +381,8 @@
         private System.Windows.Forms.BindingSource finalAccountDetailDTOBindingSource;
         private System.Windows.Forms.BindingSource finalAccountDTOBindingSource;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dgvLeftBot;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnEdit;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn finalAccountIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn finalAccountNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn constructionNameDataGridViewTextBoxColumn;
@@ -388,7 +398,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn lastUpdatedDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn createdByDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn updatedByDataGridViewTextBoxColumn;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnEdit;
     }
 }
 

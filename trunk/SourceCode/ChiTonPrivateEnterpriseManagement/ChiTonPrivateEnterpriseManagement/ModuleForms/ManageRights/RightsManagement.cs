@@ -19,7 +19,11 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRights
         Global global = new Global();
         RightBUS rightBUS = new RightBUS();
         List<RightDTO> listRights;
-        CheckBox ckBox;
+        CheckBox _ckBox;
+        public RightsManagement()
+        {
+            InitializeComponent();
+        }
         public RightsManagement(EmployerDTO _employer)
         {
             employer = _employer;
@@ -39,31 +43,20 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRights
 
         private void RightsManagementForm_Load(object sender, EventArgs e)
         {
+            _ckBox = new CheckBox();
+            Global.SetLayoutDataGridview(_ckBox, dgvRights);
+            _ckBox.CheckedChanged += new EventHandler(ckBox_CheckedChanged);
             DatabaseInfo dbInfo;
             dbInfo = new DatabaseInfo();
             dbInfo.LoadInfo();
-            dgvRights.Columns[0].Width = 25;
-            dgvRights.Columns[0].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvRights.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            ckBox = new CheckBox();
-            //Get the column header cell bounds
-            Rectangle rect = this.dgvRights.GetCellDisplayRectangle(0, -1, true);
-            ckBox.Size = new Size(18, 18);
-            ckBox.BackColor = Color.Transparent;
-            //Change the location of the CheckBox to make it stay on the header
-            rect.Location = new Point(30, 4);
-            ckBox.Location = rect.Location;
-            ckBox.CheckedChanged += new EventHandler(ckBox_CheckedChanged);
-            //Add the CheckBox into the DataGridView
-            this.dgvRights.Controls.Add(ckBox);
-            for (int i = 1; i < dgvRights.ColumnCount; i++)
-            {
-                dgvRights.Columns[i].Width = (dgvRights.Width - dgvRights.RowHeadersWidth - dgvRights.Columns[0].Width) / (dgvRights.ColumnCount - 1);
-                //dgvRights.Columns[i].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                //dgvRights.Columns[i].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            }           
             loadRights();
         }
+
+        void ckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            Global.CheckBoxCheck(_ckBox, dgvRights);
+        }            
+
 
         private void btnNewRight_Click(object sender, EventArgs e)
         {
@@ -92,20 +85,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRights
                 }
                 loadRights();
             }
-        }
-
-        void ckBox_CheckedChanged(object sender, EventArgs e)
-        {
-            for (int j = 0; j < this.dgvRights.RowCount; j++)
-            {
-                DataGridViewCell c = dgvRights.Rows[j].Cells[0];
-                c.AccessibilityObject.Value = ckBox.Checked.ToString();
-                dgvRights[0, j].Value = this.ckBox.Checked;
-                dgvRights.Rows[j].Selected = this.ckBox.Checked;
-            }
-            this.dgvRights.EndEdit();
-            dgvRights.Refresh();
-
         }
 
         private void btnEditRight_Click(object sender, EventArgs e)

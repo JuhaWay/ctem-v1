@@ -15,14 +15,11 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
 {
     public partial class EmployeeManagement: KryptonForm
     {
-        EmployerDTO employer;
-        Global global = new Global();
         EmployeeBUS employeeBUS = new EmployeeBUS();
         List<EmployerDTO> listEmployee;
-        CheckBox ckBox;
-        public EmployeeManagement(EmployerDTO _employer)
+        CheckBox _ckBox;
+        public EmployeeManagement()
         {
-            employer = _employer;
             InitializeComponent();
         }
 
@@ -39,34 +36,24 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
 
         private void EmployeeManagementForm_Load(object sender, EventArgs e)
         {
-            DatabaseInfo dbInfo;
-            dbInfo = new DatabaseInfo();
-            dbInfo.LoadInfo();
-            dgvEmployee.Columns[0].Width = 25;
-            dgvEmployee.Columns[0].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvEmployee.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            ckBox = new CheckBox();
-            //Get the column header cell bounds
-            Rectangle rect = this.dgvEmployee.GetCellDisplayRectangle(0, -1, true);
-            ckBox.Size = new Size(18, 18);
-            ckBox.BackColor = Color.Transparent;
-            //Change the location of the CheckBox to make it stay on the header
-            rect.Location = new Point(30, 4);
-            ckBox.Location = rect.Location;
-            ckBox.CheckedChanged += new EventHandler(ckBox_CheckedChanged);
-            this.dgvEmployee.Controls.Add(ckBox);
-            for (int i = 1; i < dgvEmployee.ColumnCount; i++)
-            {
-                dgvEmployee.Columns[i].Width = (dgvEmployee.Width - dgvEmployee.RowHeadersWidth - dgvEmployee.Columns[0].Width) / (dgvEmployee.ColumnCount - 1);
-            }           
+            _ckBox = new CheckBox();
+            Global.SetLayoutDataGridview(_ckBox, dgvEmployee);
+            _ckBox.CheckedChanged += new EventHandler(ckBox_CheckedChanged);          
             loadEmployee();
         }
 
         private void btnNewEmployee_Click(object sender, EventArgs e)
         {
-            NewEmployee newEmployee = new NewEmployee();
-            newEmployee.ShowDialog();
-            loadEmployee();
+            if (Global.IsAllow(Constants.CREATE_NEW_EMPLOYEE))
+            {
+                NewEmployee newEmployee = new NewEmployee();
+                newEmployee.ShowDialog();
+                loadEmployee();
+            }
+            else
+            {
+                KryptonMessageBox.Show(Constants.NOT_PERMISSION, Constants.CONFIRM);
+            }
         }
 
         private void btnDeleteEmployee_Click(object sender, EventArgs e)
@@ -94,16 +81,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
 
         void ckBox_CheckedChanged(object sender, EventArgs e)
         {
-            for (int j = 0; j < this.dgvEmployee.RowCount; j++)
-            {
-                DataGridViewCell c = dgvEmployee.Rows[j].Cells[0];
-                c.AccessibilityObject.Value = ckBox.Checked.ToString();
-                dgvEmployee[0, j].Value = this.ckBox.Checked;
-                dgvEmployee.Rows[j].Selected = this.ckBox.Checked;
-            }
-            this.dgvEmployee.EndEdit();
-            dgvEmployee.Refresh();
-
+            Global.CheckBoxCheck(_ckBox, dgvEmployee);
         }
 
         private void btnEditEmployee_Click(object sender, EventArgs e)

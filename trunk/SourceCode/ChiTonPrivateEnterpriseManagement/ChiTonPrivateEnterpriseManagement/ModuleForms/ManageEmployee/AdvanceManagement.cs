@@ -10,24 +10,23 @@ using ChiTonPrivateEnterpriseManagement.Classes.DTO;
 using ChiTonPrivateEnterpriseManagement.Classes.Global;
 using ComponentFactory.Krypton.Toolkit;
 
-namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
+namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
 {
-    public partial class FinalAccountManagement : ComponentFactory.Krypton.Toolkit.KryptonForm
+    public partial class AdvanceManagement : ComponentFactory.Krypton.Toolkit.KryptonForm
     {
-        private List<FinalAccountDTO> ListFinalAccount;
-        private FinalAccountBUS FinalAcc = new FinalAccountBUS();
+        private List<EmployeeAdvanceDTO> _listAdvance;
+        readonly EmployeeBUS _employeeBus = new EmployeeBUS();
         private CheckBox _ckBox;
-
-        public FinalAccountManagement()
+        public AdvanceManagement()
         {
             InitializeComponent();
         }
 
-        private void FinalAccountManagement_Load(object sender, EventArgs e)
+        private void AdvanceManagement_Load(object sender, EventArgs e)
         {
             _ckBox = new CheckBox();
             Global.SetLayoutDataGridview(_ckBox, dgvLeftBot);
-            _ckBox.CheckedChanged += new EventHandler(ckBox_CheckedChanged);
+            _ckBox.CheckedChanged += new EventHandler(ckBox_CheckedChanged);            
             LoadData();
         }
 
@@ -38,14 +37,14 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
 
         private void LoadData()
         {
-            ListFinalAccount = FinalAcc.GetAll();
-            dgvLeftBot.DataSource = ListFinalAccount;
+            _listAdvance = _employeeBus.LoadAllAdvance();
+            dgvLeftBot.DataSource = _listAdvance;
         }
 
-        private void btnAddFinalAccount_Click(object sender, EventArgs e)
+        private void btnAddWarehouse_Click(object sender, EventArgs e)
         {
-            NewFinalAccount newFinalAccountForm = new NewFinalAccount();
-            newFinalAccountForm.ShowDialog();
+            NewAdvance newAdvance = new NewAdvance();            
+            newAdvance.ShowDialog();
         }
     }
 }

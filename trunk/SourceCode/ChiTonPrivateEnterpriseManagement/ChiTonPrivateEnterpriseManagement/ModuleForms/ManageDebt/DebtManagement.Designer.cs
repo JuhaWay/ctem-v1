@@ -33,35 +33,33 @@
             this.kryptonPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonManager1 = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.warehouseDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.gbcRightBot = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.finalAccountDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.btnEdit = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnAddWarehouse = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.gbcMenuBot = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.kryptonPanel2 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.scBot = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
-            this.gbxLeftBot = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
-            this.dgvLeftBot = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.debtDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.kryptonPanel3 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonPanel4 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonPanel6 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.finalAccountDetailDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.debtDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.debtIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.debtNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalOweDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.isActiveDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.createdDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastUpdatedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.createdByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gbcRightBot = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
+            this.gbxLeftBot = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
+            this.dgvLeftBot = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.updatedByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.createdByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastUpdatedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.createdDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isActiveDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.totalOweDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.debtNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.debtIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.scBot = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.warehouseDTOBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gbcRightBot)).BeginInit();
-            this.gbcRightBot.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.finalAccountDTOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gbcMenuBot)).BeginInit();
@@ -69,19 +67,21 @@
             this.gbcMenuBot.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).BeginInit();
             this.kryptonPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.scBot)).BeginInit();
-            this.scBot.Panel1.SuspendLayout();
-            this.scBot.Panel2.SuspendLayout();
-            this.scBot.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gbxLeftBot)).BeginInit();
-            this.gbxLeftBot.Panel.SuspendLayout();
-            this.gbxLeftBot.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLeftBot)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.debtDTOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.finalAccountDetailDTOBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.debtDTOBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gbcRightBot)).BeginInit();
+            this.gbcRightBot.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gbxLeftBot)).BeginInit();
+            this.gbxLeftBot.Panel.SuspendLayout();
+            this.gbxLeftBot.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLeftBot)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.scBot)).BeginInit();
+            this.scBot.Panel1.SuspendLayout();
+            this.scBot.Panel2.SuspendLayout();
+            this.scBot.SuspendLayout();
             this.SuspendLayout();
             // 
             // kryptonPanel
@@ -95,15 +95,6 @@
             // warehouseDTOBindingSource
             // 
             this.warehouseDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.WarehouseDTO);
-            // 
-            // gbcRightBot
-            // 
-            this.gbcRightBot.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbcRightBot.Location = new System.Drawing.Point(0, 0);
-            this.gbcRightBot.Name = "gbcRightBot";
-            this.gbcRightBot.Size = new System.Drawing.Size(178, 425);
-            this.gbcRightBot.TabIndex = 1;
-            this.gbcRightBot.Values.Heading = "";
             // 
             // finalAccountDTOBindingSource
             // 
@@ -159,23 +150,46 @@
             this.kryptonPanel2.Size = new System.Drawing.Size(815, 506);
             this.kryptonPanel2.TabIndex = 13;
             // 
-            // scBot
+            // debtDTOBindingSource
             // 
-            this.scBot.Cursor = System.Windows.Forms.Cursors.Default;
-            this.scBot.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scBot.Location = new System.Drawing.Point(0, 81);
-            this.scBot.Name = "scBot";
+            this.debtDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.DebtDTO);
             // 
-            // scBot.Panel1
+            // kryptonPanel3
             // 
-            this.scBot.Panel1.Controls.Add(this.gbxLeftBot);
+            this.kryptonPanel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.kryptonPanel3.Location = new System.Drawing.Point(5, 506);
+            this.kryptonPanel3.Name = "kryptonPanel3";
+            this.kryptonPanel3.Size = new System.Drawing.Size(815, 5);
+            this.kryptonPanel3.TabIndex = 12;
             // 
-            // scBot.Panel2
+            // kryptonPanel4
             // 
-            this.scBot.Panel2.Controls.Add(this.gbcRightBot);
-            this.scBot.Size = new System.Drawing.Size(815, 425);
-            this.scBot.SplitterDistance = 632;
-            this.scBot.TabIndex = 8;
+            this.kryptonPanel4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.kryptonPanel4.Location = new System.Drawing.Point(0, 0);
+            this.kryptonPanel4.Name = "kryptonPanel4";
+            this.kryptonPanel4.Size = new System.Drawing.Size(5, 511);
+            this.kryptonPanel4.TabIndex = 11;
+            // 
+            // kryptonPanel6
+            // 
+            this.kryptonPanel6.Dock = System.Windows.Forms.DockStyle.Right;
+            this.kryptonPanel6.Location = new System.Drawing.Point(820, 0);
+            this.kryptonPanel6.Name = "kryptonPanel6";
+            this.kryptonPanel6.Size = new System.Drawing.Size(5, 511);
+            this.kryptonPanel6.TabIndex = 10;
+            // 
+            // finalAccountDetailDTOBindingSource
+            // 
+            this.finalAccountDetailDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.FinalAccountDetailDTO);
+            // 
+            // gbcRightBot
+            // 
+            this.gbcRightBot.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gbcRightBot.Location = new System.Drawing.Point(0, 0);
+            this.gbcRightBot.Name = "gbcRightBot";
+            this.gbcRightBot.Size = new System.Drawing.Size(178, 425);
+            this.gbcRightBot.TabIndex = 1;
+            this.gbcRightBot.Values.Heading = "";
             // 
             // gbxLeftBot
             // 
@@ -211,85 +225,11 @@
             this.dgvLeftBot.Size = new System.Drawing.Size(628, 419);
             this.dgvLeftBot.TabIndex = 0;
             // 
-            // kryptonPanel3
+            // updatedByDataGridViewTextBoxColumn
             // 
-            this.kryptonPanel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.kryptonPanel3.Location = new System.Drawing.Point(5, 506);
-            this.kryptonPanel3.Name = "kryptonPanel3";
-            this.kryptonPanel3.Size = new System.Drawing.Size(815, 5);
-            this.kryptonPanel3.TabIndex = 12;
-            // 
-            // kryptonPanel4
-            // 
-            this.kryptonPanel4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.kryptonPanel4.Location = new System.Drawing.Point(0, 0);
-            this.kryptonPanel4.Name = "kryptonPanel4";
-            this.kryptonPanel4.Size = new System.Drawing.Size(5, 511);
-            this.kryptonPanel4.TabIndex = 11;
-            // 
-            // kryptonPanel6
-            // 
-            this.kryptonPanel6.Dock = System.Windows.Forms.DockStyle.Right;
-            this.kryptonPanel6.Location = new System.Drawing.Point(820, 0);
-            this.kryptonPanel6.Name = "kryptonPanel6";
-            this.kryptonPanel6.Size = new System.Drawing.Size(5, 511);
-            this.kryptonPanel6.TabIndex = 10;
-            // 
-            // finalAccountDetailDTOBindingSource
-            // 
-            this.finalAccountDetailDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.FinalAccountDetailDTO);
-            // 
-            // debtDTOBindingSource
-            // 
-            this.debtDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.DebtDTO);
-            // 
-            // debtIDDataGridViewTextBoxColumn
-            // 
-            this.debtIDDataGridViewTextBoxColumn.DataPropertyName = "DebtID";
-            this.debtIDDataGridViewTextBoxColumn.HeaderText = "DebtID";
-            this.debtIDDataGridViewTextBoxColumn.Name = "debtIDDataGridViewTextBoxColumn";
-            // 
-            // debtNameDataGridViewTextBoxColumn
-            // 
-            this.debtNameDataGridViewTextBoxColumn.DataPropertyName = "DebtName";
-            this.debtNameDataGridViewTextBoxColumn.HeaderText = "DebtName";
-            this.debtNameDataGridViewTextBoxColumn.Name = "debtNameDataGridViewTextBoxColumn";
-            // 
-            // addressDataGridViewTextBoxColumn
-            // 
-            this.addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
-            this.addressDataGridViewTextBoxColumn.HeaderText = "Address";
-            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
-            // 
-            // phoneNumberDataGridViewTextBoxColumn
-            // 
-            this.phoneNumberDataGridViewTextBoxColumn.DataPropertyName = "PhoneNumber";
-            this.phoneNumberDataGridViewTextBoxColumn.HeaderText = "PhoneNumber";
-            this.phoneNumberDataGridViewTextBoxColumn.Name = "phoneNumberDataGridViewTextBoxColumn";
-            // 
-            // totalOweDataGridViewTextBoxColumn
-            // 
-            this.totalOweDataGridViewTextBoxColumn.DataPropertyName = "TotalOwe";
-            this.totalOweDataGridViewTextBoxColumn.HeaderText = "TotalOwe";
-            this.totalOweDataGridViewTextBoxColumn.Name = "totalOweDataGridViewTextBoxColumn";
-            // 
-            // isActiveDataGridViewCheckBoxColumn
-            // 
-            this.isActiveDataGridViewCheckBoxColumn.DataPropertyName = "IsActive";
-            this.isActiveDataGridViewCheckBoxColumn.HeaderText = "IsActive";
-            this.isActiveDataGridViewCheckBoxColumn.Name = "isActiveDataGridViewCheckBoxColumn";
-            // 
-            // createdDateDataGridViewTextBoxColumn
-            // 
-            this.createdDateDataGridViewTextBoxColumn.DataPropertyName = "CreatedDate";
-            this.createdDateDataGridViewTextBoxColumn.HeaderText = "CreatedDate";
-            this.createdDateDataGridViewTextBoxColumn.Name = "createdDateDataGridViewTextBoxColumn";
-            // 
-            // lastUpdatedDataGridViewTextBoxColumn
-            // 
-            this.lastUpdatedDataGridViewTextBoxColumn.DataPropertyName = "LastUpdated";
-            this.lastUpdatedDataGridViewTextBoxColumn.HeaderText = "LastUpdated";
-            this.lastUpdatedDataGridViewTextBoxColumn.Name = "lastUpdatedDataGridViewTextBoxColumn";
+            this.updatedByDataGridViewTextBoxColumn.DataPropertyName = "UpdatedBy";
+            this.updatedByDataGridViewTextBoxColumn.HeaderText = "UpdatedBy";
+            this.updatedByDataGridViewTextBoxColumn.Name = "updatedByDataGridViewTextBoxColumn";
             // 
             // createdByDataGridViewTextBoxColumn
             // 
@@ -297,11 +237,71 @@
             this.createdByDataGridViewTextBoxColumn.HeaderText = "CreatedBy";
             this.createdByDataGridViewTextBoxColumn.Name = "createdByDataGridViewTextBoxColumn";
             // 
-            // updatedByDataGridViewTextBoxColumn
+            // lastUpdatedDataGridViewTextBoxColumn
             // 
-            this.updatedByDataGridViewTextBoxColumn.DataPropertyName = "UpdatedBy";
-            this.updatedByDataGridViewTextBoxColumn.HeaderText = "UpdatedBy";
-            this.updatedByDataGridViewTextBoxColumn.Name = "updatedByDataGridViewTextBoxColumn";
+            this.lastUpdatedDataGridViewTextBoxColumn.DataPropertyName = "LastUpdated";
+            this.lastUpdatedDataGridViewTextBoxColumn.HeaderText = "LastUpdated";
+            this.lastUpdatedDataGridViewTextBoxColumn.Name = "lastUpdatedDataGridViewTextBoxColumn";
+            // 
+            // createdDateDataGridViewTextBoxColumn
+            // 
+            this.createdDateDataGridViewTextBoxColumn.DataPropertyName = "CreatedDate";
+            this.createdDateDataGridViewTextBoxColumn.HeaderText = "CreatedDate";
+            this.createdDateDataGridViewTextBoxColumn.Name = "createdDateDataGridViewTextBoxColumn";
+            // 
+            // isActiveDataGridViewCheckBoxColumn
+            // 
+            this.isActiveDataGridViewCheckBoxColumn.DataPropertyName = "IsActive";
+            this.isActiveDataGridViewCheckBoxColumn.HeaderText = "IsActive";
+            this.isActiveDataGridViewCheckBoxColumn.Name = "isActiveDataGridViewCheckBoxColumn";
+            // 
+            // totalOweDataGridViewTextBoxColumn
+            // 
+            this.totalOweDataGridViewTextBoxColumn.DataPropertyName = "TotalOwe";
+            this.totalOweDataGridViewTextBoxColumn.HeaderText = "TotalOwe";
+            this.totalOweDataGridViewTextBoxColumn.Name = "totalOweDataGridViewTextBoxColumn";
+            // 
+            // phoneNumberDataGridViewTextBoxColumn
+            // 
+            this.phoneNumberDataGridViewTextBoxColumn.DataPropertyName = "PhoneNumber";
+            this.phoneNumberDataGridViewTextBoxColumn.HeaderText = "PhoneNumber";
+            this.phoneNumberDataGridViewTextBoxColumn.Name = "phoneNumberDataGridViewTextBoxColumn";
+            // 
+            // addressDataGridViewTextBoxColumn
+            // 
+            this.addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
+            this.addressDataGridViewTextBoxColumn.HeaderText = "Address";
+            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
+            // 
+            // debtNameDataGridViewTextBoxColumn
+            // 
+            this.debtNameDataGridViewTextBoxColumn.DataPropertyName = "DebtName";
+            this.debtNameDataGridViewTextBoxColumn.HeaderText = "DebtName";
+            this.debtNameDataGridViewTextBoxColumn.Name = "debtNameDataGridViewTextBoxColumn";
+            // 
+            // debtIDDataGridViewTextBoxColumn
+            // 
+            this.debtIDDataGridViewTextBoxColumn.DataPropertyName = "DebtID";
+            this.debtIDDataGridViewTextBoxColumn.HeaderText = "DebtID";
+            this.debtIDDataGridViewTextBoxColumn.Name = "debtIDDataGridViewTextBoxColumn";
+            // 
+            // scBot
+            // 
+            this.scBot.Cursor = System.Windows.Forms.Cursors.Default;
+            this.scBot.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.scBot.Location = new System.Drawing.Point(0, 81);
+            this.scBot.Name = "scBot";
+            // 
+            // scBot.Panel1
+            // 
+            this.scBot.Panel1.Controls.Add(this.gbxLeftBot);
+            // 
+            // scBot.Panel2
+            // 
+            this.scBot.Panel2.Controls.Add(this.gbcRightBot);
+            this.scBot.Size = new System.Drawing.Size(815, 425);
+            this.scBot.SplitterDistance = 632;
+            this.scBot.TabIndex = 8;
             // 
             // DebtManagement
             // 
@@ -318,8 +318,6 @@
             this.Load += new System.EventHandler(this.DebtManagement_Load);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.warehouseDTOBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gbcRightBot)).EndInit();
-            this.gbcRightBot.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.finalAccountDTOBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).EndInit();
             this.gbcMenuBot.Panel.ResumeLayout(false);
@@ -327,19 +325,21 @@
             this.gbcMenuBot.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).EndInit();
             this.kryptonPanel2.ResumeLayout(false);
-            this.scBot.Panel1.ResumeLayout(false);
-            this.scBot.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.scBot)).EndInit();
-            this.scBot.ResumeLayout(false);
-            this.gbxLeftBot.Panel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gbxLeftBot)).EndInit();
-            this.gbxLeftBot.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLeftBot)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.debtDTOBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.finalAccountDetailDTOBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.debtDTOBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gbcRightBot)).EndInit();
+            this.gbcRightBot.ResumeLayout(false);
+            this.gbxLeftBot.Panel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gbxLeftBot)).EndInit();
+            this.gbxLeftBot.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLeftBot)).EndInit();
+            this.scBot.Panel1.ResumeLayout(false);
+            this.scBot.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.scBot)).EndInit();
+            this.scBot.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -350,20 +350,20 @@
         private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel;
         private ComponentFactory.Krypton.Toolkit.KryptonManager kryptonManager1;
         private System.Windows.Forms.BindingSource warehouseDTOBindingSource;
-        private ComponentFactory.Krypton.Toolkit.KryptonGroupBox gbcRightBot;
         private System.Windows.Forms.BindingSource finalAccountDTOBindingSource;
         private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel1;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnEdit;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnAddWarehouse;
         private ComponentFactory.Krypton.Toolkit.KryptonGroupBox gbcMenuBot;
         private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel2;
-        private ComponentFactory.Krypton.Toolkit.KryptonSplitContainer scBot;
-        private ComponentFactory.Krypton.Toolkit.KryptonGroupBox gbxLeftBot;
-        private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dgvLeftBot;
         private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel3;
         private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel4;
         private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel6;
         private System.Windows.Forms.BindingSource finalAccountDetailDTOBindingSource;
+        private System.Windows.Forms.BindingSource debtDTOBindingSource;
+        private ComponentFactory.Krypton.Toolkit.KryptonSplitContainer scBot;
+        private ComponentFactory.Krypton.Toolkit.KryptonGroupBox gbxLeftBot;
+        private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dgvLeftBot;
         private System.Windows.Forms.DataGridViewTextBoxColumn debtIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn debtNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
@@ -374,7 +374,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn lastUpdatedDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn createdByDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn updatedByDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource debtDTOBindingSource;
+        private ComponentFactory.Krypton.Toolkit.KryptonGroupBox gbcRightBot;
     }
 }
 

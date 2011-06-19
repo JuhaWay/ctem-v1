@@ -24,6 +24,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
         DebtBUS debtBUS = new DebtBUS();
         MaterialBUS materialBUS = new MaterialBUS();
         FinalAccountBUS finalaccountBUS = new FinalAccountBUS();
+        private CheckBox _ckBox;
 
         public NewFinalAccount()
         {
@@ -44,8 +45,16 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
 
         private void setLauout()
         {
+            _ckBox = new CheckBox();
+            Global.SetLayoutDataGridview(_ckBox, dgvContentBot);
+            _ckBox.CheckedChanged += new EventHandler(ckBox_CheckedChanged);
             pnlNewItem.Visible = false;
             Global.CenterToParent(pnlNewItem, this, Constants.CENTER, 0);
+        }
+
+        void ckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            Global.CheckBoxCheck(_ckBox, dgvContentBot);
         }
 
         private void setData()
@@ -63,7 +72,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
             cbbConstruction.ValueMember = Constants.CONSTRUCTION_VALUEMEMBER;
             cbbConstruction.DisplayMember = Constants.CONSTRUCTION_DISPLAYMEMBER;
 
-            listMainWarehouse = warehouseBUS.LoadAllMainWarehouses();
+            listMainWarehouse = warehouseBUS.LoadWarehouses(Constants.MAIN_WAREHOUSE);
             cbbMainWarehouse.DataSource = listMainWarehouse;
             cbbMainWarehouse.ValueMember = Constants.WAREHOUSE_VALUEMEMBER;
             cbbMainWarehouse.DisplayMember = Constants.WAREHOUSE_DISPLAYMEMBER;

@@ -67,17 +67,26 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWarehouse
         {
             cbbType.Items.Add(Constants.CONSTRUCTION_WAREHOUSE);
             cbbType.Items.Add(Constants.MAIN_WAREHOUSE);
-            cbbType.SelectedIndex = 0;
+            if (cbbType.Items.Count != 0)
+            {
+                cbbType.SelectedIndex = 0;                
+            }
 
             ListConstruction = constructionBUS.LoadAllConstructions();
             cbbConstruction.DataSource = ListConstruction;
             cbbConstruction.ValueMember = Constants.CONSTRUCTION_VALUEMEMBER;
             cbbConstruction.DisplayMember = Constants.CONSTRUCTION_DISPLAYMEMBER;
-            cbbConstruction.SelectedIndex = 0;
+            if (cbbConstruction.Items.Count != 0)
+            {
+                cbbConstruction.SelectedIndex = 0;                
+            }
 
             cbbStatus.Items.Add(Constants.ACTIVE);
             cbbStatus.Items.Add(Constants.INACTIVE);
-            cbbStatus.SelectedIndex = 0;
+            if (cbbStatus.Items.Count != 0)
+            {
+                cbbStatus.SelectedIndex = 0;
+            }
         }
 
         private void cbbType_SelectedIndexChanged(object sender, EventArgs e)
