@@ -39,9 +39,9 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
         }
 
 
-        public List<WarehouseDTO> LoadAllWarehouses()
+        public List<WarehouseDTO> LoadWarehouses(string type)
         {
-            var cmd = new SqlCommand("[dbo].[Warehouse_GetAll]", Connection);
+            var cmd = new SqlCommand("[dbo].[Warehouse_Get]", Connection);
 
             if (Transaction != null)
             {
@@ -50,6 +50,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             cmd.CommandType = CommandType.StoredProcedure;
             try
             {
+                cmd.Parameters.Add(new SqlParameter("@Type", type));
                 SqlDataReader reader = cmd.ExecuteReader();
                 List<WarehouseDTO> listwarehouse = new List<WarehouseDTO>();
                 while (reader.Read())
@@ -87,57 +88,8 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             {
                 if (Transaction == null) Connection.Close();
             }
-        }
-
-        public List<WarehouseDTO> LoadAllMainWarehouses()
-        {
-            var cmd = new SqlCommand("[dbo].[Warehouse_GetAllMainWarehouse]", Connection);
-
-            if (Transaction != null)
-            {
-                cmd.Transaction = Transaction;
-            }
-            cmd.CommandType = CommandType.StoredProcedure;
-            try
-            {
-                SqlDataReader reader = cmd.ExecuteReader();
-                List<WarehouseDTO> listwarehouse = new List<WarehouseDTO>();
-                while (reader.Read())
-                {
-                    WarehouseDTO warehouse = new WarehouseDTO
-                    {
-                        WarehouseID = Convert.ToInt64(reader["WarehouseID"]),
-                        WarehouseName = Convert.ToString(reader["WarehouseName"]),
-                        Description = Convert.ToString(reader["Description"]),
-                        Address = Convert.ToString(reader["Address"]),
-                        ManagerName = Convert.ToString(reader["ManagerName"]),
-                        Type = Convert.ToString(reader["Type"]) 
-                    };
-                    bool isactive = Convert.ToBoolean(reader["IsActive"]);
-                    if (isactive)
-                    {
-                        warehouse.IsActive = 1;
-                    }
-                    else
-                    {
-                        warehouse.IsActive = 0;
-                    }
-                    listwarehouse.Add(warehouse);
-                }
-                return listwarehouse;
-            }
-            catch (SqlException sql)
-            {
-                MessageBox.Show(sql.Message, "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return null;
-            }
-            finally
-            {
-                if (Transaction == null) Connection.Close();
-            }
-        }
-
-
+        }     
+        
         public bool CreateWarehouse(WarehouseDTO warehouse)
         {
             var cmd = new SqlCommand("[dbo].[Warehouse_Create]", Connection) { CommandType = CommandType.StoredProcedure };
