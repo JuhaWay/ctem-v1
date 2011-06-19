@@ -54,7 +54,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
                     foreach (ConstructionDTO child in children)
                     {
                         node.Nodes.Add(null, child.ConstructionID, child.ConstructionName, child.HasEstimate, child.TotalEstimateCost, child.SubcontractorName, child.Description, child.ConstructionAddress,
-                        child.CommencementDate.ToString(), child.CompletionDate.ToString(),  child.ParentID);
+                        child.CommencementDate.ToString(), child.CompletionDate.ToString(),dto.ParentID);
                     }
                     node.Expand();   
 
