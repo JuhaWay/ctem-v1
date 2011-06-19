@@ -15,14 +15,11 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRole
 {
     public partial class RoleManagement: KryptonForm
     {
-        EmployerDTO employer;
-        Global global = new Global();
         RoleBUS roleBUS = new RoleBUS();
         List<RoleDTO> listRole;
-        CheckBox ckBox;
-        public RoleManagement(EmployerDTO _employer)
+        CheckBox _ckBox;
+        public RoleManagement()
         {
-            employer = _employer;
             InitializeComponent();
         }
 
@@ -39,32 +36,18 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRole
 
         private void RoleManagementForm_Load(object sender, EventArgs e)
         {
+            _ckBox = new CheckBox();
+            Global.SetLayoutDataGridview(_ckBox, dgvRole);
+            _ckBox.CheckedChanged += new EventHandler(ckBox_CheckedChanged);
             DatabaseInfo dbInfo;
             dbInfo = new DatabaseInfo();
-            dbInfo.LoadInfo();
-            dgvRole.Columns[0].Width = 25;
-            dgvRole.Columns[0].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvRole.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            ckBox = new CheckBox();
-            //Get the column header cell bounds
-            Rectangle rect = this.dgvRole.GetCellDisplayRectangle(0, -1, true);
-            ckBox.Size = new Size(18, 18);
-            ckBox.BackColor = Color.Transparent;
-            //Change the location of the CheckBox to make it stay on the header
-            rect.Location = new Point(30, 4);
-            ckBox.Location = rect.Location;
-            ckBox.CheckedChanged += new EventHandler(ckBox_CheckedChanged);
-            this.dgvRole.Controls.Add(ckBox);
-            for (int i = 1; i < dgvRole.ColumnCount; i++)
-            {
-                dgvRole.Columns[i].Width = (dgvRole.Width - dgvRole.RowHeadersWidth - dgvRole.Columns[0].Width) / (dgvRole.ColumnCount - 1);
-            }           
+            dbInfo.LoadInfo();            
             loadRole();
         }
 
         private void btnNewRole_Click(object sender, EventArgs e)
         {
-            NewRole newRole = new NewRole(employer, listRole);
+            NewRole newRole = new NewRole(listRole);
             newRole.ShowDialog();
             loadRole();
         }
@@ -94,16 +77,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRole
 
         void ckBox_CheckedChanged(object sender, EventArgs e)
         {
-            for (int j = 0; j < this.dgvRole.RowCount; j++)
-            {
-                DataGridViewCell c = dgvRole.Rows[j].Cells[0];
-                c.AccessibilityObject.Value = ckBox.Checked.ToString();
-                dgvRole[0, j].Value = this.ckBox.Checked;
-                dgvRole.Rows[j].Selected = this.ckBox.Checked;
-            }
-            this.dgvRole.EndEdit();
-            dgvRole.Refresh();
-
+            Global.CheckBoxCheck(_ckBox, dgvRole);
         }
 
         private void btnEditRole_Click(object sender, EventArgs e)
@@ -118,7 +92,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRole
                     string strRightValue = row.Cells["RightsValue"].Value.ToString();
                     long RoleID = Convert.ToInt64(strRoleID);
                     long RightValue = Convert.ToInt64(strRightValue);
-                    NewRole newRole = new NewRole(employer, RoleID, RightValue, listRole);
+                    NewRole newRole = new NewRole(RoleID, RightValue, listRole);
                     newRole.ShowDialog();
                 }
             }

@@ -34,13 +34,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
 
         private void setDefaultComboBox()
         {
-            listEmployee = employeeBUS.LoadAllEmployee();
-            foreach (EmployerDTO employer in listEmployee)
-            {
-                cbbEmployee.Items.Add(employer);
-            }
-            cbbEmployee.DisplayMember = "Username";
-            cbbEmployee.ValueMember = "employeeID";
+            Global.SetDataCombobox(cbbEmployee, Constants.EMPLOYEE);            
 
             cbbIsPay.Items.Add(Constants.PAY);
             cbbIsPay.Items.Add(Constants.NOTPAY);

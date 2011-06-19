@@ -17,6 +17,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
         private bool isDown;
         EmployeeBUS employeeBUS = new EmployeeBUS();
         List<EmployerDTO> listEmployee = new List<EmployerDTO>();
+        private CheckBox _ckBox;
         public SalaryManagement()
         {
             InitializeComponent();
@@ -24,6 +25,9 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
 
         private void SalaryManagement_Load(object sender, EventArgs e)
         {
+            _ckBox = new CheckBox();
+            Global.SetLayoutDataGridview(_ckBox, dgvSalary);
+            _ckBox.CheckedChanged += new EventHandler(ckBox_CheckedChanged);
             lbxHint.Visible = false;
             pnlSelectMonth.Height = 25;
             pnlFilterMoney.Height = 25;
@@ -33,11 +37,15 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
             listEmployee = employeeBUS.LoadAllEmployee();
         }
 
+        void ckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            Global.CheckBoxCheck(_ckBox, dgvSalary);
+        }
+
         private void loadSalary()
         {
             EmployerDTO emp = (EmployerDTO) lbxHint.SelectedItem;
             //long empId = emp.employeeID;
-            
             //employeeBUS.GetSalary();
         }
         

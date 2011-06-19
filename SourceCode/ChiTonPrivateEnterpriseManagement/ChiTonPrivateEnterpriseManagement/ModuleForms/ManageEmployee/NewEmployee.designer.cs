@@ -111,7 +111,7 @@
             this.slcMain.Panel2.Controls.Add(this.btnPre);
             this.slcMain.Panel2MinSize = 0;
             this.slcMain.Size = new System.Drawing.Size(433, 491);
-            this.slcMain.SplitterDistance = 45;
+            this.slcMain.SplitterDistance = 418;
             this.slcMain.SplitterWidth = 10;
             this.slcMain.TabIndex = 0;
             // 

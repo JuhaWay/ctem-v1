@@ -39,13 +39,9 @@
             this.checkBox = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewCheckBoxColumn();
             this.ConstructionID = new AdvancedDataGridView.TreeGridColumn();
             this.ConstructionName = new AdvancedDataGridView.TreeGridColumn();
-
             this.HasEstimate = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewCheckBoxColumn();
             this.TotalEstimateCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SubcontractorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-
-            this.SubcontractorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ConstructionAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CommencementDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,7 +68,7 @@
             this.kryptonPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonPanel.Location = new System.Drawing.Point(0, 0);
             this.kryptonPanel.Name = "kryptonPanel";
-            this.kryptonPanel.Size = new System.Drawing.Size(935, 562);
+            this.kryptonPanel.Size = new System.Drawing.Size(935, 605);
             this.kryptonPanel.TabIndex = 0;
             // 
             // dgvCons
@@ -83,7 +79,6 @@
             this.checkBox,
             this.ConstructionID,
             this.ConstructionName,
-
             this.HasEstimate,
             this.TotalEstimateCost,
             this.SubcontractorName,
@@ -94,10 +89,10 @@
             this.ParentId});
             this.dgvCons.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvCons.ImageList = null;
-            this.dgvCons.Location = new System.Drawing.Point(3, 96);
+            this.dgvCons.Location = new System.Drawing.Point(3, 103);
             this.dgvCons.Name = "dgvCons";
             this.dgvCons.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCons.Size = new System.Drawing.Size(929, 463);
+            this.dgvCons.Size = new System.Drawing.Size(929, 499);
             this.dgvCons.TabIndex = 2;
             this.dgvCons.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvCons_CellMouseDown);
             this.dgvCons.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvCons_MouseClick);
@@ -131,7 +126,7 @@
             // 
             this.ConstructionName.DataPropertyName = "ConstructionName";
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ConstructionName.DefaultCellStyle = dataGridViewCellStyle2;
             this.ConstructionName.DefaultNodeImage = null;
             this.ConstructionName.HeaderText = "Tên công trình";
@@ -159,13 +154,6 @@
             this.TotalEstimateCost.HeaderText = "Chi phí dự toán";
             this.TotalEstimateCost.Name = "TotalEstimateCost";
             this.TotalEstimateCost.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // SubcontractorName
-            // 
-            this.SubcontractorName.DataPropertyName = "SubcontractorName";
-            this.SubcontractorName.HeaderText = "Nhà thầu phụ";
-            this.SubcontractorName.Name = "SubcontractorName";
-            this.SubcontractorName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // SubcontractorName
             // 
@@ -220,32 +208,32 @@
             this.kryptonGroupBox1.Panel.Controls.Add(this.editButton);
             this.kryptonGroupBox1.Panel.Controls.Add(this.removeButton);
             this.kryptonGroupBox1.Panel.Controls.Add(this.addButton);
-            this.kryptonGroupBox1.Size = new System.Drawing.Size(932, 87);
+            this.kryptonGroupBox1.Size = new System.Drawing.Size(932, 94);
             this.kryptonGroupBox1.TabIndex = 1;
             // 
             // btSubcon
             // 
-            this.btSubcon.Location = new System.Drawing.Point(145, 21);
+            this.btSubcon.Location = new System.Drawing.Point(145, 23);
             this.btSubcon.Name = "btSubcon";
-            this.btSubcon.Size = new System.Drawing.Size(115, 25);
+            this.btSubcon.Size = new System.Drawing.Size(115, 27);
             this.btSubcon.TabIndex = 3;
             this.btSubcon.Values.Text = "Tạo công trình phụ";
             this.btSubcon.Click += new System.EventHandler(this.btSubcon_Click);
             // 
             // editButton
             // 
-            this.editButton.Location = new System.Drawing.Point(266, 21);
+            this.editButton.Location = new System.Drawing.Point(266, 23);
             this.editButton.Name = "editButton";
-            this.editButton.Size = new System.Drawing.Size(101, 25);
+            this.editButton.Size = new System.Drawing.Size(101, 27);
             this.editButton.TabIndex = 2;
             this.editButton.Values.Text = "Sửa công trình";
             this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
             // removeButton
             // 
-            this.removeButton.Location = new System.Drawing.Point(373, 21);
+            this.removeButton.Location = new System.Drawing.Point(373, 23);
             this.removeButton.Name = "removeButton";
-            this.removeButton.Size = new System.Drawing.Size(109, 25);
+            this.removeButton.Size = new System.Drawing.Size(109, 27);
             this.removeButton.TabIndex = 1;
             this.removeButton.Values.Text = "Xóa công trình";
             this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
@@ -253,18 +241,18 @@
             // addButton
             // 
             this.addButton.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.Alternate;
-            this.addButton.Location = new System.Drawing.Point(18, 21);
+            this.addButton.Location = new System.Drawing.Point(18, 23);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(111, 25);
+            this.addButton.Size = new System.Drawing.Size(121, 27);
             this.addButton.TabIndex = 0;
             this.addButton.Values.Text = "Tạo công trình mới";
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // ConstructionManagement
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(935, 562);
+            this.ClientSize = new System.Drawing.Size(935, 605);
             this.Controls.Add(this.kryptonPanel);
             this.Name = "ConstructionManagement";
             this.Text = "Quản lý công trình";

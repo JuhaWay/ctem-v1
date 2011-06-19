@@ -65,10 +65,6 @@
             this.toolStripButton18 = new System.Windows.Forms.ToolStripButton();
             this.dgvWorker = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.checkBox = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewCheckBoxColumn();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.cửaSổToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.đóngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.trợGiúpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.workerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fullnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.workersSalaryIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -81,14 +77,18 @@
             this.createdByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updatedByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.workerTempDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.cửaSổToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.đóngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.trợGiúpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWorker)).BeginInit();
-            this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.workerTempDTOBindingSource)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // kryptonPanel
@@ -99,7 +99,7 @@
             this.kryptonPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonPanel.Location = new System.Drawing.Point(0, 24);
             this.kryptonPanel.Name = "kryptonPanel";
-            this.kryptonPanel.Size = new System.Drawing.Size(662, 459);
+            this.kryptonPanel.Size = new System.Drawing.Size(662, 496);
             this.kryptonPanel.TabIndex = 0;
             // 
             // kryptonPanel1
@@ -113,78 +113,78 @@
             this.kryptonPanel1.Controls.Add(this.lbManDate);
             this.kryptonPanel1.Controls.Add(this.ipName);
             this.kryptonPanel1.Controls.Add(this.lbName);
-            this.kryptonPanel1.Location = new System.Drawing.Point(12, 264);
+            this.kryptonPanel1.Location = new System.Drawing.Point(12, 284);
             this.kryptonPanel1.Name = "kryptonPanel1";
-            this.kryptonPanel1.Size = new System.Drawing.Size(638, 183);
+            this.kryptonPanel1.Size = new System.Drawing.Size(638, 197);
             this.kryptonPanel1.StateNormal.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.ExpertTracking;
             this.kryptonPanel1.TabIndex = 2;
             // 
             // btSave
             // 
-            this.btSave.Location = new System.Drawing.Point(284, 155);
+            this.btSave.Location = new System.Drawing.Point(284, 167);
             this.btSave.Name = "btSave";
-            this.btSave.Size = new System.Drawing.Size(47, 25);
+            this.btSave.Size = new System.Drawing.Size(47, 27);
             this.btSave.TabIndex = 20;
             this.btSave.Values.Text = "Lưu";
             this.btSave.Click += new System.EventHandler(this.btSave_Click);
             // 
             // ipPosition
             // 
-            this.ipPosition.Location = new System.Drawing.Point(284, 54);
+            this.ipPosition.Location = new System.Drawing.Point(284, 58);
             this.ipPosition.Name = "ipPosition";
-            this.ipPosition.Size = new System.Drawing.Size(181, 22);
+            this.ipPosition.Size = new System.Drawing.Size(181, 20);
             this.ipPosition.TabIndex = 19;
             // 
             // lbPosition
             // 
-            this.lbPosition.Location = new System.Drawing.Point(233, 51);
+            this.lbPosition.Location = new System.Drawing.Point(233, 55);
             this.lbPosition.Name = "lbPosition";
-            this.lbPosition.Size = new System.Drawing.Size(34, 19);
+            this.lbPosition.Size = new System.Drawing.Size(36, 20);
             this.lbPosition.TabIndex = 18;
             this.lbPosition.Values.Text = "Vị trí";
             // 
             // ipSalary
             // 
-            this.ipSalary.Location = new System.Drawing.Point(284, 120);
+            this.ipSalary.Location = new System.Drawing.Point(284, 129);
             this.ipSalary.Name = "ipSalary";
-            this.ipSalary.Size = new System.Drawing.Size(181, 22);
+            this.ipSalary.Size = new System.Drawing.Size(181, 20);
             this.ipSalary.TabIndex = 17;
             // 
             // lbSalary
             // 
-            this.lbSalary.Location = new System.Drawing.Point(194, 123);
+            this.lbSalary.Location = new System.Drawing.Point(194, 132);
             this.lbSalary.Name = "lbSalary";
-            this.lbSalary.Size = new System.Drawing.Size(73, 19);
+            this.lbSalary.Size = new System.Drawing.Size(79, 20);
             this.lbSalary.TabIndex = 16;
             this.lbSalary.Values.Text = "Lương/Ngày";
             // 
             // ipManDate
             // 
-            this.ipManDate.Location = new System.Drawing.Point(284, 89);
+            this.ipManDate.Location = new System.Drawing.Point(284, 96);
             this.ipManDate.Name = "ipManDate";
-            this.ipManDate.Size = new System.Drawing.Size(181, 22);
+            this.ipManDate.Size = new System.Drawing.Size(181, 20);
             this.ipManDate.TabIndex = 15;
             // 
             // lbManDate
             // 
-            this.lbManDate.Location = new System.Drawing.Point(195, 92);
+            this.lbManDate.Location = new System.Drawing.Point(195, 99);
             this.lbManDate.Name = "lbManDate";
-            this.lbManDate.Size = new System.Drawing.Size(72, 19);
+            this.lbManDate.Size = new System.Drawing.Size(78, 20);
             this.lbManDate.TabIndex = 14;
             this.lbManDate.Values.Text = "Số ngày làm ";
             // 
             // ipName
             // 
-            this.ipName.Location = new System.Drawing.Point(284, 26);
+            this.ipName.Location = new System.Drawing.Point(284, 28);
             this.ipName.Name = "ipName";
-            this.ipName.Size = new System.Drawing.Size(181, 22);
+            this.ipName.Size = new System.Drawing.Size(181, 20);
             this.ipName.TabIndex = 13;
             // 
             // lbName
             // 
-            this.lbName.Location = new System.Drawing.Point(182, 26);
+            this.lbName.Location = new System.Drawing.Point(182, 28);
             this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(85, 19);
+            this.lbName.Size = new System.Drawing.Size(92, 20);
             this.lbName.TabIndex = 12;
             this.lbName.Values.Text = "Tên công nhân";
             // 
@@ -397,10 +397,10 @@
             this.createdByDataGridViewTextBoxColumn,
             this.updatedByDataGridViewTextBoxColumn});
             this.dgvWorker.DataSource = this.workerTempDTOBindingSource;
-            this.dgvWorker.Location = new System.Drawing.Point(0, 28);
+            this.dgvWorker.Location = new System.Drawing.Point(0, 30);
             this.dgvWorker.Name = "dgvWorker";
             this.dgvWorker.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvWorker.Size = new System.Drawing.Size(662, 221);
+            this.dgvWorker.Size = new System.Drawing.Size(662, 238);
             this.dgvWorker.StateCommon.Background.Color1 = System.Drawing.Color.White;
             this.dgvWorker.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
             this.dgvWorker.TabIndex = 0;
@@ -418,38 +418,6 @@
             this.checkBox.Name = "checkBox";
             this.checkBox.TrueValue = null;
             this.checkBox.Width = 20;
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cửaSổToolStripMenuItem,
-            this.trợGiúpToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(662, 24);
-            this.menuStrip1.TabIndex = 1;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // cửaSổToolStripMenuItem
-            // 
-            this.cửaSổToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.đóngToolStripMenuItem});
-            this.cửaSổToolStripMenuItem.Name = "cửaSổToolStripMenuItem";
-            this.cửaSổToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
-            this.cửaSổToolStripMenuItem.Text = "Cửa sổ ";
-            // 
-            // đóngToolStripMenuItem
-            // 
-            this.đóngToolStripMenuItem.Name = "đóngToolStripMenuItem";
-            this.đóngToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
-            this.đóngToolStripMenuItem.Text = "Đóng";
-            // 
-            // trợGiúpToolStripMenuItem
-            // 
-            this.trợGiúpToolStripMenuItem.Name = "trợGiúpToolStripMenuItem";
-            this.trợGiúpToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
-            this.trợGiúpToolStripMenuItem.Text = "Trợ giúp";
             // 
             // workerIDDataGridViewTextBoxColumn
             // 
@@ -525,11 +493,43 @@
             // 
             this.workerTempDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.WorkerTempDTO);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cửaSổToolStripMenuItem,
+            this.trợGiúpToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(662, 24);
+            this.menuStrip1.TabIndex = 1;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // cửaSổToolStripMenuItem
+            // 
+            this.cửaSổToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.đóngToolStripMenuItem});
+            this.cửaSổToolStripMenuItem.Name = "cửaSổToolStripMenuItem";
+            this.cửaSổToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.cửaSổToolStripMenuItem.Text = "Cửa sổ ";
+            // 
+            // đóngToolStripMenuItem
+            // 
+            this.đóngToolStripMenuItem.Name = "đóngToolStripMenuItem";
+            this.đóngToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.đóngToolStripMenuItem.Text = "Đóng";
+            // 
+            // trợGiúpToolStripMenuItem
+            // 
+            this.trợGiúpToolStripMenuItem.Name = "trợGiúpToolStripMenuItem";
+            this.trợGiúpToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
+            this.trợGiúpToolStripMenuItem.Text = "Trợ giúp";
+            // 
             // WorkerList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(662, 483);
+            this.ClientSize = new System.Drawing.Size(662, 520);
             this.Controls.Add(this.kryptonPanel);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -545,9 +545,9 @@
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWorker)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.workerTempDTOBindingSource)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.workerTempDTOBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

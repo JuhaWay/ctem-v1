@@ -67,12 +67,6 @@
             this.gbxBot = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.gbcContentBox = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.dgvContentBot = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.materialNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.realCalUnitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unitCostDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalCostDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.noteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.finalAccountDetailDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gbcMenuBot = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.btnAddFinalAccountItem = new ComponentFactory.Krypton.Toolkit.KryptonButton();
@@ -91,6 +85,13 @@
             this.kryptonLabel14 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel15 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel16 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.materialNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.realCalUnitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitCostDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalCostDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.noteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel6)).BeginInit();
@@ -524,6 +525,7 @@
             // 
             this.dgvContentBot.AutoGenerateColumns = false;
             this.dgvContentBot.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
             this.materialNameDataGridViewTextBoxColumn,
             this.quantityDataGridViewTextBoxColumn,
             this.realCalUnitDataGridViewTextBoxColumn,
@@ -536,42 +538,6 @@
             this.dgvContentBot.Name = "dgvContentBot";
             this.dgvContentBot.Size = new System.Drawing.Size(766, 270);
             this.dgvContentBot.TabIndex = 0;
-            // 
-            // materialNameDataGridViewTextBoxColumn
-            // 
-            this.materialNameDataGridViewTextBoxColumn.DataPropertyName = "MaterialName";
-            this.materialNameDataGridViewTextBoxColumn.HeaderText = "MaterialName";
-            this.materialNameDataGridViewTextBoxColumn.Name = "materialNameDataGridViewTextBoxColumn";
-            // 
-            // quantityDataGridViewTextBoxColumn
-            // 
-            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
-            this.quantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
-            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
-            // 
-            // realCalUnitDataGridViewTextBoxColumn
-            // 
-            this.realCalUnitDataGridViewTextBoxColumn.DataPropertyName = "RealCalUnit";
-            this.realCalUnitDataGridViewTextBoxColumn.HeaderText = "RealCalUnit";
-            this.realCalUnitDataGridViewTextBoxColumn.Name = "realCalUnitDataGridViewTextBoxColumn";
-            // 
-            // unitCostDataGridViewTextBoxColumn
-            // 
-            this.unitCostDataGridViewTextBoxColumn.DataPropertyName = "UnitCost";
-            this.unitCostDataGridViewTextBoxColumn.HeaderText = "UnitCost";
-            this.unitCostDataGridViewTextBoxColumn.Name = "unitCostDataGridViewTextBoxColumn";
-            // 
-            // totalCostDataGridViewTextBoxColumn
-            // 
-            this.totalCostDataGridViewTextBoxColumn.DataPropertyName = "TotalCost";
-            this.totalCostDataGridViewTextBoxColumn.HeaderText = "TotalCost";
-            this.totalCostDataGridViewTextBoxColumn.Name = "totalCostDataGridViewTextBoxColumn";
-            // 
-            // noteDataGridViewTextBoxColumn
-            // 
-            this.noteDataGridViewTextBoxColumn.DataPropertyName = "Note";
-            this.noteDataGridViewTextBoxColumn.HeaderText = "Note";
-            this.noteDataGridViewTextBoxColumn.Name = "noteDataGridViewTextBoxColumn";
             // 
             // finalAccountDetailDTOBindingSource
             // 
@@ -745,6 +711,48 @@
             this.kryptonLabel16.TabIndex = 16;
             this.kryptonLabel16.Values.Text = "Loại Vật Tư";
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "";
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 25;
+            // 
+            // materialNameDataGridViewTextBoxColumn
+            // 
+            this.materialNameDataGridViewTextBoxColumn.DataPropertyName = "MaterialName";
+            this.materialNameDataGridViewTextBoxColumn.HeaderText = "MaterialName";
+            this.materialNameDataGridViewTextBoxColumn.Name = "materialNameDataGridViewTextBoxColumn";
+            // 
+            // quantityDataGridViewTextBoxColumn
+            // 
+            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
+            this.quantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
+            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
+            // 
+            // realCalUnitDataGridViewTextBoxColumn
+            // 
+            this.realCalUnitDataGridViewTextBoxColumn.DataPropertyName = "RealCalUnit";
+            this.realCalUnitDataGridViewTextBoxColumn.HeaderText = "RealCalUnit";
+            this.realCalUnitDataGridViewTextBoxColumn.Name = "realCalUnitDataGridViewTextBoxColumn";
+            // 
+            // unitCostDataGridViewTextBoxColumn
+            // 
+            this.unitCostDataGridViewTextBoxColumn.DataPropertyName = "UnitCost";
+            this.unitCostDataGridViewTextBoxColumn.HeaderText = "UnitCost";
+            this.unitCostDataGridViewTextBoxColumn.Name = "unitCostDataGridViewTextBoxColumn";
+            // 
+            // totalCostDataGridViewTextBoxColumn
+            // 
+            this.totalCostDataGridViewTextBoxColumn.DataPropertyName = "TotalCost";
+            this.totalCostDataGridViewTextBoxColumn.HeaderText = "TotalCost";
+            this.totalCostDataGridViewTextBoxColumn.Name = "totalCostDataGridViewTextBoxColumn";
+            // 
+            // noteDataGridViewTextBoxColumn
+            // 
+            this.noteDataGridViewTextBoxColumn.DataPropertyName = "Note";
+            this.noteDataGridViewTextBoxColumn.HeaderText = "Note";
+            this.noteDataGridViewTextBoxColumn.Name = "noteDataGridViewTextBoxColumn";
+            // 
             // NewFinalAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
@@ -865,15 +873,16 @@
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel14;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel15;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel16;
+        private System.Windows.Forms.BindingSource finalAccountDetailDTOBindingSource;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnAddFinalAccountItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnSave;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn materialNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn realCalUnitDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn unitCostDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalCostDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn noteDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource finalAccountDetailDTOBindingSource;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnAddFinalAccountItem;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnSave;
     }
 }
 

@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using ChiTonPrivateEnterpriseManagement.Classes.BUS;
 using ChiTonPrivateEnterpriseManagement.Classes.DTO;
+using ChiTonPrivateEnterpriseManagement.Classes.Global;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWarehouse
@@ -14,28 +15,47 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWarehouse
     public partial class WarehouseManagement : ComponentFactory.Krypton.Toolkit.KryptonForm
     {
         private List<WarehouseDTO> ListWarehouse;
-        private WarehouseBUS FinalWarehouse = new WarehouseBUS();
+        private WarehouseBUS _warehouseBus = new WarehouseBUS();
+        private CheckBox _ckBox;
+        private string _type;
 
-        public WarehouseManagement()
+        public WarehouseManagement(string type)
         {
+            _type = type;
             InitializeComponent();
         }
 
         private void WarehouseManagement_Load(object sender, EventArgs e)
         {
-            LoadData();
+            _ckBox = new CheckBox();
+            Global.SetLayoutDataGridview(_ckBox, dgvLeftBot);
+            _ckBox.CheckedChanged += new EventHandler(ckBox_CheckedChanged);
+            LoadData(_type);
         }
 
-        private void LoadData()
+        void ckBox_CheckedChanged(object sender, EventArgs e)
         {
-            ListWarehouse = FinalWarehouse.LoadAllWarehouses();
+            Global.CheckBoxCheck(_ckBox, dgvLeftBot);
+        }
+
+        private void LoadData(string type)
+        {
+            if (type.Equals(Constants.MAIN_WAREHOUSE))
+            {
+                ListWarehouse = _warehouseBus.LoadWarehouses(Constants.MAIN_WAREHOUSE);
+            }
+            else
+            {
+                ListWarehouse = _warehouseBus.LoadWarehouses(Constants.CONSTRUCTION_WAREHOUSE);
+            }
+            
             dgvLeftBot.DataSource = ListWarehouse;
         }
 
         private void btnAddWarehouse_Click(object sender, EventArgs e)
         {
-            //NewWarehouse newWarehouseForm = new NewWarehouse();
-            //newWarehouseForm.ShowDialog();
+            NewWarehouse newWarehouseForm = new NewWarehouse();
+            newWarehouseForm.ShowDialog();
         }
     }
 }

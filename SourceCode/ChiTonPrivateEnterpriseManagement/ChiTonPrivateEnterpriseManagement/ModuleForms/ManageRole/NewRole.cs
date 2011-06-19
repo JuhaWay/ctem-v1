@@ -14,7 +14,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRole
 {
     public partial class NewRole : KryptonForm
     {
-        EmployerDTO employer;
         List<RoleDTO> listRole;
         List<RightDTO> listRights;
         long RoleID;
@@ -24,18 +23,16 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRole
         bool isNew = false;
         bool isEdit = false;
 
-        public NewRole(EmployerDTO _employer, List<RoleDTO> _listRole)
+        public NewRole(List<RoleDTO> _listRole)
         {
             isNew = true;
-            employer = _employer;
             listRole = _listRole;
             InitializeComponent();
         }
 
-        public NewRole(EmployerDTO _employer, long _RoleID, long _rightValue, List<RoleDTO> _listRole)
+        public NewRole(long _RoleID, long _rightValue, List<RoleDTO> _listRole)
         {
             isEdit = true;
-            employer = _employer;
             RoleID = _RoleID;
             rightValue = _rightValue;
             listRole = _listRole;

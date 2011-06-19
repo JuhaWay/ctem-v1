@@ -37,6 +37,7 @@
             this.scBot = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
             this.gbxLeftBot = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.dgvLeftBot = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.warehouseDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gbcRightBot = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.gbcMenuBot = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
@@ -44,7 +45,7 @@
             this.btnAddWarehouse = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.finalAccountDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.finalAccountDetailDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.warehouseDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.warehouseIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.warehouseNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.constructionIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,6 +68,7 @@
             this.gbxLeftBot.Panel.SuspendLayout();
             this.gbxLeftBot.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLeftBot)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.warehouseDTOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gbcRightBot)).BeginInit();
             this.gbcRightBot.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
@@ -75,7 +77,6 @@
             this.gbcMenuBot.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.finalAccountDTOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.finalAccountDetailDTOBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.warehouseDTOBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // kryptonPanel6
@@ -148,6 +149,7 @@
             // 
             this.dgvLeftBot.AutoGenerateColumns = false;
             this.dgvLeftBot.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
             this.warehouseIDDataGridViewTextBoxColumn,
             this.warehouseNameDataGridViewTextBoxColumn,
             this.constructionIDDataGridViewTextBoxColumn,
@@ -163,6 +165,10 @@
             this.dgvLeftBot.Name = "dgvLeftBot";
             this.dgvLeftBot.Size = new System.Drawing.Size(597, 470);
             this.dgvLeftBot.TabIndex = 0;
+            // 
+            // warehouseDTOBindingSource
+            // 
+            this.warehouseDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.WarehouseDTO);
             // 
             // gbcRightBot
             // 
@@ -220,9 +226,11 @@
             // 
             this.finalAccountDetailDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.FinalAccountDetailDTO);
             // 
-            // warehouseDTOBindingSource
+            // Column1
             // 
-            this.warehouseDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.WarehouseDTO);
+            this.Column1.HeaderText = "";
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 25;
             // 
             // warehouseIDDataGridViewTextBoxColumn
             // 
@@ -303,6 +311,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gbxLeftBot)).EndInit();
             this.gbxLeftBot.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLeftBot)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.warehouseDTOBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gbcRightBot)).EndInit();
             this.gbcRightBot.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).EndInit();
@@ -311,7 +320,6 @@
             this.gbcMenuBot.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.finalAccountDTOBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.finalAccountDetailDTOBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.warehouseDTOBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -333,6 +341,8 @@
         private System.Windows.Forms.BindingSource finalAccountDTOBindingSource;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dgvLeftBot;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnEdit;
+        private System.Windows.Forms.BindingSource warehouseDTOBindingSource;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn warehouseIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn warehouseNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn constructionIDDataGridViewTextBoxColumn;
@@ -342,7 +352,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn isActiveDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource warehouseDTOBindingSource;
     }
 }
 
