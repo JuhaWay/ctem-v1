@@ -91,7 +91,7 @@
             this.kryptonPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonPanel.Location = new System.Drawing.Point(0, 24);
             this.kryptonPanel.Name = "kryptonPanel";
-            this.kryptonPanel.Size = new System.Drawing.Size(1011, 632);
+            this.kryptonPanel.Size = new System.Drawing.Size(1011, 585);
             this.kryptonPanel.TabIndex = 0;
             // 
             // kryptonPanel1
@@ -105,9 +105,9 @@
             this.kryptonPanel1.Controls.Add(this.lbCons);
             this.kryptonPanel1.Controls.Add(this.ipName);
             this.kryptonPanel1.Controls.Add(this.lbName);
-            this.kryptonPanel1.Location = new System.Drawing.Point(3, 349);
+            this.kryptonPanel1.Location = new System.Drawing.Point(3, 324);
             this.kryptonPanel1.Name = "kryptonPanel1";
-            this.kryptonPanel1.Size = new System.Drawing.Size(1005, 278);
+            this.kryptonPanel1.Size = new System.Drawing.Size(1005, 258);
             this.kryptonPanel1.StateCommon.Color1 = System.Drawing.Color.Lavender;
             this.kryptonPanel1.StateCommon.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.ExpertCheckedTracking;
             this.kryptonPanel1.StateNormal.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
@@ -115,9 +115,9 @@
             // 
             // btSave
             // 
-            this.btSave.Location = new System.Drawing.Point(491, 218);
+            this.btSave.Location = new System.Drawing.Point(491, 202);
             this.btSave.Name = "btSave";
-            this.btSave.Size = new System.Drawing.Size(62, 27);
+            this.btSave.Size = new System.Drawing.Size(62, 25);
             this.btSave.TabIndex = 18;
             this.btSave.Values.Text = "Cập nhật";
             this.btSave.Click += new System.EventHandler(this.btSave_Click);
@@ -125,70 +125,70 @@
             // dtTodate
             // 
             this.dtTodate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtTodate.Location = new System.Drawing.Point(456, 176);
+            this.dtTodate.Location = new System.Drawing.Point(456, 163);
             this.dtTodate.Name = "dtTodate";
-            this.dtTodate.Size = new System.Drawing.Size(177, 21);
+            this.dtTodate.Size = new System.Drawing.Size(177, 20);
             this.dtTodate.TabIndex = 17;
             // 
             // lbTodate
             // 
-            this.lbTodate.Location = new System.Drawing.Point(373, 176);
+            this.lbTodate.Location = new System.Drawing.Point(373, 163);
             this.lbTodate.Name = "lbTodate";
-            this.lbTodate.Size = new System.Drawing.Size(63, 20);
+            this.lbTodate.Size = new System.Drawing.Size(58, 19);
             this.lbTodate.TabIndex = 16;
             this.lbTodate.Values.Text = "Đến ngày";
             // 
             // dtFromdate
             // 
             this.dtFromdate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtFromdate.Location = new System.Drawing.Point(456, 127);
+            this.dtFromdate.Location = new System.Drawing.Point(456, 118);
             this.dtFromdate.Name = "dtFromdate";
-            this.dtFromdate.Size = new System.Drawing.Size(177, 21);
+            this.dtFromdate.Size = new System.Drawing.Size(177, 20);
             this.dtFromdate.TabIndex = 15;
             // 
             // lbFromDate
             // 
-            this.lbFromDate.Location = new System.Drawing.Point(381, 127);
+            this.lbFromDate.Location = new System.Drawing.Point(381, 118);
             this.lbFromDate.Name = "lbFromDate";
-            this.lbFromDate.Size = new System.Drawing.Size(54, 20);
+            this.lbFromDate.Size = new System.Drawing.Size(50, 19);
             this.lbFromDate.TabIndex = 14;
             this.lbFromDate.Values.Text = "Từ ngày";
             // 
             // cbCons
             // 
             this.cbCons.DropDownWidth = 177;
-            this.cbCons.Location = new System.Drawing.Point(456, 81);
+            this.cbCons.Location = new System.Drawing.Point(456, 75);
             this.cbCons.Name = "cbCons";
-            this.cbCons.Size = new System.Drawing.Size(177, 21);
+            this.cbCons.Size = new System.Drawing.Size(177, 22);
             this.cbCons.TabIndex = 13;
             this.cbCons.Text = "chọn...";
             // 
             // lbCons
             // 
-            this.lbCons.Location = new System.Drawing.Point(372, 81);
+            this.lbCons.Location = new System.Drawing.Point(372, 75);
             this.lbCons.Name = "lbCons";
-            this.lbCons.Size = new System.Drawing.Size(69, 20);
+            this.lbCons.Size = new System.Drawing.Size(63, 19);
             this.lbCons.TabIndex = 12;
             this.lbCons.Values.Text = "Công trình";
             // 
             // ipName
             // 
-            this.ipName.Location = new System.Drawing.Point(456, 29);
+            this.ipName.Location = new System.Drawing.Point(456, 27);
             this.ipName.Name = "ipName";
-            this.ipName.Size = new System.Drawing.Size(177, 20);
+            this.ipName.Size = new System.Drawing.Size(177, 22);
             this.ipName.TabIndex = 11;
             // 
             // lbName
             // 
-            this.lbName.Location = new System.Drawing.Point(403, 32);
+            this.lbName.Location = new System.Drawing.Point(403, 30);
             this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(30, 20);
+            this.lbName.Size = new System.Drawing.Size(28, 19);
             this.lbName.TabIndex = 10;
             this.lbName.Values.Text = "Tên ";
             // 
             // toolStrip2
             // 
-            this.toolStrip2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.toolStrip2.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.toolStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton2,
@@ -256,10 +256,10 @@
             this.updatedByDataGridViewTextBoxColumn,
             this.isCheckedDataGridViewCheckBoxColumn});
             this.dgvWks.DataSource = this.workerSalaryDTOBindingSource1;
-            this.dgvWks.Location = new System.Drawing.Point(0, 30);
+            this.dgvWks.Location = new System.Drawing.Point(0, 28);
             this.dgvWks.Name = "dgvWks";
             this.dgvWks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvWks.Size = new System.Drawing.Size(1008, 312);
+            this.dgvWks.Size = new System.Drawing.Size(1008, 290);
             this.dgvWks.StateNormal.Background.Color1 = System.Drawing.Color.White;
             this.dgvWks.TabIndex = 0;
             this.dgvWks.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvWks_CellContentClick);
@@ -357,7 +357,7 @@
             // 
             // menuStrip1
             // 
-            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,
             this.trợGiúpToolStripMenuItem,
@@ -373,13 +373,13 @@
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.đóngToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(58, 20);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(57, 20);
             this.toolStripMenuItem1.Text = "Cửa sổ ";
             // 
             // đóngToolStripMenuItem
             // 
             this.đóngToolStripMenuItem.Name = "đóngToolStripMenuItem";
-            this.đóngToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.đóngToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
             this.đóngToolStripMenuItem.Text = "Đóng";
             // 
             // trợGiúpToolStripMenuItem
@@ -387,13 +387,13 @@
             this.trợGiúpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.hướngDẩnSửDụngToolStripMenuItem});
             this.trợGiúpToolStripMenuItem.Name = "trợGiúpToolStripMenuItem";
-            this.trợGiúpToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
+            this.trợGiúpToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
             this.trợGiúpToolStripMenuItem.Text = "Trợ giúp";
             // 
             // hướngDẩnSửDụngToolStripMenuItem
             // 
             this.hướngDẩnSửDụngToolStripMenuItem.Name = "hướngDẩnSửDụngToolStripMenuItem";
-            this.hướngDẩnSửDụngToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.hướngDẩnSửDụngToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.hướngDẩnSửDụngToolStripMenuItem.Text = "Hướng dẩn sử dụng";
             // 
             // thôngTinToolStripMenuItem
@@ -401,13 +401,13 @@
             this.thôngTinToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.côngTyToolStripMenuItem});
             this.thôngTinToolStripMenuItem.Name = "thôngTinToolStripMenuItem";
-            this.thôngTinToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.thôngTinToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.thôngTinToolStripMenuItem.Text = "Thông tin";
             // 
             // côngTyToolStripMenuItem
             // 
             this.côngTyToolStripMenuItem.Name = "côngTyToolStripMenuItem";
-            this.côngTyToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.côngTyToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.côngTyToolStripMenuItem.Text = "Công ty";
             // 
             // workerSalaryDTOBindingSource
@@ -416,9 +416,9 @@
             // 
             // WorkerSalaryManagement
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1011, 656);
+            this.ClientSize = new System.Drawing.Size(1011, 609);
             this.Controls.Add(this.kryptonPanel);
             this.Controls.Add(this.menuStrip1);
             this.Name = "WorkerSalaryManagement";
