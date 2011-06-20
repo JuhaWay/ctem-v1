@@ -19,17 +19,19 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
         private MaterialBUS _materialBUS = new MaterialBUS();
         private ConstructionBus _constructionBus = new ConstructionBus();
 
-
+        private EstimateDetailDTO dtoTemp = new EstimateDetailDTO();
         private long _estimateId;
         private long _constructionID;
         private long _totalCost;
         public EstimateDetail()
         {
+            CenterToScreen();
             InitializeComponent();
         }
 
         public EstimateDetail(long estimateId, long ConstructionID)
         {
+            CenterToScreen();
             _estimateId = estimateId;
             _constructionID = ConstructionID;
             InitializeComponent();
@@ -52,21 +54,17 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
             else if (!validatePrice(ipPrice.Text)) return;
             else
             {
-
-                if (MessageBox.Show("Bạn có muốn thêm không?", @"Xác nhận ", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                {
                     // CreateEstimateDetail
-                    _estimateDetailBUS.CreateEstimateDetail(
-                        _estimateId, dto.MaterialID, long.Parse(ipQuantity.Text),
+                    _estimateDetailBUS.UpdateEstimateDetail(
+                        dtoTemp.EstimateDetailID, dto.MaterialID, long.Parse(ipQuantity.Text),
                          long.Parse(ipPrice.Text), _totalCost);
                     // LoadAllEstimateDetails
-                    List<EstimateDetailDTO> esDetails =
-                        _estimateDetailBUS.LoadAllEstimateDetails(_estimateId);
-                    _estimateBUS.UpdateEstimate(_estimateId, getTotalCost(esDetails));
-                    _constructionBus.UpdateConstructionTotalEstimateCost(_constructionID, getTotalCost(esDetails));
-                    resetDataSource(_estimateId);
-                }
-
+                    //List<EstimateDetailDTO> esDetails =
+                   //     _estimateDetailBUS.LoadAllEstimateDetails(_estimateId);
+                    //_estimateBUS.UpdateEstimate(_estimateId, getTotalCost(esDetails));
+                    //_constructionBus.UpdateConstructionTotalEstimateCost(_constructionID, getTotalCost(esDetails));
+                    MessageBox.Show("Cập nhật thành công!");   
+                resetDataSource(_estimateId);
                 
             }
         }
@@ -150,11 +148,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
             else _totalCost = 0;
         }
 
-        private void btEdit_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btDelete_Click(object sender, EventArgs e)
         {
             foreach (DataGridViewRow row in dgvEstimateDetails.Rows)
@@ -188,6 +181,39 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
                     c.AccessibilityObject.Value = "True";
                     dgvEstimateDetails.Rows[e.RowIndex].Selected = true;
                 }
+            }
+        }
+
+        private void kryptonGroupBox2_Panel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btAdd_Click(object sender, EventArgs e)
+        {
+            AddNewEsDetail add = new AddNewEsDetail(_estimateId);
+            add.ShowDialog();
+            List<EstimateDetailDTO> esDetails =
+               _estimateDetailBUS.LoadAllEstimateDetails(_estimateId);
+            _estimateBUS.UpdateEstimate(_estimateId, getTotalCost(esDetails));
+            _constructionBus.UpdateConstructionTotalEstimateCost(_constructionID, getTotalCost(esDetails));
+
+            resetDataSource(_estimateId);
+        }
+
+        private void dgvEstimateDetails_MouseClick(object sender, MouseEventArgs e)
+        {
+            int currentMouseOverRow = dgvEstimateDetails.HitTest(e.X, e.Y).RowIndex;
+            if (currentMouseOverRow > -1)
+            {
+                dtoTemp = dgvEstimateDetails.Rows[currentMouseOverRow].DataBoundItem as EstimateDetailDTO;
+                foreach (MaterialDTO dto in cbMaterial.Items)
+                {
+                    if (dto.MaterialID.Equals(dtoTemp.MaterialID))
+                        cbMaterial.SelectedItem = dto;
+                }
+                ipQuantity.Text = dtoTemp.QuantityEstimate.ToString();
+                ipPrice.Text = dtoTemp.UnitCostEstimate.ToString();
             }
         }
     }

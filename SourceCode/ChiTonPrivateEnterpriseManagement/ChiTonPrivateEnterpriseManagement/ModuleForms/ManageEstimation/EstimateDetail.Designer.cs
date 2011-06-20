@@ -29,15 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EstimateDetail));
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.kryptonPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryptonGroupBox2 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
-            this.btDelete = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.btEdit = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.dgvEstimateDetails = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.kryptonGroupBox1 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
+            this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.lbUnit = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.lbTotalCostNum = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.lbTotalCost = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
@@ -47,8 +45,9 @@
             this.lbPrice = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.cbMaterial = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.lbMaterial = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.estimateDetailDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.workerDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btDelete = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btAdd = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.dgvEstimateDetails = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.checkBox = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewCheckBoxColumn();
             this.EstimateDetailID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EstimateID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,106 +61,72 @@
             this.TotalCostReal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.cửaSổToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.thôngTinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.chứcNăngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.kryptonHeader1 = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
             this.noteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estimateDetailDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.workerDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox2)).BeginInit();
             this.kryptonGroupBox2.Panel.SuspendLayout();
             this.kryptonGroupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEstimateDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).BeginInit();
             this.kryptonGroupBox1.Panel.SuspendLayout();
             this.kryptonGroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbMaterial)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEstimateDetails)).BeginInit();
+            this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
+            this.kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.estimateDetailDTOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.workerDTOBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // kryptonPanel
             // 
-            this.kryptonPanel.Controls.Add(this.kryptonButton1);
+            this.kryptonPanel.Controls.Add(this.dgvEstimateDetails);
+            this.kryptonPanel.Controls.Add(this.kryptonPanel1);
             this.kryptonPanel.Controls.Add(this.kryptonGroupBox2);
             this.kryptonPanel.Controls.Add(this.kryptonGroupBox1);
+            this.kryptonPanel.Controls.Add(this.menuStrip1);
             this.kryptonPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonPanel.Location = new System.Drawing.Point(0, 0);
             this.kryptonPanel.Name = "kryptonPanel";
             this.kryptonPanel.Size = new System.Drawing.Size(875, 522);
             this.kryptonPanel.TabIndex = 0;
             // 
-            // kryptonButton1
-            // 
-            this.kryptonButton1.Location = new System.Drawing.Point(389, 120);
-            this.kryptonButton1.Name = "kryptonButton1";
-            this.kryptonButton1.Size = new System.Drawing.Size(82, 25);
-            this.kryptonButton1.TabIndex = 2;
-            this.kryptonButton1.Values.Text = "Tạo";
-            this.kryptonButton1.Click += new System.EventHandler(this.kryptonButton1_Click);
-            // 
             // kryptonGroupBox2
             // 
-            this.kryptonGroupBox2.Location = new System.Drawing.Point(3, 151);
+            this.kryptonGroupBox2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.kryptonGroupBox2.Location = new System.Drawing.Point(0, 24);
             this.kryptonGroupBox2.Name = "kryptonGroupBox2";
             // 
             // kryptonGroupBox2.Panel
             // 
+            this.kryptonGroupBox2.Panel.Controls.Add(this.btAdd);
             this.kryptonGroupBox2.Panel.Controls.Add(this.btDelete);
-            this.kryptonGroupBox2.Panel.Controls.Add(this.btEdit);
-            this.kryptonGroupBox2.Panel.Controls.Add(this.dgvEstimateDetails);
-            this.kryptonGroupBox2.Size = new System.Drawing.Size(872, 371);
-            this.kryptonGroupBox2.TabIndex = 1;
-            // 
-            // btDelete
-            // 
-            this.btDelete.Location = new System.Drawing.Point(54, 7);
-            this.btDelete.Name = "btDelete";
-            this.btDelete.Size = new System.Drawing.Size(35, 25);
-            this.btDelete.TabIndex = 2;
-            this.btDelete.Values.Text = "Xóa";
-            this.btDelete.Click += new System.EventHandler(this.btDelete_Click);
-            // 
-            // btEdit
-            // 
-            this.btEdit.Location = new System.Drawing.Point(7, 7);
-            this.btEdit.Name = "btEdit";
-            this.btEdit.Size = new System.Drawing.Size(41, 25);
-            this.btEdit.TabIndex = 1;
-            this.btEdit.Values.Text = "Sửa";
-            this.btEdit.Click += new System.EventHandler(this.btEdit_Click);
-            // 
-            // dgvEstimateDetails
-            // 
-            this.dgvEstimateDetails.AutoGenerateColumns = false;
-            this.dgvEstimateDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.checkBox,
-            this.EstimateDetailID,
-            this.EstimateID,
-            this.MaterialID,
-            this.MaterialName,
-            this.QuantityEstimate,
-            this.UnitCostEstimate,
-            this.TotalCostEstimate,
-            this.QuantityReal,
-            this.UnitCostReal,
-            this.TotalCostReal,
-            this.Note,
-            this.Status,
-            this.noteDataGridViewTextBoxColumn,
-            this.statusDataGridViewTextBoxColumn});
-            this.dgvEstimateDetails.DataSource = this.estimateDetailDTOBindingSource;
-            this.dgvEstimateDetails.Location = new System.Drawing.Point(5, 38);
-            this.dgvEstimateDetails.Name = "dgvEstimateDetails";
-            this.dgvEstimateDetails.Size = new System.Drawing.Size(860, 300);
-            this.dgvEstimateDetails.TabIndex = 0;
-            this.dgvEstimateDetails.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEstimateDetails_CellContentClick);
+            this.kryptonGroupBox2.Panel.Paint += new System.Windows.Forms.PaintEventHandler(this.kryptonGroupBox2_Panel_Paint);
+            this.kryptonGroupBox2.Size = new System.Drawing.Size(875, 45);
+            this.kryptonGroupBox2.StateCommon.Back.Color1 = System.Drawing.Color.Silver;
+            this.kryptonGroupBox2.StateCommon.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.ExpertCheckedTracking;
+            this.kryptonGroupBox2.TabIndex = 4;
+            this.kryptonGroupBox2.Values.Heading = "";
             // 
             // kryptonGroupBox1
             // 
-            this.kryptonGroupBox1.Location = new System.Drawing.Point(3, 3);
+            this.kryptonGroupBox1.Location = new System.Drawing.Point(3, 323);
             this.kryptonGroupBox1.Name = "kryptonGroupBox1";
             // 
             // kryptonGroupBox1.Panel
             // 
+            this.kryptonGroupBox1.Panel.Controls.Add(this.kryptonButton1);
             this.kryptonGroupBox1.Panel.Controls.Add(this.lbUnit);
             this.kryptonGroupBox1.Panel.Controls.Add(this.lbTotalCostNum);
             this.kryptonGroupBox1.Panel.Controls.Add(this.lbTotalCost);
@@ -171,8 +136,19 @@
             this.kryptonGroupBox1.Panel.Controls.Add(this.lbPrice);
             this.kryptonGroupBox1.Panel.Controls.Add(this.cbMaterial);
             this.kryptonGroupBox1.Panel.Controls.Add(this.lbMaterial);
-            this.kryptonGroupBox1.Size = new System.Drawing.Size(872, 111);
+            this.kryptonGroupBox1.Size = new System.Drawing.Size(872, 199);
+            this.kryptonGroupBox1.StateCommon.Back.Color1 = System.Drawing.Color.White;
             this.kryptonGroupBox1.TabIndex = 0;
+            this.kryptonGroupBox1.Values.Heading = "";
+            // 
+            // kryptonButton1
+            // 
+            this.kryptonButton1.Location = new System.Drawing.Point(352, 108);
+            this.kryptonButton1.Name = "kryptonButton1";
+            this.kryptonButton1.Size = new System.Drawing.Size(82, 25);
+            this.kryptonButton1.TabIndex = 2;
+            this.kryptonButton1.Values.Text = "Cập nhật";
+            this.kryptonButton1.Click += new System.EventHandler(this.kryptonButton1_Click);
             // 
             // lbUnit
             // 
@@ -249,19 +225,64 @@
             this.lbMaterial.TabIndex = 0;
             this.lbMaterial.Values.Text = "Nguyên vật liệu :";
             // 
-            // estimateDetailDTOBindingSource
+            // btDelete
             // 
-            this.estimateDetailDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.EstimateDetailDTO);
+            this.btDelete.Location = new System.Drawing.Point(66, 3);
+            this.btDelete.Name = "btDelete";
+            this.btDelete.Size = new System.Drawing.Size(50, 33);
+            this.btDelete.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btDelete.TabIndex = 2;
+            this.btDelete.Values.Image = ((System.Drawing.Image)(resources.GetObject("btDelete.Values.Image")));
+            this.btDelete.Values.Text = "Xóa";
+            this.btDelete.Click += new System.EventHandler(this.btDelete_Click);
             // 
-            // workerDTOBindingSource
+            // btAdd
             // 
-            this.workerDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.WorkerDTO);
+            this.btAdd.Location = new System.Drawing.Point(7, 3);
+            this.btAdd.Name = "btAdd";
+            this.btAdd.Size = new System.Drawing.Size(53, 33);
+            this.btAdd.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btAdd.TabIndex = 1;
+            this.btAdd.Values.Image = ((System.Drawing.Image)(resources.GetObject("btAdd.Values.Image")));
+            this.btAdd.Values.Text = "Tạo";
+            this.btAdd.Click += new System.EventHandler(this.btAdd_Click);
+            // 
+            // dgvEstimateDetails
+            // 
+            this.dgvEstimateDetails.AutoGenerateColumns = false;
+            this.dgvEstimateDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.checkBox,
+            this.EstimateDetailID,
+            this.EstimateID,
+            this.MaterialID,
+            this.MaterialName,
+            this.QuantityEstimate,
+            this.UnitCostEstimate,
+            this.TotalCostEstimate,
+            this.QuantityReal,
+            this.UnitCostReal,
+            this.TotalCostReal,
+            this.Note,
+            this.Status,
+            this.noteDataGridViewTextBoxColumn,
+            this.statusDataGridViewTextBoxColumn});
+            this.dgvEstimateDetails.DataSource = this.estimateDetailDTOBindingSource;
+            this.dgvEstimateDetails.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dgvEstimateDetails.Location = new System.Drawing.Point(0, 103);
+            this.dgvEstimateDetails.Name = "dgvEstimateDetails";
+            this.dgvEstimateDetails.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvEstimateDetails.Size = new System.Drawing.Size(875, 214);
+            this.dgvEstimateDetails.StateCommon.Background.Color1 = System.Drawing.Color.White;
+            this.dgvEstimateDetails.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
+            this.dgvEstimateDetails.TabIndex = 0;
+            this.dgvEstimateDetails.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEstimateDetails_CellContentClick);
+            this.dgvEstimateDetails.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvEstimateDetails_MouseClick);
             // 
             // checkBox
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.NullValue = false;
-            this.checkBox.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.NullValue = false;
+            this.checkBox.DefaultCellStyle = dataGridViewCellStyle2;
             this.checkBox.FalseValue = null;
             this.checkBox.HeaderText = "";
             this.checkBox.IndeterminateValue = null;
@@ -344,6 +365,67 @@
             this.Status.HeaderText = "Trạng thái";
             this.Status.Name = "Status";
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cửaSổToolStripMenuItem,
+            this.thôngTinToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(875, 24);
+            this.menuStrip1.TabIndex = 3;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // cửaSổToolStripMenuItem
+            // 
+            this.cửaSổToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.thoátToolStripMenuItem});
+            this.cửaSổToolStripMenuItem.Name = "cửaSổToolStripMenuItem";
+            this.cửaSổToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+            this.cửaSổToolStripMenuItem.Text = "Cửa sổ";
+            // 
+            // thoátToolStripMenuItem
+            // 
+            this.thoátToolStripMenuItem.Name = "thoátToolStripMenuItem";
+            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
+            this.thoátToolStripMenuItem.Text = "Thoát";
+            // 
+            // thôngTinToolStripMenuItem
+            // 
+            this.thôngTinToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.chứcNăngToolStripMenuItem});
+            this.thôngTinToolStripMenuItem.Name = "thôngTinToolStripMenuItem";
+            this.thôngTinToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
+            this.thôngTinToolStripMenuItem.Text = "Thông tin";
+            // 
+            // chứcNăngToolStripMenuItem
+            // 
+            this.chứcNăngToolStripMenuItem.Name = "chứcNăngToolStripMenuItem";
+            this.chứcNăngToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.chứcNăngToolStripMenuItem.Text = "Chức năng";
+            // 
+            // kryptonPanel1
+            // 
+            this.kryptonPanel1.Controls.Add(this.kryptonHeader1);
+            this.kryptonPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.kryptonPanel1.Location = new System.Drawing.Point(0, 69);
+            this.kryptonPanel1.Name = "kryptonPanel1";
+            this.kryptonPanel1.Size = new System.Drawing.Size(875, 34);
+            this.kryptonPanel1.TabIndex = 5;
+            // 
+            // kryptonHeader1
+            // 
+            this.kryptonHeader1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.kryptonHeader1.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.DockActive;
+            this.kryptonHeader1.Location = new System.Drawing.Point(0, 0);
+            this.kryptonHeader1.Name = "kryptonHeader1";
+            this.kryptonHeader1.Size = new System.Drawing.Size(875, 34);
+            this.kryptonHeader1.TabIndex = 1;
+            this.kryptonHeader1.Values.Description = "";
+            this.kryptonHeader1.Values.Heading = "Danh sách Vật liệu";
+            this.kryptonHeader1.Values.Image = ((System.Drawing.Image)(resources.GetObject("kryptonHeader1.Values.Image")));
+            // 
             // noteDataGridViewTextBoxColumn
             // 
             this.noteDataGridViewTextBoxColumn.DataPropertyName = "Note";
@@ -356,25 +438,40 @@
             this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
             this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
             // 
+            // estimateDetailDTOBindingSource
+            // 
+            this.estimateDetailDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.EstimateDetailDTO);
+            // 
+            // workerDTOBindingSource
+            // 
+            this.workerDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.WorkerDTO);
+            // 
             // EstimateDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(875, 522);
             this.Controls.Add(this.kryptonPanel);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "EstimateDetail";
             this.Text = "EstimateDetail";
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).EndInit();
             this.kryptonPanel.ResumeLayout(false);
+            this.kryptonPanel.PerformLayout();
             this.kryptonGroupBox2.Panel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox2)).EndInit();
             this.kryptonGroupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEstimateDetails)).EndInit();
             this.kryptonGroupBox1.Panel.ResumeLayout(false);
             this.kryptonGroupBox1.Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).EndInit();
             this.kryptonGroupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cbMaterial)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEstimateDetails)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).EndInit();
+            this.kryptonPanel1.ResumeLayout(false);
+            this.kryptonPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.estimateDetailDTOBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.workerDTOBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -386,20 +483,10 @@
         private ComponentFactory.Krypton.Toolkit.KryptonManager kryptonManager;
         private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel;
         private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton1;
-        private ComponentFactory.Krypton.Toolkit.KryptonGroupBox kryptonGroupBox2;
         private ComponentFactory.Krypton.Toolkit.KryptonGroupBox kryptonGroupBox1;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dgvEstimateDetails;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel lbTotalCostNum;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel lbTotalCost;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox ipPrice;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox ipQuantity;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel lbQuantity;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel lbPrice;
-        private ComponentFactory.Krypton.Toolkit.KryptonComboBox cbMaterial;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel lbMaterial;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel lbUnit;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btDelete;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btEdit;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btAdd;
         private System.Windows.Forms.BindingSource estimateDetailDTOBindingSource;
         private System.Windows.Forms.BindingSource workerDTOBindingSource;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewCheckBoxColumn checkBox;
@@ -417,6 +504,23 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private System.Windows.Forms.DataGridViewTextBoxColumn noteDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel lbUnit;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel lbTotalCostNum;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel lbTotalCost;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox ipPrice;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox ipQuantity;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel lbQuantity;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel lbPrice;
+        private ComponentFactory.Krypton.Toolkit.KryptonComboBox cbMaterial;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel lbMaterial;
+        private ComponentFactory.Krypton.Toolkit.KryptonGroupBox kryptonGroupBox2;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem cửaSổToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem thoátToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem thôngTinToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem chứcNăngToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel1;
+        private ComponentFactory.Krypton.Toolkit.KryptonHeader kryptonHeader1;
     }
 }
 
