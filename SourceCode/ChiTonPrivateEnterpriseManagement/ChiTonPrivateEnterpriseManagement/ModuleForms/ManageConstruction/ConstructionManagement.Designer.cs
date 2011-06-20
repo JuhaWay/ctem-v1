@@ -99,10 +99,10 @@
             this.dgvCons.Dock = System.Windows.Forms.DockStyle.Top;
             this.dgvCons.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvCons.ImageList = null;
-            this.dgvCons.Location = new System.Drawing.Point(0, 104);
+            this.dgvCons.Location = new System.Drawing.Point(0, 103);
             this.dgvCons.Name = "dgvCons";
             this.dgvCons.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCons.Size = new System.Drawing.Size(935, 463);
+            this.dgvCons.Size = new System.Drawing.Size(935, 455);
             this.dgvCons.StateCommon.Background.Color1 = System.Drawing.Color.White;
             this.dgvCons.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
             this.dgvCons.TabIndex = 2;
@@ -212,7 +212,7 @@
             // 
             this.kryptonPanel2.Controls.Add(this.kryptonHeader1);
             this.kryptonPanel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.kryptonPanel2.Location = new System.Drawing.Point(0, 72);
+            this.kryptonPanel2.Location = new System.Drawing.Point(0, 71);
             this.kryptonPanel2.Name = "kryptonPanel2";
             this.kryptonPanel2.Size = new System.Drawing.Size(935, 32);
             this.kryptonPanel2.TabIndex = 5;
@@ -238,7 +238,7 @@
             this.kryptonPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.kryptonPanel1.Location = new System.Drawing.Point(0, 24);
             this.kryptonPanel1.Name = "kryptonPanel1";
-            this.kryptonPanel1.Size = new System.Drawing.Size(935, 48);
+            this.kryptonPanel1.Size = new System.Drawing.Size(935, 47);
             this.kryptonPanel1.StateCommon.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.kryptonPanel1.StateCommon.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.GlassNormalSimple;
             this.kryptonPanel1.TabIndex = 4;
