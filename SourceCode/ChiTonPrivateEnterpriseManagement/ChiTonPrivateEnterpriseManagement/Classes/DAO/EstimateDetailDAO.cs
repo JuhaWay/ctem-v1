@@ -111,6 +111,36 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             }
         }
 
+        public bool UpdateEstimateDetail(long estimateDetailID, long materialID, long quantityEstimate,
+                                       long unitCostEstimate, long totalCostEstimate)
+        {
+            var cmd = new SqlCommand("[dbo].[EstimateDetail_update]", Connection) { CommandType = CommandType.StoredProcedure };
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@estimateDetailID", estimateDetailID));
+                cmd.Parameters.Add(new SqlParameter("@materialID", materialID));
+                cmd.Parameters.Add(new SqlParameter("@quantityEstimate", quantityEstimate));
+                cmd.Parameters.Add(new SqlParameter("@unitCostEstimate", unitCostEstimate));
+                cmd.Parameters.Add(new SqlParameter("@totalCostEstimate", totalCostEstimate));
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message);
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null)
+                    Connection.Close();
+            }
+        }
+
         internal bool DeleteEstimateDetail(long estimateDetailID)
         {
             var cmd = new SqlCommand("[dbo].[EstimateDetail_Delete]", Connection) { CommandType = CommandType.StoredProcedure };

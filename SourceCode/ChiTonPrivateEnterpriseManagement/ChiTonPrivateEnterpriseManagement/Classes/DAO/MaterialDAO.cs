@@ -118,5 +118,90 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 if (Transaction == null) Connection.Close();
             }
         }
+
+        public bool CreateMaterials(MaterialDTO dto)
+        {
+            var cmd = new SqlCommand("[dbo].[Materital_Create]", Connection) { CommandType = CommandType.StoredProcedure };
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@MaterialName", dto.MaterialName));
+                cmd.Parameters.Add(new SqlParameter("@MaterialParentID", dto.MaterialParentID));
+                cmd.Parameters.Add(new SqlParameter("@EstimateCalUnit", dto.EstimateCalUnit));
+                cmd.Parameters.Add(new SqlParameter("@RealCalUnit", dto.RealCalUnit));
+                cmd.Parameters.Add(new SqlParameter("@Ratio", dto.Ratio));
+
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message);
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null)
+                    Connection.Close();
+            }
+        }
+
+        public bool UpdateMaterials(MaterialDTO dto)
+        {
+            var cmd = new SqlCommand("[dbo].[Material_Update]", Connection) { CommandType = CommandType.StoredProcedure };
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@MaterialID", dto.MaterialID));
+                cmd.Parameters.Add(new SqlParameter("@MaterialName", dto.MaterialName));
+                cmd.Parameters.Add(new SqlParameter("@MaterialParentID", dto.MaterialParentID));
+                cmd.Parameters.Add(new SqlParameter("@EstimateCalUnit", dto.EstimateCalUnit));
+                cmd.Parameters.Add(new SqlParameter("@RealCalUnit", dto.RealCalUnit));
+                cmd.Parameters.Add(new SqlParameter("@Ratio", dto.Ratio));
+
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message);
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null)
+                    Connection.Close();
+            }
+        }
+        public bool deleteMaterials(long id)
+        {
+            var cmd = new SqlCommand("[dbo].[Material_Delete]", Connection) { CommandType = CommandType.StoredProcedure };
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@MaterialID", id));
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message);
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null)
+                    Connection.Close();
+            }
+        }
     }
 }
