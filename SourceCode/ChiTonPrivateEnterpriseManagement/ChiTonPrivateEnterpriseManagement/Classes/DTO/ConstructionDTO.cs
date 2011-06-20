@@ -24,10 +24,11 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
         public string Status { get; set; }
         public bool HasEstimate { get; set; }
         public long TotalEstimateCost { get; set; }
-        public long ParentID { get; set; }
+        public long? ParentID { get; set; }
 
         public ConstructionDTO()
         {
+            ParentID = 0;
             ConstructionID = 0;
             ConstructionName = "";
             Description = "";
