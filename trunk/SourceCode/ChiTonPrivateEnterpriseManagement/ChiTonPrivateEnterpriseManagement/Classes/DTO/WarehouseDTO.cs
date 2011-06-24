@@ -20,7 +20,6 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
 
         public WarehouseDTO()
         {
-            ConstructionID = 0;
             Description = "";
         }
 

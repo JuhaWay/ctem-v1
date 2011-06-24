@@ -101,8 +101,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                     ConstructionDTO consDto = new ConstructionDTO
                     {
                         ConstructionID = Convert.ToInt64(reader["ConstructionID"]),
-                        WarehouseID = Convert.ToInt64(reader["WarehouseID"]),
-                        SubcontractorName = Convert.ToString(reader["SubcontractorName"]),
+                        WarehouseID = Convert.ToInt64(reader["WarehouseID"]),                        
                         ConstructionName = Convert.ToString(reader["ConstructionName"]),
                         Description = Convert.ToString(reader["Description"]),
                         ConstructionAddress = Convert.ToString(reader["ConstructionAddress"]),

@@ -62,12 +62,12 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         DebtName = Convert.ToString(reader["DebtName"]),
                         TransportationCost = Convert.ToInt64(reader["TransportationCost"]),
                         TotalCost = Convert.ToInt64(reader["TotalCost"]),
-                        ComparationDebtID = Convert.ToInt64(reader["ComparationDebtID"]),
+                        //ComparationDebtID = Convert.ToInt64(reader["ComparationDebtID"]),
                         PersonAccount = Convert.ToString(reader["PersonAccount"]),
-                        CreatedDate = DateTime.Parse(Convert.ToString(reader["CreatedDate"])),
-                        LastUpdated = DateTime.Parse(Convert.ToString(reader["LastUpdated"])),
-                        CreatedBy = Convert.ToString(reader["CreatedBy"]),
-                        UpdatedBy = Convert.ToString(reader["UpdatedBy"])
+                        //CreatedDate = DateTime.Parse(Convert.ToString(reader["CreatedDate"])),
+                        //LastUpdated = DateTime.Parse(Convert.ToString(reader["LastUpdated"])),
+                        //CreatedBy = Convert.ToString(reader["CreatedBy"]),
+                        //UpdatedBy = Convert.ToString(reader["UpdatedBy"])
                     };
                     try
                     {
@@ -110,7 +110,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             {
                 cmd.Parameters.Add(new SqlParameter("@FinalAccountID", finalAccount.FinalAccountID));
                 cmd.Parameters.Add(new SqlParameter("@FinalAccountName", finalAccount.FinalAccountName));
-                cmd.Parameters.Add(new SqlParameter("@ConstructionID", finalAccount.ConstructionID));
+                cmd.Parameters.Add(new SqlParameter("@ConstructionID", finalAccount.ConstructionID));                
                 cmd.Parameters.Add(new SqlParameter("@DateAccount", finalAccount.DateAccount));
                 cmd.Parameters.Add(new SqlParameter("@DebtID", finalAccount.DebtID));
                 cmd.Parameters.Add(new SqlParameter("@TransportationCost", finalAccount.TransportationCost));
@@ -122,7 +122,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.ExecuteNonQuery();
                 return true;
             }
-            catch (SqlException sql)
+                catch (SqlException sql)
             {
                 return false;
             }
@@ -135,7 +135,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
 
         public bool CreateFinalAccountDetail(FinalAccountDetailDTO finalaccountdetail)
         {
-            var cmd = new SqlCommand("[dbo].[FinalAccount_CreateDetail]", Connection) { CommandType = CommandType.StoredProcedure };
+            var cmd = new SqlCommand("[dbo].[FinalAccountDetail_Create]", Connection) { CommandType = CommandType.StoredProcedure };
             if (Transaction != null)
             {
                 cmd.Transaction = Transaction;

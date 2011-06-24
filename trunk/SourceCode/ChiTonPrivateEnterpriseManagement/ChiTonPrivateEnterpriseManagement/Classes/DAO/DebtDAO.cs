@@ -57,9 +57,9 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                     {
                         DebtID = Convert.ToInt64(reader["DebtID"]),
                         DebtName = Convert.ToString(reader["DebtName"]),
-                        Address = Convert.ToString(reader["Description"]),
-                        PhoneNumber = Convert.ToString(reader["Description"]),
-                        TotalOwe = Convert.ToInt64(reader["RightsValue"]),
+                        Address = Convert.ToString(reader["Address"]),
+                        PhoneNumber = Convert.ToString(reader["PhoneNumber"]),
+                        TotalOwe = Convert.ToInt64(reader["TotalOwe"]),
                     };
                     if (Convert.ToBoolean(reader["IsActive"]))
                     {
@@ -119,10 +119,12 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             try
             {
                 cmd.Parameters.Add(new SqlParameter("@DebtName", debt.DebtName));
+                cmd.Parameters.Add(new SqlParameter("@TotalOwe", debt.TotalOwe));
                 cmd.Parameters.Add(new SqlParameter("@PhoneNumber", debt.PhoneNumber));
                 cmd.Parameters.Add(new SqlParameter("@Note", debt.Note));
                 cmd.Parameters.Add(new SqlParameter("@Address", debt.Address));
                 cmd.Parameters.Add(new SqlParameter("@IsActive", debt.IsActive));
+                cmd.Parameters.Add(new SqlParameter("@CreatedBy", debt.CreatedBy));
                 cmd.ExecuteNonQuery();
                 return true;
             }
@@ -165,5 +167,44 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
         //            Connection.Close();
         //    }
         //}
+
+        public List<CompareDebtDTO> GetAllCompareDebt()
+        {
+            var cmd = new SqlCommand("[dbo].[CompareDebt_GetAll]", Connection);
+
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                List<CompareDebtDTO> listComDebts = new List<CompareDebtDTO>();
+                while (reader.Read())
+                {
+                    CompareDebtDTO debt = new CompareDebtDTO
+                    {
+                        DebtID = Convert.ToInt64(reader["DebtID"]),
+                        DebtName = Convert.ToString(reader["DebtName"]),
+                        TotalOwe = Convert.ToInt64(reader["TotalOwe"]),
+                        DateCompare = Convert.ToDateTime(reader["DateCompare"]),
+                        FromDate = Convert.ToDateTime(reader["FromDate"]),
+                        ToDate = Convert.ToDateTime(reader["ToDate"])
+                    };
+                    listComDebts.Add(debt);
+                }
+                return listComDebts;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message, "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                if (Transaction == null) Connection.Close();
+            }
+        }
     }
 }
