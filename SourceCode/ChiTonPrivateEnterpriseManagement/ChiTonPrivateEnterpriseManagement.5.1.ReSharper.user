@@ -9,56 +9,68 @@
   </SettingsComponent>
   <RecentFiles>
     <RecentFiles>
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:Classes/d:DAO/f:RightDAO.cs" caret="2119" fromTop="28" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:Classes/d:DTO/f:EmployeeDTO.cs" caret="621" fromTop="19" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:EmployeeManagement.Designer.cs" caret="19340" fromTop="12" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageMenu/f:NewMenu.cs" caret="2367" fromTop="15" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:Classes/d:DAO/f:RoleDAO.cs" caret="846" fromTop="9" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/f:Program.cs" caret="708" fromTop="19" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/f:LoginForm.cs" caret="802" fromTop="8" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:Classes/d:DAO/f:EmployerDAO.cs" caret="3395" fromTop="12" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:Classes/d:BUS/f:EmployeeBUS.cs" caret="1124" fromTop="12" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/f:MainForm.cs" caret="7173" fromTop="12" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:Classes/d:BUS/f:RightBUS.cs" caret="1952" fromTop="48" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:Classes/d:DTO/f:RoleDTO.cs" caret="343" fromTop="14" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageRole/f:NewRole.cs" caret="1488" fromTop="0" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:EmployeeManagement.cs" caret="2725" fromTop="46" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageRights/f:RightsManagement.cs" caret="5749" fromTop="24" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:Classes/d:Global/f:Constants.cs" caret="2917" fromTop="13" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewEmployee.Designer.cs" caret="20257" fromTop="9" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewEmployee.cs" caret="4637" fromTop="27" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:Classes/d:Global/f:Global.cs" caret="15219" fromTop="12" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/f:Program.cs" caret="688" fromTop="0" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageMenu/f:MenuManagement.cs" caret="764" fromTop="7" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:EmployeeManagement.cs" caret="1503" fromTop="18" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:AdvanceManagement.cs" caret="1520" fromTop="18" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEstimation/f:EstimateDetail.cs" caret="1722" fromTop="18" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:Classes/d:Global/f:Constants.cs" caret="5246" fromTop="17" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/f:LoginForm.cs" caret="2096" fromTop="12" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/f:MainForm.cs" caret="13301" fromTop="12" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageWarehouse/f:NewWarehouse.cs" caret="2238" fromTop="22" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:Classes/d:DTO/f:WarehouseDTO.cs" caret="2430" fromTop="20" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:Classes/d:DAO/f:ConstructionDao.cs" caret="3851" fromTop="24" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:Classes/d:BUS/f:WarehouseBUS.cs" caret="431" fromTop="12" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageWarehouse/f:WarehouseManagement.cs" caret="1378" fromTop="10" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:Classes/d:DAO/f:WarehouseDAO.cs" caret="1974" fromTop="15" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:Classes/d:BUS/f:FinalAccountBUS.cs" caret="888" fromTop="19" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageFinalAccount/f:NewFinalAccount.cs" caret="8195" fromTop="13" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:Classes/d:DAO/f:FinalAccountDAO.cs" caret="1673" fromTop="4" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewSalary.cs" caret="7054" fromTop="21" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:SalaryManagement.cs" caret="700" fromTop="19" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:Classes/d:BUS/f:EmployeeBUS.cs" caret="2538" fromTop="17" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:Classes/d:DAO/f:EmployerDAO.cs" caret="17621" fromTop="2" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageFinalAccount/f:FinalAccountManagement.cs" caret="1628" fromTop="18" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:Classes/d:BUS/f:DebtBUS.cs" caret="460" fromTop="15" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:Classes/d:DAO/f:DebtDAO.cs" caret="7456" fromTop="32" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageDebt/f:CompareDebtManagement.cs" caret="1091" fromTop="28" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:Classes/d:BUS/f:CompareDebtBUS.cs" caret="903" fromTop="19" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:Classes/d:DAO/f:CompareDebtDAO.cs" caret="4575" fromTop="21" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageDebt/f:NewCompareDebt.cs" caret="1700" fromTop="16" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageDebt/f:DebtManagement.cs" caret="1598" fromTop="20" />
     </RecentFiles>
     <RecentEdits>
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:EmployeeManagement.cs" caret="6139" fromTop="30" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:Classes/d:DAO/f:EmployerDAO.cs" caret="2365" fromTop="11" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:EmployeeManagement.Designer.cs" caret="19340" fromTop="12" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewEmployee.cs" caret="2773" fromTop="12" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewEmployee.cs" caret="2570" fromTop="5" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewEmployee.cs" caret="2517" fromTop="15" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewEmployee.cs" caret="3223" fromTop="26" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewEmployee.cs" caret="1826" fromTop="28" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewEmployee.cs" caret="1475" fromTop="19" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/f:Program.cs" caret="708" fromTop="19" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:Classes/d:BUS/f:RightBUS.cs" caret="1952" fromTop="17" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageRole/f:NewRole.cs" caret="1488" fromTop="12" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:Classes/d:Global/f:Constants.cs" caret="2100" fromTop="17" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewEmployee.cs" caret="1721" fromTop="17" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewEmployee.cs" caret="2166" fromTop="14" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewEmployee.cs" caret="4001" fromTop="22" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewEmployee.cs" caret="3643" fromTop="15" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewEmployee.cs" caret="870" fromTop="11" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:EmployeeManagement.cs" caret="2725" fromTop="46" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:EmployeeManagement.cs" caret="6139" fromTop="46" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageRights/f:RightsManagement.cs" caret="6041" fromTop="16" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageRights/f:RightsManagement.cs" caret="3964" fromTop="23" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageRights/f:RightsManagement.cs" caret="6041" fromTop="24" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewEmployee.cs" caret="1326" fromTop="28" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:Classes/d:Global/f:Constants.cs" caret="2917" fromTop="13" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewEmployee.cs" caret="2721" fromTop="23" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewEmployee.cs" caret="2989" fromTop="31" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewEmployee.cs" caret="1111" fromTop="17" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewEmployee.Designer.cs" caret="20257" fromTop="9" />
-      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewEmployee.cs" caret="4512" fromTop="20" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewSalary.cs" caret="4127" fromTop="13" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewSalary.cs" caret="4945" fromTop="24" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewSalary.cs" caret="9264" fromTop="18" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:NewSalary.cs" caret="7054" fromTop="21" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:SalaryManagement.cs" caret="1725" fromTop="32" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:Classes/d:DAO/f:EmployerDAO.cs" caret="19799" fromTop="34" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:Classes/d:DAO/f:EmployerDAO.cs" caret="19799" fromTop="4" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:Classes/d:DAO/f:EmployerDAO.cs" caret="19799" fromTop="34" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:Classes/d:DAO/f:EmployerDAO.cs" caret="17829" fromTop="7" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageEmployee/f:SalaryManagement.cs" caret="700" fromTop="19" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:Classes/d:BUS/f:EmployeeBUS.cs" caret="2538" fromTop="17" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:Classes/d:DAO/f:EmployerDAO.cs" caret="18888" fromTop="25" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:Classes/d:DAO/f:EmployerDAO.cs" caret="17510" fromTop="0" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageFinalAccount/f:FinalAccountManagement.cs" caret="1717" fromTop="18" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageFinalAccount/f:FinalAccountManagement.cs" caret="1916" fromTop="18" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageDebt/f:CompareDebtManagement.cs" caret="1172" fromTop="20" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageDebt/f:CompareDebtManagement.cs" caret="593" fromTop="9" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageDebt/f:CompareDebtManagement.cs" caret="910" fromTop="22" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:Classes/d:BUS/f:DebtBUS.cs" caret="1141" fromTop="19" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:Classes/d:BUS/f:DebtBUS.cs" caret="782" fromTop="12" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:Classes/d:BUS/f:DebtBUS.cs" caret="460" fromTop="15" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:Classes/d:DAO/f:DebtDAO.cs" caret="7438" fromTop="34" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:Classes/d:DAO/f:DebtDAO.cs" caret="7107" fromTop="34" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:Classes/d:DAO/f:DebtDAO.cs" caret="6514" fromTop="16" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:Classes/d:DAO/f:DebtDAO.cs" caret="6979" fromTop="23" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:Classes/d:DAO/f:DebtDAO.cs" caret="6026" fromTop="3" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:Classes/d:DAO/f:CompareDebtDAO.cs" caret="4575" fromTop="21" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageDebt/f:NewCompareDebt.cs" caret="1327" fromTop="10" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageDebt/f:NewCompareDebt.cs" caret="2353" fromTop="26" />
+      <File id="FA918366-9DF7-43C3-8367-9778CAF4EFDA/d:ModuleForms/d:ManageDebt/f:DebtManagement.cs" caret="1591" fromTop="20" />
     </RecentEdits>
   </RecentFiles>
   <NAntValidationSettings>
@@ -74,25 +86,25 @@
   </UnitTestRunnerNUnit>
   <CompletionStatisticsManager>
     <ItemStatistics item="Default">
-      <Item value="tvwMenu" priority="0" />
+      <Item value="tvwMenu" priority="1" />
       <Item value="timerLayoutSLC" priority="3" />
-      <Item value="true" priority="7" />
-      <Item value="bool" priority="1" />
-      <Item value="false" priority="7" />
-      <Item value="if" priority="1" />
-      <Item value="isNext" priority="1" />
-      <Item value="while" priority="0" />
+      <Item value="true" priority="27" />
+      <Item value="bool" priority="15" />
+      <Item value="false" priority="28" />
+      <Item value="if" priority="42" />
+      <Item value="isNext" priority="2" />
+      <Item value="while" priority="2" />
       <Item value="slcMain" priority="6" />
-      <Item value="isPre" priority="2" />
-      <Item value="Width" priority="0" />
+      <Item value="isPre" priority="4" />
+      <Item value="Width" priority="1" />
       <Item value="btnPre" priority="1" />
       <Item value="btnNext" priority="0" />
-      <Item value="dtpDOB" priority="3" />
-      <Item value="this" priority="4" />
+      <Item value="dtpDOB" priority="5" />
+      <Item value="this" priority="16" />
       <Item value="WindowTarget" priority="0" />
-      <Item value="clbRights" priority="24" />
+      <Item value="clbRights" priority="25" />
       <Item value="SelectionMode`0" priority="0" />
-      <Item value="e" priority="2" />
+      <Item value="e" priority="6" />
       <Item value="KryptonCheckedListBox`0" priority="0" />
       <Item value="CheckedSelectionMode`0" priority="0" />
       <Item value="PaletteRibbonBackStyle`0" priority="0" />
@@ -100,44 +112,529 @@
       <Item value="PaletteBackStyle`0" priority="0" />
       <Item value="PaletteElement`0" priority="1" />
       <Item value="PaletteMode`0" priority="1" />
-      <Item value="IsActive" priority="1" />
-      <Item value="LoginForm`0" priority="1" />
-      <Item value="private" priority="4" />
-      <Item value="void" priority="2" />
+      <Item value="IsActive" priority="2" />
+      <Item value="LoginForm`0" priority="16" />
+      <Item value="private" priority="42" />
+      <Item value="void" priority="29" />
       <Item value="listRights" priority="1" />
       <Item value="rightBUS" priority="1" />
-      <Item value="foreach" priority="3" />
-      <Item value="right" priority="5" />
-      <Item value="Constraint`0" priority="0" />
+      <Item value="foreach" priority="15" />
+      <Item value="right" priority="8" />
+      <Item value="Constraint`0" priority="2" />
       <Item value="loadRight`0" priority="0" />
-      <Item value="NewEmployee`0" priority="1" />
+      <Item value="NewEmployee`0" priority="4" />
       <Item value="listRoles" priority="1" />
-      <Item value="new" priority="9" />
+      <Item value="new" priority="106" />
       <Item value="List&lt;RoleDTO&gt;" priority="1" />
-      <Item value="List&lt;RightDTO&gt;" priority="2" />
+      <Item value="List&lt;RightDTO&gt;" priority="3" />
       <Item value="RoleBUS" priority="0" />
-      <Item value="RightBUS" priority="0" />
-      <Item value="cbbRole" priority="2" />
-      <Item value="RoleDTO`0" priority="1" />
-      <Item value="selectedRole" priority="0" />
-      <Item value="for" priority="1" />
-      <Item value="List" priority="0" />
-      <Item value="RightDTO`0" priority="1" />
+      <Item value="RightBUS" priority="1" />
+      <Item value="cbbRole" priority="12" />
+      <Item value="RoleDTO`0" priority="9" />
+      <Item value="selectedRole" priority="1" />
+      <Item value="for" priority="3" />
+      <Item value="List" priority="17" />
+      <Item value="RightDTO`0" priority="3" />
       <Item value="listRightForRole" priority="1" />
       <Item value="ClientSize" priority="1" />
-      <Item value="Constants`0" priority="3" />
+      <Item value="Constants`0" priority="78" />
       <Item value="ViewDrawMenuColorBlock`0" priority="0" />
-      <Item value="sender" priority="0" />
+      <Item value="sender" priority="8" />
       <Item value="index" priority="0" />
-      <Item value="i" priority="0" />
+      <Item value="i" priority="5" />
       <Item value="newEmployee" priority="2" />
       <Item value="Form" priority="0" />
-      <Item value="MainForm`0" priority="0" />
-      <Item value="CenterToParent`0" priority="0" />
+      <Item value="MainForm`0" priority="5" />
+      <Item value="CenterToParent`0" priority="5" />
       <Item value="Load" priority="0" />
-      <Item value="cbbStatus" priority="1" />
-      <Item value="const" priority="1" />
+      <Item value="cbbStatus" priority="13" />
+      <Item value="const" priority="28" />
       <Item value="rdbFull" priority="0" />
+      <Item value="txtUsername" priority="3" />
+      <Item value="string" priority="73" />
+      <Item value="txtFullname" priority="1" />
+      <Item value="txtAddress" priority="5" />
+      <Item value="txtEmail" priority="2" />
+      <Item value="txtCMND" priority="2" />
+      <Item value="txtPhoneNumber" priority="2" />
+      <Item value="txtNote" priority="5" />
+      <Item value="public" priority="63" />
+      <Item value="long" priority="53" />
+      <Item value="rightsValue" priority="3" />
+      <Item value="strStatus" priority="0" />
+      <Item value="bStatus" priority="2" />
+      <Item value="else" priority="14" />
+      <Item value="return" priority="27" />
+      <Item value="int" priority="21" />
+      <Item value="GenerateStatus`0" priority="1" />
+      <Item value="EmployeeBUS`0" priority="1" />
+      <Item value="EmployeeBUS" priority="4" />
+      <Item value="employeeBUS" priority="8" />
+      <Item value="username" priority="5" />
+      <Item value="password" priority="2" />
+      <Item value="fullname" priority="3" />
+      <Item value="address" priority="4" />
+      <Item value="email" priority="2" />
+      <Item value="CMND" priority="2" />
+      <Item value="DOB" priority="2" />
+      <Item value="roleID" priority="3" />
+      <Item value="status" priority="1" />
+      <Item value="isActive" priority="2" />
+      <Item value="notes" priority="3" />
+      <Item value="phonenumber" priority="3" />
+      <Item value="MessageBox`0" priority="2" />
+      <Item value="employerDAO" priority="5" />
+      <Item value="cmd" priority="2" />
+      <Item value="strRoleID" priority="1" />
+      <Item value="EmployerDTO`0" priority="14" />
+      <Item value="employeeID" priority="4" />
+      <Item value="_listEmployee" priority="1" />
+      <Item value="_employeeID" priority="0" />
+      <Item value="_roleID" priority="0" />
+      <Item value="listEmmployes" priority="0" />
+      <Item value="EmployerDTO" priority="3" />
+      <Item value="employerDto" priority="12" />
+      <Item value="Username" priority="1" />
+      <Item value="_username" priority="0" />
+      <Item value="SetInnitValueWhenEdit`0" priority="1" />
+      <Item value="employer" priority="12" />
+      <Item value="role" priority="1" />
+      <Item value="isEdit" priority="0" />
+      <Item value="isNew" priority="0" />
+      <Item value="Convert`0" priority="26" />
+      <Item value="reader" priority="13" />
+      <Item value="txtTotalDebt" priority="3" />
+      <Item value="totalDebt" priority="5" />
+      <Item value="SqlParameter" priority="0" />
+      <Item value="SalaryManagement`0" priority="2" />
+      <Item value="hdgSelectMonth" priority="4" />
+      <Item value="btnArrowDownMonth" priority="2" />
+      <Item value="PaletteButtonSpecStyle`0" priority="2" />
+      <Item value="timer1" priority="1" />
+      <Item value="isDownSelectMonth" priority="1" />
+      <Item value="btnSearch" priority="0" />
+      <Item value="Refresh`0" priority="6" />
+      <Item value="btnHideShowSelectMonth" priority="3" />
+      <Item value="null" priority="12" />
+      <Item value="txtNameSearch" priority="10" />
+      <Item value="Font" priority="6" />
+      <Item value="FontFamily" priority="0" />
+      <Item value="Italic" priority="0" />
+      <Item value="Color`0" priority="7" />
+      <Item value="Color" priority="0" />
+      <Item value="Control`0" priority="0" />
+      <Item value="TextBox`0" priority="0" />
+      <Item value="KryptonTextBox`0" priority="13" />
+      <Item value="txtbox" priority="0" />
+      <Item value="txtHint" priority="2" />
+      <Item value="fontHint" priority="0" />
+      <Item value="txtContent" priority="1" />
+      <Item value="fontContent" priority="0" />
+      <Item value="textHint`0" priority="1" />
+      <Item value="textContent`0" priority="0" />
+      <Item value="KryptonButton`0" priority="1" />
+      <Item value="ButtonSpecAny`0" priority="1" />
+      <Item value="btnHideShowClick`0" priority="0" />
+      <Item value="subMenu" priority="3" />
+      <Item value="hdSelectMonth" priority="1" />
+      <Item value="KryptonPanel`0" priority="2" />
+      <Item value="kryptonPanel" priority="0" />
+      <Item value="panel" priority="0" />
+      <Item value="animationForControl`0" priority="2" />
+      <Item value="pnlSelectMonth" priority="1" />
+      <Item value="hdSelectMoney" priority="1" />
+      <Item value="btnHideShowFilterMoney" priority="1" />
+      <Item value="pnlFilterMoney" priority="2" />
+      <Item value="tsmHideShowAllFilter" priority="1" />
+      <Item value="btnHideShowSelectMonth_Click`0" priority="0" />
+      <Item value="pnlSearch" priority="1" />
+      <Item value="hdgSearch" priority="1" />
+      <Item value="empId" priority="2" />
+      <Item value="from" priority="0" />
+      <Item value="toTime" priority="0" />
+      <Item value="sortOrder" priority="1" />
+      <Item value="salary" priority="12" />
+      <Item value="payDebt" priority="0" />
+      <Item value="actualIncome" priority="6" />
+      <Item value="EmployeeSalaryDTO`0" priority="9" />
+      <Item value="listSalary" priority="7" />
+      <Item value="EmployeeSalaryID" priority="0" />
+      <Item value="UpdateBy" priority="0" />
+      <Item value="DateTime`0" priority="11" />
+      <Item value="NewSalary`0" priority="1" />
+      <Item value="pnlMoveDown" priority="6" />
+      <Item value="pnlNewSalaryItem" priority="19" />
+      <Item value="Point" priority="5" />
+      <Item value="pnlMoveUp" priority="11" />
+      <Item value="pnlMain" priority="8" />
+      <Item value="btnMoveUp" priority="3" />
+      <Item value="btnMoveDown" priority="1" />
+      <Item value="locationY" priority="2" />
+      <Item value="locationXpnlNewItem" priority="1" />
+      <Item value="Height" priority="3" />
+      <Item value="List&lt;EmployeeSalaryDTO&gt;" priority="2" />
+      <Item value="RichTextBoxWordPunctuations`0" priority="1" />
+      <Item value="dgvSalary" priority="6" />
+      <Item value="refreshdgv`0" priority="1" />
+      <Item value="listEmployee" priority="2" />
+      <Item value="cbbFullName" priority="0" />
+      <Item value="cbbIsPay" priority="4" />
+      <Item value="cbbEmployee" priority="7" />
+      <Item value="NewSalary" priority="0" />
+      <Item value="newSalary" priority="0" />
+      <Item value="txtSalary" priority="4" />
+      <Item value="txtAllowance" priority="2" />
+      <Item value="txtPhoneCost" priority="1" />
+      <Item value="txtDebtPay" priority="1" />
+      <Item value="txtActualIncome" priority="2" />
+      <Item value="clearInput`0" priority="0" />
+      <Item value="Validate`0" priority="0" />
+      <Item value="try" priority="13" />
+      <Item value="number" priority="1" />
+      <Item value="validateLong`0" priority="0" />
+      <Item value="EmployeeSalaryDTO" priority="0" />
+      <Item value="EmployeeID" priority="1" />
+      <Item value="Salary" priority="0" />
+      <Item value="Allowance" priority="0" />
+      <Item value="PhoneCost" priority="0" />
+      <Item value="phoneCost" priority="1" />
+      <Item value="allowance" priority="1" />
+      <Item value="DebtPay" priority="0" />
+      <Item value="debtPay" priority="1" />
+      <Item value="ActualIncome" priority="0" />
+      <Item value="IsPay" priority="1" />
+      <Item value="isPay" priority="0" />
+      <Item value="Note" priority="4" />
+      <Item value="salaryDTO" priority="2" />
+      <Item value="employersalary" priority="2" />
+      <Item value="tmpList" priority="1" />
+      <Item value="employee" priority="4" />
+      <Item value="dtpMonth" priority="0" />
+      <Item value="month" priority="0" />
+      <Item value="dtmonth" priority="0" />
+      <Item value="Month" priority="0" />
+      <Item value="strmonth" priority="0" />
+      <Item value="employerDTO" priority="17" />
+      <Item value="listSalaryDataSource" priority="0" />
+      <Item value="Close`0" priority="9" />
+      <Item value="hdSort" priority="0" />
+      <Item value="bsaSort" priority="1" />
+      <Item value="pnlSort" priority="2" />
+      <Item value="KryptonForm`0" priority="1" />
+      <Item value="maxheight" priority="0" />
+      <Item value="speed" priority="1" />
+      <Item value="minheight" priority="0" />
+      <Item value="Global`0" priority="49" />
+      <Item value="isDown" priority="3" />
+      <Item value="form" priority="0" />
+      <Item value="static" priority="11" />
+      <Item value="FontFamily`0" priority="0" />
+      <Item value="color" priority="2" />
+      <Item value="fontstyle" priority="0" />
+      <Item value="fontCollection" priority="0" />
+      <Item value="parent" priority="3" />
+      <Item value="locationX" priority="1" />
+      <Item value="direction" priority="1" />
+      <Item value="child" priority="3" />
+      <Item value="setDefaultComboBox`0" priority="0" />
+      <Item value="space" priority="3" />
+      <Item value="strLong" priority="0" />
+      <Item value="OK" priority="0" />
+      <Item value="None" priority="0" />
+      <Item value="DataTableClearEventArgs`0" priority="0" />
+      <Item value="textBox" priority="19" />
+      <Item value="ClearValueWhenEnter`0" priority="0" />
+      <Item value="KryptonMessageBox`0" priority="1" />
+      <Item value="kryptonTextBox" priority="0" />
+      <Item value="ActiveControl" priority="1" />
+      <Item value="System" priority="0" />
+      <Item value="Type`0" priority="1" />
+      <Item value="Bus" priority="0" />
+      <Item value="lbxHint" priority="14" />
+      <Item value="List&lt;EmployerDTO&gt;" priority="2" />
+      <Item value="IFeatureSupport`0" priority="0" />
+      <Item value="listEmployeeSearch" priority="3" />
+      <Item value="KeyDown" priority="1" />
+      <Item value="Enter" priority="1" />
+      <Item value="tvwMenu_NodeMouseDoubleClick`0" priority="0" />
+      <Item value="KryptonListBox`0" priority="0" />
+      <Item value="Keys`0" priority="0" />
+      <Item value="emp" priority="0" />
+      <Item value="NewFinalAccount`0" priority="4" />
+      <Item value="float" priority="1" />
+      <Item value="pnlNewItem" priority="4" />
+      <Item value="List&lt;FinalAccountDetailDTO&gt;" priority="2" />
+      <Item value="listFinalAccount" priority="1" />
+      <Item value="MaterialDTO`0" priority="0" />
+      <Item value="MaterialDTO" priority="0" />
+      <Item value="material" priority="4" />
+      <Item value="cbbMaterial" priority="3" />
+      <Item value="FinalAccountDetailDTO`0" priority="0" />
+      <Item value="FinalAccountDetailDTO" priority="0" />
+      <Item value="finalaccountitem" priority="9" />
+      <Item value="txtQuantity" priority="2" />
+      <Item value="txtUnitCost" priority="0" />
+      <Item value="txtNoteItem" priority="1" />
+      <Item value="txtNo" priority="1" />
+      <Item value="listFinalAccountDetail" priority="4" />
+      <Item value="dgvContentBot" priority="3" />
+      <Item value="cbbToPlace" priority="4" />
+      <Item value="setData`0" priority="0" />
+      <Item value="ConstructionAddress" priority="0" />
+      <Item value="WarehouseID" priority="4" />
+      <Item value="_constructionDao" priority="0" />
+      <Item value="cbbConstruction" priority="8" />
+      <Item value="List&lt;ConstructionDTO&gt;" priority="0" />
+      <Item value="ConstructionDTO`0" priority="4" />
+      <Item value="ConstructionBus" priority="0" />
+      <Item value="constructionBUS" priority="2" />
+      <Item value="listConstructionHaveWarehouse" priority="0" />
+      <Item value="cbbMainWarehouse" priority="3" />
+      <Item value="listMainWarehouse" priority="1" />
+      <Item value="ConstructionID" priority="6" />
+      <Item value="ConstructionName" priority="1" />
+      <Item value="Address" priority="2" />
+      <Item value="ManagerName" priority="1" />
+      <Item value="Type" priority="1" />
+      <Item value="warehouse" priority="8" />
+      <Item value="WarehouseName" priority="1" />
+      <Item value="DebtBUS" priority="3" />
+      <Item value="listDebt" priority="1" />
+      <Item value="debtBUS" priority="2" />
+      <Item value="cbbDebt" priority="4" />
+      <Item value="PhoneNumber" priority="1" />
+      <Item value="listMaterialInEstimate" priority="1" />
+      <Item value="MaterialBUS`0" priority="1" />
+      <Item value="MaterialBUS" priority="0" />
+      <Item value="txtNameFinalAccount" priority="0" />
+      <Item value="txtPersonAccount" priority="0" />
+      <Item value="DebtDTO`0" priority="7" />
+      <Item value="debt" priority="6" />
+      <Item value="txtTransportationCost" priority="2" />
+      <Item value="ButtonSpecRemapByContentView`0" priority="0" />
+      <Item value="txtTotalCost" priority="2" />
+      <Item value="Ispay" priority="1" />
+      <Item value="construction" priority="1" />
+      <Item value="WarehouseDTO`0" priority="2" />
+      <Item value="FinalAccountDTO`0" priority="2" />
+      <Item value="FinalAccountDTO" priority="0" />
+      <Item value="FinalAccountID" priority="1" />
+      <Item value="FinalAccountName" priority="0" />
+      <Item value="finalAccountName" priority="0" />
+      <Item value="constructionID" priority="2" />
+      <Item value="DebtID" priority="2" />
+      <Item value="debtId" priority="1" />
+      <Item value="TransportationCost" priority="0" />
+      <Item value="transportationCost" priority="0" />
+      <Item value="TotalCost" priority="0" />
+      <Item value="totalCost" priority="2" />
+      <Item value="ispay" priority="0" />
+      <Item value="warehouseID" priority="0" />
+      <Item value="PersonAccount" priority="0" />
+      <Item value="accountPerson" priority="0" />
+      <Item value="DateAccount" priority="0" />
+      <Item value="dtpDateAccount" priority="1" />
+      <Item value="dateaccount" priority="0" />
+      <Item value="finalAccount" priority="2" />
+      <Item value="FinalAccountBUS`0" priority="0" />
+      <Item value="FinalAccountBUS" priority="1" />
+      <Item value="finalaccountBUS" priority="1" />
+      <Item value="finalaccountdetail" priority="2" />
+      <Item value="finalAccountDAO" priority="1" />
+      <Item value="FileShare`0" priority="0" />
+      <Item value="FileStream" priority="0" />
+      <Item value="SqlConnection`0" priority="0" />
+      <Item value="SqlConnection" priority="0" />
+      <Item value="GenPasswordsForm`0" priority="0" />
+      <Item value="FinalAccountManagement`0" priority="2" />
+      <Item value="dgvLeftBot" priority="11" />
+      <Item value="FinalAcc" priority="0" />
+      <Item value="ListFinalAccount" priority="0" />
+      <Item value="newFinalAccount" priority="0" />
+      <Item value="NewFinalAccount" priority="0" />
+      <Item value="newFinalAccountForm" priority="0" />
+      <Item value="setLauout`0" priority="0" />
+      <Item value="LoadData`0" priority="5" />
+      <Item value="txtWarehouseName" priority="0" />
+      <Item value="cbbType" priority="5" />
+      <Item value="txtNameManager" priority="0" />
+      <Item value="txtDescription" priority="3" />
+      <Item value="DataSetDateTime`0" priority="2" />
+      <Item value="ConstructionBUS" priority="0" />
+      <Item value="ListConstruction" priority="1" />
+      <Item value="construcion" priority="1" />
+      <Item value="isactive" priority="1" />
+      <Item value="WarehouseDTO" priority="0" />
+      <Item value="warehousename" priority="0" />
+      <Item value="type" priority="3" />
+      <Item value="namemanager" priority="0" />
+      <Item value="Description" priority="0" />
+      <Item value="description" priority="2" />
+      <Item value="WarehouseBUS`0" priority="0" />
+      <Item value="WarehouseBUS" priority="0" />
+      <Item value="warehouseBUS" priority="0" />
+      <Item value="warehouseDao" priority="0" />
+      <Item value="warehouseDto" priority="0" />
+      <Item value="ListDebt" priority="0" />
+      <Item value="txtDebtName" priority="3" />
+      <Item value="txtPhonenumber" priority="2" />
+      <Item value="DebtDTO" priority="1" />
+      <Item value="DebtName" priority="1" />
+      <Item value="Name" priority="0" />
+      <Item value="nameDebt" priority="0" />
+      <Item value="imageListMenu" priority="0" />
+      <Item value="Image`0" priority="0" />
+      <Item value="String`0" priority="2" />
+      <Item value="KryptonComboBox`0" priority="0" />
+      <Item value="obj" priority="5" />
+      <Item value="listObject" priority="1" />
+      <Item value="List&lt;object&gt;" priority="0" />
+      <Item value="var" priority="5" />
+      <Item value="debtBus" priority="0" />
+      <Item value="cbbControl" priority="11" />
+      <Item value="global" priority="5" />
+      <Item value="debtObj" priority="0" />
+      <Item value="txtRepresentationDebtName" priority="0" />
+      <Item value="DataTable`0" priority="0" />
+      <Item value="dtpDateCompare" priority="1" />
+      <Item value="dtpFromDate" priority="0" />
+      <Item value="txtToalOwe" priority="0" />
+      <Item value="compareDebtDto" priority="1" />
+      <Item value="CompareDebtDTO" priority="0" />
+      <Item value="RepresentationDebtName" priority="0" />
+      <Item value="representationDebtName" priority="0" />
+      <Item value="DateCompare" priority="2" />
+      <Item value="compareDate" priority="0" />
+      <Item value="FromDate" priority="2" />
+      <Item value="fromDate" priority="0" />
+      <Item value="ToDate" priority="2" />
+      <Item value="toDate" priority="0" />
+      <Item value="note" priority="1" />
+      <Item value="totalOwe" priority="1" />
+      <Item value="CompareDebtDTO`0" priority="3" />
+      <Item value="CompareDebtBUS" priority="0" />
+      <Item value="compareBus" priority="0" />
+      <Item value="ComparationDebtID" priority="0" />
+      <Item value="finalAccountManagement" priority="5" />
+      <Item value="FinalAccountManagement" priority="1" />
+      <Item value="Exception`0" priority="1" />
+      <Item value="isLogout" priority="0" />
+      <Item value="LoginForm" priority="0" />
+      <Item value="loginForm" priority="0" />
+      <Item value="DateBoldEventArgs`0" priority="0" />
+      <Item value="Application`0" priority="0" />
+      <Item value="txtProfiles" priority="0" />
+      <Item value="Profiles" priority="0" />
+      <Item value="profileForm" priority="0" />
+      <Item value="Profiles`0" priority="0" />
+      <Item value="InitializeComponent`0" priority="0" />
+      <Item value="_employerDTO" priority="0" />
+      <Item value="DateTime" priority="0" />
+      <Item value="ConstructionManagement`0" priority="0" />
+      <Item value="constructionManagement" priority="3" />
+      <Item value="ConstructionManagement" priority="0" />
+      <Item value="pnlMainMenu" priority="6" />
+      <Item value="debtManagement" priority="3" />
+      <Item value="DebtManagement" priority="0" />
+      <Item value="SelectSubConstructionBox`0" priority="0" />
+      <Item value="subConstructionBox" priority="0" />
+      <Item value="SelectSubConstructionBox" priority="0" />
+      <Item value="workerList" priority="0" />
+      <Item value="WorkerList" priority="0" />
+      <Item value="WorkerSalaryManagement`0" priority="0" />
+      <Item value="workerSalaryManagement" priority="3" />
+      <Item value="WorkerSalaryManagement" priority="0" />
+      <Item value="estimateManagement" priority="4" />
+      <Item value="EstimateManagement" priority="0" />
+      <Item value="ScrollStateFullDrag" priority="0" />
+      <Item value="warehouseManagement" priority="3" />
+      <Item value="WarehouseManagement" priority="0" />
+      <Item value="CompareDebtManagement`0" priority="1" />
+      <Item value="compareDebtManagement" priority="4" />
+      <Item value="CompareDebtManagement" priority="0" />
+      <Item value="rightDTO" priority="1" />
+      <Item value="rightValue" priority="1" />
+      <Item value="RightBUS`0" priority="0" />
+      <Item value="employeeBus" priority="0" />
+      <Item value="txtTotalAdvance" priority="3" />
+      <Item value="txtReason" priority="1" />
+      <Item value="txtControl" priority="0" />
+      <Item value="employeeId" priority="0" />
+      <Item value="TotalAdvance" priority="1" />
+      <Item value="totalAdvance" priority="0" />
+      <Item value="Reason" priority="1" />
+      <Item value="reason" priority="0" />
+      <Item value="EnvironmentVariableTarget`0" priority="0" />
+      <Item value="_employeeBus" priority="1" />
+      <Item value="EmployeeAdvanceDTO`0" priority="1" />
+      <Item value="advanceObj" priority="1" />
+      <Item value="AdvanceManagement`0" priority="0" />
+      <Item value="advanceManagement" priority="3" />
+      <Item value="AdvanceManagement" priority="0" />
+      <Item value="pnlMainContent" priority="0" />
+      <Item value="NewAdvance`0" priority="0" />
+      <Item value="newAdvance" priority="5" />
+      <Item value="NewAdvance" priority="0" />
+      <Item value="IsMdiContainer" priority="0" />
+      <Item value="_listAdvance" priority="2" />
+      <Item value="readonly" priority="0" />
+      <Item value="advance" priority="1" />
+      <Item value="listAdvance" priority="0" />
+      <Item value="empObj" priority="0" />
+      <Item value="AdvanceID" priority="0" />
+      <Item value="KryptonDataGridView`0" priority="2" />
+      <Item value="KryptonCheckBox`0" priority="2" />
+      <Item value="KryptonCheckBox" priority="1" />
+      <Item value="_ckBox" priority="30" />
+      <Item value="dgvEmployee" priority="1" />
+      <Item value="CheckBox`0" priority="4" />
+      <Item value="CheckBox" priority="7" />
+      <Item value="dgvControl" priority="1" />
+      <Item value="GlobalId`0" priority="1" />
+      <Item value="dgvRights" priority="1" />
+      <Item value="dgvRole" priority="1" />
+      <Item value="_type" priority="0" />
+      <Item value="ListWarehouse" priority="0" />
+      <Item value="FinalWarehouse" priority="0" />
+      <Item value="_warehouseBus" priority="0" />
+      <Item value="strValue" priority="0" />
+      <Item value="charFomat" priority="0" />
+      <Item value="result" priority="6" />
+      <Item value="a" priority="0" />
+      <Item value="strNumber" priority="4" />
+      <Item value="sizeStr" priority="1" />
+      <Item value="tempSize" priority="0" />
+      <Item value="NewDebt`0" priority="0" />
+      <Item value="NewDebt" priority="0" />
+      <Item value="newDebt" priority="0" />
+      <Item value="TotalOwe" priority="0" />
+      <Item value="txtTotalOwe" priority="0" />
+      <Item value="Global" priority="1" />
+      <Item value="CreatedBy" priority="0" />
+      <Item value="bsaProfiles" priority="0" />
+      <Item value="ParentChanged" priority="0" />
+      <Item value="ParentNode" priority="1" />
+      <Item value="menuchild" priority="0" />
+      <Item value="txtTotalCostItem" priority="3" />
+      <Item value="List&lt;KryptonTextBox&gt;" priority="0" />
+      <Item value="listTextBox" priority="1" />
+      <Item value="quantity" priority="0" />
+      <Item value="unitCost" priority="0" />
+      <Item value="strInt" priority="0" />
+      <Item value="SetLayout`0" priority="1" />
+      <Item value="totalCostCurr" priority="0" />
+      <Item value="SendKeys`0" priority="0" />
+      <Item value="HandledEventArgs`0" priority="0" />
+      <Item value="object" priority="0" />
+      <Item value="EventArgs`0" priority="0" />
+      <Item value="Fullname" priority="0" />
+      <Item value="NewCompareDebt`0" priority="0" />
+      <Item value="compareDebt" priority="1" />
+      <Item value="NewCompareDebt" priority="0" />
+      <Item value="_listCompareDebt" priority="1" />
+      <Item value="_debtBus" priority="0" />
+      <Item value="LoaderOptimization`0" priority="0" />
+      <Item value="DebtDAO" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Windows.Forms.TreeView">
       <Item value="Nodes" priority="0" />
@@ -161,23 +658,27 @@
       <Item value="ParentForm" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Windows.Forms.Timer">
-      <Item value="Enabled" priority="3" />
+      <Item value="Enabled" priority="5" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:ComponentFactory.Krypton.Toolkit.KryptonButton">
       <Item value="Visible" priority="2" />
+      <Item value="Location" priority="0" />
+      <Item value="Width" priority="1" />
+      <Item value="Height" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Windows.Forms.DateTimePicker">
       <Item value="CalendarMonthBackground" priority="0" />
       <Item value="WindowTarget" priority="0" />
       <Item value="GetType`0" priority="0" />
-      <Item value="Text" priority="0" />
+      <Item value="Text" priority="2" />
+      <Item value="Value" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:ComponentFactory.Krypton.Toolkit.KryptonCheckedListBox">
       <Item value="SelectionMode" priority="1" />
       <Item value="Items" priority="5" />
       <Item value="SelectedValue" priority="0" />
-      <Item value="ListBox" priority="11" />
-      <Item value="CheckedItems" priority="0" />
+      <Item value="ListBox" priority="12" />
+      <Item value="CheckedItems" priority="1" />
       <Item value="SelectedItem" priority="2" />
       <Item value="SetItemChecked`0" priority="2" />
       <Item value="StateCheckedPressed" priority="0" />
@@ -206,30 +707,86 @@
       <Item value="Global" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@System.Convert">
-      <Item value="ToBoolean`0" priority="1" />
+      <Item value="ToBoolean`0" priority="3" />
+      <Item value="ToString`0" priority="7" />
+      <Item value="ToInt64`0" priority="19" />
+      <Item value="ToInt32`0" priority="0" />
+      <Item value="ToDateTime`0" priority="4" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:ChiTonPrivateEnterpriseManagement.Classes.BUS.RightBUS">
-      <Item value="LoadAllRight`0" priority="0" />
+      <Item value="LoadAllRight`0" priority="1" />
       <Item value="GetRightByRoleID`0" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Windows.Forms.ListBox+ObjectCollection">
-      <Item value="Add`0" priority="0" />
+      <Item value="Add`0" priority="1" />
       <Item value="Count" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@ChiTonPrivateEnterpriseManagement.Classes.Global.Constants">
       <Item value="RIGHT_VALUEMEMBER" priority="1" />
       <Item value="RIGHT_DISPLAYMEMBER" priority="0" />
+      <Item value="WIDTH_MENU_SHOW" priority="0" />
+      <Item value="ACTIVE" priority="5" />
+      <Item value="ISACTIVE_TRUE" priority="0" />
+      <Item value="ISACTIVE_FALSE" priority="0" />
+      <Item value="EMPTY_TEXT" priority="17" />
+      <Item value="MANAGE_EMPLOYEE_SALARY_EN" priority="1" />
+      <Item value="MANAGE_EMPLOYEE_SALARY_VN" priority="0" />
+      <Item value="PAY" priority="2" />
+      <Item value="Encryptkey" priority="1" />
+      <Item value="HORISONTAL" priority="1" />
+      <Item value="VERTICAL_RIGHT" priority="0" />
+      <Item value="HORISONTAL_BOT_CUSTOM" priority="1" />
+      <Item value="CENTER" priority="3" />
+      <Item value="CONFIRM" priority="1" />
+      <Item value="INVALIDATE_VALUE" priority="1" />
+      <Item value="EMPLOYEE_VALUEMEMBER" priority="1" />
+      <Item value="EMPLOYEE_DISPLAYMEMBER" priority="1" />
+      <Item value="ROLE_VALUEMEMBER" priority="0" />
+      <Item value="ROLE_DISPLAYMEMBER" priority="0" />
+      <Item value="NOTPAY" priority="0" />
+      <Item value="TO_MAIN_WAREHOUSE" priority="1" />
+      <Item value="TO_CONSTRUCTION_WAREHOUSE" priority="0" />
+      <Item value="CONSTRUCTION_VALUEMEMBER" priority="0" />
+      <Item value="CONSTRUCTION_DISPLAYMEMBER" priority="0" />
+      <Item value="INACTIVE" priority="0" />
+      <Item value="CONSTRUCTION_WAREHOUSE" priority="2" />
+      <Item value="DEBT_VALUEMEMBER" priority="0" />
+      <Item value="DEBT_DISPLAYMEMBER" priority="0" />
+      <Item value="MANAGE_EMPLOYEE_SALARY" priority="0" />
+      <Item value="MANAGE_CONSTRUCTION" priority="1" />
+      <Item value="MANAGE_ESTIMATE_ACCOUNT" priority="1" />
+      <Item value="MANAGE_WORKER" priority="0" />
+      <Item value="MANAGE_DEBT" priority="1" />
+      <Item value="MANAGE_MATERIAL" priority="0" />
+      <Item value="MANAGE_SYSTEM" priority="0" />
+      <Item value="RESET_PASSWORD" priority="0" />
+      <Item value="MANAGE_SUBCONTRACTORS" priority="0" />
+      <Item value="MANAGE_ESTIMATE" priority="0" />
+      <Item value="MANAGE_WAREHOUSE" priority="0" />
+      <Item value="MANAGE_MAIN_WAREHOUSE" priority="0" />
+      <Item value="MANAGE_CONSTRUCTION_WAREHOUSE" priority="0" />
+      <Item value="EMPLOYEE" priority="2" />
+      <Item value="NUMBER" priority="2" />
+      <Item value="MAIN_WAREHOUSE" priority="3" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:ChiTonPrivateEnterpriseManagement.Classes.DTO.RightDTO">
-      <Item value="RightName" priority="2" />
+      <Item value="RightName" priority="3" />
+      <Item value="Value" priority="1" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:ComponentFactory.Krypton.Toolkit.KryptonComboBox">
-      <Item value="SelectedItem" priority="1" />
-      <Item value="Items" priority="1" />
-      <Item value="SelectedIndex" priority="0" />
+      <Item value="SelectedItem" priority="19" />
+      <Item value="Items" priority="21" />
+      <Item value="SelectedIndex" priority="12" />
+      <Item value="Text" priority="7" />
+      <Item value="SelectedValue" priority="0" />
+      <Item value="DisplayMember" priority="5" />
+      <Item value="ValueMember" priority="5" />
+      <Item value="DataSource" priority="7" />
+      <Item value="Enabled" priority="7" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:ChiTonPrivateEnterpriseManagement.Classes.DTO.RoleDTO">
       <Item value="RightsValue" priority="0" />
+      <Item value="RoleID" priority="1" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Windows.Forms.ListBox">
       <Item value="Items" priority="3" />
@@ -237,12 +794,393 @@
       <Item value="ValueMember" priority="0" />
       <Item value="DisplayMember" priority="0" />
       <Item value="SelectedIndex" priority="0" />
+      <Item value="SelectedItems" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Windows.Forms.ComboBox+ObjectCollection">
-      <Item value="Add`0" priority="1" />
+      <Item value="Add`0" priority="14" />
+      <Item value="Count" priority="3" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:ComponentFactory.Krypton.Toolkit.KryptonRadioButton">
       <Item value="Checked" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ComponentFactory.Krypton.Toolkit.KryptonTextBox">
+      <Item value="Text" priority="78" />
+      <Item value="StateCommon" priority="1" />
+      <Item value="ForeColor" priority="0" />
+      <Item value="Focus`0" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@ChiTonPrivateEnterpriseManagement.Classes.Global.DataProvider">
+      <Item value="Decrypt`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.String">
+      <Item value="Equals`0" priority="26" />
+      <Item value="ToString`0" priority="0" />
+      <Item value="Contains`0" priority="0" />
+      <Item value="Trim`0" priority="1" />
+      <Item value="Remove`0" priority="0" />
+      <Item value="Replace`0" priority="1" />
+      <Item value="Length" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Windows.Forms.MessageBox">
+      <Item value="Show`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ChiTonPrivateEnterpriseManagement.Classes.DTO.EmployerDTO">
+      <Item value="RoleID" priority="2" />
+      <Item value="Username" priority="9" />
+      <Item value="Fullname" priority="6" />
+      <Item value="Address" priority="1" />
+      <Item value="Email" priority="1" />
+      <Item value="CMND" priority="1" />
+      <Item value="Password" priority="0" />
+      <Item value="Note" priority="0" />
+      <Item value="employeeID" priority="4" />
+      <Item value="Display" priority="1" />
+      <Item value="totalDebt" priority="0" />
+      <Item value="PhoneNumber" priority="0" />
+      <Item value="DOB" priority="1" />
+      <Item value="IsActive" priority="0" />
+      <Item value="RightsValue" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Data.SqlClient.SqlCommand">
+      <Item value="Parameters" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Data.SqlClient.SqlParameterCollection">
+      <Item value="Add`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup">
+      <Item value="Height" priority="2" />
+      <Item value="Panel" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup">
+      <Item value="Type" priority="3" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle">
+      <Item value="Equals`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle">
+      <Item value="ArrowDown" priority="2" />
+      <Item value="ArrowUp" priority="3" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ComponentFactory.Krypton.Toolkit.KryptonGroupPanel">
+      <Item value="Visible" priority="0" />
+      <Item value="Enabled" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ComponentFactory.Krypton.Toolkit.KryptonPanel">
+      <Item value="Width" priority="6" />
+      <Item value="Hide`0" priority="2" />
+      <Item value="Height" priority="21" />
+      <Item value="Show`0" priority="0" />
+      <Item value="Visible" priority="8" />
+      <Item value="Location" priority="8" />
+      <Item value="GetChildAtPoint`0" priority="0" />
+      <Item value="Controls" priority="8" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ComponentFactory.Krypton.Toolkit.PaletteInputControlTripleRedirect">
+      <Item value="Content" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ComponentFactory.Krypton.Toolkit.PaletteInputControlContentStates">
+      <Item value="Font" priority="1" />
+      <Item value="Color1" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Drawing.Font">
+      <Item value="Italic" priority="3" />
+      <Item value="Style" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Drawing.Color">
+      <Item value="Gray" priority="0" />
+      <Item value="DarkGoldenrod" priority="0" />
+      <Item value="DarkGray" priority="4" />
+      <Item value="Black" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Drawing.FontStyle">
+      <Item value="Regular" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ComponentFactory.Krypton.Toolkit.KryptonHeader">
+      <Item value="Text" priority="3" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.ToolStripMenuItem">
+      <Item value="Text" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.DateTime">
+      <Item value="Parse`0" priority="7" />
+      <Item value="ParseExact`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Drawing.Point">
+      <Item value="Y" priority="4" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ComponentFactory.Krypton.Toolkit.KryptonDropButton">
+      <Item value="Visible" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ComponentFactory.Krypton.Toolkit.KryptonDataGridView">
+      <Item value="DataSource" priority="8" />
+      <Item value="Refresh`0" priority="0" />
+      <Item value="RowHeadersWidth" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ChiTonPrivateEnterpriseManagement.Classes.BUS.EmployeeBUS">
+      <Item value="LoadAllEmployee`0" priority="2" />
+      <Item value="CreateEmployee`0" priority="0" />
+      <Item value="employerDTO" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee.NewSalary">
+      <Item value="ShowDialog`0" priority="0" />
+      <Item value="ActiveControl" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.List`1">
+      <Item value="Add`0" priority="3" />
+      <Item value="Count" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ChiTonPrivateEnterpriseManagement.Classes.DTO.EmployeeSalaryDTO">
+      <Item value="IsPay" priority="3" />
+      <Item value="Fullname" priority="0" />
+      <Item value="Username" priority="0" />
+      <Item value="EmployeeID" priority="0" />
+      <Item value="Month" priority="0" />
+      <Item value="Salary" priority="0" />
+      <Item value="Allowance" priority="0" />
+      <Item value="PhoneCost" priority="0" />
+      <Item value="DebtPay" priority="0" />
+      <Item value="ActualIncome" priority="0" />
+      <Item value="Note" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker">
+      <Item value="Text" priority="3" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.DateTime">
+      <Item value="ToString`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ChiTonPrivateEnterpriseManagement.Classes.DAO.EmployerDAO">
+      <Item value="CreateEmployee`0" priority="0" />
+      <Item value="CreateEmployeeSalary`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@ChiTonPrivateEnterpriseManagement.Classes.Global.Global">
+      <Item value="DownUpControl`0" priority="0" />
+      <Item value="CenterToParent`0" priority="8" />
+      <Item value="ValidateLongNumber`0" priority="0" />
+      <Item value="ValidateULongNumber`0" priority="0" />
+      <Item value="TextHint`0" priority="0" />
+      <Item value="TextContent`0" priority="0" />
+      <Item value="SetDataCombobox`0" priority="3" />
+      <Item value="GetDataCombobox`0" priority="1" />
+      <Item value="Employer" priority="0" />
+      <Item value="CurrentUser" priority="7" />
+      <Item value="Rights" priority="1" />
+      <Item value="IsAllow`0" priority="0" />
+      <Item value="CheckBoxCheck`0" priority="2" />
+      <Item value="SetLayoutDataGridview`0" priority="8" />
+      <Item value="ConvertMoneyToLong`0" priority="6" />
+      <Item value="SetDataTextBox`0" priority="1" />
+      <Item value="ConvertLongToMoney`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Windows.Forms.MessageBoxIcon">
+      <Item value="Warning" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Object">
+      <Item value="ToString`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@ComponentFactory.Krypton.Toolkit.KryptonMessageBox">
+      <Item value="Show`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.Control">
+      <Item value="GetType`0" priority="1" />
+      <Item value="Text" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Type">
+      <Item value="Equals`0" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@ComponentFactory.Krypton.Toolkit.KryptonTextBox">
+      <Item value="ControlAccessibleObject`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ComponentFactory.Krypton.Toolkit.KryptonListBox">
+      <Item value="Visible" priority="2" />
+      <Item value="DataSource" priority="0" />
+      <Item value="ValueMember" priority="0" />
+      <Item value="DisplayMember" priority="0" />
+      <Item value="Items" priority="0" />
+      <Item value="StateCommon" priority="3" />
+      <Item value="SelectedItem" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.KeyEventArgs">
+      <Item value="KeyCode" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ComponentFactory.Krypton.Toolkit.PaletteListStateRedirect">
+      <Item value="Content" priority="0" />
+      <Item value="Item" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ComponentFactory.Krypton.Toolkit.PaletteContent">
+      <Item value="LongText" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Windows.Forms.Keys">
+      <Item value="Tab" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ChiTonPrivateEnterpriseManagement.Classes.DTO.FinalAccountDetailDTO">
+      <Item value="FinalAccountDetailID" priority="0" />
+      <Item value="MaterialID" priority="1" />
+      <Item value="MaterialName" priority="1" />
+      <Item value="Quantity" priority="1" />
+      <Item value="UnitCost" priority="1" />
+      <Item value="Note" priority="1" />
+      <Item value="FinalAccountID" priority="0" />
+      <Item value="TotalCost" priority="2" />
+      <Item value="RealCalUnit" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ChiTonPrivateEnterpriseManagement.Classes.DTO.MaterialDTO">
+      <Item value="MaterialID" priority="0" />
+      <Item value="MaterialName" priority="0" />
+      <Item value="RealCalUnit" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ChiTonPrivateEnterpriseManagement.Classes.DAO.ConstructionDao">
+      <Item value="LoadAllConstructionsHaveWarehouse`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ChiTonPrivateEnterpriseManagement.Classes.BUS.ConstructionBus">
+      <Item value="LoadAllConstructionsHaveWarehouse`0" priority="0" />
+      <Item value="LoadAllConstructions`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ChiTonPrivateEnterpriseManagement.Classes.DTO.WarehouseDTO">
+      <Item value="IsActive" priority="2" />
+      <Item value="WarehouseID" priority="0" />
+      <Item value="ConstructionID" priority="3" />
+      <Item value="ManagerName" priority="0" />
+      <Item value="Description" priority="0" />
+      <Item value="Type" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ChiTonPrivateEnterpriseManagement.Classes.DTO.DebtDTO">
+      <Item value="DebtID" priority="1" />
+      <Item value="IsActive" priority="3" />
+      <Item value="Address" priority="0" />
+      <Item value="PhoneNumber" priority="0" />
+      <Item value="TotalOwe" priority="0" />
+      <Item value="CreatedBy" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ChiTonPrivateEnterpriseManagement.Classes.DTO.ConstructionDTO">
+      <Item value="ConstructionName" priority="0" />
+      <Item value="WarehouseID" priority="0" />
+      <Item value="ConstructionID" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ChiTonPrivateEnterpriseManagement.Classes.DAO.FinalAccountDAO">
+      <Item value="CreateFinalAccount`0" priority="1" />
+      <Item value="GetAll`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ChiTonPrivateEnterpriseManagement.Classes.DTO.FinalAccountDTO">
+      <Item value="FinalAccountID" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ChiTonPrivateEnterpriseManagement.Classes.BUS.FinalAccountBUS">
+      <Item value="CreateFinalAccount`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount.NewFinalAccount">
+      <Item value="ShowDialog`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ChiTonPrivateEnterpriseManagement.Classes.BUS.WarehouseBUS">
+      <Item value="LoadAllWarehouses`0" priority="1" />
+      <Item value="LoadAllMainWarehouses`0" priority="0" />
+      <Item value="LoadWarehouses`0" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ChiTonPrivateEnterpriseManagement.Classes.BUS.DebtBUS">
+      <Item value="GetAll`0" priority="2" />
+      <Item value="AddDebt`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.ImageList">
+      <Item value="Images" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.ImageList+ImageCollection">
+      <Item value="Add`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Drawing.Image">
+      <Item value="FromFile`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ChiTonPrivateEnterpriseManagement.Classes.DTO.CompareDebtDTO">
+      <Item value="DebtID" priority="0" />
+      <Item value="RepresentationDebtName" priority="0" />
+      <Item value="DateCompare" priority="0" />
+      <Item value="FromDate" priority="0" />
+      <Item value="ToDate" priority="1" />
+      <Item value="Note" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount.FinalAccountManagement">
+      <Item value="Show`0" priority="0" />
+      <Item value="MdiParent" priority="0" />
+      <Item value="ShowIcon" priority="0" />
+      <Item value="ShowDialog`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ChiTonPrivateEnterpriseManagement.LoginForm">
+      <Item value="Show`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@ChiTonPrivateEnterpriseManagement.MainForm">
+      <Item value="employerDTO" priority="0" />
+      <Item value="pnlMainContent" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@ChiTonPrivateEnterpriseManagement.LoginForm">
+      <Item value="IsLogout" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ComponentFactory.Krypton.Toolkit.KryptonLinkLabel">
+      <Item value="Text" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee.Profiles">
+      <Item value="ShowDialog`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Int64">
+      <Item value="ToString`0" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction.ConstructionManagement">
+      <Item value="MdiParent" priority="0" />
+      <Item value="Show`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.Control+ControlCollection">
+      <Item value="Add`0" priority="9" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt.DebtManagement">
+      <Item value="MdiParent" priority="0" />
+      <Item value="Show`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker.WorkerSalaryManagement">
+      <Item value="MdiParent" priority="0" />
+      <Item value="ShowIcon" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation.EstimateManagement">
+      <Item value="MdiParent" priority="0" />
+      <Item value="Show`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWarehouse.WarehouseManagement">
+      <Item value="MdiParent" priority="0" />
+      <Item value="Show`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt.CompareDebtManagement">
+      <Item value="MdiParent" priority="0" />
+      <Item value="Show`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ChiTonPrivateEnterpriseManagement.Classes.DTO.EmployeeAdvanceDTO">
+      <Item value="ToString`0" priority="0" />
+      <Item value="Reason" priority="0" />
+      <Item value="TotalAdvance" priority="0" />
+      <Item value="CreatedDate" priority="0" />
+      <Item value="LastUpdate" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee.AdvanceManagement">
+      <Item value="MdiParent" priority="1" />
+      <Item value="Show`0" priority="0" />
+      <Item value="Controls" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee.NewAdvance">
+      <Item value="MdiParent" priority="0" />
+      <Item value="Show`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ComponentFactory.Krypton.Toolkit.KryptonCheckBox">
+      <Item value="StateCommon" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.CheckBox">
+      <Item value="CheckedChanged" priority="6" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt.NewDebt">
+      <Item value="Show`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.TreeNode">
+      <Item value="ImageIndex" priority="1" />
+      <Item value="Nodes" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ChiTonPrivateEnterpriseManagement.Classes.DTO.LeftMenuDTO">
+      <Item value="MenuName" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt.NewCompareDebt">
+      <Item value="Show`0" priority="0" />
     </ItemStatistics>
   </CompletionStatisticsManager>
 </Configuration>
