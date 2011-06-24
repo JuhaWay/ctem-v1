@@ -223,6 +223,21 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
             }
         }
 
+        public static bool ValidateIntNumber(string strInt)
+        {
+            try
+            {
+                Convert.ToInt32(strInt);
+                return true;
+            }
+            catch (Exception)
+            {
+                KryptonMessageBox.Show(Constants.INVALIDATE_VALUE, Constants.CONFIRM, MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return false;
+            }
+        }
+
         public static bool ValidateULongNumber(string strULong)
         {
             try
@@ -305,6 +320,17 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
             return (rightValue & Global.CurrentUser.RightsValue) != 0;
         }
 
+        public static void SetDataTextBox(List<KryptonTextBox> listtxtControl, string obj)
+        {
+            foreach (KryptonTextBox txtControl in listtxtControl)
+            {
+                if (obj.Equals(Constants.NUMBER))
+                {
+                    txtControl.Text = Constants.ZERO_NUMBER;
+                }
+            }            
+        }
+
         public static void SetDataTextBox(KryptonTextBox txtControl, string obj)
         {
             if (obj.Equals(Constants.NUMBER))
@@ -343,6 +369,44 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
             dgvControl.EndEdit();
             dgvControl.Refresh();
 
+        }
+
+        public static void ClearTextboxSalary(KryptonTextBox textBox)
+        {
+            if (textBox.Text.Equals("0"))
+            {
+                textBox.Text = Constants.EMPTY_TEXT;
+            }
+        }
+
+        public static long ConvertMoneyToLong(string strValue, string charFomat)
+        {
+            try
+            {
+                return Convert.ToInt64(strValue.Trim().Replace(charFomat, Constants.EMPTY_TEXT));
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+        }
+
+        public static string ConvertLongToMoney(long number, string charFomat)
+        {
+            string result = Constants.EMPTY_TEXT;
+            string strNumber = number.ToString();
+            int sizeStr = strNumber.Length;
+            for (int i = 0; i < sizeStr; i++)
+            {
+                result += strNumber[i];
+                int tempSize = sizeStr - i - 1;
+                float a = (sizeStr - i - 1) % 3;
+                if (tempSize != 0 && a == 0)
+                {
+                    result += ".";                    
+                }
+            }            
+            return result;
         }
     }
 }

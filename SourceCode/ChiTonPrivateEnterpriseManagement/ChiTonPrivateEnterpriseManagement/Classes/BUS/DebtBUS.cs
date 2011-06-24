@@ -13,10 +13,10 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
     /// </summary>
     public class DebtBUS
     {
-        DebtDAO DebtDAO = new DebtDAO();
+        DebtDAO debtDAO = new DebtDAO();
         public List<DebtDTO> GetAll()
         {
-            return DebtDAO.GetAllDebt();
+            return debtDAO.GetAllDebt();
         }
 
         //public bool DeleteDebt(long DebtID)
@@ -26,13 +26,18 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
 
         public void AddDebt(DebtDTO debt)
         {
-            DebtDAO.CreateDebt(debt);
+            debtDAO.CreateDebt(debt);
         }
 
         //public void EditDebt(long DebtID, string DebtName, string description, long rightsValue, bool isActive)
         //{
         //    DebtDAO.UpdateDebt(DebtID, DebtName, description, rightsValue, isActive);
         //}
+
+        public List<CompareDebtDTO> GetAllCompareDebt()
+        {
+            return debtDAO.GetAllCompareDebt();
+        }
     }
 }
     

@@ -386,5 +386,57 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 if (Transaction == null) Connection.Close();
             }
         }
+
+        public List<EmployeeSalaryDTO> GetAllSalary()
+        {
+            var cmd = new SqlCommand("[dbo].[Employee_GetAllSalary]", Connection);
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {                
+                SqlDataReader reader = cmd.ExecuteReader();
+                List<EmployeeSalaryDTO> listSalary = new List<EmployeeSalaryDTO>();
+                while (reader.Read())
+                {
+                    EmployeeSalaryDTO employersalary = new EmployeeSalaryDTO
+                    {
+                        EmployeeSalaryID = Convert.ToInt64(reader["EmployeeSalaryID"]),
+                        Username = Convert.ToString(reader["Username"]),
+                        Fullname = Convert.ToString(reader["FullName"]),
+                        Month = Convert.ToString(reader["Month"]),
+                        Salary = Convert.ToInt64(reader["Salary"]),
+                        Allowance = Convert.ToInt64(reader["Allowance"]),
+                        PhoneCost = Convert.ToInt64(reader["PhoneCost"]),
+                        DebtPay = Convert.ToInt64(reader["DebtPay"]),
+                        ActualIncome = Convert.ToInt64(reader["ActualIncome"]),
+                        CreatedDate = DateTime.Parse(Convert.ToString(reader["CreatedDate"])),
+                        LastUpdate = DateTime.Parse(Convert.ToString(reader["LastUpdate"]))
+                    };
+                    bool isPay = Convert.ToBoolean(reader["IsPay"]);
+                    if (isPay)
+                    {
+                        employersalary.IsPay = 1;
+                    }
+                    else
+                    {
+                        employersalary.IsPay = 0;
+                    }
+                    listSalary.Add(employersalary);
+                }
+                return listSalary;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message, "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                if (Transaction == null) Connection.Close();
+            }
+        }
     }
 }

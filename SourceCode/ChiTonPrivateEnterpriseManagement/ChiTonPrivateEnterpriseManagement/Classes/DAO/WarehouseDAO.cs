@@ -59,13 +59,19 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                     {
                         WarehouseID = Convert.ToInt64(reader["WarehouseID"]),
                         WarehouseName = Convert.ToString(reader["WarehouseName"]),
-                        ConstructionID = Convert.ToInt64(reader["ConstructionID"]),
                         ConstructionName = Convert.ToString(reader["ConstructionName"]),
                         Description = Convert.ToString(reader["Description"]),
                         Address = Convert.ToString(reader["Address"]),
                         ManagerName = Convert.ToString(reader["ManagerName"]),
                         Type = Convert.ToString(reader["Type"])                        
                     };
+                    try
+                    {
+                        warehouse.ConstructionID = Convert.ToInt64(reader["ConstructionID"]);
+                    }
+                    catch (Exception)
+                    {
+                    }
                     bool isactive = Convert.ToBoolean(reader["IsActive"]);
                     if (isactive)
                     {
@@ -100,12 +106,12 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             try
             {
                 cmd.Parameters.Add(new SqlParameter("@WarehouseName", warehouse.WarehouseName));
-                cmd.Parameters.Add(new SqlParameter("@description", warehouse.ConstructionID));
-                cmd.Parameters.Add(new SqlParameter("@WarehouseAddress", warehouse.ManagerName));
-                cmd.Parameters.Add(new SqlParameter("@WarehouseAddress", warehouse.Description));
-                cmd.Parameters.Add(new SqlParameter("@WarehouseAddress", warehouse.Type));
-                cmd.Parameters.Add(new SqlParameter("@WarehouseAddress", warehouse.Address));
-                cmd.Parameters.Add(new SqlParameter("@WarehouseAddress", warehouse.IsActive));
+                cmd.Parameters.Add(new SqlParameter("@ConstructionID", warehouse.ConstructionID));
+                cmd.Parameters.Add(new SqlParameter("@ManagerName", warehouse.ManagerName));
+                cmd.Parameters.Add(new SqlParameter("@Description", warehouse.Description));
+                cmd.Parameters.Add(new SqlParameter("@Type", warehouse.Type));
+                cmd.Parameters.Add(new SqlParameter("@Address", warehouse.Address));
+                cmd.Parameters.Add(new SqlParameter("@IsActive", warehouse.IsActive));
                 cmd.ExecuteNonQuery();
                 return true;
             }
