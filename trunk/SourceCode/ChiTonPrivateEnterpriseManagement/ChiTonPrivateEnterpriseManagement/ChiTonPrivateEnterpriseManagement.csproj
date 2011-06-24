@@ -15,6 +15,7 @@
     </FileUpgradeFlags>
     <OldToolsVersion>2.0</OldToolsVersion>
     <UpgradeBackupLocation />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -27,7 +28,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -73,6 +73,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\BUS\ConstructionBus.cs" />
+    <Compile Include="Classes\BUS\CompareDebtBUS.cs" />
+    <Compile Include="Classes\BUS\FinalAccountBUS.cs" />
+    <Compile Include="Classes\BUS\DebtBUS.cs" />
+    <Compile Include="Classes\BUS\WarehouseBUS.cs" />
     <Compile Include="Classes\BUS\EstimateBUS.cs" />
     <Compile Include="Classes\BUS\EstimateDetailBUS.cs" />
     <Compile Include="Classes\BUS\MaterialBUS.cs" />
@@ -81,7 +85,12 @@
     <Compile Include="Classes\BUS\RightBUS.cs" />
     <Compile Include="Classes\BUS\EmployeeBUS.cs" />
     <Compile Include="Classes\BUS\SubcontractorBUS.cs" />
+    <Compile Include="Classes\BUS\WorkerBUS.cs" />
+    <Compile Include="Classes\BUS\WorkerSalaryBUS.cs" />
     <Compile Include="Classes\DAO\ConstructionDao.cs" />
+    <Compile Include="Classes\DAO\CompareDebtDAO.cs" />
+    <Compile Include="Classes\DAO\DebtDAO.cs" />
+    <Compile Include="Classes\DAO\FinalAccountDAO.cs" />
     <Compile Include="Classes\DAO\EmployerDAO.cs" />
     <Compile Include="Classes\DAO\EstimateDAO.cs" />
     <Compile Include="Classes\DAO\EstimateDetailDAO.cs" />
@@ -90,7 +99,17 @@
     <Compile Include="Classes\DAO\LeftMenuDAO.cs" />
     <Compile Include="Classes\DAO\RightDAO.cs" />
     <Compile Include="Classes\DAO\SubcontractorDao.cs" />
+    <Compile Include="Classes\DAO\WarehouseDAO.cs" />
+    <Compile Include="Classes\DAO\WorkerDAO.cs" />
+    <Compile Include="Classes\DAO\WorkSalaryDAO.cs" />
     <Compile Include="Classes\DTO\ConstructionDTO.cs" />
+    <Compile Include="Classes\DTO\CompareDebtDTO.cs" />
+    <Compile Include="Classes\DTO\EmployeeAdvanceDTO.cs" />
+    <Compile Include="Classes\DTO\DebtDTO.cs" />
+    <Compile Include="Classes\DTO\WarehouseDTO.cs" />
+    <Compile Include="Classes\DTO\FinalAccountDetailDTO.cs" />
+    <Compile Include="Classes\DTO\FinalAccountDTO.cs" />
+    <Compile Include="Classes\DTO\EmployeeSalaryDTO.cs" />
     <Compile Include="Classes\DTO\EstimateDetailDTO.cs" />
     <Compile Include="Classes\DTO\EstimateDTO.cs" />
     <Compile Include="Classes\DTO\MaterialDTO.cs" />
@@ -102,6 +121,8 @@
     <Compile Include="Classes\DTO\RightDTO.cs" />
     <Compile Include="Classes\DTO\EmployeeDTO.cs" />
     <Compile Include="Classes\DTO\EmployerConstructionDTO.cs" />
+    <Compile Include="Classes\DTO\WorkerSalaryDTO.cs" />
+    <Compile Include="Classes\DTO\WorkerTempDTO.cs" />
     <Compile Include="Classes\Global\Constants.cs" />
     <Compile Include="Classes\Global\DatabaseInfo.cs" />
     <Compile Include="Classes\Global\DataProvider.cs" />
@@ -143,6 +164,12 @@
     <Compile Include="ModuleForms\ManageConstruction\AddConstruction.Designer.cs">
       <DependentUpon>AddConstruction.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModuleForms\ManageConstruction\AddSubconstruction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForms\ManageConstruction\AddSubconstruction.Designer.cs">
+      <DependentUpon>AddSubconstruction.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModuleForms\ManageConstruction\ConstructionManagement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,17 +182,71 @@
     <Compile Include="ModuleForms\ManageConstruction\SelectSubConstructionBox.Designer.cs">
       <DependentUpon>SelectSubConstructionBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModuleForms\ManageDebt\CompareDebtManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForms\ManageDebt\CompareDebtManagement.Designer.cs">
+      <DependentUpon>CompareDebtManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleForms\ManageDebt\DebtManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForms\ManageDebt\DebtManagement.Designer.cs">
+      <DependentUpon>DebtManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleForms\ManageDebt\NewCompareDebt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForms\ManageDebt\NewCompareDebt.Designer.cs">
+      <DependentUpon>NewCompareDebt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleForms\ManageDebt\NewDebt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForms\ManageDebt\NewDebt.Designer.cs">
+      <DependentUpon>NewDebt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleForms\ManageEmployee\AdvanceManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForms\ManageEmployee\AdvanceManagement.Designer.cs">
+      <DependentUpon>AdvanceManagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModuleForms\ManageEmployee\EmployeeManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ModuleForms\ManageEmployee\EmployeeManagement.Designer.cs">
+    <Compile Include="ModuleForms\ManageEmployee\EmployeeManagement.designer.cs">
       <DependentUpon>EmployeeManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleForms\ManageEmployee\NewAdvance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForms\ManageEmployee\NewAdvance.Designer.cs">
+      <DependentUpon>NewAdvance.cs</DependentUpon>
     </Compile>
     <Compile Include="ModuleForms\ManageEmployee\NewEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ModuleForms\ManageEmployee\NewEmployee.Designer.cs">
+    <Compile Include="ModuleForms\ManageEmployee\NewEmployee.designer.cs">
       <DependentUpon>NewEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleForms\ManageEmployee\NewSalary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForms\ManageEmployee\NewSalary.designer.cs">
+      <DependentUpon>NewSalary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleForms\ManageEmployee\Profiles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForms\ManageEmployee\Profiles.Designer.cs">
+      <DependentUpon>Profiles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleForms\ManageEmployee\SalaryManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForms\ManageEmployee\SalaryManagement.designer.cs">
+      <DependentUpon>SalaryManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="ModuleForms\ManageEstimation\AddNewEstimate.cs">
       <SubType>Form</SubType>
@@ -184,6 +265,18 @@
     </Compile>
     <Compile Include="ModuleForms\ManageEstimation\EstimateManagement.Designer.cs">
       <DependentUpon>EstimateManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleForms\ManageFinalAccount\FinalAccountManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForms\ManageFinalAccount\FinalAccountManagement.designer.cs">
+      <DependentUpon>FinalAccountManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleForms\ManageFinalAccount\NewFinalAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForms\ManageFinalAccount\NewFinalAccount.designer.cs">
+      <DependentUpon>NewFinalAccount.cs</DependentUpon>
     </Compile>
     <Compile Include="ModuleForms\ManageRole\NewRole.cs">
       <SubType>Form</SubType>
@@ -221,6 +314,42 @@
     <Compile Include="ModuleForms\ManageMenu\NewMenu.Designer.cs">
       <DependentUpon>NewMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModuleForms\ManageWarehouse\NewWarehouse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForms\ManageWarehouse\NewWarehouse.Designer.cs">
+      <DependentUpon>NewWarehouse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleForms\ManageWarehouse\WarehouseManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForms\ManageWarehouse\WarehouseManagement.Designer.cs">
+      <DependentUpon>WarehouseManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleForms\ManageWorker\AddNewWk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForms\ManageWorker\AddNewWk.Designer.cs">
+      <DependentUpon>AddNewWk.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleForms\ManageWorker\AddNewWS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForms\ManageWorker\AddNewWS.Designer.cs">
+      <DependentUpon>AddNewWS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleForms\ManageWorker\WorkerList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForms\ManageWorker\WorkerList.Designer.cs">
+      <DependentUpon>WorkerList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleForms\ManageWorker\WorkerSalaryManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForms\ManageWorker\WorkerSalaryManagement.Designer.cs">
+      <DependentUpon>WorkerSalaryManagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="DBInfoForm.resx">
@@ -244,19 +373,54 @@
     <EmbeddedResource Include="ModuleForms\ManageConstruction\AddConstruction.resx">
       <DependentUpon>AddConstruction.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\ManageConstruction\AddSubconstruction.resx">
+      <DependentUpon>AddSubconstruction.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ModuleForms\ManageConstruction\ConstructionManagement.resx">
       <DependentUpon>ConstructionManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModuleForms\ManageConstruction\SelectSubConstructionBox.resx">
       <DependentUpon>SelectSubConstructionBox.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\ManageDebt\CompareDebtManagement.resx">
+      <DependentUpon>CompareDebtManagement.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\ManageDebt\DebtManagement.resx">
+      <DependentUpon>DebtManagement.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\ManageDebt\NewCompareDebt.resx">
+      <DependentUpon>NewCompareDebt.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\ManageDebt\NewDebt.resx">
+      <DependentUpon>NewDebt.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\ManageEmployee\AdvanceManagement.resx">
+      <DependentUpon>AdvanceManagement.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="ModuleForms\ManageEmployee\EmployeeManagement.resx">
       <DependentUpon>EmployeeManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\ManageEmployee\NewAdvance.resx">
+      <DependentUpon>NewAdvance.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="ModuleForms\ManageEmployee\NewEmployee.resx">
       <DependentUpon>NewEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\ManageEmployee\NewSalary.resx">
+      <DependentUpon>NewSalary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\ManageEmployee\Profiles.resx">
+      <DependentUpon>Profiles.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\ManageEmployee\SalaryManagement.resx">
+      <DependentUpon>SalaryManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModuleForms\ManageEstimation\AddNewEstimate.resx">
       <DependentUpon>AddNewEstimate.cs</DependentUpon>
@@ -268,6 +432,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ModuleForms\ManageEstimation\EstimateManagement.resx">
       <DependentUpon>EstimateManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\ManageFinalAccount\FinalAccountManagement.resx">
+      <DependentUpon>FinalAccountManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\ManageFinalAccount\NewFinalAccount.resx">
+      <DependentUpon>NewFinalAccount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModuleForms\ManageRole\NewRole.resx">
       <DependentUpon>NewRole.cs</DependentUpon>
@@ -292,6 +462,26 @@
       <DependentUpon>NewMenu.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\ManageWarehouse\NewWarehouse.resx">
+      <DependentUpon>NewWarehouse.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\ManageWarehouse\WarehouseManagement.resx">
+      <DependentUpon>WarehouseManagement.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\ManageWorker\AddNewWk.resx">
+      <DependentUpon>AddNewWk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\ManageWorker\AddNewWS.resx">
+      <DependentUpon>AddNewWS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\ManageWorker\WorkerList.resx">
+      <DependentUpon>WorkerList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\ManageWorker\WorkerSalaryManagement.resx">
+      <DependentUpon>WorkerSalaryManagement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -302,18 +492,35 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+<<<<<<< .mine
+    <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.CompareDebtDTO.datasource" />
+    <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.DebtDTO.datasource" />
+    <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.EmployeeAdvanceDTO.datasource" />
+    <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.EmployeeSalaryDTO.datasource" />
+=======
     <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.ConstructionDTO.datasource" />
     <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.EmployerConstructionDTO.datasource" />
+>>>>>>> .r144
     <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.EmployerDTO.datasource" />
+<<<<<<< .mine
+    <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.FinalAccountDetailDTO.datasource" />
+    <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.FinalAccountDTO.datasource" />
+=======
     <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.EstimateDetailDTO.datasource" />
     <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.EstimateDTO.datasource" />
     <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.LeftMenuDTO.datasource" />
     <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.MaterialDTO.datasource" />
+>>>>>>> .r144
     <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.RightDTO.datasource" />
     <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.RoleDTO.datasource" />
+<<<<<<< .mine
+    <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.WarehouseDTO.datasource" />
+    <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.WorkerSalaryDTO.datasource" />
+=======
     <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.SubcontractorDTO.datasource" />
     <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.WorkerConstructionDTO.datasource" />
     <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.WorkerDTO.datasource" />
+>>>>>>> .r144
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -335,6 +542,11 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.SQL.Server.Compact.3.5">
+      <Visible>False</Visible>
+      <ProductName>SQL Server Compact 3.5 SP2</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
       <Visible>False</Visible>
       <ProductName>Windows Installer 3.1</ProductName>
@@ -343,6 +555,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Database\Backup\" />
+    <Folder Include="images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Database\Script\CTEM-DB.sql" />
