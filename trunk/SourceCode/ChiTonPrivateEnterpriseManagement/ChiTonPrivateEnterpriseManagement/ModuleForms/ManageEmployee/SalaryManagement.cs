@@ -17,6 +17,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
         private bool isDown;
         EmployeeBUS employeeBUS = new EmployeeBUS();
         List<EmployerDTO> listEmployee = new List<EmployerDTO>();
+        List<EmployeeSalaryDTO> listSalary;
         private CheckBox _ckBox;
         public SalaryManagement()
         {
@@ -44,9 +45,9 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
 
         private void loadSalary()
         {
-            EmployerDTO emp = (EmployerDTO) lbxHint.SelectedItem;
-            //long empId = emp.employeeID;
-            //employeeBUS.GetSalary();
+            //EmployerDTO emp = (EmployerDTO) lbxHint.SelectedItem;
+            listSalary = employeeBUS.LoadAllSalary();
+            dgvSalary.DataSource = listSalary;
         }
         
         private void btnHideShowClick(ButtonSpecAny btnHideShow)
@@ -165,7 +166,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
         {
             try
             {
-                ActiveControl.Text += "000";
+                ActiveControl.Text += ".000";
             }
             catch (Exception)
             {

@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using ChiTonPrivateEnterpriseManagement.Classes.BUS;
 using ChiTonPrivateEnterpriseManagement.Classes.DTO;
+using ChiTonPrivateEnterpriseManagement.Classes.Global;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
@@ -15,6 +16,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
     {
         private List<DebtDTO> ListDebt;
         private DebtBUS debtBUS = new DebtBUS();
+        private CheckBox _ckBox;
 
         public DebtManagement()
         {
@@ -26,6 +28,18 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
             LoadData();
         }
 
+        private void SetLayout()
+        {
+            _ckBox = new CheckBox();
+            Global.SetLayoutDataGridview(_ckBox, dgvLeftBot);
+            _ckBox.CheckedChanged += new EventHandler(ckBox_CheckedChanged);
+        }
+
+        void ckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            Global.CheckBoxCheck(_ckBox, dgvLeftBot);
+        }
+
         private void LoadData()
         {
             ListDebt = debtBUS.GetAll();
@@ -34,7 +48,9 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
 
         private void btnAddWarehouse_Click(object sender, EventArgs e)
         {
-
+            NewDebt newDebt = new NewDebt();
+            newDebt.Show();
+            LoadData();
         }
     }
 }

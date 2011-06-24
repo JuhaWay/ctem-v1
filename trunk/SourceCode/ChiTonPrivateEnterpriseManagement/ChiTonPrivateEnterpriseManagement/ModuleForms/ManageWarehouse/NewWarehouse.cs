@@ -31,12 +31,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWarehouse
             string address = txtAddress.Text;
             string description = txtDescription.Text;
             long constructionID = 0;
-            int isactive;
-            if (cbbConstruction.Enabled)
-            {
-                ConstructionDTO construcion = (ConstructionDTO) cbbConstruction.SelectedItem;
-                constructionID = construcion.ConstructionID;
-            }
+            int isactive;            
             if (cbbStatus.Text.Equals(Constants.ACTIVE))
             {
                 isactive = 1;
@@ -47,7 +42,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWarehouse
             }
             WarehouseDTO warehouse = new WarehouseDTO()
                                          {
-                                             ConstructionID = constructionID,
                                              WarehouseName = warehousename,
                                              Type = type,
                                              ManagerName = namemanager,
@@ -55,6 +49,11 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWarehouse
                                              Description = description,
                                              IsActive = isactive
                                          };
+            if (cbbConstruction.Enabled)
+            {
+                ConstructionDTO construcion = (ConstructionDTO)cbbConstruction.SelectedItem;
+                warehouse.ConstructionID = construcion.ConstructionID;
+            }
             warehouseBUS.CreateWarehouse(warehouse);
         }
 

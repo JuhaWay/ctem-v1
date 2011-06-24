@@ -25,10 +25,15 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
 
         private void FinalAccountManagement_Load(object sender, EventArgs e)
         {
+            SetLayout();
+            LoadData();
+        }
+
+        private void SetLayout()
+        {            
             _ckBox = new CheckBox();
             Global.SetLayoutDataGridview(_ckBox, dgvLeftBot);
             _ckBox.CheckedChanged += new EventHandler(ckBox_CheckedChanged);
-            LoadData();
         }
 
         void ckBox_CheckedChanged(object sender, EventArgs e)
@@ -46,6 +51,12 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
         {
             NewFinalAccount newFinalAccountForm = new NewFinalAccount();
             newFinalAccountForm.ShowDialog();
+            LoadData();
+        }
+
+        private void FinalAccountManagement_SizeChanged(object sender, EventArgs e)
+        {
+            SetLayout();
         }
     }
 }

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewFinalAccount));
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.kryptonPanel3 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonPanel5 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
@@ -57,19 +58,17 @@
             this.kryptonLabel11 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.cbbStatus = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.txtTotalCost = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.cmsGenerate = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.generateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txtTransportationCost = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.kryptonLabel8 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel9 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel10 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.gbxMenuTop = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
-            this.btnSave = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.gbxBot = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.gbcContentBox = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.dgvContentBot = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.finalAccountDetailDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.gbcMenuBot = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
-            this.btnAddFinalAccountItem = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.kryptonPanel2 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.pnlNewItem = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.gbxNewItem = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
@@ -85,13 +84,17 @@
             this.kryptonLabel14 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel15 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel16 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.materialNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.realCalUnitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unitCostDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalCostDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.noteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.finalAccountDetailDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.kryptonGroupBox1 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
+            this.btnAddWarehouse = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.kryptonGroupBox2 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
+            this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel6)).BeginInit();
@@ -114,9 +117,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cbbConstruction)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbbToPlace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbbStatus)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gbxMenuTop)).BeginInit();
-            this.gbxMenuTop.Panel.SuspendLayout();
-            this.gbxMenuTop.SuspendLayout();
+            this.cmsGenerate.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gbxBot)).BeginInit();
             this.gbxBot.Panel.SuspendLayout();
@@ -125,10 +126,6 @@
             this.gbcContentBox.Panel.SuspendLayout();
             this.gbcContentBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContentBot)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.finalAccountDetailDTOBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gbcMenuBot)).BeginInit();
-            this.gbcMenuBot.Panel.SuspendLayout();
-            this.gbcMenuBot.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlNewItem)).BeginInit();
             this.pnlNewItem.SuspendLayout();
@@ -136,12 +133,19 @@
             this.gbxNewItem.Panel.SuspendLayout();
             this.gbxNewItem.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbbMaterial)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.finalAccountDetailDTOBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).BeginInit();
+            this.kryptonGroupBox1.Panel.SuspendLayout();
+            this.kryptonGroupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox2)).BeginInit();
+            this.kryptonGroupBox2.Panel.SuspendLayout();
+            this.kryptonGroupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // kryptonPanel3
             // 
             this.kryptonPanel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.kryptonPanel3.Location = new System.Drawing.Point(0, 729);
+            this.kryptonPanel3.Location = new System.Drawing.Point(0, 532);
             this.kryptonPanel3.Name = "kryptonPanel3";
             this.kryptonPanel3.Size = new System.Drawing.Size(784, 5);
             this.kryptonPanel3.TabIndex = 2;
@@ -149,24 +153,24 @@
             // kryptonPanel5
             // 
             this.kryptonPanel5.Dock = System.Windows.Forms.DockStyle.Left;
-            this.kryptonPanel5.Location = new System.Drawing.Point(0, 0);
+            this.kryptonPanel5.Location = new System.Drawing.Point(0, 59);
             this.kryptonPanel5.Name = "kryptonPanel5";
-            this.kryptonPanel5.Size = new System.Drawing.Size(5, 729);
+            this.kryptonPanel5.Size = new System.Drawing.Size(5, 473);
             this.kryptonPanel5.TabIndex = 4;
             // 
             // kryptonPanel6
             // 
             this.kryptonPanel6.Dock = System.Windows.Forms.DockStyle.Right;
-            this.kryptonPanel6.Location = new System.Drawing.Point(779, 0);
+            this.kryptonPanel6.Location = new System.Drawing.Point(779, 59);
             this.kryptonPanel6.Name = "kryptonPanel6";
-            this.kryptonPanel6.Size = new System.Drawing.Size(5, 729);
+            this.kryptonPanel6.Size = new System.Drawing.Size(5, 473);
             this.kryptonPanel6.TabIndex = 5;
             // 
             // scMain
             // 
             this.scMain.Cursor = System.Windows.Forms.Cursors.Default;
             this.scMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scMain.Location = new System.Drawing.Point(5, 0);
+            this.scMain.Location = new System.Drawing.Point(5, 59);
             this.scMain.Name = "scMain";
             this.scMain.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -180,8 +184,8 @@
             this.scMain.Panel2.Controls.Add(this.gbxBot);
             this.scMain.Panel2.Controls.Add(this.kryptonPanel2);
             this.scMain.SeparatorStyle = ComponentFactory.Krypton.Toolkit.SeparatorStyle.HighProfile;
-            this.scMain.Size = new System.Drawing.Size(774, 729);
-            this.scMain.SplitterDistance = 359;
+            this.scMain.Size = new System.Drawing.Size(774, 473);
+            this.scMain.SplitterDistance = 312;
             this.scMain.TabIndex = 6;
             // 
             // gbxTop
@@ -193,21 +197,20 @@
             // gbxTop.Panel
             // 
             this.gbxTop.Panel.Controls.Add(this.gbxContentTop);
-            this.gbxTop.Panel.Controls.Add(this.gbxMenuTop);
-            this.gbxTop.Size = new System.Drawing.Size(774, 354);
+            this.gbxTop.Size = new System.Drawing.Size(774, 307);
             this.gbxTop.TabIndex = 2;
             this.gbxTop.Values.Heading = "";
             // 
             // gbxContentTop
             // 
             this.gbxContentTop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbxContentTop.Location = new System.Drawing.Point(0, 78);
+            this.gbxContentTop.Location = new System.Drawing.Point(0, 0);
             this.gbxContentTop.Name = "gbxContentTop";
             // 
             // gbxContentTop.Panel
             // 
             this.gbxContentTop.Panel.Controls.Add(this.scContentTop);
-            this.gbxContentTop.Size = new System.Drawing.Size(770, 270);
+            this.gbxContentTop.Size = new System.Drawing.Size(770, 301);
             this.gbxContentTop.TabIndex = 3;
             this.gbxContentTop.Values.Heading = "";
             // 
@@ -247,7 +250,7 @@
             this.scContentTop.Panel2.Controls.Add(this.kryptonLabel8);
             this.scContentTop.Panel2.Controls.Add(this.kryptonLabel9);
             this.scContentTop.Panel2.Controls.Add(this.kryptonLabel10);
-            this.scContentTop.Size = new System.Drawing.Size(766, 264);
+            this.scContentTop.Size = new System.Drawing.Size(766, 295);
             this.scContentTop.SplitterDistance = 380;
             this.scContentTop.TabIndex = 0;
             // 
@@ -337,6 +340,8 @@
             this.txtNo.Name = "txtNo";
             this.txtNo.Size = new System.Drawing.Size(214, 20);
             this.txtNo.TabIndex = 7;
+            this.txtNo.Enter += new System.EventHandler(this.txtTransportationCost_Enter);
+            this.txtNo.Leave += new System.EventHandler(this.txtTransportationCost_Leave);
             // 
             // kryptonLabel7
             // 
@@ -426,19 +431,40 @@
             // 
             this.txtTotalCost.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTotalCost.ContextMenuStrip = this.cmsGenerate;
             this.txtTotalCost.Location = new System.Drawing.Point(136, 54);
             this.txtTotalCost.Name = "txtTotalCost";
+            this.txtTotalCost.ReadOnly = true;
             this.txtTotalCost.Size = new System.Drawing.Size(215, 20);
             this.txtTotalCost.TabIndex = 14;
+            // 
+            // cmsGenerate
+            // 
+            this.cmsGenerate.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.cmsGenerate.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.generateToolStripMenuItem});
+            this.cmsGenerate.Name = "cmsGenerate";
+            this.cmsGenerate.Size = new System.Drawing.Size(164, 26);
+            // 
+            // generateToolStripMenuItem
+            // 
+            this.generateToolStripMenuItem.Name = "generateToolStripMenuItem";
+            this.generateToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G)));
+            this.generateToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.generateToolStripMenuItem.Text = "Generate";
+            this.generateToolStripMenuItem.Click += new System.EventHandler(this.generateToolStripMenuItem_Click);
             // 
             // txtTransportationCost
             // 
             this.txtTransportationCost.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTransportationCost.ContextMenuStrip = this.cmsGenerate;
             this.txtTransportationCost.Location = new System.Drawing.Point(136, 28);
             this.txtTransportationCost.Name = "txtTransportationCost";
             this.txtTransportationCost.Size = new System.Drawing.Size(215, 20);
             this.txtTransportationCost.TabIndex = 13;
+            this.txtTransportationCost.Enter += new System.EventHandler(this.txtTransportationCost_Enter);
+            this.txtTransportationCost.Leave += new System.EventHandler(this.txtTransportationCost_Leave);
             // 
             // kryptonLabel8
             // 
@@ -464,32 +490,10 @@
             this.kryptonLabel10.TabIndex = 10;
             this.kryptonLabel10.Values.Text = "Chi Phí Vận Chuyễn";
             // 
-            // gbxMenuTop
-            // 
-            this.gbxMenuTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gbxMenuTop.Location = new System.Drawing.Point(0, 0);
-            this.gbxMenuTop.Name = "gbxMenuTop";
-            // 
-            // gbxMenuTop.Panel
-            // 
-            this.gbxMenuTop.Panel.Controls.Add(this.btnSave);
-            this.gbxMenuTop.Size = new System.Drawing.Size(770, 78);
-            this.gbxMenuTop.TabIndex = 0;
-            this.gbxMenuTop.Values.Heading = "";
-            // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(17, 25);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(90, 25);
-            this.btnSave.TabIndex = 1;
-            this.btnSave.Values.Text = "Lưu";
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
             // kryptonPanel1
             // 
             this.kryptonPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.kryptonPanel1.Location = new System.Drawing.Point(0, 354);
+            this.kryptonPanel1.Location = new System.Drawing.Point(0, 307);
             this.kryptonPanel1.Name = "kryptonPanel1";
             this.kryptonPanel1.Size = new System.Drawing.Size(774, 5);
             this.kryptonPanel1.TabIndex = 1;
@@ -503,21 +507,21 @@
             // gbxBot.Panel
             // 
             this.gbxBot.Panel.Controls.Add(this.gbcContentBox);
-            this.gbxBot.Panel.Controls.Add(this.gbcMenuBot);
-            this.gbxBot.Size = new System.Drawing.Size(774, 360);
+            this.gbxBot.Size = new System.Drawing.Size(774, 151);
             this.gbxBot.TabIndex = 3;
             this.gbxBot.Values.Heading = "";
             // 
             // gbcContentBox
             // 
             this.gbcContentBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbcContentBox.Location = new System.Drawing.Point(0, 78);
+            this.gbcContentBox.Location = new System.Drawing.Point(0, 0);
             this.gbcContentBox.Name = "gbcContentBox";
             // 
             // gbcContentBox.Panel
             // 
             this.gbcContentBox.Panel.Controls.Add(this.dgvContentBot);
-            this.gbcContentBox.Size = new System.Drawing.Size(770, 276);
+            this.gbcContentBox.Panel.Controls.Add(this.kryptonGroupBox2);
+            this.gbcContentBox.Size = new System.Drawing.Size(770, 145);
             this.gbcContentBox.TabIndex = 4;
             this.gbcContentBox.Values.Heading = "";
             // 
@@ -534,36 +538,16 @@
             this.noteDataGridViewTextBoxColumn});
             this.dgvContentBot.DataSource = this.finalAccountDetailDTOBindingSource;
             this.dgvContentBot.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvContentBot.Location = new System.Drawing.Point(0, 0);
+            this.dgvContentBot.Location = new System.Drawing.Point(0, 59);
             this.dgvContentBot.Name = "dgvContentBot";
-            this.dgvContentBot.Size = new System.Drawing.Size(766, 270);
+            this.dgvContentBot.Size = new System.Drawing.Size(766, 80);
             this.dgvContentBot.TabIndex = 0;
             // 
-            // finalAccountDetailDTOBindingSource
+            // Column1
             // 
-            this.finalAccountDetailDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.FinalAccountDetailDTO);
-            // 
-            // gbcMenuBot
-            // 
-            this.gbcMenuBot.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gbcMenuBot.Location = new System.Drawing.Point(0, 0);
-            this.gbcMenuBot.Name = "gbcMenuBot";
-            // 
-            // gbcMenuBot.Panel
-            // 
-            this.gbcMenuBot.Panel.Controls.Add(this.btnAddFinalAccountItem);
-            this.gbcMenuBot.Size = new System.Drawing.Size(770, 78);
-            this.gbcMenuBot.TabIndex = 1;
-            this.gbcMenuBot.Values.Heading = "";
-            // 
-            // btnAddFinalAccountItem
-            // 
-            this.btnAddFinalAccountItem.Location = new System.Drawing.Point(28, 27);
-            this.btnAddFinalAccountItem.Name = "btnAddFinalAccountItem";
-            this.btnAddFinalAccountItem.Size = new System.Drawing.Size(90, 25);
-            this.btnAddFinalAccountItem.TabIndex = 0;
-            this.btnAddFinalAccountItem.Values.Text = "Thêm";
-            this.btnAddFinalAccountItem.Click += new System.EventHandler(this.btnAddFinalAccountItem_Click);
+            this.Column1.HeaderText = "";
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 25;
             // 
             // kryptonPanel2
             // 
@@ -576,7 +560,7 @@
             // pnlNewItem
             // 
             this.pnlNewItem.Controls.Add(this.gbxNewItem);
-            this.pnlNewItem.Location = new System.Drawing.Point(226, 318);
+            this.pnlNewItem.Location = new System.Drawing.Point(226, 166);
             this.pnlNewItem.Name = "pnlNewItem";
             this.pnlNewItem.Size = new System.Drawing.Size(454, 364);
             this.pnlNewItem.TabIndex = 8;
@@ -656,28 +640,37 @@
             // 
             this.txtUnitCost.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtUnitCost.ContextMenuStrip = this.cmsGenerate;
             this.txtUnitCost.Location = new System.Drawing.Point(111, 108);
             this.txtUnitCost.Name = "txtUnitCost";
             this.txtUnitCost.Size = new System.Drawing.Size(270, 20);
             this.txtUnitCost.TabIndex = 22;
+            this.txtUnitCost.Enter += new System.EventHandler(this.txtTransportationCost_Enter);
+            this.txtUnitCost.Leave += new System.EventHandler(this.txtTransportationCost_Leave);
             // 
             // txtQuantity
             // 
             this.txtQuantity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtQuantity.ContextMenuStrip = this.cmsGenerate;
             this.txtQuantity.Location = new System.Drawing.Point(111, 82);
             this.txtQuantity.Name = "txtQuantity";
             this.txtQuantity.Size = new System.Drawing.Size(270, 20);
             this.txtQuantity.TabIndex = 21;
+            this.txtQuantity.Enter += new System.EventHandler(this.txtTransportationCost_Enter);
+            this.txtQuantity.Leave += new System.EventHandler(this.txtTransportationCost_Leave);
             // 
             // txtTotalCostItem
             // 
             this.txtTotalCostItem.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTotalCostItem.ContextMenuStrip = this.cmsGenerate;
             this.txtTotalCostItem.Location = new System.Drawing.Point(111, 134);
             this.txtTotalCostItem.Name = "txtTotalCostItem";
             this.txtTotalCostItem.Size = new System.Drawing.Size(270, 20);
             this.txtTotalCostItem.TabIndex = 20;
+            this.txtTotalCostItem.Enter += new System.EventHandler(this.txtTotalCostItem_Enter);
+            this.txtTotalCostItem.Leave += new System.EventHandler(this.txtTransportationCost_Leave);
             // 
             // kryptonLabel13
             // 
@@ -710,12 +703,6 @@
             this.kryptonLabel16.Size = new System.Drawing.Size(72, 20);
             this.kryptonLabel16.TabIndex = 16;
             this.kryptonLabel16.Values.Text = "Loại Vật Tư";
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "";
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 25;
             // 
             // materialNameDataGridViewTextBoxColumn
             // 
@@ -753,16 +740,79 @@
             this.noteDataGridViewTextBoxColumn.HeaderText = "Note";
             this.noteDataGridViewTextBoxColumn.Name = "noteDataGridViewTextBoxColumn";
             // 
+            // finalAccountDetailDTOBindingSource
+            // 
+            this.finalAccountDetailDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.FinalAccountDetailDTO);
+            // 
+            // kryptonGroupBox1
+            // 
+            this.kryptonGroupBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.kryptonGroupBox1.GroupBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonCustom1;
+            this.kryptonGroupBox1.Location = new System.Drawing.Point(0, 0);
+            this.kryptonGroupBox1.Name = "kryptonGroupBox1";
+            this.kryptonGroupBox1.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2007Blue;
+            // 
+            // kryptonGroupBox1.Panel
+            // 
+            this.kryptonGroupBox1.Panel.Controls.Add(this.btnAddWarehouse);
+            this.kryptonGroupBox1.Size = new System.Drawing.Size(784, 59);
+            this.kryptonGroupBox1.TabIndex = 9;
+            this.kryptonGroupBox1.Values.Heading = "";
+            // 
+            // btnAddWarehouse
+            // 
+            this.btnAddWarehouse.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.Alternate;
+            this.btnAddWarehouse.Location = new System.Drawing.Point(5, 3);
+            this.btnAddWarehouse.Name = "btnAddWarehouse";
+            this.btnAddWarehouse.Size = new System.Drawing.Size(81, 46);
+            this.btnAddWarehouse.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnAddWarehouse.StateCommon.Content.Image.ImageH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.btnAddWarehouse.StateCommon.Content.Image.ImageV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Near;
+            this.btnAddWarehouse.TabIndex = 3;
+            this.btnAddWarehouse.Values.Image = ((System.Drawing.Image)(resources.GetObject("btnAddWarehouse.Values.Image")));
+            this.btnAddWarehouse.Values.Text = "Lưu";
+            this.btnAddWarehouse.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // kryptonGroupBox2
+            // 
+            this.kryptonGroupBox2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.kryptonGroupBox2.GroupBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonCustom1;
+            this.kryptonGroupBox2.Location = new System.Drawing.Point(0, 0);
+            this.kryptonGroupBox2.Name = "kryptonGroupBox2";
+            this.kryptonGroupBox2.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2007Blue;
+            // 
+            // kryptonGroupBox2.Panel
+            // 
+            this.kryptonGroupBox2.Panel.Controls.Add(this.kryptonButton1);
+            this.kryptonGroupBox2.Size = new System.Drawing.Size(766, 59);
+            this.kryptonGroupBox2.TabIndex = 6;
+            this.kryptonGroupBox2.Values.Heading = "";
+            // 
+            // kryptonButton1
+            // 
+            this.kryptonButton1.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.Alternate;
+            this.kryptonButton1.Location = new System.Drawing.Point(5, 3);
+            this.kryptonButton1.Name = "kryptonButton1";
+            this.kryptonButton1.Size = new System.Drawing.Size(81, 46);
+            this.kryptonButton1.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.kryptonButton1.StateCommon.Content.Image.ImageH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.kryptonButton1.StateCommon.Content.Image.ImageV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Near;
+            this.kryptonButton1.TabIndex = 3;
+            this.kryptonButton1.Values.Image = ((System.Drawing.Image)(resources.GetObject("kryptonButton1.Values.Image")));
+            this.kryptonButton1.Values.Text = "Thêm Thông Tin Chi Tiết";
+            this.kryptonButton1.Click += new System.EventHandler(this.btnAddFinalAccountItem_Click);
+            // 
             // NewFinalAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 734);
+            this.ClientSize = new System.Drawing.Size(784, 537);
             this.Controls.Add(this.pnlNewItem);
             this.Controls.Add(this.scMain);
             this.Controls.Add(this.kryptonPanel6);
             this.Controls.Add(this.kryptonPanel5);
             this.Controls.Add(this.kryptonPanel3);
+            this.Controls.Add(this.kryptonGroupBox1);
             this.Name = "NewFinalAccount";
             this.Text = "NewFinalAccount";
             this.Load += new System.EventHandler(this.NewFinalAccount_Load);
@@ -791,9 +841,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cbbConstruction)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbbToPlace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbbStatus)).EndInit();
-            this.gbxMenuTop.Panel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gbxMenuTop)).EndInit();
-            this.gbxMenuTop.ResumeLayout(false);
+            this.cmsGenerate.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).EndInit();
             this.gbxBot.Panel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gbxBot)).EndInit();
@@ -802,10 +850,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gbcContentBox)).EndInit();
             this.gbcContentBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvContentBot)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.finalAccountDetailDTOBindingSource)).EndInit();
-            this.gbcMenuBot.Panel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gbcMenuBot)).EndInit();
-            this.gbcMenuBot.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlNewItem)).EndInit();
             this.pnlNewItem.ResumeLayout(false);
@@ -814,6 +858,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.gbxNewItem)).EndInit();
             this.gbxNewItem.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cbbMaterial)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.finalAccountDetailDTOBindingSource)).EndInit();
+            this.kryptonGroupBox1.Panel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).EndInit();
+            this.kryptonGroupBox1.ResumeLayout(false);
+            this.kryptonGroupBox2.Panel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox2)).EndInit();
+            this.kryptonGroupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -829,8 +880,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel1;
         private ComponentFactory.Krypton.Toolkit.KryptonGroupBox gbxBot;
         private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel2;
-        private ComponentFactory.Krypton.Toolkit.KryptonGroupBox gbxMenuTop;
-        private ComponentFactory.Krypton.Toolkit.KryptonGroupBox gbcMenuBot;
         private ComponentFactory.Krypton.Toolkit.KryptonGroupBox gbxContentTop;
         private ComponentFactory.Krypton.Toolkit.KryptonGroupBox gbcContentBox;
         private ComponentFactory.Krypton.Toolkit.KryptonSplitContainer scContentTop;
@@ -874,8 +923,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel15;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel16;
         private System.Windows.Forms.BindingSource finalAccountDetailDTOBindingSource;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnAddFinalAccountItem;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnSave;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn materialNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
@@ -883,6 +930,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn unitCostDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalCostDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn noteDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ContextMenuStrip cmsGenerate;
+        private System.Windows.Forms.ToolStripMenuItem generateToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonGroupBox kryptonGroupBox1;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnAddWarehouse;
+        private ComponentFactory.Krypton.Toolkit.KryptonGroupBox kryptonGroupBox2;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton1;
     }
 }
 

@@ -101,16 +101,20 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
             string strmonth = dtmonth.ToString("yyyyMM");
             EmployerDTO employer = (EmployerDTO) cbbEmployee.SelectedItem;
             long empId = employer.employeeID;
-            long salary = Convert.ToInt64(txtSalary.Text);
-            long allowance = Convert.ToInt64(txtAllowance.Text);
-            long phoneCost = Convert.ToInt64(txtPhoneCost.Text);
-            long debtPay = Convert.ToInt64(txtDebtPay.Text);
-            long actualIncome = Convert.ToInt64(txtActualIncome.Text);
+            string username = employer.Username;
+            string fullname = employer.Fullname;
+            long salary = Global.ConvertMoneyToLong(txtSalary.Text, ".");
+            long allowance = Global.ConvertMoneyToLong(txtAllowance.Text, ".");
+            long phoneCost = Global.ConvertMoneyToLong(txtPhoneCost.Text, ".");
+            long debtPay = Global.ConvertMoneyToLong(txtDebtPay.Text, ".");
+            long actualIncome = Global.ConvertMoneyToLong(txtActualIncome.Text, ".");
             int isPay = GenerateStatus(cbbIsPay.Text);
             string notes = txtNote.Text;
             EmployeeSalaryDTO salaryDTO = new EmployeeSalaryDTO()
                                            {
                                                EmployeeID = empId,
+                                               Fullname = fullname,
+                                               Username = username,
                                                Month = strmonth,
                                                Salary = salary,
                                                Allowance = allowance,
@@ -165,7 +169,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
             foreach (EmployeeSalaryDTO salary in listSalary)
             {
                 employeeBUS.CreateEmployeeSalary(salary);
-            }            
+            }
         }
 
         private void btnNewSalary_Click(object sender, EventArgs e)
@@ -184,28 +188,20 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
         private void textboxNewSalary_Enter(object sender, EventArgs e)
         {
             KryptonTextBox textBox = (KryptonTextBox)sender;
-            ClearTextboxSalary(textBox);
+            Global.ClearTextboxSalary(textBox);
         }
 
         private void textboxNewSalary_Leave(object sender, EventArgs e)
         {
             KryptonTextBox textBox = (KryptonTextBox) sender;
             SetInitValueTexboxSalary(textBox);
-            if (!Global.ValidateULongNumber(textBox.Text))
+            if (!Global.ValidateULongNumber(textBox.Text.Trim().Replace(".", "")))
             {
                 textBox.Focus();
                 textBox.Text = Constants.EMPTY_TEXT;
             }            
         }
-
-        private void ClearTextboxSalary(KryptonTextBox textBox)
-        {
-            if (textBox.Text.Equals("0"))
-            {
-                textBox.Text = Constants.EMPTY_TEXT;
-            }
-        }
-
+        
         private void SetInitValueTexboxSalary(KryptonTextBox textBox)
         {
             if (textBox.Text.Equals(Constants.EMPTY_TEXT))
@@ -218,12 +214,22 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
         {
             try
             {
-                ActiveControl.Text += "000";                    
+                ActiveControl.Text += ".000";                    
             }
             catch (Exception)
             {                
             }
         }
+
+        private void txtActualIncome_Enter(object sender, EventArgs e)
+        {
+            long salary = Global.ConvertMoneyToLong(txtSalary.Text, ".");
+            long allowance = Global.ConvertMoneyToLong(txtAllowance.Text, ".");
+            long phoneCost = Global.ConvertMoneyToLong(txtPhoneCost.Text, ".");
+            long debtPay = Global.ConvertMoneyToLong(txtDebtPay.Text, ".");
+            long actualIncome = salary + allowance + phoneCost - debtPay;
+            txtActualIncome.Text = Global.ConvertLongToMoney(actualIncome, ".");
+        }       
         
     }
 }
