@@ -33,7 +33,7 @@ namespace ChiTonPrivateEnterpriseManagement
         private void MainForm_Load(object sender, EventArgs e)
         {
             this.IsMdiContainer = true;
-            txtProfiles.Text = Global.CurrentUser.Username + " (" + Global.CurrentUser.Fullname + ")";
+            bsaProfiles.Text = Global.CurrentUser.Username + " (" + Global.CurrentUser.Fullname + ")";
             loadMenu();
         }
 
@@ -51,13 +51,15 @@ namespace ChiTonPrivateEnterpriseManagement
             {
                 if (menuparent.MenuParent == 0)
                 {
-                    tvwMenu.Nodes.Add(menuparent.MenuName).Name = menuparent.MenuName;
+                    tvwMenu.Nodes.Add(menuparent.MenuName).Name = menuparent.MenuName;                    
                     var ParentNode = tvwMenu.Nodes[menuparent.MenuName];
+                    ParentNode.ImageIndex = 0;
                     foreach (var menuchild in listMenus)
                     {
                         if (menuchild.MenuParent == menuparent.MenuID)
                         {
                             ParentNode.Nodes.Add(menuchild.MenuName).Name = menuchild.MenuName;
+                            ParentNode.Nodes[menuchild.MenuName].ImageIndex = 1;
                         }
                     }
                 }
