@@ -14,7 +14,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
 {
     public partial class NewFinalAccount : ComponentFactory.Krypton.Toolkit.KryptonForm
     {
-        private List<FinalAccountDetailDTO> listFinalAccountDetail;
+        private List<FinalAccountDetailDTO> listFinalAccountDetail = new List<FinalAccountDetailDTO>();
         private List<ConstructionDTO> listConstructionHaveWarehouse;
         private List<DebtDTO> listDebt;
         private List<WarehouseDTO> listMainWarehouse;
@@ -50,6 +50,12 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
             _ckBox.CheckedChanged += new EventHandler(ckBox_CheckedChanged);
             pnlNewItem.Visible = false;
             Global.CenterToParent(pnlNewItem, this, Constants.CENTER, 0);
+            List<KryptonTextBox> listTextBox = new List<KryptonTextBox>();
+            listTextBox.Add(txtTransportationCost);
+            listTextBox.Add(txtTotalCost);
+            listTextBox.Add(txtQuantity);
+            listTextBox.Add(txtTotalCostItem);
+            Global.SetDataTextBox(listTextBox, Constants.NUMBER);
         }
 
         void ckBox_CheckedChanged(object sender, EventArgs e)
@@ -95,11 +101,16 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
             finalaccountitem.FinalAccountID = Convert.ToInt64(txtNo.Text);
             finalaccountitem.MaterialID = material.MaterialID;
             finalaccountitem.MaterialName = material.MaterialName;
+            finalaccountitem.RealCalUnit = material.RealCalUnit;
             finalaccountitem.Quantity = Convert.ToInt32(txtQuantity.Text);
-            finalaccountitem.UnitCost = Convert.ToInt32(txtUnitCost.Text);
+            finalaccountitem.UnitCost = Global.ConvertMoneyToLong(txtUnitCost.Text, ".");
+            finalaccountitem.TotalCost = Global.ConvertMoneyToLong(txtTotalCostItem.Text, ".");
             finalaccountitem.Note = txtNoteItem.Text;
             listFinalAccountDetail.Add(finalaccountitem);
             RefreshDisplayData();
+            long totalCostCurr = Global.ConvertMoneyToLong(txtTotalCost.Text, ".");
+            long totalCost = totalCostCurr + finalaccountitem.TotalCost;
+            txtTotalCost.Text = Global.ConvertLongToMoney(totalCost, ".");
         }
 
         private void btnAddFinalAccountItem_Click(object sender, EventArgs e)
@@ -120,8 +131,8 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
             DebtDTO debt = (DebtDTO) cbbDebt.SelectedItem;
             long debtId = debt.DebtID;
             DateTime dateaccount = DateTime.Parse(dtpDateAccount.Text);
-            long transportationCost = Convert.ToInt64(txtTransportationCost.Text);
-            long totalCost = Convert.ToInt64(txtTotalCost.Text);
+            long transportationCost = Global.ConvertMoneyToLong(txtTransportationCost.Text, ".");
+            long totalCost = Global.ConvertMoneyToLong(txtTotalCost.Text, ".");
             string note = txtNote.Text;
             int ispay;            
             if (cbbStatus.Text.Equals(Constants.PAY))
@@ -184,6 +195,45 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
         private void NewFinalAccount_SizeChanged(object sender, EventArgs e)
         {
             Global.CenterToParent(pnlNewItem, this, Constants.CENTER, 0);
+        }
+
+        private void txtTransportationCost_Enter(object sender, EventArgs e)
+        {
+            KryptonTextBox textBox = (KryptonTextBox) sender;
+            textBox.Text = Constants.EMPTY_TEXT;
+        }
+
+        private void txtTransportationCost_Leave(object sender, EventArgs e)
+        {
+            KryptonTextBox textBox = (KryptonTextBox)sender;
+            if(textBox.Text.Equals(Constants.EMPTY_TEXT))
+            {
+                Global.SetDataTextBox(textBox, Constants.NUMBER);
+            }
+        }
+
+        private void txtTotalCostItem_Enter(object sender, EventArgs e)
+        {
+            int quantity = Convert.ToInt32(txtQuantity.Text);
+            long unitCost = Global.ConvertMoneyToLong(txtUnitCost.Text, ".");
+            long totalCost = quantity*unitCost;
+            txtTotalCostItem.Text = Global.ConvertLongToMoney(totalCost, ".");
+        }
+
+        private void generateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ActiveControl.Text += ".000";
+            }
+            catch (Exception)
+            {
+            }
+        }
+
+        private void btnAddWarehouse_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

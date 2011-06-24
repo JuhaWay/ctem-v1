@@ -281,7 +281,7 @@
             // btnNext
             // 
             this.btnNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNext.Location = new System.Drawing.Point(-5, 454);
+            this.btnNext.Location = new System.Drawing.Point(350, 454);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(38, 25);
             this.btnNext.TabIndex = 0;

@@ -25,9 +25,9 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
         {
             long debtId = Global.GetDataCombobox(cbbDebt, "Debt");
             string representationDebtName = txtRepresentationDebtName.Text;
-            DateTime compareDate = DateTime.Parse(dtpDateCompare.Text);
-            DateTime fromDate = DateTime.Parse(dtpFromDate.Text);
-            DateTime toDate = DateTime.Parse(dtpToDate.Text);
+            DateTime compareDate = DateTime.ParseExact(dtpDateCompare.Text + " 00:00:00", "dd/MM/yyyy hh:mm:ss", null);
+            DateTime fromDate = DateTime.ParseExact(dtpFromDate.Text + " 00:00:00", "dd/MM/yyyy hh:mm:ss", null);
+            DateTime toDate = DateTime.ParseExact(dtpToDate.Text + " 00:00:00", "dd/MM/yyyy hh:mm:ss", null);
             long totalOwe = Convert.ToInt64(txtToalOwe.Text);
             string note = txtNote.Text;
             CompareDebtDTO compareDebtDto = new CompareDebtDTO()
@@ -43,7 +43,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
             compareBus.Create(compareDebtDto);
             Close();
             FinalAccountManagement finalAccountManagement = new FinalAccountManagement();
-            finalAccountManagement.Show();
+            finalAccountManagement.ShowDialog();
         }
 
         private void NewCompareDebt_Load(object sender, EventArgs e)
