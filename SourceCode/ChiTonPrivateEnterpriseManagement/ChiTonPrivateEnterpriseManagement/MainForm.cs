@@ -188,7 +188,10 @@ namespace ChiTonPrivateEnterpriseManagement
             {
                 if (tvwMenu.Nodes[Constants.MANAGE_MATERIAL].IsSelected)
                 {
-                    return;
+                    MaterialManagement materialManagement = new MaterialManagement();
+                    materialManagement.MdiParent = this;
+                    pnlMainContent.Controls.Add(materialManagement);
+                    materialManagement.Show();
                 }
             }
             catch { }
