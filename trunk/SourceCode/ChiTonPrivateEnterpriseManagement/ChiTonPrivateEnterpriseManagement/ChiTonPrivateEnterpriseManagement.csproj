@@ -164,6 +164,12 @@
     <Compile Include="ModuleForms\ManageConstruction\AddConstruction.Designer.cs">
       <DependentUpon>AddConstruction.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModuleForms\ManageConstruction\AddNewMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForms\ManageConstruction\AddNewMaterial.Designer.cs">
+      <DependentUpon>AddNewMaterial.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModuleForms\ManageConstruction\AddSubconstruction.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -175,6 +181,12 @@
     </Compile>
     <Compile Include="ModuleForms\ManageConstruction\ConstructionManagement.Designer.cs">
       <DependentUpon>ConstructionManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleForms\ManageConstruction\MaterialManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForms\ManageConstruction\MaterialManagement.Designer.cs">
+      <DependentUpon>MaterialManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="ModuleForms\ManageConstruction\SelectSubConstructionBox.cs">
       <SubType>Form</SubType>
@@ -248,7 +260,9 @@
     <Compile Include="ModuleForms\ManageEmployee\SalaryManagement.designer.cs">
       <DependentUpon>SalaryManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="ModuleForms\ManageEstimation\AddNewEsDetail.cs" />
+    <Compile Include="ModuleForms\ManageEstimation\AddNewEsDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ModuleForms\ManageEstimation\AddNewEsDetail.Designer.cs">
       <DependentUpon>AddNewEsDetail.cs</DependentUpon>
     </Compile>
@@ -377,11 +391,17 @@
     <EmbeddedResource Include="ModuleForms\ManageConstruction\AddConstruction.resx">
       <DependentUpon>AddConstruction.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\ManageConstruction\AddNewMaterial.resx">
+      <DependentUpon>AddNewMaterial.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ModuleForms\ManageConstruction\AddSubconstruction.resx">
       <DependentUpon>AddSubconstruction.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModuleForms\ManageConstruction\ConstructionManagement.resx">
       <DependentUpon>ConstructionManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\ManageConstruction\MaterialManagement.resx">
+      <DependentUpon>MaterialManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModuleForms\ManageConstruction\SelectSubConstructionBox.resx">
       <DependentUpon>SelectSubConstructionBox.cs</DependentUpon>
