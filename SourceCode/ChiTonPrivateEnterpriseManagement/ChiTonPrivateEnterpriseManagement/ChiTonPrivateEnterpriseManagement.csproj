@@ -248,6 +248,10 @@
     <Compile Include="ModuleForms\ManageEmployee\SalaryManagement.designer.cs">
       <DependentUpon>SalaryManagement.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModuleForms\ManageEstimation\AddNewEsDetail.cs" />
+    <Compile Include="ModuleForms\ManageEstimation\AddNewEsDetail.Designer.cs">
+      <DependentUpon>AddNewEsDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModuleForms\ManageEstimation\AddNewEstimate.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -422,6 +426,9 @@
     <EmbeddedResource Include="ModuleForms\ManageEmployee\SalaryManagement.resx">
       <DependentUpon>SalaryManagement.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\ManageEstimation\AddNewEsDetail.resx">
+      <DependentUpon>AddNewEsDetail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ModuleForms\ManageEstimation\AddNewEstimate.resx">
       <DependentUpon>AddNewEstimate.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -492,35 +499,26 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-<<<<<<< .mine
     <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.CompareDebtDTO.datasource" />
     <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.DebtDTO.datasource" />
     <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.EmployeeAdvanceDTO.datasource" />
     <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.EmployeeSalaryDTO.datasource" />
-=======
     <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.ConstructionDTO.datasource" />
     <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.EmployerConstructionDTO.datasource" />
->>>>>>> .r144
     <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.EmployerDTO.datasource" />
-<<<<<<< .mine
     <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.FinalAccountDetailDTO.datasource" />
     <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.FinalAccountDTO.datasource" />
-=======
     <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.EstimateDetailDTO.datasource" />
     <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.EstimateDTO.datasource" />
     <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.LeftMenuDTO.datasource" />
     <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.MaterialDTO.datasource" />
->>>>>>> .r144
     <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.RightDTO.datasource" />
     <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.RoleDTO.datasource" />
-<<<<<<< .mine
     <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.WarehouseDTO.datasource" />
     <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.WorkerSalaryDTO.datasource" />
-=======
     <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.SubcontractorDTO.datasource" />
     <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.WorkerConstructionDTO.datasource" />
     <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.WorkerDTO.datasource" />
->>>>>>> .r144
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
