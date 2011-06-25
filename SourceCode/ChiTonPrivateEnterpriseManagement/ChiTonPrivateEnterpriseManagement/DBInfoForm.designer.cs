@@ -65,14 +65,14 @@ namespace ChiTonPrivateEnterpriseManagement
             this.kryptonPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonPanel.Location = new System.Drawing.Point(0, 0);
             this.kryptonPanel.Name = "kryptonPanel";
-            this.kryptonPanel.Size = new System.Drawing.Size(294, 247);
+            this.kryptonPanel.Size = new System.Drawing.Size(294, 266);
             this.kryptonPanel.TabIndex = 0;
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(106, 192);
+            this.btnSave.Location = new System.Drawing.Point(106, 207);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(83, 33);
+            this.btnSave.Size = new System.Drawing.Size(83, 36);
             this.btnSave.TabIndex = 12;
             this.btnSave.Values.Text = "Save";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -83,42 +83,42 @@ namespace ChiTonPrivateEnterpriseManagement
             this.cbxAuthentication.Items.AddRange(new object[] {
             "SQL Server Authentication",
             "Windows Authentication"});
-            this.cbxAuthentication.Location = new System.Drawing.Point(106, 81);
+            this.cbxAuthentication.Location = new System.Drawing.Point(106, 87);
             this.cbxAuthentication.Name = "cbxAuthentication";
-            this.cbxAuthentication.Size = new System.Drawing.Size(171, 22);
+            this.cbxAuthentication.Size = new System.Drawing.Size(171, 21);
             this.cbxAuthentication.TabIndex = 11;
             this.cbxAuthentication.SelectedIndexChanged += new System.EventHandler(this.cbxAuthentication_SelectedIndexChanged);
             // 
             // txtDatabase
             // 
-            this.txtDatabase.Location = new System.Drawing.Point(106, 153);
+            this.txtDatabase.Location = new System.Drawing.Point(106, 165);
             this.txtDatabase.Name = "txtDatabase";
-            this.txtDatabase.Size = new System.Drawing.Size(171, 22);
+            this.txtDatabase.Size = new System.Drawing.Size(171, 20);
             this.txtDatabase.TabIndex = 10;
             this.txtDatabase.Text = "CTEM-DB-v1";
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(106, 129);
+            this.txtPassword.Location = new System.Drawing.Point(106, 139);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(171, 22);
+            this.txtPassword.Size = new System.Drawing.Size(171, 20);
             this.txtPassword.TabIndex = 9;
             this.txtPassword.Text = "123456";
             // 
             // txtUserName
             // 
-            this.txtUserName.Location = new System.Drawing.Point(106, 105);
+            this.txtUserName.Location = new System.Drawing.Point(106, 113);
             this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(171, 22);
+            this.txtUserName.Size = new System.Drawing.Size(171, 20);
             this.txtUserName.TabIndex = 8;
             this.txtUserName.Text = "sa";
             // 
             // txtServerName
             // 
-            this.txtServerName.Location = new System.Drawing.Point(106, 57);
+            this.txtServerName.Location = new System.Drawing.Point(106, 61);
             this.txtServerName.Name = "txtServerName";
-            this.txtServerName.Size = new System.Drawing.Size(171, 22);
+            this.txtServerName.Size = new System.Drawing.Size(171, 20);
             this.txtServerName.TabIndex = 6;
             this.txtServerName.Text = "10.88.39.55";
             // 
@@ -128,55 +128,55 @@ namespace ChiTonPrivateEnterpriseManagement
             this.kryptonLabel6.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.TitleControl;
             this.kryptonLabel6.Location = new System.Drawing.Point(0, 0);
             this.kryptonLabel6.Name = "kryptonLabel6";
-            this.kryptonLabel6.Size = new System.Drawing.Size(294, 27);
+            this.kryptonLabel6.Size = new System.Drawing.Size(294, 29);
             this.kryptonLabel6.TabIndex = 5;
             this.kryptonLabel6.Values.Text = " Enter database connection details";
             // 
             // kryptonLabel5
             // 
-            this.kryptonLabel5.Location = new System.Drawing.Point(13, 153);
+            this.kryptonLabel5.Location = new System.Drawing.Point(13, 165);
             this.kryptonLabel5.Name = "kryptonLabel5";
-            this.kryptonLabel5.Size = new System.Drawing.Size(57, 19);
+            this.kryptonLabel5.Size = new System.Drawing.Size(61, 20);
             this.kryptonLabel5.TabIndex = 4;
             this.kryptonLabel5.Values.Text = "Database";
             // 
             // lblPassword
             // 
-            this.lblPassword.Location = new System.Drawing.Point(13, 129);
+            this.lblPassword.Location = new System.Drawing.Point(13, 139);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(57, 19);
+            this.lblPassword.Size = new System.Drawing.Size(62, 20);
             this.lblPassword.TabIndex = 3;
             this.lblPassword.Values.Text = "Password";
             // 
             // kryptonLabel3
             // 
-            this.kryptonLabel3.Location = new System.Drawing.Point(13, 81);
+            this.kryptonLabel3.Location = new System.Drawing.Point(13, 87);
             this.kryptonLabel3.Name = "kryptonLabel3";
-            this.kryptonLabel3.Size = new System.Drawing.Size(84, 19);
+            this.kryptonLabel3.Size = new System.Drawing.Size(91, 20);
             this.kryptonLabel3.TabIndex = 2;
             this.kryptonLabel3.Values.Text = "Authentication";
             // 
             // lblUserName
             // 
-            this.lblUserName.Location = new System.Drawing.Point(13, 105);
+            this.lblUserName.Location = new System.Drawing.Point(13, 113);
             this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(66, 19);
+            this.lblUserName.Size = new System.Drawing.Size(71, 20);
             this.lblUserName.TabIndex = 1;
             this.lblUserName.Values.Text = "User Name";
             // 
             // kryptonLabel1
             // 
-            this.kryptonLabel1.Location = new System.Drawing.Point(13, 57);
+            this.kryptonLabel1.Location = new System.Drawing.Point(13, 61);
             this.kryptonLabel1.Name = "kryptonLabel1";
-            this.kryptonLabel1.Size = new System.Drawing.Size(74, 19);
+            this.kryptonLabel1.Size = new System.Drawing.Size(81, 20);
             this.kryptonLabel1.TabIndex = 0;
             this.kryptonLabel1.Values.Text = "Server Name";
             // 
             // DBInfoForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(294, 247);
+            this.ClientSize = new System.Drawing.Size(294, 266);
             this.Controls.Add(this.kryptonPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
