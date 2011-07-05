@@ -256,6 +256,7 @@ namespace ChiTonPrivateEnterpriseManagement
                     WorkerSalaryManagement workerSalaryManagement = new WorkerSalaryManagement();
                     workerSalaryManagement.MdiParent = this;
                     pnlMainContent.Controls.Add(workerSalaryManagement);
+                    workerSalaryManagement.Dock = DockStyle.Fill;
                     workerSalaryManagement.Show();
                     return;
                 }

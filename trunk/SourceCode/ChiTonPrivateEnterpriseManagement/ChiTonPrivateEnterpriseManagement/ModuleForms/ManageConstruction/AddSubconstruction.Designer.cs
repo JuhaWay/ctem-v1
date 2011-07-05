@@ -60,18 +60,17 @@
             // 
             // panel
             // 
-            this.panel.Controls.Add(this.btCancel);
-            this.panel.Controls.Add(this.btSave);
             this.panel.Controls.Add(this.kryptonGroupBox2);
             this.panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel.Location = new System.Drawing.Point(0, 0);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(719, 614);
+            this.panel.Size = new System.Drawing.Size(719, 621);
+            this.panel.StateCommon.Color1 = System.Drawing.Color.Cornsilk;
             this.panel.TabIndex = 0;
             // 
             // btCancel
             // 
-            this.btCancel.Location = new System.Drawing.Point(329, 572);
+            this.btCancel.Location = new System.Drawing.Point(343, 534);
             this.btCancel.Name = "btCancel";
             this.btCancel.Size = new System.Drawing.Size(72, 25);
             this.btCancel.TabIndex = 10;
@@ -80,7 +79,7 @@
             // 
             // btSave
             // 
-            this.btSave.Location = new System.Drawing.Point(242, 572);
+            this.btSave.Location = new System.Drawing.Point(259, 534);
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(78, 25);
             this.btSave.TabIndex = 9;
@@ -89,11 +88,13 @@
             // 
             // kryptonGroupBox2
             // 
-            this.kryptonGroupBox2.Location = new System.Drawing.Point(19, 30);
+            this.kryptonGroupBox2.Location = new System.Drawing.Point(3, 3);
             this.kryptonGroupBox2.Name = "kryptonGroupBox2";
             // 
             // kryptonGroupBox2.Panel
             // 
+            this.kryptonGroupBox2.Panel.Controls.Add(this.btSave);
+            this.kryptonGroupBox2.Panel.Controls.Add(this.btCancel);
             this.kryptonGroupBox2.Panel.Controls.Add(this.btcreateSubcon);
             this.kryptonGroupBox2.Panel.Controls.Add(this.cbSubconName);
             this.kryptonGroupBox2.Panel.Controls.Add(this.kryptonLabel1);
@@ -109,7 +110,8 @@
             this.kryptonGroupBox2.Panel.Controls.Add(this.lbAddress);
             this.kryptonGroupBox2.Panel.Controls.Add(this.ipConstructionName);
             this.kryptonGroupBox2.Panel.Controls.Add(this.lbConstructionName);
-            this.kryptonGroupBox2.Size = new System.Drawing.Size(697, 536);
+            this.kryptonGroupBox2.Size = new System.Drawing.Size(713, 608);
+            this.kryptonGroupBox2.StateCommon.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.ExpertCheckedTracking;
             this.kryptonGroupBox2.TabIndex = 7;
             this.kryptonGroupBox2.Values.Heading = "";
             // 
@@ -118,7 +120,9 @@
             this.btcreateSubcon.Location = new System.Drawing.Point(343, 81);
             this.btcreateSubcon.Name = "btcreateSubcon";
             this.btcreateSubcon.Size = new System.Drawing.Size(37, 22);
+            this.btcreateSubcon.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btcreateSubcon.TabIndex = 22;
+            this.btcreateSubcon.Values.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.add;
             this.btcreateSubcon.Values.Text = "+";
             this.btcreateSubcon.Click += new System.EventHandler(this.kryptonButton1_Click);
             // 
@@ -243,12 +247,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(719, 614);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.ClientSize = new System.Drawing.Size(719, 621);
             this.Controls.Add(this.panel);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AddSubconstruction";
-            this.Text = "AddConstruction";
+            this.Text = "Tạo công trình phụ";
             this.Load += new System.EventHandler(this.AddConstruction_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panel)).EndInit();
             this.panel.ResumeLayout(false);

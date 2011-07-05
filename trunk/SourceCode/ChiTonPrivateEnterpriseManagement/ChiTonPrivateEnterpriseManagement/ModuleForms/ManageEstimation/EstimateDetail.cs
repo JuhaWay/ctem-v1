@@ -25,13 +25,11 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
         private long _totalCost;
         public EstimateDetail()
         {
-            CenterToScreen();
             InitializeComponent();
         }
 
         public EstimateDetail(long estimateId, long ConstructionID)
         {
-            CenterToScreen();
             _estimateId = estimateId;
             _constructionID = ConstructionID;
             InitializeComponent();

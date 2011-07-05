@@ -31,7 +31,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
         {
             ConstructionDTO dto = cbConstruction.SelectedItem as ConstructionDTO;
             bool test = _estimateBUS.creatEstimate(dto.ConstructionID,ipEstName.Text,
-                long.Parse(ipTotalCost.Text),0,new DateTime(2011,6,1),new DateTime(2011,6,1),
+                0,0,new DateTime(2011,6,1),new DateTime(2011,6,1),
                 "","");
            if(test) 
                MessageBox.Show("Tạo dự toán thành công !");

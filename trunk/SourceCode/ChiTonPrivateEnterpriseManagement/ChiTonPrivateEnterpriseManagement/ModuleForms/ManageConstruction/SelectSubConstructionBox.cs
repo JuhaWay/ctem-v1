@@ -18,6 +18,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
         public SubcontractorDTO subcontractorDTO;
         public SelectSubConstructionBox()
         {
+            CenterToParent();
             InitializeComponent();
         }
         public SelectSubConstructionBox(List<SubcontractorDTO> _list)

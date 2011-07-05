@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using System.IO;
 using ChiTonPrivateEnterpriseManagement.Classes.Modules;
 using ChiTonPrivateEnterpriseManagement.Classes.DTO;
+using ChiTonPrivateEnterpriseManagement.Classes.Global;
 
 namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
 {
@@ -58,6 +59,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                     ConstructionDTO consDto = new ConstructionDTO
                     {
                         ConstructionID = Convert.ToInt64(reader["ConstructionID"]),
+                        Status = Convert.ToString(reader["Status"]),
                         SubcontractorName = Convert.ToString(reader["SubcontractorName"]),
                         ConstructionName = Convert.ToString(reader["ConstructionName"]),
                         Description = Convert.ToString(reader["Description"]),
@@ -65,8 +67,13 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         CommencementDate = Convert.ToDateTime(reader["CommencementDate"]),
                         CompletionDate = Convert.ToDateTime(reader["CompletionDate"]),
                         TotalEstimateCost = Convert.ToInt64(reader["TotalEstimateCost"]),
+                        TotalRealCost = Convert.ToInt64(reader["TotalRealCost"]),
                         HasEstimate = Convert.ToBoolean(reader["HasEstimate"]),
-                        ParentID = Convert.ToInt64(reader["ParentID"])
+                        ParentID = Convert.ToInt64(reader["ParentID"]),
+                        CreatedBy = reader["CreatedBy"]!= DBNull.Value ? Convert.ToString(reader["CreatedBy"]) : "",
+                        CreatedDate = reader["CreatedDate"] != DBNull.Value ? Convert.ToDateTime(reader["CreatedDate"]) : new DateTime(),
+                        UpdatedBy = reader["UpdatedBy"] != DBNull.Value ? Convert.ToString(reader["UpdatedBy"]) : "",
+                        LastUpdated = reader["LastUpdated"] != DBNull.Value ? Convert.ToDateTime(reader["LastUpdated"]) : new DateTime()
                     };
                     listcons.Add(consDto);
                 }
@@ -141,6 +148,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.Parameters.Add(new SqlParameter("@status", dto.Status));
                 cmd.Parameters.Add(new SqlParameter("@hasEstimate", dto.HasEstimate));
                 cmd.Parameters.Add(new SqlParameter("@parentID", dto.ParentID));
+                cmd.Parameters.Add(new SqlParameter("@createdBy",Global.Global.CurrentUser.Username));
                 cmd.ExecuteNonQuery();
                 return true;
             }
@@ -181,7 +189,9 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         CommencementDate = Convert.ToDateTime(reader["CommencementDate"]),
                         CompletionDate = Convert.ToDateTime(reader["CompletionDate"]),
                         HasEstimate = Convert.ToBoolean(reader["HasEstimate"]),
-                        SubconstractorID = Convert.ToInt64(reader["SubconstractorID"])
+                        Status = Convert.ToString(reader["Status"]),
+                        SubconstractorID = Convert.ToInt64(reader["SubcontractorID"]),
+
                     };
                     return consDto;
                 }
@@ -218,6 +228,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                     ConstructionDTO consDto = new ConstructionDTO
                     {
                         ConstructionID = Convert.ToInt64(reader["ConstructionID"]),
+                        Status = Convert.ToString(reader["Status"]),
                         SubcontractorName = Convert.ToString(reader["SubcontractorName"]),
                         ConstructionName = Convert.ToString(reader["ConstructionName"]),
                         Description = Convert.ToString(reader["Description"]),
@@ -225,8 +236,13 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         CommencementDate = Convert.ToDateTime(reader["CommencementDate"]),
                         CompletionDate = Convert.ToDateTime(reader["CompletionDate"]),
                         TotalEstimateCost = Convert.ToInt64(reader["TotalEstimateCost"]),
+                        TotalRealCost = Convert.ToInt64(reader["TotalRealCost"]),
                         HasEstimate = Convert.ToBoolean(reader["HasEstimate"]),
-                        ParentID = Convert.ToInt64(reader["ParentID"])
+                        ParentID = Convert.ToInt64(reader["ParentID"]),
+                        CreatedBy = reader["CreatedBy"] != DBNull.Value ? Convert.ToString(reader["CreatedBy"]) : "",
+                        CreatedDate = reader["CreatedDate"] != DBNull.Value ? Convert.ToDateTime(reader["CreatedDate"]) : new DateTime(),
+                        UpdatedBy = reader["UpdatedBy"] != DBNull.Value ? Convert.ToString(reader["UpdatedBy"]) : "",
+                        LastUpdated = reader["LastUpdated"] != DBNull.Value ? Convert.ToDateTime(reader["LastUpdated"]) : new DateTime()
                     };
                     listcons.Add(consDto);
                 }
@@ -307,6 +323,8 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.Parameters.Add(new SqlParameter("@totalEstimateCost", dto.TotalEstimateCost));
                 cmd.Parameters.Add(new SqlParameter("@status", dto.Status));
                 cmd.Parameters.Add(new SqlParameter("@hasEstimate", dto.HasEstimate));
+                cmd.Parameters.Add(new SqlParameter("@updatedBy",Global.Global.CurrentUser.Username));
+                
 
                 cmd.ExecuteNonQuery();
                 return true;

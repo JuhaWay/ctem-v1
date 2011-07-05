@@ -29,6 +29,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
 
         private void btSave_Click(object sender, EventArgs e)
         {
+            if (!validate()) return;
             WorkerSalaryDTO dto = new WorkerSalaryDTO();
             dto.ConstructionID = (cbCons.SelectedItem as ConstructionDTO).ConstructionID;
             dto.Name = ipName.Text;
@@ -43,6 +44,18 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             _workerSalaryBUS.CreateWks(dto);
             MessageBox.Show("Tạo tổng kết thành công !");
             this.Close();
+        }
+        private bool validate(){
+            if(ipName.Text.Trim().Equals("")){
+                MessageBox.Show("vui lòng điền tên");
+                return false;
+            }
+            else if (cbCons.SelectedIndex < 0)
+            {
+                MessageBox.Show("vui lòng chọn công trình");
+                return false;
+            }
+            return true;
         }
     }
 }

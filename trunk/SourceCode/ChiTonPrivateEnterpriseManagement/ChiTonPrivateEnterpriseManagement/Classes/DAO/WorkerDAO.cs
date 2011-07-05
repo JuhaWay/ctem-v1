@@ -58,10 +58,10 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         Salary = Convert.ToInt64(reader["Salary"]),
                         TotalSalary = Convert.ToInt64(reader["TotalSalary"]),
                         Position = Convert.ToString(reader["Position"]),
-                        CreatedDate = Convert.ToDateTime(reader["CreatedDate"]),
-                        LastUpdated = Convert.ToDateTime(reader["LastUpdated"]),
-                        CreatedBy = Convert.ToString(reader["CreatedBy"]),
-                        UpdatedBy = Convert.ToString(reader["UpdatedBy"])
+                         CreatedBy = reader["CreatedBy"] != DBNull.Value ? Convert.ToString(reader["CreatedBy"]) : "",
+                        CreatedDate = reader["CreatedDate"] != DBNull.Value ? Convert.ToDateTime(reader["CreatedDate"]) : new DateTime(),
+                        UpdatedBy = reader["UpdatedBy"] != DBNull.Value ? Convert.ToString(reader["UpdatedBy"]) : "",
+                        LastUpdated = reader["LastUpdated"] != DBNull.Value ? Convert.ToDateTime(reader["LastUpdated"]) : new DateTime()
                     };
                     listcons.Add(dto);
                 }
@@ -93,10 +93,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.Parameters.Add(new SqlParameter("@salary", dto.Salary));
                 cmd.Parameters.Add(new SqlParameter("@totalSalary", dto.TotalSalary));
                 cmd.Parameters.Add(new SqlParameter("@position", dto.Position));
-                cmd.Parameters.Add(new SqlParameter("@createDate", dto.CreatedDate));
-                cmd.Parameters.Add(new SqlParameter("@lastUpdated", dto.LastUpdated));
-                cmd.Parameters.Add(new SqlParameter("@createdBy", dto.CreatedBy));
-                cmd.Parameters.Add(new SqlParameter("@updatedBy", dto.UpdatedBy));
+                cmd.Parameters.Add(new SqlParameter("@createdBy", Global.Global.CurrentUser.Username));
                 cmd.ExecuteNonQuery();
                 return true;
             }
@@ -128,13 +125,36 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.Parameters.Add(new SqlParameter("@Salary", dto.Salary));
                 cmd.Parameters.Add(new SqlParameter("@TotalSalary", dto.TotalSalary));
                 cmd.Parameters.Add(new SqlParameter("@Position", dto.Position));
-                cmd.Parameters.Add(new SqlParameter("@UpdatedBy", dto.UpdatedBy));
+                cmd.Parameters.Add(new SqlParameter("@UpdatedBy", Global.Global.CurrentUser.Username));
                 cmd.ExecuteNonQuery();
                 return true;
             }
             catch (SqlException sql)
             {
                 MessageBox.Show(sql.Message);
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null)
+                    Connection.Close();
+            }
+        }
+        public bool delete(long id)
+        {
+            var cmd = new SqlCommand("[dbo].[Worker_Delete]", Connection) { CommandType = CommandType.StoredProcedure };
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@WorkerID", id));
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException sql)
+            {
                 return false;
             }
             finally

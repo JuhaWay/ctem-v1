@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using ChiTonPrivateEnterpriseManagement.Classes.BUS;
+using ChiTonPrivateEnterpriseManagement.Classes.DTO;
 
 namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
 {
@@ -14,14 +15,34 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
 
         private EstimateBUS _estimateBUS = new EstimateBUS();
 
+
+        private long _constructionID=-1;
+        private EstimateDTO dtoTemp = new EstimateDTO();
+
         public EstimateManagement()
+        {
+            initForm();
+        }
+        public EstimateManagement(long consID)
+        {
+            initForm();
+            CenterToParent();
+            _constructionID = consID;
+        }
+        public void initForm()
         {
             InitializeComponent();
         }
 
         private void EstimateManagement_Load(object sender, EventArgs e)
         {
-            dgvEstimate.DataSource = _estimateBUS.LoadAllEstimates();
+            loadData();
+        }
+
+        public void loadData()
+        {
+            if (_constructionID == -1) dgvEstimate.DataSource = _estimateBUS.LoadAllEstimates();
+            else dgvEstimate.DataSource = _estimateBUS.LoadEstimateByConstruction(_constructionID);
         }
 
         private void btCreateEst_Click(object sender, EventArgs e)
@@ -48,7 +69,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
                 }
             }
 
-            dgvEstimate.DataSource = _estimateBUS.LoadAllEstimates();
+            loadData();
 
         }
 
@@ -71,7 +92,25 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
                     _estimateBUS.DeleteEstimate(EstimateID);
                 }
             }
-            dgvEstimate.DataSource = _estimateBUS.LoadAllEstimates();
+            loadData();
+        }
+
+        private void dgvEstimate_MouseClick(object sender, MouseEventArgs e)
+        {
+            int currentMouseOverRow = dgvEstimate.HitTest(e.X, e.Y).RowIndex;
+            if (currentMouseOverRow > -1)
+            {
+                dtoTemp = dgvEstimate.Rows[currentMouseOverRow].DataBoundItem as EstimateDTO;
+                ipEstName.Text = dtoTemp.EstimateName;
+            }
+        }
+
+        private void btSave_Click(object sender, EventArgs e)
+        {
+
+            _estimateBUS.UpdateNameEstimate(dtoTemp.EstimateID, ipEstName.Text);
+            MessageBox.Show("cập nhật thành công!");
+            loadData();
         }
     }
 }
