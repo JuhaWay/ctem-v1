@@ -32,14 +32,12 @@
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.kryptonPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonGroupBox1 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
+            this.btClose = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btSave = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.cbConstruction = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.lbConstruction = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.ipEstName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.lbEstName = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.lbConstruction = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.cbConstruction = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
-            this.lbTotalCost = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.ipTotalCost = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.btSave = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.btClose = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).BeginInit();
@@ -66,8 +64,6 @@
             // 
             this.kryptonGroupBox1.Panel.Controls.Add(this.btClose);
             this.kryptonGroupBox1.Panel.Controls.Add(this.btSave);
-            this.kryptonGroupBox1.Panel.Controls.Add(this.ipTotalCost);
-            this.kryptonGroupBox1.Panel.Controls.Add(this.lbTotalCost);
             this.kryptonGroupBox1.Panel.Controls.Add(this.cbConstruction);
             this.kryptonGroupBox1.Panel.Controls.Add(this.lbConstruction);
             this.kryptonGroupBox1.Panel.Controls.Add(this.ipEstName);
@@ -75,6 +71,41 @@
             this.kryptonGroupBox1.Size = new System.Drawing.Size(317, 247);
             this.kryptonGroupBox1.TabIndex = 0;
             this.kryptonGroupBox1.Values.Heading = "Nhập dự toán :";
+            // 
+            // btClose
+            // 
+            this.btClose.Location = new System.Drawing.Point(158, 130);
+            this.btClose.Name = "btClose";
+            this.btClose.Size = new System.Drawing.Size(58, 25);
+            this.btClose.TabIndex = 9;
+            this.btClose.Values.Text = "Đóng";
+            this.btClose.Click += new System.EventHandler(this.btClose_Click);
+            // 
+            // btSave
+            // 
+            this.btSave.Location = new System.Drawing.Point(90, 130);
+            this.btSave.Name = "btSave";
+            this.btSave.Size = new System.Drawing.Size(62, 25);
+            this.btSave.TabIndex = 8;
+            this.btSave.Values.Text = "Lưu";
+            this.btSave.Click += new System.EventHandler(this.btSave_Click);
+            // 
+            // cbConstruction
+            // 
+            this.cbConstruction.DropDownWidth = 121;
+            this.cbConstruction.Location = new System.Drawing.Point(159, 78);
+            this.cbConstruction.Name = "cbConstruction";
+            this.cbConstruction.Size = new System.Drawing.Size(121, 22);
+            this.cbConstruction.TabIndex = 5;
+            this.cbConstruction.Text = "chọn...";
+            // 
+            // lbConstruction
+            // 
+            this.lbConstruction.Location = new System.Drawing.Point(63, 78);
+            this.lbConstruction.Name = "lbConstruction";
+            this.lbConstruction.Size = new System.Drawing.Size(69, 19);
+            this.lbConstruction.TabIndex = 4;
+            this.lbConstruction.Values.Text = "Công trình :";
             // 
             // ipEstName
             // 
@@ -90,56 +121,6 @@
             this.lbEstName.Size = new System.Drawing.Size(76, 19);
             this.lbEstName.TabIndex = 2;
             this.lbEstName.Values.Text = "Tên dự toán :";
-            // 
-            // lbConstruction
-            // 
-            this.lbConstruction.Location = new System.Drawing.Point(63, 78);
-            this.lbConstruction.Name = "lbConstruction";
-            this.lbConstruction.Size = new System.Drawing.Size(69, 19);
-            this.lbConstruction.TabIndex = 4;
-            this.lbConstruction.Values.Text = "Công trình :";
-            // 
-            // cbConstruction
-            // 
-            this.cbConstruction.DropDownWidth = 121;
-            this.cbConstruction.Location = new System.Drawing.Point(159, 78);
-            this.cbConstruction.Name = "cbConstruction";
-            this.cbConstruction.Size = new System.Drawing.Size(121, 22);
-            this.cbConstruction.TabIndex = 5;
-            this.cbConstruction.Text = "chọn...";
-            // 
-            // lbTotalCost
-            // 
-            this.lbTotalCost.Location = new System.Drawing.Point(12, 118);
-            this.lbTotalCost.Name = "lbTotalCost";
-            this.lbTotalCost.Size = new System.Drawing.Size(120, 19);
-            this.lbTotalCost.TabIndex = 6;
-            this.lbTotalCost.Values.Text = "Tổng chi phí dự toán :";
-            // 
-            // ipTotalCost
-            // 
-            this.ipTotalCost.Location = new System.Drawing.Point(159, 118);
-            this.ipTotalCost.Name = "ipTotalCost";
-            this.ipTotalCost.Size = new System.Drawing.Size(121, 22);
-            this.ipTotalCost.TabIndex = 7;
-            // 
-            // btSave
-            // 
-            this.btSave.Location = new System.Drawing.Point(100, 167);
-            this.btSave.Name = "btSave";
-            this.btSave.Size = new System.Drawing.Size(62, 25);
-            this.btSave.TabIndex = 8;
-            this.btSave.Values.Text = "Lưu";
-            this.btSave.Click += new System.EventHandler(this.btSave_Click);
-            // 
-            // btClose
-            // 
-            this.btClose.Location = new System.Drawing.Point(168, 167);
-            this.btClose.Name = "btClose";
-            this.btClose.Size = new System.Drawing.Size(58, 25);
-            this.btClose.TabIndex = 9;
-            this.btClose.Values.Text = "Đóng";
-            this.btClose.Click += new System.EventHandler(this.btClose_Click);
             // 
             // AddNewEstimate
             // 
@@ -168,8 +149,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonGroupBox kryptonGroupBox1;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btClose;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btSave;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox ipTotalCost;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel lbTotalCost;
         private ComponentFactory.Krypton.Toolkit.KryptonComboBox cbConstruction;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel lbConstruction;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox ipEstName;

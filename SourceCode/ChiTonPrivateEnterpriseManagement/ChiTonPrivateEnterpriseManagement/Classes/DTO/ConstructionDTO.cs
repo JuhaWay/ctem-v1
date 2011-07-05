@@ -25,6 +25,8 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
         public bool HasEstimate { get; set; }
         public long TotalEstimateCost { get; set; }
         public long? ParentID { get; set; }
+        public long TotalRealCost { get; set; }
+        
 
         public ConstructionDTO()
         {

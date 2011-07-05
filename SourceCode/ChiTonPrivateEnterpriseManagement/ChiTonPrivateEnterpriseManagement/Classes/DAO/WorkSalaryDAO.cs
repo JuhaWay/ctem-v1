@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using System.IO;
 using ChiTonPrivateEnterpriseManagement.Classes.Modules;
 using ChiTonPrivateEnterpriseManagement.Classes.DTO;
+using ChiTonPrivateEnterpriseManagement.Classes.Global;
 
 namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
 {
@@ -61,10 +62,10 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         FromDate = Convert.ToDateTime(reader["FromDate"]),
                         ToDate = Convert.ToDateTime(reader["ToDate"]),
                         TotalSalary = Convert.ToInt64(reader["TotalSalary"]),
-                        CreateDate = Convert.ToDateTime(reader["CreateDate"]),
-                        LastUpdate = Convert.ToDateTime(reader["LastUpdate"]),
-                        CreatedBy = Convert.ToString(reader["CreatedBy"]),
-                        UpdatedBy = Convert.ToString(reader["UpdatedBy"])
+                        CreatedBy = reader["CreatedBy"] != DBNull.Value ? Convert.ToString(reader["CreatedBy"]) : "",
+                        CreateDate = reader["CreateDate"] != DBNull.Value ? Convert.ToDateTime(reader["CreateDate"]) : new DateTime(),
+                        UpdatedBy = reader["UpdatedBy"] != DBNull.Value ? Convert.ToString(reader["UpdatedBy"]) : "",
+                        LastUpdate = reader["LastUpdate"] != DBNull.Value ? Convert.ToDateTime(reader["LastUpdate"]) : new DateTime()
                     };
                     listcons.Add(dto);
                 }
@@ -96,10 +97,8 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.Parameters.Add(new SqlParameter("@fromDate", dto.FromDate));
                 cmd.Parameters.Add(new SqlParameter("@toDate", dto.ToDate));
                 cmd.Parameters.Add(new SqlParameter("@totalSalary", dto.TotalSalary));
-                cmd.Parameters.Add(new SqlParameter("@createDate", dto.CreateDate));
-                cmd.Parameters.Add(new SqlParameter("@lastUpdate", dto.LastUpdate));
-                cmd.Parameters.Add(new SqlParameter("@createdBy", dto.CreatedBy));
-                cmd.Parameters.Add(new SqlParameter("@updatedBy", dto.UpdatedBy));
+                cmd.Parameters.Add(new SqlParameter("@createdBy", Global.Global.CurrentUser.Username));
+
                 cmd.ExecuteNonQuery();
                 return true;
             }
@@ -130,10 +129,55 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.Parameters.Add(new SqlParameter("@fromDate", dto.FromDate));
                 cmd.Parameters.Add(new SqlParameter("@toDate", dto.ToDate));
                 cmd.Parameters.Add(new SqlParameter("@totalSalary", dto.TotalSalary));
-                cmd.Parameters.Add(new SqlParameter("@createDate", dto.CreateDate));
-                cmd.Parameters.Add(new SqlParameter("@lastUpdate", dto.LastUpdate));
-                cmd.Parameters.Add(new SqlParameter("@createdBy", dto.CreatedBy));
-                cmd.Parameters.Add(new SqlParameter("@updatedBy", dto.UpdatedBy));
+                cmd.Parameters.Add(new SqlParameter("@updatedBy", Global.Global.CurrentUser.Username));
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message);
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null)
+                    Connection.Close();
+            }
+        }
+        public bool UpdateTotalSalary(long id)
+        {
+            var cmd = new SqlCommand("[dbo].[WorkerSalary_UpdateTotalSalary]", Connection) { CommandType = CommandType.StoredProcedure };
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@workersSalaryID", id));
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message);
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null)
+                    Connection.Close();
+            }
+        }
+        public bool delete(long id)
+        {
+            var cmd = new SqlCommand("[dbo].[WorkersSalary_Delete]", Connection) { CommandType = CommandType.StoredProcedure };
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@workersSalaryID", id));
                 cmd.ExecuteNonQuery();
                 return true;
             }

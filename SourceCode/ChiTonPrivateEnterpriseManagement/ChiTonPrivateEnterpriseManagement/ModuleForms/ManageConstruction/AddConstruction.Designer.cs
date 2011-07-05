@@ -37,7 +37,10 @@
             this.dtStartDate = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
             this.ipDes = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.lbDes = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.rdhasEstimate = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
+            this.rdNoEstimate = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
             this.cbStatus = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.lbSCType = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.lbState = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.dtEndDate = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
             this.lbEndDate = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
@@ -46,9 +49,6 @@
             this.lbAddress = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.ipConstructionName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.lbConstructionName = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.rdhasEstimate = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
-            this.rdNoEstimate = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
-            this.lbSCType = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             ((System.ComponentModel.ISupportInitialize)(this.panel)).BeginInit();
             this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox2)).BeginInit();
@@ -137,6 +137,24 @@
             this.lbDes.TabIndex = 17;
             this.lbDes.Values.Text = "Mô tả :";
             // 
+            // rdhasEstimate
+            // 
+            this.rdhasEstimate.Location = new System.Drawing.Point(176, 76);
+            this.rdhasEstimate.Name = "rdhasEstimate";
+            this.rdhasEstimate.Size = new System.Drawing.Size(78, 19);
+            this.rdhasEstimate.TabIndex = 5;
+            this.rdhasEstimate.Values.Text = "Có dự toán";
+            this.rdhasEstimate.CheckedChanged += new System.EventHandler(this.rdhasEstimate_CheckedChanged);
+            // 
+            // rdNoEstimate
+            // 
+            this.rdNoEstimate.Location = new System.Drawing.Point(269, 76);
+            this.rdNoEstimate.Name = "rdNoEstimate";
+            this.rdNoEstimate.Size = new System.Drawing.Size(97, 19);
+            this.rdNoEstimate.TabIndex = 3;
+            this.rdNoEstimate.Values.Text = "Không dự toán";
+            this.rdNoEstimate.CheckedChanged += new System.EventHandler(this.rdNoEstimate_CheckedChanged);
+            // 
             // cbStatus
             // 
             this.cbStatus.DropDownWidth = 172;
@@ -149,6 +167,14 @@
             this.cbStatus.Size = new System.Drawing.Size(159, 22);
             this.cbStatus.TabIndex = 14;
             this.cbStatus.Text = "chọn...";
+            // 
+            // lbSCType
+            // 
+            this.lbSCType.Location = new System.Drawing.Point(79, 76);
+            this.lbSCType.Name = "lbSCType";
+            this.lbSCType.Size = new System.Drawing.Size(91, 19);
+            this.lbSCType.TabIndex = 2;
+            this.lbSCType.Values.Text = "Loại công trình :";
             // 
             // lbState
             // 
@@ -211,32 +237,6 @@
             this.lbConstructionName.Size = new System.Drawing.Size(89, 19);
             this.lbConstructionName.TabIndex = 2;
             this.lbConstructionName.Values.Text = "Tên công trình :";
-            // 
-            // rdhasEstimate
-            // 
-            this.rdhasEstimate.Location = new System.Drawing.Point(176, 76);
-            this.rdhasEstimate.Name = "rdhasEstimate";
-            this.rdhasEstimate.Size = new System.Drawing.Size(78, 19);
-            this.rdhasEstimate.TabIndex = 5;
-            this.rdhasEstimate.Values.Text = "Có dự toán";
-            this.rdhasEstimate.CheckedChanged += new System.EventHandler(this.rdhasEstimate_CheckedChanged);
-            // 
-            // rdNoEstimate
-            // 
-            this.rdNoEstimate.Location = new System.Drawing.Point(269, 76);
-            this.rdNoEstimate.Name = "rdNoEstimate";
-            this.rdNoEstimate.Size = new System.Drawing.Size(97, 19);
-            this.rdNoEstimate.TabIndex = 3;
-            this.rdNoEstimate.Values.Text = "Không dự toán";
-            this.rdNoEstimate.CheckedChanged += new System.EventHandler(this.rdNoEstimate_CheckedChanged);
-            // 
-            // lbSCType
-            // 
-            this.lbSCType.Location = new System.Drawing.Point(79, 76);
-            this.lbSCType.Name = "lbSCType";
-            this.lbSCType.Size = new System.Drawing.Size(91, 19);
-            this.lbSCType.TabIndex = 2;
-            this.lbSCType.Values.Text = "Loại công trình :";
             // 
             // AddConstruction
             // 

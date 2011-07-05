@@ -61,7 +61,7 @@
       <HintPath>..\..\..\Tools\dll\ExpandableGridView.dll</HintPath>
     </Reference>
     <Reference Include="FastDataAccess">
-      <HintPath>..\..\..\..\ViVuFace\source\VivuFace_V2\bin\FastDataAccess.dll</HintPath>
+      <HintPath>..\..\..\..\ctem-v1\SourceCode\ChiTonPrivateEnterpriseManagement\ChiTonPrivateEnterpriseManagement\bin\Debug\FastDataAccess.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -577,6 +577,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Database\Script\CTEM-DB.sql" />
+    <None Include="Resources\images1.jpeg" />
+    <None Include="Resources\icon1.png" />
+    <None Include="Resources\images.jpeg" />
+    <None Include="Resources\add.png" />
+    <None Include="Resources\Button-Add-icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

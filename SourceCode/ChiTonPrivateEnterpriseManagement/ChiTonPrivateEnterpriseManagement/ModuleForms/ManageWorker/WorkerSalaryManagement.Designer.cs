@@ -1,4 +1,5 @@
-﻿namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
+﻿using System.Windows.Forms;
+namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
 {
     partial class WorkerSalaryManagement
     {
@@ -31,6 +32,11 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WorkerSalaryManagement));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.kryptonPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
@@ -43,11 +49,8 @@
             this.lbCons = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.ipName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.lbName = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.kryptonPanel4 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.kryptonHeader2 = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
             this.dgvWks = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.checkBox = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewCheckBoxColumn();
             this.constructionNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,37 +64,39 @@
             this.lastUpdateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.createdByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updatedByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.isCheckedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.workerSalaryDTOBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.đóngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.trợGiúpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.hướngDẩnSửDụngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.thôngTinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.côngTyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kryptonPanel2 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.btViewEst = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btAddNew = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.kryptonHeader1 = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.workerSalaryDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbCons)).BeginInit();
-            this.toolStrip2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel4)).BeginInit();
+            this.kryptonPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.workerSalaryDTOBindingSource1)).BeginInit();
-            this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).BeginInit();
+            this.kryptonPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.workerSalaryDTOBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // kryptonPanel
             // 
             this.kryptonPanel.Controls.Add(this.kryptonPanel1);
-            this.kryptonPanel.Controls.Add(this.toolStrip2);
+            this.kryptonPanel.Controls.Add(this.kryptonPanel4);
             this.kryptonPanel.Controls.Add(this.dgvWks);
+            this.kryptonPanel.Controls.Add(this.kryptonPanel2);
             this.kryptonPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kryptonPanel.Location = new System.Drawing.Point(0, 24);
+            this.kryptonPanel.Location = new System.Drawing.Point(0, 0);
             this.kryptonPanel.Name = "kryptonPanel";
-            this.kryptonPanel.Size = new System.Drawing.Size(1011, 585);
+            this.kryptonPanel.Size = new System.Drawing.Size(924, 573);
             this.kryptonPanel.TabIndex = 0;
             // 
             // kryptonPanel1
@@ -105,17 +110,20 @@
             this.kryptonPanel1.Controls.Add(this.lbCons);
             this.kryptonPanel1.Controls.Add(this.ipName);
             this.kryptonPanel1.Controls.Add(this.lbName);
-            this.kryptonPanel1.Location = new System.Drawing.Point(3, 324);
+            this.kryptonPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.kryptonPanel1.Location = new System.Drawing.Point(0, 331);
             this.kryptonPanel1.Name = "kryptonPanel1";
-            this.kryptonPanel1.Size = new System.Drawing.Size(1005, 258);
-            this.kryptonPanel1.StateCommon.Color1 = System.Drawing.Color.Lavender;
-            this.kryptonPanel1.StateCommon.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.ExpertCheckedTracking;
-            this.kryptonPanel1.StateNormal.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.kryptonPanel1.Size = new System.Drawing.Size(924, 314);
+            this.kryptonPanel1.StateCommon.Color1 = System.Drawing.Color.White;
+            this.kryptonPanel1.StateCommon.Color2 = System.Drawing.Color.White;
+            this.kryptonPanel1.StateCommon.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.ExpertChecked;
+            this.kryptonPanel1.StateNormal.Color1 = System.Drawing.Color.White;
+            this.kryptonPanel1.StateNormal.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.kryptonPanel1.TabIndex = 4;
             // 
             // btSave
             // 
-            this.btSave.Location = new System.Drawing.Point(491, 202);
+            this.btSave.Location = new System.Drawing.Point(471, 201);
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(62, 25);
             this.btSave.TabIndex = 18;
@@ -186,57 +194,26 @@
             this.lbName.TabIndex = 10;
             this.lbName.Values.Text = "Tên ";
             // 
-            // toolStrip2
+            // kryptonPanel4
             // 
-            this.toolStrip2.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.toolStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton2,
-            this.toolStripButton3,
-            this.toolStripButton4,
-            this.toolStripButton1});
-            this.toolStrip2.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(1011, 27);
-            this.toolStrip2.TabIndex = 3;
-            this.toolStrip2.Text = "toolStrip2";
+            this.kryptonPanel4.Controls.Add(this.kryptonHeader2);
+            this.kryptonPanel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.kryptonPanel4.Location = new System.Drawing.Point(0, 297);
+            this.kryptonPanel4.Name = "kryptonPanel4";
+            this.kryptonPanel4.Size = new System.Drawing.Size(924, 34);
+            this.kryptonPanel4.TabIndex = 8;
             // 
-            // toolStripButton2
+            // kryptonHeader2
             // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(24, 24);
-            this.toolStripButton2.Text = "toolStripButton2";
-            // 
-            // toolStripButton3
-            // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(24, 24);
-            this.toolStripButton3.Text = "toolStripButton3";
-            // 
-            // toolStripButton4
-            // 
-            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(24, 24);
-            this.toolStripButton4.Text = "toolStripButton4";
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(24, 24);
-            this.toolStripButton1.Text = "toolStripButton1";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            this.kryptonHeader2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.kryptonHeader2.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.DockActive;
+            this.kryptonHeader2.Location = new System.Drawing.Point(0, 0);
+            this.kryptonHeader2.Name = "kryptonHeader2";
+            this.kryptonHeader2.Size = new System.Drawing.Size(924, 34);
+            this.kryptonHeader2.TabIndex = 1;
+            this.kryptonHeader2.Values.Description = "";
+            this.kryptonHeader2.Values.Heading = "Chi tiết";
+            this.kryptonHeader2.Values.Image = ((System.Drawing.Image)(resources.GetObject("kryptonHeader2.Values.Image")));
             // 
             // dgvWks
             // 
@@ -253,13 +230,13 @@
             this.createDateDataGridViewTextBoxColumn,
             this.lastUpdateDataGridViewTextBoxColumn,
             this.createdByDataGridViewTextBoxColumn,
-            this.updatedByDataGridViewTextBoxColumn,
-            this.isCheckedDataGridViewCheckBoxColumn});
+            this.updatedByDataGridViewTextBoxColumn});
             this.dgvWks.DataSource = this.workerSalaryDTOBindingSource1;
-            this.dgvWks.Location = new System.Drawing.Point(0, 28);
+            this.dgvWks.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dgvWks.Location = new System.Drawing.Point(0, 34);
             this.dgvWks.Name = "dgvWks";
             this.dgvWks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvWks.Size = new System.Drawing.Size(1008, 290);
+            this.dgvWks.Size = new System.Drawing.Size(924, 263);
             this.dgvWks.StateNormal.Background.Color1 = System.Drawing.Color.White;
             this.dgvWks.TabIndex = 0;
             this.dgvWks.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvWks_CellContentClick);
@@ -282,133 +259,152 @@
             // constructionNameDataGridViewTextBoxColumn
             // 
             this.constructionNameDataGridViewTextBoxColumn.DataPropertyName = "ConstructionName";
-            this.constructionNameDataGridViewTextBoxColumn.HeaderText = "ConstructionName";
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Lime;
+            this.constructionNameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.constructionNameDataGridViewTextBoxColumn.HeaderText = "Công trình";
             this.constructionNameDataGridViewTextBoxColumn.Name = "constructionNameDataGridViewTextBoxColumn";
+            this.constructionNameDataGridViewTextBoxColumn.Width = 200;
             // 
             // WorkersSalaryID
             // 
             this.WorkersSalaryID.DataPropertyName = "WorkersSalaryID";
             this.WorkersSalaryID.HeaderText = "WorkersSalaryID";
             this.WorkersSalaryID.Name = "WorkersSalaryID";
+            this.WorkersSalaryID.Visible = false;
             // 
             // constructionIDDataGridViewTextBoxColumn
             // 
             this.constructionIDDataGridViewTextBoxColumn.DataPropertyName = "ConstructionID";
             this.constructionIDDataGridViewTextBoxColumn.HeaderText = "ConstructionID";
             this.constructionIDDataGridViewTextBoxColumn.Name = "constructionIDDataGridViewTextBoxColumn";
+            this.constructionIDDataGridViewTextBoxColumn.Visible = false;
             // 
             // nameDataGridViewTextBoxColumn
             // 
             this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Lime;
+            this.nameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Tên Bảng lương";
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.Width = 200;
             // 
             // fromDateDataGridViewTextBoxColumn
             // 
             this.fromDateDataGridViewTextBoxColumn.DataPropertyName = "FromDate";
-            this.fromDateDataGridViewTextBoxColumn.HeaderText = "FromDate";
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Yellow;
+            this.fromDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            this.fromDateDataGridViewTextBoxColumn.HeaderText = "Từ ngày";
             this.fromDateDataGridViewTextBoxColumn.Name = "fromDateDataGridViewTextBoxColumn";
             // 
             // toDateDataGridViewTextBoxColumn
             // 
             this.toDateDataGridViewTextBoxColumn.DataPropertyName = "ToDate";
-            this.toDateDataGridViewTextBoxColumn.HeaderText = "ToDate";
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Yellow;
+            this.toDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
+            this.toDateDataGridViewTextBoxColumn.HeaderText = "Tới ngày";
             this.toDateDataGridViewTextBoxColumn.Name = "toDateDataGridViewTextBoxColumn";
             // 
             // totalSalaryDataGridViewTextBoxColumn
             // 
             this.totalSalaryDataGridViewTextBoxColumn.DataPropertyName = "TotalSalary";
-            this.totalSalaryDataGridViewTextBoxColumn.HeaderText = "TotalSalary";
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Yellow;
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Red;
+            this.totalSalaryDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
+            this.totalSalaryDataGridViewTextBoxColumn.HeaderText = "Tổng số tiền";
             this.totalSalaryDataGridViewTextBoxColumn.Name = "totalSalaryDataGridViewTextBoxColumn";
             // 
             // createDateDataGridViewTextBoxColumn
             // 
             this.createDateDataGridViewTextBoxColumn.DataPropertyName = "CreateDate";
-            this.createDateDataGridViewTextBoxColumn.HeaderText = "CreateDate";
+            this.createDateDataGridViewTextBoxColumn.HeaderText = "Ngày tạo";
             this.createDateDataGridViewTextBoxColumn.Name = "createDateDataGridViewTextBoxColumn";
             // 
             // lastUpdateDataGridViewTextBoxColumn
             // 
             this.lastUpdateDataGridViewTextBoxColumn.DataPropertyName = "LastUpdate";
-            this.lastUpdateDataGridViewTextBoxColumn.HeaderText = "LastUpdate";
+            this.lastUpdateDataGridViewTextBoxColumn.HeaderText = "Ngày cập nhật";
             this.lastUpdateDataGridViewTextBoxColumn.Name = "lastUpdateDataGridViewTextBoxColumn";
+            this.lastUpdateDataGridViewTextBoxColumn.Width = 150;
             // 
             // createdByDataGridViewTextBoxColumn
             // 
             this.createdByDataGridViewTextBoxColumn.DataPropertyName = "CreatedBy";
-            this.createdByDataGridViewTextBoxColumn.HeaderText = "CreatedBy";
+            this.createdByDataGridViewTextBoxColumn.HeaderText = "Tạo bởi";
             this.createdByDataGridViewTextBoxColumn.Name = "createdByDataGridViewTextBoxColumn";
             // 
             // updatedByDataGridViewTextBoxColumn
             // 
             this.updatedByDataGridViewTextBoxColumn.DataPropertyName = "UpdatedBy";
-            this.updatedByDataGridViewTextBoxColumn.HeaderText = "UpdatedBy";
+            this.updatedByDataGridViewTextBoxColumn.HeaderText = "Cập nhật bởi";
             this.updatedByDataGridViewTextBoxColumn.Name = "updatedByDataGridViewTextBoxColumn";
-            // 
-            // isCheckedDataGridViewCheckBoxColumn
-            // 
-            this.isCheckedDataGridViewCheckBoxColumn.DataPropertyName = "isChecked";
-            this.isCheckedDataGridViewCheckBoxColumn.HeaderText = "isChecked";
-            this.isCheckedDataGridViewCheckBoxColumn.Name = "isCheckedDataGridViewCheckBoxColumn";
             // 
             // workerSalaryDTOBindingSource1
             // 
             this.workerSalaryDTOBindingSource1.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.WorkerSalaryDTO);
             // 
-            // menuStrip1
+            // kryptonPanel2
             // 
-            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
-            this.trợGiúpToolStripMenuItem,
-            this.thôngTinToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1011, 24);
-            this.menuStrip1.TabIndex = 1;
-            this.menuStrip1.Text = "menuStrip1";
+            this.kryptonPanel2.Controls.Add(this.btViewEst);
+            this.kryptonPanel2.Controls.Add(this.btAddNew);
+            this.kryptonPanel2.Controls.Add(this.kryptonButton1);
+            this.kryptonPanel2.Controls.Add(this.kryptonHeader1);
+            this.kryptonPanel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.kryptonPanel2.Location = new System.Drawing.Point(0, 0);
+            this.kryptonPanel2.Name = "kryptonPanel2";
+            this.kryptonPanel2.Size = new System.Drawing.Size(924, 34);
+            this.kryptonPanel2.TabIndex = 7;
             // 
-            // toolStripMenuItem1
+            // btViewEst
             // 
-            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.đóngToolStripMenuItem});
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(57, 20);
-            this.toolStripMenuItem1.Text = "Cửa sổ ";
+            this.btViewEst.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btViewEst.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btViewEst.Location = new System.Drawing.Point(817, 0);
+            this.btViewEst.Name = "btViewEst";
+            this.btViewEst.Size = new System.Drawing.Size(39, 34);
+            this.btViewEst.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btViewEst.TabIndex = 9;
+            this.toolTip.SetToolTip(this.btViewEst, "chi tiết danh sách bảng lương");
+            this.btViewEst.Values.Image = ((System.Drawing.Image)(resources.GetObject("btViewEst.Values.Image")));
+            this.btViewEst.Values.Text = "";
+            this.btViewEst.Click += new System.EventHandler(this.btViewEst_Click);
             // 
-            // đóngToolStripMenuItem
+            // btAddNew
             // 
-            this.đóngToolStripMenuItem.Name = "đóngToolStripMenuItem";
-            this.đóngToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
-            this.đóngToolStripMenuItem.Text = "Đóng";
+            this.btAddNew.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btAddNew.Location = new System.Drawing.Point(856, 0);
+            this.btAddNew.Name = "btAddNew";
+            this.btAddNew.Size = new System.Drawing.Size(34, 34);
+            this.btAddNew.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btAddNew.TabIndex = 0;
+            this.toolTip.SetToolTip(this.btAddNew, "Tạo mới bảng lương");
+            this.btAddNew.Values.Image = ((System.Drawing.Image)(resources.GetObject("btAddNew.Values.Image")));
+            this.btAddNew.Values.Text = "";
+            this.btAddNew.Click += new System.EventHandler(this.btAddNew_Click);
             // 
-            // trợGiúpToolStripMenuItem
+            // kryptonButton1
             // 
-            this.trợGiúpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.hướngDẩnSửDụngToolStripMenuItem});
-            this.trợGiúpToolStripMenuItem.Name = "trợGiúpToolStripMenuItem";
-            this.trợGiúpToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
-            this.trợGiúpToolStripMenuItem.Text = "Trợ giúp";
+            this.kryptonButton1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.kryptonButton1.Location = new System.Drawing.Point(890, 0);
+            this.kryptonButton1.Name = "kryptonButton1";
+            this.kryptonButton1.Size = new System.Drawing.Size(34, 34);
+            this.kryptonButton1.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.kryptonButton1.TabIndex = 1;
+            this.toolTip.SetToolTip(this.kryptonButton1, "xóa bảng lương");
+            this.kryptonButton1.Values.Image = ((System.Drawing.Image)(resources.GetObject("kryptonButton1.Values.Image")));
+            this.kryptonButton1.Values.Text = "";
+            this.kryptonButton1.Click += new System.EventHandler(this.kryptonButton1_Click);
             // 
-            // hướngDẩnSửDụngToolStripMenuItem
+            // kryptonHeader1
             // 
-            this.hướngDẩnSửDụngToolStripMenuItem.Name = "hướngDẩnSửDụngToolStripMenuItem";
-            this.hướngDẩnSửDụngToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.hướngDẩnSửDụngToolStripMenuItem.Text = "Hướng dẩn sử dụng";
-            // 
-            // thôngTinToolStripMenuItem
-            // 
-            this.thôngTinToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.côngTyToolStripMenuItem});
-            this.thôngTinToolStripMenuItem.Name = "thôngTinToolStripMenuItem";
-            this.thôngTinToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
-            this.thôngTinToolStripMenuItem.Text = "Thông tin";
-            // 
-            // côngTyToolStripMenuItem
-            // 
-            this.côngTyToolStripMenuItem.Name = "côngTyToolStripMenuItem";
-            this.côngTyToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
-            this.côngTyToolStripMenuItem.Text = "Công ty";
+            this.kryptonHeader1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.kryptonHeader1.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.DockActive;
+            this.kryptonHeader1.Location = new System.Drawing.Point(0, 0);
+            this.kryptonHeader1.Name = "kryptonHeader1";
+            this.kryptonHeader1.Size = new System.Drawing.Size(924, 34);
+            this.kryptonHeader1.TabIndex = 1;
+            this.kryptonHeader1.Values.Description = "";
+            this.kryptonHeader1.Values.Heading = "Danh sách Vật liệu";
+            this.kryptonHeader1.Values.Image = ((System.Drawing.Image)(resources.GetObject("kryptonHeader1.Values.Image")));
             // 
             // workerSalaryDTOBindingSource
             // 
@@ -418,28 +414,31 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1011, 609);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.ClientSize = new System.Drawing.Size(924, 573);
             this.Controls.Add(this.kryptonPanel);
-            this.Controls.Add(this.menuStrip1);
+            this.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.Calendar;
             this.Name = "WorkerSalaryManagement";
+            this.StateCommon.Back.Color1 = System.Drawing.Color.Lime;
             this.Text = "Quản lý lương công nhân";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.WorkerSalaryManagement_Load);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).EndInit();
             this.kryptonPanel.ResumeLayout(false);
-            this.kryptonPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).EndInit();
             this.kryptonPanel1.ResumeLayout(false);
             this.kryptonPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbCons)).EndInit();
-            this.toolStrip2.ResumeLayout(false);
-            this.toolStrip2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel4)).EndInit();
+            this.kryptonPanel4.ResumeLayout(false);
+            this.kryptonPanel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWks)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.workerSalaryDTOBindingSource1)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).EndInit();
+            this.kryptonPanel2.ResumeLayout(false);
+            this.kryptonPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.workerSalaryDTOBindingSource)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -448,13 +447,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonManager kryptonManager;
         private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel;
         private System.Windows.Forms.BindingSource workerSalaryDTOBindingSource;
-        private System.Windows.Forms.ToolStrip toolStrip2;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
-        private System.Windows.Forms.ToolStripButton toolStripButton4;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem đóngToolStripMenuItem;
         private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel1;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btSave;
         private ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker dtTodate;
@@ -465,26 +457,29 @@
         private ComponentFactory.Krypton.Toolkit.KryptonLabel lbCons;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox ipName;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel lbName;
-        private System.Windows.Forms.ToolStripMenuItem trợGiúpToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem hướngDẩnSửDụngToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem thôngTinToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem côngTyToolStripMenuItem;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.BindingSource workerSalaryDTOBindingSource1;
         public ComponentFactory.Krypton.Toolkit.KryptonDataGridView dgvWks;
+        private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel4;
+        private ComponentFactory.Krypton.Toolkit.KryptonHeader kryptonHeader2;
+        private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel2;
+        private ComponentFactory.Krypton.Toolkit.KryptonHeader kryptonHeader1;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton1;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btAddNew;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btViewEst;
+        private ToolTip toolTip;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewCheckBoxColumn checkBox;
-        private System.Windows.Forms.DataGridViewTextBoxColumn constructionNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn WorkersSalaryID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn constructionIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fromDateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn toDateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn totalSalaryDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn createDateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lastUpdateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn createdByDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn updatedByDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn isCheckedDataGridViewCheckBoxColumn;
+        private DataGridViewTextBoxColumn constructionNameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn WorkersSalaryID;
+        private DataGridViewTextBoxColumn constructionIDDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn fromDateDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn toDateDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn totalSalaryDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn createDateDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn lastUpdateDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn createdByDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn updatedByDataGridViewTextBoxColumn;
     }
 }
 

@@ -145,8 +145,11 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
         {
             SelectSubConstructionBox box = new SelectSubConstructionBox();
             box.ShowDialog();
-            cbSubconName.Items.Add(box.subcontractorDTO);
-            cbSubconName.SelectedItem = box.subcontractorDTO;
+            if (box.subcontractorDTO != null)
+            {
+                cbSubconName.Items.Add(box.subcontractorDTO);
+                cbSubconName.SelectedItem = box.subcontractorDTO;
+            }
         }
     }
 }

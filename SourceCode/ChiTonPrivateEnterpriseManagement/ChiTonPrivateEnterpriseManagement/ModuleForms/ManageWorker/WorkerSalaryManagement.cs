@@ -16,7 +16,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
         private WorkerSalaryBUS _workerSalaryBUS = new WorkerSalaryBUS();
         private ConstructionBus _constructionBus = new ConstructionBus();
 
-        private long _workersSalaryID;
+        private WorkerSalaryDTO _dtoTemp = new WorkerSalaryDTO(); 
         public WorkerSalaryManagement()
         {
             InitializeComponent();
@@ -80,46 +80,62 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
 
         private void btSave_Click(object sender, EventArgs e)
         {
-            WorkerSalaryDTO dto = new WorkerSalaryDTO();
-            dto.WorkersSalaryID = _workersSalaryID;
-            dto.ConstructionID = (cbCons.SelectedItem as ConstructionDTO).ConstructionID;
-            dto.Name = ipName.Text;
-            dto.FromDate = DateTime.Parse(dtFromdate.Text);
-            dto.ToDate = DateTime.Parse(dtTodate.Text);
-            dto.TotalSalary = 0;
-            dto.CreatedBy = "";
-            dto.UpdatedBy = "";
-            dto.CreateDate = new DateTime(2011, 06, 11);
-            dto.LastUpdate = new DateTime(2011, 06, 11);
+            if (_dtoTemp == null)
+            {
+                MessageBox.Show("không tồn tại bảng lương!");
+                return;
+            }
+            if (!validate()) return;
+            _dtoTemp.ConstructionID = (cbCons.SelectedItem as ConstructionDTO).ConstructionID;
+            _dtoTemp.Name = ipName.Text;
+            _dtoTemp.FromDate = DateTime.Parse(dtFromdate.Text);
+            _dtoTemp.ToDate = DateTime.Parse(dtTodate.Text);
+            _dtoTemp.CreatedBy = "";
+            _dtoTemp.UpdatedBy = "";
+            _dtoTemp.CreateDate = new DateTime(2011, 06, 11);
+            _dtoTemp.LastUpdate = new DateTime(2011, 06, 11);
 
-            _workerSalaryBUS.UpdateWks(dto);
+            _workerSalaryBUS.UpdateWks(_dtoTemp);
             MessageBox.Show("Tạo tổng kết thành công !");
             dgvWks.DataSource = _workerSalaryBUS.LoadAllWks();
         }
 
         private void dgvWks_SelectionChanged(object sender, EventArgs e)
         {
-            WorkerSalaryDTO dto = new WorkerSalaryDTO();
            DataGridViewSelectedRowCollection co =  dgvWks.SelectedRows as DataGridViewSelectedRowCollection;
-           DataGridViewRow[] arr = new DataGridViewRow[co.Count];
-           co.CopyTo(arr, 0);
-           foreach (DataGridViewRow item in arr)
+           if (co.Count > 0)
            {
-               dto = item.DataBoundItem as WorkerSalaryDTO;
-               
-            }
-           ipName.Text = dto.Name;
-           foreach (ConstructionDTO temp in cbCons.Items)
-           {
-               if(temp.ConstructionID.Equals(dto.ConstructionID))
-                   cbCons.SelectedItem = temp;
+               DataGridViewRow[] arr = new DataGridViewRow[co.Count];
+               co.CopyTo(arr, 0);
+               foreach (DataGridViewRow item in arr)
+               {
+                   _dtoTemp = item.DataBoundItem as WorkerSalaryDTO;
+
+               }
+               ipName.Text = _dtoTemp.Name;
+               foreach (ConstructionDTO temp in cbCons.Items)
+               {
+                   if (temp.ConstructionID.Equals(_dtoTemp.ConstructionID))
+                       cbCons.SelectedItem = temp;
+               }
+               dtFromdate.Value = _dtoTemp.FromDate;
+               dtTodate.Value = _dtoTemp.ToDate;
+
            }
-           dtFromdate.Value = dto.FromDate;
-           dtTodate.Value = dto.ToDate;
-           _workersSalaryID = dto.WorkersSalaryID;
+           else
+           {
+               reSetValue();
+           }
           
         }
-
+        private void reSetValue()
+        {
+            _dtoTemp = null;
+            ipName.Text = "";
+            cbCons.SelectedIndex = -1;
+            dtFromdate.Text = "";
+            dtTodate.Text = "";
+        }
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             foreach (DataGridViewRow row in dgvWks.Rows)
@@ -153,6 +169,60 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
                     c.AccessibilityObject.Value = "True";
                     dgvWks.Rows[e.RowIndex].Selected = true;
                 }
+            }
+        }
+
+        private void btAddNew_Click(object sender, EventArgs e)
+        {
+            AddNewWS add = new AddNewWS();
+            add.ShowDialog();
+            dgvWks.DataSource = _workerSalaryBUS.LoadAllWks();
+        }
+
+        private void btViewEst_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in dgvWks.Rows)
+            {
+                DataGridViewCell c = dgvWks.Rows[row.Index].Cells[0];
+                if (c.AccessibilityObject.Value.Equals("True"))
+                {
+                    string strID = row.Cells["WorkersSalaryID"].Value.ToString();
+                    long id = Convert.ToInt64(strID);
+                    WorkerList editForm = new WorkerList(id);
+                    editForm.ShowDialog();
+                }
+            }
+            dgvWks.DataSource = _workerSalaryBUS.LoadAllWks();
+        }
+
+        private bool validate(){
+            if(ipName.Text.Trim().Equals("")){
+                MessageBox.Show("vui lòng điền tên");
+                return false;
+            }
+            else if (cbCons.SelectedIndex < 0)
+            {
+                MessageBox.Show("vui lòng chọn công trình");
+                return false;
+            }
+            return true;
+        }
+
+        private void kryptonButton1_Click(object sender, EventArgs e)
+        {
+            if (KryptonMessageBox.Show("Xóa bảng lương ?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                foreach (DataGridViewRow row in dgvWks.Rows)
+                {
+                    DataGridViewCell c = dgvWks.Rows[row.Index].Cells[0];
+                    if (c.AccessibilityObject.Value.Equals("True"))
+                    {
+                        string strID = row.Cells["WorkersSalaryID"].Value.ToString();
+                        long id = Convert.ToInt64(strID);
+                        _workerSalaryBUS.delete(id);
+                    }
+                }
+                dgvWks.DataSource = _workerSalaryBUS.LoadAllWks();
             }
         }
     }

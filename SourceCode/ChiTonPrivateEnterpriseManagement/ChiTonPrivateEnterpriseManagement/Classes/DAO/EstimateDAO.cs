@@ -63,10 +63,55 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         EstimateName = Convert.ToString(reader["EstimateName"]),
                         TotalCostEstimate = Convert.ToInt64(reader["TotalCostEstimate"]),
                         TotalCostReal = Convert.ToInt64(reader["TotalCostReal"]),
-                        CreatedBy = Convert.ToString(reader["CreatedBy"]),
-                        UpdatedBy = Convert.ToString(reader["UpdatedBy"]),
-                        CreatedDate= Convert.ToDateTime(reader["CreatedDate"]),
-                        UpdatedDate= Convert.ToDateTime(reader["UpdatedDate"])
+                        CreatedBy = reader["CreatedBy"]!= DBNull.Value ? Convert.ToString(reader["CreatedBy"]) : "",
+                        CreatedDate = reader["CreatedDate"] != DBNull.Value ? Convert.ToDateTime(reader["CreatedDate"]) : new DateTime(),
+                        UpdatedBy = reader["UpdatedBy"] != DBNull.Value ? Convert.ToString(reader["UpdatedBy"]) : "",
+                        UpdatedDate = reader["UpdatedDate"] != DBNull.Value ? Convert.ToDateTime(reader["UpdatedDate"]) : new DateTime()
+                    };
+                    listcons.Add(consDto);
+                }
+                return listcons;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message, "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                if (Transaction == null) Connection.Close();
+            }
+        }
+
+
+         public List<EstimateDTO> LoadEstimateByConstruction(long id)
+        {
+            var cmd = new SqlCommand("[dbo].[Estimate_GetByConstruction]", Connection);
+
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@ConstructionID", id));
+            try
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                List<EstimateDTO> listcons = new List<EstimateDTO>();
+                while (reader.Read())
+                {
+                    EstimateDTO consDto = new EstimateDTO
+                    {
+                        ConstructionName = Convert.ToString(reader["ConstructionName"]),
+                        ConstructionID = Convert.ToInt64(reader["ConstructionID"]),
+                        EstimateID = Convert.ToInt64(reader["EstimateID"]),
+                        EstimateName = Convert.ToString(reader["EstimateName"]),
+                        TotalCostEstimate = Convert.ToInt64(reader["TotalCostEstimate"]),
+                        TotalCostReal = Convert.ToInt64(reader["TotalCostReal"]),
+                        CreatedBy = reader["CreatedBy"] != DBNull.Value ? Convert.ToString(reader["CreatedBy"]) : "",
+                        CreatedDate = reader["CreatedDate"] != DBNull.Value ? Convert.ToDateTime(reader["CreatedDate"]) : new DateTime(),
+                        UpdatedBy = reader["UpdatedBy"] != DBNull.Value ? Convert.ToString(reader["UpdatedBy"]) : "",
+                        UpdatedDate = reader["UpdatedDate"] != DBNull.Value ? Convert.ToDateTime(reader["UpdatedDate"]) : new DateTime()
                     };
                     listcons.Add(consDto);
                 }
@@ -99,10 +144,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.Parameters.Add(new SqlParameter("@estimateName", EstimateName));
                 cmd.Parameters.Add(new SqlParameter("@totalCostEstimate", TotalCostEstimate));
                 cmd.Parameters.Add(new SqlParameter("@totalCostReal", TotalCostReal));
-                cmd.Parameters.Add(new SqlParameter("@createdDate", new DateTime(2011,06,01)));
-                cmd.Parameters.Add(new SqlParameter("@updatedDate", new DateTime(2011, 06, 01)));
-                cmd.Parameters.Add(new SqlParameter("@createdBy", CreatedBy));
-                cmd.Parameters.Add(new SqlParameter("@updatedBy", UpdatedBy));
+                cmd.Parameters.Add(new SqlParameter("@createdBy", Global.Global.CurrentUser.Username));
                 cmd.ExecuteNonQuery();
                 return true;
             }
@@ -129,6 +171,33 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             {
                 cmd.Parameters.Add(new SqlParameter("@estimateID", EstimateID));
                 cmd.Parameters.Add(new SqlParameter("@totalCostEstimate", TotalCostEstimate));
+
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException sql)
+            {
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null)
+                    Connection.Close();
+            }
+        }
+
+        public bool UpdateNameEstimate(long EstimateID,string name)
+        {
+            var cmd = new SqlCommand("[dbo].[Estimate_Update]", Connection) { CommandType = CommandType.StoredProcedure };
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@estimateID", EstimateID));
+                cmd.Parameters.Add(new SqlParameter("@estimateName", name));
+                cmd.Parameters.Add(new SqlParameter("@updatedBy", Global.Global.CurrentUser.Username));
 
                 cmd.ExecuteNonQuery();
                 return true;

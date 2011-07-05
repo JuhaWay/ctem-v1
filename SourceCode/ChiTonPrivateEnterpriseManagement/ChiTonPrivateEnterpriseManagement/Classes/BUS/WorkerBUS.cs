@@ -21,5 +21,9 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
         {
             return _workerDAO.updateWks(dto);
         }
+        public bool delete(long id)
+        {
+            return _workerDAO.delete(id);
+        }
     }
 }
