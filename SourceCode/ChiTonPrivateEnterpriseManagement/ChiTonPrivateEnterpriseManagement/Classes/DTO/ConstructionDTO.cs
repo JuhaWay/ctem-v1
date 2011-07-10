@@ -41,6 +41,13 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
 
         }
 
+        public ConstructionDTO(string name,long id)
+        {
+            ConstructionID = id;
+            ConstructionName = name;
+
+        }
+
         public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj)) return false;
