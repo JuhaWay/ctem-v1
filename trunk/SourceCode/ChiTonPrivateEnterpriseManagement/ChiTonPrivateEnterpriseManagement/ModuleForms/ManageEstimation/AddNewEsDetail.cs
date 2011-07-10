@@ -19,7 +19,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
         private EstimateBUS _estimateBUS = new EstimateBUS();
         private ConstructionBus _constructionBus = new ConstructionBus();
 
-
+        private int _defaultIndex;
         private long _estimateId;
 
         private long _totalCost;
@@ -27,13 +27,22 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
         {
             CenterToParent();
             _estimateId = estimateId;
+            _defaultIndex = 0;
+            InitializeComponent();
+        }
+
+        public AddNewEsDetail(long estimateId, int index)
+        {
+            CenterToParent();
+            _estimateId = estimateId;
+            _defaultIndex = index;
             InitializeComponent();
         }
 
         private void AddNewEsDetail_Load(object sender, EventArgs e)
         {
-            cbMaterial.Items.AddRange(_materialBUS.LoadAllMaterials().ToArray());
-            cbMaterial.DisplayMember = "MaterialName";
+            Global.SetDataCombobox(cbMaterial, "Material");
+            cbMaterial.SelectedIndex = _defaultIndex;
         }
 
         private void btSave_Click(object sender, EventArgs e)

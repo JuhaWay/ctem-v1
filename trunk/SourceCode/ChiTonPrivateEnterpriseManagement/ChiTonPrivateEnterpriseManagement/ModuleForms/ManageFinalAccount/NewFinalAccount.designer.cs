@@ -69,6 +69,8 @@
             this.gbcContentBox = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.dgvContentBot = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.kryptonGroupBox2 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
+            this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryptonPanel2 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.pnlNewItem = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.gbxNewItem = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
@@ -84,6 +86,8 @@
             this.kryptonLabel14 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel15 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel16 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.kryptonGroupBox1 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
+            this.btnAddWarehouse = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.materialNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.realCalUnitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -91,10 +95,6 @@
             this.totalCostDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.noteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.finalAccountDetailDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.kryptonGroupBox1 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
-            this.btnAddWarehouse = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.kryptonGroupBox2 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
-            this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel6)).BeginInit();
@@ -126,6 +126,9 @@
             this.gbcContentBox.Panel.SuspendLayout();
             this.gbcContentBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContentBot)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox2)).BeginInit();
+            this.kryptonGroupBox2.Panel.SuspendLayout();
+            this.kryptonGroupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlNewItem)).BeginInit();
             this.pnlNewItem.SuspendLayout();
@@ -133,13 +136,10 @@
             this.gbxNewItem.Panel.SuspendLayout();
             this.gbxNewItem.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbbMaterial)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.finalAccountDetailDTOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).BeginInit();
             this.kryptonGroupBox1.Panel.SuspendLayout();
             this.kryptonGroupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox2)).BeginInit();
-            this.kryptonGroupBox2.Panel.SuspendLayout();
-            this.kryptonGroupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.finalAccountDetailDTOBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // kryptonPanel3
@@ -549,6 +549,35 @@
             this.Column1.Name = "Column1";
             this.Column1.Width = 25;
             // 
+            // kryptonGroupBox2
+            // 
+            this.kryptonGroupBox2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.kryptonGroupBox2.GroupBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonCustom1;
+            this.kryptonGroupBox2.Location = new System.Drawing.Point(0, 0);
+            this.kryptonGroupBox2.Name = "kryptonGroupBox2";
+            this.kryptonGroupBox2.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2007Blue;
+            // 
+            // kryptonGroupBox2.Panel
+            // 
+            this.kryptonGroupBox2.Panel.Controls.Add(this.kryptonButton1);
+            this.kryptonGroupBox2.Size = new System.Drawing.Size(766, 59);
+            this.kryptonGroupBox2.TabIndex = 6;
+            this.kryptonGroupBox2.Values.Heading = "";
+            // 
+            // kryptonButton1
+            // 
+            this.kryptonButton1.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.Alternate;
+            this.kryptonButton1.Location = new System.Drawing.Point(5, 3);
+            this.kryptonButton1.Name = "kryptonButton1";
+            this.kryptonButton1.Size = new System.Drawing.Size(81, 46);
+            this.kryptonButton1.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.kryptonButton1.StateCommon.Content.Image.ImageH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.kryptonButton1.StateCommon.Content.Image.ImageV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Near;
+            this.kryptonButton1.TabIndex = 3;
+            this.kryptonButton1.Values.Image = ((System.Drawing.Image)(resources.GetObject("kryptonButton1.Values.Image")));
+            this.kryptonButton1.Values.Text = "Thêm Thông Tin Chi Tiết";
+            this.kryptonButton1.Click += new System.EventHandler(this.btnAddFinalAccountItem_Click);
+            // 
             // kryptonPanel2
             // 
             this.kryptonPanel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -630,11 +659,14 @@
             // 
             this.cbbMaterial.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbbMaterial.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbbMaterial.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbbMaterial.DropDownWidth = 214;
             this.cbbMaterial.Location = new System.Drawing.Point(111, 54);
             this.cbbMaterial.Name = "cbbMaterial";
             this.cbbMaterial.Size = new System.Drawing.Size(270, 21);
             this.cbbMaterial.TabIndex = 23;
+            this.cbbMaterial.Leave += new System.EventHandler(this.cbbMaterial_Leave);
             // 
             // txtUnitCost
             // 
@@ -704,6 +736,35 @@
             this.kryptonLabel16.TabIndex = 16;
             this.kryptonLabel16.Values.Text = "Loại Vật Tư";
             // 
+            // kryptonGroupBox1
+            // 
+            this.kryptonGroupBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.kryptonGroupBox1.GroupBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonCustom1;
+            this.kryptonGroupBox1.Location = new System.Drawing.Point(0, 0);
+            this.kryptonGroupBox1.Name = "kryptonGroupBox1";
+            this.kryptonGroupBox1.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2007Blue;
+            // 
+            // kryptonGroupBox1.Panel
+            // 
+            this.kryptonGroupBox1.Panel.Controls.Add(this.btnAddWarehouse);
+            this.kryptonGroupBox1.Size = new System.Drawing.Size(784, 59);
+            this.kryptonGroupBox1.TabIndex = 9;
+            this.kryptonGroupBox1.Values.Heading = "";
+            // 
+            // btnAddWarehouse
+            // 
+            this.btnAddWarehouse.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.Alternate;
+            this.btnAddWarehouse.Location = new System.Drawing.Point(5, 3);
+            this.btnAddWarehouse.Name = "btnAddWarehouse";
+            this.btnAddWarehouse.Size = new System.Drawing.Size(81, 46);
+            this.btnAddWarehouse.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnAddWarehouse.StateCommon.Content.Image.ImageH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.btnAddWarehouse.StateCommon.Content.Image.ImageV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Near;
+            this.btnAddWarehouse.TabIndex = 3;
+            this.btnAddWarehouse.Values.Image = ((System.Drawing.Image)(resources.GetObject("btnAddWarehouse.Values.Image")));
+            this.btnAddWarehouse.Values.Text = "Lưu";
+            this.btnAddWarehouse.Click += new System.EventHandler(this.btnSave_Click);
+            // 
             // materialNameDataGridViewTextBoxColumn
             // 
             this.materialNameDataGridViewTextBoxColumn.DataPropertyName = "MaterialName";
@@ -743,64 +804,6 @@
             // finalAccountDetailDTOBindingSource
             // 
             this.finalAccountDetailDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.FinalAccountDetailDTO);
-            // 
-            // kryptonGroupBox1
-            // 
-            this.kryptonGroupBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.kryptonGroupBox1.GroupBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonCustom1;
-            this.kryptonGroupBox1.Location = new System.Drawing.Point(0, 0);
-            this.kryptonGroupBox1.Name = "kryptonGroupBox1";
-            this.kryptonGroupBox1.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2007Blue;
-            // 
-            // kryptonGroupBox1.Panel
-            // 
-            this.kryptonGroupBox1.Panel.Controls.Add(this.btnAddWarehouse);
-            this.kryptonGroupBox1.Size = new System.Drawing.Size(784, 59);
-            this.kryptonGroupBox1.TabIndex = 9;
-            this.kryptonGroupBox1.Values.Heading = "";
-            // 
-            // btnAddWarehouse
-            // 
-            this.btnAddWarehouse.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.Alternate;
-            this.btnAddWarehouse.Location = new System.Drawing.Point(5, 3);
-            this.btnAddWarehouse.Name = "btnAddWarehouse";
-            this.btnAddWarehouse.Size = new System.Drawing.Size(81, 46);
-            this.btnAddWarehouse.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btnAddWarehouse.StateCommon.Content.Image.ImageH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.btnAddWarehouse.StateCommon.Content.Image.ImageV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Near;
-            this.btnAddWarehouse.TabIndex = 3;
-            this.btnAddWarehouse.Values.Image = ((System.Drawing.Image)(resources.GetObject("btnAddWarehouse.Values.Image")));
-            this.btnAddWarehouse.Values.Text = "Lưu";
-            this.btnAddWarehouse.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // kryptonGroupBox2
-            // 
-            this.kryptonGroupBox2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.kryptonGroupBox2.GroupBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonCustom1;
-            this.kryptonGroupBox2.Location = new System.Drawing.Point(0, 0);
-            this.kryptonGroupBox2.Name = "kryptonGroupBox2";
-            this.kryptonGroupBox2.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2007Blue;
-            // 
-            // kryptonGroupBox2.Panel
-            // 
-            this.kryptonGroupBox2.Panel.Controls.Add(this.kryptonButton1);
-            this.kryptonGroupBox2.Size = new System.Drawing.Size(766, 59);
-            this.kryptonGroupBox2.TabIndex = 6;
-            this.kryptonGroupBox2.Values.Heading = "";
-            // 
-            // kryptonButton1
-            // 
-            this.kryptonButton1.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.Alternate;
-            this.kryptonButton1.Location = new System.Drawing.Point(5, 3);
-            this.kryptonButton1.Name = "kryptonButton1";
-            this.kryptonButton1.Size = new System.Drawing.Size(81, 46);
-            this.kryptonButton1.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.kryptonButton1.StateCommon.Content.Image.ImageH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.kryptonButton1.StateCommon.Content.Image.ImageV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Near;
-            this.kryptonButton1.TabIndex = 3;
-            this.kryptonButton1.Values.Image = ((System.Drawing.Image)(resources.GetObject("kryptonButton1.Values.Image")));
-            this.kryptonButton1.Values.Text = "Thêm Thông Tin Chi Tiết";
-            this.kryptonButton1.Click += new System.EventHandler(this.btnAddFinalAccountItem_Click);
             // 
             // NewFinalAccount
             // 
@@ -850,6 +853,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.gbcContentBox)).EndInit();
             this.gbcContentBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvContentBot)).EndInit();
+            this.kryptonGroupBox2.Panel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox2)).EndInit();
+            this.kryptonGroupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlNewItem)).EndInit();
             this.pnlNewItem.ResumeLayout(false);
@@ -858,13 +864,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.gbxNewItem)).EndInit();
             this.gbxNewItem.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cbbMaterial)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.finalAccountDetailDTOBindingSource)).EndInit();
             this.kryptonGroupBox1.Panel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).EndInit();
             this.kryptonGroupBox1.ResumeLayout(false);
-            this.kryptonGroupBox2.Panel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox2)).EndInit();
-            this.kryptonGroupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.finalAccountDetailDTOBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

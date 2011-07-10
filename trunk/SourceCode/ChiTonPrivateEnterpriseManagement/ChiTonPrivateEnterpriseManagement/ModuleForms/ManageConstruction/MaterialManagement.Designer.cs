@@ -90,15 +90,15 @@
             this.kryptonPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonPanel.Location = new System.Drawing.Point(0, 0);
             this.kryptonPanel.Name = "kryptonPanel";
-            this.kryptonPanel.Size = new System.Drawing.Size(840, 646);
+            this.kryptonPanel.Size = new System.Drawing.Size(840, 696);
             this.kryptonPanel.TabIndex = 0;
             // 
             // kryptonPanel4
             // 
             this.kryptonPanel4.Controls.Add(this.kryptonHeader2);
-            this.kryptonPanel4.Location = new System.Drawing.Point(0, 396);
+            this.kryptonPanel4.Location = new System.Drawing.Point(0, 426);
             this.kryptonPanel4.Name = "kryptonPanel4";
-            this.kryptonPanel4.Size = new System.Drawing.Size(834, 32);
+            this.kryptonPanel4.Size = new System.Drawing.Size(834, 34);
             this.kryptonPanel4.TabIndex = 6;
             // 
             // kryptonHeader2
@@ -107,7 +107,7 @@
             this.kryptonHeader2.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.DockActive;
             this.kryptonHeader2.Location = new System.Drawing.Point(0, 0);
             this.kryptonHeader2.Name = "kryptonHeader2";
-            this.kryptonHeader2.Size = new System.Drawing.Size(834, 32);
+            this.kryptonHeader2.Size = new System.Drawing.Size(834, 34);
             this.kryptonHeader2.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.kryptonHeader2.TabIndex = 0;
             this.kryptonHeader2.Values.Heading = "Chi tiết";
@@ -124,79 +124,79 @@
             this.kryptonPanel3.Controls.Add(this.lbEU);
             this.kryptonPanel3.Controls.Add(this.ipName);
             this.kryptonPanel3.Controls.Add(this.lbName);
-            this.kryptonPanel3.Location = new System.Drawing.Point(0, 421);
+            this.kryptonPanel3.Location = new System.Drawing.Point(0, 453);
             this.kryptonPanel3.Name = "kryptonPanel3";
-            this.kryptonPanel3.Size = new System.Drawing.Size(834, 213);
+            this.kryptonPanel3.Size = new System.Drawing.Size(834, 229);
             this.kryptonPanel3.StateCommon.Color1 = System.Drawing.Color.White;
             this.kryptonPanel3.StateCommon.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.ExpertCheckedTracking;
             this.kryptonPanel3.TabIndex = 5;
             // 
             // btSave
             // 
-            this.btSave.Location = new System.Drawing.Point(383, 171);
+            this.btSave.Location = new System.Drawing.Point(383, 184);
             this.btSave.Name = "btSave";
-            this.btSave.Size = new System.Drawing.Size(59, 25);
+            this.btSave.Size = new System.Drawing.Size(59, 27);
             this.btSave.TabIndex = 22;
             this.btSave.Values.Text = "Cập nhật";
             this.btSave.Click += new System.EventHandler(this.btSave_Click);
             // 
             // ipRatio
             // 
-            this.ipRatio.Location = new System.Drawing.Point(385, 143);
+            this.ipRatio.Location = new System.Drawing.Point(385, 154);
             this.ipRatio.Name = "ipRatio";
-            this.ipRatio.Size = new System.Drawing.Size(161, 22);
+            this.ipRatio.Size = new System.Drawing.Size(161, 20);
             this.ipRatio.TabIndex = 21;
             // 
             // lbRatio
             // 
-            this.lbRatio.Location = new System.Drawing.Point(293, 143);
+            this.lbRatio.Location = new System.Drawing.Point(293, 154);
             this.lbRatio.Name = "lbRatio";
-            this.lbRatio.Size = new System.Drawing.Size(82, 19);
+            this.lbRatio.Size = new System.Drawing.Size(89, 20);
             this.lbRatio.TabIndex = 20;
             this.lbRatio.Values.Text = "Chỉ số quy đổi";
             // 
             // ipRU
             // 
-            this.ipRU.Location = new System.Drawing.Point(384, 101);
+            this.ipRU.Location = new System.Drawing.Point(384, 109);
             this.ipRU.Name = "ipRU";
-            this.ipRU.Size = new System.Drawing.Size(162, 22);
+            this.ipRU.Size = new System.Drawing.Size(162, 20);
             this.ipRU.TabIndex = 19;
             // 
             // lbRU
             // 
-            this.lbRU.Location = new System.Drawing.Point(278, 101);
+            this.lbRU.Location = new System.Drawing.Point(278, 109);
             this.lbRU.Name = "lbRU";
-            this.lbRU.Size = new System.Drawing.Size(100, 19);
+            this.lbRU.Size = new System.Drawing.Size(108, 20);
             this.lbRU.TabIndex = 18;
             this.lbRU.Values.Text = "Đơn vị quyết toán";
             // 
             // ipEU
             // 
-            this.ipEU.Location = new System.Drawing.Point(383, 62);
+            this.ipEU.Location = new System.Drawing.Point(383, 67);
             this.ipEU.Name = "ipEU";
-            this.ipEU.Size = new System.Drawing.Size(162, 22);
+            this.ipEU.Size = new System.Drawing.Size(162, 20);
             this.ipEU.TabIndex = 17;
             // 
             // lbEU
             // 
-            this.lbEU.Location = new System.Drawing.Point(293, 62);
+            this.lbEU.Location = new System.Drawing.Point(293, 67);
             this.lbEU.Name = "lbEU";
-            this.lbEU.Size = new System.Drawing.Size(85, 19);
+            this.lbEU.Size = new System.Drawing.Size(92, 20);
             this.lbEU.TabIndex = 16;
             this.lbEU.Values.Text = "Đơn vị dự toán";
             // 
             // ipName
             // 
-            this.ipName.Location = new System.Drawing.Point(383, 22);
+            this.ipName.Location = new System.Drawing.Point(383, 24);
             this.ipName.Name = "ipName";
-            this.ipName.Size = new System.Drawing.Size(162, 22);
+            this.ipName.Size = new System.Drawing.Size(162, 20);
             this.ipName.TabIndex = 13;
             // 
             // lbName
             // 
-            this.lbName.Location = new System.Drawing.Point(309, 25);
+            this.lbName.Location = new System.Drawing.Point(309, 27);
             this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(68, 19);
+            this.lbName.Size = new System.Drawing.Size(73, 20);
             this.lbName.TabIndex = 12;
             this.lbName.Values.Text = "Tên vật liệu";
             // 
@@ -204,10 +204,10 @@
             // 
             this.kryptonPanel2.Controls.Add(this.kryptonButton1);
             this.kryptonPanel2.Controls.Add(this.btAddNew);
-            this.kryptonPanel2.Location = new System.Drawing.Point(3, 27);
+            this.kryptonPanel2.Location = new System.Drawing.Point(3, 29);
             this.kryptonPanel2.Name = "kryptonPanel2";
             this.kryptonPanel2.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.PanelAlternate;
-            this.kryptonPanel2.Size = new System.Drawing.Size(831, 54);
+            this.kryptonPanel2.Size = new System.Drawing.Size(831, 58);
             this.kryptonPanel2.StateCommon.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.kryptonPanel2.StateCommon.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.ExpertCheckedTracking;
             this.kryptonPanel2.TabIndex = 4;
@@ -216,7 +216,7 @@
             // 
             this.kryptonButton1.Location = new System.Drawing.Point(63, 3);
             this.kryptonButton1.Name = "kryptonButton1";
-            this.kryptonButton1.Size = new System.Drawing.Size(54, 48);
+            this.kryptonButton1.Size = new System.Drawing.Size(54, 52);
             this.kryptonButton1.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.kryptonButton1.StateCommon.Content.Image.ImageH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
             this.kryptonButton1.StateCommon.Content.Image.ImageV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Near;
@@ -229,7 +229,7 @@
             // 
             this.btAddNew.Location = new System.Drawing.Point(3, 3);
             this.btAddNew.Name = "btAddNew";
-            this.btAddNew.Size = new System.Drawing.Size(54, 48);
+            this.btAddNew.Size = new System.Drawing.Size(54, 52);
             this.btAddNew.StateCommon.Content.Image.ImageH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
             this.btAddNew.StateCommon.Content.Image.ImageV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Near;
             this.btAddNew.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
@@ -241,9 +241,9 @@
             // kryptonPanel1
             // 
             this.kryptonPanel1.Controls.Add(this.kryptonHeader1);
-            this.kryptonPanel1.Location = new System.Drawing.Point(0, 87);
+            this.kryptonPanel1.Location = new System.Drawing.Point(0, 94);
             this.kryptonPanel1.Name = "kryptonPanel1";
-            this.kryptonPanel1.Size = new System.Drawing.Size(834, 34);
+            this.kryptonPanel1.Size = new System.Drawing.Size(834, 37);
             this.kryptonPanel1.TabIndex = 2;
             // 
             // kryptonHeader1
@@ -252,7 +252,7 @@
             this.kryptonHeader1.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.DockActive;
             this.kryptonHeader1.Location = new System.Drawing.Point(0, 0);
             this.kryptonHeader1.Name = "kryptonHeader1";
-            this.kryptonHeader1.Size = new System.Drawing.Size(834, 34);
+            this.kryptonHeader1.Size = new System.Drawing.Size(834, 37);
             this.kryptonHeader1.TabIndex = 1;
             this.kryptonHeader1.Values.Description = "";
             this.kryptonHeader1.Values.Heading = "Danh sách Vật liệu";
@@ -270,10 +270,10 @@
             this.RealCalUnit,
             this.Ratio});
             this.dgvMaterials.DataSource = this.materialDTOBindingSource;
-            this.dgvMaterials.Location = new System.Drawing.Point(0, 118);
+            this.dgvMaterials.Location = new System.Drawing.Point(0, 127);
             this.dgvMaterials.Name = "dgvMaterials";
             this.dgvMaterials.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMaterials.Size = new System.Drawing.Size(834, 272);
+            this.dgvMaterials.Size = new System.Drawing.Size(834, 293);
             this.dgvMaterials.StateNormal.Background.Color1 = System.Drawing.Color.White;
             this.dgvMaterials.TabIndex = 0;
             this.dgvMaterials.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMaterials_CellContentClick);
@@ -340,7 +340,7 @@
             // 
             // menuStrip1
             // 
-            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cửaSổToolStripMenuItem,
             this.thôngTinToolStripMenuItem});
@@ -355,13 +355,13 @@
             this.cửaSổToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.đóngToolStripMenuItem});
             this.cửaSổToolStripMenuItem.Name = "cửaSổToolStripMenuItem";
-            this.cửaSổToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+            this.cửaSổToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
             this.cửaSổToolStripMenuItem.Text = "Cửa sổ";
             // 
             // đóngToolStripMenuItem
             // 
             this.đóngToolStripMenuItem.Name = "đóngToolStripMenuItem";
-            this.đóngToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
+            this.đóngToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.đóngToolStripMenuItem.Text = "Đóng";
             // 
             // thôngTinToolStripMenuItem
@@ -369,20 +369,20 @@
             this.thôngTinToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.hỏiĐápToolStripMenuItem});
             this.thôngTinToolStripMenuItem.Name = "thôngTinToolStripMenuItem";
-            this.thôngTinToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
+            this.thôngTinToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
             this.thôngTinToolStripMenuItem.Text = "Thông tin ";
             // 
             // hỏiĐápToolStripMenuItem
             // 
             this.hỏiĐápToolStripMenuItem.Name = "hỏiĐápToolStripMenuItem";
-            this.hỏiĐápToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.hỏiĐápToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.hỏiĐápToolStripMenuItem.Text = "Hỏi đáp";
             // 
             // MaterialManagement
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(840, 646);
+            this.ClientSize = new System.Drawing.Size(840, 696);
             this.Controls.Add(this.kryptonPanel);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MaterialManagement";

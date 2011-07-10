@@ -22,6 +22,13 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
             InitializeComponent();
         }
 
+        public AddNewMaterial(string defaultName)
+        {
+            CenterToParent();
+            InitializeComponent();
+            ipName.Text = defaultName;
+        }
+
         private void btSave_Click(object sender, EventArgs e)
         {
             MaterialDTO dto = new MaterialDTO();

@@ -155,18 +155,17 @@
   <data name="btAddNew.Values.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAlRJREFUOE+V0k1I
-        k3EcB/BHkdqz56VtjBKJBEM82KEIOpTRO9EhooIRMyznSyJSh+gSZYUogjldY7pM863Nxzk3NzdbbXMz
-        nW4zTXSSNpwsyF52ULLzvrVCYrrD/MP39v19/pdvCgBi89s/mHUtPzu/Ji01LTVKRAmkROEMOeVj58eV
-        W8oxYHNuTZYMzv8KYHp9ChPr43Cvu3Bn7vZIou6W41ipyFto9q/5Mbo6CseqA9Y1Kypmyl1JAzc8BQPu
-        iAtvIjaYIyb0RXQoe186nDRw3S01Dq1YYVwxgFvpQefXDhR7Zc6EwGHtwVb1rCqinFH8aPhQ/71uuvab
-        cu7Zz/6wHtqwBu3hNjSHm5DnPhphdGSA0ZMB2kAGKDMvwHbwFcRDz/1lz5cxDH92wLY8BNOSEX1BDt3B
-        TrQFW6D81IhLvotg7HzQIySoCR7I6Z3gBXaAHuD5iHvuu0v28FtYQmYYgnr0LGjQOf8SjTP1kDiuIrM/
-        AwIDhV1W6j/i/YfQetJHFFikC7FfuUUtav3VKLbfxKm+POx5LoS4lYWoi4GQoyEwUmCt/DiE6f0DCOW0
-        d++L3UhvEUGsZrdmA+ndhLwjwWr4XkJUTctEdQwXl6fMVBwWQxTMrEhOc0IFzQlUFCdQU5ywgZYlHJKo
-        hmneAPa1puPQqwPIbcrRJb0DcRX7F8huz8SZ/hOQvpbgXMdJ07aAjBYxTuuPo8ReiCrvY0h1Etu2gNyu
-        bEisV/Bo4gE0H7tRYSlLvMREqriSvZyjyJq80H12rtQkW3ziqgwdUx0pT9T9DVuAadzZlNnwAAAAAElF
-        TkSuQmCC
+        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAkpJREFUOE+V0k1M
+        kgEcBnBOxcv7ETBWzrVcbs6DHWptbaWt70OH1qqNNdYsSc05q0Pr0hB1zuZmfhBDzTBBAl8RQUgMgwQz
+        AjGNKU6RidKWfXDQRfenqLmGcsDDc3v+v//l4QDgbE2u7eD16gVZtC5cu1oTlq/Kl2QrhY7jd9N1tx0n
+        S3emyl7N/wphJjENX+IDPAk37s/dG88YuO0vsQU2AphYn4Br3QX7hh1VwUp3xsBNb/GQJ+7GaNwBW9yK
+        gbgRFR/LxzIGbngklpE1OyxrZrBrfdB+1aDUL32bFjhqOKzunFXFlUHFj9ZPzd+bZhq/Keee/hyMmWCI
+        6dET60ZHrB1FnhNx2kiEaBMRosxEiLRxQ4yGp+BUex+teL+8x9hnFxwrI7AuWzAQYaGLaNEd6YJyqQ2X
+        Jy+BdvJAjRMgfVwQM7vBDe0CNcSd5Dz0PFh2xt5gOGqDOWJC36Ie2vkXaAs2Q+y6hpzBbPDNJPbYyf+I
+        /x9CmYhJTvGwZDH5lQ0b0BhoQKnzFs4MFGHfMwFEagbCXhoClgLfQoKx81IQuv8PIGih/Puf70VWlxCi
+        TmZ7NpH+Lcg7Aoye5+cIGyipsIlmU/KEnk7BkoiCnhW2UKxAQbF8FcnyO0lW0EpJ0y5R+Jju2AQOqLNw
+        5OUhFLTnGzPegaie+Qvk9eTg3OApSF6LcUFz2rojILtLhLOmkyhzlqDeXwuJUezYEVDQmwex/SpqfDLo
+        F3SoGq5Iv8R0qkjOXMlX5E5d1J2fK7dKw3VuebRQdawyXfc387CFdyusK/EAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="kryptonHeader1.Values.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

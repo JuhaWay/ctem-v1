@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,6 +8,8 @@ using System.Windows.Forms;
 using ChiTonPrivateEnterpriseManagement.Classes.BUS;
 using ChiTonPrivateEnterpriseManagement.Classes.DTO;
 using ChiTonPrivateEnterpriseManagement.Classes.Global;
+using ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction;
+using ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
@@ -19,11 +21,14 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
         private List<DebtDTO> listDebt;
         private List<WarehouseDTO> listMainWarehouse;
         private List<MaterialDTO> listMaterialInEstimate;
+        private List<MaterialDTO> listMaterial;
+        private long EstimateID;
         ConstructionBus constructionBUS = new ConstructionBus();
         WarehouseBUS warehouseBUS = new WarehouseBUS();
         DebtBUS debtBUS = new DebtBUS();
         MaterialBUS materialBUS = new MaterialBUS();
         FinalAccountBUS finalaccountBUS = new FinalAccountBUS();
+        EstimateBUS estimateBus = new EstimateBUS();
         private CheckBox _ckBox;
 
         public NewFinalAccount()
@@ -33,6 +38,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
 
         private void NewFinalAccount_Load(object sender, EventArgs e)
         {
+            CenterToParent();            
             setLauout();
             setData();
         }
@@ -88,11 +94,9 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
             cbbDebt.ValueMember = Constants.DEBT_VALUEMEMBER;   
             cbbDebt.DisplayMember = Constants.DEBT_DISPLAYMEMBER;
 
-            listMaterialInEstimate = materialBUS.LoadALlMaterialsEstimate();
-            cbbMaterial.DataSource = listMaterialInEstimate;
-            cbbMaterial.ValueMember = Constants.MATERIAL_VALUEMEMBER;
-            cbbMaterial.DisplayMember = Constants.MATERIAL_DISPLAYMEMBER;
-        }
+            listMaterial = materialBUS.LoadAllMaterials();
+            Global.SetDataCombobox(cbbMaterial, "Material");
+        }        
 
         private void btnAddItem_Click(object sender, EventArgs e)
         {
@@ -103,6 +107,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
             finalaccountitem.MaterialName = material.MaterialName;
             finalaccountitem.RealCalUnit = material.RealCalUnit;
             finalaccountitem.Quantity = Convert.ToInt32(txtQuantity.Text);
+            finalaccountitem.QuantityEst = finalaccountitem.Quantity*material.Ratio;
             finalaccountitem.UnitCost = Global.ConvertMoneyToLong(txtUnitCost.Text, ".");
             finalaccountitem.TotalCost = Global.ConvertMoneyToLong(txtTotalCostItem.Text, ".");
             finalaccountitem.Note = txtNoteItem.Text;
@@ -175,7 +180,9 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
             foreach (FinalAccountDetailDTO item in listFinalAccountDetail)
             {
                 finalaccountBUS.CreateFinalAccountDetail(item);
+                estimateBus.UpdateEstimateDetail(EstimateID, item);
             }
+            estimateBus.UpdateEstimateTotalRealCost(EstimateID);
         }
 
         private void cbbToPlace_SelectedIndexChanged(object sender, EventArgs e)
@@ -231,9 +238,55 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
             }
         }
 
-        private void btnAddWarehouse_Click(object sender, EventArgs e)
+        private void cbbMaterial_Leave(object sender, EventArgs e)
         {
-
+            bool isExist = false;
+            bool isExistEst = false;
+            string nameMaterial = cbbMaterial.Text;
+            for (int i = 0; i < listMaterial.Count; i++)
+            {
+                MaterialDTO materialDTO = listMaterial[i];
+                if (materialDTO.MaterialName.Equals(nameMaterial))
+                {
+                    isExist = true;
+                    i = listMaterial.Count;
+                }
+            }
+            if (!isExist)
+            {
+                if(KryptonMessageBox.Show(Constants.NOT_EXIST_MATERIAL, Constants.CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    AddNewMaterial newMaterial = new AddNewMaterial(nameMaterial);
+                    newMaterial.ShowDialog();
+                    listMaterial = materialBUS.LoadAllMaterials();
+                    Global.SetDataCombobox(cbbMaterial, "Material");
+                    cbbMaterial.SelectedIndex = listMaterial.Count - 1;
+                }
+            }
+            if (cbbConstruction.Enabled)
+            {
+                MaterialDTO selectMaterial = (MaterialDTO)cbbMaterial.SelectedItem;
+                listMaterialInEstimate = materialBUS.LoadALlMaterialsEstimate();
+                for (int i = 0; i < listMaterialInEstimate.Count; i++)
+                {
+                    MaterialDTO materialDTO = listMaterial[i];
+                    if (materialDTO.Equals(selectMaterial))
+                    {
+                        isExistEst = true;
+                        i = listMaterialInEstimate.Count;
+                    }
+                }
+                if (!isExistEst)
+                {
+                    if (KryptonMessageBox.Show(Constants.NOT_EXIST_MATERIAL_EST, Constants.CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        ConstructionDTO consDTO = cbbConstruction.SelectedItem as ConstructionDTO;
+                        EstimateID = estimateBus.GetEstIDByConsID(consDTO.ConstructionID);
+                        AddNewEsDetail newEstimate = new AddNewEsDetail(EstimateID, cbbMaterial.SelectedIndex);
+                        newEstimate.ShowDialog();
+                    }
+                }
+            }            
         }
     }
 }
