@@ -71,6 +71,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
         private void NewEmployee_Load(object sender, EventArgs e)
         {
             CenterToParent();
+            SetLayout();
             slcMain.SplitterDistance = Width;
             loadRole();
             loadRight();
@@ -79,6 +80,12 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
             {
                 SetInnitValueWhenEdit();
             }
+        }
+
+        private void SetLayout()
+        {
+            Global.TextBoxRequireInput(txtUsername);
+            Global.TextBoxRequireInput(txtFullname);            
         }
 
         private void DefineStatus()
@@ -118,13 +125,12 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
         }
 
         private void timerLayoutSLC_Tick(object sender, EventArgs e)
-        {            
-            slcMain.ContainerBackStyle = PaletteBackStyle.ControlClient;            
+        {                        
             if (isNext)
             {
                 while (slcMain.SplitterDistance > (slcMain.SplitterWidth + 1))
                 {
-                    slcMain.SplitterDistance -= 10;
+                    slcMain.SplitterDistance -= 20;
                     Refresh();
                 }
                 isNext = false;
@@ -134,7 +140,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
             {
                 while (slcMain.SplitterDistance < (Width - (slcMain.SplitterWidth + 16)))
                 {
-                    slcMain.SplitterDistance += 10;
+                    slcMain.SplitterDistance += 20;
                     Refresh();
                 }
                 isPre = false;
@@ -231,6 +237,19 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
             if (txtTotalDebt.Text.Equals(Constants.EMPTY_TEXT))
             {
                 txtTotalDebt.Text = "0";
+            }
+        }
+
+        private void txtUsername_TextChanged(object sender, EventArgs e)
+        {
+            var textBox = (KryptonTextBox) sender;            
+            if (textBox.Text.Equals(Constants.EMPTY_TEXT))
+            {
+                Global.TextBoxRequireInput(textBox);
+            }
+            else
+            {
+                Global.TextBoxRequireInputed(textBox);
             }
         }
     }
