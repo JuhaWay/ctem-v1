@@ -15,18 +15,24 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
         public string ConstructionName { get; set; }
         public string Description { get; set; }
         public string ConstructionAddress { get; set; }
-        public DateTime? CommencementDate { get; set; }
-        public DateTime? CompletionDate { get; set; }
-        public DateTime? CreatedDate { get; set; }
-        public DateTime? LastUpdated { get; set; }
+        public DateTime CommencementDate { get; set; }
+        public DateTime CompletionDate { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public DateTime LastUpdated { get; set; }
         public string CreatedBy { get; set; }
         public string UpdatedBy { get; set; }
         public string Status { get; set; }
         public bool HasEstimate { get; set; }
         public long TotalEstimateCost { get; set; }
-        public long? ParentID { get; set; }
         public long TotalRealCost { get; set; }
-        
+        public long TotalEstimateCostEst { get; set; }
+        public long TotalRealCostEst { get; set; }
+        public long TotalMaterialCost { get; set; }
+        public long TotalWorkerCost { get; set; }
+        public long TotalMachineCost { get; set; }
+        public long TotalOtherCost { get; set; }
+        public long TotalCostsIncurred { get; set; }
+        public long? ParentID { get; set; }                
 
         public ConstructionDTO()
         {
@@ -38,7 +44,6 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
             CreatedBy = "";
             UpdatedBy = "";
             Status = "";
-
         }
 
         public ConstructionDTO(string name,long id)

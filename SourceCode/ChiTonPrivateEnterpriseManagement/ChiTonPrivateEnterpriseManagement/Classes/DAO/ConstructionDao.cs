@@ -284,7 +284,9 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         Description = Convert.ToString(reader["Description"]),
                         ConstructionAddress = Convert.ToString(reader["ConstructionAddress"]),
                         CommencementDate = Convert.ToDateTime(reader["CommencementDate"]),
-                        CompletionDate = Convert.ToDateTime(reader["CompletionDate"])
+                        CompletionDate = Convert.ToDateTime(reader["CompletionDate"]),
+                        TotalEstimateCost = Convert.ToInt64(reader["TotalEstimateCost"]),
+                        TotalRealCost = Convert.ToInt64(reader["TotalRealCost"])
                     };
                     return consDto;
                 }
@@ -387,6 +389,55 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             {
                 if (Transaction == null)
                     Connection.Close();
+            }
+        }
+
+        public ConstructionDTO LoadConstructionReportByName(string consName)
+        {
+            var cmd = new SqlCommand("[dbo].[Construction_GetReportByName]", Connection);
+
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@constructionName", consName));
+            try
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    ConstructionDTO consDto = new ConstructionDTO
+                    {
+                        ConstructionID = Convert.ToInt64(reader["ConstructionID"]),
+                        ConstructionName = Convert.ToString(reader["ConstructionName"]),
+                        Description = Convert.ToString(reader["Description"]),
+                        ConstructionAddress = Convert.ToString(reader["ConstructionAddress"]),
+                        CommencementDate = Convert.ToDateTime(reader["CommencementDate"]),
+                        CompletionDate = Convert.ToDateTime(reader["CompletionDate"]),
+                        TotalEstimateCost = Convert.ToInt64(reader["TotalEstimateCost"]),
+                        TotalRealCost = Convert.ToInt64(reader["TotalRealCost"]),
+                        TotalEstimateCostEst = Convert.ToInt64(reader["TotalCostEstimate"]),
+                        TotalRealCostEst = Convert.ToInt64(reader["TotalCostReal"]),
+                        TotalMaterialCost = Convert.ToInt64(reader["TotalMaterialCost"]),
+                        TotalWorkerCost = Convert.ToInt64(reader["TotalWorkerCost"]),
+                        TotalMachineCost = Convert.ToInt64(reader["TotalMachineCost"]),
+                        TotalCostsIncurred = Convert.ToInt64(reader["TotalCostsIncurred"])
+                    };
+                    consDto.TotalOtherCost = consDto.TotalRealCost - consDto.TotalRealCostEst;
+                    return consDto;
+                }
+                return null;
+
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message, "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                if (Transaction == null) Connection.Close();
             }
         }
     }

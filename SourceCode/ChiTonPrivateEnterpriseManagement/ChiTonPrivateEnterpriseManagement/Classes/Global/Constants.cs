@@ -106,8 +106,8 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
 
         public const string INVALIDATE_VALUE = "Giá Trị Bạn Vừa Nhập Không Hợp Lệ";
 
-        public const string TO_CONSTRUCTION_WAREHOUSE = "Đến Kho Công Trình";
-        public const string TO_MAIN_WAREHOUSE = "Đến Kho Chính";
+        public const string TO_CONSTRUCTION_WAREHOUSE = "Kho Công Trình";
+        public const string TO_MAIN_WAREHOUSE = "Kho Chính";
 
         public const string CONSTRUCTION_WAREHOUSE = "Kho Công Trình";
         public const string MAIN_WAREHOUSE = "Kho Chính";
@@ -121,5 +121,8 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
         public const string NUMBER = "number";
 
         public const string ZERO_NUMBER = "0";
+
+        public const string NOT_EXIST_MATERIAL = "Vật tư này chưa tồn tại\n Bạn có muốn thêm mới?";
+        public const string NOT_EXIST_MATERIAL_EST = "Vật tư này chưa tồn tại trong dự toán\n Bạn có muốn thêm mới?";
     }
 }

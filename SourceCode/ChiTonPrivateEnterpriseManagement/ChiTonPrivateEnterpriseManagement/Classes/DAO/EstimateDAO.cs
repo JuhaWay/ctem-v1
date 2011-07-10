@@ -235,5 +235,88 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                     Connection.Close();
             }
         }
+
+        public long GetEstIDByConsID(long consID)
+        {
+            var cmd = new SqlCommand("[dbo].[Estimate_GetEstimateIDByConstructionID]", Connection);
+
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@ConstructionID", consID));
+                SqlDataReader reader = cmd.ExecuteReader();
+                long EstID = 0;
+                while (reader.Read())
+                {
+                    EstID = Convert.ToInt64(reader["EstimateID"]);
+                }
+                return EstID;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message, "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return 0;
+            }
+            finally
+            {
+                if (Transaction == null) Connection.Close();
+            }            
+        }
+
+        public bool UpdateEstimateDetail(long estimateId, FinalAccountDetailDTO item)
+        {
+            var cmd = new SqlCommand("[dbo].[Estimate_UpdateEstimateDetailAccount]", Connection) { CommandType = CommandType.StoredProcedure };
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@estimateID", estimateId));
+                cmd.Parameters.Add(new SqlParameter("@MaterialID", item.MaterialID));
+                cmd.Parameters.Add(new SqlParameter("@QuantityReal", item.QuantityEst));
+                cmd.Parameters.Add(new SqlParameter("@UnitCostReal", item.UnitCost));
+                cmd.Parameters.Add(new SqlParameter("@TotalCostReal", item.TotalCost));
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException sql)
+            {
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null)
+                    Connection.Close();
+            }
+        }
+
+        public bool UpdateEstimateTotalRealCost(long estimateId)
+        {
+            var cmd = new SqlCommand("[dbo].[Estimate_UpdateTotalRealCost]", Connection) { CommandType = CommandType.StoredProcedure };
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@estimateID", estimateId));
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException sql)
+            {
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null)
+                    Connection.Close();
+            }
+        }
     }
 }
