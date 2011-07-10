@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConstructionManagement));
             this.kryptonPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.dgvCons = new AdvancedDataGridView.TreeGridView();
@@ -123,9 +123,9 @@
             // checkBox
             // 
             this.checkBox.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle29.NullValue = false;
-            this.checkBox.DefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.NullValue = false;
+            this.checkBox.DefaultCellStyle = dataGridViewCellStyle1;
             this.checkBox.FalseValue = null;
             this.checkBox.FillWeight = 51.53443F;
             this.checkBox.HeaderText = "";
@@ -148,9 +148,9 @@
             // ConstructionName
             // 
             this.ConstructionName.DataPropertyName = "ConstructionName";
-            dataGridViewCellStyle30.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle30.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ConstructionName.DefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConstructionName.DefaultCellStyle = dataGridViewCellStyle2;
             this.ConstructionName.DefaultNodeImage = null;
             this.ConstructionName.HeaderText = "Tên công trình";
             this.ConstructionName.Name = "ConstructionName";
@@ -165,9 +165,9 @@
             // 
             // HasEstimate
             // 
-            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle31.NullValue = false;
-            this.HasEstimate.DefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.NullValue = false;
+            this.HasEstimate.DefaultCellStyle = dataGridViewCellStyle3;
             this.HasEstimate.FalseValue = null;
             this.HasEstimate.HeaderText = "Dự toán";
             this.HasEstimate.IndeterminateValue = null;
@@ -177,8 +177,8 @@
             // TotalEstimateCost
             // 
             this.TotalEstimateCost.DataPropertyName = "TotalEstimateCost";
-            dataGridViewCellStyle32.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.TotalEstimateCost.DefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.TotalEstimateCost.DefaultCellStyle = dataGridViewCellStyle4;
             this.TotalEstimateCost.HeaderText = "Chi phí dự toán";
             this.TotalEstimateCost.Name = "TotalEstimateCost";
             this.TotalEstimateCost.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -186,8 +186,8 @@
             // 
             // TotalRealCost
             // 
-            dataGridViewCellStyle33.BackColor = System.Drawing.Color.Lime;
-            this.TotalRealCost.DefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Lime;
+            this.TotalRealCost.DefaultCellStyle = dataGridViewCellStyle5;
             this.TotalRealCost.HeaderText = "Chi phí quyết toán";
             this.TotalRealCost.Name = "TotalRealCost";
             this.TotalRealCost.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -219,8 +219,8 @@
             // CommencementDate
             // 
             this.CommencementDate.DataPropertyName = "CommencementDate";
-            dataGridViewCellStyle34.BackColor = System.Drawing.Color.Yellow;
-            this.CommencementDate.DefaultCellStyle = dataGridViewCellStyle34;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Yellow;
+            this.CommencementDate.DefaultCellStyle = dataGridViewCellStyle6;
             this.CommencementDate.HeaderText = "Ngày khởi công";
             this.CommencementDate.Name = "CommencementDate";
             this.CommencementDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -229,9 +229,9 @@
             // CompletionDate
             // 
             this.CompletionDate.DataPropertyName = "CompletionDate";
-            dataGridViewCellStyle35.BackColor = System.Drawing.Color.Yellow;
-            dataGridViewCellStyle35.ForeColor = System.Drawing.Color.Red;
-            this.CompletionDate.DefaultCellStyle = dataGridViewCellStyle35;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Yellow;
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Red;
+            this.CompletionDate.DefaultCellStyle = dataGridViewCellStyle7;
             this.CompletionDate.HeaderText = "Hạn hoàn thành";
             this.CompletionDate.Name = "CompletionDate";
             this.CompletionDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
