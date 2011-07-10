@@ -50,5 +50,10 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
         {
             return _constructionDao.LoadAllConstructionsHaveWarehouse();
         }
+
+        public ConstructionDTO LoadConstructionReportByName(string consName)
+        {
+            return _constructionDao.LoadConstructionReportByName(consName);
+        }
     }
 }

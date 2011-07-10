@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms;
 using System.Drawing;
+using System.Windows.Forms.DataVisualization.Charting;
 using ChiTonPrivateEnterpriseManagement.Classes.BUS;
 using ChiTonPrivateEnterpriseManagement.Classes.DTO;
 using ComponentFactory.Krypton.Toolkit;
@@ -269,6 +270,13 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
 
         public static void SetDataCombobox(KryptonComboBox cbbControl, string obj)
         {
+            if (obj.Equals("Construction"))
+            {
+                var constructionBus = new ConstructionBus();
+                cbbControl.DataSource = constructionBus.LoadAllConstructions();
+                cbbControl.ValueMember = Constants.CONSTRUCTION_VALUEMEMBER;
+                cbbControl.DisplayMember = Constants.CONSTRUCTION_DISPLAYMEMBER;
+            }
             if (obj.Equals("Employee"))
             {
                 var employeeBus = new EmployeeBUS();
@@ -288,6 +296,13 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
             {
                 cbbControl.Items.Add(Constants.ACTIVE);
                 cbbControl.Items.Add(Constants.INACTIVE);
+            }
+            if (obj.Equals("Material"))
+            {
+                var materialBus = new MaterialBUS();
+                cbbControl.DataSource = materialBus.LoadAllMaterials();
+                cbbControl.ValueMember = Constants.MATERIAL_VALUEMEMBER;
+                cbbControl.DisplayMember = Constants.MATERIAL_DISPLAYMEMBER;
             }
             cbbControl.SelectedIndex = 0;
         }
@@ -407,6 +422,108 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
                 }
             }            
             return result;
+        }
+
+        public static void TextBoxRequireInput(KryptonTextBox textBox)
+        {
+            textBox.StateCommon.Border.Color1 = Color.Red;
+        }
+
+        public static void TextBoxRequireInputed(KryptonTextBox textBox)
+        {
+            textBox.StateCommon.Border.Color1 = Color.Yellow;
+        }
+
+        public static void TextBoxNonRequireInput(KryptonTextBox textBox)
+        {
+            textBox.StateCommon.Border.Color1 = Color.Black;
+        }
+
+        public static List<RoleDTO> SetCompleteRole(List<RoleDTO> listItem, string keySearch)
+        {
+            var listDes = new List<RoleDTO>();
+            foreach (var item in listItem)
+            {
+                if (item.RoleName.Contains(keySearch))
+                {
+                    listDes.Add(item);
+                }
+            }
+            return listDes;
+        }
+
+        public static void TabNormal(KryptonGroupBox groupBox)
+        {
+            groupBox.Height = 27;
+            groupBox.Location = new Point(groupBox.Location.X, 30 - groupBox.Height);
+            groupBox.StateCommon.Back.Color1 = Color.Khaki;
+            groupBox.StateCommon.Back.Color2 = Color.White;
+            groupBox.StateCommon.Back.ColorStyle = PaletteColorStyle.GlassCenter;
+            groupBox.StateCommon.Border.Color1 = Color.Gold;
+            groupBox.StateCommon.Border.Color2 = Color.White;
+            groupBox.StateCommon.Border.ColorStyle = PaletteColorStyle.SolidInside;
+            groupBox.StateCommon.Border.DrawBorders = PaletteDrawBorders.TopLeftRight;
+            groupBox.StateCommon.Border.Rounding = 5;
+        }
+
+        public static void TabHover(KryptonGroupBox groupBox)
+        {
+            groupBox.Height = 27;
+            groupBox.Location = new Point(groupBox.Location.X, 30 - groupBox.Height);
+            groupBox.StateCommon.Back.Color1 = Color.Orange;
+            groupBox.StateCommon.Back.Color2 = Color.White;
+            groupBox.StateCommon.Back.ColorStyle = PaletteColorStyle.GlassCenter;
+            groupBox.StateCommon.Border.Color1 = Color.Orange;
+            groupBox.StateCommon.Border.Color2 = Color.White;
+            groupBox.StateCommon.Border.ColorStyle = PaletteColorStyle.SolidInside;
+            groupBox.StateCommon.Border.DrawBorders = PaletteDrawBorders.TopLeftRight;
+            groupBox.StateCommon.Border.Rounding = 5;
+        }
+
+        public static void TabEnter(KryptonGroupBox groupBox)
+        {
+            groupBox.Height = 30;
+            groupBox.Location = new Point(groupBox.Location.X, 30 - groupBox.Height);
+            groupBox.StateCommon.Back.Color1 = Color.NavajoWhite;
+            groupBox.StateCommon.Back.Color2 = Color.White;
+            groupBox.StateCommon.Back.ColorStyle = PaletteColorStyle.GlassNormalFull;
+            groupBox.StateCommon.Border.Color1 = Color.Red;
+            groupBox.StateCommon.Border.Color2 = Color.White;
+            groupBox.StateCommon.Border.ColorStyle = PaletteColorStyle.SolidInside;
+            groupBox.StateCommon.Border.DrawBorders = PaletteDrawBorders.TopLeftRight;
+            groupBox.StateCommon.Border.Rounding = 5;
+        }
+
+        public static double Percentage(double numerator, double denominator)
+        {
+            double result = (numerator/denominator)*100;
+            result = Convert.ToDouble(result.ToString("0.00"));
+            return result;
+        }
+
+        public static void DrawChart(Chart chart, object[] obj, string title, SeriesChartType chartType)
+        {
+            chart.Titles.Clear();
+            chart.Titles.Add(title);
+            chart.Series[0].Points.DataBindXY(obj, "Name", obj, "Value");
+            chart.Series[0].ChartType = chartType;// Set the bar width
+            chart.Series[0]["PointWidth"] = "0.5";// Show data points labels
+            chart.Series[0].IsValueShownAsLabel = true;// Set data points label style
+            chart.Series[0]["BarLabelStyle"] = "Center";// Show chart as 3D
+            chart.ChartAreas["ChartArea1"].Area3DStyle.Enable3D = true;// Draw chart as 3D Cylinder
+            chart.Series[0]["DrawingStyle"] = "Cylinder";
+        }
+
+        public static DateTime GetFirstDateInMonth()
+        {            
+            string month = DateTime.Today.Month.ToString();
+            if (month.Length == 1)
+            {
+                month = "0" + month;
+            }
+            string year = DateTime.Today.Year.ToString();
+            string firstDateInMonthStr = month + "/01/" + year + " 00:00:00";
+            return DateTime.ParseExact(firstDateInMonthStr, "MM/dd/yyyy hh:mm:ss", null);
         }
     }
 }
