@@ -319,7 +319,6 @@
             this.btViewProgress.StateCommon.Content.Image.ImageH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
             this.btViewProgress.StateCommon.Content.Image.ImageV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Near;
             this.btViewProgress.TabIndex = 6;
-            this.btViewProgress.Values.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.images1;
             this.btViewProgress.Values.Text = "Tiến độ";
             // 
             // btViewReal
@@ -331,7 +330,6 @@
             this.btViewReal.StateCommon.Content.Image.ImageH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
             this.btViewReal.StateCommon.Content.Image.ImageV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Near;
             this.btViewReal.TabIndex = 5;
-            this.btViewReal.Values.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.icon1;
             this.btViewReal.Values.Text = "Quyết toán";
             // 
             // btViewEst
@@ -343,7 +341,6 @@
             this.btViewEst.StateCommon.Content.Image.ImageH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
             this.btViewEst.StateCommon.Content.Image.ImageV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Near;
             this.btViewEst.TabIndex = 4;
-            this.btViewEst.Values.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.images;
             this.btViewEst.Values.Text = "dự toán";
             this.btViewEst.Click += new System.EventHandler(this.btViewEst_Click);
             // 
