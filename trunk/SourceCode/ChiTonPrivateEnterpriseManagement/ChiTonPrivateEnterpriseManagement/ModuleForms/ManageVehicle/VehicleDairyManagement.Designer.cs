@@ -128,8 +128,6 @@
             this.kryptonPanel.Size = new System.Drawing.Size(720, 707);
             this.kryptonPanel.TabIndex = 0;
             // 
-<<<<<<< .mine
-=======
             // dgvVehicleDairy
             // 
             this.dgvVehicleDairy.AutoGenerateColumns = false;
@@ -355,7 +353,6 @@
             this.kryptonPanel2.StateCommon.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.ExpertCheckedTracking;
             this.kryptonPanel2.TabIndex = 12;
             // 
->>>>>>> .r180
             // kryptonGroupBox1
             // 
             this.kryptonGroupBox1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -772,7 +769,6 @@
             this.btSearch.Size = new System.Drawing.Size(44, 32);
             this.btSearch.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btSearch.TabIndex = 8;
-            this.btSearch.Values.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.th_search_icon_16x16;
             this.btSearch.Values.Text = "";
             this.btSearch.Click += new System.EventHandler(this.btSearch_Click);
             // 

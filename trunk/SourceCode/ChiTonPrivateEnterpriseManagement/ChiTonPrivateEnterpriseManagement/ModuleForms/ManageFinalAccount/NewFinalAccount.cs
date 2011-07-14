@@ -180,9 +180,9 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
             foreach (FinalAccountDetailDTO item in listFinalAccountDetail)
             {
                 finalaccountBUS.CreateFinalAccountDetail(item);
-                estimateBus.UpdateEstimateDetail(EstimateID, item);
+                //estimateBus.UpdateEstimateDetail(EstimateID, item);
             }
-            estimateBus.UpdateEstimateTotalRealCost(EstimateID);
+            //estimateBus.UpdateEstimateTotalRealCost(EstimateID);
         }
 
         private void cbbToPlace_SelectedIndexChanged(object sender, EventArgs e)
@@ -256,7 +256,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
             {
                 if(KryptonMessageBox.Show(Constants.NOT_EXIST_MATERIAL, Constants.CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    AddNewMaterial newMaterial = new AddNewMaterial(nameMaterial);
+                    AddNewMaterial newMaterial = new AddNewMaterial();
                     newMaterial.ShowDialog();
                     listMaterial = materialBUS.LoadAllMaterials();
                     Global.SetDataCombobox(cbbMaterial, "Material");
@@ -281,9 +281,9 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
                     if (KryptonMessageBox.Show(Constants.NOT_EXIST_MATERIAL_EST, Constants.CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         ConstructionDTO consDTO = cbbConstruction.SelectedItem as ConstructionDTO;
-                        EstimateID = estimateBus.GetEstIDByConsID(consDTO.ConstructionID);
-                        AddNewEsDetail newEstimate = new AddNewEsDetail(EstimateID, cbbMaterial.SelectedIndex);
-                        newEstimate.ShowDialog();
+                        //EstimateID = estimateBus.GetEstIDByConsID(consDTO.ConstructionID);
+                        //AddNewEsDetail newEstimate = new AddNewEsDetail(EstimateID, cbbMaterial.SelectedIndex);
+                        //newEstimate.ShowDialog();
                     }
                 }
             }            

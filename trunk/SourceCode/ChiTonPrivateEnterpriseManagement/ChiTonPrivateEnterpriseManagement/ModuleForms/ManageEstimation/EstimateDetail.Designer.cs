@@ -437,7 +437,6 @@
             this.btSearch.Size = new System.Drawing.Size(44, 35);
             this.btSearch.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btSearch.TabIndex = 10;
-            this.btSearch.Values.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.th_search_icon_16x16;
             this.btSearch.Values.Text = "";
             this.btSearch.Click += new System.EventHandler(this.btSearch_Click);
             // 

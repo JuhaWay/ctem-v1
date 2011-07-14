@@ -33,6 +33,21 @@
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.kryptonPanel3 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.dgvAccount = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.finalAccountIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.finalAccountNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.constructionNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateAccountFormated = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.debtNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TransportationCostFormated = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalCostFormated = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.personAccountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isPayDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.noteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CreatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CreatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UpdatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastUpdated = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.finalAccountDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cmsGen = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.GenMoneyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsDGV = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -77,23 +92,9 @@
             this.kryptonLabel10 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel9 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.slcMain = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
-            this.finalAccountDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.finalAccountIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.finalAccountNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.constructionNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DateAccountFormated = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.debtNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TransportationCostFormated = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalCostFormated = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.personAccountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.isPayDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.noteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CreatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CreatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UpdatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LastUpdated = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAccount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.finalAccountDTOBindingSource)).BeginInit();
             this.cmsGen.SuspendLayout();
             this.cmsDGV.SuspendLayout();
             this.cmsEdit.SuspendLayout();
@@ -122,7 +123,6 @@
             this.slcMain.Panel1.SuspendLayout();
             this.slcMain.Panel2.SuspendLayout();
             this.slcMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.finalAccountDTOBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // kryptonPanel3
@@ -157,6 +157,94 @@
             this.dgvAccount.Name = "dgvAccount";
             this.dgvAccount.Size = new System.Drawing.Size(780, 228);
             this.dgvAccount.TabIndex = 22;
+            // 
+            // finalAccountIDDataGridViewTextBoxColumn
+            // 
+            this.finalAccountIDDataGridViewTextBoxColumn.DataPropertyName = "FinalAccountID";
+            this.finalAccountIDDataGridViewTextBoxColumn.HeaderText = "Mã Số";
+            this.finalAccountIDDataGridViewTextBoxColumn.Name = "finalAccountIDDataGridViewTextBoxColumn";
+            // 
+            // finalAccountNameDataGridViewTextBoxColumn
+            // 
+            this.finalAccountNameDataGridViewTextBoxColumn.DataPropertyName = "FinalAccountName";
+            this.finalAccountNameDataGridViewTextBoxColumn.HeaderText = "Tên";
+            this.finalAccountNameDataGridViewTextBoxColumn.Name = "finalAccountNameDataGridViewTextBoxColumn";
+            // 
+            // constructionNameDataGridViewTextBoxColumn
+            // 
+            this.constructionNameDataGridViewTextBoxColumn.DataPropertyName = "ConstructionName";
+            this.constructionNameDataGridViewTextBoxColumn.HeaderText = "Công Trình";
+            this.constructionNameDataGridViewTextBoxColumn.Name = "constructionNameDataGridViewTextBoxColumn";
+            // 
+            // DateAccountFormated
+            // 
+            this.DateAccountFormated.DataPropertyName = "DateAccountFormated";
+            this.DateAccountFormated.HeaderText = "Ngày";
+            this.DateAccountFormated.Name = "DateAccountFormated";
+            // 
+            // debtNameDataGridViewTextBoxColumn
+            // 
+            this.debtNameDataGridViewTextBoxColumn.DataPropertyName = "DebtName";
+            this.debtNameDataGridViewTextBoxColumn.HeaderText = "Khách Hàng";
+            this.debtNameDataGridViewTextBoxColumn.Name = "debtNameDataGridViewTextBoxColumn";
+            // 
+            // TransportationCostFormated
+            // 
+            this.TransportationCostFormated.DataPropertyName = "TransportationCostFormated";
+            this.TransportationCostFormated.HeaderText = "Tiền Vận Chuyễn";
+            this.TransportationCostFormated.Name = "TransportationCostFormated";
+            // 
+            // TotalCostFormated
+            // 
+            this.TotalCostFormated.DataPropertyName = "TotalCostFormated";
+            this.TotalCostFormated.HeaderText = "Tổng Số Tiền";
+            this.TotalCostFormated.Name = "TotalCostFormated";
+            // 
+            // personAccountDataGridViewTextBoxColumn
+            // 
+            this.personAccountDataGridViewTextBoxColumn.DataPropertyName = "PersonAccount";
+            this.personAccountDataGridViewTextBoxColumn.HeaderText = "Chịu Trách Nhiệm";
+            this.personAccountDataGridViewTextBoxColumn.Name = "personAccountDataGridViewTextBoxColumn";
+            // 
+            // isPayDataGridViewTextBoxColumn
+            // 
+            this.isPayDataGridViewTextBoxColumn.DataPropertyName = "IsPay";
+            this.isPayDataGridViewTextBoxColumn.HeaderText = "Đã Thanh Toán";
+            this.isPayDataGridViewTextBoxColumn.Name = "isPayDataGridViewTextBoxColumn";
+            // 
+            // noteDataGridViewTextBoxColumn
+            // 
+            this.noteDataGridViewTextBoxColumn.DataPropertyName = "Note";
+            this.noteDataGridViewTextBoxColumn.HeaderText = "Ghi Chú";
+            this.noteDataGridViewTextBoxColumn.Name = "noteDataGridViewTextBoxColumn";
+            // 
+            // CreatedBy
+            // 
+            this.CreatedBy.DataPropertyName = "CreatedBy";
+            this.CreatedBy.HeaderText = "Người Tạo";
+            this.CreatedBy.Name = "CreatedBy";
+            // 
+            // CreatedDate
+            // 
+            this.CreatedDate.DataPropertyName = "CreatedDate";
+            this.CreatedDate.HeaderText = "Ngày Tạo";
+            this.CreatedDate.Name = "CreatedDate";
+            // 
+            // UpdatedBy
+            // 
+            this.UpdatedBy.DataPropertyName = "UpdatedBy";
+            this.UpdatedBy.HeaderText = "Người Sửa";
+            this.UpdatedBy.Name = "UpdatedBy";
+            // 
+            // LastUpdated
+            // 
+            this.LastUpdated.DataPropertyName = "LastUpdated";
+            this.LastUpdated.HeaderText = "Ngày Sửa";
+            this.LastUpdated.Name = "LastUpdated";
+            // 
+            // finalAccountDTOBindingSource
+            // 
+            this.finalAccountDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.FinalAccountDTO);
             // 
             // cmsGen
             // 
@@ -610,94 +698,6 @@
             this.slcMain.SplitterDistance = 326;
             this.slcMain.TabIndex = 27;
             // 
-            // finalAccountDTOBindingSource
-            // 
-            this.finalAccountDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.FinalAccountDTO);
-            // 
-            // finalAccountIDDataGridViewTextBoxColumn
-            // 
-            this.finalAccountIDDataGridViewTextBoxColumn.DataPropertyName = "FinalAccountID";
-            this.finalAccountIDDataGridViewTextBoxColumn.HeaderText = "Mã Số";
-            this.finalAccountIDDataGridViewTextBoxColumn.Name = "finalAccountIDDataGridViewTextBoxColumn";
-            // 
-            // finalAccountNameDataGridViewTextBoxColumn
-            // 
-            this.finalAccountNameDataGridViewTextBoxColumn.DataPropertyName = "FinalAccountName";
-            this.finalAccountNameDataGridViewTextBoxColumn.HeaderText = "Tên";
-            this.finalAccountNameDataGridViewTextBoxColumn.Name = "finalAccountNameDataGridViewTextBoxColumn";
-            // 
-            // constructionNameDataGridViewTextBoxColumn
-            // 
-            this.constructionNameDataGridViewTextBoxColumn.DataPropertyName = "ConstructionName";
-            this.constructionNameDataGridViewTextBoxColumn.HeaderText = "Công Trình";
-            this.constructionNameDataGridViewTextBoxColumn.Name = "constructionNameDataGridViewTextBoxColumn";
-            // 
-            // DateAccountFormated
-            // 
-            this.DateAccountFormated.DataPropertyName = "DateAccountFormated";
-            this.DateAccountFormated.HeaderText = "Ngày";
-            this.DateAccountFormated.Name = "DateAccountFormated";
-            // 
-            // debtNameDataGridViewTextBoxColumn
-            // 
-            this.debtNameDataGridViewTextBoxColumn.DataPropertyName = "DebtName";
-            this.debtNameDataGridViewTextBoxColumn.HeaderText = "Khách Hàng";
-            this.debtNameDataGridViewTextBoxColumn.Name = "debtNameDataGridViewTextBoxColumn";
-            // 
-            // TransportationCostFormated
-            // 
-            this.TransportationCostFormated.DataPropertyName = "TransportationCostFormated";
-            this.TransportationCostFormated.HeaderText = "Tiền Vận Chuyễn";
-            this.TransportationCostFormated.Name = "TransportationCostFormated";
-            // 
-            // TotalCostFormated
-            // 
-            this.TotalCostFormated.DataPropertyName = "TotalCostFormated";
-            this.TotalCostFormated.HeaderText = "Tổng Số Tiền";
-            this.TotalCostFormated.Name = "TotalCostFormated";
-            // 
-            // personAccountDataGridViewTextBoxColumn
-            // 
-            this.personAccountDataGridViewTextBoxColumn.DataPropertyName = "PersonAccount";
-            this.personAccountDataGridViewTextBoxColumn.HeaderText = "Chịu Trách Nhiệm";
-            this.personAccountDataGridViewTextBoxColumn.Name = "personAccountDataGridViewTextBoxColumn";
-            // 
-            // isPayDataGridViewTextBoxColumn
-            // 
-            this.isPayDataGridViewTextBoxColumn.DataPropertyName = "IsPay";
-            this.isPayDataGridViewTextBoxColumn.HeaderText = "Đã Thanh Toán";
-            this.isPayDataGridViewTextBoxColumn.Name = "isPayDataGridViewTextBoxColumn";
-            // 
-            // noteDataGridViewTextBoxColumn
-            // 
-            this.noteDataGridViewTextBoxColumn.DataPropertyName = "Note";
-            this.noteDataGridViewTextBoxColumn.HeaderText = "Ghi Chú";
-            this.noteDataGridViewTextBoxColumn.Name = "noteDataGridViewTextBoxColumn";
-            // 
-            // CreatedBy
-            // 
-            this.CreatedBy.DataPropertyName = "CreatedBy";
-            this.CreatedBy.HeaderText = "Người Tạo";
-            this.CreatedBy.Name = "CreatedBy";
-            // 
-            // CreatedDate
-            // 
-            this.CreatedDate.DataPropertyName = "CreatedDate";
-            this.CreatedDate.HeaderText = "Ngày Tạo";
-            this.CreatedDate.Name = "CreatedDate";
-            // 
-            // UpdatedBy
-            // 
-            this.UpdatedBy.DataPropertyName = "UpdatedBy";
-            this.UpdatedBy.HeaderText = "Người Sửa";
-            this.UpdatedBy.Name = "UpdatedBy";
-            // 
-            // LastUpdated
-            // 
-            this.LastUpdated.DataPropertyName = "LastUpdated";
-            this.LastUpdated.HeaderText = "Ngày Sửa";
-            this.LastUpdated.Name = "LastUpdated";
-            // 
             // FinalAccountManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
@@ -713,6 +713,7 @@
             this.SizeChanged += new System.EventHandler(this.FinalAccountManagement_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAccount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.finalAccountDTOBindingSource)).EndInit();
             this.cmsGen.ResumeLayout(false);
             this.cmsDGV.ResumeLayout(false);
             this.cmsEdit.ResumeLayout(false);
@@ -744,7 +745,6 @@
             this.slcMain.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.slcMain)).EndInit();
             this.slcMain.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.finalAccountDTOBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

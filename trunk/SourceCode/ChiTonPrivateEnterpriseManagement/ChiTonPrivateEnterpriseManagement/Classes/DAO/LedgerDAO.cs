@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
+using ChiTonPrivateEnterpriseManagement.Classes.Global;
 using ChiTonPrivateEnterpriseManagement.Classes.Modules;
 using ChiTonPrivateEnterpriseManagement.Classes.DTO;
 namespace ChiTonPrivateEnterpriseManagement.Classes.DAO

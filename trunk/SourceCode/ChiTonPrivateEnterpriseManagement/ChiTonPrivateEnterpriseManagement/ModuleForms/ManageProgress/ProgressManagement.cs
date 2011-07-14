@@ -167,61 +167,61 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageProgress
 
         private void gtcConsProgress_SelectedItemChanged(object sender, heaparessential.HeaparGantt.Common.JobTreeItemEventArgs args)
         {
-            try
-            {
-                ConstructionDTO currentCons;
-                String consName = gtcConsProgress.SelectedItem.Name;
-                currentCons = _constructionBus.LoadConstructionReportByName(consName);
+            //try
+            //{
+            //    ConstructionDTO currentCons;
+            //    String consName = gtcConsProgress.SelectedItem.Name;
+            //    currentCons = _constructionBus.LoadConstructionReportByName(consName);
                 
-                // Set data progress
-                TimeSpan tstotalDay = currentCons.CompletionDate - currentCons.CommencementDate;
-                TimeSpan tsfinishDay = DateTime.Today - currentCons.CommencementDate;
-                double totalDay = tstotalDay.TotalDays;
-                double finishDay = tsfinishDay.TotalDays;
-                double leftDay = totalDay - finishDay;
-                txtTotalDay.Text = totalDay + " (Days)";
-                txtFinishDay.Text = finishDay + " (Days)";
-                txtLeft.Text = leftDay + " (Days)";                
-                var progessobj = new object[2];
-                progessobj[0] = new { Name = "Ngày Hoàn Thành(%)", Value = Global.Percentage(finishDay, totalDay) };
-                progessobj[1] = new { Name = "Còn Lại(%)", Value = Global.Percentage(leftDay, totalDay) };
-                Global.DrawChart(chartProgress, progessobj, "", SeriesChartType.Pie);
+            //    // Set data progress
+            //    TimeSpan tstotalDay = currentCons.CompletionDate - currentCons.CommencementDate;
+            //    TimeSpan tsfinishDay = DateTime.Today - currentCons.CommencementDate;
+            //    double totalDay = tstotalDay.TotalDays;
+            //    double finishDay = tsfinishDay.TotalDays;
+            //    double leftDay = totalDay - finishDay;
+            //    txtTotalDay.Text = totalDay + " (Days)";
+            //    txtFinishDay.Text = finishDay + " (Days)";
+            //    txtLeft.Text = leftDay + " (Days)";                
+            //    var progessobj = new object[2];
+            //    progessobj[0] = new { Name = "Ngày Hoàn Thành(%)", Value = Global.Percentage(finishDay, totalDay) };
+            //    progessobj[1] = new { Name = "Còn Lại(%)", Value = Global.Percentage(leftDay, totalDay) };
+            //    Global.DrawChart(chartProgress, progessobj, "", SeriesChartType.Pie);
 
-                //Set Data Disbursement
-                txtTotalCostEst.Text = Global.ConvertLongToMoney(currentCons.TotalEstimateCost, ".") + " (VND)";
-                txtTotalCostAct.Text = Global.ConvertLongToMoney(currentCons.TotalRealCost, ".") + " (VND)";
-                txtTotalMaterialCost.Text = Global.ConvertLongToMoney(currentCons.TotalMaterialCost, ".") + " (VND)";
-                txtTotalWorkerCost.Text = Global.ConvertLongToMoney(currentCons.TotalWorkerCost, ".") + " (VND)";
-                txtTotalMachineCost.Text = Global.ConvertLongToMoney(currentCons.TotalMachineCost, ".") + " (VND)";
-                txtTotalCostsIncurred.Text = Global.ConvertLongToMoney(currentCons.TotalCostsIncurred, ".") + " (VND)";
-                txtOhter.Text = Global.ConvertLongToMoney(currentCons.TotalOtherCost, ".") + " (VND)";
-                var disburobj = new object[5];
-                if (currentCons.TotalMaterialCost > 0)
-                {
-                    disburobj[0] = new { Name = "Vật Tư(%)", Value = Global.Percentage(currentCons.TotalMaterialCost, currentCons.TotalRealCost) };                    
-                }
-                if (currentCons.TotalWorkerCost > 0)
-                {
-                    disburobj[1] = new { Name = "Nhân Công(%)", Value = Global.Percentage(currentCons.TotalWorkerCost, currentCons.TotalRealCost) };                    
-                }
-                if (currentCons.TotalMachineCost > 0)
-                {
-                    disburobj[2] = new { Name = "Máy Móc(%)", Value = Global.Percentage(currentCons.TotalMachineCost, currentCons.TotalRealCost) };                    
-                }
-                if (currentCons.TotalCostsIncurred > 0)
-                {
-                    disburobj[3] = new { Name = "Phát Sinh(%)", Value = Global.Percentage(currentCons.TotalCostsIncurred, currentCons.TotalRealCost) };                    
-                }
-                if (currentCons.TotalOtherCost > 0)
-                {
-                    disburobj[4] = new { Name = "Khác(%)", Value = Global.Percentage(currentCons.TotalOtherCost, currentCons.TotalRealCost) };                    
-                }
-                Global.DrawChart(chartDisbursement, disburobj, "", SeriesChartType.Pie);
-            }
-            catch (Exception)
-            {
-                Logger.WriteLog(LogLevel.DEBUG, string.Format("Not select item"));
-            }            
+            //    //Set Data Disbursement
+            //    txtTotalCostEst.Text = Global.ConvertLongToMoney(currentCons.TotalEstimateCost, ".") + " (VND)";
+            //    txtTotalCostAct.Text = Global.ConvertLongToMoney(currentCons.TotalRealCost, ".") + " (VND)";
+            //    txtTotalMaterialCost.Text = Global.ConvertLongToMoney(currentCons.TotalMaterialCost, ".") + " (VND)";
+            //    txtTotalWorkerCost.Text = Global.ConvertLongToMoney(currentCons.TotalWorkerCost, ".") + " (VND)";
+            //    txtTotalMachineCost.Text = Global.ConvertLongToMoney(currentCons.TotalMachineCost, ".") + " (VND)";
+            //    txtTotalCostsIncurred.Text = Global.ConvertLongToMoney(currentCons.TotalCostsIncurred, ".") + " (VND)";
+            //    txtOhter.Text = Global.ConvertLongToMoney(currentCons.TotalOtherCost, ".") + " (VND)";
+            //    var disburobj = new object[5];
+            //    if (currentCons.TotalMaterialCost > 0)
+            //    {
+            //        disburobj[0] = new { Name = "Vật Tư(%)", Value = Global.Percentage(currentCons.TotalMaterialCost, currentCons.TotalRealCost) };                    
+            //    }
+            //    if (currentCons.TotalWorkerCost > 0)
+            //    {
+            //        disburobj[1] = new { Name = "Nhân Công(%)", Value = Global.Percentage(currentCons.TotalWorkerCost, currentCons.TotalRealCost) };                    
+            //    }
+            //    if (currentCons.TotalMachineCost > 0)
+            //    {
+            //        disburobj[2] = new { Name = "Máy Móc(%)", Value = Global.Percentage(currentCons.TotalMachineCost, currentCons.TotalRealCost) };                    
+            //    }
+            //    if (currentCons.TotalCostsIncurred > 0)
+            //    {
+            //        disburobj[3] = new { Name = "Phát Sinh(%)", Value = Global.Percentage(currentCons.TotalCostsIncurred, currentCons.TotalRealCost) };                    
+            //    }
+            //    if (currentCons.TotalOtherCost > 0)
+            //    {
+            //        disburobj[4] = new { Name = "Khác(%)", Value = Global.Percentage(currentCons.TotalOtherCost, currentCons.TotalRealCost) };                    
+            //    }
+            //    Global.DrawChart(chartDisbursement, disburobj, "", SeriesChartType.Pie);
+            //}
+            //catch (Exception)
+            //{
+            //    Logger.WriteLog(LogLevel.DEBUG, string.Format("Not select item"));
+            //}            
         }
 
         private void tclMain_SelectedIndexChanged(object sender, EventArgs e)

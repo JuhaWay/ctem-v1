@@ -17,8 +17,8 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
         public string ConstructionName { get; set; }
         public string Description { get; set; }
         public string ConstructionAddress { get; set; }
-        public DateTime? CommencementDate { get; set; }
-        public DateTime? CompletionDate { get; set; }
+        public DateTime CommencementDate { get; set; }
+        public DateTime CompletionDate { get; set; }
         public DateTime? CreatedDate { get; set; }
         public DateTime? LastUpdated { get; set; }
         public string CreatedBy { get; set; }
