@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
+using ChiTonPrivateEnterpriseManagement.Classes.Global;
 using ChiTonPrivateEnterpriseManagement.Classes.Modules;
 using ChiTonPrivateEnterpriseManagement.Classes.DTO;
 
@@ -59,19 +60,19 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         Username = Convert.ToString(reader["Username"]),
                         Password = Convert.ToString(reader["Password"]),
                         Fullname = Convert.ToString(reader["FullName"]),
-                        Address = Convert.ToString(reader["Address"]),
-                        Email = Convert.ToString(reader["Email"]),
-                        Note = Convert.ToString(reader["Note"]),
                         RoleID = Convert.ToInt64(reader["RoleID"]),
                         Position = Convert.ToString(reader["RoleName"]),
                         RightsValue = Convert.ToInt64(reader["RightsValue"]),
-                        CMND = Convert.ToString(reader["CMND"]),
-                        PhoneNumber = Convert.ToString(reader["PhoneNumber"]),
                         IsActive = Convert.ToBoolean(reader["IsActive"]),
-                        //totalDebt = Convert.ToInt64(reader["TotalDebt"])
+                        totalDebt = Convert.ToInt64(reader["TotalDebt"])
                     };
                     try
                     {
+                        employer.CMND = Convert.ToString(reader["CMND"]);
+                        employer.PhoneNumber = Convert.ToString(reader["PhoneNumber"]);
+                        employer.Address = Convert.ToString(reader["Address"]);
+                        employer.Email = Convert.ToString(reader["Email"]);
+                        employer.Note = Convert.ToString(reader["Note"]);
                         employer.Display = employer.Fullname + " (" + employer.Username + ")";
                         employer.DOB = DateTime.ParseExact(Convert.ToString(reader["DOB"]), "dd/MM/yyyy", null);
                     }
@@ -340,7 +341,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             }  
         }
 
-        public List<EmployeeAdvanceDTO> GetAllAdvance()
+        public List<EmployeeAdvanceDTO> GetAdvance(string name, DateTime fromdate, DateTime todate)
         {
             var cmd = new SqlCommand("[dbo].[Employee_GetAdvance]", Connection);
             if (Transaction != null)
@@ -350,6 +351,9 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             cmd.CommandType = CommandType.StoredProcedure;
             try
             {
+                cmd.Parameters.Add(new SqlParameter("@Name", name));
+                cmd.Parameters.Add(new SqlParameter("@FromDate", fromdate));
+                cmd.Parameters.Add(new SqlParameter("@ToDate", todate));
                 SqlDataReader reader = cmd.ExecuteReader();
                 var listAdvance = new List<EmployeeAdvanceDTO>();
                 while (reader.Read())
@@ -366,6 +370,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                     };
                     try
                     {
+                        advance.TotalAdvanceFormated = Global.Global.ConvertLongToMoney(advance.TotalAdvance, ".");
                         advance.CreatedDate = Convert.ToDateTime(reader["CreatedDate"]);
                         advance.LastUpdate = Convert.ToDateTime(reader["LastUpdate"]);
                     }
@@ -398,10 +403,10 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             try
             {                
                 SqlDataReader reader = cmd.ExecuteReader();
-                List<EmployeeSalaryDTO> listSalary = new List<EmployeeSalaryDTO>();
+                var listSalary = new List<EmployeeSalaryDTO>();
                 while (reader.Read())
                 {
-                    EmployeeSalaryDTO employersalary = new EmployeeSalaryDTO
+                    var employersalary = new EmployeeSalaryDTO
                     {
                         EmployeeSalaryID = Convert.ToInt64(reader["EmployeeSalaryID"]),
                         Username = Convert.ToString(reader["Username"]),
@@ -436,6 +441,135 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             finally
             {
                 if (Transaction == null) Connection.Close();
+            }
+        }
+
+        public List<EmployerDTO> GetAllEmp()
+        {
+            var cmd = new SqlCommand("[dbo].[Employee_GetAll]", Connection);
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                List<EmployerDTO> listEmployer = new List<EmployerDTO>();
+                while (reader.Read())
+                {
+                    EmployerDTO employer = new EmployerDTO
+                    {
+                        employeeID = Convert.ToInt64(reader["EmployeeID"]),
+                        Username = Convert.ToString(reader["Username"]),
+                        Password = Convert.ToString(reader["Password"]),
+                        Fullname = Convert.ToString(reader["FullName"]),
+                        Address = Convert.ToString(reader["Address"]),
+                        Email = Convert.ToString(reader["Email"]),
+                        Note = Convert.ToString(reader["Note"]),
+                        RoleID = Convert.ToInt64(reader["RoleID"]),
+                        Position = Convert.ToString(reader["RoleName"]),
+                        RightsValue = Convert.ToInt64(reader["RightsValue"]),
+                        CMND = Convert.ToString(reader["CMND"]),
+                        PhoneNumber = Convert.ToString(reader["PhoneNumber"]),
+                        IsActive = Convert.ToBoolean(reader["IsActive"]),
+                        totalDebt = Convert.ToInt64(reader["TotalDebt"])
+                    };
+                    try
+                    {
+                        employer.Display = employer.Fullname + " (" + employer.Username + ")";
+                        employer.DOB = DateTime.ParseExact(Convert.ToString(reader["DOB"]), "dd/MM/yyyy", null);
+                    }
+                    catch (Exception)
+                    {
+                    }
+                    listEmployer.Add(employer);
+                }
+                return listEmployer;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message, "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                if (Transaction == null) Connection.Close();
+            }
+        }
+
+        public bool UpdateAdvance(EmployeeAdvanceDTO advanceObj)
+        {
+            var cmd = new SqlCommand("[dbo].[Employee_UpdateAdvance]", Connection) { CommandType = CommandType.StoredProcedure };
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@AdvanceId", advanceObj.AdvanceID));
+                cmd.Parameters.Add(new SqlParameter("@EmployeeID", advanceObj.EmployeeID));
+                cmd.Parameters.Add(new SqlParameter("@TotalAdvance", advanceObj.TotalAdvance));
+                cmd.Parameters.Add(new SqlParameter("@Reason", advanceObj.Reason));
+                cmd.Parameters.Add(new SqlParameter("@Note", advanceObj.Note));
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException sql)
+            {
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null)
+                    Connection.Close();
+            }
+        }
+
+        public bool DeleteAdvance(long id)
+        {
+            var cmd = new SqlCommand("[dbo].[Employee_DeleteAdvance]", Connection) { CommandType = CommandType.StoredProcedure };
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@AdvanceId", id));
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException sql)
+            {
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null)
+                    Connection.Close();
+            }
+        }
+
+        public bool DeleteAllAdvance()
+        {
+            var cmd = new SqlCommand("[dbo].[Employee_DeleteAllAdvance]", Connection) { CommandType = CommandType.StoredProcedure };
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException sql)
+            {
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null)
+                    Connection.Close();
             }
         }
     }

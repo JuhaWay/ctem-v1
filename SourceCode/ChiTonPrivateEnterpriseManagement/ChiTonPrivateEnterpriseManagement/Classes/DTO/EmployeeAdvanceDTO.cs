@@ -13,6 +13,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
         public string Username { get; set; }
         public string Fullname { get; set; }
         public long TotalAdvance { get; set; }
+        public string TotalAdvanceFormated { get; set; }
         public string Reason { get; set; }
         public string Note { get; set; }
         public DateTime CreatedDate { get; set; }

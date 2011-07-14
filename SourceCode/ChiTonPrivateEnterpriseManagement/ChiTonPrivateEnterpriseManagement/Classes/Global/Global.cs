@@ -14,6 +14,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
     {
         public static List<RightDTO> Rights;
         public static EmployerDTO CurrentUser;
+        public static List<string> ListError = new List<string>();
         public static bool DownUpControl(KryptonForm form, KryptonPanel panel, int maxheight, int minheight, int speed, bool isDown)
         {
             if (isDown)
@@ -22,6 +23,10 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
                 {
                     panel.Height += speed;
                     form.Refresh();
+                }
+                if (panel.Height > maxheight)
+                {
+                    panel.Height = maxheight;
                 }
                 isDown = false;
             }
@@ -32,6 +37,25 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
                     panel.Height -= speed;
                     form.Refresh();
                 }
+                if (panel.Height < minheight)
+                {
+                    panel.Height = minheight;
+                }
+                isDown = true;
+            }
+            return isDown;
+        }
+
+        public static bool DownUpControl(KryptonForm form, KryptonHeaderGroup headerGroup, int maxheight, int minheight, int speed, bool isDown)
+        {
+            if (isDown)
+            {                
+                headerGroup.Height = maxheight;
+                isDown = false;
+            }
+            else if (!isDown)
+            {                
+                headerGroup.Height = minheight;                
                 isDown = true;
             }
             return isDown;
@@ -217,6 +241,20 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
                 return true;
             }
             catch (Exception)
+            {                
+                return false;
+            }
+        }
+
+        public static bool ValidateMoney(KryptonTextBox textBox)
+        {
+            try
+            {
+                string strLong = textBox.Text.Trim().Replace(".", "");
+                Convert.ToInt64(strLong);
+                return true;
+            }
+            catch (Exception)
             {
                 KryptonMessageBox.Show(Constants.INVALIDATE_VALUE, Constants.CONFIRM, MessageBoxButtons.OK,
                                 MessageBoxIcon.Warning);
@@ -277,6 +315,14 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
                 cbbControl.ValueMember = Constants.CONSTRUCTION_VALUEMEMBER;
                 cbbControl.DisplayMember = Constants.CONSTRUCTION_DISPLAYMEMBER;
             }
+            if (obj.Equals("User"))
+            {
+                var employeeBus = new EmployeeBUS();
+                cbbControl.DataSource = employeeBus.LoadAllUser();
+                cbbControl.ValueMember = Constants.EMPLOYEE_VALUEMEMBER;
+                cbbControl.DisplayMember = Constants.EMPLOYEE_DISPLAYMEMBER;
+            }
+
             if (obj.Equals("Employee"))
             {
                 var employeeBus = new EmployeeBUS();
@@ -284,19 +330,54 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
                 cbbControl.ValueMember = Constants.EMPLOYEE_VALUEMEMBER;
                 cbbControl.DisplayMember = Constants.EMPLOYEE_DISPLAYMEMBER;
             }
+
+            if (obj.Equals(Constants.EMPLOYEE_SEARCH))
+            {
+                var employeeBus = new EmployeeBUS();
+                var listEmp = new List<EmployerDTO>();
+                cbbControl.Items.Clear();
+                cbbControl.Items.Add("Tất Cả");
+                listEmp = employeeBus.LoadAllEmployee();
+                foreach (EmployerDTO emp in listEmp)
+                {
+                    cbbControl.Items.Add(emp.Fullname);
+                }
+            }
+
             if (obj.Equals("Debt"))
             {
                 var debtBus = new DebtBUS();
-                cbbControl.DataSource = debtBus.GetAll();
+                cbbControl.DataSource = debtBus.GetDebt(0, Constants.EMPTY_TEXT, -1);
                 cbbControl.ValueMember = Constants.DEBT_VALUEMEMBER;
                 cbbControl.DisplayMember = Constants.DEBT_DISPLAYMEMBER;
             }
 
+            if (obj.Equals("Debt Search"))
+            {
+                var debtBus = new DebtBUS();
+                var listDebt = new List<DebtDTO>();
+                cbbControl.Items.Clear();
+                cbbControl.Items.Add("Tất Cả");
+                listDebt = debtBus.GetDebt(0, Constants.EMPTY_TEXT, -1);
+                foreach (DebtDTO debtDTO in listDebt)
+                {
+                    cbbControl.Items.Add(debtDTO.DebtName);
+                }
+            }
+            
             if (obj.Equals("Status"))
             {
                 cbbControl.Items.Add(Constants.ACTIVE);
                 cbbControl.Items.Add(Constants.INACTIVE);
             }
+
+            if (obj.Equals("Status Search"))
+            {
+                cbbControl.Items.Add("Tất Cả");
+                cbbControl.Items.Add(Constants.ACTIVE);
+                cbbControl.Items.Add(Constants.INACTIVE);
+            }
+
             if (obj.Equals("Material"))
             {
                 var materialBus = new MaterialBUS();
@@ -304,7 +385,10 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
                 cbbControl.ValueMember = Constants.MATERIAL_VALUEMEMBER;
                 cbbControl.DisplayMember = Constants.MATERIAL_DISPLAYMEMBER;
             }
-            cbbControl.SelectedIndex = 0;
+            if (cbbControl.Items.Count > 0)
+            {
+                cbbControl.SelectedIndex = 0;                
+            }
         }
 
         public static long GetDataCombobox(KryptonComboBox cbbControl, string obj)
@@ -314,7 +398,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
                 var empObj = (EmployerDTO) cbbControl.SelectedItem;
                 return empObj.employeeID;
             }
-            if (obj.Equals("Debt"))
+            if (obj.Equals(Constants.DEBT))
             {
                 var debtObj = (DebtDTO) cbbControl.SelectedItem;
                 return debtObj.DebtID;
@@ -366,10 +450,6 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
             rect.Location = new Point(30, 4);
             _ckBox.Location = rect.Location;
             dgvControl.Controls.Add(_ckBox);
-            for (int i = 1; i < dgvControl.ColumnCount; i++)
-            {
-                dgvControl.Columns[i].Width = (dgvControl.Width - dgvControl.RowHeadersWidth - dgvControl.Columns[0].Width) / (dgvControl.ColumnCount - 1);
-            }
         }
 
         public static void CheckBoxCheck(CheckBox _ckBox, KryptonDataGridView dgvControl)
@@ -427,16 +507,17 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
         public static void TextBoxRequireInput(KryptonTextBox textBox)
         {
             textBox.StateCommon.Border.Color1 = Color.Red;
+            textBox.StateCommon.Border.Color2 = Color.Red;
+            textBox.StateCommon.Border.ColorStyle = PaletteColorStyle.SolidAllLine;
+            textBox.StateCommon.Border.DrawBorders = PaletteDrawBorders.Bottom;
         }
 
         public static void TextBoxRequireInputed(KryptonTextBox textBox)
         {
-            textBox.StateCommon.Border.Color1 = Color.Yellow;
-        }
-
-        public static void TextBoxNonRequireInput(KryptonTextBox textBox)
-        {
-            textBox.StateCommon.Border.Color1 = Color.Black;
+            textBox.StateCommon.Border.Color1 = Color.Empty;
+            textBox.StateCommon.Border.Color2 = Color.Empty;
+            textBox.StateCommon.Border.ColorStyle = PaletteColorStyle.Inherit;
+            textBox.StateCommon.Border.DrawBorders = PaletteDrawBorders.Inherit;
         }
 
         public static List<RoleDTO> SetCompleteRole(List<RoleDTO> listItem, string keySearch)
@@ -524,6 +605,292 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
             string year = DateTime.Today.Year.ToString();
             string firstDateInMonthStr = month + "/01/" + year + " 00:00:00";
             return DateTime.ParseExact(firstDateInMonthStr, "MM/dd/yyyy hh:mm:ss", null);
+        }
+
+        public static bool btnHideShowClick(ButtonSpecAny btnHideShow)
+        {
+            bool isDown;
+            if (btnHideShow.Type == PaletteButtonSpecStyle.ArrowDown)
+            {
+                btnHideShow.Type = PaletteButtonSpecStyle.ArrowUp;
+                isDown = true;
+            }
+            else
+            {
+                btnHideShow.Type = PaletteButtonSpecStyle.ArrowDown;
+                isDown = false;
+            }
+            return isDown;
+        }
+
+        public static bool btnHideShowHeaderGroupClick(ButtonSpecAny btnHideShow)
+        {
+            bool isDown;
+            if (btnHideShow.Type == PaletteButtonSpecStyle.ArrowDown)
+            {
+                isDown = false;
+            }
+            else
+            {
+                isDown = true;
+            }
+            return isDown;
+        }
+        public static void SetLayoutForm(KryptonForm form, string type)
+        {
+            if (type.Equals(Constants.CHILD_FORM))
+            {
+                form.StartPosition = FormStartPosition.CenterParent;
+                form.WindowState = FormWindowState.Maximized;
+                form.GroupBorderStyle = PaletteBorderStyle.InputControlRibbon;
+                form.MinimumSize = new Size(800, 600);
+
+                
+                form.StateCommon.Header.Back.Color1 = Color.Khaki;
+                form.StateCommon.Header.Back.Color2 = Color.White;
+                form.StateCommon.Header.Back.ColorStyle = PaletteColorStyle.GlassSimpleFull;
+
+                form.StateCommon.Header.Content.ShortText.Color1 = Color.Black;
+                form.StateCommon.Header.Content.ShortText.Color2 = Color.Black;
+                form.StateCommon.Header.Content.ShortText.ColorStyle = PaletteColorStyle.GlassSimpleFull;
+                form.StateCommon.Header.Content.ShortText.Font = new Font("Tahoma", 10, FontStyle.Bold);
+                form.StateCommon.Header.Content.ShortText.TextH = PaletteRelativeAlign.Center;
+
+                form.StateCommon.Header.Border.Color1 = Color.Khaki;
+                
+                form.StateCommon.Back.Color1 = Color.Khaki;
+                form.StateCommon.Back.Color2 = Color.White;
+                form.StateCommon.Back.ColorStyle = PaletteColorStyle.Dashed;                
+            }
+
+            if(type.Equals(Constants.DIALOG_FORM))
+            {               
+                form.ShowIcon = true;
+                form.FormBorderStyle = FormBorderStyle.Fixed3D;
+                form.GroupBorderStyle = PaletteBorderStyle.InputControlRibbon;
+                form.MaximizeBox = false;
+                form.MinimizeBox = false;                
+
+                form.StateCommon.Header.Back.Color1 = Color.FromArgb(43, 135, 173);
+                form.StateCommon.Header.Back.Color2 = Color.FromArgb(164, 210, 229);
+                form.StateCommon.Header.Back.ColorStyle = PaletteColorStyle.GlassSimpleFull;
+
+                form.StateCommon.Header.Content.ShortText.Color1 = Color.White;
+                form.StateCommon.Header.Content.ShortText.Color2 = Color.White;
+                form.StateCommon.Header.Content.ShortText.ColorStyle = PaletteColorStyle.GlassSimpleFull;
+                form.StateCommon.Header.Content.ShortText.Font = new Font("Tahoma", 11, FontStyle.Bold);
+                form.StateCommon.Header.Content.ShortText.TextH = PaletteRelativeAlign.Center;
+
+                form.StateCommon.Back.Color2 = Color.FromArgb(43, 135, 173);
+                form.StateCommon.Back.Color1 = Color.FromArgb(164, 210, 229);
+                form.StateCommon.Back.ColorStyle = PaletteColorStyle.GlassSimpleFull;
+            }
+        }
+        
+        public static void SetLayoutHeaderGroup(KryptonHeader header, string type)
+        {
+            if (type.Equals(Constants.CHILD_FORM))
+            {
+                header.HeaderStyle = HeaderStyle.Secondary;
+                header.StateCommon.Back.Color1 = Color.Khaki;
+                header.StateCommon.Back.Color2 = Color.White;
+                header.StateCommon.Back.ColorStyle = PaletteColorStyle.GlassSimpleFull;
+                header.StateCommon.Border.Rounding = 4;
+                header.StateCommon.Border.DrawBorders = PaletteDrawBorders.BottomLeftRight;
+                header.StateCommon.Content.ShortText.Font = new Font("Tahoma", 9, FontStyle.Bold);                
+            }
+        }
+
+        public static void SetDaulftDatagridview(KryptonDataGridView dataGridView)
+        {
+            dataGridView.ReadOnly = true;
+            dataGridView.StateCommon.Background.Color1 = Color.White;
+            dataGridView.RowHeadersWidth = 25;
+            dataGridView.StateCommon.HeaderColumn.Back.Color1 = Color.FromArgb(43, 135, 173);
+            dataGridView.StateCommon.HeaderColumn.Back.Color2 = Color.FromArgb(164, 210, 229);
+            dataGridView.StateCommon.HeaderColumn.Back.ColorStyle = PaletteColorStyle.GlassSimpleFull;
+            dataGridView.StateCommon.HeaderColumn.Border.Rounding = 3;
+            dataGridView.StateCommon.HeaderColumn.Border.DrawBorders = PaletteDrawBorders.TopLeftRight;
+            dataGridView.StateCommon.HeaderColumn.Content.Color1 = Color.White;
+            dataGridView.StateCommon.HeaderColumn.Content.Font = new Font("Tahoma", 9);
+        }
+
+        public static void SetLayoutSplipContainer(KryptonSplitContainer splitContainer, int panelfix)
+        {
+            splitContainer.SeparatorStyle = SeparatorStyle.HighProfile;
+            splitContainer.StateCommon.Separator.Back.Color1 = Color.FromArgb(43, 135, 173);
+            splitContainer.StateCommon.Separator.Back.Color2 = Color.FromArgb(164, 210, 229);
+            splitContainer.StateCommon.Separator.Back.ColorStyle = PaletteColorStyle.GlassSimpleFull;
+            if (panelfix == 0)
+            {
+                splitContainer.FixedPanel = FixedPanel.None;
+
+            }
+            if (panelfix == 1)
+            {
+                splitContainer.FixedPanel = FixedPanel.Panel1;
+
+            }
+            if (panelfix == 2)
+            {
+                splitContainer.FixedPanel = FixedPanel.Panel2;
+
+            }
+        }
+
+        public static void SetLayoutPanelChildForm(KryptonPanel panel)
+        {
+            panel.StateCommon.Color1 = Color.FromArgb(41, 57, 85);
+        }
+
+        public static void SetLayoutPanelNewForm(KryptonPanel panel)
+        {
+            panel.StateCommon.Color1 = Color.FromArgb(41, 57, 85);
+        }
+
+        public static void SetLayoutGroupBoxChildForm(KryptonGroupBox groupBox)
+        {
+            groupBox.StateCommon.Back.Color1 = Color.FromArgb(62, 92, 144);
+            groupBox.StateCommon.Content.ShortText.Color1 = Color.White;
+            groupBox.StateCommon.Content.ShortText.Font = new Font("Tahoma", 9);
+            groupBox.StateCommon.Content.ShortText.TextH = PaletteRelativeAlign.Center;
+        }
+
+        public static void SetLayoutSplipContainerInChildForm(KryptonSplitContainer splitContainer)
+        {
+            splitContainer.StateCommon.Back.Color1 = Color.FromArgb(41, 57, 85);
+            splitContainer.Panel1.StateCommon.Color1 = Color.FromArgb(41, 57, 85);
+            splitContainer.Panel2.StateCommon.Color1 = Color.FromArgb(41, 57, 85);
+            splitContainer.Panel1.Padding = new Padding(5, 0, 0, 5);
+            splitContainer.Panel2.Padding = new Padding(0, 0, 5, 5);
+        }
+
+        public static void SetLayoutSplipContainerNewForm(KryptonSplitContainer splitContainer)
+        {
+            splitContainer.StateCommon.Back.Color1 = Color.FromArgb(41, 57, 85);
+            splitContainer.Panel1.StateCommon.Color1 = Color.FromArgb(41, 57, 85);
+            splitContainer.Panel2.StateCommon.Color1 = Color.FromArgb(41, 57, 85);
+            splitContainer.Panel1.Padding = new Padding(5);
+            splitContainer.Panel2.Padding = new Padding(5);
+        }
+
+        public static void SetTextBoxNumberLeave(KryptonTextBox textBox)
+        {
+            if (textBox.Text.Equals(Constants.EMPTY_TEXT))
+            {
+                textBox.Text = Constants.ZERO_NUMBER;
+            }
+        }
+
+        public static void SetTextBoxNumberEnter(KryptonTextBox textBox)
+        {
+            if (textBox.Text.Equals(Constants.ZERO_NUMBER))
+            {
+                textBox.Text = Constants.EMPTY_TEXT;
+            }
+        }
+
+        public static void SetLayoutGroupBoxSearch(KryptonGroupBox groupBox)
+        {
+            groupBox.StateCommon.Back.Color1 = Color.FromArgb(62, 92, 144);
+            groupBox.CaptionOverlap = 0;
+            groupBox.StateCommon.Border.Rounding = 5;
+            groupBox.StateCommon.Border.DrawBorders = PaletteDrawBorders.BottomLeftRight;
+        }
+
+        public static void SetLayoutGroupBoxButton(KryptonGroupBox groupBox)
+        {
+            groupBox.StateCommon.Back.Color1 = Color.FromArgb(41, 57, 85);
+            groupBox.CaptionOverlap = 0;
+            groupBox.StateCommon.Border.Rounding = 5;
+            groupBox.StateCommon.Border.DrawBorders = PaletteDrawBorders.All;
+        }
+
+        public static void SetLayoutButton(KryptonButton button)
+        {
+            button.OverrideDefault.Back.Color1 = Color.FromArgb(219, 203, 93);
+            button.OverrideDefault.Back.Color2 = Color.White;
+            button.OverrideDefault.Back.ColorStyle = PaletteColorStyle.GlassSimpleFull;
+            button.OverrideDefault.Border.Color1 = Color.Khaki;
+            button.OverrideDefault.Border.Rounding = 4;
+
+            button.StateCommon.Back.Color1 = Color.Khaki;
+            button.StateCommon.Back.Color2 = Color.White;
+            button.StateCommon.Back.ColorStyle = PaletteColorStyle.GlassCenter;
+            button.StateCommon.Border.Color1 = Color.Khaki;
+            button.StateCommon.Border.Rounding = 4;
+
+            button.StatePressed.Back.Color1 = Color.Gold;
+            button.StatePressed.Back.Color2 = Color.White;
+            button.StatePressed.Back.ColorStyle = PaletteColorStyle.GlassSimpleFull;
+            button.StatePressed.Border.Color1 = Color.Orange;
+            button.StatePressed.Border.Rounding = 4;
+        }
+
+        public static void SetLayoutGroupBoxNewForm(KryptonGroupBox groupBox)
+        {
+            groupBox.StateCommon.Back.Color1 = Color.FromArgb(62, 92, 144);
+            groupBox.StateCommon.Content.ShortText.Color1 = Color.White;
+            groupBox.StateCommon.Content.ShortText.Font = new Font("Tahoma", 9);
+            groupBox.StateCommon.Content.ShortText.TextH = PaletteRelativeAlign.Center;
+        }
+
+        public static bool ValidateNotEmptyText(KryptonTextBox textBox)
+        {
+            if (textBox.Text.Equals(Constants.EMPTY_TEXT))
+            {
+                ListError.Add(Constants.ERROR_EMPTY_TEXT);
+                return false;
+            }
+            return true;
+        }
+
+        public static bool ValidatePhoneNumber(KryptonTextBox textBox)
+        {
+            var phonenumber = textBox.Text;
+            if (!phonenumber.Equals(Constants.EMPTY_TEXT))
+            {
+                phonenumber = phonenumber.Replace("-", "");
+                phonenumber = phonenumber.Replace("(", "");
+                phonenumber = phonenumber.Replace(")", "");
+                if (phonenumber.Length < 10 || phonenumber.Length > 11)
+                {
+                    ListError.Add(Constants.ERROR_LENTH_PHONENUMBER);
+                    for (int i = 0; i < phonenumber.Length; i++)
+                    {
+                        if (phonenumber[i] < '0' || phonenumber[i] > '9')
+                        {
+                            ListError.Add(Constants.ERROR_FORMAT_PHONENUMBER);
+                            return false;
+                        }
+                    }
+                    return false;
+                }                
+            }
+            return true;
+        }
+
+        public static string FomatPhoneNumber(string phonenumber)
+        {
+            string result = Constants.EMPTY_TEXT;
+            phonenumber = phonenumber.Replace("-", "");
+            phonenumber = phonenumber.Replace("(", "");
+            phonenumber = phonenumber.Replace(")", "");
+            string header = "(" + phonenumber.Substring(0, phonenumber.Length - 7) + ")";
+            string mainNumber = phonenumber.Substring(phonenumber.Length - 7);
+            mainNumber = mainNumber[0] + "-" + mainNumber.Substring(1, 3) + "-" + mainNumber.Substring(4);
+            result = header + mainNumber;
+            return result;
+        }
+
+        public static bool ValidateDateFromTo(DateTime dateTimeFrom, DateTime dateTimeTo)
+        {
+            if (dateTimeFrom > dateTimeTo)
+            {
+                ListError.Add(Constants.INVALID_DATE);
+                return false;
+            }
+            return true;
         }
     }
 }

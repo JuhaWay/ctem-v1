@@ -9,43 +9,33 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
         public static int WIDTH_MENU_HIDE = 30;
         public static int WIDTH_MENU_SHOW = 200;
 
-        // Parent Menus VN
-        public const string MANAGE_MENU = "QUẢN LÝ MENU";
-        public const string MANAGE_ROLE = "QUẢN LÝ CHỨC VỤ";
-        public const string MANAGE_RIGHT = "QUẢN LÝ QUYỀN";
-        public const string MANAGE_USER = "QUẢN LÝ NHÂN VIÊN";
-        public const string MANAGE_CONSTRUCTION = "QUẢN LÝ CÔNG TRÌNH";
-        public const string MANAGE_ESTIMATE_ACCOUNT = "QUẢN LÝ DỰ TOÁN QUYẾT TOÁN TIẾN ĐỘ";
-        public const string MANAGE_WAREHOUSE = "QUẢN LÝ KHO";
-        public const string MANAGE_DEBT = "QUẢN LÝ CÔNG NỢ";
-        public const string MANAGE_MATERIAL = "QUẢN LÝ VẬT TƯ VẬT LIỆU";
-        public const string MANAGE_SYSTEM = "QUẢN LÝ HỆ THỐNG";
+        // Parent Menus VN        
+        public const string MANAGE_USER = "Quản Lý Nhân Viên";
+        public const string MANAGE_CONSTRUCTION = "Quản Lý Công Trình";
+        public const string MANAGE_WAREHOUSE = "Quản Lý Kho";
+        public const string MANAGE_DEBT = "Quản Lý Công Nợ";
+        public const string MANAGE_LEDGER = "Quản Lý Sổ Cái";
         
         // Child Menus    
         public const string MANAGE_EMPLOYEE_SALARY = "Quản Lý Lương";
-        public const string MANAGE_EMPLOYEE_ADVANCE = "Quản Lý Tiền Ứng";
-        public const string RESET_PASSWORD = "Làm Mới Password";
+        public const string MANAGE_EMPLOYEE_ADVANCE = "Quản Lý Tiền Ứng";        
 
         public const string MANAGE_SUBCONTRACTORS = "Quản Lý Nhà Thầu Phụ";
         public const string MANAGE_WORKER = "Quản Lý Công Nhân";
-
         public const string MANAGE_ESTIMATE = "Quản Lý Dự Toán";
-        public const string MANAGE_ACCOUNT = "Quản Lý Quyết Toán";
+        public const string MANAGE_ACCOUNT = "Quản Lý Mua Hàng";
         public const string MANAGE_PROCESS = "Quản Lý Tiến Độ";
 
-        public const string MANAGE_MAIN_WAREHOUSE = "Quản Lý Kho Chính";
-        public const string MANAGE_CONSTRUCTION_WAREHOUSE = "Quản Lý Kho Công Trình";
         public const string MANAGE_STOCK = "Lịch Xuất Kho";
+        public const string MANAGE_VEHICLE = "Quản Lý Phương Tiện";
+        public const string MANAGE_MATERIAL = "Quản Lý Vật Tư Vật Liệu";
 
         public const string MANAGE_COMPARE_DEBT = "Lịch Đọ Sổ";
 
-        // Role
-        public const string ROLE_SUPPER_ADMIN = "Supper Admin";
-        public const string ROLE_ADMIN = "Admin";
-        public const string ROLE_MANAGER = "Manager";
-        public const string ROLE_CHIEF_ACCOUNTANT = "Chief Accountant";
-        public const string ROLE_ACCOUNTANT = "Accountant";
-        public const string ROLE_CASHIER = "Cashier";
+        public const string MANAGE_MENU = "Quản Lý Menu";
+        public const string MANAGE_ROLE = "Quản Lý Chức Vụ";
+        public const string MANAGE_RIGHT = "Quản Lý Quyền";
+        public const string RESET_PASSWORD = "Làm Mới Password";
 
         //Encrypt key 
         public const string Encryptkey = "!@CTEM@ADS2o1o@!";
@@ -116,13 +106,66 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
 
         public const string NOT_PERMISSION = "Bạn Không Có Quyền Cho Chức Năng Này";
 
-        public const string EMPLOYEE = "Employee";
-
         public const string NUMBER = "number";
 
         public const string ZERO_NUMBER = "0";
 
         public const string NOT_EXIST_MATERIAL = "Vật tư này chưa tồn tại\n Bạn có muốn thêm mới?";
         public const string NOT_EXIST_MATERIAL_EST = "Vật tư này chưa tồn tại trong dự toán\n Bạn có muốn thêm mới?";
+
+        public const string CONSTRUCTION = "CONSTRUCTION";
+        public const string EMPLOYEE = "EMPLOYEE";
+        public const string WAREHOUSE = "WAREHOUSE";
+        public const string DEBT = "DEBT";
+        public const string LEDGER = "LEDGER";
+        public const string SYSTEM = "SYSTEM";
+
+        public const int MIN_HEIGHT_HEADER_GROUP = 26;
+        public const int MAX_HEIGHT_HG_CONS = 180;
+        public const int MAX_HEIGHT_HG_EMP = 120;
+        public const int MAX_HEIGHT_HG_WH = 160;
+        public const int MAX_HEIGHT_HG_DEBT = 100;
+        public const int MAX_HEIGHT_HG_LEDGER = 100;
+        public const int MAX_HEIGHT_HG_SYSTEM = 160;
+
+
+        public const string CHILD_FORM = "Child Form";
+
+        public const string DIALOG_FORM = "Dialog Form";
+
+        public const string CONFIRM_DELETE = "Bạn có chắc chắn muốn xóa?";
+
+        public const string DELETE_SUCESS = "Đã xáo thành công";
+
+        public const string ERROR = "Đã có lỗi xảy ra";
+
+        public const string CONFIRM_DELETEALL = "Bạn có chắc chắn muốn xóa tất cả?";
+
+        public const string UPDATE_SUCCESS = "Đã sửa đổi thành công";
+
+        public const string ANNOUNCE = "Thông báo";
+
+        public const string THOUSAND = ".000";
+
+        public const string ERROR_EMPTY_TEXT = "Vui lòng điền vào các ô có gạch đỏ";
+
+        public const string ERROR_LENTH_PHONENUMBER = "Độ dài số điện thoại không chính xác";
+
+        public const string ERROR_FORMAT_PHONENUMBER = "Số điện thoại nhập không chính xác";
+
+        public const string ALERT_ERROR = "Thông Báo Lỗi";
+
+        public const string CREATE_SUCCESS = "Đã tạo thành công";
+
+        public const string INVALID_DATE = "Các Ngày Nhập Vào Không Hợp Lệ";
+
+
+        public const string DATETIME_FORMAT_SHORTDATE_SHORTTIME = "dd/MM/yyyy HH:mm:ss";
+
+        public const string DATETIME_FORMAT_SHORTDATE = "dd/MM/yyyy";
+
+        public const string INPUT_NUMBER = "Chỉ Nhập Số Vào";
+
+        public const string EMPLOYEE_SEARCH = "EMPLOYEE SEARCH";
     }
 }

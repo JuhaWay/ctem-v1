@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.IO;
+﻿using System.IO;
 using System.Windows.Forms;
 
-namespace ChiTonPrivateEnterpriseManagement.Classes.Modules
+namespace ChiTonPrivateEnterpriseManagement.Classes.Global
 {
     class DatabaseInfo
     {
