@@ -417,7 +417,6 @@
             this.btSearch.Size = new System.Drawing.Size(44, 32);
             this.btSearch.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btSearch.TabIndex = 8;
-            this.btSearch.Values.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.th_search_icon_16x16;
             this.btSearch.Values.Text = "";
             // 
             // ipSearchNumber
