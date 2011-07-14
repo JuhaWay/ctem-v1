@@ -89,7 +89,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
             cbbMainWarehouse.ValueMember = Constants.WAREHOUSE_VALUEMEMBER;
             cbbMainWarehouse.DisplayMember = Constants.WAREHOUSE_DISPLAYMEMBER;
 
-            listDebt = debtBUS.GetAll();
+            listDebt = debtBUS.GetDebt(0, Constants.EMPTY_TEXT, -1);
             cbbDebt.DataSource = listDebt;
             cbbDebt.ValueMember = Constants.DEBT_VALUEMEMBER;   
             cbbDebt.DisplayMember = Constants.DEBT_DISPLAYMEMBER;
