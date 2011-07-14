@@ -5,7 +5,6 @@ using System.Data.SqlClient;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
-using ChiTonPrivateEnterpriseManagement.Classes.Global;
 using ChiTonPrivateEnterpriseManagement.Classes.Modules;
 using ChiTonPrivateEnterpriseManagement.Classes.DTO;
 namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
@@ -75,6 +74,61 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 if (Transaction == null) Connection.Close();
             }
         }
+        public List<LedgerDTO> LedgerSearch(LedgerDTO param)
+        {
+            var cmd = new SqlCommand("[dbo].[Ledger_search]", Connection);
+
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            cmd.CommandType = CommandType.StoredProcedure;
+            if (param.Name.Trim().Equals("")==false)
+                cmd.Parameters.Add(new SqlParameter("@Name", "%" + param.Name.Trim() + "%"));
+            else
+                cmd.Parameters.Add(new SqlParameter("@Name", DBNull.Value));
+            if (param.Type.Trim().Equals("") == false)
+                cmd.Parameters.Add(new SqlParameter("@Type",param.Type.Trim()));
+            else
+                cmd.Parameters.Add(new SqlParameter("@Type", DBNull.Value));
+            if (param.Person.Trim().Equals("") == false)
+                cmd.Parameters.Add(new SqlParameter("@Person", param.Person.Trim()));
+            else
+                cmd.Parameters.Add(new SqlParameter("@Person", DBNull.Value));
+
+            try
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                List<LedgerDTO> listcons = new List<LedgerDTO>();
+                while (reader.Read())
+                {
+                    LedgerDTO dto = new LedgerDTO
+                    {
+                        LedgerID = Convert.ToInt64(reader["LedgerID"]),
+                        Name = Convert.ToString(reader["Name"]),
+                        Type = Convert.ToString(reader["Type"]),
+                        Number = Convert.ToInt64(reader["Number"]),
+                        Person = Convert.ToString(reader["Person"]),
+                        Reason = Convert.ToString(reader["Reason"]),
+                        Method = Convert.ToString(reader["Method"]),
+                        Date = Convert.ToDateTime(reader["Date"]),
+
+
+                    };
+                    listcons.Add(dto);
+                }
+                return listcons;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message, "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                if (Transaction == null) Connection.Close();
+            }
+        }
         public bool CreateLedger(LedgerDTO dto)
         {
             var cmd = new SqlCommand("[dbo].[Ledger_Create]", Connection) { CommandType = CommandType.StoredProcedure };
@@ -84,10 +138,10 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             }
             try
             {
-                cmd.Parameters.Add(new SqlParameter("@Name", dto.Name));
-                cmd.Parameters.Add(new SqlParameter("@Type", dto.Type));
+                cmd.Parameters.Add(new SqlParameter("@Name", dto.Name.Trim()));
+                cmd.Parameters.Add(new SqlParameter("@Type", dto.Type.Trim()));
                 cmd.Parameters.Add(new SqlParameter("@Number", dto.Number));
-                cmd.Parameters.Add(new SqlParameter("@Person", dto.Person));
+                cmd.Parameters.Add(new SqlParameter("@Person", dto.Person.Trim()));
                 cmd.Parameters.Add(new SqlParameter("@Reason", dto.Reason));
                 cmd.Parameters.Add(new SqlParameter("@Method", dto.Method));
                 cmd.Parameters.Add(new SqlParameter("@Date", dto.Date));
