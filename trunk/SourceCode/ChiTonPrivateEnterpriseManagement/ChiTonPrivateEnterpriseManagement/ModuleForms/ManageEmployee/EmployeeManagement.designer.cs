@@ -31,15 +31,22 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeeManagement));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
-            this.kryptonPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.kryptonPanel7 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.slcMain = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
             this.dgvEmployee = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.Column1 = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewCheckBoxColumn();
+            this.totalDebt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hdEmp = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
+            this.btnAdd = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.dgvCons = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.kryptonDataGridViewCheckBoxColumn1 = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewCheckBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hdCons = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
+            this.buttonSpecAny1 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fullname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Position = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalDebt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,69 +54,49 @@
             this.DOB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.employerDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.kryptonHeader2 = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
-            this.kryptonHeader1 = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
-            this.dgvConstruction = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.kryptonPanel6 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.kryptonPanel4 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.kryptonGroupBox2 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
-            this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.kryptonPanel3 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.kryptonGroupBox1 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
-            this.btnDeleteAll = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.btnDeleteEmployee = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.btnEditEmployee = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.btnNewEmployee = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.kryptonPanel2 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.roleDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.rightDTOBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
-            this.kryptonPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel7)).BeginInit();
-            this.kryptonPanel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.slcMain)).BeginInit();
+            this.slcMain.Panel1.SuspendLayout();
+            this.slcMain.Panel2.SuspendLayout();
+            this.slcMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployee)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employerDTOBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvConstruction)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel4)).BeginInit();
-            this.kryptonPanel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox2)).BeginInit();
-            this.kryptonGroupBox2.Panel.SuspendLayout();
-            this.kryptonGroupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).BeginInit();
-            this.kryptonGroupBox1.Panel.SuspendLayout();
-            this.kryptonGroupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleDTOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rightDTOBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
-            // kryptonPanel
+            // slcMain
             // 
-            this.kryptonPanel.Controls.Add(this.kryptonPanel7);
-            this.kryptonPanel.Controls.Add(this.kryptonPanel6);
-            this.kryptonPanel.Controls.Add(this.kryptonPanel1);
-            this.kryptonPanel.Controls.Add(this.kryptonPanel4);
-            this.kryptonPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kryptonPanel.Location = new System.Drawing.Point(0, 0);
-            this.kryptonPanel.Name = "kryptonPanel";
-            this.kryptonPanel.Size = new System.Drawing.Size(660, 460);
-            this.kryptonPanel.TabIndex = 0;
+            this.slcMain.Cursor = System.Windows.Forms.Cursors.Default;
+            this.slcMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.slcMain.Location = new System.Drawing.Point(0, 0);
+            this.slcMain.Name = "slcMain";
+            this.slcMain.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
-            // kryptonPanel7
+            // slcMain.Panel1
             // 
-            this.kryptonPanel7.Controls.Add(this.dgvEmployee);
-            this.kryptonPanel7.Controls.Add(this.kryptonHeader2);
-            this.kryptonPanel7.Controls.Add(this.kryptonHeader1);
-            this.kryptonPanel7.Controls.Add(this.dgvConstruction);
-            this.kryptonPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kryptonPanel7.Location = new System.Drawing.Point(0, 71);
-            this.kryptonPanel7.Name = "kryptonPanel7";
-            this.kryptonPanel7.Size = new System.Drawing.Size(660, 389);
-            this.kryptonPanel7.TabIndex = 9;
+            this.slcMain.Panel1.Controls.Add(this.dgvEmployee);
+            this.slcMain.Panel1.Controls.Add(this.hdEmp);
+            // 
+            // slcMain.Panel2
+            // 
+            this.slcMain.Panel2.Controls.Add(this.dgvCons);
+            this.slcMain.Panel2.Controls.Add(this.hdCons);
+            this.slcMain.SeparatorStyle = ComponentFactory.Krypton.Toolkit.SeparatorStyle.HighProfile;
+            this.slcMain.Size = new System.Drawing.Size(660, 460);
+            this.slcMain.SplitterDistance = 220;
+            this.slcMain.TabIndex = 1;
             // 
             // dgvEmployee
             // 
@@ -128,12 +115,23 @@
             this.Note});
             this.dgvEmployee.DataSource = this.employerDTOBindingSource;
             this.dgvEmployee.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvEmployee.Location = new System.Drawing.Point(0, 23);
+            this.dgvEmployee.Location = new System.Drawing.Point(0, 28);
             this.dgvEmployee.Name = "dgvEmployee";
             this.dgvEmployee.RowHeadersWidth = 25;
-            this.dgvEmployee.Size = new System.Drawing.Size(660, 109);
-            this.dgvEmployee.TabIndex = 0;
+            this.dgvEmployee.Size = new System.Drawing.Size(660, 192);
+            this.dgvEmployee.StateCommon.Background.Color1 = System.Drawing.Color.White;
+            this.dgvEmployee.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
+            this.dgvEmployee.StateCommon.HeaderColumn.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(135)))), ((int)(((byte)(173)))));
+            this.dgvEmployee.StateCommon.HeaderColumn.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(210)))), ((int)(((byte)(229)))));
+            this.dgvEmployee.StateCommon.HeaderColumn.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.GlassSimpleFull;
+            this.dgvEmployee.StateCommon.HeaderColumn.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
+                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.dgvEmployee.StateCommon.HeaderColumn.Border.Rounding = 3;
+            this.dgvEmployee.StateCommon.HeaderColumn.Content.Color1 = System.Drawing.Color.White;
+            this.dgvEmployee.StateCommon.HeaderColumn.Content.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvEmployee.TabIndex = 4;
             this.dgvEmployee.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmployee_CellContentClick);
+            this.dgvEmployee.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvEmployee_RowHeaderMouseClick);
             // 
             // Column1
             // 
@@ -146,6 +144,102 @@
             this.Column1.Name = "Column1";
             this.Column1.TrueValue = null;
             this.Column1.Width = 25;
+            // 
+            // totalDebt
+            // 
+            this.totalDebt.DataPropertyName = "totalDebt";
+            this.totalDebt.HeaderText = "Tổng Nợ";
+            this.totalDebt.Name = "totalDebt";
+            // 
+            // hdEmp
+            // 
+            this.hdEmp.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
+            this.btnAdd});
+            this.hdEmp.Dock = System.Windows.Forms.DockStyle.Top;
+            this.hdEmp.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.DockActive;
+            this.hdEmp.Location = new System.Drawing.Point(0, 0);
+            this.hdEmp.Name = "hdEmp";
+            this.hdEmp.Size = new System.Drawing.Size(660, 28);
+            this.hdEmp.TabIndex = 5;
+            this.hdEmp.Values.Description = "";
+            this.hdEmp.Values.Heading = "Danh Sách Nhân Viên";
+            this.hdEmp.Values.Image = ((System.Drawing.Image)(resources.GetObject("hdEmp.Values.Image")));
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.add;
+            this.btnAdd.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
+            this.btnAdd.Text = "Tạo Mới";
+            this.btnAdd.ToolTipBody = "Tạo Mới Nhân Viên";
+            this.btnAdd.ToolTipTitle = "Tạo Mới Nhân Viên";
+            this.btnAdd.UniqueName = "D44CAFED5FD84D0D2B826697A3BBC6A2";
+            // 
+            // dgvCons
+            // 
+            this.dgvCons.AutoGenerateColumns = false;
+            this.dgvCons.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.kryptonDataGridViewCheckBoxColumn1,
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn10});
+            this.dgvCons.DataSource = this.employerDTOBindingSource;
+            this.dgvCons.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvCons.Location = new System.Drawing.Point(0, 28);
+            this.dgvCons.Name = "dgvCons";
+            this.dgvCons.RowHeadersWidth = 25;
+            this.dgvCons.Size = new System.Drawing.Size(660, 207);
+            this.dgvCons.StateCommon.Background.Color1 = System.Drawing.Color.White;
+            this.dgvCons.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
+            this.dgvCons.TabIndex = 6;
+            // 
+            // kryptonDataGridViewCheckBoxColumn1
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.NullValue = false;
+            this.kryptonDataGridViewCheckBoxColumn1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.kryptonDataGridViewCheckBoxColumn1.FalseValue = null;
+            this.kryptonDataGridViewCheckBoxColumn1.HeaderText = "";
+            this.kryptonDataGridViewCheckBoxColumn1.IndeterminateValue = null;
+            this.kryptonDataGridViewCheckBoxColumn1.Name = "kryptonDataGridViewCheckBoxColumn1";
+            this.kryptonDataGridViewCheckBoxColumn1.TrueValue = null;
+            this.kryptonDataGridViewCheckBoxColumn1.Width = 25;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "totalDebt";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Tổng Nợ";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // hdCons
+            // 
+            this.hdCons.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
+            this.buttonSpecAny1});
+            this.hdCons.Dock = System.Windows.Forms.DockStyle.Top;
+            this.hdCons.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.DockActive;
+            this.hdCons.Location = new System.Drawing.Point(0, 0);
+            this.hdCons.Name = "hdCons";
+            this.hdCons.Size = new System.Drawing.Size(660, 28);
+            this.hdCons.TabIndex = 7;
+            this.hdCons.Values.Description = "";
+            this.hdCons.Values.Heading = "Danh Sách Nhân Viên";
+            this.hdCons.Values.Image = ((System.Drawing.Image)(resources.GetObject("hdCons.Values.Image")));
+            // 
+            // buttonSpecAny1
+            // 
+            this.buttonSpecAny1.Edge = ComponentFactory.Krypton.Toolkit.PaletteRelativeEdgeAlign.Far;
+            this.buttonSpecAny1.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.add;
+            this.buttonSpecAny1.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
+            this.buttonSpecAny1.Text = "Tạo Mới";
+            this.buttonSpecAny1.ToolTipBody = "Tạo Mới Nhân Viên";
+            this.buttonSpecAny1.ToolTipTitle = "Tạo Mới Nhân Viên";
+            this.buttonSpecAny1.UniqueName = "D44CAFED5FD84D0D2B826697A3BBC6A2";
             // 
             // Username
             // 
@@ -164,12 +258,6 @@
             this.Position.DataPropertyName = "Position";
             this.Position.HeaderText = "Chức Vụ";
             this.Position.Name = "Position";
-            // 
-            // totalDebt
-            // 
-            this.totalDebt.DataPropertyName = "totalDebt";
-            this.totalDebt.HeaderText = "Tổng Nợ";
-            this.totalDebt.Name = "totalDebt";
             // 
             // PhoneNumber
             // 
@@ -211,185 +299,59 @@
             // 
             this.employerDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.EmployerDTO);
             // 
-            // kryptonHeader2
+            // dataGridViewTextBoxColumn1
             // 
-            this.kryptonHeader2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.kryptonHeader2.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.DockActive;
-            this.kryptonHeader2.Location = new System.Drawing.Point(0, 132);
-            this.kryptonHeader2.Name = "kryptonHeader2";
-            this.kryptonHeader2.Size = new System.Drawing.Size(660, 23);
-            this.kryptonHeader2.TabIndex = 4;
-            this.kryptonHeader2.Values.Description = "";
-            this.kryptonHeader2.Values.Heading = "Danh Sách Công Trình Nhân Viên abc Đang Quản Lý";
-            this.kryptonHeader2.Values.Image = ((System.Drawing.Image)(resources.GetObject("kryptonHeader2.Values.Image")));
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Username";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Tên Đăng Nhập";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
-            // kryptonHeader1
+            // dataGridViewTextBoxColumn2
             // 
-            this.kryptonHeader1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.kryptonHeader1.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.DockActive;
-            this.kryptonHeader1.Location = new System.Drawing.Point(0, 0);
-            this.kryptonHeader1.Name = "kryptonHeader1";
-            this.kryptonHeader1.Size = new System.Drawing.Size(660, 23);
-            this.kryptonHeader1.TabIndex = 3;
-            this.kryptonHeader1.Values.Description = "";
-            this.kryptonHeader1.Values.Heading = "Danh Sách Nhân Viên";
-            this.kryptonHeader1.Values.Image = ((System.Drawing.Image)(resources.GetObject("kryptonHeader1.Values.Image")));
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Fullname";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Tên";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
-            // dgvConstruction
+            // dataGridViewTextBoxColumn3
             // 
-            this.dgvConstruction.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgvConstruction.Location = new System.Drawing.Point(0, 155);
-            this.dgvConstruction.Name = "dgvConstruction";
-            this.dgvConstruction.Size = new System.Drawing.Size(660, 234);
-            this.dgvConstruction.TabIndex = 5;
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Position";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Chức Vụ";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
-            // kryptonPanel6
+            // dataGridViewTextBoxColumn5
             // 
-            this.kryptonPanel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.kryptonPanel6.Location = new System.Drawing.Point(0, 66);
-            this.kryptonPanel6.Name = "kryptonPanel6";
-            this.kryptonPanel6.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlClient;
-            this.kryptonPanel6.Size = new System.Drawing.Size(660, 5);
-            this.kryptonPanel6.TabIndex = 8;
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "PhoneNumber";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Số ĐT";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
-            // kryptonPanel1
+            // dataGridViewTextBoxColumn6
             // 
-            this.kryptonPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.kryptonPanel1.Location = new System.Drawing.Point(0, 61);
-            this.kryptonPanel1.Name = "kryptonPanel1";
-            this.kryptonPanel1.Size = new System.Drawing.Size(660, 5);
-            this.kryptonPanel1.TabIndex = 7;
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Address";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Địa Chỉ";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             // 
-            // kryptonPanel4
+            // dataGridViewTextBoxColumn7
             // 
-            this.kryptonPanel4.Controls.Add(this.kryptonGroupBox2);
-            this.kryptonPanel4.Controls.Add(this.kryptonPanel3);
-            this.kryptonPanel4.Controls.Add(this.kryptonGroupBox1);
-            this.kryptonPanel4.Controls.Add(this.kryptonPanel2);
-            this.kryptonPanel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.kryptonPanel4.Location = new System.Drawing.Point(0, 0);
-            this.kryptonPanel4.Name = "kryptonPanel4";
-            this.kryptonPanel4.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2007Blue;
-            this.kryptonPanel4.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonCustom1;
-            this.kryptonPanel4.Size = new System.Drawing.Size(660, 61);
-            this.kryptonPanel4.TabIndex = 3;
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "Email";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Email";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             // 
-            // kryptonGroupBox2
+            // dataGridViewTextBoxColumn8
             // 
-            this.kryptonGroupBox2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.kryptonGroupBox2.GroupBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonCustom1;
-            this.kryptonGroupBox2.Location = new System.Drawing.Point(383, 0);
-            this.kryptonGroupBox2.Name = "kryptonGroupBox2";
-            this.kryptonGroupBox2.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2007Blue;
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "CMND";
+            this.dataGridViewTextBoxColumn8.HeaderText = "CMND";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             // 
-            // kryptonGroupBox2.Panel
+            // dataGridViewTextBoxColumn9
             // 
-            this.kryptonGroupBox2.Panel.Controls.Add(this.kryptonButton1);
-            this.kryptonGroupBox2.Size = new System.Drawing.Size(100, 61);
-            this.kryptonGroupBox2.TabIndex = 7;
-            this.kryptonGroupBox2.Values.Heading = "";
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "DOB";
+            this.dataGridViewTextBoxColumn9.HeaderText = "Ngày Sinh";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             // 
-            // kryptonButton1
+            // dataGridViewTextBoxColumn10
             // 
-            this.kryptonButton1.Location = new System.Drawing.Point(4, 3);
-            this.kryptonButton1.Name = "kryptonButton1";
-            this.kryptonButton1.Size = new System.Drawing.Size(85, 46);
-            this.kryptonButton1.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.kryptonButton1.StateCommon.Content.Image.ImageH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.kryptonButton1.StateCommon.Content.Image.ImageV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Near;
-            this.kryptonButton1.TabIndex = 10;
-            this.kryptonButton1.Values.Image = ((System.Drawing.Image)(resources.GetObject("kryptonButton1.Values.Image")));
-            this.kryptonButton1.Values.Text = "Phân Quyền";
-            // 
-            // kryptonPanel3
-            // 
-            this.kryptonPanel3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.kryptonPanel3.Location = new System.Drawing.Point(378, 0);
-            this.kryptonPanel3.Name = "kryptonPanel3";
-            this.kryptonPanel3.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2007Blue;
-            this.kryptonPanel3.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonCustom1;
-            this.kryptonPanel3.Size = new System.Drawing.Size(5, 61);
-            this.kryptonPanel3.TabIndex = 6;
-            // 
-            // kryptonGroupBox1
-            // 
-            this.kryptonGroupBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.kryptonGroupBox1.GroupBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonCustom1;
-            this.kryptonGroupBox1.Location = new System.Drawing.Point(5, 0);
-            this.kryptonGroupBox1.Name = "kryptonGroupBox1";
-            this.kryptonGroupBox1.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2007Blue;
-            // 
-            // kryptonGroupBox1.Panel
-            // 
-            this.kryptonGroupBox1.Panel.Controls.Add(this.btnDeleteAll);
-            this.kryptonGroupBox1.Panel.Controls.Add(this.btnDeleteEmployee);
-            this.kryptonGroupBox1.Panel.Controls.Add(this.btnEditEmployee);
-            this.kryptonGroupBox1.Panel.Controls.Add(this.btnNewEmployee);
-            this.kryptonGroupBox1.Size = new System.Drawing.Size(373, 61);
-            this.kryptonGroupBox1.TabIndex = 5;
-            this.kryptonGroupBox1.Values.Heading = "";
-            // 
-            // btnDeleteAll
-            // 
-            this.btnDeleteAll.Location = new System.Drawing.Point(271, 3);
-            this.btnDeleteAll.Name = "btnDeleteAll";
-            this.btnDeleteAll.Size = new System.Drawing.Size(85, 46);
-            this.btnDeleteAll.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btnDeleteAll.StateCommon.Content.Image.ImageH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.btnDeleteAll.StateCommon.Content.Image.ImageV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Near;
-            this.btnDeleteAll.TabIndex = 9;
-            this.btnDeleteAll.Values.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteAll.Values.Image")));
-            this.btnDeleteAll.Values.Text = "Xóa Tất Cả";
-            // 
-            // btnDeleteEmployee
-            // 
-            this.btnDeleteEmployee.Location = new System.Drawing.Point(180, 3);
-            this.btnDeleteEmployee.Name = "btnDeleteEmployee";
-            this.btnDeleteEmployee.Size = new System.Drawing.Size(85, 46);
-            this.btnDeleteEmployee.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btnDeleteEmployee.StateCommon.Content.Image.ImageH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.btnDeleteEmployee.StateCommon.Content.Image.ImageV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Near;
-            this.btnDeleteEmployee.TabIndex = 8;
-            this.btnDeleteEmployee.Values.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteEmployee.Values.Image")));
-            this.btnDeleteEmployee.Values.Text = "Xóa Nhân Viên";
-            this.btnDeleteEmployee.Click += new System.EventHandler(this.btnDeleteEmployee_Click);
-            // 
-            // btnEditEmployee
-            // 
-            this.btnEditEmployee.Location = new System.Drawing.Point(92, 3);
-            this.btnEditEmployee.Name = "btnEditEmployee";
-            this.btnEditEmployee.Size = new System.Drawing.Size(82, 46);
-            this.btnEditEmployee.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btnEditEmployee.StateCommon.Content.Image.ImageH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.btnEditEmployee.StateCommon.Content.Image.ImageV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Near;
-            this.btnEditEmployee.TabIndex = 7;
-            this.btnEditEmployee.Values.Image = ((System.Drawing.Image)(resources.GetObject("btnEditEmployee.Values.Image")));
-            this.btnEditEmployee.Values.Text = "Sửa Thông Tin";
-            this.btnEditEmployee.Click += new System.EventHandler(this.btnEditEmployee_Click);
-            // 
-            // btnNewEmployee
-            // 
-            this.btnNewEmployee.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.Alternate;
-            this.btnNewEmployee.Location = new System.Drawing.Point(5, 3);
-            this.btnNewEmployee.Name = "btnNewEmployee";
-            this.btnNewEmployee.Size = new System.Drawing.Size(81, 46);
-            this.btnNewEmployee.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btnNewEmployee.StateCommon.Content.Image.ImageH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.btnNewEmployee.StateCommon.Content.Image.ImageV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Near;
-            this.btnNewEmployee.TabIndex = 6;
-            this.btnNewEmployee.Values.Image = ((System.Drawing.Image)(resources.GetObject("btnNewEmployee.Values.Image")));
-            this.btnNewEmployee.Values.Text = "Tạo Nhân Viên";
-            this.btnNewEmployee.Click += new System.EventHandler(this.btnNewEmployee_Click);
-            // 
-            // kryptonPanel2
-            // 
-            this.kryptonPanel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.kryptonPanel2.Location = new System.Drawing.Point(0, 0);
-            this.kryptonPanel2.Name = "kryptonPanel2";
-            this.kryptonPanel2.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2007Blue;
-            this.kryptonPanel2.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonCustom1;
-            this.kryptonPanel2.Size = new System.Drawing.Size(5, 61);
-            this.kryptonPanel2.TabIndex = 4;
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "Note";
+            this.dataGridViewTextBoxColumn10.HeaderText = "Ghi Chú";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             // 
             // roleDTOBindingSource
             // 
@@ -404,35 +366,42 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(660, 460);
-            this.Controls.Add(this.kryptonPanel);
+            this.Controls.Add(this.slcMain);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "EmployeeManagement";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StateCommon.Border.Color1 = System.Drawing.Color.Khaki;
+            this.StateCommon.Border.Color2 = System.Drawing.Color.White;
+            this.StateCommon.Border.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.GlassSimpleFull;
+            this.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
+                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
+                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.StateCommon.Border.Rounding = 4;
+            this.StateCommon.Border.Width = 3;
+            this.StateCommon.Header.Back.Color1 = System.Drawing.Color.Khaki;
+            this.StateCommon.Header.Back.Color2 = System.Drawing.Color.White;
+            this.StateCommon.Header.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.GlassSimpleFull;
+            this.StateCommon.Header.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
+                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
+                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.StateCommon.Header.Border.Rounding = 4;
+            this.StateCommon.Header.Content.ShortText.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StateCommon.Header.Content.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
             this.Tag = "";
             this.Text = "Quản Lý Nhân Viên";
             this.TextExtra = "";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.EmployeeManagementForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).EndInit();
-            this.kryptonPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel7)).EndInit();
-            this.kryptonPanel7.ResumeLayout(false);
-            this.kryptonPanel7.PerformLayout();
+            this.slcMain.Panel1.ResumeLayout(false);
+            this.slcMain.Panel1.PerformLayout();
+            this.slcMain.Panel2.ResumeLayout(false);
+            this.slcMain.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.slcMain)).EndInit();
+            this.slcMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployee)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCons)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.employerDTOBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvConstruction)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel4)).EndInit();
-            this.kryptonPanel4.ResumeLayout(false);
-            this.kryptonGroupBox2.Panel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox2)).EndInit();
-            this.kryptonGroupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel3)).EndInit();
-            this.kryptonGroupBox1.Panel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).EndInit();
-            this.kryptonGroupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleDTOBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rightDTOBindingSource1)).EndInit();
             this.ResumeLayout(false);
@@ -442,15 +411,6 @@
         #endregion
 
         private ComponentFactory.Krypton.Toolkit.KryptonManager kryptonManager;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel6;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel1;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel4;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel7;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel2;
-        private ComponentFactory.Krypton.Toolkit.KryptonGroupBox kryptonGroupBox2;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel3;
-        private ComponentFactory.Krypton.Toolkit.KryptonGroupBox kryptonGroupBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn CreatedDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn LastUpdated;
         private System.Windows.Forms.DataGridViewTextBoxColumn CreatedBy;
@@ -460,13 +420,8 @@
         private System.Windows.Forms.BindingSource employerDTOBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn mobilePhoneDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn homePhoneDataGridViewTextBoxColumn;
+        private ComponentFactory.Krypton.Toolkit.KryptonSplitContainer slcMain;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dgvEmployee;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnDeleteEmployee;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnEditEmployee;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnNewEmployee;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnDeleteAll;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton1;
-        private ComponentFactory.Krypton.Toolkit.KryptonHeader kryptonHeader1;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewCheckBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Username;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fullname;
@@ -478,8 +433,22 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CMND;
         private System.Windows.Forms.DataGridViewTextBoxColumn DOB;
         private System.Windows.Forms.DataGridViewTextBoxColumn Note;
-        private ComponentFactory.Krypton.Toolkit.KryptonHeader kryptonHeader2;
-        private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dgvConstruction;
+        private ComponentFactory.Krypton.Toolkit.KryptonHeader hdEmp;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnAdd;
+        private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dgvCons;
+        private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewCheckBoxColumn kryptonDataGridViewCheckBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private ComponentFactory.Krypton.Toolkit.KryptonHeader hdCons;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny1;
     }
 }
 

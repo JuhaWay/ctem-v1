@@ -29,6 +29,16 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
             dgvEmployee.DataSource = listEmployee;
         }
 
+        private void SetLayout()
+        {
+            Global.SetLayoutForm(this, Constants.CHILD_FORM);
+            Global.SetLayoutHeaderGroup(hdEmp, Constants.CHILD_FORM);
+            Global.SetLayoutHeaderGroup(hdCons, Constants.CHILD_FORM);
+            Global.SetDaulftDatagridview(dgvEmployee);
+            Global.SetDaulftDatagridview(dgvCons);
+            Global.SetLayoutSplipContainer(slcMain, 2);
+        }        
+
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             loadEmployee();
@@ -38,22 +48,23 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
         {
             _ckBox = new CheckBox();
             Global.SetLayoutDataGridview(_ckBox, dgvEmployee);
-            _ckBox.CheckedChanged += new EventHandler(ckBox_CheckedChanged);          
+            _ckBox.CheckedChanged += new EventHandler(ckBox_CheckedChanged);
+            SetLayout();
             loadEmployee();
         }
-
+        
         private void btnNewEmployee_Click(object sender, EventArgs e)
         {
-            if (Global.IsAllow(Constants.CREATE_NEW_EMPLOYEE))
-            {
+            //if (Global.IsAllow(Constants.CREATE_NEW_EMPLOYEE))
+            //{
                 NewEmployee newEmployee = new NewEmployee();
                 newEmployee.ShowDialog();
                 loadEmployee();
-            }
-            else
-            {
-                KryptonMessageBox.Show(Constants.NOT_PERMISSION, Constants.CONFIRM);
-            }
+            //}
+            //else
+            //{
+            //    KryptonMessageBox.Show(Constants.NOT_PERMISSION, Constants.CONFIRM);
+            //}
         }
 
         private void btnDeleteEmployee_Click(object sender, EventArgs e)
@@ -116,6 +127,11 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
                     dgvEmployee.Rows[e.RowIndex].Selected = true;
                 }
             }
+        }
+
+        private void dgvEmployee_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+
         }
     }
 }
