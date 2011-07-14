@@ -25,26 +25,35 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
 
         private void FinalAccountManagement_Load(object sender, EventArgs e)
         {
-            SetLayout();
+            SetLayoutDataGridView();
             LoadData();
         }
 
         private void SetLayout()
+        {
+            Global.SetLayoutForm(this, Constants.CHILD_FORM);
+            Global.SetLayoutHeaderGroup(hdSearch, Constants.CHILD_FORM);
+            Global.SetLayoutHeaderGroup(hdAccount, Constants.CHILD_FORM);
+            Global.SetDaulftDatagridview(dgvAccount);
+            Global.SetLayoutSplipContainer(slcMain, 1);
+        }
+
+        private void SetLayoutDataGridView()
         {            
             _ckBox = new CheckBox();
-            Global.SetLayoutDataGridview(_ckBox, dgvLeftBot);
+            Global.SetLayoutDataGridview(_ckBox, dgvAccount);
             _ckBox.CheckedChanged += new EventHandler(ckBox_CheckedChanged);
         }
 
         void ckBox_CheckedChanged(object sender, EventArgs e)
         {
-            Global.CheckBoxCheck(_ckBox, dgvLeftBot);
+            Global.CheckBoxCheck(_ckBox, dgvAccount);
         }
 
         private void LoadData()
         {
             ListFinalAccount = FinalAcc.GetAll();
-            dgvLeftBot.DataSource = ListFinalAccount;
+            dgvAccount.DataSource = ListFinalAccount;
         }
 
         private void btnAddFinalAccount_Click(object sender, EventArgs e)
