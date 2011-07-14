@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using ChiTonPrivateEnterpriseManagement.Classes.Global;
 using ComponentFactory.Krypton.Toolkit;
 using System.IO;
 using ChiTonPrivateEnterpriseManagement.Classes.Modules;

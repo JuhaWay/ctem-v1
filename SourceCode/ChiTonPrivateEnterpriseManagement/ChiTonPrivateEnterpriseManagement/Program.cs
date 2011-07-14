@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using ChiTonPrivateEnterpriseManagement.ModuleForms.ManageProgress;
 using ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee;
 using ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount;
 using ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRights;
+using ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWarehouse;
 using ComponentFactory.Krypton.Toolkit;
 using ChiTonPrivateEnterpriseManagement.ModuleForms;
 using ChiTonPrivateEnterpriseManagement.ModuleForms.ManageMenu;
