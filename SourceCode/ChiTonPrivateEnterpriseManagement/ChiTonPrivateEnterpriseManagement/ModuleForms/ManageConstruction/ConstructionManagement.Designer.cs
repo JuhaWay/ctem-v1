@@ -157,7 +157,6 @@
             this.btViewProgress.Size = new System.Drawing.Size(46, 32);
             this.btViewProgress.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btViewProgress.TabIndex = 9;
-            this.btViewProgress.Values.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.images1;
             this.btViewProgress.Values.Text = "";
             this.btViewProgress.Click += new System.EventHandler(this.btViewProgress_Click);
             // 
@@ -169,7 +168,6 @@
             this.btViewReal.Size = new System.Drawing.Size(46, 32);
             this.btViewReal.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btViewReal.TabIndex = 8;
-            this.btViewReal.Values.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.icon1;
             this.btViewReal.Values.Text = "";
             this.btViewReal.Click += new System.EventHandler(this.btViewReal_Click);
             // 
@@ -206,7 +204,6 @@
             // btAddChild
             // 
             this.btAddChild.Enabled = ComponentFactory.Krypton.Toolkit.ButtonEnabled.False;
-            this.btAddChild.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.page_add_child;
             this.btAddChild.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
             this.btAddChild.ToolTipBody = "Tạo công trình con";
             this.btAddChild.UniqueName = "0EC9802AEBD943DEF4BDB4BF134DAF86";
@@ -215,7 +212,6 @@
             // btAddSubConstractor
             // 
             this.btAddSubConstractor.Enabled = ComponentFactory.Krypton.Toolkit.ButtonEnabled.False;
-            this.btAddSubConstractor.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.item_add;
             this.btAddSubConstractor.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
             this.btAddSubConstractor.ToolTipBody = "Tạo công trình phụ";
             this.btAddSubConstractor.UniqueName = "1B14F718FF6A4A76DE8E06FCA97BBA72";
@@ -223,14 +219,12 @@
             // 
             // btEdit
             // 
-            this.btEdit.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.editor_icon_16x16;
             this.btEdit.ToolTipBody = "Sửa công trình";
             this.btEdit.UniqueName = "34C9769A3CA44D3967B2D4C8AEC73EAB";
             this.btEdit.Click += new System.EventHandler(this.btEdit_Click);
             // 
             // btDelete
             // 
-            this.btDelete.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.delete_16x16;
             this.btDelete.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
             this.btDelete.ToolTipBody = "Xóa công trình";
             this.btDelete.UniqueName = "406FE902D4254C673BBA86D6505DEF19";
@@ -238,7 +232,6 @@
             // 
             // btViewEstimate
             // 
-            this.btViewEstimate.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.calendar;
             this.btViewEstimate.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
             this.btViewEstimate.ToolTipBody = "Xem dự toán";
             this.btViewEstimate.UniqueName = "C911E6C3F45C46C34F96B513E57D6C3A";
@@ -271,7 +264,6 @@
             this.btSearch.Size = new System.Drawing.Size(44, 35);
             this.btSearch.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btSearch.TabIndex = 10;
-            this.btSearch.Values.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.th_search_icon_16x16;
             this.btSearch.Values.Text = "";
             this.btSearch.Click += new System.EventHandler(this.btSearch_Click);
             // 

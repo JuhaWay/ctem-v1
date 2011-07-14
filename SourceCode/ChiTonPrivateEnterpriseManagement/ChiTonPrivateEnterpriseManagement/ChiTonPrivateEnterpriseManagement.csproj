@@ -196,27 +196,39 @@
     <Compile Include="ModuleForms\ManageProgress\ProgressManagement.Designer.cs">
       <DependentUpon>ProgressManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="ModuleForms\ManageConstruction\AddConstruction.cs" />
+    <Compile Include="ModuleForms\ManageConstruction\AddConstruction.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ModuleForms\ManageConstruction\AddConstruction.Designer.cs">
       <DependentUpon>AddConstruction.cs</DependentUpon>
     </Compile>
-    <Compile Include="ModuleForms\ManageConstruction\AddNewMaterial.cs" />
+    <Compile Include="ModuleForms\ManageConstruction\AddNewMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ModuleForms\ManageConstruction\AddNewMaterial.Designer.cs">
       <DependentUpon>AddNewMaterial.cs</DependentUpon>
     </Compile>
-    <Compile Include="ModuleForms\ManageConstruction\AddSubconstruction.cs" />
+    <Compile Include="ModuleForms\ManageConstruction\AddSubconstruction.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ModuleForms\ManageConstruction\AddSubconstruction.Designer.cs">
       <DependentUpon>AddSubconstruction.cs</DependentUpon>
     </Compile>
-    <Compile Include="ModuleForms\ManageConstruction\ConstructionManagement.cs" />
+    <Compile Include="ModuleForms\ManageConstruction\ConstructionManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ModuleForms\ManageConstruction\ConstructionManagement.Designer.cs">
       <DependentUpon>ConstructionManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="ModuleForms\ManageConstruction\MaterialManagement.cs" />
+    <Compile Include="ModuleForms\ManageConstruction\MaterialManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ModuleForms\ManageConstruction\MaterialManagement.Designer.cs">
       <DependentUpon>MaterialManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="ModuleForms\ManageConstruction\SelectSubConstructionBox.cs" />
+    <Compile Include="ModuleForms\ManageConstruction\SelectSubConstructionBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ModuleForms\ManageConstruction\SelectSubConstructionBox.Designer.cs">
       <DependentUpon>SelectSubConstructionBox.cs</DependentUpon>
     </Compile>
@@ -226,15 +238,21 @@
     <Compile Include="ModuleForms\ManageDebt\CompareDebtManagement.Designer.cs">
       <DependentUpon>CompareDebtManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="ModuleForms\ManageDebt\DebtManagement.cs" />
+    <Compile Include="ModuleForms\ManageDebt\DebtManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ModuleForms\ManageDebt\DebtManagement.Designer.cs">
       <DependentUpon>DebtManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="ModuleForms\ManageDebt\NewCompareDebt.cs" />
+    <Compile Include="ModuleForms\ManageDebt\NewCompareDebt.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ModuleForms\ManageDebt\NewCompareDebt.Designer.cs">
       <DependentUpon>NewCompareDebt.cs</DependentUpon>
     </Compile>
-    <Compile Include="ModuleForms\ManageDebt\NewDebt.cs" />
+    <Compile Include="ModuleForms\ManageDebt\NewDebt.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ModuleForms\ManageDebt\NewDebt.Designer.cs">
       <DependentUpon>NewDebt.cs</DependentUpon>
     </Compile>

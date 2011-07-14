@@ -139,7 +139,6 @@
             // 
             // btViewDetail
             // 
-            this.btViewDetail.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.icon1;
             resources.ApplyResources(this.btViewDetail, "btViewDetail");
             this.btViewDetail.UniqueName = "36F29E5DC3BE45B37CB495AF10A75523";
             this.btViewDetail.Click += new System.EventHandler(this.btViewDetail_Click);
@@ -241,7 +240,6 @@
             resources.ApplyResources(this.btSearch, "btSearch");
             this.btSearch.Name = "btSearch";
             this.btSearch.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btSearch.Values.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.th_search_icon_16x16;
             this.btSearch.Values.Text = resources.GetString("btSearch.Values.Text");
             this.btSearch.Click += new System.EventHandler(this.btSearch_Click);
             // 
