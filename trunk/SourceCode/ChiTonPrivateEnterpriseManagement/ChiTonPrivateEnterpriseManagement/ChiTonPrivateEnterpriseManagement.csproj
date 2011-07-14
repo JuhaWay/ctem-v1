@@ -63,19 +63,31 @@
     <Reference Include="FastDataAccess">
       <HintPath>..\..\..\..\ctem-v1\SourceCode\ChiTonPrivateEnterpriseManagement\ChiTonPrivateEnterpriseManagement\bin\Debug\FastDataAccess.dll</HintPath>
     </Reference>
+    <Reference Include="HeaparGantt, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\HeaparGantt.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\..\..\a-l-l-v-i-v-u-f-a-c-e\Development\VivuFace_V2\VivuFace_V2\bin\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\BUS\ConstructionBus.cs" />
-    <Compile Include="Classes\BUS\CompareDebtBUS.cs" />
     <Compile Include="Classes\BUS\FinalAccountBUS.cs" />
     <Compile Include="Classes\BUS\DebtBUS.cs" />
+    <Compile Include="Classes\BUS\LedgerBUS.cs" />
+    <Compile Include="Classes\BUS\VehicleBUS.cs" />
+    <Compile Include="Classes\BUS\VehicleDairyBUS.cs" />
     <Compile Include="Classes\BUS\WarehouseBUS.cs" />
     <Compile Include="Classes\BUS\EstimateBUS.cs" />
     <Compile Include="Classes\BUS\EstimateDetailBUS.cs" />
@@ -88,17 +100,19 @@
     <Compile Include="Classes\BUS\WorkerBUS.cs" />
     <Compile Include="Classes\BUS\WorkerSalaryBUS.cs" />
     <Compile Include="Classes\DAO\ConstructionDao.cs" />
-    <Compile Include="Classes\DAO\CompareDebtDAO.cs" />
     <Compile Include="Classes\DAO\DebtDAO.cs" />
     <Compile Include="Classes\DAO\FinalAccountDAO.cs" />
     <Compile Include="Classes\DAO\EmployerDAO.cs" />
     <Compile Include="Classes\DAO\EstimateDAO.cs" />
     <Compile Include="Classes\DAO\EstimateDetailDAO.cs" />
+    <Compile Include="Classes\DAO\LedgerDAO.cs" />
     <Compile Include="Classes\DAO\MaterialDAO.cs" />
     <Compile Include="Classes\DAO\RoleDAO.cs" />
     <Compile Include="Classes\DAO\LeftMenuDAO.cs" />
     <Compile Include="Classes\DAO\RightDAO.cs" />
     <Compile Include="Classes\DAO\SubcontractorDao.cs" />
+    <Compile Include="Classes\DAO\VehicleDairyDAO.cs" />
+    <Compile Include="Classes\DAO\VehicleDAO.cs" />
     <Compile Include="Classes\DAO\WarehouseDAO.cs" />
     <Compile Include="Classes\DAO\WorkerDAO.cs" />
     <Compile Include="Classes\DAO\WorkSalaryDAO.cs" />
@@ -106,6 +120,11 @@
     <Compile Include="Classes\DTO\CompareDebtDTO.cs" />
     <Compile Include="Classes\DTO\EmployeeAdvanceDTO.cs" />
     <Compile Include="Classes\DTO\DebtDTO.cs" />
+    <Compile Include="Classes\DTO\LedgerDTO.cs" />
+    <Compile Include="Classes\DTO\StockOutDetailDTO.cs" />
+    <Compile Include="Classes\DTO\StockOutDTO.cs" />
+    <Compile Include="Classes\DTO\VehicleDairyDTO.cs" />
+    <Compile Include="Classes\DTO\VehicleDTO.cs" />
     <Compile Include="Classes\DTO\WarehouseDTO.cs" />
     <Compile Include="Classes\DTO\FinalAccountDetailDTO.cs" />
     <Compile Include="Classes\DTO\FinalAccountDTO.cs" />
@@ -128,6 +147,7 @@
     <Compile Include="Classes\Global\DataProvider.cs" />
     <Compile Include="Classes\Global\Global.cs" />
     <Compile Include="Classes\Global\Ini.cs" />
+    <Compile Include="Classes\Global\Logger.cs" />
     <Compile Include="DBInfoForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +177,24 @@
     </Compile>
     <Compile Include="ModuleForms\CommonForm.Designer.cs">
       <DependentUpon>CommonForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleForms\ManageLedger\AddnewLedger.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForms\ManageLedger\AddnewLedger.Designer.cs">
+      <DependentUpon>AddnewLedger.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleForms\ManageLedger\LedgerManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForms\ManageLedger\LedgerManagement.Designer.cs">
+      <DependentUpon>LedgerManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleForms\ManageProgress\ProgressManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForms\ManageProgress\ProgressManagement.Designer.cs">
+      <DependentUpon>ProgressManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="ModuleForms\ManageConstruction\AddConstruction.cs">
       <SubType>Form</SubType>
@@ -332,11 +370,47 @@
     <Compile Include="ModuleForms\ManageMenu\NewMenu.Designer.cs">
       <DependentUpon>NewMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModuleForms\ManageVehicle\AddNewVehicle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForms\ManageVehicle\AddNewVehicle.Designer.cs">
+      <DependentUpon>AddNewVehicle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleForms\ManageVehicle\AddnewVehicleDairy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForms\ManageVehicle\AddnewVehicleDairy.Designer.cs">
+      <DependentUpon>AddnewVehicleDairy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleForms\ManageVehicle\VehicleDairyManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForms\ManageVehicle\VehicleDairyManagement.Designer.cs">
+      <DependentUpon>VehicleDairyManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleForms\ManageVehicle\VehicleManageMent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForms\ManageVehicle\VehicleManageMent.Designer.cs">
+      <DependentUpon>VehicleManageMent.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModuleForms\ManageWarehouse\NewWarehouse.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ModuleForms\ManageWarehouse\NewWarehouse.Designer.cs">
       <DependentUpon>NewWarehouse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleForms\ManageWarehouse\NewStockOut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForms\ManageWarehouse\NewStockOut.Designer.cs">
+      <DependentUpon>NewStockOut.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleForms\ManageWarehouse\StockOutManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForms\ManageWarehouse\StockOutManagement.Designer.cs">
+      <DependentUpon>StockOutManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="ModuleForms\ManageWarehouse\WarehouseManagement.cs">
       <SubType>Form</SubType>
@@ -388,6 +462,16 @@
     <EmbeddedResource Include="ModuleForms\CommonForm.resx">
       <DependentUpon>CommonForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\ManageLedger\AddnewLedger.resx">
+      <DependentUpon>AddnewLedger.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\ManageLedger\LedgerManagement.resx">
+      <DependentUpon>LedgerManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\ManageProgress\ProgressManagement.resx">
+      <DependentUpon>ProgressManagement.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="ModuleForms\ManageConstruction\AddConstruction.resx">
       <DependentUpon>AddConstruction.cs</DependentUpon>
     </EmbeddedResource>
@@ -399,6 +483,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ModuleForms\ManageConstruction\ConstructionManagement.resx">
       <DependentUpon>ConstructionManagement.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="ModuleForms\ManageConstruction\MaterialManagement.resx">
       <DependentUpon>MaterialManagement.cs</DependentUpon>
@@ -459,6 +544,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ModuleForms\ManageEstimation\EstimateManagement.resx">
       <DependentUpon>EstimateManagement.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="ModuleForms\ManageFinalAccount\FinalAccountManagement.resx">
       <DependentUpon>FinalAccountManagement.cs</DependentUpon>
@@ -489,8 +575,28 @@
       <DependentUpon>NewMenu.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\ManageVehicle\AddNewVehicle.resx">
+      <DependentUpon>AddNewVehicle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\ManageVehicle\AddnewVehicleDairy.resx">
+      <DependentUpon>AddnewVehicleDairy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\ManageVehicle\VehicleDairyManagement.resx">
+      <DependentUpon>VehicleDairyManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\ManageVehicle\VehicleManageMent.resx">
+      <DependentUpon>VehicleManageMent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ModuleForms\ManageWarehouse\NewWarehouse.resx">
       <DependentUpon>NewWarehouse.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\ManageWarehouse\NewStockOut.resx">
+      <DependentUpon>NewStockOut.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\ManageWarehouse\StockOutManagement.resx">
+      <DependentUpon>StockOutManagement.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="ModuleForms\ManageWarehouse\WarehouseManagement.resx">
@@ -523,22 +629,15 @@
     <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.DebtDTO.datasource" />
     <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.EmployeeAdvanceDTO.datasource" />
     <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.EmployeeSalaryDTO.datasource" />
-    <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.ConstructionDTO.datasource" />
-    <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.EmployerConstructionDTO.datasource" />
     <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.EmployerDTO.datasource" />
     <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.FinalAccountDetailDTO.datasource" />
     <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.FinalAccountDTO.datasource" />
-    <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.EstimateDetailDTO.datasource" />
-    <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.EstimateDTO.datasource" />
-    <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.LeftMenuDTO.datasource" />
-    <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.MaterialDTO.datasource" />
     <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.RightDTO.datasource" />
     <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.RoleDTO.datasource" />
+    <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.StockOutDetailDTO.datasource" />
+    <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.StockOutDTO.datasource" />
     <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.WarehouseDTO.datasource" />
     <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.WorkerSalaryDTO.datasource" />
-    <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.SubcontractorDTO.datasource" />
-    <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.WorkerConstructionDTO.datasource" />
-    <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.WorkerDTO.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -577,10 +676,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Database\Script\CTEM-DB.sql" />
+    <None Include="Resources\save_edit.png" />
+    <None Include="Resources\reload.png" />
+    <None Include="Resources\load all.png" />
+    <None Include="Resources\freeze.png" />
+    <None Include="Resources\find1.png" />
+    <None Include="Resources\edit_clear.png" />
+    <None Include="Resources\Edit.png" />
+    <None Include="Resources\delete1.png" />
+    <None Include="Resources\close_box_red.png" />
+    <None Include="Resources\cancel.png" />
+    <None Include="Resources\add.png" />
     <None Include="Resources\images1.jpeg" />
     <None Include="Resources\icon1.png" />
     <None Include="Resources\images.jpeg" />
-    <None Include="Resources\add.png" />
     <None Include="Resources\Button-Add-icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
