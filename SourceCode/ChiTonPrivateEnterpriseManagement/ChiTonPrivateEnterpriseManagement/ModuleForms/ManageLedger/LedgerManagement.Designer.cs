@@ -53,7 +53,7 @@
             this.kryptonPanel2 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonHeader1 = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
             this.dgvLedger = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.ledgerDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.checkbox = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewCheckBoxColumn();
             this.kryptonPanel4 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.btAddNew = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btDelete = new ComponentFactory.Krypton.Toolkit.KryptonButton();
@@ -62,11 +62,10 @@
             this.kryptonLabel3 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.btSearch = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.ipSearchNumber = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.ipSearchPerson = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.ipSearchName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.cbSearchCons = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.cbSearchType = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.checkbox = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewCheckBoxColumn();
             this.LedgerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -75,6 +74,7 @@
             this.Reason = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Method = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ledgerDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).BeginInit();
@@ -87,12 +87,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).BeginInit();
             this.kryptonPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLedger)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ledgerDTOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel4)).BeginInit();
             this.kryptonPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cbSearchCons)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbSearchType)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ledgerDTOBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // kryptonPanel
@@ -325,9 +325,17 @@
             this.dgvLedger.TabIndex = 11;
             this.dgvLedger.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvLedger_MouseClick);
             // 
-            // ledgerDTOBindingSource
+            // checkbox
             // 
-            this.ledgerDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.LedgerDTO);
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.NullValue = false;
+            this.checkbox.DefaultCellStyle = dataGridViewCellStyle1;
+            this.checkbox.FalseValue = null;
+            this.checkbox.HeaderText = "";
+            this.checkbox.IndeterminateValue = null;
+            this.checkbox.Name = "checkbox";
+            this.checkbox.TrueValue = null;
+            this.checkbox.Width = 50;
             // 
             // kryptonPanel4
             // 
@@ -381,9 +389,9 @@
             this.kryptonPanel1.Controls.Add(this.kryptonLabel3);
             this.kryptonPanel1.Controls.Add(this.kryptonLabel2);
             this.kryptonPanel1.Controls.Add(this.btSearch);
-            this.kryptonPanel1.Controls.Add(this.ipSearchNumber);
+            this.kryptonPanel1.Controls.Add(this.ipSearchPerson);
             this.kryptonPanel1.Controls.Add(this.ipSearchName);
-            this.kryptonPanel1.Controls.Add(this.cbSearchCons);
+            this.kryptonPanel1.Controls.Add(this.cbSearchType);
             this.kryptonPanel1.Controls.Add(this.kryptonLabel1);
             this.kryptonPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.kryptonPanel1.Location = new System.Drawing.Point(0, 0);
@@ -398,9 +406,9 @@
             // 
             this.kryptonLabel3.Location = new System.Drawing.Point(191, 13);
             this.kryptonLabel3.Name = "kryptonLabel3";
-            this.kryptonLabel3.Size = new System.Drawing.Size(46, 19);
+            this.kryptonLabel3.Size = new System.Drawing.Size(48, 19);
             this.kryptonLabel3.TabIndex = 10;
-            this.kryptonLabel3.Values.Text = "Biển số";
+            this.kryptonLabel3.Values.Text = "Chi cho";
             // 
             // kryptonLabel2
             // 
@@ -418,13 +426,14 @@
             this.btSearch.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btSearch.TabIndex = 8;
             this.btSearch.Values.Text = "";
+            this.btSearch.Click += new System.EventHandler(this.btSearch_Click);
             // 
-            // ipSearchNumber
+            // ipSearchPerson
             // 
-            this.ipSearchNumber.Location = new System.Drawing.Point(253, 12);
-            this.ipSearchNumber.Name = "ipSearchNumber";
-            this.ipSearchNumber.Size = new System.Drawing.Size(145, 22);
-            this.ipSearchNumber.TabIndex = 7;
+            this.ipSearchPerson.Location = new System.Drawing.Point(253, 12);
+            this.ipSearchPerson.Name = "ipSearchPerson";
+            this.ipSearchPerson.Size = new System.Drawing.Size(145, 22);
+            this.ipSearchPerson.TabIndex = 7;
             // 
             // ipSearchName
             // 
@@ -433,34 +442,25 @@
             this.ipSearchName.Size = new System.Drawing.Size(120, 22);
             this.ipSearchName.TabIndex = 6;
             // 
-            // cbSearchCons
+            // cbSearchType
             // 
-            this.cbSearchCons.DropDownWidth = 139;
-            this.cbSearchCons.Location = new System.Drawing.Point(473, 12);
-            this.cbSearchCons.Name = "cbSearchCons";
-            this.cbSearchCons.Size = new System.Drawing.Size(139, 22);
-            this.cbSearchCons.TabIndex = 5;
-            this.cbSearchCons.Text = "chọn...";
+            this.cbSearchType.DropDownWidth = 139;
+            this.cbSearchType.Items.AddRange(new object[] {
+            "Thu",
+            "Chi"});
+            this.cbSearchType.Location = new System.Drawing.Point(473, 12);
+            this.cbSearchType.Name = "cbSearchType";
+            this.cbSearchType.Size = new System.Drawing.Size(139, 22);
+            this.cbSearchType.TabIndex = 5;
+            this.cbSearchType.Text = "chọn...";
             // 
             // kryptonLabel1
             // 
             this.kryptonLabel1.Location = new System.Drawing.Point(404, 13);
             this.kryptonLabel1.Name = "kryptonLabel1";
-            this.kryptonLabel1.Size = new System.Drawing.Size(63, 19);
+            this.kryptonLabel1.Size = new System.Drawing.Size(31, 19);
             this.kryptonLabel1.TabIndex = 4;
-            this.kryptonLabel1.Values.Text = "Công trình";
-            // 
-            // checkbox
-            // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.NullValue = false;
-            this.checkbox.DefaultCellStyle = dataGridViewCellStyle1;
-            this.checkbox.FalseValue = null;
-            this.checkbox.HeaderText = "";
-            this.checkbox.IndeterminateValue = null;
-            this.checkbox.Name = "checkbox";
-            this.checkbox.TrueValue = null;
-            this.checkbox.Width = 50;
+            this.kryptonLabel1.Values.Text = "Loại";
             // 
             // LedgerID
             // 
@@ -512,6 +512,10 @@
             this.Date.HeaderText = "Ngày chi";
             this.Date.Name = "Date";
             // 
+            // ledgerDTOBindingSource
+            // 
+            this.ledgerDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.LedgerDTO);
+            // 
             // LedgerManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -536,14 +540,14 @@
             this.kryptonPanel2.ResumeLayout(false);
             this.kryptonPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLedger)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ledgerDTOBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel4)).EndInit();
             this.kryptonPanel4.ResumeLayout(false);
             this.kryptonPanel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).EndInit();
             this.kryptonPanel1.ResumeLayout(false);
             this.kryptonPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cbSearchCons)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbSearchType)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ledgerDTOBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -556,9 +560,9 @@
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel3;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel2;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btSearch;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox ipSearchNumber;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox ipSearchPerson;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox ipSearchName;
-        private ComponentFactory.Krypton.Toolkit.KryptonComboBox cbSearchCons;
+        private ComponentFactory.Krypton.Toolkit.KryptonComboBox cbSearchType;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel1;
         private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel4;
         private ComponentFactory.Krypton.Toolkit.KryptonHeader kryptonHeader2;

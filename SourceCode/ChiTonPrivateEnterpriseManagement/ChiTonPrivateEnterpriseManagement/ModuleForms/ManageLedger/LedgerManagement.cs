@@ -88,5 +88,14 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageLedger
                 dgvLedger.DataSource = _ledgerBUS.LoadLedgers();
             }
         }
+
+        private void btSearch_Click(object sender, EventArgs e)
+        {
+            LedgerDTO dto = new LedgerDTO();
+            dto.Name = ipSearchName.Text.Trim();
+            dto.Type = cbSearchType.Text.Trim();
+            dto.Person = ipSearchPerson.Text.Trim();
+            dgvLedger.DataSource=_ledgerBUS.LedgerSearch(dto);
+        }
     }
 }
