@@ -15,7 +15,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
     public partial class NewDebt : ComponentFactory.Krypton.Toolkit.KryptonForm
     {
         DebtBUS debtBUS = new DebtBUS();
-
         public NewDebt()
         {
             InitializeComponent();
@@ -23,31 +22,56 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
         }
 
         private void btnSave_Click(object sender, EventArgs e)
-        {            
-            string nameDebt = txtDebtName.Text;
-            long totalOwe = Global.ConvertMoneyToLong(txtTotalOwe.Text, ".");
-            string phonenumber = txtPhonenumber.Text;
-            string address = txtAddress.Text;
-            string description = txtDescription.Text;
-            DebtDTO debt = new DebtDTO()
-                               {
-                                   DebtName = nameDebt,
-                                   PhoneNumber = phonenumber,
-                                   TotalOwe = totalOwe,
-                                   Address = address,
-                                   Note = description,
-                                   CreatedBy = Global.CurrentUser.Username
-                               };
-            if (cbbStatus.Text.Equals(Constants.ACTIVE))
+        {
+            if (ValidateInput())
             {
-                debt.IsActive = 1;
+                string nameDebt = txtDebtName.Text;
+                long totalOwe = Global.ConvertMoneyToLong(txtTotalOwe.Text, ".");
+                string phonenumber = txtPhonenumber.Text;
+                string address = txtAddress.Text;
+                string description = txtDescription.Text;
+                DebtDTO debt = new DebtDTO()
+                {
+                    DebtName = nameDebt,
+                    PhoneNumber = phonenumber,
+                    TotalOwe = totalOwe,
+                    Address = address,
+                    Note = description,
+                    CreatedBy = Global.CurrentUser.Username
+                };
+                if (cbbStatus.Text.Equals(Constants.ACTIVE))
+                {
+                    debt.IsActive = 1;
+                }
+                else
+                {
+                    debt.IsActive = 0;
+                }
+                bool success = debtBUS.AddDebt(debt);
+                KryptonMessageBox.Show(success ? Constants.CREATE_SUCCESS : Constants.ERROR, Constants.CONFIRM);
+                ClearLayout();
             }
             else
             {
-                debt.IsActive = 0;
+                string errors = "";
+                foreach (string error in Global.ListError)
+                {
+                    errors += ("* " + error + "\n");
+                }
+                KryptonMessageBox.Show(errors, Constants.ALERT_ERROR);
+                txtDebtName.Focus();
             }
-            debtBUS.AddDebt(debt);
-            ClearLayout();
+        }
+        
+        private bool ValidateInput()
+        {
+            Global.SetTextBoxNumberLeave(txtTotalOwe);
+            Global.ListError.Clear();
+            if (Global.ValidateNotEmptyText(txtDebtName) && Global.ValidatePhoneNumber(txtPhonenumber))
+            {
+                return true;
+            }
+            return false;
         }
 
         private void ClearLayout()
@@ -61,20 +85,77 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
 
         private void NewDebt_Load(object sender, EventArgs e)
         {
-            CenterToParent();
-            setData();
+            SetLayout();
         }
 
-        private void setData()
+        private void SetLayout()
         {
-            cbbStatus.Items.Add(Constants.ACTIVE);
-            cbbStatus.Items.Add(Constants.INACTIVE);
-            cbbStatus.SelectedIndex = 0;
+            CenterToParent();
+            txtDebtName.Focus();
+            Global.SetTextBoxNumberLeave(txtTotalOwe);
+            Global.SetLayoutForm(this, Constants.DIALOG_FORM);
+            Global.SetLayoutPanelNewForm(pnlMain);
+            Global.SetLayoutGroupBoxNewForm(gbxAdd1);
+            Global.SetLayoutGroupBoxNewForm(gbxAdd2);
+            Global.SetLayoutSplipContainerNewForm(slcMain);
+            Global.SetLayoutPanelNewForm(pnlButton);
+            Global.SetLayoutGroupBoxNewForm(gbxButton);
+            Global.SetLayoutButton(btnSave);
+            Global.SetLayoutButton(btnClose);
+            Global.SetLayoutButton(btnClear);
+            Global.SetDataCombobox(cbbStatus, "Status");
+            Global.TextBoxRequireInput(txtDebtName);
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            ClearLayout();
+        }
+
+        private void txtPhonenumber_Leave(object sender, EventArgs e)
+        {
+            if (Global.ValidateNotEmptyText(txtPhonenumber) && Global.ValidatePhoneNumber(txtPhonenumber))
+            {
+                txtPhonenumber.Text = Global.FomatPhoneNumber(txtPhonenumber.Text);                
+            }
+        }
+
+        private void txtTotalOwe_Leave(object sender, EventArgs e)
+        {
+            Global.SetTextBoxNumberLeave(txtTotalOwe);
+        }
+
+        private void txtTotalOwe_Enter(object sender, EventArgs e)
+        {
+            Global.SetTextBoxNumberEnter(txtTotalOwe);
+        }
+
+        private void txtDebtName_TextChanged(object sender, EventArgs e)
+        {
+            if (txtDebtName.Text.Equals(Constants.EMPTY_TEXT))
+            {
+                Global.TextBoxRequireInput(txtDebtName);
+            }
+            else
+            {
+                Global.TextBoxRequireInputed(txtDebtName);
+            }
+        }
+
+        private void GenMoneyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ActiveControl.Text += Constants.THOUSAND;
+            }
+            catch
+            {
+            }
         }
     }
 }
