@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,27 +24,196 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
 
         private void AdvanceManagement_Load(object sender, EventArgs e)
         {
-            _ckBox = new CheckBox();
-            Global.SetLayoutDataGridview(_ckBox, dgvLeftBot);
-            _ckBox.CheckedChanged += new EventHandler(ckBox_CheckedChanged);            
-            LoadData();
+            SetLayout();
+            RefreshData();
         }
 
-        void ckBox_CheckedChanged(object sender, EventArgs e)
+        private void SetLayout()
         {
-            Global.CheckBoxCheck(_ckBox, dgvLeftBot);
+            dgvAdvance.Focus();
+            pnlSearch.Height = 62;
+            gbxSearch.Height = 58;
+            txtTotalAdvance.Text = Constants.ZERO_NUMBER;
+            Global.SetLayoutForm(this, Constants.CHILD_FORM);
+            Global.SetLayoutHeaderGroup(hdAdvance, Constants.CHILD_FORM);
+            Global.SetLayoutHeaderGroup(hdEdit, Constants.CHILD_FORM);
+            Global.SetDaulftDatagridview(dgvAdvance);
+            Global.SetLayoutSplipContainer(slcMain, 2);
+            Global.SetLayoutSplipContainerInChildForm(slcEdit);
+            Global.SetLayoutGroupBoxChildForm(gbxEdit1);
+            Global.SetLayoutGroupBoxChildForm(gbxEdit2);
+            Global.SetLayoutGroupBoxSearch(gbxSearch);
+            Global.SetLayoutPanelChildForm(pnlSearch);
+            Global.SetDataCombobox(cbbNameSearch, Constants.EMPLOYEE_SEARCH);
+            Global.SetDataCombobox(cbbEmployee, Constants.EMPLOYEE);
+            Global.SetLayoutButton(btnSearch);
+            MakeEdit(false);
+        }
+
+        private void MakeEdit(bool Edit)
+        {
+            cbbEmployee.Enabled = Edit;
+            txtTotalAdvance.ReadOnly = !Edit;
+            txtReason.ReadOnly = !Edit;
+            txtNote.ReadOnly = !Edit;
+            btnSave.Enabled = Edit ? ButtonEnabled.True : ButtonEnabled.False;
+            cmsEdit.Items[2].Enabled = Edit;
+
         }
 
         private void LoadData()
         {
-            _listAdvance = _employeeBus.LoadAllAdvance();
-            dgvLeftBot.DataSource = _listAdvance;
+            string name = cbbNameSearch.Text;
+            if (name.Equals("Tất Cả"))
+            {
+                name = Constants.EMPTY_TEXT;
+            }
+            DateTime fromdate = dtpSearchFrom.Value;
+            DateTime todate = dtpSearchTo.Value.AddDays(1);
+            _listAdvance = _employeeBus.LoadAdvance(name, fromdate, todate);
+            dgvAdvance.DataSource = _listAdvance;
         }
 
-        private void btnAddWarehouse_Click(object sender, EventArgs e)
+        private void RefreshData()
         {
-            NewAdvance newAdvance = new NewAdvance();            
+            Global.SetDataCombobox(cbbNameSearch, Constants.EMPLOYEE_SEARCH);
+            cbbNameSearch.SelectedIndex = 0;
+            dtpSearchTo.Value = DateTime.Today;
+            dtpSearchFrom.Value = Global.GetFirstDateInMonth();
+            LoadData();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            var newAdvance = new NewAdvance();
             newAdvance.ShowDialog();
+            
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            RefreshData();
+        }
+
+        private void btnLoadAll_Click(object sender, EventArgs e)
+        {
+            if (cbbNameSearch.Items.Count > 0)
+            {
+                cbbNameSearch.SelectedIndex = 0;
+            }
+            dtpSearchFrom.Value = dtpSearchFrom.MinDate;
+            dtpSearchTo.Value = dtpSearchTo.MaxDate;
+            LoadData();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            bool success = false;
+            if (KryptonMessageBox.Show(Constants.CONFIRM_DELETE, Constants.CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                foreach (DataGridViewRow row in dgvAdvance.SelectedRows)
+                {
+                    long id = Convert.ToInt64(row.Cells["AdvanceID"].Value.ToString());
+                    success = _employeeBus.DeleteAdvance(id);
+                }
+                KryptonMessageBox.Show(success ? Constants.DELETE_SUCESS : Constants.ERROR);
+                RefreshData();
+            }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void btnDeleteAll_Click(object sender, EventArgs e)
+        {
+            if (KryptonMessageBox.Show(Constants.CONFIRM_DELETEALL, Constants.CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                bool success = _employeeBus.DeleteAllAdvance();
+                KryptonMessageBox.Show(success ? Constants.DELETE_SUCESS : Constants.ERROR);
+            }
+            RefreshData();
+        }
+
+        private void btnHideShowSearch_Click(object sender, EventArgs e)
+        {
+            if (gbxSearch.Visible)
+            {
+                btnHideShowSearch.Type = PaletteButtonSpecStyle.ArrowDown;
+                Global.DownUpControl(this, pnlSearch, 62, 2, 4, false);
+                gbxSearch.Visible = false;
+            }
+            else
+            {
+                btnHideShowSearch.Type = PaletteButtonSpecStyle.ArrowUp;
+                gbxSearch.Visible = true;
+                Global.DownUpControl(this, pnlSearch, 62, 2, 4, true);
+            }
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            MakeEdit(true);
+            cbbEmployee.Focus();
+        }
+
+        private void btnUnableEdit_Click(object sender, EventArgs e)
+        {
+            MakeEdit(false);
+            dgvAdvance.Focus();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            long id = Convert.ToInt64(txtId.Text);
+            long employeeId = Global.GetDataCombobox(cbbEmployee, Constants.EMPLOYEE);
+            long totalAdvance = Global.ConvertMoneyToLong(txtTotalAdvance.Text, ".");
+            string reason = txtReason.Text;
+            string note = txtNote.Text;
+            var advanceObj = new EmployeeAdvanceDTO()
+            {
+                AdvanceID = id,
+                EmployeeID = employeeId,
+                TotalAdvance = totalAdvance,
+                Reason = reason,
+                Note = note
+            };
+            bool success = _employeeBus.UpdateEmployeeAdvance(advanceObj);
+            KryptonMessageBox.Show(success ? Constants.CREATE_SUCCESS : Constants.ERROR, Constants.CONFIRM);
+            RefreshData();
+        }
+
+        private void GenMoneyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ActiveControl.Text += Constants.THOUSAND;
+            }
+            catch
+            {
+            }
+        }
+
+        private void SearchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!gbxSearch.Visible)
+            {
+                btnHideShowSearch.Type = PaletteButtonSpecStyle.ArrowUp;
+                gbxSearch.Visible = true;
+                Global.DownUpControl(this, pnlSearch, 62, 2, 4, true);
+            }
+            cbbNameSearch.Focus();
+        }
+
+        private void HideSearchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (gbxSearch.Visible)
+            {
+                btnHideShowSearch.Type = PaletteButtonSpecStyle.ArrowDown;
+                Global.DownUpControl(this, pnlSearch, 62, 2, 4, false);
+                gbxSearch.Visible = false;
+            }
         }
     }
 }
