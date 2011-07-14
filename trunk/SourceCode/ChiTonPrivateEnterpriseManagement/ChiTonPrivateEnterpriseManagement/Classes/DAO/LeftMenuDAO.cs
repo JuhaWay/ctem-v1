@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
+using ChiTonPrivateEnterpriseManagement.Classes.Global;
 using ChiTonPrivateEnterpriseManagement.Classes.Modules;
 using ChiTonPrivateEnterpriseManagement.Classes.DTO;
 
@@ -59,6 +60,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         MenuID = Convert.ToInt32(reader["MenuID"]),
                         MenuName = Convert.ToString(reader["MenuName"]),
                         MenuParent = Convert.ToInt32(reader["Parent"]),
+                        Type = Convert.ToString(reader["Type"]),
                         Description = Convert.ToString(reader["Description"])
                     };
                     listMenus.Add(menu);
@@ -96,6 +98,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         MenuID = Convert.ToInt32(reader["MenuID"]),
                         MenuName = Convert.ToString(reader["MenuName"]),
                         MenuParent = Convert.ToInt32(reader["Parent"]),
+                        Type = Convert.ToString(reader["Type"]),
                         Description = Convert.ToString(reader["Description"])
                     };
                     listMenus.Add(menu);

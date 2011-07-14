@@ -11,6 +11,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
         public int MenuID { get; set; }
         public string MenuName { get; set; }
         public int MenuParent { get; set; }
+        public string Type { get; set; }
         public string Description { get; set; }
 
         //public override bool Equals(object obj)

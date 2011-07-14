@@ -13,31 +13,56 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
     /// </summary>
     public class DebtBUS
     {
-        DebtDAO debtDAO = new DebtDAO();
-        public List<DebtDTO> GetAll()
+        readonly DebtDAO _debtDao = new DebtDAO();
+
+        public bool AddDebt(DebtDTO debt)
         {
-            return debtDAO.GetAllDebt();
+            return _debtDao.CreateDebt(debt);
         }
 
-        //public bool DeleteDebt(long DebtID)
-        //{
-        //    return DebtDAO.DeleteDebt(DebtID);
-        //}
-
-        public void AddDebt(DebtDTO debt)
+        public bool DeleteDebt(long debtId)
         {
-            debtDAO.CreateDebt(debt);
+            return _debtDao.DeleteDebt(debtId);
         }
 
-        //public void EditDebt(long DebtID, string DebtName, string description, long rightsValue, bool isActive)
-        //{
-        //    DebtDAO.UpdateDebt(DebtID, DebtName, description, rightsValue, isActive);
-        //}
-
-        public List<CompareDebtDTO> GetAllCompareDebt()
+        public bool DeleteAll()
         {
-            return debtDAO.GetAllCompareDebt();
+            return _debtDao.DeleteAll();
+        }
+
+        public bool Update(DebtDTO debt)
+        {
+            return _debtDao.UpdateDebt(debt);
+        }
+
+        public List<DebtDTO> GetDebt(long id, string name, int status)
+        {
+            return _debtDao.GetDebt(id, name, status);
+        }
+
+        public List<CompareDebtDTO> GetCompareDebt(string name, DateTime fromdate, DateTime todate)
+        {
+            return _debtDao.GetCompareDebt(name, fromdate, todate);            
+        }
+
+        public bool Create(CompareDebtDTO compareDebtDto)
+        {
+            return _debtDao.CreateCompareDebt(compareDebtDto);
+        }
+
+        public bool DeleteAllCompare()
+        {
+            return _debtDao.DeleteAllCompare();
+        }
+
+        public bool UpdateCompare(CompareDebtDTO compareDebtDto)
+        {
+            return _debtDao.UpdateCompare(compareDebtDto);
+        }
+
+        public bool DeleteDebtCompare(long id)
+        {
+            return _debtDao.DeleteCompare(id);
         }
     }
 }
-    

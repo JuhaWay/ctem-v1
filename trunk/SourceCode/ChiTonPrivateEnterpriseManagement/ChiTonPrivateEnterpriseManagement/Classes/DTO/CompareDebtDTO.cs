@@ -22,6 +22,10 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
         public DateTime? LastUpdated { get; set; }
         public string CreatedBy { get; set; }
         public string UpdatedBy { get; set; }
+        public string TotalOweFormat { get; set; }
+        public string DateCompareFormated { get; set; }
+        public string FromDateFormated { get; set; }
+        public string ToDateFormated { get; set; }
 
         public override bool Equals(object obj)
         {

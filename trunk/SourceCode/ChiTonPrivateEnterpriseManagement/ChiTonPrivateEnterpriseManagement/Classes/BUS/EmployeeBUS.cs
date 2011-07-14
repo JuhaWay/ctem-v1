@@ -29,7 +29,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
 
         public List<EmployerDTO> LoadAllEmployee()
         {
-            return employerDAO.GetAll();
+            return employerDAO.GetAllEmp();
         }
 
         public bool CreateEmployee(string username, string password, string fullname, string address, string email, string CMND, string DOB, long roleID, long rightsValue, int isActive, string notes, string phonenumber, long totalDebt)
@@ -54,14 +54,34 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
             return employerDAO.CreateEmployeeAdvance(advanceObj);
         }
 
-        public List<EmployeeAdvanceDTO> LoadAllAdvance()
-        {
-            return employerDAO.GetAllAdvance();
-        }
-
         public List<EmployeeSalaryDTO> LoadAllSalary()
         {
             return employerDAO.GetAllSalary();
+        }
+
+        public object LoadAllUser()
+        {
+            return employerDAO.GetAll();
+        }
+
+        public List<EmployeeAdvanceDTO> LoadAdvance(string name, DateTime fromdate, DateTime todate)
+        {
+            return employerDAO.GetAdvance(name, fromdate, todate);
+        }
+
+        public bool UpdateEmployeeAdvance(EmployeeAdvanceDTO advanceObj)
+        {
+            return employerDAO.UpdateAdvance(advanceObj);
+        }
+
+        public bool DeleteAdvance(long id)
+        {
+            return employerDAO.DeleteAdvance(id);
+        }
+
+        public bool DeleteAllAdvance()
+        {
+            return employerDAO.DeleteAllAdvance();
         }
     }
 }
