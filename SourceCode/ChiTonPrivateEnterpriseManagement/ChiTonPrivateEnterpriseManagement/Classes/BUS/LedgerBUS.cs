@@ -25,5 +25,9 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
         {
             return _ledgerDAO.delete(id);
         }
+        public List<LedgerDTO> LedgerSearch(LedgerDTO param)
+        {
+            return _ledgerDAO.LedgerSearch(param);
+        }
     }
 }
