@@ -27,9 +27,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
         {
             CenterToParent();
             setDefaultComboBox();
-            Global.CenterToParent(btnMoveUp, pnlMoveUp, Constants.HORISONTAL_TOP, 0);
-            Global.CenterToParent(btnMoveDown, pnlMoveDown, Constants.HORISONTAL_TOP, 0);
-            Global.CenterToParent(pnlNewSalaryItem, pnlMain, Constants.HORISONTAL_BOT_CUSTOM, pnlMoveUp.Height);
         }
 
         private void setDefaultComboBox()
@@ -43,55 +40,20 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
 
         public void Refreshdgv()
         {
-            dgvSalary.DataSource = null;
-            dgvSalary.DataSource = listSalary;
-            dgvSalary.Refresh();
         }
 
         private void btnMoveUp_Click(object sender, EventArgs e)
         {
-            locationXpnlNewItem = pnlMain.Width / 2 - pnlNewSalaryItem.Height / 2;
-            int locationY = pnlNewSalaryItem.Location.Y;
-            while (pnlNewSalaryItem.Location.Y > (Height/2 - pnlNewSalaryItem.Height/2))
-            {
-                locationY -= 40;
-                pnlNewSalaryItem.Location = new Point(locationXpnlNewItem, locationY);
-                Refresh();
-            }
-            pnlMoveUp.Visible = false;
-            pnlMoveDown.Visible = true;
         }
 
         private void btnMoveDown_Click(object sender, EventArgs e)
         {
-            int locationY = pnlNewSalaryItem.Location.Y;
-            locationXpnlNewItem = pnlMain.Width/2 - pnlNewSalaryItem.Height/2;
-            while (pnlNewSalaryItem.Location.Y < (pnlMain.Height - pnlMoveUp.Height))
-            {
-                locationY += 40;
-                pnlNewSalaryItem.Location = new Point(locationXpnlNewItem, locationY);
-                Refresh();
-            }
-            if (pnlNewSalaryItem.Location.Y > pnlMain.Height - pnlMoveUp.Height)
-            {
-                pnlNewSalaryItem.Location = new Point(locationXpnlNewItem, pnlMain.Height - pnlMoveUp.Height);
-            }
-            pnlMoveUp.Visible = true;
-            pnlMoveDown.Visible = false;
+         
         }
 
         private void NewSalary_SizeChanged(object sender, EventArgs e)
         {
-            if (pnlMoveDown.Visible)
-            {
-                Global.CenterToParent(pnlNewSalaryItem, pnlMain, Constants.CENTER, 0);                
-                Refresh();
-            }
-            else
-            {
-                Global.CenterToParent(pnlNewSalaryItem, pnlMain, Constants.HORISONTAL_BOT_CUSTOM, pnlMoveUp.Height);
-                Refresh();
-            }
+         
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -172,19 +134,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
             }
         }
 
-        private void btnNewSalary_Click(object sender, EventArgs e)
-        {
-            pnlNewSalaryItem.Visible = true;
-            Global.CenterToParent(pnlNewSalaryItem, pnlMain, Constants.CENTER, 0);
-            pnlMoveUp.Visible = false;
-            pnlMoveDown.Visible = true;
-        }
-
-        private void btnClosedNewItem_Click(object sender, EventArgs e)
-        {
-            pnlNewSalaryItem.Visible = false;
-        }
-
+        
         private void textboxNewSalary_Enter(object sender, EventArgs e)
         {
             KryptonTextBox textBox = (KryptonTextBox)sender;

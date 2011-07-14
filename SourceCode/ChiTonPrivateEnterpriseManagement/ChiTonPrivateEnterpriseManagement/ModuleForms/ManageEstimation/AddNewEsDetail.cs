@@ -19,7 +19,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
         private EstimateBUS _estimateBUS = new EstimateBUS();
         private ConstructionBus _constructionBus = new ConstructionBus();
 
-        private int _defaultIndex;
+
         private long _estimateId;
 
         private long _totalCost;
@@ -27,42 +27,43 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
         {
             CenterToParent();
             _estimateId = estimateId;
-            _defaultIndex = 0;
-            InitializeComponent();
-        }
-
-        public AddNewEsDetail(long estimateId, int index)
-        {
-            CenterToParent();
-            _estimateId = estimateId;
-            _defaultIndex = index;
             InitializeComponent();
         }
 
         private void AddNewEsDetail_Load(object sender, EventArgs e)
         {
-            Global.SetDataCombobox(cbMaterial, "Material");
-            cbMaterial.SelectedIndex = _defaultIndex;
+            cbMaterial.Items.AddRange(_materialBUS.LoadAllMaterials().ToArray());
+            cbMaterial.DisplayMember = "MaterialName";
         }
 
         private void btSave_Click(object sender, EventArgs e)
         {
-            MaterialDTO dto = cbMaterial.SelectedItem as MaterialDTO;
-            if (!validateMaterial(dto)) return;
-            else if (!validateQuantity(ipQuantity.Text)) return;
-            else if (!validatePrice(ipPrice.Text)) return;
+            if (ipName.Text.Trim().Equals(""))
+            {
+                MessageBox.Show("Vui lòng nhập tên");
+                return;
+            }
+            else if (cbType.SelectedIndex < 0)
+            {
+                MessageBox.Show("Vui lòng chọn loại");
+                return;
+            }
             else
             {
-                    // CreateEstimateDetail
-                    _estimateDetailBUS.CreateEstimateDetail(
-                    _estimateId, dto.MaterialID, long.Parse(ipQuantity.Text),
-                    long.Parse(ipPrice.Text), _totalCost);
-                    // LoadAllEstimateDetails
-                    //List<EstimateDetailDTO> esDetails =
-                    //    _estimateDetailBUS.LoadAllEstimateDetails(_estimateId);
-                    //_estimateBUS.UpdateEstimate(_estimateId, getTotalCost(esDetails));
-                    //_constructionBus.UpdateConstructionTotalEstimateCost(_constructionID, getTotalCost(esDetails));
-
+                EstimateDetailDTO entity = new EstimateDetailDTO();
+                entity.Name = ipName.Text;
+                entity.EstimateID = _estimateId;  
+                if (cbType.SelectedIndex == 0)
+                {
+                    if (!validateQuantity(ipQuantity.Text)) return;
+                    if (!validatePrice(ipPrice.Text)) return;
+                    entity.QuantityEstimate = Convert.ToInt32(ipQuantity.Text);
+                    entity.UnitCostEstimate = Convert.ToInt64(ipQuantity.Text);
+                    entity.MaterialID = (cbMaterial.SelectedItem as MaterialDTO).MaterialID;
+                }                          
+                entity.TotalCostEstimate = Convert.ToInt64(ipTotal.Text);              
+                _estimateDetailBUS.CreateEstimateDetail(entity);
+               
             }
             MessageBox.Show("Tạo thành công !");
             this.Close();
@@ -113,6 +114,15 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
 
         private void cbMaterial_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (cbMaterial.SelectedIndex == 0)
+            {
+                ipQuantity.Enabled = false;
+                ipPrice.Enabled = false;
+                ipTotal.Enabled = true;
+                ipName.Enabled = true;
+            }
+
+
             MaterialDTO dto = cbMaterial.SelectedItem as MaterialDTO;
             lbUnit.Text = dto.EstimateCalUnit;
         }
@@ -123,7 +133,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
             if (Global.isNumber(ipPrice.Text) && Global.isNumber(ipQuantity.Text))
             {
                 _totalCost = Convert.ToInt64(ipPrice.Text) * Convert.ToInt64(ipQuantity.Text);
-                lbTotalCostNum.Text = _totalCost.ToString();
+                ipTotal.Text = _totalCost.ToString();
             }
             else
                 _totalCost = 0;
@@ -134,9 +144,27 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
             if (Global.isNumber(ipPrice.Text) && Global.isNumber(ipQuantity.Text))
             {
                 _totalCost = Convert.ToInt64(ipPrice.Text) * Convert.ToInt64(ipQuantity.Text);
-                lbTotalCostNum.Text = _totalCost.ToString();
+                ipTotal.Text = _totalCost.ToString();
             }
             else _totalCost = 0;
+        }
+
+        private void cbType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbType.SelectedIndex == 1)
+            {
+                cbMaterial.Enabled = false;
+                ipQuantity.Enabled = false;
+                ipPrice.Enabled = false;
+                ipTotal.Enabled = true;
+            }
+            else
+            {
+                cbMaterial.Enabled = true;
+                ipQuantity.Enabled = true;
+                ipPrice.Enabled = true;
+                ipTotal.Enabled = false;
+            }
         }
 
     }

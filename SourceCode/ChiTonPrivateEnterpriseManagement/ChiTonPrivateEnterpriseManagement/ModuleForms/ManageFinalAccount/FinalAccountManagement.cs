@@ -25,17 +25,30 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
 
         private void FinalAccountManagement_Load(object sender, EventArgs e)
         {
-            SetLayoutDataGridView();
+            SetLayout();
             LoadData();
         }
 
         private void SetLayout()
         {
+            dgvAccount.Focus();
+            pnlSearch.Height = 62;
+            gbxSearch.Height = 58;
+            //txtId.ReadOnly = true;
+            //txtTotalOwe.Text = Constants.ZERO_NUMBER;
             Global.SetLayoutForm(this, Constants.CHILD_FORM);
-            Global.SetLayoutHeaderGroup(hdSearch, Constants.CHILD_FORM);
-            Global.SetLayoutHeaderGroup(hdAccount, Constants.CHILD_FORM);
+            Global.SetLayoutHeaderGroup(hdDebt, Constants.CHILD_FORM);
+            Global.SetLayoutHeaderGroup(hdEdit, Constants.CHILD_FORM);
             Global.SetDaulftDatagridview(dgvAccount);
-            Global.SetLayoutSplipContainer(slcMain, 1);
+            Global.SetLayoutSplipContainer(slcMain, 2);
+            Global.SetLayoutSplipContainerInChildForm(slcEdit);
+            Global.SetLayoutGroupBoxChildForm(gbxEdit1);
+            Global.SetLayoutGroupBoxChildForm(gbxEdit2);
+            Global.SetLayoutGroupBoxSearch(gbxSearch);
+            Global.SetLayoutPanelChildForm(pnlSearch);
+            //Global.SetDataCombobox(cbbDebt, "Debt");
+            Global.SetLayoutButton(btnSearch);
+            //MakeEdit(false);
         }
 
         private void SetLayoutDataGridView()
