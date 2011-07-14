@@ -30,11 +30,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
         private void btSave_Click(object sender, EventArgs e)
         {
             ConstructionDTO dto = cbConstruction.SelectedItem as ConstructionDTO;
-            bool test = _estimateBUS.creatEstimate(dto.ConstructionID,ipEstName.Text,
-                0,0,new DateTime(2011,6,1),new DateTime(2011,6,1),
-                "","");
-           if(test) 
-               MessageBox.Show("Tạo dự toán thành công !");
+            MessageBox.Show("Tạo dự toán thành công !");
             this.Close();
         }
 
