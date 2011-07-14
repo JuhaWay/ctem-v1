@@ -29,33 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VehicleDairyManagement));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VehicleDairyManagement));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.kryptonPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.dgvVehicleDairy = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.kryptonPanel4 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.btAddNew = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.btDelete = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.kryptonHeader2 = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
-            this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.dtTodate = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
-            this.lbTodate = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.dtFromdate = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
-            this.lbFromDate = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.cbSearchDriver = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
-            this.cbSearchVehicle = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
-            this.lbDriver = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.btSearch = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.cbSearchCons = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
-            this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.checkBox = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewCheckBoxColumn();
-            this.VehicleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kryptonPanel2 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonGroupBox1 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.kryptonPanel3 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.btSave = new ComponentFactory.Krypton.Toolkit.KryptonButton();
@@ -76,10 +56,31 @@
             this.kryptonLabel5 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonPanel5 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonHeader1 = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
-            this.lbTotalFualCost = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.ipTotalFualCost = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.lbTotalDamagedCost = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.kryptonPanel2 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.ipTotalDamagedCost = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.lbTotalDamagedCost = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.ipTotalFualCost = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.lbTotalFualCost = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.dgvVehicleDairy = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.vehicleDairyDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.kryptonPanel4 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.btAddNew = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btDelete = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.kryptonHeader2 = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
+            this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.dtTodate = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
+            this.lbTodate = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.dtFromdate = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
+            this.lbFromDate = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.cbSearchDriver = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.cbSearchVehicle = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.lbDriver = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.btSearch = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.cbSearchCons = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.checkBox = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewCheckBoxColumn();
+            this.VehicleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VehicleDairyID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ConstructionName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RoadMap = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -88,19 +89,8 @@
             this.DamagedCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isPaid = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.vehicleDairyDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvVehicleDairy)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel4)).BeginInit();
-            this.kryptonPanel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
-            this.kryptonPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cbSearchDriver)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbSearchVehicle)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbSearchCons)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).BeginInit();
-            this.kryptonPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).BeginInit();
             this.kryptonGroupBox1.Panel.SuspendLayout();
             this.kryptonGroupBox1.SuspendLayout();
@@ -111,7 +101,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.cbCons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel5)).BeginInit();
             this.kryptonPanel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).BeginInit();
+            this.kryptonPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvVehicleDairy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vehicleDairyDTOBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel4)).BeginInit();
+            this.kryptonPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
+            this.kryptonPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbSearchDriver)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbSearchVehicle)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbSearchCons)).BeginInit();
             this.SuspendLayout();
             // 
             // kryptonPanel
@@ -128,6 +128,8 @@
             this.kryptonPanel.Size = new System.Drawing.Size(720, 707);
             this.kryptonPanel.TabIndex = 0;
             // 
+<<<<<<< .mine
+=======
             // dgvVehicleDairy
             // 
             this.dgvVehicleDairy.AutoGenerateColumns = false;
@@ -353,6 +355,7 @@
             this.kryptonPanel2.StateCommon.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.ExpertCheckedTracking;
             this.kryptonPanel2.TabIndex = 12;
             // 
+>>>>>>> .r180
             // kryptonGroupBox1
             // 
             this.kryptonGroupBox1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -551,20 +554,27 @@
             this.kryptonHeader1.Values.Heading = "Chi tiết";
             this.kryptonHeader1.Values.Image = ((System.Drawing.Image)(resources.GetObject("kryptonHeader1.Values.Image")));
             // 
-            // lbTotalFualCost
+            // kryptonPanel2
             // 
-            this.lbTotalFualCost.Location = new System.Drawing.Point(142, 3);
-            this.lbTotalFualCost.Name = "lbTotalFualCost";
-            this.lbTotalFualCost.Size = new System.Drawing.Size(85, 19);
-            this.lbTotalFualCost.TabIndex = 0;
-            this.lbTotalFualCost.Values.Text = "Tổng xăng dầu";
+            this.kryptonPanel2.Controls.Add(this.ipTotalDamagedCost);
+            this.kryptonPanel2.Controls.Add(this.lbTotalDamagedCost);
+            this.kryptonPanel2.Controls.Add(this.ipTotalFualCost);
+            this.kryptonPanel2.Controls.Add(this.lbTotalFualCost);
+            this.kryptonPanel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.kryptonPanel2.Location = new System.Drawing.Point(0, 389);
+            this.kryptonPanel2.Name = "kryptonPanel2";
+            this.kryptonPanel2.Size = new System.Drawing.Size(720, 29);
+            this.kryptonPanel2.StateCommon.Color1 = System.Drawing.Color.White;
+            this.kryptonPanel2.StateCommon.Color2 = System.Drawing.Color.Yellow;
+            this.kryptonPanel2.StateCommon.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.ExpertCheckedTracking;
+            this.kryptonPanel2.TabIndex = 12;
             // 
-            // ipTotalFualCost
+            // ipTotalDamagedCost
             // 
-            this.ipTotalFualCost.Location = new System.Drawing.Point(236, 3);
-            this.ipTotalFualCost.Name = "ipTotalFualCost";
-            this.ipTotalFualCost.Size = new System.Drawing.Size(162, 22);
-            this.ipTotalFualCost.TabIndex = 1;
+            this.ipTotalDamagedCost.Location = new System.Drawing.Point(506, 3);
+            this.ipTotalDamagedCost.Name = "ipTotalDamagedCost";
+            this.ipTotalDamagedCost.Size = new System.Drawing.Size(158, 22);
+            this.ipTotalDamagedCost.TabIndex = 3;
             // 
             // lbTotalDamagedCost
             // 
@@ -574,12 +584,235 @@
             this.lbTotalDamagedCost.TabIndex = 2;
             this.lbTotalDamagedCost.Values.Text = "Tổng hư  hóc";
             // 
-            // ipTotalDamagedCost
+            // ipTotalFualCost
             // 
-            this.ipTotalDamagedCost.Location = new System.Drawing.Point(506, 3);
-            this.ipTotalDamagedCost.Name = "ipTotalDamagedCost";
-            this.ipTotalDamagedCost.Size = new System.Drawing.Size(158, 22);
-            this.ipTotalDamagedCost.TabIndex = 3;
+            this.ipTotalFualCost.Location = new System.Drawing.Point(236, 3);
+            this.ipTotalFualCost.Name = "ipTotalFualCost";
+            this.ipTotalFualCost.Size = new System.Drawing.Size(162, 22);
+            this.ipTotalFualCost.TabIndex = 1;
+            // 
+            // lbTotalFualCost
+            // 
+            this.lbTotalFualCost.Location = new System.Drawing.Point(142, 3);
+            this.lbTotalFualCost.Name = "lbTotalFualCost";
+            this.lbTotalFualCost.Size = new System.Drawing.Size(85, 19);
+            this.lbTotalFualCost.TabIndex = 0;
+            this.lbTotalFualCost.Values.Text = "Tổng xăng dầu";
+            // 
+            // dgvVehicleDairy
+            // 
+            this.dgvVehicleDairy.AutoGenerateColumns = false;
+            this.dgvVehicleDairy.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.checkBox,
+            this.VehicleName,
+            this.VehicleDairyID,
+            this.ConstructionName,
+            this.RoadMap,
+            this.DriverName,
+            this.FualCost,
+            this.DamagedCost,
+            this.Date,
+            this.isPaid});
+            this.dgvVehicleDairy.DataSource = this.vehicleDairyDTOBindingSource;
+            this.dgvVehicleDairy.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dgvVehicleDairy.Location = new System.Drawing.Point(0, 122);
+            this.dgvVehicleDairy.Name = "dgvVehicleDairy";
+            this.dgvVehicleDairy.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvVehicleDairy.Size = new System.Drawing.Size(720, 267);
+            this.dgvVehicleDairy.StateCommon.Background.Color1 = System.Drawing.Color.White;
+            this.dgvVehicleDairy.StateCommon.Background.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.dgvVehicleDairy.StateCommon.Background.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.ExpertSquareHighlight;
+            this.dgvVehicleDairy.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
+            this.dgvVehicleDairy.TabIndex = 11;
+            this.dgvVehicleDairy.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvVehicleDairy_MouseClick);
+            // 
+            // vehicleDairyDTOBindingSource
+            // 
+            this.vehicleDairyDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.VehicleDairyDTO);
+            // 
+            // kryptonPanel4
+            // 
+            this.kryptonPanel4.Controls.Add(this.btAddNew);
+            this.kryptonPanel4.Controls.Add(this.btDelete);
+            this.kryptonPanel4.Controls.Add(this.kryptonHeader2);
+            this.kryptonPanel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.kryptonPanel4.Location = new System.Drawing.Point(0, 88);
+            this.kryptonPanel4.Name = "kryptonPanel4";
+            this.kryptonPanel4.Size = new System.Drawing.Size(720, 34);
+            this.kryptonPanel4.TabIndex = 10;
+            // 
+            // btAddNew
+            // 
+            this.btAddNew.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btAddNew.Location = new System.Drawing.Point(652, 0);
+            this.btAddNew.Name = "btAddNew";
+            this.btAddNew.Size = new System.Drawing.Size(34, 34);
+            this.btAddNew.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btAddNew.TabIndex = 12;
+            this.btAddNew.Values.Image = ((System.Drawing.Image)(resources.GetObject("btAddNew.Values.Image")));
+            this.btAddNew.Values.Text = "";
+            this.btAddNew.Click += new System.EventHandler(this.btAddNew_Click);
+            // 
+            // btDelete
+            // 
+            this.btDelete.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btDelete.Location = new System.Drawing.Point(686, 0);
+            this.btDelete.Name = "btDelete";
+            this.btDelete.Size = new System.Drawing.Size(34, 34);
+            this.btDelete.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btDelete.TabIndex = 13;
+            this.btDelete.Values.Image = ((System.Drawing.Image)(resources.GetObject("btDelete.Values.Image")));
+            this.btDelete.Values.Text = "";
+            this.btDelete.Click += new System.EventHandler(this.btDelete_Click);
+            // 
+            // kryptonHeader2
+            // 
+            this.kryptonHeader2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.kryptonHeader2.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.DockActive;
+            this.kryptonHeader2.Location = new System.Drawing.Point(0, 0);
+            this.kryptonHeader2.Name = "kryptonHeader2";
+            this.kryptonHeader2.Size = new System.Drawing.Size(720, 34);
+            this.kryptonHeader2.TabIndex = 1;
+            this.kryptonHeader2.Values.Description = "";
+            this.kryptonHeader2.Values.Heading = "Danh sách";
+            this.kryptonHeader2.Values.Image = ((System.Drawing.Image)(resources.GetObject("kryptonHeader2.Values.Image")));
+            // 
+            // kryptonPanel1
+            // 
+            this.kryptonPanel1.Controls.Add(this.dtTodate);
+            this.kryptonPanel1.Controls.Add(this.lbTodate);
+            this.kryptonPanel1.Controls.Add(this.dtFromdate);
+            this.kryptonPanel1.Controls.Add(this.lbFromDate);
+            this.kryptonPanel1.Controls.Add(this.cbSearchDriver);
+            this.kryptonPanel1.Controls.Add(this.cbSearchVehicle);
+            this.kryptonPanel1.Controls.Add(this.lbDriver);
+            this.kryptonPanel1.Controls.Add(this.kryptonLabel2);
+            this.kryptonPanel1.Controls.Add(this.btSearch);
+            this.kryptonPanel1.Controls.Add(this.cbSearchCons);
+            this.kryptonPanel1.Controls.Add(this.kryptonLabel1);
+            this.kryptonPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.kryptonPanel1.Location = new System.Drawing.Point(0, 0);
+            this.kryptonPanel1.Name = "kryptonPanel1";
+            this.kryptonPanel1.Size = new System.Drawing.Size(720, 88);
+            this.kryptonPanel1.StateCommon.Color1 = System.Drawing.Color.White;
+            this.kryptonPanel1.StateCommon.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.kryptonPanel1.StateCommon.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.GlassNormalSimple;
+            this.kryptonPanel1.TabIndex = 6;
+            // 
+            // dtTodate
+            // 
+            this.dtTodate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtTodate.Location = new System.Drawing.Point(467, 13);
+            this.dtTodate.Name = "dtTodate";
+            this.dtTodate.Size = new System.Drawing.Size(139, 20);
+            this.dtTodate.TabIndex = 16;
+            // 
+            // lbTodate
+            // 
+            this.lbTodate.Location = new System.Drawing.Point(384, 12);
+            this.lbTodate.Name = "lbTodate";
+            this.lbTodate.Size = new System.Drawing.Size(58, 19);
+            this.lbTodate.TabIndex = 15;
+            this.lbTodate.Values.Text = "Đến ngày";
+            // 
+            // dtFromdate
+            // 
+            this.dtFromdate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtFromdate.Location = new System.Drawing.Point(242, 12);
+            this.dtFromdate.Name = "dtFromdate";
+            this.dtFromdate.Size = new System.Drawing.Size(121, 20);
+            this.dtFromdate.TabIndex = 14;
+            // 
+            // lbFromDate
+            // 
+            this.lbFromDate.Location = new System.Drawing.Point(177, 13);
+            this.lbFromDate.Name = "lbFromDate";
+            this.lbFromDate.Size = new System.Drawing.Size(50, 19);
+            this.lbFromDate.TabIndex = 13;
+            this.lbFromDate.Values.Text = "Từ ngày";
+            // 
+            // cbSearchDriver
+            // 
+            this.cbSearchDriver.DropDownWidth = 121;
+            this.cbSearchDriver.Location = new System.Drawing.Point(242, 49);
+            this.cbSearchDriver.Name = "cbSearchDriver";
+            this.cbSearchDriver.Size = new System.Drawing.Size(121, 22);
+            this.cbSearchDriver.TabIndex = 12;
+            this.cbSearchDriver.Text = "chọn...";
+            // 
+            // cbSearchVehicle
+            // 
+            this.cbSearchVehicle.DropDownWidth = 121;
+            this.cbSearchVehicle.Location = new System.Drawing.Point(61, 49);
+            this.cbSearchVehicle.Name = "cbSearchVehicle";
+            this.cbSearchVehicle.Size = new System.Drawing.Size(121, 22);
+            this.cbSearchVehicle.TabIndex = 11;
+            this.cbSearchVehicle.Text = "chọn...";
+            // 
+            // lbDriver
+            // 
+            this.lbDriver.Location = new System.Drawing.Point(188, 52);
+            this.lbDriver.Name = "lbDriver";
+            this.lbDriver.Size = new System.Drawing.Size(39, 19);
+            this.lbDriver.TabIndex = 10;
+            this.lbDriver.Values.Text = "Tài xế";
+            // 
+            // kryptonLabel2
+            // 
+            this.kryptonLabel2.Location = new System.Drawing.Point(12, 52);
+            this.kryptonLabel2.Name = "kryptonLabel2";
+            this.kryptonLabel2.Size = new System.Drawing.Size(43, 19);
+            this.kryptonLabel2.TabIndex = 9;
+            this.kryptonLabel2.Values.Text = "Tên xe";
+            // 
+            // btSearch
+            // 
+            this.btSearch.Location = new System.Drawing.Point(635, 39);
+            this.btSearch.Name = "btSearch";
+            this.btSearch.Size = new System.Drawing.Size(44, 32);
+            this.btSearch.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btSearch.TabIndex = 8;
+            this.btSearch.Values.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.th_search_icon_16x16;
+            this.btSearch.Values.Text = "";
+            this.btSearch.Click += new System.EventHandler(this.btSearch_Click);
+            // 
+            // cbSearchCons
+            // 
+            this.cbSearchCons.DropDownWidth = 139;
+            this.cbSearchCons.Location = new System.Drawing.Point(467, 49);
+            this.cbSearchCons.Name = "cbSearchCons";
+            this.cbSearchCons.Size = new System.Drawing.Size(139, 22);
+            this.cbSearchCons.TabIndex = 5;
+            this.cbSearchCons.Text = "chọn...";
+            // 
+            // kryptonLabel1
+            // 
+            this.kryptonLabel1.Location = new System.Drawing.Point(384, 52);
+            this.kryptonLabel1.Name = "kryptonLabel1";
+            this.kryptonLabel1.Size = new System.Drawing.Size(63, 19);
+            this.kryptonLabel1.TabIndex = 4;
+            this.kryptonLabel1.Values.Text = "Công trình";
+            // 
+            // checkBox
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.NullValue = false;
+            this.checkBox.DefaultCellStyle = dataGridViewCellStyle1;
+            this.checkBox.FalseValue = null;
+            this.checkBox.HeaderText = "";
+            this.checkBox.IndeterminateValue = null;
+            this.checkBox.Name = "checkBox";
+            this.checkBox.TrueValue = null;
+            this.checkBox.Width = 50;
+            // 
+            // VehicleName
+            // 
+            this.VehicleName.DataPropertyName = "VehicleName";
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.VehicleName.DefaultCellStyle = dataGridViewCellStyle2;
+            this.VehicleName.HeaderText = "Tên xe";
+            this.VehicleName.Name = "VehicleName";
+            this.VehicleName.Width = 150;
             // 
             // VehicleDairyID
             // 
@@ -611,7 +844,7 @@
             // FualCost
             // 
             this.FualCost.DataPropertyName = "FualCost";
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.FualCost.DefaultCellStyle = dataGridViewCellStyle3;
             this.FualCost.HeaderText = "Chi phí Xăng dầu";
             this.FualCost.Name = "FualCost";
@@ -619,7 +852,7 @@
             // DamagedCost
             // 
             this.DamagedCost.DataPropertyName = "DamagedCost";
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.DamagedCost.DefaultCellStyle = dataGridViewCellStyle4;
             this.DamagedCost.HeaderText = "Chi phí sửa chửa";
             this.DamagedCost.Name = "DamagedCost";
@@ -636,10 +869,6 @@
             this.isPaid.HeaderText = "Thanh toán";
             this.isPaid.Name = "isPaid";
             // 
-            // vehicleDairyDTOBindingSource
-            // 
-            this.vehicleDairyDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.VehicleDairyDTO);
-            // 
             // VehicleDairyManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -652,19 +881,6 @@
             this.Load += new System.EventHandler(this.VehicleDairyManagement_Load);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).EndInit();
             this.kryptonPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvVehicleDairy)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel4)).EndInit();
-            this.kryptonPanel4.ResumeLayout(false);
-            this.kryptonPanel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).EndInit();
-            this.kryptonPanel1.ResumeLayout(false);
-            this.kryptonPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cbSearchDriver)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbSearchVehicle)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbSearchCons)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).EndInit();
-            this.kryptonPanel2.ResumeLayout(false);
-            this.kryptonPanel2.PerformLayout();
             this.kryptonGroupBox1.Panel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).EndInit();
             this.kryptonGroupBox1.ResumeLayout(false);
@@ -677,7 +893,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel5)).EndInit();
             this.kryptonPanel5.ResumeLayout(false);
             this.kryptonPanel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).EndInit();
+            this.kryptonPanel2.ResumeLayout(false);
+            this.kryptonPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvVehicleDairy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vehicleDairyDTOBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel4)).EndInit();
+            this.kryptonPanel4.ResumeLayout(false);
+            this.kryptonPanel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).EndInit();
+            this.kryptonPanel1.ResumeLayout(false);
+            this.kryptonPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbSearchDriver)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbSearchVehicle)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbSearchCons)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -704,16 +933,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonComboBox cbSearchDriver;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btAddNew;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btDelete;
-        private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewCheckBoxColumn checkBox;
-        private System.Windows.Forms.DataGridViewTextBoxColumn VehicleName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn VehicleDairyID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ConstructionName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RoadMap;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DriverName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FualCost;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DamagedCost;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Date;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn isPaid;
         private ComponentFactory.Krypton.Toolkit.KryptonGroupBox kryptonGroupBox1;
         private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel3;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btSave;
@@ -739,6 +958,16 @@
         private ComponentFactory.Krypton.Toolkit.KryptonLabel lbTotalDamagedCost;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox ipTotalFualCost;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel lbTotalFualCost;
+        private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewCheckBoxColumn checkBox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VehicleName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VehicleDairyID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ConstructionName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RoadMap;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DriverName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FualCost;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DamagedCost;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Date;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn isPaid;
     }
 }
 
