@@ -14,6 +14,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
     {
         public static List<RightDTO> Rights;
         public static EmployerDTO CurrentUser;
+        public static string SEP = ".";
         public static List<string> ListError = new List<string>();
         public static bool DownUpControl(KryptonForm form, KryptonPanel panel, int maxheight, int minheight, int speed, bool isDown)
         {
@@ -271,8 +272,22 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
             }
             catch (Exception)
             {
-                KryptonMessageBox.Show(Constants.INVALIDATE_VALUE, Constants.CONFIRM, MessageBoxButtons.OK,
-                                MessageBoxIcon.Warning);
+                //KryptonMessageBox.Show(Constants.INVALIDATE_VALUE, Constants.CONFIRM, MessageBoxButtons.OK,
+                 //               MessageBoxIcon.Warning);
+                return false;
+            }
+        }
+
+        public static bool ValidateDoubleNumber(string strDouble)
+        {
+            try
+            {
+                Convert.ToDouble(strDouble);
+                return true;
+            }
+            catch (Exception)
+            {
+               
                 return false;
             }
         }
@@ -286,8 +301,8 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
             }
             catch (Exception)
             {
-                KryptonMessageBox.Show(Constants.INVALIDATE_VALUE, Constants.CONFIRM, MessageBoxButtons.OK,
-                                MessageBoxIcon.Warning);
+                //KryptonMessageBox.Show(Constants.INVALIDATE_VALUE, Constants.CONFIRM, MessageBoxButtons.OK,
+                //                MessageBoxIcon.Warning);
                 return false;
             }
         }
