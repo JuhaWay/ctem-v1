@@ -119,11 +119,20 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         EstimateName = Convert.ToString(reader["EstimateName"]),
                         TotalCostEstimate = Convert.ToInt64(reader["TotalCostEstimate"]),
                         TotalCostReal = Convert.ToInt64(reader["TotalCostReal"]),
-                        CreatedBy = reader["CreatedBy"] != DBNull.Value ? Convert.ToString(reader["CreatedBy"]) : "",
-                        CreatedDate = reader["CreatedDate"] != DBNull.Value ? Convert.ToDateTime(reader["CreatedDate"]) : new DateTime(),
-                        UpdatedBy = reader["UpdatedBy"] != DBNull.Value ? Convert.ToString(reader["UpdatedBy"]) : "",
-                        UpdatedDate = reader["UpdatedDate"] != DBNull.Value ? Convert.ToDateTime(reader["UpdatedDate"]) : new DateTime()
+                        CreatedBy =  Convert.ToString(reader["CreatedBy"]),
+                        CreatedDate = Convert.ToDateTime(reader["CreatedDate"]),
+                        UpdatedBy = Convert.ToString(reader["UpdatedBy"])
+                       
                     };
+                    try{
+                         consDto.UpdatedDate = Convert.ToDateTime(reader["UpdatedDate"]) ;
+                         consDto.UpdatedDateFormated = consDto.UpdatedDate.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
+
+                    }catch(Exception e){
+                        consDto.UpdatedDateFormated="";
+                    }
+                    consDto.CreatedDateFormated = consDto.CreatedDate.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
+                    consDto.TotalCostEstimateFormated = Global.Global.ConvertLongToMoney(consDto.TotalCostEstimate,".");
                     listcons.Add(consDto);
                 }
                 return listcons;
