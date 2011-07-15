@@ -173,6 +173,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
                 if (HasEstimate)
                 {
                     EstimateManagement editForm = new EstimateManagement(ConstructionID);
+                    editForm.WindowState = FormWindowState.Normal;
                     editForm.ShowDialog();
                 }
 
