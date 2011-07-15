@@ -12,7 +12,6 @@ using ChiTonPrivateEnterpriseManagement.Classes.DTO;
 using ChiTonPrivateEnterpriseManagement.Classes.Global;
 using ComponentFactory.Krypton.Toolkit;
 using heaparessential.HeaparGantt;
-using Logger = ChiTonPrivateEnterpriseManagement.Classes.Global.Logger;
 
 namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageProgress
 {

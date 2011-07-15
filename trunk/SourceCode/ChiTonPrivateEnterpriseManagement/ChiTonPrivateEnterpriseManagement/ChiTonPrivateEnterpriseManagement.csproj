@@ -67,9 +67,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\HeaparGantt.dll</HintPath>
     </Reference>
-    <Reference Include="log4net">
-      <HintPath>..\..\..\..\a-l-l-v-i-v-u-f-a-c-e\Development\VivuFace_V2\VivuFace_V2\bin\log4net.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
@@ -78,7 +75,10 @@
     <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Windows.Forms.DataVisualization, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Forms.DataVisualization, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\System.Windows.Forms.DataVisualization.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -147,7 +147,6 @@
     <Compile Include="Classes\Global\DataProvider.cs" />
     <Compile Include="Classes\Global\Global.cs" />
     <Compile Include="Classes\Global\Ini.cs" />
-    <Compile Include="Classes\Global\Logger.cs" />
     <Compile Include="DBInfoForm.cs">
       <SubType>Form</SubType>
     </Compile>
