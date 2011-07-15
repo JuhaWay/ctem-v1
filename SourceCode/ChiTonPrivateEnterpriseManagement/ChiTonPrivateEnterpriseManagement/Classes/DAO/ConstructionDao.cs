@@ -100,7 +100,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.Parameters.Add(new SqlParameter("@Name", "%" +param.ConstructionName + "%"));
             else
                 cmd.Parameters.Add(new SqlParameter("@Name", DBNull.Value));
-            if (!param.Status.Trim().Equals(""))
+            if (!param.Status.Trim().Equals("") && !param.Status.Trim().Equals("Tất cả"))
                 cmd.Parameters.Add(new SqlParameter("@Status", "%" + param.Status + "%"));
             else
                 cmd.Parameters.Add(new SqlParameter("@Status", DBNull.Value));
@@ -131,13 +131,31 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         CompletionDate = Convert.ToDateTime(reader["CompletionDate"]),
                         HasEstimate = Convert.ToBoolean(reader["HasEstimate"]),
                         ParentID = Convert.ToInt64(reader["ParentID"]),
-                        TotalEstimateCost = reader["TotalCostEstimate"] != DBNull.Value ? Convert.ToInt64(reader["TotalCostEstimate"]) : 0,
-                        TotalRealCost = reader["TotalCostReal"] != DBNull.Value ? Convert.ToInt64(reader["TotalCostReal"]) : 0,
-                        CreatedBy = reader["CreatedBy"] != DBNull.Value ? Convert.ToString(reader["CreatedBy"]) : "",
-                        CreatedDate = reader["CreatedDate"] != DBNull.Value ? Convert.ToDateTime(reader["CreatedDate"]) : new DateTime(),
-                        UpdatedBy = reader["UpdatedBy"] != DBNull.Value ? Convert.ToString(reader["UpdatedBy"]) : "",
-                        LastUpdated = reader["LastUpdated"] != DBNull.Value ? Convert.ToDateTime(reader["LastUpdated"]) : new DateTime()
+                        TotalEstimateCost = reader["TotalCostEstimate"] != DBNull.Value ? 
+                        Convert.ToInt64(reader["TotalCostEstimate"]) : 0,
+                        TotalRealCost = reader["TotalCostReal"] != DBNull.Value ? 
+                        Convert.ToInt64(reader["TotalCostReal"]) : 0,
+                        CreatedBy =  Convert.ToString(reader["CreatedBy"]),
+                        CreatedDate = Convert.ToDateTime(reader["CreatedDate"]),
+                        UpdatedBy = Convert.ToString(reader["UpdatedBy"])
+                        
                     };
+
+                    try
+                    {
+                        consDto.LastUpdated = Convert.ToDateTime(reader["LastUpdated"]);
+                        consDto.LastUpdatedFormated = consDto.LastUpdated.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
+                    }
+                    catch (Exception e)
+                    {
+                        consDto.LastUpdatedFormated = "";
+                    }
+
+                    consDto.CreateDateFormated = consDto.CreatedDate.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
+                    consDto.CommencementDateFormated = consDto.CommencementDate.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
+                    consDto.CompletionDateFormated = consDto.CompletionDate.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
+                    consDto.TotalEstimateCostFormated = Global.Global.ConvertLongToMoney(consDto.TotalEstimateCost,".");
+                    consDto.TotalRealCostFormated = Global.Global.ConvertLongToMoney(consDto.TotalRealCost, ".");
                     listcons.Add(consDto);
                 }
                 return listcons;
@@ -267,23 +285,41 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                     {
                         ConstructionID = Convert.ToInt64(reader["ConstructionID"]),
                         Status = Convert.ToString(reader["Status"]),
+                        type = Convert.ToString(reader["Type"]),
                         SubcontractorName = Convert.ToString(reader["SubcontractorName"]),
                         ConstructionName = Convert.ToString(reader["ConstructionName"]),
                         Description = Convert.ToString(reader["Description"]),
                         ConstructionAddress = Convert.ToString(reader["ConstructionAddress"]),
                         CommencementDate = Convert.ToDateTime(reader["CommencementDate"]),
-                        CompletionDate = Convert.ToDateTime(reader["CompletionDate"]),
                         ProgressRate = Convert.ToInt64(reader["ProgressRate"]),
-                        type = Convert.ToString(reader["Type"]),
+                        CompletionDate = Convert.ToDateTime(reader["CompletionDate"]),
                         HasEstimate = Convert.ToBoolean(reader["HasEstimate"]),
                         ParentID = Convert.ToInt64(reader["ParentID"]),
-                        TotalEstimateCost = reader["TotalCostEstimate"] != DBNull.Value ? Convert.ToInt64(reader["TotalCostEstimate"]) : 0,
-                        TotalRealCost = reader["TotalCostReal"] != DBNull.Value ? Convert.ToInt64(reader["TotalCostReal"]) : 0,
-                        CreatedBy = reader["CreatedBy"] != DBNull.Value ? Convert.ToString(reader["CreatedBy"]) : "",
-                        CreatedDate = reader["CreatedDate"] != DBNull.Value ? Convert.ToDateTime(reader["CreatedDate"]) : new DateTime(),
-                        UpdatedBy = reader["UpdatedBy"] != DBNull.Value ? Convert.ToString(reader["UpdatedBy"]) : "",
-                        LastUpdated = reader["LastUpdated"] != DBNull.Value ? Convert.ToDateTime(reader["LastUpdated"]) : new DateTime()
+                        TotalEstimateCost = reader["TotalCostEstimate"] != DBNull.Value ?
+                        Convert.ToInt64(reader["TotalCostEstimate"]) : 0,
+                        TotalRealCost = reader["TotalCostReal"] != DBNull.Value ?
+                        Convert.ToInt64(reader["TotalCostReal"]) : 0,
+                        CreatedBy = Convert.ToString(reader["CreatedBy"]),
+                        CreatedDate = Convert.ToDateTime(reader["CreatedDate"]),
+                        UpdatedBy = Convert.ToString(reader["UpdatedBy"])
+
                     };
+
+                    try
+                    {
+                        consDto.LastUpdated = Convert.ToDateTime(reader["LastUpdated"]);
+                        consDto.LastUpdatedFormated = consDto.LastUpdated.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
+                    }
+                    catch (Exception e)
+                    {
+                        consDto.LastUpdatedFormated = "";
+                    }
+
+                    consDto.CreateDateFormated = consDto.CreatedDate.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
+                    consDto.CommencementDateFormated = consDto.CommencementDate.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
+                    consDto.CompletionDateFormated = consDto.CompletionDate.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
+                    consDto.TotalEstimateCostFormated = Global.Global.ConvertLongToMoney(consDto.TotalEstimateCost, ".");
+                    consDto.TotalRealCostFormated = Global.Global.ConvertLongToMoney(consDto.TotalRealCost, ".");
                     listcons.Add(consDto);
                 }
                 return listcons;

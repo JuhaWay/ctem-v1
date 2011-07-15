@@ -110,10 +110,12 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         EstimateID = Convert.ToInt64(reader["EstimateID"]),
                         Name = Convert.ToString(reader["Name"]),
                         MaterialID = reader["MaterialID"]!=DBNull.Value?Convert.ToInt64(reader["MaterialID"]):0,
-                        QuantityEstimate = Convert.ToInt32(reader["QuantityEstimate"]),
+                        QuantityEstimate = Convert.ToDouble(reader["QuantityEstimate"]),
                         UnitCostEstimate = Convert.ToInt32(reader["UnitCostEstimate"]),
                         TotalCostEstimate = Convert.ToInt64(reader["TotalCostEstimate"])
                     };
+                    edDto.UnitCostEstimateFormated = Global.Global.ConvertLongToMoney(edDto.UnitCostEstimate,".");
+                    edDto.TotalCostEstimateFormated = Global.Global.ConvertLongToMoney(edDto.TotalCostEstimate, ".");
                     listcons.Add(edDto);
                 }
                 return listcons;
