@@ -18,7 +18,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
         ConstructionBus _constructionBus = new ConstructionBus();
         private long _constructionID=-1;
         private EstimateDTO dtoTemp = new EstimateDTO();
-        private CheckBox _ckBox;
         // khoi tao cua so chinh'
         public EstimateManagement()
         {
@@ -34,7 +33,21 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
         //khoi tao chuong trinh
         public void initForm()
         {
+           
             InitializeComponent();
+            SetLayout();
+        }
+        private void SetLayout()
+        {
+            dgvEstimate.Focus();
+            pnlSearch.Height = 72;
+            gbxSearch.Height = 68;
+            Global.SetLayoutForm(this, Constants.CHILD_FORM);
+            Global.SetLayoutHeaderGroup(hdDebt, Constants.CHILD_FORM);
+            Global.SetDaulftDatagridview(dgvEstimate);
+            Global.SetLayoutGroupBoxSearch(gbxSearch);
+            Global.SetLayoutPanelChildForm(pnlSearch);
+            Global.SetLayoutButton(btnSearch);
         }
         // load du lieu
         private void EstimateManagement_Load(object sender, EventArgs e)
@@ -42,17 +55,9 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
             cbSearchCons.Items.Add(new ConstructionDTO("Tất cả",0));
             cbSearchCons.Items.AddRange(_constructionBus.LoadAllConstructions().ToArray());
             cbSearchCons.DisplayMember="ConstructionName";
-            _ckBox = new CheckBox();
-            Global.SetLayoutDataGridview(_ckBox, dgvEstimate);
-            _ckBox.CheckedChanged += new EventHandler(ckBox_CheckedChanged);
             loadData();
             loadDetailValues(0);
         }
-        void ckBox_CheckedChanged(object sender, EventArgs e)
-        {
-            Global.CheckBoxCheck(_ckBox, dgvEstimate);
-        }  
-
         public void loadData()
         {
             if (_constructionID == -1)
@@ -141,16 +146,13 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
         //xem du toan chi tiet
         private void btViewDetail_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in dgvEstimate.Rows)
+            foreach (DataGridViewRow row in dgvEstimate.SelectedRows)
             {
-                DataGridViewCell c = dgvEstimate.Rows[row.Index].Cells[0];
-                if (c.AccessibilityObject.Value.Equals("True"))
-                {
                     string strRightID = row.Cells["EstimateID"].Value.ToString();
                     long EstimateID = Convert.ToInt64(strRightID);
                     EstimateDetail editForm = new EstimateDetail(EstimateID);
                     editForm.ShowDialog();
-                }
+                
             }
 
             loadData();
@@ -176,13 +178,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
             }
         }
         // fix checkall box
-        private void dgvEstimate_Scroll(object sender, ScrollEventArgs e)
-        {
-            _ckBox.Visible = false;
-            if (e.NewValue <= 10)
-                _ckBox.Visible = true;
-        }
-
         private void btSearch_Click(object sender, EventArgs e)
         {
             EstimateDTO dto = new EstimateDTO();
@@ -195,6 +190,16 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
         public void search(EstimateDTO dto)
         {
             dgvEstimate.DataSource=_estimateBUS.search(dto);
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            ipEstName.ReadOnly = false;
+        }
+
+        private void btnUnableEdit_Click(object sender, EventArgs e)
+        {
+            ipEstName.ReadOnly = true;
         }
     }
 }

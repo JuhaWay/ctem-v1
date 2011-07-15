@@ -117,303 +117,84 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="cmsEdit.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>344, 95</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="cmsEdit.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 8.25pt</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="EditToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+E</value>
+  </data>
+  <data name="EditToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="EditToolStripMenuItem.Text" xml:space="preserve">
+    <value>Sửa</value>
+  </data>
+  <data name="FreezeToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+B</value>
+  </data>
+  <data name="FreezeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="FreezeToolStripMenuItem.Text" xml:space="preserve">
+    <value>Đóng Băng</value>
+  </data>
+  <data name="SaveToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+S</value>
+  </data>
+  <data name="SaveToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="SaveToolStripMenuItem.Text" xml:space="preserve">
+    <value>Lưu</value>
+  </data>
+  <data name="cmsEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>181, 70</value>
+  </data>
+  <data name="&gt;&gt;cmsEdit.Name" xml:space="preserve">
+    <value>cmsEdit</value>
+  </data>
+  <data name="&gt;&gt;cmsEdit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <metadata name="cmsGen.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>434, 95</value>
+  </metadata>
+  <data name="cmsGen.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="GenMoneyToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+G</value>
+  </data>
+  <data name="GenMoneyToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>176, 22</value>
+  </data>
+  <data name="GenMoneyToolStripMenuItem.Text" xml:space="preserve">
+    <value>Thêm 000</value>
+  </data>
+  <data name="cmsGen.Size" type="System.Drawing.Size, System.Drawing">
+    <value>177, 26</value>
+  </data>
+  <data name="&gt;&gt;cmsGen.Name" xml:space="preserve">
+    <value>cmsGen</value>
+  </data>
+  <data name="&gt;&gt;cmsGen.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <metadata name="kryptonManager.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
   <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>258, 17</value>
   </metadata>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btViewEst.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="btViewEst.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btViewEst.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="btViewEst.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 34</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btViewEst.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="btViewEst.ToolTip" xml:space="preserve">
-    <value>xem danh sách dự toán chi tiết</value>
-  </data>
-  <data name="btViewEst.Values.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAihJREFUOE+djv1r
-        UlEYx0//ZkVE2JumznXBpmNCDqRZuc24y6U4p2OazEVRpHdq4dt04kRctEWrEWNMnTqvXl+2+HbPAcMf
-        +iE88OF5ni/n85xzxePx8ISQ+zLjnCXidrsxGAzGgrrE6XQyWRNsQrlSxQNfDdef5aBer0Ptr0MTaED7
-        ugHVUgpPPhyBFw7wPPKTOdQlDoeDDbo3LSZpgg3cWMxDu3GOiZDMZgvexB5coSCEQhbR3W0IxRxzqEt4
-        nke/3wcXljD5TsTD9x3cchbBfZRYZtgSkT1IIySso3CYRPFHEqWjBHOoS+x2Oxtue8tQrJSgWC2znuHb
-        w9zbOCIpHwSZaMaL+LZMzssc6hKbzYZer4ep9CWmkhes3vN/gSHzG6bcAN9qKZycx5EqrOJUjKHSjqEq
-        Qx3qEqvVim63C75ch73UwEz+EsqNr5gtDFCsFnAmRZE+fImnwTtYyz6Cf8eAjDxTh7rEYrHIQxvFYy++
-        10JMCO8EUenE5RfDiO3PM3G4gPaB/DRbQF1iNpvRFGvsEmVz9zHWIjOI7y+wi8N8dAHNJEkCdYnJZEKj
-        VYE1oMDc/+BXyL+5i06nA+oSo9GIs+YJXIlJLH+awKvPOsz6brI6yjBblnNXgmMLqEv0ej0q9V/goxos
-        RFRYFFSYdl9jdZTR7MWWGu12G9QlHMfhtH4MGs6HlQyj6+rf/l8ZfYguoC7R6XQQRXEsqEu0Wi0vgzHh
-        /wBY2eSZ/VM5tgAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="btViewEst.Values.Text" xml:space="preserve">
-    <value />
-  </data>
-  <data name="btViewEst.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;btViewEst.Name" xml:space="preserve">
-    <value>btViewEst</value>
-  </data>
-  <data name="&gt;&gt;btViewEst.Type" xml:space="preserve">
-    <value>ComponentFactory.Krypton.Toolkit.KryptonButton, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
-  </data>
-  <data name="&gt;&gt;btViewEst.Parent" xml:space="preserve">
-    <value>kryptonPanel1</value>
-  </data>
-  <data name="&gt;&gt;btViewEst.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="btEditEst.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="btEditEst.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btEditEst.Location" type="System.Drawing.Point, System.Drawing">
-    <value>141, 0</value>
-  </data>
-  <data name="btEditEst.Size" type="System.Drawing.Size, System.Drawing">
-    <value>49, 34</value>
-  </data>
-  <data name="btEditEst.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="btEditEst.Values.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAAK/wAA
-        Cv8BNGKaggAAAUBJREFUOE9jvF/I/J+BRKDQ94cRruW4B8P/r9NEwBiZDRNDFwepAQIQAcYMIIFHFWxE
-        YwwDrsaDTfz/f53W//+PpxHEUPUIF6AY8KDv///7nXjxxQiEi/8f8//PADYAaPvnyUIE8ZsOHrBX/58K
-        A2OQdxiuxCJ54Ub5///Y8K3q//+3GP4Hxdj/27VgzSALwQZciiTsggfFLP+vJQDVQTXCNIO9cDEMyQXn
-        4///v5D0/z+IhuG1GnDNIOeDDDrkCNRzJQccnQzngnG7ANlmmOYthkD1IMNh6eC0H5ILjvr//4+EYc5G
-        1nw+BD0heeJ2ATC5wkMcZDPIRcdB6pFT4lFXJBfssv7/f4/t//9QGmQACINc8mu+DDi9QdUjEtJhJ8Kx
-        gJxGwAGI7IIDdkgugCRqvACqHuGC/bYM/0nFyC4AADpilgyiClLUAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="btEditEst.Values.Text" xml:space="preserve">
-    <value />
-  </data>
-  <data name="btEditEst.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;btEditEst.Name" xml:space="preserve">
-    <value>btEditEst</value>
-  </data>
-  <data name="&gt;&gt;btEditEst.Type" xml:space="preserve">
-    <value>ComponentFactory.Krypton.Toolkit.KryptonButton, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
-  </data>
-  <data name="&gt;&gt;btEditEst.Parent" xml:space="preserve">
-    <value>kryptonPanel1</value>
-  </data>
-  <data name="&gt;&gt;btEditEst.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="btCreateEst.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="btCreateEst.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btCreateEst.Location" type="System.Drawing.Point, System.Drawing">
-    <value>92, 0</value>
-  </data>
-  <data name="btCreateEst.Size" type="System.Drawing.Size, System.Drawing">
-    <value>49, 34</value>
-  </data>
-  <data name="btCreateEst.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="btCreateEst.Values.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAlRJREFUOE+V0k1I
-        k3EcB/BHkdqz56VtjBKJBEM82KEIOpTRO9EhooIRMyznSyJSh+gSZYUogjldY7pM863Nxzk3NzdbbXMz
-        nW4zTXSSNpwsyF52ULLzvrVCYrrD/MP39v19/pdvCgBi89s/mHUtPzu/Ji01LTVKRAmkROEMOeVj58eV
-        W8oxYHNuTZYMzv8KYHp9ChPr43Cvu3Bn7vZIou6W41ipyFto9q/5Mbo6CseqA9Y1Kypmyl1JAzc8BQPu
-        iAtvIjaYIyb0RXQoe186nDRw3S01Dq1YYVwxgFvpQefXDhR7Zc6EwGHtwVb1rCqinFH8aPhQ/71uuvab
-        cu7Zz/6wHtqwBu3hNjSHm5DnPhphdGSA0ZMB2kAGKDMvwHbwFcRDz/1lz5cxDH92wLY8BNOSEX1BDt3B
-        TrQFW6D81IhLvotg7HzQIySoCR7I6Z3gBXaAHuD5iHvuu0v28FtYQmYYgnr0LGjQOf8SjTP1kDiuIrM/
-        AwIDhV1W6j/i/YfQetJHFFikC7FfuUUtav3VKLbfxKm+POx5LoS4lYWoi4GQoyEwUmCt/DiE6f0DCOW0
-        d++L3UhvEUGsZrdmA+ndhLwjwWr4XkJUTctEdQwXl6fMVBwWQxTMrEhOc0IFzQlUFCdQU5ywgZYlHJKo
-        hmneAPa1puPQqwPIbcrRJb0DcRX7F8huz8SZ/hOQvpbgXMdJ07aAjBYxTuuPo8ReiCrvY0h1Etu2gNyu
-        bEisV/Bo4gE0H7tRYSlLvMREqriSvZyjyJq80H12rtQkW3ziqgwdUx0pT9T9DVuAadzZlNnwAAAAAElF
-        TkSuQmCC
-</value>
-  </data>
-  <data name="btCreateEst.Values.Text" xml:space="preserve">
-    <value />
-  </data>
-  <data name="btCreateEst.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;btCreateEst.Name" xml:space="preserve">
-    <value>btCreateEst</value>
-  </data>
-  <data name="&gt;&gt;btCreateEst.Type" xml:space="preserve">
-    <value>ComponentFactory.Krypton.Toolkit.KryptonButton, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
-  </data>
-  <data name="&gt;&gt;btCreateEst.Parent" xml:space="preserve">
-    <value>kryptonPanel1</value>
-  </data>
-  <data name="&gt;&gt;btCreateEst.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="btDelete.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="btDelete.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btDelete.Location" type="System.Drawing.Point, System.Drawing">
-    <value>45, 0</value>
-  </data>
-  <data name="btDelete.Size" type="System.Drawing.Size, System.Drawing">
-    <value>47, 34</value>
-  </data>
-  <data name="btDelete.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="btDelete.Values.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAb5JREFUOE99Ul0r
-        BGEU3iKxZmZ3wq7wNyg37PpoS1rtbBsrtWp9RD5+hksXbmj/gB+ANkoRF5S4GG0rHxFZ25KUXLg4zvPO
-        h5mx2Xo65zzPc86c933X53P8rsf82u24nxCdPPL/NOG1DN+Ha+Qd8p9mN9+k/fSZ0+htOUxfm1lsITYR
-        YA3c61JYeFDbWyK5Gm0UQmWhhSqLIY4h0QC+yEAOzkCL8EITQwqpRnpf6abyXDOV5xmIZo7jAKhfHDzq
-        j9UBQq84u56U6Hm2ycBME5UYdm5xZrR4PWluYF3gRUKix6xKT1UA3gL0i4T896WwyVlcovtMgB4yCj1M
-        IjIQHTiLV2nGFnt9Qe1kWKG7CdmExNECOOQynQ7LBK/rfwLieEjhtfhcaRN4RuO53GDuiL32ECQHMYWu
-        UvVU9ACckzfyBuE7iAWMIfuDQSqla+g85qOCVmcgUSdq8LbGnFfbHwyQOPte/+8QfaTWbt5lnnV7yGXc
-        0HSO4F3HyEd/jfhqPqoKA5CPuDXoVS9yu1cVX9uJGM3WTSMHJzT2eJtb2djBaN/okqe2elTKdclZrkOM
-        ICPACK93ytPQ4IGX0QbPD6eZvlVUfUPNAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="btDelete.Values.Text" xml:space="preserve">
-    <value />
-  </data>
-  <data name="btDelete.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;btDelete.Name" xml:space="preserve">
-    <value>btDelete</value>
-  </data>
-  <data name="&gt;&gt;btDelete.Type" xml:space="preserve">
-    <value>ComponentFactory.Krypton.Toolkit.KryptonButton, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
-  </data>
-  <data name="&gt;&gt;btDelete.Parent" xml:space="preserve">
-    <value>kryptonPanel1</value>
-  </data>
-  <data name="&gt;&gt;btDelete.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <assembly alias="ComponentFactory.Krypton.Toolkit" name="ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e" />
-  <data name="btViewDetail.Style" type="ComponentFactory.Krypton.Toolkit.PaletteButtonStyle, ComponentFactory.Krypton.Toolkit">
-    <value>Form</value>
-  </data>
-  <data name="btViewDetail.Text" xml:space="preserve">
-    <value>Dự toán Chi tiết</value>
-  </data>
-  <data name="btViewDetail.ToolTipBody" xml:space="preserve">
-    <value>Xem danh sách dự toán chi tiết</value>
-  </data>
-  <data name="btViewDetail.ToolTipTitle" xml:space="preserve">
-    <value>Xem danh sách dự toán chi tiết</value>
-  </data>
-  <data name="kryptonHeader1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="kryptonHeader1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="kryptonHeader1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>913, 34</value>
-  </data>
-  <data name="kryptonHeader1.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="kryptonHeader1.Values.Description" xml:space="preserve">
-    <value />
-  </data>
-  <data name="kryptonHeader1.Values.Heading" xml:space="preserve">
-    <value>Danh sách</value>
-  </data>
-  <data name="kryptonHeader1.Values.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAdpJREFUOE/V0t9L
-        k1Ecx/Hj45Y+bTJdpam0/JFeNOgX0k1EC4L00tCosAuxgqFEXgQ9oNGNoNVVuZHKkIzcpo+ycgpSc9pE
-        N81hZkULpFBQ6Cf0B7w7dyMNDKGLPnDuzvf1/XA4Qvw3qepNYG8YZcuF7aHvZF8NbQ2w9S+TNfYTy/UI
-        4vyTPyOJQIDV2VlWIvLSupgGv5AW/IHp5gzC+XwjMH+/nW+Li6xNTPBpPExY76Gm6Rz5mgNVqyalw4+h
-        9w3bWuYRWpSM5qnfkZim8aHDjd51A2fwMuXBsxwcOEXuo8MYO20S2Ivx4XEMnkZEW4z0O6+TgEtV8ZUU
-        E644ibv9Am1r96h9V0/ZnIO8eCm5sVJyXpRgmt6FEtmP6IqR8mCJgu5EEuk0puI1K7Q2HMW14qFn2c/d
-        9y6uzDSye8BOqp6NGLHIcwihv0X0f8aqryYBt9VKX2EBl+qKqI7WcevVbZrnWqkJOdnu2YPo3onwZiH8
-        R1CeJrAMf+XA0MeNj+m4Voh1sIgzkxepjddTHq8kbURu98lhCSiP7ezwPtvkLwTN5EWKObFwmrKFYxin
-        ZPVxE2LULKtLaNP4MlHk5ZyoDdvLfRgm5fCYighk/MXwOl0Ny9rDcvO/zC+ykP0GcP974wAAAABJRU5E
-        rkJggg==
-</value>
-  </data>
-  <data name="&gt;&gt;kryptonHeader1.Name" xml:space="preserve">
-    <value>kryptonHeader1</value>
-  </data>
-  <data name="&gt;&gt;kryptonHeader1.Type" xml:space="preserve">
-    <value>ComponentFactory.Krypton.Toolkit.KryptonHeader, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
-  </data>
-  <data name="&gt;&gt;kryptonHeader1.Parent" xml:space="preserve">
-    <value>kryptonPanel1</value>
-  </data>
-  <data name="&gt;&gt;kryptonHeader1.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="kryptonPanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="kryptonPanel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="kryptonPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>913, 34</value>
-  </data>
-  <data name="kryptonPanel1.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;kryptonPanel1.Name" xml:space="preserve">
-    <value>kryptonPanel1</value>
-  </data>
-  <data name="&gt;&gt;kryptonPanel1.Type" xml:space="preserve">
-    <value>ComponentFactory.Krypton.Toolkit.KryptonPanel, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
-  </data>
-  <data name="&gt;&gt;kryptonPanel1.Parent" xml:space="preserve">
-    <value>kryptonPanel</value>
-  </data>
-  <data name="&gt;&gt;kryptonPanel1.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <metadata name="checkBox.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="checkBox.HeaderText" xml:space="preserve">
-    <value />
-  </data>
-  <data name="checkBox.Width" type="System.Int32, mscorlib">
-    <value>20</value>
-  </data>
   <data name="EstimateID.HeaderText" xml:space="preserve">
     <value>EstimateID</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="EstimateID.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -451,13 +232,13 @@
     <value>350, 17</value>
   </metadata>
   <data name="dgvEstimate.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
+    <value>Fill</value>
   </data>
   <data name="dgvEstimate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 34</value>
+    <value>0, 87</value>
   </data>
   <data name="dgvEstimate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>913, 291</value>
+    <value>909, 348</value>
   </data>
   <data name="dgvEstimate.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -469,138 +250,13 @@
     <value>ComponentFactory.Krypton.Toolkit.KryptonDataGridView, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
   </data>
   <data name="&gt;&gt;dgvEstimate.Parent" xml:space="preserve">
-    <value>kryptonPanel</value>
+    <value>gbxLeftBot.Panel</value>
   </data>
   <data name="&gt;&gt;dgvEstimate.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="kryptonHeader2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="kryptonHeader2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="kryptonHeader2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>913, 32</value>
-  </data>
-  <data name="kryptonHeader2.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="kryptonHeader2.Values.Description" xml:space="preserve">
-    <value />
-  </data>
-  <data name="kryptonHeader2.Values.Heading" xml:space="preserve">
-    <value>Chi tiết</value>
-  </data>
-  <data name="kryptonHeader2.Values.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAmFJREFUOE+9kutL
-        E2AYxc/mpq4p03lLq+m8FY0sw/xQRIpBBkKYGRb6QdTAHJFQ4CC7EJY3CGzeNctMnU5ZNU1JnToxpylq
-        VrRACgWFrtAfcHrBDxGJYR964IX3w3N+5zxwgP81Sfl9iM7o/ne7U61O6vT9RHD55iGxNfPQDX6j/4VB
-        IrFlfcBNrRamlBTcS0j4Y0HTuUTvoR9UXbYTZx7TNa3j951nej2cFgtXpqa4bLdz1liFFl0UcBAIKhuH
-        svsz3azfqbw6SeQO0P183y/AbfGdvWvk14UFro6M8OOwjTZzM9OvpHGbIY4KQyoltSbKWl/TtWiWMEzQ
-        s3Ccu64NrEGqVSo4DAa+r62iub6AudYcJlpPc2/XUQY+jKa8TiMAwZQ/OExZYz5R4qB72SvurJheA1Qq
-        FGyPCKPteDyrjGdZslrBzLd5jJmOY9BMJAMdkQwYjaDyhR+l9t1EvYOSmkWGNDmZ3DwF3IEEdXIXtnlI
-        WayPZeVyI5uXTCx/V8lzk/nc2qWji9mf6FWJt48wvyE6P1FtXmGSdRG4IVJUqdXs0IYwOyuUqRNZvD5X
-        ysLpYqYP5nJL4w6iyZdo8yZM+yl94qSq5wujnn5gqmVu7YwUmQyl27WIu6ilujuUJ8cymDmTx8SZZLr1
-        Cvd2IRYA6SMdfdqec0/DKOIvFa3Th/u+gNWDQfYwHpk/xpj5Q5SPi+jDSqLfQ0T3prwwfIMmGgOAdi9K
-        xXLAhIaal+GUjQnxkIKweBINPkBB2F+qfCAEuOUDlw4VFDYRu0c4V3sBOQK+qQlUQ5LtB8kJ/w1lPwFU
-        MyRIH1V9JAAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="&gt;&gt;kryptonHeader2.Name" xml:space="preserve">
-    <value>kryptonHeader2</value>
-  </data>
-  <data name="&gt;&gt;kryptonHeader2.Type" xml:space="preserve">
-    <value>ComponentFactory.Krypton.Toolkit.KryptonHeader, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
-  </data>
-  <data name="&gt;&gt;kryptonHeader2.Parent" xml:space="preserve">
-    <value>kryptonPanel4</value>
-  </data>
-  <data name="&gt;&gt;kryptonHeader2.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="kryptonPanel4.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="kryptonPanel4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 325</value>
-  </data>
-  <data name="kryptonPanel4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>913, 32</value>
-  </data>
-  <data name="kryptonPanel4.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;kryptonPanel4.Name" xml:space="preserve">
-    <value>kryptonPanel4</value>
-  </data>
-  <data name="&gt;&gt;kryptonPanel4.Type" xml:space="preserve">
-    <value>ComponentFactory.Krypton.Toolkit.KryptonPanel, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
-  </data>
-  <data name="&gt;&gt;kryptonPanel4.Parent" xml:space="preserve">
-    <value>kryptonPanel</value>
-  </data>
-  <data name="&gt;&gt;kryptonPanel4.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="kryptonGroupBox2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="kryptonGroupBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 357</value>
-  </data>
-  <data name="btSave.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btSave.Location" type="System.Drawing.Point, System.Drawing">
-    <value>357, 134</value>
-  </data>
-  <data name="btSave.Size" type="System.Drawing.Size, System.Drawing">
-    <value>62, 25</value>
-  </data>
-  <data name="btSave.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="btSave.Values.Text" xml:space="preserve">
-    <value>Lưu</value>
-  </data>
-  <data name="&gt;&gt;btSave.Name" xml:space="preserve">
-    <value>btSave</value>
-  </data>
-  <data name="&gt;&gt;btSave.Type" xml:space="preserve">
-    <value>ComponentFactory.Krypton.Toolkit.KryptonButton, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
-  </data>
-  <data name="&gt;&gt;btSave.Parent" xml:space="preserve">
-    <value>kryptonGroupBox2.Panel</value>
-  </data>
-  <data name="&gt;&gt;btSave.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="ipEstName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>381, 83</value>
-  </data>
-  <data name="ipEstName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>222, 22</value>
-  </data>
-  <data name="ipEstName.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;ipEstName.Name" xml:space="preserve">
-    <value>ipEstName</value>
-  </data>
-  <data name="&gt;&gt;ipEstName.Type" xml:space="preserve">
-    <value>ComponentFactory.Krypton.Toolkit.KryptonTextBox, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
-  </data>
-  <data name="&gt;&gt;ipEstName.Parent" xml:space="preserve">
-    <value>kryptonGroupBox2.Panel</value>
-  </data>
-  <data name="&gt;&gt;ipEstName.ZOrder" xml:space="preserve">
-    <value>1</value>
   </data>
   <data name="lbEstName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>278, 86</value>
+    <value>211, 55</value>
   </data>
   <data name="lbEstName.Size" type="System.Drawing.Size, System.Drawing">
     <value>76, 19</value>
@@ -618,166 +274,13 @@
     <value>ComponentFactory.Krypton.Toolkit.KryptonLabel, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
   </data>
   <data name="&gt;&gt;lbEstName.Parent" xml:space="preserve">
-    <value>kryptonGroupBox2.Panel</value>
+    <value>gbxEdit1.Panel</value>
   </data>
   <data name="&gt;&gt;lbEstName.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;kryptonGroupBox2.Panel.Name" xml:space="preserve">
-    <value>kryptonGroupBox2.Panel</value>
-  </data>
-  <data name="&gt;&gt;kryptonGroupBox2.Panel.Type" xml:space="preserve">
-    <value>ComponentFactory.Krypton.Toolkit.KryptonGroupPanel, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
-  </data>
-  <data name="&gt;&gt;kryptonGroupBox2.Panel.Parent" xml:space="preserve">
-    <value>kryptonGroupBox2</value>
-  </data>
-  <data name="&gt;&gt;kryptonGroupBox2.Panel.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="kryptonGroupBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>913, 303</value>
-  </data>
-  <data name="kryptonGroupBox2.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="kryptonGroupBox2.Values.Heading" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;kryptonGroupBox2.Name" xml:space="preserve">
-    <value>kryptonGroupBox2</value>
-  </data>
-  <data name="&gt;&gt;kryptonGroupBox2.Type" xml:space="preserve">
-    <value>ComponentFactory.Krypton.Toolkit.KryptonGroupBox, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
-  </data>
-  <data name="&gt;&gt;kryptonGroupBox2.Parent" xml:space="preserve">
-    <value>kryptonPanel</value>
-  </data>
-  <data name="&gt;&gt;kryptonGroupBox2.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="kryptonPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="kryptonPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 58</value>
-  </data>
-  <data name="kryptonPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>913, 564</value>
-  </data>
-  <data name="kryptonPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;kryptonPanel.Name" xml:space="preserve">
-    <value>kryptonPanel</value>
-  </data>
-  <data name="&gt;&gt;kryptonPanel.Type" xml:space="preserve">
-    <value>ComponentFactory.Krypton.Toolkit.KryptonPanel, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
-  </data>
-  <data name="&gt;&gt;kryptonPanel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;kryptonPanel.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="btSearch.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btSearch.Location" type="System.Drawing.Point, System.Drawing">
-    <value>549, 12</value>
-  </data>
-  <data name="btSearch.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 35</value>
-  </data>
-  <data name="btSearch.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="btSearch.Values.Text" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;btSearch.Name" xml:space="preserve">
-    <value>btSearch</value>
-  </data>
-  <data name="&gt;&gt;btSearch.Type" xml:space="preserve">
-    <value>ComponentFactory.Krypton.Toolkit.KryptonButton, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
-  </data>
-  <data name="&gt;&gt;btSearch.Parent" xml:space="preserve">
-    <value>kryptonPanel2</value>
-  </data>
-  <data name="&gt;&gt;btSearch.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="cbSearchCons.Location" type="System.Drawing.Point, System.Drawing">
-    <value>380, 20</value>
-  </data>
-  <data name="cbSearchCons.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 22</value>
-  </data>
-  <data name="cbSearchCons.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="cbSearchCons.Text" xml:space="preserve">
-    <value>chọn...</value>
-  </data>
-  <data name="&gt;&gt;cbSearchCons.Name" xml:space="preserve">
-    <value>cbSearchCons</value>
-  </data>
-  <data name="&gt;&gt;cbSearchCons.Type" xml:space="preserve">
-    <value>ComponentFactory.Krypton.Toolkit.KryptonComboBox, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
-  </data>
-  <data name="&gt;&gt;cbSearchCons.Parent" xml:space="preserve">
-    <value>kryptonPanel2</value>
-  </data>
-  <data name="&gt;&gt;cbSearchCons.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="lbCons.Location" type="System.Drawing.Point, System.Drawing">
-    <value>313, 23</value>
-  </data>
-  <data name="lbCons.Size" type="System.Drawing.Size, System.Drawing">
-    <value>63, 19</value>
-  </data>
-  <data name="lbCons.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="lbCons.Values.Text" xml:space="preserve">
-    <value>Công trình</value>
-  </data>
-  <data name="&gt;&gt;lbCons.Name" xml:space="preserve">
-    <value>lbCons</value>
-  </data>
-  <data name="&gt;&gt;lbCons.Type" xml:space="preserve">
-    <value>ComponentFactory.Krypton.Toolkit.KryptonLabel, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
-  </data>
-  <data name="&gt;&gt;lbCons.Parent" xml:space="preserve">
-    <value>kryptonPanel2</value>
-  </data>
-  <data name="&gt;&gt;lbCons.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="ipSeacrchName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>157, 20</value>
-  </data>
-  <data name="ipSeacrchName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 22</value>
-  </data>
-  <data name="ipSeacrchName.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;ipSeacrchName.Name" xml:space="preserve">
-    <value>ipSeacrchName</value>
-  </data>
-  <data name="&gt;&gt;ipSeacrchName.Type" xml:space="preserve">
-    <value>ComponentFactory.Krypton.Toolkit.KryptonTextBox, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
-  </data>
-  <data name="&gt;&gt;ipSeacrchName.Parent" xml:space="preserve">
-    <value>kryptonPanel2</value>
-  </data>
-  <data name="&gt;&gt;ipSeacrchName.ZOrder" xml:space="preserve">
-    <value>3</value>
   </data>
   <data name="lbSearchName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>68, 23</value>
+    <value>60, 10</value>
   </data>
   <data name="lbSearchName.Size" type="System.Drawing.Size, System.Drawing">
     <value>72, 19</value>
@@ -795,40 +298,632 @@
     <value>ComponentFactory.Krypton.Toolkit.KryptonLabel, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
   </data>
   <data name="&gt;&gt;lbSearchName.Parent" xml:space="preserve">
-    <value>kryptonPanel2</value>
+    <value>gbxSearch.Panel</value>
   </data>
   <data name="&gt;&gt;lbSearchName.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>3</value>
   </data>
-  <data name="kryptonPanel2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
+  <data name="lbCons.Location" type="System.Drawing.Point, System.Drawing">
+    <value>294, 13</value>
   </data>
-  <data name="kryptonPanel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+  <data name="lbCons.Size" type="System.Drawing.Size, System.Drawing">
+    <value>63, 19</value>
   </data>
-  <data name="kryptonPanel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>913, 58</value>
+  <data name="lbCons.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
-  <data name="kryptonPanel2.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+  <data name="lbCons.Values.Text" xml:space="preserve">
+    <value>Công trình</value>
   </data>
-  <data name="&gt;&gt;kryptonPanel2.Name" xml:space="preserve">
-    <value>kryptonPanel2</value>
+  <data name="&gt;&gt;lbCons.Name" xml:space="preserve">
+    <value>lbCons</value>
   </data>
-  <data name="&gt;&gt;kryptonPanel2.Type" xml:space="preserve">
-    <value>ComponentFactory.Krypton.Toolkit.KryptonPanel, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
+  <data name="&gt;&gt;lbCons.Type" xml:space="preserve">
+    <value>ComponentFactory.Krypton.Toolkit.KryptonLabel, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
   </data>
-  <data name="&gt;&gt;kryptonPanel2.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;lbCons.Parent" xml:space="preserve">
+    <value>gbxSearch.Panel</value>
   </data>
-  <data name="&gt;&gt;kryptonPanel2.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;lbCons.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="cbSearchCons.Location" type="System.Drawing.Point, System.Drawing">
+    <value>361, 10</value>
+  </data>
+  <data name="cbSearchCons.Size" type="System.Drawing.Size, System.Drawing">
+    <value>146, 22</value>
+  </data>
+  <data name="cbSearchCons.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="cbSearchCons.Text" xml:space="preserve">
+    <value>chọn...</value>
+  </data>
+  <data name="&gt;&gt;cbSearchCons.Name" xml:space="preserve">
+    <value>cbSearchCons</value>
+  </data>
+  <data name="&gt;&gt;cbSearchCons.Type" xml:space="preserve">
+    <value>ComponentFactory.Krypton.Toolkit.KryptonComboBox, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
+  </data>
+  <data name="&gt;&gt;cbSearchCons.Parent" xml:space="preserve">
+    <value>gbxSearch.Panel</value>
+  </data>
+  <data name="&gt;&gt;cbSearchCons.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="slcMain.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="slcMain.FixedPanel" type="System.Windows.Forms.FixedPanel, System.Windows.Forms">
+    <value>Panel2</value>
+  </data>
+  <data name="slcMain.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="slcMain.Orientation" type="System.Windows.Forms.Orientation, System.Windows.Forms">
+    <value>Horizontal</value>
+  </data>
+  <data name="gbxLeftBot.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="gbxLeftBot.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="gbxSearch.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="gbxSearch.Location" type="System.Drawing.Point, System.Drawing">
+    <value>50, 0</value>
+  </data>
+  <data name="btnSearch.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="btnSearch.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnSearch.Location" type="System.Drawing.Point, System.Drawing">
+    <value>615, 3</value>
+  </data>
+  <data name="btnSearch.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 43</value>
+  </data>
+  <data name="btnSearch.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="btnSearch.Values.Text" xml:space="preserve">
+    <value>Tìm</value>
+  </data>
+  <data name="&gt;&gt;btnSearch.Name" xml:space="preserve">
+    <value>btnSearch</value>
+  </data>
+  <data name="&gt;&gt;btnSearch.Type" xml:space="preserve">
+    <value>ComponentFactory.Krypton.Toolkit.KryptonButton, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
+  </data>
+  <data name="&gt;&gt;btnSearch.Parent" xml:space="preserve">
+    <value>gbxSearch.Panel</value>
+  </data>
+  <data name="&gt;&gt;btnSearch.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="ipSeacrchName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>138, 10</value>
+  </data>
+  <data name="ipSeacrchName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 22</value>
+  </data>
+  <data name="ipSeacrchName.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;ipSeacrchName.Name" xml:space="preserve">
+    <value>ipSeacrchName</value>
+  </data>
+  <data name="&gt;&gt;ipSeacrchName.Type" xml:space="preserve">
+    <value>ComponentFactory.Krypton.Toolkit.KryptonTextBox, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
+  </data>
+  <data name="&gt;&gt;ipSeacrchName.Parent" xml:space="preserve">
+    <value>gbxSearch.Panel</value>
+  </data>
+  <data name="&gt;&gt;ipSeacrchName.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;gbxSearch.Panel.Name" xml:space="preserve">
+    <value>gbxSearch.Panel</value>
+  </data>
+  <data name="&gt;&gt;gbxSearch.Panel.Type" xml:space="preserve">
+    <value>ComponentFactory.Krypton.Toolkit.KryptonGroupPanel, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
+  </data>
+  <data name="&gt;&gt;gbxSearch.Panel.Parent" xml:space="preserve">
+    <value>gbxSearch</value>
+  </data>
+  <data name="&gt;&gt;gbxSearch.Panel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="gbxSearch.Size" type="System.Drawing.Size, System.Drawing">
+    <value>809, 53</value>
+  </data>
+  <data name="gbxSearch.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="gbxSearch.Values.Heading" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;gbxSearch.Name" xml:space="preserve">
+    <value>gbxSearch</value>
+  </data>
+  <data name="&gt;&gt;gbxSearch.Type" xml:space="preserve">
+    <value>ComponentFactory.Krypton.Toolkit.KryptonGroupBox, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
+  </data>
+  <data name="&gt;&gt;gbxSearch.Parent" xml:space="preserve">
+    <value>pnlSearch</value>
+  </data>
+  <data name="&gt;&gt;gbxSearch.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="pnlSearch.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="pnlSearch.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 29</value>
+  </data>
+  <data name="pnlSearch.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>50, 0, 50, 5</value>
+  </data>
+  <data name="pnlSearch.Size" type="System.Drawing.Size, System.Drawing">
+    <value>909, 58</value>
+  </data>
+  <data name="pnlSearch.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;pnlSearch.Name" xml:space="preserve">
+    <value>pnlSearch</value>
+  </data>
+  <data name="&gt;&gt;pnlSearch.Type" xml:space="preserve">
+    <value>ComponentFactory.Krypton.Toolkit.KryptonPanel, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
+  </data>
+  <data name="&gt;&gt;pnlSearch.Parent" xml:space="preserve">
+    <value>gbxLeftBot.Panel</value>
+  </data>
+  <data name="&gt;&gt;pnlSearch.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <assembly alias="ComponentFactory.Krypton.Toolkit" name="ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e" />
+  <data name="btnViewListDetail.Style" type="ComponentFactory.Krypton.Toolkit.PaletteButtonStyle, ComponentFactory.Krypton.Toolkit">
+    <value>Form Close</value>
+  </data>
+  <data name="btnViewListDetail.Text" xml:space="preserve">
+    <value>Dự toán chi tiết</value>
+  </data>
+  <data name="btnHideShowSearch.Style" type="ComponentFactory.Krypton.Toolkit.PaletteButtonStyle, ComponentFactory.Krypton.Toolkit">
+    <value>Form Close</value>
+  </data>
+  <data name="btnHideShowSearch.Type" type="ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle, ComponentFactory.Krypton.Toolkit">
+    <value>Arrow Up</value>
+  </data>
+  <data name="hdDebt.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="hdDebt.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="hdDebt.Size" type="System.Drawing.Size, System.Drawing">
+    <value>909, 29</value>
+  </data>
+  <data name="hdDebt.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="hdDebt.Values.Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="hdDebt.Values.Heading" xml:space="preserve">
+    <value>Danh Nhà Cung Cấp</value>
+  </data>
+  <data name="hdDebt.Values.Image" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;hdDebt.Name" xml:space="preserve">
+    <value>hdDebt</value>
+  </data>
+  <data name="&gt;&gt;hdDebt.Type" xml:space="preserve">
+    <value>ComponentFactory.Krypton.Toolkit.KryptonHeader, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
+  </data>
+  <data name="&gt;&gt;hdDebt.Parent" xml:space="preserve">
+    <value>gbxLeftBot.Panel</value>
+  </data>
+  <data name="&gt;&gt;hdDebt.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;gbxLeftBot.Panel.Name" xml:space="preserve">
+    <value>gbxLeftBot.Panel</value>
+  </data>
+  <data name="&gt;&gt;gbxLeftBot.Panel.Type" xml:space="preserve">
+    <value>ComponentFactory.Krypton.Toolkit.KryptonGroupPanel, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
+  </data>
+  <data name="&gt;&gt;gbxLeftBot.Panel.Parent" xml:space="preserve">
+    <value>gbxLeftBot</value>
+  </data>
+  <data name="&gt;&gt;gbxLeftBot.Panel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="gbxLeftBot.Size" type="System.Drawing.Size, System.Drawing">
+    <value>913, 441</value>
+  </data>
+  <data name="gbxLeftBot.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="gbxLeftBot.Values.Heading" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;gbxLeftBot.Name" xml:space="preserve">
+    <value>gbxLeftBot</value>
+  </data>
+  <data name="&gt;&gt;gbxLeftBot.Type" xml:space="preserve">
+    <value>ComponentFactory.Krypton.Toolkit.KryptonGroupBox, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
+  </data>
+  <data name="&gt;&gt;gbxLeftBot.Parent" xml:space="preserve">
+    <value>slcMain.Panel1</value>
+  </data>
+  <data name="&gt;&gt;gbxLeftBot.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;slcMain.Panel1.Name" xml:space="preserve">
+    <value>slcMain.Panel1</value>
+  </data>
+  <data name="&gt;&gt;slcMain.Panel1.Type" xml:space="preserve">
+    <value>ComponentFactory.Krypton.Toolkit.KryptonSplitterPanel, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
+  </data>
+  <data name="&gt;&gt;slcMain.Panel1.Parent" xml:space="preserve">
+    <value>slcMain</value>
+  </data>
+  <data name="&gt;&gt;slcMain.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="gbcRightBot.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="gbcRightBot.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="gbxEdit1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="gbxEdit1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 29</value>
+  </data>
+  <data name="ipEstName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>314, 52</value>
+  </data>
+  <data name="ipEstName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>222, 22</value>
+  </data>
+  <data name="ipEstName.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;ipEstName.Name" xml:space="preserve">
+    <value>ipEstName</value>
+  </data>
+  <data name="&gt;&gt;ipEstName.Type" xml:space="preserve">
+    <value>ComponentFactory.Krypton.Toolkit.KryptonTextBox, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
+  </data>
+  <data name="&gt;&gt;ipEstName.Parent" xml:space="preserve">
+    <value>gbxEdit1.Panel</value>
+  </data>
+  <data name="&gt;&gt;ipEstName.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;gbxEdit1.Panel.Name" xml:space="preserve">
+    <value>gbxEdit1.Panel</value>
+  </data>
+  <data name="&gt;&gt;gbxEdit1.Panel.Type" xml:space="preserve">
+    <value>ComponentFactory.Krypton.Toolkit.KryptonGroupPanel, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
+  </data>
+  <data name="&gt;&gt;gbxEdit1.Panel.Parent" xml:space="preserve">
+    <value>gbxEdit1</value>
+  </data>
+  <data name="&gt;&gt;gbxEdit1.Panel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="gbxEdit1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>909, 141</value>
+  </data>
+  <data name="gbxEdit1.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="gbxEdit1.Values.Heading" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;gbxEdit1.Name" xml:space="preserve">
+    <value>gbxEdit1</value>
+  </data>
+  <data name="&gt;&gt;gbxEdit1.Type" xml:space="preserve">
+    <value>ComponentFactory.Krypton.Toolkit.KryptonGroupBox, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
+  </data>
+  <data name="&gt;&gt;gbxEdit1.Parent" xml:space="preserve">
+    <value>gbcRightBot.Panel</value>
+  </data>
+  <data name="&gt;&gt;gbxEdit1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnEdit.Style" type="ComponentFactory.Krypton.Toolkit.PaletteButtonStyle, ComponentFactory.Krypton.Toolkit">
+    <value>Form Close</value>
+  </data>
+  <data name="btnEdit.Text" xml:space="preserve">
+    <value>Sửa</value>
+  </data>
+  <data name="btnUnableEdit.Style" type="ComponentFactory.Krypton.Toolkit.PaletteButtonStyle, ComponentFactory.Krypton.Toolkit">
+    <value>Form Close</value>
+  </data>
+  <data name="btnUnableEdit.Text" xml:space="preserve">
+    <value>Đóng Băng</value>
+  </data>
+  <data name="btnSave.Style" type="ComponentFactory.Krypton.Toolkit.PaletteButtonStyle, ComponentFactory.Krypton.Toolkit">
+    <value>Form Close</value>
+  </data>
+  <data name="btnSave.Text" xml:space="preserve">
+    <value>Lưu</value>
+  </data>
+  <data name="btnSave.ToolTipTitle" xml:space="preserve">
+    <value>Lưu</value>
+  </data>
+  <data name="hdEdit.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="hdEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="hdEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>909, 29</value>
+  </data>
+  <data name="hdEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="hdEdit.Values.Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="hdEdit.Values.Heading" xml:space="preserve">
+    <value>Thông Tin Chi Tiết</value>
+  </data>
+  <data name="hdEdit.Values.Image" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;hdEdit.Name" xml:space="preserve">
+    <value>hdEdit</value>
+  </data>
+  <data name="&gt;&gt;hdEdit.Type" xml:space="preserve">
+    <value>ComponentFactory.Krypton.Toolkit.KryptonHeader, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
+  </data>
+  <data name="&gt;&gt;hdEdit.Parent" xml:space="preserve">
+    <value>gbcRightBot.Panel</value>
+  </data>
+  <data name="&gt;&gt;hdEdit.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;gbcRightBot.Panel.Name" xml:space="preserve">
+    <value>gbcRightBot.Panel</value>
+  </data>
+  <data name="&gt;&gt;gbcRightBot.Panel.Type" xml:space="preserve">
+    <value>ComponentFactory.Krypton.Toolkit.KryptonGroupPanel, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
+  </data>
+  <data name="&gt;&gt;gbcRightBot.Panel.Parent" xml:space="preserve">
+    <value>gbcRightBot</value>
+  </data>
+  <data name="&gt;&gt;gbcRightBot.Panel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="gbcRightBot.Size" type="System.Drawing.Size, System.Drawing">
+    <value>913, 176</value>
+  </data>
+  <data name="gbcRightBot.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="gbcRightBot.Values.Heading" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;gbcRightBot.Name" xml:space="preserve">
+    <value>gbcRightBot</value>
+  </data>
+  <data name="&gt;&gt;gbcRightBot.Type" xml:space="preserve">
+    <value>ComponentFactory.Krypton.Toolkit.KryptonGroupBox, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
+  </data>
+  <data name="&gt;&gt;gbcRightBot.Parent" xml:space="preserve">
+    <value>slcMain.Panel2</value>
+  </data>
+  <data name="&gt;&gt;gbcRightBot.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;slcMain.Panel2.Name" xml:space="preserve">
+    <value>slcMain.Panel2</value>
+  </data>
+  <data name="&gt;&gt;slcMain.Panel2.Type" xml:space="preserve">
+    <value>ComponentFactory.Krypton.Toolkit.KryptonSplitterPanel, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
+  </data>
+  <data name="&gt;&gt;slcMain.Panel2.Parent" xml:space="preserve">
+    <value>slcMain</value>
+  </data>
+  <data name="&gt;&gt;slcMain.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="slcMain.Size" type="System.Drawing.Size, System.Drawing">
+    <value>913, 622</value>
+  </data>
+  <data name="slcMain.SplitterDistance" type="System.Int32, mscorlib">
+    <value>441</value>
+  </data>
+  <data name="slcMain.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;slcMain.Name" xml:space="preserve">
+    <value>slcMain</value>
+  </data>
+  <data name="&gt;&gt;slcMain.Type" xml:space="preserve">
+    <value>ComponentFactory.Krypton.Toolkit.KryptonSplitContainer, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
+  </data>
+  <data name="&gt;&gt;slcMain.Parent" xml:space="preserve">
+    <value>kryptonPanel</value>
+  </data>
+  <data name="&gt;&gt;slcMain.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="kryptonPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="kryptonPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="kryptonPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>913, 622</value>
+  </data>
+  <data name="kryptonPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;kryptonPanel.Name" xml:space="preserve">
+    <value>kryptonPanel</value>
+  </data>
+  <data name="&gt;&gt;kryptonPanel.Type" xml:space="preserve">
+    <value>ComponentFactory.Krypton.Toolkit.KryptonPanel, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
+  </data>
+  <data name="&gt;&gt;kryptonPanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;kryptonPanel.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <metadata name="cmsDGV.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>251, 95</value>
+  </metadata>
+  <data name="cmsDGV.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="RefreshToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>F5</value>
+  </data>
+  <data name="RefreshToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>181, 22</value>
+  </data>
+  <data name="RefreshToolStripMenuItem.Text" xml:space="preserve">
+    <value>Làm Mới</value>
+  </data>
+  <data name="LoadAllToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+L</value>
+  </data>
+  <data name="LoadAllToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>181, 22</value>
+  </data>
+  <data name="LoadAllToolStripMenuItem.Text" xml:space="preserve">
+    <value>Tải Tất Cả</value>
+  </data>
+  <data name="AddToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+N</value>
+  </data>
+  <data name="AddToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>181, 22</value>
+  </data>
+  <data name="AddToolStripMenuItem.Text" xml:space="preserve">
+    <value>Thêm</value>
+  </data>
+  <data name="DeleteToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Del</value>
+  </data>
+  <data name="DeleteToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>181, 22</value>
+  </data>
+  <data name="DeleteToolStripMenuItem.Text" xml:space="preserve">
+    <value>Xóa</value>
+  </data>
+  <data name="DeleteAllToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+D</value>
+  </data>
+  <data name="DeleteAllToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>181, 22</value>
+  </data>
+  <data name="DeleteAllToolStripMenuItem.Text" xml:space="preserve">
+    <value>Xóa Tất Cả</value>
+  </data>
+  <data name="cmsDGV.Size" type="System.Drawing.Size, System.Drawing">
+    <value>182, 114</value>
+  </data>
+  <data name="&gt;&gt;cmsDGV.Name" xml:space="preserve">
+    <value>cmsDGV</value>
+  </data>
+  <data name="&gt;&gt;cmsDGV.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <metadata name="cmsMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>525, 95</value>
+  </metadata>
+  <data name="cmsMain.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="toolStripMenuItem1.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>F5</value>
+  </data>
+  <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>194, 22</value>
+  </data>
+  <data name="toolStripMenuItem1.Text" xml:space="preserve">
+    <value>Làm Mới</value>
+  </data>
+  <data name="toolStripMenuItem3.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+N</value>
+  </data>
+  <data name="toolStripMenuItem3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>194, 22</value>
+  </data>
+  <data name="toolStripMenuItem3.Text" xml:space="preserve">
+    <value>Thêm</value>
+  </data>
+  <data name="lưuToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+S</value>
+  </data>
+  <data name="lưuToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>194, 22</value>
+  </data>
+  <data name="lưuToolStripMenuItem.Text" xml:space="preserve">
+    <value>Lưu</value>
+  </data>
+  <data name="SearchToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+F</value>
+  </data>
+  <data name="SearchToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>194, 22</value>
+  </data>
+  <data name="SearchToolStripMenuItem.Text" xml:space="preserve">
+    <value>Tìm Kiếm</value>
+  </data>
+  <data name="HideSearchToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+H</value>
+  </data>
+  <data name="HideSearchToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>194, 22</value>
+  </data>
+  <data name="HideSearchToolStripMenuItem.Text" xml:space="preserve">
+    <value>Ẩn Tìm Kiếm</value>
+  </data>
+  <data name="cmsMain.Size" type="System.Drawing.Size, System.Drawing">
+    <value>195, 114</value>
+  </data>
+  <data name="&gt;&gt;cmsMain.Name" xml:space="preserve">
+    <value>cmsMain</value>
+  </data>
+  <data name="&gt;&gt;cmsMain.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="kryptonContextMenuCheckBox1.ExtraText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="kryptonContextMenuHeading1.ExtraText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="kryptonContextMenuItem1.Text" xml:space="preserve">
+    <value>Menu Item</value>
+  </data>
+  <metadata name="finalAccountDetailDTOBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 132</value>
+  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>25</value>
+    <value>92</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
@@ -839,8 +934,35 @@
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>913, 622</value>
   </data>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Dự toán</value>
+  </data>
+  <data name="&gt;&gt;EditToolStripMenuItem.Name" xml:space="preserve">
+    <value>EditToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;EditToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;FreezeToolStripMenuItem.Name" xml:space="preserve">
+    <value>FreezeToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;FreezeToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SaveToolStripMenuItem.Name" xml:space="preserve">
+    <value>SaveToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;SaveToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;GenMoneyToolStripMenuItem.Name" xml:space="preserve">
+    <value>GenMoneyToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;GenMoneyToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;kryptonManager.Name" xml:space="preserve">
     <value>kryptonManager</value>
@@ -854,23 +976,131 @@
   <data name="&gt;&gt;toolTip1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;btViewDetail.Name" xml:space="preserve">
-    <value>btViewDetail</value>
+  <data name="&gt;&gt;btnHideShowSearch.Name" xml:space="preserve">
+    <value>btnHideShowSearch</value>
   </data>
-  <data name="&gt;&gt;btViewDetail.Type" xml:space="preserve">
+  <data name="&gt;&gt;btnHideShowSearch.Type" xml:space="preserve">
     <value>ComponentFactory.Krypton.Toolkit.ButtonSpecAny, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
   </data>
-  <data name="&gt;&gt;estimateDTOBindingSource.Name" xml:space="preserve">
-    <value>estimateDTOBindingSource</value>
+  <data name="&gt;&gt;RefreshToolStripMenuItem.Name" xml:space="preserve">
+    <value>RefreshToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;estimateDTOBindingSource.Type" xml:space="preserve">
-    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;RefreshToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;checkBox.Name" xml:space="preserve">
-    <value>checkBox</value>
+  <data name="&gt;&gt;LoadAllToolStripMenuItem.Name" xml:space="preserve">
+    <value>LoadAllToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;checkBox.Type" xml:space="preserve">
-    <value>ComponentFactory.Krypton.Toolkit.KryptonDataGridViewCheckBoxColumn, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
+  <data name="&gt;&gt;LoadAllToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;AddToolStripMenuItem.Name" xml:space="preserve">
+    <value>AddToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;AddToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DeleteToolStripMenuItem.Name" xml:space="preserve">
+    <value>DeleteToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;DeleteToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DeleteAllToolStripMenuItem.Name" xml:space="preserve">
+    <value>DeleteAllToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;DeleteAllToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem1.Name" xml:space="preserve">
+    <value>toolStripMenuItem1</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem3.Name" xml:space="preserve">
+    <value>toolStripMenuItem3</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lưuToolStripMenuItem.Name" xml:space="preserve">
+    <value>lưuToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;lưuToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SearchToolStripMenuItem.Name" xml:space="preserve">
+    <value>SearchToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;SearchToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;HideSearchToolStripMenuItem.Name" xml:space="preserve">
+    <value>HideSearchToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;HideSearchToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;kryptonContextMenuCheckBox1.Name" xml:space="preserve">
+    <value>kryptonContextMenuCheckBox1</value>
+  </data>
+  <data name="&gt;&gt;kryptonContextMenuCheckBox1.Type" xml:space="preserve">
+    <value>ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
+  </data>
+  <data name="&gt;&gt;kryptonContextMenuHeading1.Name" xml:space="preserve">
+    <value>kryptonContextMenuHeading1</value>
+  </data>
+  <data name="&gt;&gt;kryptonContextMenuHeading1.Type" xml:space="preserve">
+    <value>ComponentFactory.Krypton.Toolkit.KryptonContextMenuHeading, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
+  </data>
+  <data name="&gt;&gt;kryptonContextMenuItem1.Name" xml:space="preserve">
+    <value>kryptonContextMenuItem1</value>
+  </data>
+  <data name="&gt;&gt;kryptonContextMenuItem1.Type" xml:space="preserve">
+    <value>ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
+  </data>
+  <data name="&gt;&gt;kryptonContextMenuItems3.Name" xml:space="preserve">
+    <value>kryptonContextMenuItems3</value>
+  </data>
+  <data name="&gt;&gt;kryptonContextMenuItems3.Type" xml:space="preserve">
+    <value>ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
+  </data>
+  <data name="&gt;&gt;kryptonContextMenuItems2.Name" xml:space="preserve">
+    <value>kryptonContextMenuItems2</value>
+  </data>
+  <data name="&gt;&gt;kryptonContextMenuItems2.Type" xml:space="preserve">
+    <value>ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
+  </data>
+  <data name="&gt;&gt;kryptonContextMenuItems1.Name" xml:space="preserve">
+    <value>kryptonContextMenuItems1</value>
+  </data>
+  <data name="&gt;&gt;kryptonContextMenuItems1.Type" xml:space="preserve">
+    <value>ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
+  </data>
+  <data name="&gt;&gt;btnViewListDetail.Name" xml:space="preserve">
+    <value>btnViewListDetail</value>
+  </data>
+  <data name="&gt;&gt;btnViewListDetail.Type" xml:space="preserve">
+    <value>ComponentFactory.Krypton.Toolkit.ButtonSpecAny, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
+  </data>
+  <data name="&gt;&gt;btnEdit.Name" xml:space="preserve">
+    <value>btnEdit</value>
+  </data>
+  <data name="&gt;&gt;btnEdit.Type" xml:space="preserve">
+    <value>ComponentFactory.Krypton.Toolkit.ButtonSpecAny, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
+  </data>
+  <data name="&gt;&gt;btnUnableEdit.Name" xml:space="preserve">
+    <value>btnUnableEdit</value>
+  </data>
+  <data name="&gt;&gt;btnUnableEdit.Type" xml:space="preserve">
+    <value>ComponentFactory.Krypton.Toolkit.ButtonSpecAny, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
+  </data>
+  <data name="&gt;&gt;btnSave.Name" xml:space="preserve">
+    <value>btnSave</value>
+  </data>
+  <data name="&gt;&gt;btnSave.Type" xml:space="preserve">
+    <value>ComponentFactory.Krypton.Toolkit.ButtonSpecAny, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
   </data>
   <data name="&gt;&gt;EstimateID.Name" xml:space="preserve">
     <value>EstimateID</value>
@@ -919,6 +1149,18 @@
   </data>
   <data name="&gt;&gt;UpdatedDate.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;estimateDTOBindingSource.Name" xml:space="preserve">
+    <value>estimateDTOBindingSource</value>
+  </data>
+  <data name="&gt;&gt;estimateDTOBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;finalAccountDetailDTOBindingSource.Name" xml:space="preserve">
+    <value>finalAccountDetailDTOBindingSource</value>
+  </data>
+  <data name="&gt;&gt;finalAccountDetailDTOBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>EstimateManagement</value>
