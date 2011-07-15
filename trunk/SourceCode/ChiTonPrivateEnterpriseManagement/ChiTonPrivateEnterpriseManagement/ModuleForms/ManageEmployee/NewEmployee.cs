@@ -16,8 +16,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
     {
         private bool isNew;
         private bool isEdit;
-        private bool isNext;
-        private bool isPre;
         private string username;
         private long employeeID;
         private List<RoleDTO> listRoles = new List<RoleDTO>();
@@ -72,9 +70,8 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
         {
             CenterToParent();
             SetLayout();
-            slcMain.SplitterDistance = Width;
             loadRole();
-            loadRight();
+            //loadRight();
             DefineStatus();
             if (isEdit)
             {
@@ -84,6 +81,14 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
 
         private void SetLayout()
         {
+            Global.SetLayoutForm(this, Constants.DIALOG_FORM);
+            Global.SetLayoutSplipContainerNewForm(slcMain);
+            Global.SetLayoutGroupBoxNewForm(gbxAdd1);
+            Global.SetLayoutGroupBoxNewForm(gbxAdd2);
+            Global.SetLayoutGroupBoxButton(gbxButton);
+            Global.SetLayoutButton(btnSave);
+            Global.SetLayoutButton(btnClose);
+            Global.SetLayoutButton(btnClear);
             Global.TextBoxRequireInput(txtUsername);
             Global.TextBoxRequireInput(txtFullname);            
         }
@@ -106,75 +111,26 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
             cbbRole.ValueMember = Constants.ROLE_VALUEMEMBER;            
         }
 
-        private void loadRight()
-        {
-            listRights = new List<RightDTO>();
-            listRights = rightBUS.LoadAllRight();
-            foreach (RightDTO right in listRights)
-            {
-                clbRights.ListBox.Items.Add(right);
-            }
-            clbRights.ListBox.ValueMember = Constants.RIGHT_VALUEMEMBER;
-            clbRights.ListBox.DisplayMember = Constants.RIGHT_DISPLAYMEMBER;
-        }
+        //private void cbbRole_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    for (int i = 0; i < clbRights.ListBox.Items.Count; i++)
+        //    {
+        //        clbRights.SetItemChecked(i, false);
+        //    }
+        //    RoleDTO selectedRole = (RoleDTO)cbbRole.SelectedItem;
+        //    List<RightDTO> listRightForRole = new List<RightDTO>();
+        //    listRightForRole = rightBUS.GetRightByRole(selectedRole.RightsValue);
+        //    foreach (RightDTO right in listRightForRole)
+        //    {
+        //        clbRights.SelectedItem = right;                
+        //    }
+        //}
 
-        private void btnNext_Click(object sender, EventArgs e)
-        {
-            isNext = true;
-            timerLayoutSLC.Enabled = true;            
-        }
-
-        private void timerLayoutSLC_Tick(object sender, EventArgs e)
-        {                        
-            if (isNext)
-            {
-                while (slcMain.SplitterDistance > (slcMain.SplitterWidth + 1))
-                {
-                    slcMain.SplitterDistance -= 20;
-                    Refresh();
-                }
-                isNext = false;
-                timerLayoutSLC.Enabled = false;
-            }
-            if (isPre)
-            {
-                while (slcMain.SplitterDistance < (Width - (slcMain.SplitterWidth + 16)))
-                {
-                    slcMain.SplitterDistance += 20;
-                    Refresh();
-                }
-                isPre = false;
-                timerLayoutSLC.Enabled = false;
-            }            
-            slcMain.ContainerBackStyle = PaletteBackStyle.PanelClient;            
-        }
-
-        private void btnPre_Click(object sender, EventArgs e)
-        {
-            isPre = true;
-            timerLayoutSLC.Enabled = true;            
-        }
-
-        private void cbbRole_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            for (int i = 0; i < clbRights.ListBox.Items.Count; i++)
-            {
-                clbRights.SetItemChecked(i, false);
-            }
-            RoleDTO selectedRole = (RoleDTO)cbbRole.SelectedItem;
-            List<RightDTO> listRightForRole = new List<RightDTO>();
-            listRightForRole = rightBUS.GetRightByRole(selectedRole.RightsValue);
-            foreach (RightDTO right in listRightForRole)
-            {
-                clbRights.SelectedItem = right;                
-            }
-        }
-
-        private void clbRights_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int index = clbRights.ListBox.SelectedIndex;
-            clbRights.SetItemChecked(index, true);
-        }
+        //private void clbRights_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    int index = clbRights.ListBox.SelectedIndex;
+        //    clbRights.SetItemChecked(index, true);
+        //}
 
         private int GenerateStatus(string strStatus)
         {
@@ -190,7 +146,35 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
             return isActie;
         }
 
-        private void btnFinish_Click(object sender, EventArgs e)
+        private void txtTotalDebt_Enter(object sender, EventArgs e)
+        {
+            Global.SetTextBoxNumberEnter(txtTotalDebt);
+        }
+
+        private void txtTotalDebt_Leave(object sender, EventArgs e)
+        {
+            Global.SetTextBoxNumberLeave(txtTotalDebt);
+        }
+
+        private void txtUsername_TextChanged(object sender, EventArgs e)
+        {
+            var textBox = (KryptonTextBox) sender;            
+            if (textBox.Text.Equals(Constants.EMPTY_TEXT))
+            {
+                Global.TextBoxRequireInput(textBox);
+            }
+            else
+            {
+                Global.TextBoxRequireInputed(textBox);
+            }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
         {
             bool success = false;
             string username = txtUsername.Text;
@@ -206,11 +190,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
             int isActive = GenerateStatus(cbbStatus.Text);
             string phonenumber = txtPhoneNumber.Text;
             string notes = txtNote.Text;
-            long rightsValue = 0;            
-            foreach (RightDTO right in clbRights.CheckedItems)
-            {
-                rightsValue += right.Value;
-            }
+            long rightsValue = 0;
             if (isNew)
             {
                 success = employeeBUS.CreateEmployee(username, password, fullname, address, email, CMND, DOB, roleID, rightsValue,
@@ -224,32 +204,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
             if (!success)
             {
                 MessageBox.Show("Faile");
-            }
-        }
-
-        private void txtTotalDebt_Enter(object sender, EventArgs e)
-        {
-            txtTotalDebt.Text = Constants.EMPTY_TEXT;
-        }
-
-        private void txtTotalDebt_Leave(object sender, EventArgs e)
-        {
-            if (txtTotalDebt.Text.Equals(Constants.EMPTY_TEXT))
-            {
-                txtTotalDebt.Text = "0";
-            }
-        }
-
-        private void txtUsername_TextChanged(object sender, EventArgs e)
-        {
-            var textBox = (KryptonTextBox) sender;            
-            if (textBox.Text.Equals(Constants.EMPTY_TEXT))
-            {
-                Global.TextBoxRequireInput(textBox);
-            }
-            else
-            {
-                Global.TextBoxRequireInputed(textBox);
             }
         }
     }

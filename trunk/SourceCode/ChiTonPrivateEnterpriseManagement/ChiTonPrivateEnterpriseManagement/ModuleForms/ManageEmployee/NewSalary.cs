@@ -25,8 +25,30 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
 
         private void NewSalary_Load(object sender, EventArgs e)
         {
+            Setlayout();
             CenterToParent();
             setDefaultComboBox();
+        }
+
+        private void Setlayout()
+        {
+            CenterToParent();
+            cbbEmployee.Focus();
+            Global.SetTextBoxNumberLeave(txtSalary);
+            Global.SetTextBoxNumberLeave(txtAllowance);
+            Global.SetTextBoxNumberLeave(txtPhoneCost);
+            Global.SetTextBoxNumberLeave(txtDebtPay);
+            Global.SetTextBoxNumberLeave(txtActualIncome);
+            Global.SetLayoutForm(this, Constants.DIALOG_FORM);
+            Global.SetLayoutGroupBoxNewForm(gbxAdd1);
+            Global.SetLayoutGroupBoxNewForm(gbxAdd2);
+            Global.SetLayoutSplipContainerNewForm(slcMain);
+            Global.SetLayoutPanelNewForm(pnlButton);
+            Global.SetLayoutGroupBoxNewForm(gbxButton);
+            Global.SetLayoutButton(btnSave);
+            Global.SetLayoutButton(btnClose);
+            Global.SetLayoutButton(btnClear);
+            Global.SetDataCombobox(cbbEmployee, Constants.EMPLOYEE);
         }
 
         private void setDefaultComboBox()

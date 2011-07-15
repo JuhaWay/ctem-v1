@@ -42,19 +42,6 @@
             this.kryptonContextMenuItems4 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
             this.dgvSalary = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.EmployeeSalaryID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fullname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Month = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Salary = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Allowance = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PhoneCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DebtPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ActualIncome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IsPay = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CreatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LastUpdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeeSalaryDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.slcMain = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
             this.gbxLeftBot = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.pnlSearch = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
@@ -91,10 +78,22 @@
             this.btnEdit = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.btnUnableEdit = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.btnSave = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fullname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Month = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Salary = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Allowance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PhoneCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DebtPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ActualIncome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IsPay = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CreatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastUpdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeeSalaryDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cmsSearch.SuspendLayout();
             this.cmsGenerate.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSalary)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeSalaryDTOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.slcMain)).BeginInit();
             this.slcMain.Panel1.SuspendLayout();
             this.slcMain.Panel2.SuspendLayout();
@@ -122,6 +121,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gbxEdit2)).BeginInit();
             this.gbxEdit2.Panel.SuspendLayout();
             this.gbxEdit2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeSalaryDTOBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // cmsSearch
@@ -192,90 +192,6 @@
             this.EmployeeSalaryID.HeaderText = "Mã Số";
             this.EmployeeSalaryID.Name = "EmployeeSalaryID";
             this.EmployeeSalaryID.Width = 70;
-            // 
-            // Username
-            // 
-            this.Username.DataPropertyName = "Username";
-            this.Username.HeaderText = "Tên Đăng Nhập";
-            this.Username.Name = "Username";
-            this.Username.Width = 150;
-            // 
-            // Fullname
-            // 
-            this.Fullname.DataPropertyName = "Fullname";
-            this.Fullname.HeaderText = "Tên Đầy Đủ";
-            this.Fullname.Name = "Fullname";
-            this.Fullname.Width = 150;
-            // 
-            // Month
-            // 
-            this.Month.DataPropertyName = "Month";
-            this.Month.HeaderText = "Lương Tháng";
-            this.Month.Name = "Month";
-            // 
-            // Salary
-            // 
-            this.Salary.DataPropertyName = "Salary";
-            this.Salary.HeaderText = "Tiền Lương";
-            this.Salary.Name = "Salary";
-            // 
-            // Allowance
-            // 
-            this.Allowance.DataPropertyName = "Allowance";
-            this.Allowance.HeaderText = "Phụ Cấp";
-            this.Allowance.Name = "Allowance";
-            // 
-            // PhoneCost
-            // 
-            this.PhoneCost.DataPropertyName = "PhoneCost";
-            this.PhoneCost.HeaderText = "Tiền Hổ Trợ (ĐT)";
-            this.PhoneCost.Name = "PhoneCost";
-            // 
-            // DebtPay
-            // 
-            this.DebtPay.DataPropertyName = "DebtPay";
-            this.DebtPay.HeaderText = "Nhân Viên Trả Nợ";
-            this.DebtPay.Name = "DebtPay";
-            // 
-            // ActualIncome
-            // 
-            this.ActualIncome.DataPropertyName = "ActualIncome";
-            this.ActualIncome.HeaderText = "Thực Lãnh";
-            this.ActualIncome.Name = "ActualIncome";
-            // 
-            // IsPay
-            // 
-            this.IsPay.DataPropertyName = "IsPay";
-            this.IsPay.HeaderText = "Đã Trả";
-            this.IsPay.Name = "IsPay";
-            this.IsPay.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.IsPay.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.IsPay.Width = 70;
-            // 
-            // Note
-            // 
-            this.Note.DataPropertyName = "Note";
-            this.Note.HeaderText = "Ghi Chú";
-            this.Note.Name = "Note";
-            this.Note.Width = 150;
-            // 
-            // CreatedDate
-            // 
-            this.CreatedDate.DataPropertyName = "CreatedDate";
-            this.CreatedDate.HeaderText = "Ngày Tạo";
-            this.CreatedDate.Name = "CreatedDate";
-            this.CreatedDate.Width = 120;
-            // 
-            // LastUpdate
-            // 
-            this.LastUpdate.DataPropertyName = "LastUpdate";
-            this.LastUpdate.HeaderText = "Ngày Sửa";
-            this.LastUpdate.Name = "LastUpdate";
-            this.LastUpdate.Width = 120;
-            // 
-            // employeeSalaryDTOBindingSource
-            // 
-            this.employeeSalaryDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.EmployeeSalaryDTO);
             // 
             // slcMain
             // 
@@ -471,6 +387,7 @@
             this.btnAdd.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
             this.btnAdd.Text = "Thêm";
             this.btnAdd.UniqueName = "6E177DC1660348E375BDCE591BF21FCB";
+            this.btnAdd.Click += new System.EventHandler(this.btnNewSalary_Click);
             // 
             // btnDelete
             // 
@@ -687,6 +604,90 @@
             this.btnSave.ToolTipTitle = "Lưu";
             this.btnSave.UniqueName = "6549634A1C68497476A2DADA48F6958C";
             // 
+            // Username
+            // 
+            this.Username.DataPropertyName = "Username";
+            this.Username.HeaderText = "Tên Đăng Nhập";
+            this.Username.Name = "Username";
+            this.Username.Width = 150;
+            // 
+            // Fullname
+            // 
+            this.Fullname.DataPropertyName = "Fullname";
+            this.Fullname.HeaderText = "Tên Đầy Đủ";
+            this.Fullname.Name = "Fullname";
+            this.Fullname.Width = 150;
+            // 
+            // Month
+            // 
+            this.Month.DataPropertyName = "Month";
+            this.Month.HeaderText = "Lương Tháng";
+            this.Month.Name = "Month";
+            // 
+            // Salary
+            // 
+            this.Salary.DataPropertyName = "Salary";
+            this.Salary.HeaderText = "Tiền Lương";
+            this.Salary.Name = "Salary";
+            // 
+            // Allowance
+            // 
+            this.Allowance.DataPropertyName = "Allowance";
+            this.Allowance.HeaderText = "Phụ Cấp";
+            this.Allowance.Name = "Allowance";
+            // 
+            // PhoneCost
+            // 
+            this.PhoneCost.DataPropertyName = "PhoneCost";
+            this.PhoneCost.HeaderText = "Tiền Hổ Trợ (ĐT)";
+            this.PhoneCost.Name = "PhoneCost";
+            // 
+            // DebtPay
+            // 
+            this.DebtPay.DataPropertyName = "DebtPay";
+            this.DebtPay.HeaderText = "Nhân Viên Trả Nợ";
+            this.DebtPay.Name = "DebtPay";
+            // 
+            // ActualIncome
+            // 
+            this.ActualIncome.DataPropertyName = "ActualIncome";
+            this.ActualIncome.HeaderText = "Thực Lãnh";
+            this.ActualIncome.Name = "ActualIncome";
+            // 
+            // IsPay
+            // 
+            this.IsPay.DataPropertyName = "IsPay";
+            this.IsPay.HeaderText = "Đã Trả";
+            this.IsPay.Name = "IsPay";
+            this.IsPay.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.IsPay.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.IsPay.Width = 70;
+            // 
+            // Note
+            // 
+            this.Note.DataPropertyName = "Note";
+            this.Note.HeaderText = "Ghi Chú";
+            this.Note.Name = "Note";
+            this.Note.Width = 150;
+            // 
+            // CreatedDate
+            // 
+            this.CreatedDate.DataPropertyName = "CreatedDate";
+            this.CreatedDate.HeaderText = "Ngày Tạo";
+            this.CreatedDate.Name = "CreatedDate";
+            this.CreatedDate.Width = 120;
+            // 
+            // LastUpdate
+            // 
+            this.LastUpdate.DataPropertyName = "LastUpdate";
+            this.LastUpdate.HeaderText = "Ngày Sửa";
+            this.LastUpdate.Name = "LastUpdate";
+            this.LastUpdate.Width = 120;
+            // 
+            // employeeSalaryDTOBindingSource
+            // 
+            this.employeeSalaryDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.EmployeeSalaryDTO);
+            // 
             // SalaryManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
@@ -700,7 +701,6 @@
             this.cmsSearch.ResumeLayout(false);
             this.cmsGenerate.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSalary)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeSalaryDTOBindingSource)).EndInit();
             this.slcMain.Panel1.ResumeLayout(false);
             this.slcMain.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.slcMain)).EndInit();
@@ -733,6 +733,7 @@
             this.gbxEdit2.Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gbxEdit2)).EndInit();
             this.gbxEdit2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.employeeSalaryDTOBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

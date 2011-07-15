@@ -45,8 +45,8 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
             Global.SetLayoutGroupBoxChildForm(gbxEdit1);
             Global.SetLayoutGroupBoxChildForm(gbxEdit2);
             Global.SetLayoutGroupBoxSearch(gbxSearch);
-            Global.SetDataCombobox(cbbStatus, "Status");
-            Global.SetDataCombobox(cbbStatusSearch, "Status Search");            
+            Global.SetDataCombobox(cbbStatus, Constants.STATUS);
+            Global.SetDataCombobox(cbbStatusSearch, Constants.STATUS_SEARCH);            
             Global.SetLayoutPanelChildForm(pnlSearch);
             Global.SetLayoutButton(btnSearch);
             Global.TextBoxRequireInput(txtDebtName);
@@ -58,7 +58,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
             Global.SetTextBoxNumberLeave(txtIdSearch);
             long id = Convert.ToInt64(txtIdSearch.Text);
             string name = cbbNameSearch.Text;
-            if (name.Equals("Tất Cả"))
+            if (name.Equals(Constants.ALL))
             {
                 name = Constants.EMPTY_TEXT;
             }
@@ -81,7 +81,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
 
         private void RefreshData()
         {
-            Global.SetDataCombobox(cbbNameSearch, "Debt Search");
+            Global.SetDataCombobox(cbbNameSearch, Constants.DEBT_SEARCH);
             txtIdSearch.Text = Constants.ZERO_NUMBER;
             cbbNameSearch.SelectedIndex = 0;
             cbbStatusSearch.SelectedIndex = 1;

@@ -24,8 +24,31 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
 
         private void SalaryManagement_Load(object sender, EventArgs e)
         {
+            Setlayout();
             loadSalary();
             listEmployee = employeeBUS.LoadAllEmployee();
+        }
+
+        private void Setlayout()
+        {
+            dgvSalary.Focus();
+            pnlSearch.Height = 62;
+            gbxSearch.Height = 58;
+            txtTotalAdvance.Text = Constants.ZERO_NUMBER;
+            Global.SetLayoutForm(this, Constants.CHILD_FORM);
+            Global.SetLayoutHeaderGroup(hdAdvance, Constants.CHILD_FORM);
+            Global.SetLayoutHeaderGroup(hdEdit, Constants.CHILD_FORM);
+            Global.SetDaulftDatagridview(dgvSalary);
+            Global.SetLayoutSplipContainer(slcMain, 2);
+            Global.SetLayoutSplipContainerInChildForm(slcEdit);
+            Global.SetLayoutGroupBoxChildForm(gbxEdit1);
+            Global.SetLayoutGroupBoxChildForm(gbxEdit2);
+            Global.SetLayoutGroupBoxSearch(gbxSearch);
+            Global.SetLayoutPanelChildForm(pnlSearch);
+            Global.SetDataCombobox(cbbNameSearch, Constants.EMPLOYEE_SEARCH);
+            Global.SetDataCombobox(cbbEmployee, Constants.EMPLOYEE);
+            Global.SetLayoutButton(btnSearch);
+            //MakeEdit(false);
         }
 
         private void loadSalary()

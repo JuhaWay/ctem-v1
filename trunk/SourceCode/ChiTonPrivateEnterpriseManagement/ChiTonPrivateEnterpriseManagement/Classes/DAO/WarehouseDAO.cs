@@ -40,7 +40,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
         }
 
 
-        public List<WarehouseDTO> LoadWarehouses(string type)
+        public List<WarehouseDTO> LoadWarehouses(string name, string type, int status)
         {
             var cmd = new SqlCommand("[dbo].[Warehouse_Get]", Connection);
 
@@ -52,11 +52,13 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             try
             {
                 cmd.Parameters.Add(new SqlParameter("@Type", type));
+                cmd.Parameters.Add(new SqlParameter("@Name", name));
+                cmd.Parameters.Add(new SqlParameter("@Status", status));
                 SqlDataReader reader = cmd.ExecuteReader();
-                List<WarehouseDTO> listwarehouse = new List<WarehouseDTO>();
+                var listwarehouse = new List<WarehouseDTO>();
                 while (reader.Read())
                 {
-                    WarehouseDTO warehouse = new WarehouseDTO
+                    var warehouse = new WarehouseDTO
                     {
                         WarehouseID = Convert.ToInt64(reader["WarehouseID"]),
                         WarehouseName = Convert.ToString(reader["WarehouseName"]),
@@ -74,14 +76,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                     {
                     }
                     bool isactive = Convert.ToBoolean(reader["IsActive"]);
-                    if (isactive)
-                    {
-                        warehouse.IsActive = 1;
-                    }
-                    else
-                    {
-                        warehouse.IsActive = 0;
-                    }
+                    warehouse.IsActive = isactive ? 1 : 0;
                     listwarehouse.Add(warehouse);
                 }
                 return listwarehouse;
@@ -246,5 +241,52 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
         //    }
         //}
 
+
+        public bool DeleteWarehouse(long id)
+        {
+            var cmd = new SqlCommand("[dbo].[Warehouse_Delete]", Connection) { CommandType = CommandType.StoredProcedure };
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@WarehouseID", id));
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException sql)
+            {
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null)
+                    Connection.Close();
+            }
+        }
+
+        public bool DeleteAllWarehouse()
+        {
+            var cmd = new SqlCommand("[dbo].[Warehouse_DeleteAll]", Connection) { CommandType = CommandType.StoredProcedure };
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException sql)
+            {
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null)
+                    Connection.Close();
+            }
+        }
     }
 }

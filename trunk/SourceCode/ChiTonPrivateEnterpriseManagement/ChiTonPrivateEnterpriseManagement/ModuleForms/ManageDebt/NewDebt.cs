@@ -103,7 +103,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
             Global.SetLayoutButton(btnSave);
             Global.SetLayoutButton(btnClose);
             Global.SetLayoutButton(btnClear);
-            Global.SetDataCombobox(cbbStatus, "Status");
+            Global.SetDataCombobox(cbbStatus, Constants.STATUS);
             Global.TextBoxRequireInput(txtDebtName);
         }
 

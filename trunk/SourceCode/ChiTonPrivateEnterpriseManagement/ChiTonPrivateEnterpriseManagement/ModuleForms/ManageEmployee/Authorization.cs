@@ -7,18 +7,13 @@ using System.Text;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 
-namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWarehouse
+namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
 {
-    public partial class NewStockOut : ComponentFactory.Krypton.Toolkit.KryptonForm
+    public partial class Authorization : ComponentFactory.Krypton.Toolkit.KryptonForm
     {
-        public NewStockOut()
+        public Authorization()
         {
             InitializeComponent();
-        }
-
-        private void NewStockOut_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
