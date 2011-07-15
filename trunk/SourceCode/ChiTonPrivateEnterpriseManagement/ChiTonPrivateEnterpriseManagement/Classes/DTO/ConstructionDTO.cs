@@ -10,6 +10,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
     {
         public  const string MAIN = "Thuộc Doanh nghiệp";
         public  const string SUB = "Nhà thầu phụ";
+
         public long ConstructionID { get; set; }
         public long WarehouseID { get; set; }
         public string SubcontractorName { get; set; }
@@ -17,23 +18,33 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
         public string ConstructionName { get; set; }
         public string Description { get; set; }
         public string ConstructionAddress { get; set; }
-        public DateTime CommencementDate { get; set; }
-        public DateTime CompletionDate { get; set; }
-        public DateTime? CreatedDate { get; set; }
-        public DateTime? LastUpdated { get; set; }
-        public string CreatedBy { get; set; }
-        public string UpdatedBy { get; set; }
+
+
+       
         public string Status { get; set; }
         public bool HasEstimate { get; set; }
-        public long TotalEstimateCost { get; set; }
-        public long? ParentID { get; set; }
-        public long TotalRealCost { get; set; }
+        public long ParentID { get; set; }
+        public string CreatedBy { get; set; }
+        public string UpdatedBy { get; set; }
+       
         public DateTime FromDate { get; set; }
         public DateTime ToDate { get; set; }
         public long ProgressRate { get; set; }
         public string type { get; set; }
 
+        public DateTime CreatedDate { get; set; }
+        public DateTime LastUpdated { get; set; }
+        public string LastUpdatedFormated { get; set; }
+        public string CreateDateFormated { get; set; }
+        public DateTime CommencementDate { get; set; }
+        public DateTime CompletionDate { get; set; }
+        public string CommencementDateFormated { get; set; }
+        public string CompletionDateFormated { get; set; }
 
+        public long TotalRealCost { get; set; }
+        public long TotalEstimateCost { get; set; }
+        public string TotalEstimateCostFormated { get; set; }
+        public string TotalRealCostFormated { get; set; }
         
 
         public ConstructionDTO()
