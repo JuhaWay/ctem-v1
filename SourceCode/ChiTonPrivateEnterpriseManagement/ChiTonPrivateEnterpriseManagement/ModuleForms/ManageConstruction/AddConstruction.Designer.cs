@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddConstruction));
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.panel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.ipProgressRate = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
@@ -98,7 +97,8 @@
             // 
             // dtStartDate
             // 
-            this.dtStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtStartDate.CustomFormat = "dd/MM/yyyy";
+            this.dtStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtStartDate.Location = new System.Drawing.Point(118, 146);
             this.dtStartDate.Name = "dtStartDate";
             this.dtStartDate.Size = new System.Drawing.Size(159, 20);
@@ -144,7 +144,8 @@
             // 
             // dtEndDate
             // 
-            this.dtEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtEndDate.CustomFormat = "dd/MM/yyyy";
+            this.dtEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtEndDate.Location = new System.Drawing.Point(393, 145);
             this.dtEndDate.Name = "dtEndDate";
             this.dtEndDate.Size = new System.Drawing.Size(172, 20);
@@ -220,10 +221,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(608, 614);
             this.Controls.Add(this.panel);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AddConstruction";
+            this.ShowIcon = false;
             this.StateCommon.Header.Back.Color1 = System.Drawing.SystemColors.ActiveCaption;
             this.Text = "Tạo công trình chính";
             this.Load += new System.EventHandler(this.AddConstruction_Load);

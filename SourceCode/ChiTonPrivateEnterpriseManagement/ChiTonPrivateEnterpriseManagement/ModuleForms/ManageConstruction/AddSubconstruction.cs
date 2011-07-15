@@ -93,16 +93,8 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
                 _constructionDTO.type = ConstructionDTO.SUB; 
                 if (Global.ValidateIntNumber(ipProgressRate.Text))
                     _constructionDTO.ProgressRate = Convert.ToInt64(ipProgressRate.Text);
-                if (Global.ValidateLongNumber(ipEst.Text))
-                {
-                    _constructionDTO.TotalEstimateCost = Convert.ToInt64(ipEst.Text);
-                    
-                }
-                if (Global.ValidateLongNumber(ipRealCost.Text))
-                {
-                    _constructionDTO.TotalRealCost = Convert.ToInt64(ipRealCost.Text);
-
-                }
+                _constructionDTO.TotalEstimateCost = Global.ConvertMoneyToLong(ipEst.Text, Global.SEP);
+                _constructionDTO.TotalRealCost = Global.ConvertMoneyToLong(ipRealCost.Text, Global.SEP);
                 long id = _constructionBus.CreateConstruction(_constructionDTO);
                 _constructionBus.UpdateConstructionTotal((long)_constructionDTO.ParentID);
 
@@ -134,16 +126,11 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
                 _constructionDTO.SubconstractorID = (cbSubconName.SelectedItem as SubcontractorDTO).SubcontractorID;
                 if (Global.ValidateIntNumber(ipProgressRate.Text))
                     _constructionDTO.ProgressRate = Convert.ToInt64(ipProgressRate.Text);
-                if (Global.ValidateLongNumber(ipEst.Text))
-                {
-                    _constructionDTO.TotalEstimateCost = Convert.ToInt64(ipEst.Text);
 
-                }
-                if (Global.ValidateLongNumber(ipRealCost.Text))
-                {
-                    _constructionDTO.TotalRealCost = Convert.ToInt64(ipRealCost.Text);
+                 _constructionDTO.TotalEstimateCost = Global.ConvertMoneyToLong(ipEst.Text, Global.SEP);
+                 _constructionDTO.TotalRealCost = Global.ConvertMoneyToLong(ipRealCost.Text, Global.SEP);
 
-                }
+
                 bool test = _constructionBus.updateConstruction(_constructionDTO);
                 EstimateDTO item = new EstimateDTO();
                 item.ConstructionID = _constructionDTO.ConstructionID;
@@ -209,6 +196,26 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
             
 
             return true;
+        }
+
+        private void ipEst_Leave(object sender, EventArgs e)
+        {
+            ipEst.Text = Global.ConvertLongToMoney(Global.ConvertMoneyToLong(ipEst.Text, "."), Global.SEP);
+        }
+
+        private void ipEst_MouseLeave(object sender, EventArgs e)
+        {
+            ipEst.Text = Global.ConvertLongToMoney(Global.ConvertMoneyToLong(ipEst.Text, "."), Global.SEP);
+        }
+
+        private void ipRealCost_Leave(object sender, EventArgs e)
+        {
+            ipRealCost.Text = Global.ConvertLongToMoney(Global.ConvertMoneyToLong(ipRealCost.Text, "."), Global.SEP);
+        }
+
+        private void ipRealCost_MouseLeave(object sender, EventArgs e)
+        {
+            ipRealCost.Text = Global.ConvertLongToMoney(Global.ConvertMoneyToLong(ipRealCost.Text, "."),Global.SEP);
         }
     }
 }

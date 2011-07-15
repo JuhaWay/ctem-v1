@@ -31,6 +31,12 @@
             this.components = new System.ComponentModel.Container();
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.panel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.ipProgressRate = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.lbProgress = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.ipRealCost = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.lbRealCost = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.ipEst = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.lbEst = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.btSave = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btCancel = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btcreateSubcon = new ComponentFactory.Krypton.Toolkit.KryptonButton();
@@ -48,12 +54,6 @@
             this.lbAddress = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.ipConstructionName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.lbConstructionName = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.lbEst = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.ipEst = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.lbRealCost = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.ipRealCost = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.lbProgress = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.ipProgressRate = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.panel)).BeginInit();
             this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbSubconName)).BeginInit();
@@ -93,6 +93,55 @@
             this.panel.StateCommon.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.ExpertSquareHighlight;
             this.panel.TabIndex = 0;
             // 
+            // ipProgressRate
+            // 
+            this.ipProgressRate.Location = new System.Drawing.Point(114, 248);
+            this.ipProgressRate.Name = "ipProgressRate";
+            this.ipProgressRate.Size = new System.Drawing.Size(161, 22);
+            this.ipProgressRate.TabIndex = 45;
+            // 
+            // lbProgress
+            // 
+            this.lbProgress.Location = new System.Drawing.Point(42, 248);
+            this.lbProgress.Name = "lbProgress";
+            this.lbProgress.Size = new System.Drawing.Size(48, 19);
+            this.lbProgress.TabIndex = 44;
+            this.lbProgress.Values.Text = "Tiến độ";
+            // 
+            // ipRealCost
+            // 
+            this.ipRealCost.Location = new System.Drawing.Point(403, 212);
+            this.ipRealCost.Name = "ipRealCost";
+            this.ipRealCost.Size = new System.Drawing.Size(172, 22);
+            this.ipRealCost.TabIndex = 43;
+            this.ipRealCost.Leave += new System.EventHandler(this.ipRealCost_Leave);
+            this.ipRealCost.MouseLeave += new System.EventHandler(this.ipRealCost_MouseLeave);
+            // 
+            // lbRealCost
+            // 
+            this.lbRealCost.Location = new System.Drawing.Point(326, 212);
+            this.lbRealCost.Name = "lbRealCost";
+            this.lbRealCost.Size = new System.Drawing.Size(58, 19);
+            this.lbRealCost.TabIndex = 42;
+            this.lbRealCost.Values.Text = "Gỉai ngân";
+            // 
+            // ipEst
+            // 
+            this.ipEst.Location = new System.Drawing.Point(112, 209);
+            this.ipEst.Name = "ipEst";
+            this.ipEst.Size = new System.Drawing.Size(161, 22);
+            this.ipEst.TabIndex = 41;
+            this.ipEst.Leave += new System.EventHandler(this.ipEst_Leave);
+            this.ipEst.MouseLeave += new System.EventHandler(this.ipEst_MouseLeave);
+            // 
+            // lbEst
+            // 
+            this.lbEst.Location = new System.Drawing.Point(25, 209);
+            this.lbEst.Name = "lbEst";
+            this.lbEst.Size = new System.Drawing.Size(78, 19);
+            this.lbEst.TabIndex = 40;
+            this.lbEst.Values.Text = "khoáng(VND)";
+            // 
             // btSave
             // 
             this.btSave.Location = new System.Drawing.Point(209, 511);
@@ -124,6 +173,8 @@
             // 
             // cbSubconName
             // 
+            this.cbSubconName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbSubconName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbSubconName.DropDownWidth = 159;
             this.cbSubconName.Location = new System.Drawing.Point(114, 58);
             this.cbSubconName.Name = "cbSubconName";
@@ -141,7 +192,8 @@
             // 
             // dtStartDate
             // 
-            this.dtStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtStartDate.CustomFormat = "dd/MM/yyyy";
+            this.dtStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtStartDate.Location = new System.Drawing.Point(112, 161);
             this.dtStartDate.Name = "dtStartDate";
             this.dtStartDate.Size = new System.Drawing.Size(159, 20);
@@ -187,7 +239,8 @@
             // 
             // dtEndDate
             // 
-            this.dtEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtEndDate.CustomFormat = "dd/MM/yyyy";
+            this.dtEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtEndDate.Location = new System.Drawing.Point(403, 162);
             this.dtEndDate.Name = "dtEndDate";
             this.dtEndDate.Size = new System.Drawing.Size(172, 20);
@@ -238,51 +291,6 @@
             this.lbConstructionName.Size = new System.Drawing.Size(89, 19);
             this.lbConstructionName.TabIndex = 23;
             this.lbConstructionName.Values.Text = "Tên công trình :";
-            // 
-            // lbEst
-            // 
-            this.lbEst.Location = new System.Drawing.Point(25, 209);
-            this.lbEst.Name = "lbEst";
-            this.lbEst.Size = new System.Drawing.Size(78, 19);
-            this.lbEst.TabIndex = 40;
-            this.lbEst.Values.Text = "khoáng(VND)";
-            // 
-            // ipEst
-            // 
-            this.ipEst.Location = new System.Drawing.Point(112, 209);
-            this.ipEst.Name = "ipEst";
-            this.ipEst.Size = new System.Drawing.Size(161, 22);
-            this.ipEst.TabIndex = 41;
-            // 
-            // lbRealCost
-            // 
-            this.lbRealCost.Location = new System.Drawing.Point(326, 212);
-            this.lbRealCost.Name = "lbRealCost";
-            this.lbRealCost.Size = new System.Drawing.Size(58, 19);
-            this.lbRealCost.TabIndex = 42;
-            this.lbRealCost.Values.Text = "Gỉai ngân";
-            // 
-            // ipRealCost
-            // 
-            this.ipRealCost.Location = new System.Drawing.Point(403, 212);
-            this.ipRealCost.Name = "ipRealCost";
-            this.ipRealCost.Size = new System.Drawing.Size(172, 22);
-            this.ipRealCost.TabIndex = 43;
-            // 
-            // lbProgress
-            // 
-            this.lbProgress.Location = new System.Drawing.Point(42, 248);
-            this.lbProgress.Name = "lbProgress";
-            this.lbProgress.Size = new System.Drawing.Size(48, 19);
-            this.lbProgress.TabIndex = 44;
-            this.lbProgress.Values.Text = "Tiến độ";
-            // 
-            // ipProgressRate
-            // 
-            this.ipProgressRate.Location = new System.Drawing.Point(114, 248);
-            this.ipProgressRate.Name = "ipProgressRate";
-            this.ipProgressRate.Size = new System.Drawing.Size(161, 22);
-            this.ipProgressRate.TabIndex = 45;
             // 
             // AddSubconstruction
             // 

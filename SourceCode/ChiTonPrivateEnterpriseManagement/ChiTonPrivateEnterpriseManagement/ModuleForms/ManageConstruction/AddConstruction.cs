@@ -34,9 +34,9 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
         // khởi tạo với type là  con
         public AddConstruction(long parent,int type)
         {
-            this.ipProgressRate.Enabled = true;
-            this.parentId = parent;
             InitializeComponent();
+            this.ipProgressRate.Enabled = true;
+            this.parentId = parent;          
             this.type = type;
             CenterToParent();
             loadSubcons();
@@ -78,34 +78,16 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
             if (!validateConstruction()) return;
             if (!update)
             {
-                // tạo dư liệu
-                _constructionDTO.CommencementDate = DateTime.Parse(dtStartDate.Text);
-                _constructionDTO.CompletionDate = DateTime.Parse(dtEndDate.Text);
-                _constructionDTO.ConstructionName = ipConstructionName.Text;
-                _constructionDTO.ConstructionAddress = ipAddress.Text;
-                _constructionDTO.Description = ipDes.Text;
-                _constructionDTO.TotalEstimateCost = 0;
-                _constructionDTO.Status = cbStatus.Text;
-                _constructionDTO.type = ConstructionDTO.MAIN;
-                if (type == TYPE_CHILD)
+                if (type != TYPE_CHILD)
                 {
-                    _constructionDTO.ParentID = parentId;
-                    _constructionDTO.HasEstimate = true;
-                    if (Global.ValidateIntNumber(ipProgressRate.Text))
-                        _constructionDTO.ProgressRate = Convert.ToInt64(ipProgressRate.Text);
+                    long id = createCons(0,true);
+                    type = TYPE_CHILD;
+                    createCons(id,true);
+                }
+                else {
+                    createCons(parentId,false);
                 }
                 
-                long id = _constructionBus.CreateConstruction(_constructionDTO);
-
-                //--------------------------------------auto create estimate--------
-                if (type == TYPE_CHILD)
-                {
-                    EstimateDTO est = new EstimateDTO();
-                    est.Type = 0;
-                    est.ConstructionID = id;
-                    est.EstimateName = "Dự toán cho : " + ipConstructionName.Text;
-                    _estimateBUS.creatEstimate(est);
-                }
                 //--------------------------------------------------------------------
                 MessageBox.Show("Tạo công trình thành công !");
                 this.Close();
@@ -114,8 +96,8 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
             }
             else
             {
-                _constructionDTO.CommencementDate = DateTime.Parse(dtStartDate.Text);
-                _constructionDTO.CompletionDate = DateTime.Parse(dtEndDate.Text);
+                _constructionDTO.CommencementDate = dtStartDate.Value.Date;
+                _constructionDTO.CompletionDate = dtEndDate.Value.Date;
                 _constructionDTO.ConstructionName = ipConstructionName.Text;
                 _constructionDTO.ConstructionAddress = ipAddress.Text;
                 _constructionDTO.Description = ipDes.Text;
@@ -123,6 +105,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
                 _constructionDTO.Status = cbStatus.Text;
                 if (type == TYPE_CHILD)
                 {
+
                     if (Global.ValidateIntNumber(ipProgressRate.Text))
                        _constructionDTO.ProgressRate = Convert.ToInt64(ipProgressRate.Text);
                     
@@ -132,6 +115,40 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
                     MessageBox.Show("Sửa công trình thành công !");
                 this.Close();
             }
+        }
+        private long createCons(long parent_Id,bool autoMode){
+            // tạo dư liệu
+            _constructionDTO.CommencementDate = dtStartDate.Value.Date;
+            _constructionDTO.CompletionDate = dtEndDate.Value.Date;
+             _constructionDTO.ConstructionName = ipConstructionName.Text;
+            _constructionDTO.ConstructionAddress = ipAddress.Text;
+            _constructionDTO.Description = ipDes.Text;
+            _constructionDTO.TotalEstimateCost = 0;
+            _constructionDTO.Status = cbStatus.Text;
+            _constructionDTO.type = ConstructionDTO.MAIN;
+            if (type == TYPE_CHILD)
+            {
+                if (autoMode)
+                    _constructionDTO.ConstructionName = "con của" + ipConstructionName.Text;
+                _constructionDTO.ParentID = parent_Id;
+                _constructionDTO.HasEstimate = true;
+                if (Global.ValidateIntNumber(ipProgressRate.Text) && !autoMode)
+                    _constructionDTO.ProgressRate = Convert.ToInt64(ipProgressRate.Text);
+            }
+
+            long id = _constructionBus.CreateConstruction(_constructionDTO);
+
+            //--------------------------------------auto create estimate--------
+            if (type == TYPE_CHILD)
+            {
+                EstimateDTO est = new EstimateDTO();
+                est.Type = 0;
+                est.TotalCostEstimate = 0;
+                est.ConstructionID = id;
+                est.EstimateName = "Dự toán cho : " + ipConstructionName.Text;
+                _estimateBUS.creatEstimate(est);
+            }
+            return id;
         }
         // tạo nhà thau phụ
         private void btCreateSubcon_Click(object sender, EventArgs e)

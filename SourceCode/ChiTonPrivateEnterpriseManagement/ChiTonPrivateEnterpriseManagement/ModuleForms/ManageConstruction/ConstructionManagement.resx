@@ -117,13 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="checkBox.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <metadata name="ConstructionID.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="ConstructionName.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Type.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="SubcontractorName.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="Status.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -136,12 +139,6 @@
     <value>True</value>
   </metadata>
   <metadata name="TotalRealCost.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Type.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="SubcontractorName.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="Description.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -175,19 +172,19 @@
     <value>True</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="kryptonHeader1.Values.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btAdd.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAdpJREFUOE/V0t9L
-        k1Ecx/Hj45Y+bTJdpam0/JFeNOgX0k1EC4L00tCosAuxgqFEXgQ9oNGNoNVVuZHKkIzcpo+ycgpSc9pE
-        N81hZkULpFBQ6Cf0B7w7dyMNDKGLPnDuzvf1/XA4Qvw3qepNYG8YZcuF7aHvZF8NbQ2w9S+TNfYTy/UI
-        4vyTPyOJQIDV2VlWIvLSupgGv5AW/IHp5gzC+XwjMH+/nW+Li6xNTPBpPExY76Gm6Rz5mgNVqyalw4+h
-        9w3bWuYRWpSM5qnfkZim8aHDjd51A2fwMuXBsxwcOEXuo8MYO20S2Ivx4XEMnkZEW4z0O6+TgEtV8ZUU
-        E644ibv9Am1r96h9V0/ZnIO8eCm5sVJyXpRgmt6FEtmP6IqR8mCJgu5EEuk0puI1K7Q2HMW14qFn2c/d
-        9y6uzDSye8BOqp6NGLHIcwihv0X0f8aqryYBt9VKX2EBl+qKqI7WcevVbZrnWqkJOdnu2YPo3onwZiH8
-        R1CeJrAMf+XA0MeNj+m4Voh1sIgzkxepjddTHq8kbURu98lhCSiP7ezwPtvkLwTN5EWKObFwmrKFYxin
-        ZPVxE2LULKtLaNP4MlHk5ZyoDdvLfRgm5fCYighk/MXwOl0Ny9rDcvO/zC+ykP0GcP974wAAAABJRU5E
-        rkJggg==
+        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAhJJREFUOE+VUt9L
+        U2EYPqd/pqlp/iDBhWxnSiZzam7OsJB+EIFYN0VK4MSSM/RoQzdCQYVuvBBLRQis2aYEQaJ1V7g5peVx
+        KjmPzuvH9/26ks7F6YOHA4fv+fE+7ydLJufijemYLF9wSrIsMeS/3/iP6UbF7P4//2xNb6F9ODqH/JsL
+        sETmSzbfrCDfGtyC5+UmvBEdBa3vrQvk+edJwIC7JwH7k59w9adRcHvRugDH1T4a8PQmcfXZBlzaDi61
+        Rc0FuDCemWOzM5PzKa4WNVDfl0Ll8ySqX+kovPMJhXfjKLrHWEbRfcbKlGRrmoG2mCUcYYBiszOTtaVj
+        NAa34Qik0DJxgKF4DkPLp+dw+cFnSDYvNU7kVirMHdhAHcVm5wYiu7o34SSBavUXfMM6fCO7aI5k4B/d
+        R8ubLIoffiEB3zsMkEAdtV1BhdlpZntXAuWdSZQ9TeBKVwoVvWlUqjtw9u9CGczAFdqH8voQxe1fIeU1
+        zwoBb1iHM5hG+Ys0Sgm14T3YA9uC7Ij8QdVYFtfGDVyfPEYtoWbCQEnHGgn452JcHO+ZV8Vtc2Fq9ARu
+        7bdwrhqluO2rglDyaB2lj78RvjO2TB8Xt61Gc/BQ+w6Kzc7CzerhVQWXcqgP6VC0jIjNzlb5Eu+ZBRrC
+        GSihPTEzx7YuQI9EZYHxQ9F2DY3AM/+HwEqMHwnvmVfF85NAzEzgDLZkkLSuXH6iAAAAAElFTkSuQmCC
 </value>
   </data>
   <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
