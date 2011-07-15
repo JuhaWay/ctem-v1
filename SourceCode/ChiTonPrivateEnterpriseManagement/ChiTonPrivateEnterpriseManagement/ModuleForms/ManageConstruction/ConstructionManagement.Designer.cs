@@ -451,7 +451,6 @@
             // btAddchild
             // 
             this.btAddchild.Enabled = ComponentFactory.Krypton.Toolkit.ButtonEnabled.False;
-            this.btAddchild.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.page_add_child;
             this.btAddchild.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
             this.btAddchild.Text = "Thầu con";
             this.btAddchild.UniqueName = "D5520BC889F44104ABA432FF3F78D9BF";
@@ -460,7 +459,6 @@
             // btAddSubs
             // 
             this.btAddSubs.Enabled = ComponentFactory.Krypton.Toolkit.ButtonEnabled.False;
-            this.btAddSubs.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.images;
             this.btAddSubs.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
             this.btAddSubs.Text = "Thầu phụ";
             this.btAddSubs.UniqueName = "3CF0D129E3EF4572FE9B4651DEAEBA47";

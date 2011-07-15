@@ -434,7 +434,6 @@
             // 
             // btnViewListDetail
             // 
-            this.btnViewListDetail.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.application_view_detail;
             resources.ApplyResources(this.btnViewListDetail, "btnViewListDetail");
             this.btnViewListDetail.UniqueName = "46715A2AEC0143074F81325F50887305";
             this.btnViewListDetail.Click += new System.EventHandler(this.btViewDetail_Click);
