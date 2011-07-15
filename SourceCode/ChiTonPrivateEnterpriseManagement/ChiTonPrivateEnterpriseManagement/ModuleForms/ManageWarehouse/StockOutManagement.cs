@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using ChiTonPrivateEnterpriseManagement.Classes.Global;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWarehouse
@@ -16,10 +17,29 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWarehouse
             InitializeComponent();
         }
 
-        private void newToolStripButton_Click(object sender, EventArgs e)
+        private void btnAdd_Click(object sender, EventArgs e)
         {
-            NewStockOut newStockOut = new NewStockOut();
+            var newStockOut = new NewStockOut();
             newStockOut.ShowDialog();
+
+        }
+
+        private void StockOutManagement_Load(object sender, EventArgs e)
+        {
+            Setlayout();
+        }
+
+        private void Setlayout()
+        {
+            dgvStockout.Focus();
+            pnlSearch.Height = 82;
+            gbxSearch.Height = 78;
+            Global.SetLayoutForm(this, Constants.CHILD_FORM);
+            Global.SetLayoutHeaderGroup(hdDebt, Constants.CHILD_FORM);
+            Global.SetDaulftDatagridview(dgvStockout);
+            Global.SetLayoutGroupBoxSearch(gbxSearch);
+            Global.SetLayoutPanelChildForm(pnlSearch);
+            Global.SetLayoutButton(btnSearch);   
         }
     }
 }

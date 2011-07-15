@@ -30,7 +30,13 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageProgress
         {
             currentTab = 0;
             SetLayoutTab();
+            SetLayout();
             LoadData();
+        }
+
+        private void SetLayout()
+        {
+            Global.SetLayoutForm(this, Constants.CHILD_FORM);
         }
 
         private void gbxTab1_Panel_Click(object sender, EventArgs e)

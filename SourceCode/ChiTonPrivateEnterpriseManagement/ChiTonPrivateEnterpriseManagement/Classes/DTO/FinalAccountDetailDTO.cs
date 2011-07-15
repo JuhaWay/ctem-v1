@@ -13,10 +13,12 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
         public long MaterialID { get; set; }
         public string MaterialName { get; set; }
         public string RealCalUnit { get; set; }
-        public float Quantity { get; set; }
-        public float QuantityEst { get; set; }
+        public double Quantity { get; set; }
+        public double QuantityEst { get; set; }
         public long UnitCost { get; set; }
+        public string UnitCostFormated { get; set; }
         public long TotalCost { get; set; }
+        public string TotalCostFormated { get; set; }
         public string Note { get; set; }
 
         public FinalAccountDetailDTO()

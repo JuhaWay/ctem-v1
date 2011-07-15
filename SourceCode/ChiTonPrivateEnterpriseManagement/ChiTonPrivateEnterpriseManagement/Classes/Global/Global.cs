@@ -323,14 +323,14 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
 
         public static void SetDataCombobox(KryptonComboBox cbbControl, string obj)
         {
-            if (obj.Equals("Construction"))
+            if (obj.Equals(Constants.CONSTRUCTION))
             {
                 var constructionBus = new ConstructionBus();
                 cbbControl.DataSource = constructionBus.LoadAllConstructions();
                 cbbControl.ValueMember = Constants.CONSTRUCTION_VALUEMEMBER;
                 cbbControl.DisplayMember = Constants.CONSTRUCTION_DISPLAYMEMBER;
             }
-            if (obj.Equals("User"))
+            if (obj.Equals(Constants.USER))
             {
                 var employeeBus = new EmployeeBUS();
                 cbbControl.DataSource = employeeBus.LoadAllUser();
@@ -338,7 +338,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
                 cbbControl.DisplayMember = Constants.EMPLOYEE_DISPLAYMEMBER;
             }
 
-            if (obj.Equals("Employee"))
+            if (obj.Equals(Constants.EMPLOYEE))
             {
                 var employeeBus = new EmployeeBUS();
                 cbbControl.DataSource = employeeBus.LoadAllEmployee();
@@ -351,7 +351,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
                 var employeeBus = new EmployeeBUS();
                 var listEmp = new List<EmployerDTO>();
                 cbbControl.Items.Clear();
-                cbbControl.Items.Add("Tất Cả");
+                cbbControl.Items.Add(Constants.ALL);
                 listEmp = employeeBus.LoadAllEmployee();
                 foreach (EmployerDTO emp in listEmp)
                 {
@@ -359,7 +359,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
                 }
             }
 
-            if (obj.Equals("Debt"))
+            if (obj.Equals(Constants.DEBT))
             {
                 var debtBus = new DebtBUS();
                 cbbControl.DataSource = debtBus.GetDebt(0, Constants.EMPTY_TEXT, -1);
@@ -367,12 +367,12 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
                 cbbControl.DisplayMember = Constants.DEBT_DISPLAYMEMBER;
             }
 
-            if (obj.Equals("Debt Search"))
+            if (obj.Equals(Constants.DEBT_SEARCH))
             {
                 var debtBus = new DebtBUS();
                 var listDebt = new List<DebtDTO>();
                 cbbControl.Items.Clear();
-                cbbControl.Items.Add("Tất Cả");
+                cbbControl.Items.Add(Constants.ALL);
                 listDebt = debtBus.GetDebt(0, Constants.EMPTY_TEXT, -1);
                 foreach (DebtDTO debtDTO in listDebt)
                 {
@@ -380,30 +380,78 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
                 }
             }
             
-            if (obj.Equals("Status"))
+            if (obj.Equals(Constants.STATUS))
             {
                 cbbControl.Items.Add(Constants.ACTIVE);
                 cbbControl.Items.Add(Constants.INACTIVE);
             }
 
-            if (obj.Equals("Status Search"))
+            if (obj.Equals(Constants.STATUS_SEARCH))
             {
-                cbbControl.Items.Add("Tất Cả");
+                cbbControl.Items.Add(Constants.ALL);
                 cbbControl.Items.Add(Constants.ACTIVE);
                 cbbControl.Items.Add(Constants.INACTIVE);
             }
 
-            if (obj.Equals("Material"))
+            if (obj.Equals(Constants.MATERIAL))
             {
                 var materialBus = new MaterialBUS();
                 cbbControl.DataSource = materialBus.LoadAllMaterials();
                 cbbControl.ValueMember = Constants.MATERIAL_VALUEMEMBER;
                 cbbControl.DisplayMember = Constants.MATERIAL_DISPLAYMEMBER;
             }
+
+            if (obj.Equals(Constants.TO_PLACE))
+            {
+                cbbControl.Items.Add(Constants.CONSTRUCTION_WAREHOUSE);
+                cbbControl.Items.Add(Constants.MAIN_WAREHOUSE);
+            }
+
+            if (obj.Equals(Constants.IS_PAY))
+            {
+                cbbControl.Items.Add(Constants.PAY);
+                cbbControl.Items.Add(Constants.NOTPAY);
+            }
+
+            if (obj.Equals(Constants.MAIN_WAREHOUSE))
+            {
+                var warehouseBus = new WarehouseBUS();
+                cbbControl.DataSource = warehouseBus.LoadWarehouses(Constants.EMPTY_TEXT, Constants.MAIN_WAREHOUSE, -1);
+                cbbControl.ValueMember = Constants.WAREHOUSE_VALUEMEMBER;
+                cbbControl.DisplayMember = Constants.WAREHOUSE_DISPLAYMEMBER;
+            }
+
+            if (obj.Equals(Constants.WAREHOUSE_TYPE))
+            {
+                cbbControl.Items.Add(Constants.CONSTRUCTION_WAREHOUSE);
+                cbbControl.Items.Add(Constants.MAIN_WAREHOUSE);
+            }
+
+            if (obj.Equals(Constants.WAREHOUSE_SEARCH))
+            {                
+                var warehouseBus = new WarehouseBUS();
+                new List<DebtDTO>();
+                cbbControl.Items.Clear();
+                cbbControl.Items.Add(Constants.ALL);
+                List<WarehouseDTO> listWH = warehouseBus.LoadWarehouses(Constants.EMPTY_TEXT, Constants.EMPTY_TEXT, -1);
+                foreach (WarehouseDTO WHDTO in listWH)
+                {
+                    cbbControl.Items.Add(WHDTO.WarehouseName);
+                }
+            }
+
+            if (obj.Equals(Constants.WAREHOUSE_TYPE_SEARCH))
+            {
+                cbbControl.Items.Add(Constants.ALL);
+                cbbControl.Items.Add(Constants.CONSTRUCTION_WAREHOUSE);
+                cbbControl.Items.Add(Constants.MAIN_WAREHOUSE);
+            }
+
             if (cbbControl.Items.Count > 0)
             {
                 cbbControl.SelectedIndex = 0;                
             }
+            
         }
 
         public static long GetDataCombobox(KryptonComboBox cbbControl, string obj)
@@ -431,7 +479,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
                     rightValue = rightDTO.Value;
                 }
             }
-            return (rightValue & Global.CurrentUser.RightsValue) != 0;
+            return (rightValue & CurrentUser.RightsValue) != 0;
         }
 
         public static void SetDataTextBox(List<KryptonTextBox> listtxtControl, string obj)
@@ -719,6 +767,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
         public static void SetDaulftDatagridview(KryptonDataGridView dataGridView)
         {
             dataGridView.ReadOnly = true;
+            dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView.StateCommon.Background.Color1 = Color.White;
             dataGridView.RowHeadersWidth = 25;
             dataGridView.StateCommon.HeaderColumn.Back.Color1 = Color.FromArgb(43, 135, 173);

@@ -44,7 +44,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
             Global.SetLayoutGroupBoxChildForm(gbxEdit2);
             Global.SetLayoutGroupBoxSearch(gbxSearch);
             Global.SetLayoutPanelChildForm(pnlSearch);
-            Global.SetDataCombobox(cbbDebt, "Debt");
+            Global.SetDataCombobox(cbbDebt, Constants.DEBT);
             Global.SetLayoutButton(btnSearch);
             MakeEdit(false);
         }
@@ -65,7 +65,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
 
         private void RefreshData()
         {
-            Global.SetDataCombobox(cbbNameSearch, "Debt Search");
+            Global.SetDataCombobox(cbbNameSearch, Constants.DEBT_SEARCH);
             cbbNameSearch.SelectedIndex = 0;
             dtpSearchTo.Value = DateTime.Today;
             dtpSearchFrom.Value = Global.GetFirstDateInMonth();
@@ -75,7 +75,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
         private void LoadData()
         {
             string name = cbbNameSearch.Text;
-            if (name.Equals("Tất Cả"))
+            if (name.Equals(Constants.ALL))
             {
                 name = Constants.EMPTY_TEXT;
             }

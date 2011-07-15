@@ -96,9 +96,6 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
 
         public const string INVALIDATE_VALUE = "Giá Trị Bạn Vừa Nhập Không Hợp Lệ";
 
-        public const string TO_CONSTRUCTION_WAREHOUSE = "Kho Công Trình";
-        public const string TO_MAIN_WAREHOUSE = "Kho Chính";
-
         public const string CONSTRUCTION_WAREHOUSE = "Kho Công Trình";
         public const string MAIN_WAREHOUSE = "Kho Chính";
 
@@ -113,12 +110,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
         public const string NOT_EXIST_MATERIAL = "Vật tư này chưa tồn tại\n Bạn có muốn thêm mới?";
         public const string NOT_EXIST_MATERIAL_EST = "Vật tư này chưa tồn tại trong dự toán\n Bạn có muốn thêm mới?";
 
-        public const string CONSTRUCTION = "CONSTRUCTION";
-        public const string EMPLOYEE = "EMPLOYEE";
-        public const string WAREHOUSE = "WAREHOUSE";
-        public const string DEBT = "DEBT";
-        public const string LEDGER = "LEDGER";
-        public const string SYSTEM = "SYSTEM";
+        
 
         public const int MIN_HEIGHT_HEADER_GROUP = 26;
         public const int MAX_HEIGHT_HG_CONS = 180;
@@ -166,6 +158,29 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
 
         public const string INPUT_NUMBER = "Chỉ Nhập Số Vào";
 
-        public const string EMPLOYEE_SEARCH = "EMPLOYEE SEARCH";
+        public const string EMPLOYEE_SEARCH = "Employee Search";
+        public const string TO_PLACE = "To Place";
+        public const string STATUS = "Status";        
+        public const string CONSTRUCTION = "CONSTRUCTION";
+        public const string EMPLOYEE = "EMPLOYEE";
+        public const string WAREHOUSE = "WAREHOUSE";
+        public const string MATERIAL = "Material";
+        public const string DEBT = "DEBT";
+        public const string LEDGER = "LEDGER";
+        public const string SYSTEM = "SYSTEM";
+        public const string ALL = "Tất Cả";
+        public const string STATUS_SEARCH = "Status Search";
+        public const string DEBT_SEARCH = "Debt Search";
+        public const string IS_PAY = "Is Pay";
+
+        public const string USER = "User";
+
+        public const string ERROR_EXIST_ITEM = " Dữ Liệu Vừa Nhập Đã Tồn Tại\n Bạn Nên Sửa Hoặc Xóa Nó";
+
+        public const string WAREHOUSE_TYPE = "Warehouse Type";
+
+        public const string WAREHOUSE_SEARCH = "Warehouse Search";
+
+        public const string WAREHOUSE_TYPE_SEARCH = "Warehouse Type Search";
     }
 }

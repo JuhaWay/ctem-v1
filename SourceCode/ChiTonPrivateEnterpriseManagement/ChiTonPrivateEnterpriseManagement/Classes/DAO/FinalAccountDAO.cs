@@ -39,67 +39,6 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             }
         }       
 
-        public List<FinalAccountDTO> GetAll()
-        {
-            var cmd = new SqlCommand("[dbo].[FinalAccount_GetAll]", Connection);
-            if (Transaction != null)
-            {
-                cmd.Transaction = Transaction;
-            }
-            cmd.CommandType = CommandType.StoredProcedure;
-            try
-            {
-                SqlDataReader reader = cmd.ExecuteReader();
-                List<FinalAccountDTO> listFinalAccount = new List<FinalAccountDTO>();
-                while (reader.Read())
-                {
-                    FinalAccountDTO finalAccount = new FinalAccountDTO
-                    {
-                        FinalAccountID = Convert.ToInt64(reader["FinalAccountID"]),
-                        ConstructionID = Convert.ToInt64(reader["ConstructionID"]),
-                        ConstructionName = Convert.ToString(reader["ConstructionName"]),
-                        DateAccount = DateTime.Parse(Convert.ToString(reader["DateAccount"])),
-                        DebtID = Convert.ToInt64(reader["DebtID"]),
-                        DebtName = Convert.ToString(reader["DebtName"]),
-                        TransportationCost = Convert.ToInt64(reader["TransportationCost"]),
-                        TotalCost = Convert.ToInt64(reader["TotalCost"]),
-                        //ComparationDebtID = Convert.ToInt64(reader["ComparationDebtID"]),
-                        PersonAccount = Convert.ToString(reader["PersonAccount"]),
-                        //CreatedDate = DateTime.Parse(Convert.ToString(reader["CreatedDate"])),
-                        //LastUpdated = DateTime.Parse(Convert.ToString(reader["LastUpdated"])),
-                        //CreatedBy = Convert.ToString(reader["CreatedBy"]),
-                        //UpdatedBy = Convert.ToString(reader["UpdatedBy"])
-                    };
-                    try
-                    {
-                        bool ispay = Convert.ToBoolean(reader["IsPay"]);
-                        if (ispay)
-                        {
-                            finalAccount.IsPay = 1;
-                        }
-                        else
-                        {
-                            finalAccount.IsPay = 0;
-                        }
-                    }
-                    catch (Exception)
-                    {
-                    }
-                    listFinalAccount.Add(finalAccount);
-                }
-                return listFinalAccount;
-            }
-            catch (SqlException sql)
-            {
-                MessageBox.Show(sql.Message, "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return null;
-            }
-            finally
-            {
-                if (Transaction == null) Connection.Close();
-            }
-        }
-
         public bool CreateFinalAccount(FinalAccountDTO finalAccount)
         {
             var cmd = new SqlCommand("[dbo].[FinalAccount_Create]", Connection) { CommandType = CommandType.StoredProcedure };
@@ -120,6 +59,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.Parameters.Add(new SqlParameter("@CreatedBy", finalAccount.CreatedBy));
                 cmd.Parameters.Add(new SqlParameter("@IsPay", finalAccount.IsPay));
                 cmd.Parameters.Add(new SqlParameter("@Note", finalAccount.Note));
+                cmd.Parameters.Add(new SqlParameter("@CreatedBy", Global.Global.CurrentUser.Username));
                 cmd.ExecuteNonQuery();
                 return true;
             }
@@ -136,7 +76,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
 
         public bool CreateFinalAccountDetail(FinalAccountDetailDTO finalaccountdetail)
         {
-            var cmd = new SqlCommand("[dbo].[FinalAccountDetail_Create]", Connection) { CommandType = CommandType.StoredProcedure };
+            var cmd = new SqlCommand("[dbo].[FinalAccount_CreateDetail]", Connection) { CommandType = CommandType.StoredProcedure };
             if (Transaction != null)
             {
                 cmd.Transaction = Transaction;
@@ -149,6 +89,121 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.Parameters.Add(new SqlParameter("@UnitCost", finalaccountdetail.UnitCost));
                 cmd.Parameters.Add(new SqlParameter("@TotalCost", finalaccountdetail.TotalCost));
                 cmd.Parameters.Add(new SqlParameter("@Note", finalaccountdetail.Note));
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException sql)
+            {
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null)
+                    Connection.Close();
+            }
+        }
+
+        public List<FinalAccountDTO> GetFinalAccount(long id, string name, string consName, string debtName, DateTime fromdate, DateTime todate)
+        {
+            var cmd = new SqlCommand("[dbo].[FinalAccount_GetFinalAccount]", Connection);
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@Id", id));
+                cmd.Parameters.Add(new SqlParameter("@Name", name));
+                cmd.Parameters.Add(new SqlParameter("@ConsName", consName));
+                cmd.Parameters.Add(new SqlParameter("@DebtName", debtName));
+                cmd.Parameters.Add(new SqlParameter("@FromDate", fromdate));
+                cmd.Parameters.Add(new SqlParameter("@ToDate", todate.AddDays(1)));
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataReader reader = cmd.ExecuteReader();
+                var listFinalAccount = new List<FinalAccountDTO>();
+                while (reader.Read())
+                {
+                    var finalAccount = new FinalAccountDTO
+                    {
+                        FinalAccountID = Convert.ToInt64(reader["FinalAccountID"]),
+                        FinalAccountName = Convert.ToString(reader["FinalAccountName"]),
+                        ConstructionID = Convert.ToInt64(reader["ConstructionID"]),
+                        ConstructionName = Convert.ToString(reader["ConstructionName"]),
+                        DateAccount = DateTime.Parse(Convert.ToString(reader["DateAccount"])),
+                        DebtID = Convert.ToInt64(reader["DebtID"]),
+                        DebtName = Convert.ToString(reader["DebtName"]),
+                        TransportationCost = Convert.ToInt64(reader["TransportationCost"]),
+                        TotalCost = Convert.ToInt64(reader["TotalCost"]),
+                        PersonAccount = Convert.ToString(reader["PersonAccount"]),
+                        Note = Convert.ToString(reader["Note"]),
+                        CreatedDate = DateTime.Parse(Convert.ToString(reader["CreatedDate"])),
+                        LastUpdated = DateTime.Parse(Convert.ToString(reader["LastUpdate"])),
+                        CreatedBy = Convert.ToString(reader["CreatedBy"]),
+                        UpdatedBy = Convert.ToString(reader["UpdatedBy"])
+                    };
+                    try
+                    {
+                        finalAccount.DateAccountFormated =
+                            finalAccount.DateAccount.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
+                        finalAccount.TransportationCostFormated =
+                            Global.Global.ConvertLongToMoney(finalAccount.TransportationCost, ".");
+                        finalAccount.TotalCostFormated = Global.Global.ConvertLongToMoney(finalAccount.TotalCost, ".");
+                        var ispay = Convert.ToBoolean(reader["IsPay"]);
+                        finalAccount.IsPay = ispay ? 1 : 0;
+                        finalAccount.ComparationDebtID = Convert.ToInt64(reader["ComparationDebtID"]);
+                        finalAccount.WarehouseID = Convert.ToInt64(reader["WarehouseID"]);
+                    }
+                    catch (Exception)
+                    {
+                    }
+                    listFinalAccount.Add(finalAccount);
+                }
+                return listFinalAccount;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message, "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                if (Transaction == null) Connection.Close();
+            }
+        }
+
+        public bool DeleteFinalAccount(long id)
+        {
+            var cmd = new SqlCommand("[dbo].[FinalAccount_Delete]", Connection) { CommandType = CommandType.StoredProcedure };
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@FinalAccountID", id));
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException sql)
+            {
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null)
+                    Connection.Close();
+            }
+        }
+
+        public bool DeleteAll()
+        {
+            var cmd = new SqlCommand("[dbo].[FinalAccount_DeleteAll]", Connection) { CommandType = CommandType.StoredProcedure };
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
                 cmd.ExecuteNonQuery();
                 return true;
             }

@@ -17,7 +17,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
     {
         EmployeeBUS employeeBUS = new EmployeeBUS();
         List<EmployerDTO> listEmployee;
-        CheckBox _ckBox;
         public EmployeeManagement()
         {
             InitializeComponent();
@@ -33,9 +32,9 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
         {
             Global.SetLayoutForm(this, Constants.CHILD_FORM);
             Global.SetLayoutHeaderGroup(hdEmp, Constants.CHILD_FORM);
-            Global.SetLayoutHeaderGroup(hdCons, Constants.CHILD_FORM);
+            Global.SetLayoutHeaderGroup(hdEdit, Constants.CHILD_FORM);
             Global.SetDaulftDatagridview(dgvEmployee);
-            Global.SetDaulftDatagridview(dgvCons);
+            Global.SetDaulftDatagridview(dgvEmployee);
             Global.SetLayoutSplipContainer(slcMain, 2);
         }        
 
@@ -46,9 +45,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
 
         private void EmployeeManagementForm_Load(object sender, EventArgs e)
         {
-            _ckBox = new CheckBox();
-            Global.SetLayoutDataGridview(_ckBox, dgvEmployee);
-            _ckBox.CheckedChanged += new EventHandler(ckBox_CheckedChanged);
             SetLayout();
             loadEmployee();
         }
@@ -92,7 +88,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
 
         void ckBox_CheckedChanged(object sender, EventArgs e)
         {
-            Global.CheckBoxCheck(_ckBox, dgvEmployee);
         }
 
         private void btnEditEmployee_Click(object sender, EventArgs e)

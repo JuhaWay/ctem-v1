@@ -11,5 +11,6 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
         public string MaterialName { get; set; }
         public string MaterialUnitCall { get; set; }
         public long Quantity { get; set; }
+        public string Note { get; set; }
     }
 }

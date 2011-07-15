@@ -178,6 +178,12 @@
     <Compile Include="ModuleForms\CommonForm.Designer.cs">
       <DependentUpon>CommonForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModuleForms\ManageEmployee\Authorization.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForms\ManageEmployee\Authorization.Designer.cs">
+      <DependentUpon>Authorization.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModuleForms\ManageLedger\AddnewLedger.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -462,6 +468,10 @@
     <EmbeddedResource Include="ModuleForms\CommonForm.resx">
       <DependentUpon>CommonForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\ManageEmployee\Authorization.resx">
+      <DependentUpon>Authorization.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="ModuleForms\ManageLedger\AddnewLedger.resx">
       <DependentUpon>AddnewLedger.cs</DependentUpon>
     </EmbeddedResource>
@@ -670,28 +680,7 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Database\Backup\" />
-    <Folder Include="images\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Database\Script\CTEM-DB.sql" />
-    <None Include="Resources\save_edit.png" />
-    <None Include="Resources\reload.png" />
-    <None Include="Resources\load all.png" />
-    <None Include="Resources\freeze.png" />
-    <None Include="Resources\find1.png" />
-    <None Include="Resources\edit_clear.png" />
-    <None Include="Resources\Edit.png" />
-    <None Include="Resources\delete1.png" />
-    <None Include="Resources\close_box_red.png" />
-    <None Include="Resources\cancel.png" />
-    <None Include="Resources\add.png" />
-    <None Include="Resources\images1.jpeg" />
-    <None Include="Resources\icon1.png" />
-    <None Include="Resources\images.jpeg" />
-    <None Include="Resources\Button-Add-icon.png" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

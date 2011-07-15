@@ -38,94 +38,99 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
 
         private void NewFinalAccount_Load(object sender, EventArgs e)
         {
-            CenterToParent();            
             setLauout();
             setData();
         }
 
         private void RefreshDisplayData()
         {
-            dgvContentBot.DataSource = null;
-            dgvContentBot.DataSource = listFinalAccountDetail;
+            dgvAccDetail.DataSource = null;
+            dgvAccDetail.DataSource = listFinalAccountDetail;
+            if (cbbMaterial.Items.Count > 0)
+            {
+                cbbMaterial.SelectedIndex = 0;
+            }
+            txtQuantity.Text = Constants.ZERO_NUMBER;
+            txtUnitCost.Text = Constants.ZERO_NUMBER;
+            txtTotalCostItem.Text = Constants.ZERO_NUMBER;
+            txtNoteItem.Text = Constants.EMPTY_TEXT;
         }
 
         private void setLauout()
         {
-            _ckBox = new CheckBox();
-            Global.SetLayoutDataGridview(_ckBox, dgvContentBot);
-            _ckBox.CheckedChanged += new EventHandler(ckBox_CheckedChanged);
-            pnlNewItem.Visible = false;
-            Global.CenterToParent(pnlNewItem, this, Constants.CENTER, 0);
-            List<KryptonTextBox> listTextBox = new List<KryptonTextBox>();
-            listTextBox.Add(txtTransportationCost);
-            listTextBox.Add(txtTotalCost);
-            listTextBox.Add(txtQuantity);
-            listTextBox.Add(txtTotalCostItem);
-            Global.SetDataTextBox(listTextBox, Constants.NUMBER);
-        }
-
-        void ckBox_CheckedChanged(object sender, EventArgs e)
-        {
-            Global.CheckBoxCheck(_ckBox, dgvContentBot);
+            CenterToParent();
+            Global.SetLayoutForm(this, Constants.DIALOG_FORM);
+            Global.SetLayoutSplipContainerNewForm(slcFinalAccInfo);
+            Global.SetLayoutGroupBoxNewForm(gbxEdit1);
+            Global.SetLayoutGroupBoxNewForm(gbxEdit2);
+            Global.SetLayoutPanelChildForm(pnlNewItem);
+            Global.SetLayoutGroupBoxSearch(gbxNewItem);
+            Global.SetLayoutHeaderGroup(hdDetailInfo, Constants.CHILD_FORM);
+            Global.SetLayoutHeaderGroup(hdMainInfo, Constants.CHILD_FORM);
+            Global.SetLayoutSplipContainer(slcMain, 1);
+            Global.SetDaulftDatagridview(dgvAccDetail);
+            Global.SetTextBoxNumberLeave(txtNo);
+            Global.SetTextBoxNumberLeave(txtTransportationCost);
+            Global.SetTextBoxNumberLeave(txtTotalCost);
+            Global.SetTextBoxNumberLeave(txtQuantity);
+            Global.SetTextBoxNumberLeave(txtUnitCost);
+            Global.SetTextBoxNumberLeave(txtTotalCostItem);
         }
 
         private void setData()
         {
-            cbbToPlace.Items.Add(Constants.TO_CONSTRUCTION_WAREHOUSE);
-            cbbToPlace.Items.Add(Constants.TO_MAIN_WAREHOUSE);
-            cbbToPlace.SelectedIndex = 0;
-
-            cbbStatus.Items.Add(Constants.PAY);
-            cbbStatus.Items.Add(Constants.NOTPAY);
-            cbbStatus.SelectedIndex = 0;
-
-            listConstructionHaveWarehouse = constructionBUS.LoadAllConstructionsHaveWarehouse();
-            cbbConstruction.DataSource = listConstructionHaveWarehouse;
-            cbbConstruction.ValueMember = Constants.CONSTRUCTION_VALUEMEMBER;
-            cbbConstruction.DisplayMember = Constants.CONSTRUCTION_DISPLAYMEMBER;
-
-            listMainWarehouse = warehouseBUS.LoadWarehouses(Constants.MAIN_WAREHOUSE);
-            cbbMainWarehouse.DataSource = listMainWarehouse;
-            cbbMainWarehouse.ValueMember = Constants.WAREHOUSE_VALUEMEMBER;
-            cbbMainWarehouse.DisplayMember = Constants.WAREHOUSE_DISPLAYMEMBER;
-
-            listDebt = debtBUS.GetDebt(0, Constants.EMPTY_TEXT, -1);
-            cbbDebt.DataSource = listDebt;
-            cbbDebt.ValueMember = Constants.DEBT_VALUEMEMBER;   
-            cbbDebt.DisplayMember = Constants.DEBT_DISPLAYMEMBER;
-
+            Global.SetDataCombobox(cbbToPlace, Constants.TO_PLACE);
+            Global.SetDataCombobox(cbbStatus, Constants.IS_PAY);
+            Global.SetDataCombobox(cbbConstruction, Constants.CONSTRUCTION);
+            Global.SetDataCombobox(cbbMainWarehouse, Constants.MAIN_WAREHOUSE);
+            Global.SetDataCombobox(cbbDebt, Constants.DEBT);
             listMaterial = materialBUS.LoadAllMaterials();
-            Global.SetDataCombobox(cbbMaterial, "Material");
+            Global.SetDataCombobox(cbbMaterial, Constants.MATERIAL);
         }        
 
         private void btnAddItem_Click(object sender, EventArgs e)
         {
-            MaterialDTO material = (MaterialDTO) cbbMaterial.SelectedItem;
-            FinalAccountDetailDTO finalaccountitem = new FinalAccountDetailDTO();
-            finalaccountitem.FinalAccountID = Convert.ToInt64(txtNo.Text);
-            finalaccountitem.MaterialID = material.MaterialID;
-            finalaccountitem.MaterialName = material.MaterialName;
-            finalaccountitem.RealCalUnit = material.RealCalUnit;
-            finalaccountitem.Quantity = Convert.ToInt32(txtQuantity.Text);
-            finalaccountitem.QuantityEst = finalaccountitem.Quantity*material.Ratio;
-            finalaccountitem.UnitCost = Global.ConvertMoneyToLong(txtUnitCost.Text, ".");
-            finalaccountitem.TotalCost = Global.ConvertMoneyToLong(txtTotalCostItem.Text, ".");
-            finalaccountitem.Note = txtNoteItem.Text;
-            listFinalAccountDetail.Add(finalaccountitem);
-            RefreshDisplayData();
-            long totalCostCurr = Global.ConvertMoneyToLong(txtTotalCost.Text, ".");
-            long totalCost = totalCostCurr + finalaccountitem.TotalCost;
-            txtTotalCost.Text = Global.ConvertLongToMoney(totalCost, ".");
+            if (CheckExistItem())
+            {
+                KryptonMessageBox.Show(Constants.ERROR_EXIST_ITEM, Constants.CONFIRM);
+                RefreshDisplayData();
+            }
+            else
+            {
+                var material = (MaterialDTO)cbbMaterial.SelectedItem;
+                var finalaccountitem = new FinalAccountDetailDTO();
+                finalaccountitem.FinalAccountID = Convert.ToInt64(txtNo.Text);
+                finalaccountitem.MaterialID = material.MaterialID;
+                finalaccountitem.MaterialName = material.MaterialName;
+                finalaccountitem.RealCalUnit = material.RealCalUnit;
+                finalaccountitem.Quantity = Convert.ToDouble(txtQuantity.Text);
+                finalaccountitem.QuantityEst = finalaccountitem.Quantity * material.Ratio;
+                finalaccountitem.UnitCost = Global.ConvertMoneyToLong(txtUnitCost.Text, ".");
+                finalaccountitem.UnitCostFormated = txtUnitCost.Text;
+                finalaccountitem.TotalCost = Global.ConvertMoneyToLong(txtTotalCostItem.Text, ".");
+                finalaccountitem.TotalCostFormated = txtTotalCostItem.Text;
+                finalaccountitem.Note = txtNoteItem.Text;
+                listFinalAccountDetail.Add(finalaccountitem);
+                RefreshDisplayData();
+                long totalCostCurr = Global.ConvertMoneyToLong(txtTotalCost.Text, ".");
+                long totalCost = totalCostCurr + finalaccountitem.TotalCost;
+                txtTotalCost.Text = Global.ConvertLongToMoney(totalCost, ".");
+            }
+            
         }
 
-        private void btnAddFinalAccountItem_Click(object sender, EventArgs e)
+        private bool CheckExistItem()
         {
-            pnlNewItem.Visible = true;
-        }
-
-        private void btnCloseNewItem_Click(object sender, EventArgs e)
-        {
-            pnlNewItem.Visible = false;
+            bool isExist = false;
+            var material = (MaterialDTO)cbbMaterial.SelectedItem;
+            foreach (FinalAccountDetailDTO detailDTO in listFinalAccountDetail)
+            {
+                if (detailDTO.MaterialID == material.MaterialID)
+                {
+                    isExist = true;
+                }
+            }
+            return isExist;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -133,8 +138,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
             long finalAccountID = Convert.ToInt64(txtNo.Text);
             string finalAccountName = txtNameFinalAccount.Text;
             string accountPerson = txtPersonAccount.Text;
-            DebtDTO debt = (DebtDTO) cbbDebt.SelectedItem;
-            long debtId = debt.DebtID;
+            long debtId = Global.GetDataCombobox(cbbDebt, Constants.DEBT);
             DateTime dateaccount = DateTime.Parse(dtpDateAccount.Text);
             long transportationCost = Global.ConvertMoneyToLong(txtTransportationCost.Text, ".");
             long totalCost = Global.ConvertMoneyToLong(txtTotalCost.Text, ".");
@@ -187,7 +191,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
 
         private void cbbToPlace_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbbToPlace.Text.Equals(Constants.TO_MAIN_WAREHOUSE))
+            if (cbbToPlace.Text.Equals(Constants.MAIN_WAREHOUSE))
             {
                 cbbMainWarehouse.Enabled = true;
                 cbbConstruction.Enabled = false;
@@ -206,32 +210,36 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
 
         private void txtTransportationCost_Enter(object sender, EventArgs e)
         {
-            KryptonTextBox textBox = (KryptonTextBox) sender;
-            textBox.Text = Constants.EMPTY_TEXT;
+            var textBox = sender as KryptonTextBox;
+            Global.SetTextBoxNumberEnter(textBox);
         }
 
         private void txtTransportationCost_Leave(object sender, EventArgs e)
         {
-            KryptonTextBox textBox = (KryptonTextBox)sender;
-            if(textBox.Text.Equals(Constants.EMPTY_TEXT))
-            {
-                Global.SetDataTextBox(textBox, Constants.NUMBER);
-            }
+            var textBox = sender as KryptonTextBox;
+            Global.SetTextBoxNumberLeave(textBox);
         }
 
         private void txtTotalCostItem_Enter(object sender, EventArgs e)
         {
-            int quantity = Convert.ToInt32(txtQuantity.Text);
-            long unitCost = Global.ConvertMoneyToLong(txtUnitCost.Text, ".");
-            long totalCost = quantity*unitCost;
-            txtTotalCostItem.Text = Global.ConvertLongToMoney(totalCost, ".");
+            try
+            {
+                int quantity = Convert.ToInt32(txtQuantity.Text);
+                long unitCost = Global.ConvertMoneyToLong(txtUnitCost.Text, ".");
+                long totalCost = quantity * unitCost;
+                txtTotalCostItem.Text = Global.ConvertLongToMoney(totalCost, ".");
+            }
+            catch
+            {
+            }
+            
         }
 
         private void generateToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
-                ActiveControl.Text += ".000";
+                ActiveControl.Text +=Constants.THOUSAND;
             }
             catch (Exception)
             {
@@ -276,17 +284,85 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
                         i = listMaterialInEstimate.Count;
                     }
                 }
-                if (!isExistEst)
-                {
-                    if (KryptonMessageBox.Show(Constants.NOT_EXIST_MATERIAL_EST, Constants.CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        ConstructionDTO consDTO = cbbConstruction.SelectedItem as ConstructionDTO;
-                        //EstimateID = estimateBus.GetEstIDByConsID(consDTO.ConstructionID);
-                        //AddNewEsDetail newEstimate = new AddNewEsDetail(EstimateID, cbbMaterial.SelectedIndex);
-                        //newEstimate.ShowDialog();
-                    }
-                }
+                //if (!isExistEst)
+                //{
+                //    if (KryptonMessageBox.Show(Constants.NOT_EXIST_MATERIAL_EST, Constants.CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                //    {
+                //        var consDTO = cbbConstruction.SelectedItem as ConstructionDTO;
+                //        if (consDTO != null)
+                //        {
+                //            var listestimate = estimateBus.LoadEstimateByConstruction(consDTO.ConstructionID);
+                //            if (listestimate.Count > 0)
+                //            {
+                //                EstimateID = listestimate[0].EstimateID;
+                //            }
+                //        }
+                //        var newEstimate = new AddNewEsDetail(EstimateID);
+                //        newEstimate.ShowDialog();
+                //    }
+                //    else
+                //    {
+                //        EstimateID = 0;
+                //    }
+                //}
             }            
+        }
+
+        private void dgvAccDetail_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            int indexMaterial = 0;
+            DataGridViewRow r = dgvAccDetail.Rows[e.RowIndex];
+            string materialName = r.Cells["MaterialName"].Value.ToString();
+            for (int i = 0; i < cbbMaterial.Items.Count; i++)
+            {
+                var materialDTO = cbbMaterial.Items[i] as MaterialDTO;
+                if (materialDTO != null)
+                    if (materialDTO.MaterialName.Equals(materialName))
+                    {
+                        indexMaterial = i;
+                        i = cbbMaterial.Items.Count;
+                    }
+            }
+            txtQuantity.Text = r.Cells["Quantity"].Value.ToString();
+            txtUnitCost.Text = r.Cells["UnitCostFormated"].Value.ToString();
+            txtTotalCostItem.Text = r.Cells["TotalCostFormated"].Value.ToString();
+            txtNoteItem.Text = r.Cells["Note"].Value.ToString();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (KryptonMessageBox.Show(Constants.CONFIRM_DELETE, Constants.CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                foreach (DataGridViewRow row in dgvAccDetail.SelectedRows)
+                {
+                    int indexDetail = 0;
+                    string materialName = row.Cells["MaterialName"].Value.ToString();
+                    for (int i = 0; i < listFinalAccountDetail.Count; i++)
+                    {
+                        FinalAccountDetailDTO detail = listFinalAccountDetail[i];
+                        if (detail != null)
+                            if (detail.MaterialName.Equals(materialName))
+                            {
+                                indexDetail = i;
+                            }
+                    }
+                    listFinalAccountDetail.RemoveAt(indexDetail);
+                }
+                RefreshDisplayData();
+            }
+        }
+
+        private void btnDeleteAll_Click(object sender, EventArgs e)
+        {
+            if (KryptonMessageBox.Show(Constants.CONFIRM_DELETEALL, Constants.CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                int totalDetail = listFinalAccountDetail.Count;
+                for (int i = 0; i < totalDetail; i++)
+                {
+                    listFinalAccountDetail.RemoveAt(0);
+                }
+                RefreshDisplayData();
+            }
         }
     }
 }

@@ -446,7 +446,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
 
         public List<EmployerDTO> GetAllEmp()
         {
-            var cmd = new SqlCommand("[dbo].[Employee_GetAll]", Connection);
+            var cmd = new SqlCommand("[dbo].[Employee_GetAllWithoutAdmin]", Connection);
             if (Transaction != null)
             {
                 cmd.Transaction = Transaction;

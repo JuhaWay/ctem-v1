@@ -13,7 +13,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
     /// </summary>
     public class FinalAccountBUS
     {
-        FinalAccountDAO finalAccountDAO = new FinalAccountDAO();
+        readonly FinalAccountDAO finalAccountDAO = new FinalAccountDAO();
         
         public bool CreateFinalAccount(FinalAccountDTO finalAccount)
         {
@@ -25,9 +25,19 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
             return finalAccountDAO.CreateFinalAccountDetail(finalaccountdetail);
         }
 
-        public List<FinalAccountDTO> GetAll()
+        public List<FinalAccountDTO> GetFinalAccount(long id, string name, string consName, string debtName, DateTime fromdate, DateTime todate)
         {
-            return finalAccountDAO.GetAll();            
+            return finalAccountDAO.GetFinalAccount(id, name, consName, debtName, fromdate, todate);
+        }
+
+        public bool DeleteFinalAccount(long id)
+        {
+            return finalAccountDAO.DeleteFinalAccount(id);
+        }
+
+        public bool DeleteAll()
+        {
+            return finalAccountDAO.DeleteAll();
         }
     }
 }

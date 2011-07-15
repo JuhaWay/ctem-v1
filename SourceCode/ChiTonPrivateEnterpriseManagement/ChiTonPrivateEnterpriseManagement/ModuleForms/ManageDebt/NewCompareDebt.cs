@@ -89,7 +89,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
             Global.SetLayoutButton(btnSave);
             Global.SetLayoutButton(btnClose);
             Global.SetLayoutButton(btnClear);
-            Global.SetDataCombobox(cbbDebt, "Debt");
+            Global.SetDataCombobox(cbbDebt, Constants.DEBT);
             ClearLayout();
         }
 
