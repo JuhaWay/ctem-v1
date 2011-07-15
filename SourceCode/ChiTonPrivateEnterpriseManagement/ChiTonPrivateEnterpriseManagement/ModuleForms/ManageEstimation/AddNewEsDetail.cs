@@ -22,7 +22,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
 
         private long _estimateId;
 
-        private long _totalCost;
+        private double _totalCost;
         public AddNewEsDetail(long estimateId)
         {
             CenterToParent();
@@ -34,6 +34,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
         {
             cbMaterial.Items.AddRange(_materialBUS.LoadAllMaterials().ToArray());
             cbMaterial.DisplayMember = "MaterialName";
+            Global.SetLayoutPanelNewForm(pnMain);
         }
 
         private void btSave_Click(object sender, EventArgs e)
@@ -55,13 +56,18 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
                 entity.EstimateID = _estimateId;  
                 if (cbType.SelectedIndex == 0)
                 {
+                    if (cbMaterial.SelectedIndex < 0)
+                    {
+                        MessageBox.Show("Vui lòng chọn Vật liệu");
+                        return;
+                    }
+
                     if (!validateQuantity(ipQuantity.Text)) return;
-                    if (!validatePrice(ipPrice.Text)) return;
-                    entity.QuantityEstimate = Convert.ToInt32(ipQuantity.Text);
-                    entity.UnitCostEstimate = Convert.ToInt64(ipQuantity.Text);
+                    entity.QuantityEstimate = Convert.ToDouble(ipQuantity.Text);
+                    entity.UnitCostEstimate =Global.ConvertMoneyToLong(ipQuantity.Text,".");
                     entity.MaterialID = (cbMaterial.SelectedItem as MaterialDTO).MaterialID;
-                }                          
-                entity.TotalCostEstimate = Convert.ToInt64(ipTotal.Text);              
+                }
+                entity.TotalCostEstimate = Global.ConvertMoneyToLong(ipTotal.Text,".");              
                 _estimateDetailBUS.CreateEstimateDetail(entity);
                
             }
@@ -69,6 +75,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
             this.Close();
         }
 
+        // validate thong tin
         public bool validateMaterial(MaterialDTO dto)
         {
             if (dto == null)
@@ -79,10 +86,11 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
 
             return true;
         }
+
         public bool validateQuantity(string s)
         {
 
-            if (!Global.isNumber(s))
+            if (!Global.ValidateDoubleNumber(s))
             {
                 MessageBox.Show("Dử liệu của số lượng ko đúng !");
                 return false;
@@ -94,14 +102,13 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
         public bool validatePrice(string s)
         {
 
-            if (!Global.isNumber(s))
+            if (!Global.ValidateLongNumber(s))
             {
                 MessageBox.Show("Dử liệu giá ko đúng !");
                 return false;
             }
             return true;
         }
-
         public long getTotalCost(List<EstimateDetailDTO> esDetails)
         {
             long total = 0;
@@ -114,41 +121,33 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
 
         private void cbMaterial_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbMaterial.SelectedIndex == 0)
-            {
-                ipQuantity.Enabled = false;
-                ipPrice.Enabled = false;
-                ipTotal.Enabled = true;
-                ipName.Enabled = true;
-            }
-
-
             MaterialDTO dto = cbMaterial.SelectedItem as MaterialDTO;
-            lbUnit.Text = dto.EstimateCalUnit;
+            lbUnit1.Text = dto.EstimateCalUnit;
         }
 
         private void ipQuantity_TextChanged(object sender, EventArgs e)
         {
 
-            if (Global.isNumber(ipPrice.Text) && Global.isNumber(ipQuantity.Text))
+
+            if (Global.ValidateDoubleNumber(ipQuantity.Text))
             {
-                _totalCost = Convert.ToInt64(ipPrice.Text) * Convert.ToInt64(ipQuantity.Text);
-                ipTotal.Text = _totalCost.ToString();
+                _totalCost = Global.ConvertMoneyToLong(ipPrice.Text, ".") * Convert.ToDouble(ipQuantity.Text);
+                ipTotal.Text = Global.ConvertLongToMoney((long)_totalCost, ".");
             }
             else
                 _totalCost = 0;
         }
 
+        //tính tổng gia tiền
         private void ipPrice_TextChanged(object sender, EventArgs e)
         {
-            if (Global.isNumber(ipPrice.Text) && Global.isNumber(ipQuantity.Text))
+            if (Global.ValidateDoubleNumber(ipQuantity.Text))
             {
-                _totalCost = Convert.ToInt64(ipPrice.Text) * Convert.ToInt64(ipQuantity.Text);
-                ipTotal.Text = _totalCost.ToString();
+                _totalCost = Global.ConvertMoneyToLong(ipPrice.Text, ".") * Convert.ToDouble(ipQuantity.Text);
+                ipTotal.Text = Global.ConvertLongToMoney((long)_totalCost, ".");
             }
             else _totalCost = 0;
         }
-
         private void cbType_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbType.SelectedIndex == 1)
@@ -156,15 +155,36 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
                 cbMaterial.Enabled = false;
                 ipQuantity.Enabled = false;
                 ipPrice.Enabled = false;
-                ipTotal.Enabled = true;
+                ipTotal.ReadOnly = false;
             }
             else
             {
                 cbMaterial.Enabled = true;
                 ipQuantity.Enabled = true;
                 ipPrice.Enabled = true;
-                ipTotal.Enabled = false;
+                ipTotal.ReadOnly = true;
             }
+        }
+
+        private void ipPrice_MouseLeave(object sender, EventArgs e)
+        {
+            ipPrice.Text = Global.ConvertLongToMoney(Global.ConvertMoneyToLong(ipPrice.Text, "."), ".");
+        }
+
+        private void ipPrice_Leave(object sender, EventArgs e)
+        {
+              ipPrice.Text = Global.ConvertLongToMoney(Global.ConvertMoneyToLong(ipPrice.Text, "."), ".");
+        
+        }
+
+        private void ipTotal_Leave(object sender, EventArgs e)
+        {
+            ipTotal.Text = Global.ConvertLongToMoney(Global.ConvertMoneyToLong(ipTotal.Text, "."), ".");
+        }
+
+        private void ipTotal_MouseLeave(object sender, EventArgs e)
+        {
+            ipTotal.Text = Global.ConvertLongToMoney(Global.ConvertMoneyToLong(ipTotal.Text, "."), ".");
         }
 
     }
