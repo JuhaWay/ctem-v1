@@ -20,7 +20,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
 
         private List<ConstructionDTO> listConstructions;
         private ConstructionBus _constructionBus = new ConstructionBus();
-        private CheckBox _ckBox;
         public ConstructionManagement()
         {
             InitializeComponent();
@@ -28,18 +27,25 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
         // load form
         private void ConstructionManagement_Load(object sender, EventArgs e)
         {
-            _ckBox = new CheckBox();
-            Global.SetLayoutDataGridview(_ckBox, dgvCons);
-            _ckBox.CheckedChanged += new EventHandler(ckBox_CheckedChanged);
+            SetLayout();         
             dtFromdate.Value = new DateTime(dtTodate.Value.Year, dtTodate.Value.Month - 5, dtTodate.Value.Day);
             search();
+            displayButton();
 
         }
-        // check all check box
-        void ckBox_CheckedChanged(object sender, EventArgs e)
+
+        private void SetLayout()
         {
-            Global.CheckBoxCheck(_ckBox, dgvCons);
-        } 
+            dgvCons.Focus();
+            pnlSearch.Height = 72;
+            gbxSearch.Height = 68;
+            Global.SetLayoutForm(this, Constants.CHILD_FORM);
+            Global.SetLayoutHeaderGroup(hdDebt, Constants.CHILD_FORM);
+            Global.SetDaulftDatagridview(dgvCons);
+            Global.SetLayoutGroupBoxSearch(gbxSearch);
+            Global.SetLayoutPanelChildForm(pnlSearch);
+            Global.SetLayoutButton(btnSearch);
+        }
         
         // tao mới công trình chính cha
         private void btAddnew_Click(object sender, EventArgs e)
@@ -51,102 +57,69 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
         // tạo công trình con thuoc doanh nghiệp
         private void btAddChild_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in dgvCons.Rows)
-            {
-                DataGridViewCell c = dgvCons.Rows[row.Index].Cells[0];
-                long ParentId = Convert.ToInt64(row.Cells["ParentId"].Value.ToString());
-                if (c.AccessibilityObject.Value.Equals("True") && ParentId == 0)
-                {
-                    string strRightID = row.Cells["ConstructionID"].Value.ToString();
-                    long ConstructionID = Convert.ToInt64(strRightID);
-                    AddConstruction editForm = new AddConstruction(ConstructionID,1);
-                    editForm.ShowDialog();
-                    break;
-                }
-            }
+
+            string sParentId = dgvCons.SelectedRows[0].Cells["ParentId"].Value.ToString();
+            long ParentId = Convert.ToInt64(sParentId);
+            string sConstructionID = dgvCons.SelectedRows[0].Cells["ConstructionID"].Value.ToString();
+            long ConstructionID = Convert.ToInt64(sConstructionID);
+            AddConstruction editForm = new AddConstruction(ConstructionID, 1);
+            editForm.ShowDialog();
             search();
         }
         // sửa công trình
         private void btEdit_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in dgvCons.Rows)
+           
+            string sParentId = dgvCons.SelectedRows[0].Cells["ParentId"].Value.ToString();
+            long ParentId = Convert.ToInt64(sParentId);
+            string type = dgvCons.SelectedRows[0].Cells["Type"].Value.ToString();
+            string sConstructionID = dgvCons.SelectedRows[0].Cells["ConstructionID"].Value.ToString();
+            long ConstructionID = Convert.ToInt64(sConstructionID);
+            if (ParentId == 0 || type.Trim().Equals(ConstructionDTO.MAIN))
             {
-                DataGridViewCell c = dgvCons.Rows[row.Index].Cells[0];
-                if (c.AccessibilityObject.Value.Equals("True"))
-                {
-                    string strRightID = row.Cells["ConstructionID"].Value.ToString();
-                    string type = row.Cells["Type"].Value.ToString();
-                    long ParentId = Convert.ToInt64(row.Cells["ParentId"].Value.ToString());
-                    long ConstructionID = Convert.ToInt64(strRightID);
-                    if (ParentId == 0 || type.Trim().Equals(ConstructionDTO.MAIN))
-                    {
-                        AddConstruction editForm = new AddConstruction(ConstructionID);
-                        editForm.ShowDialog();
-                    }
-                    else
-                    {
-                        AddSubconstruction editForm = new AddSubconstruction(ConstructionID);
-                        editForm.ShowDialog();
-                    }
-                }
-            }
-            search();
-        }
-        // sửa lổi chọn check box
-        private void dgvCons_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            DataGridViewCell c = dgvCons.Rows[e.RowIndex].Cells[0];
-            if(e.ColumnIndex==0){
-                dgvCons.BeginEdit(true);            
-                if (c.AccessibilityObject.Value.Equals("False"))
-                        c.AccessibilityObject.Value = "True";
-                else
-                    c.AccessibilityObject.Value = "False";
-            }
-            displayButton();
-        }
-        public void displayButton()
-        {
-            int count = 0;
-            int countParent = 0;
-            foreach (DataGridViewRow row in dgvCons.Rows)
-            {
-                DataGridViewCell c = dgvCons.Rows[row.Index].Cells[0];
-                if (c.AccessibilityObject.Value.Equals("True"))
-                {
-                    long ParentId = Convert.ToInt64(row.Cells["ParentId"].Value.ToString());
-                    if (ParentId == 0)
-                        countParent++;
-                    count++;
-                }
-            }
-            if (countParent == 1 && count == 1)
-            {
-                btAddChild.Enabled = ButtonEnabled.True;
-                btAddSubConstractor.Enabled = ButtonEnabled.True;
+                AddConstruction editForm = new AddConstruction(ConstructionID);
+                editForm.ShowDialog();
             }
             else
             {
-                btAddChild.Enabled = ButtonEnabled.False;
-                btAddSubConstractor.Enabled = ButtonEnabled.False;
+                AddSubconstruction editForm = new AddSubconstruction(ConstructionID);
+                editForm.ShowDialog();
             }
+            search();
+        }
+       
+        public void displayButton()
+        {
+            if (dgvCons.SelectedRows.Count <= 0) return;
+            string sParentId = dgvCons.SelectedRows[0].Cells["ParentId"].Value.ToString();
+            long ParentId = Convert.ToInt64(sParentId);
+
+            if (dgvCons.SelectedRows.Count==1)
+                btEdit.Enabled = ButtonEnabled.True;
+            else
+                btEdit.Enabled = ButtonEnabled.False;
+            if (dgvCons.SelectedRows.Count == 1 && ParentId == 0)
+            {
+                btAddchild.Enabled = ButtonEnabled.True;
+                btAddSubs.Enabled = ButtonEnabled.True;             
+               
+            }
+            else
+            {
+
+                btAddchild.Enabled = ButtonEnabled.False;
+                btAddSubs.Enabled = ButtonEnabled.False;
+            }
+
 
         }
         // tạo công trình phụ 
         private void btAddSubConstractor_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in dgvCons.Rows)
-            {
-                DataGridViewCell c = dgvCons.Rows[row.Index].Cells[0];
-                long ParentId = Convert.ToInt64(row.Cells["ParentId"].Value.ToString());
-                if (c.AccessibilityObject.Value.Equals("True") && ParentId == 0)
-                {
-                    string strRightID = row.Cells["ConstructionID"].Value.ToString();
-                    long ConstructionID = Convert.ToInt64(strRightID);
-                    AddSubconstruction editForm = new AddSubconstruction(ConstructionID, false);
-                    editForm.ShowDialog();
-                }
-            }
+            string sConstructionID = dgvCons.SelectedRows[0].Cells["ConstructionID"].Value.ToString();
+            long ConstructionID = Convert.ToInt64(sConstructionID);
+            AddSubconstruction editForm = new AddSubconstruction(ConstructionID, false);
+            editForm.ShowDialog();
             search();
         }
 
@@ -156,15 +129,13 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
         {
             if (KryptonMessageBox.Show("Xóa công trình,dự toán?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                foreach (DataGridViewRow row in dgvCons.Rows)
+                foreach (DataGridViewRow row in dgvCons.SelectedRows)
                 {
-                    DataGridViewCell c = dgvCons.Rows[row.Index].Cells[0];
-                    if (c.AccessibilityObject.Value.Equals("True"))
-                    {
-                        string strRightID = row.Cells["ConstructionID"].Value.ToString();
-                        long ConstructionID = Convert.ToInt64(strRightID);
-                        _constructionBus.DeleteConstruction(ConstructionID);
-                    }
+                    
+                    string strRightID = row.Cells["ConstructionID"].Value.ToString();
+                    long ConstructionID = Convert.ToInt64(strRightID);
+                    _constructionBus.DeleteConstruction(ConstructionID);
+      
                 }
             }
             search();
@@ -195,19 +166,16 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
         // xem dự toán của công trình
         private void btViewEstimate_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in dgvCons.Rows)
-            {
-                DataGridViewCell c = dgvCons.Rows[row.Index].Cells[0];
-                long ParentId = Convert.ToInt64(row.Cells["ParentId"].Value.ToString());
-                bool HasEstimate = Convert.ToBoolean(row.Cells["HasEstimate"].Value.ToString());
-                if (c.AccessibilityObject.Value.Equals("True") && HasEstimate)
+                 
+                string sConstructionID = dgvCons.SelectedRows[0].Cells["ConstructionID"].Value.ToString();
+                long ConstructionID = Convert.ToInt64(sConstructionID);
+                bool HasEstimate = Convert.ToBoolean(dgvCons.SelectedRows[0].Cells["HasEstimate"].Value.ToString());
+                if (HasEstimate)
                 {
-                    string strRightID = row.Cells["ConstructionID"].Value.ToString();
-                    long ConstructionID = Convert.ToInt64(strRightID);
                     EstimateManagement editForm = new EstimateManagement(ConstructionID);
                     editForm.ShowDialog();
                 }
-            }
+
             search();
         }
 
@@ -255,28 +223,26 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
                         dto.TotalRealCost += item.TotalRealCost;
                         dto.ProgressRate += item.ProgressRate;
                     }
-                    dto.ProgressRate = dto.ProgressRate / children.Count;
-                    TreeGridNode node = dgvCons.Nodes.Add(null, dto.ConstructionID, dto.ConstructionName, dto.Status,dto.ProgressRate, dto.TotalEstimateCost, dto.TotalRealCost,dto.type, dto.SubcontractorName, dto.Description, dto.ConstructionAddress,
-                        dto.CommencementDate.ToString(), dto.CompletionDate.ToString(), dto.ParentID, dto.CreatedBy, dto.CreatedDate, dto.UpdatedBy, dto.LastUpdated,dto.HasEstimate);                  
+                    dto.TotalEstimateCostFormated = Global.ConvertLongToMoney(dto.TotalEstimateCost,".");
+                    dto.TotalRealCostFormated = Global.ConvertLongToMoney(dto.TotalRealCost, ".");
+                    //dto.ProgressRate = dto.ProgressRate / children.Count;
+                    TreeGridNode node = dgvCons.Nodes.Add(dto.ConstructionID, dto.ConstructionName, dto.type, dto.SubcontractorName, dto.Status, dto.ProgressRate, dto.TotalEstimateCostFormated, dto.TotalRealCostFormated, dto.Description, dto.ConstructionAddress,
+                        dto.CommencementDateFormated, dto.CompletionDateFormated, dto.ParentID, dto.CreatedBy, dto.CreateDateFormated, dto.UpdatedBy, dto.LastUpdatedFormated, dto.HasEstimate);                  
                     foreach (ConstructionDTO child in children)
                     {
-                        node.Nodes.Add(null, child.ConstructionID, child.ConstructionName, child.Status, child.ProgressRate, child.TotalEstimateCost, child.TotalRealCost,child.type, child.SubcontractorName, child.Description, child.ConstructionAddress,
-                        child.CommencementDate.ToString(), child.CompletionDate.ToString(), child.ParentID, child.CreatedBy, child.CreatedDate, child.UpdatedBy, child.LastUpdated,child.HasEstimate);
+                        node.Nodes.Add(child.ConstructionID, child.ConstructionName, child.type, child.SubcontractorName, child.Status, child.ProgressRate, child.TotalEstimateCostFormated, child.TotalRealCostFormated, child.Description, child.ConstructionAddress,
+                        child.CommencementDateFormated, child.CompletionDateFormated, child.ParentID, child.CreatedBy, child.CreateDateFormated, child.UpdatedBy, child.LastUpdatedFormated, child.HasEstimate);
                     }
                     node.Expand();
 
                 }
             }
         }
-        // sửa lỏi checkbox
-        private void dgvCons_Scroll(object sender, ScrollEventArgs e)
-        {
-            _ckBox.Visible = false;
-            if(e.NewValue<=10)
-                _ckBox.Visible = true;
-        }
 
-  
+        private void dgvCons_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            displayButton();
+        }
        
     }
 }
