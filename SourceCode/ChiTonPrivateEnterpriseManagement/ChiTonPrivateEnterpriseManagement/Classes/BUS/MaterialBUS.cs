@@ -30,5 +30,9 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
         {
             return _materialDAO.deleteMaterials(id);
         }
+        public List<MaterialDTO> search(string name)
+        {
+            return _materialDAO.search(name);
+        }
     }
 }

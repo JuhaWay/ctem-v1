@@ -8,7 +8,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
     class SubcontractorBUS
     {
         private SubcontractorDao _subcontractorDao = new SubcontractorDao();
-        public bool CreateSubcontractor(string subcontractorName, string subcontractorAddress, string phoneNumber)
+        public long CreateSubcontractor(string subcontractorName, string subcontractorAddress, string phoneNumber)
         {
             return _subcontractorDao.CreateSubcontractor
                 (subcontractorName, subcontractorAddress, phoneNumber);
@@ -26,6 +26,18 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
         {
             return _subcontractorDao.LoadSubcontractorByName(name);
 
+        }
+        public List<SubcontractorDTO> search(string name)
+        {
+            return _subcontractorDao.search(name);
+        }
+        public bool updateSubcontractor(SubcontractorDTO dto)
+        {
+            return _subcontractorDao.updateSubcontractor(dto);
+        }
+        public bool deleteSubcontractor(long id)
+        {
+            return _subcontractorDao.deleteSubcontractor(id);
         }
     }
 }

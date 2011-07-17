@@ -20,14 +20,17 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
         { 
             return _workSalaryDAO.UpdateWks(dto);
         }
-        public bool UpdateTotalSalary(long id)
+        public bool UpdateTotalSalary(long id,long ConstructionID)
         {
-            return _workSalaryDAO.UpdateTotalSalary(id);
+            return _workSalaryDAO.UpdateTotalSalary(id,ConstructionID);
         }
         public bool delete(long id)
         {
             return _workSalaryDAO.delete(id);
         }
-
+        public List<WorkerSalaryDTO> search(WorkerSalaryDTO param)
+        {
+            return _workSalaryDAO.search(param);
+        }
     }
 }
