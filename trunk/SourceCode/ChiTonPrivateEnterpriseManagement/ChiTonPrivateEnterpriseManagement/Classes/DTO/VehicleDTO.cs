@@ -16,5 +16,11 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
         public string Number { get; set; }
         public string Status { get; set; }
         public long ManagerID { get; set; }
+        public VehicleDTO() { }
+        public VehicleDTO(string name,long id)
+        {
+            Name = name;
+            VehicleID = id;
+        }
     }
 }
