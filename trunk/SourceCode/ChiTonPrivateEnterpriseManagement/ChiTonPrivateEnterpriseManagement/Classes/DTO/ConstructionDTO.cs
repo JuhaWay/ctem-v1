@@ -18,6 +18,8 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
         public string ConstructionName { get; set; }
         public string Description { get; set; }
         public string ConstructionAddress { get; set; }
+        public long ManagerID { get; set; }
+        public string ManagerName { get; set; }
 
 
        

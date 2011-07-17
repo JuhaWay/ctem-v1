@@ -18,5 +18,13 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
         public string CreatedBy { get; set; }
         public string UpdatedBy { get; set; }
         public bool isChecked { get; set; }
+
+
+        public string FromDateFormated { get; set; }
+        public string ToDateFormated { get; set; }
+
+        public string TotalSalaryFormated { get; set; }
+        public string CreateDateFormated { get; set; }
+        public string LastUpdateFormated { get; set; }
     }
 }
