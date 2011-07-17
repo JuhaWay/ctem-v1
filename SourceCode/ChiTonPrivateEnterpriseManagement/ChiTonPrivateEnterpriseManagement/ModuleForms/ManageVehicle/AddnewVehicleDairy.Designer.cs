@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.pnMain = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.lbDes = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.dtDay = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
             this.lbDay = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.btClose = new ComponentFactory.Krypton.Toolkit.KryptonButton();
@@ -48,7 +49,6 @@
             this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.cbCons = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.lbDes = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pnMain)).BeginInit();
             this.pnMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbDriver)).BeginInit();
@@ -82,6 +82,15 @@
             this.pnMain.Size = new System.Drawing.Size(302, 342);
             this.pnMain.TabIndex = 0;
             // 
+            // lbDes
+            // 
+            this.lbDes.Location = new System.Drawing.Point(0, 320);
+            this.lbDes.Name = "lbDes";
+            this.lbDes.Size = new System.Drawing.Size(107, 19);
+            this.lbDes.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.lbDes.TabIndex = 30;
+            this.lbDes.Values.Text = "(*) trường bắt buộc";
+            // 
             // dtDay
             // 
             this.dtDay.CustomFormat = "dd/MM/yyyy";
@@ -107,6 +116,7 @@
             this.btClose.Size = new System.Drawing.Size(44, 25);
             this.btClose.TabIndex = 27;
             this.btClose.Values.Text = "Đóng";
+            this.btClose.Click += new System.EventHandler(this.btClose_Click);
             // 
             // btSave
             // 
@@ -233,15 +243,6 @@
             this.kryptonLabel1.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.kryptonLabel1.TabIndex = 13;
             this.kryptonLabel1.Values.Text = "Công trình(*)";
-            // 
-            // lbDes
-            // 
-            this.lbDes.Location = new System.Drawing.Point(24, 323);
-            this.lbDes.Name = "lbDes";
-            this.lbDes.Size = new System.Drawing.Size(107, 19);
-            this.lbDes.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.lbDes.TabIndex = 30;
-            this.lbDes.Values.Text = "(*) trường bắt buộc";
             // 
             // AddnewVehicleDairy
             // 
