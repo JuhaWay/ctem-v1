@@ -38,6 +38,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 _con = value;
             }
         }
+        // LOAD toàn bộ wksalary board
         public List<WorkerSalaryDTO> LoadAllWks()
         {
             var cmd = new SqlCommand("[dbo].[WorkerSalary_GetAll]", Connection);
@@ -62,11 +63,21 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         FromDate = Convert.ToDateTime(reader["FromDate"]),
                         ToDate = Convert.ToDateTime(reader["ToDate"]),
                         TotalSalary = Convert.ToInt64(reader["TotalSalary"]),
-                        CreatedBy = reader["CreatedBy"] != DBNull.Value ? Convert.ToString(reader["CreatedBy"]) : "",
-                        CreateDate = reader["CreateDate"] != DBNull.Value ? Convert.ToDateTime(reader["CreateDate"]) : new DateTime(),
-                        UpdatedBy = reader["UpdatedBy"] != DBNull.Value ? Convert.ToString(reader["UpdatedBy"]) : "",
-                        LastUpdate = reader["LastUpdate"] != DBNull.Value ? Convert.ToDateTime(reader["LastUpdate"]) : new DateTime()
+                        CreateDate = Convert.ToDateTime(reader["CreateDate"])
                     };
+                    try
+                    {
+                        dto.LastUpdate = Convert.ToDateTime(reader["LastUpdate"]);
+                        dto.LastUpdateFormated = dto.LastUpdate.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
+                    }
+                    catch (Exception e)
+                    {
+                        dto.LastUpdateFormated = "";
+                    }
+                    dto.CreateDateFormated = dto.CreateDate.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
+                    dto.FromDateFormated = dto.FromDate.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
+                    dto.ToDateFormated = dto.ToDate.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
+                    dto.TotalSalaryFormated = Global.Global.ConvertLongToMoney(dto.TotalSalary, Global.Global.SEP);
                     listcons.Add(dto);
                 }
                 return listcons;
@@ -81,7 +92,69 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 if (Transaction == null) Connection.Close();
             }
         }
+        public List<WorkerSalaryDTO> search(WorkerSalaryDTO param)
+        {
+            var cmd = new SqlCommand("[dbo].[WorkerSalary_search]", Connection);
 
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            cmd.CommandType = CommandType.StoredProcedure;
+            if (param.ConstructionID > 0)
+                cmd.Parameters.Add(new SqlParameter("@constructionID", param.ConstructionID));
+            else
+                cmd.Parameters.Add(new SqlParameter("@constructionID", DBNull.Value));
+            if (!param.Name.Trim().Equals(""))
+                cmd.Parameters.Add(new SqlParameter("@name","%"+ param.Name+"%"));
+            else
+                cmd.Parameters.Add(new SqlParameter("@name", DBNull.Value));
+            try
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                List<WorkerSalaryDTO> listcons = new List<WorkerSalaryDTO>();
+                while (reader.Read())
+                {
+                    WorkerSalaryDTO dto = new WorkerSalaryDTO
+                    {
+                        WorkersSalaryID = Convert.ToInt64(reader["WorkersSalaryID"]),
+                        ConstructionID = Convert.ToInt64(reader["ConstructionID"]),
+                        Name = Convert.ToString(reader["Name"]),
+                        ConstructionName = Convert.ToString(reader["ConstructionName"]),
+                        FromDate = Convert.ToDateTime(reader["FromDate"]),
+                        ToDate = Convert.ToDateTime(reader["ToDate"]),
+                        TotalSalary = Convert.ToInt64(reader["TotalSalary"]),
+                        CreateDate = Convert.ToDateTime(reader["CreateDate"])
+                    };
+                    try
+                    {
+                        dto.LastUpdate = Convert.ToDateTime(reader["LastUpdate"]);
+                        dto.LastUpdateFormated = dto.LastUpdate.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
+                    }
+                    catch (Exception e)
+                    {
+                        dto.LastUpdateFormated = "";
+                    }
+                    dto.CreateDateFormated = dto.CreateDate.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
+                    dto.FromDateFormated = dto.FromDate.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
+                    dto.ToDateFormated = dto.ToDate.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
+                    dto.TotalSalaryFormated = Global.Global.ConvertLongToMoney(dto.TotalSalary, Global.Global.SEP);
+                    listcons.Add(dto);
+                }
+                
+                return listcons;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message, "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+
+            finally
+            {
+                if (Transaction == null) Connection.Close();
+            }
+        }
 
         public bool CreateWks(WorkerSalaryDTO dto)
         {
@@ -144,7 +217,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                     Connection.Close();
             }
         }
-        public bool UpdateTotalSalary(long id)
+        public bool UpdateTotalSalary(long id, long ConstructionID)
         {
             var cmd = new SqlCommand("[dbo].[WorkerSalary_UpdateTotalSalary]", Connection) { CommandType = CommandType.StoredProcedure };
             if (Transaction != null)
@@ -154,6 +227,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             try
             {
                 cmd.Parameters.Add(new SqlParameter("@workersSalaryID", id));
+                cmd.Parameters.Add(new SqlParameter("@ConstructionID", ConstructionID));
                 cmd.ExecuteNonQuery();
                 return true;
             }

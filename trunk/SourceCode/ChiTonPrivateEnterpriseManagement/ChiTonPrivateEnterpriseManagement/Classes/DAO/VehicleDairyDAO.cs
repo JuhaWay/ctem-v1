@@ -87,7 +87,11 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
 
 
                     };
+                    dto.FualCostFormated = Global.Global.ConvertLongToMoney(dto.FualCost, Global.Global.SEP);
+                    dto.DamagedCostFormated = Global.Global.ConvertLongToMoney(dto.DamagedCost, Global.Global.SEP);
+                    dto.DateFormated = dto.Date.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
                     listcons.Add(dto);
+
                 }
                 return listcons;
             }

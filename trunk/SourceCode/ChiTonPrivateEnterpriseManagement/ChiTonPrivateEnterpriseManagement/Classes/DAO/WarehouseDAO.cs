@@ -52,8 +52,8 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             try
             {
                 cmd.Parameters.Add(new SqlParameter("@Type", type));
-                cmd.Parameters.Add(new SqlParameter("@Name", name));
-                cmd.Parameters.Add(new SqlParameter("@Status", status));
+                //cmd.Parameters.Add(new SqlParameter("@Name", name));
+                //cmd.Parameters.Add(new SqlParameter("@Status", status));
                 SqlDataReader reader = cmd.ExecuteReader();
                 var listwarehouse = new List<WarehouseDTO>();
                 while (reader.Read())
