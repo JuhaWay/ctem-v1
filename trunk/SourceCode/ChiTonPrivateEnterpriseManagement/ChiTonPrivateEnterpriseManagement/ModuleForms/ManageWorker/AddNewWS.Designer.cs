@@ -95,6 +95,7 @@
             this.lbTodate.Location = new System.Drawing.Point(13, 182);
             this.lbTodate.Name = "lbTodate";
             this.lbTodate.Size = new System.Drawing.Size(58, 19);
+            this.lbTodate.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.lbTodate.TabIndex = 6;
             this.lbTodate.Values.Text = "Đến ngày";
             // 
@@ -112,6 +113,7 @@
             this.lbFromDate.Location = new System.Drawing.Point(21, 137);
             this.lbFromDate.Name = "lbFromDate";
             this.lbFromDate.Size = new System.Drawing.Size(50, 19);
+            this.lbFromDate.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.lbFromDate.TabIndex = 4;
             this.lbFromDate.Values.Text = "Từ ngày";
             // 
@@ -129,6 +131,7 @@
             this.lbCons.Location = new System.Drawing.Point(12, 94);
             this.lbCons.Name = "lbCons";
             this.lbCons.Size = new System.Drawing.Size(63, 19);
+            this.lbCons.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.lbCons.TabIndex = 2;
             this.lbCons.Values.Text = "Công trình";
             // 
@@ -144,6 +147,7 @@
             this.lbName.Location = new System.Drawing.Point(43, 49);
             this.lbName.Name = "lbName";
             this.lbName.Size = new System.Drawing.Size(28, 19);
+            this.lbName.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.lbName.TabIndex = 0;
             this.lbName.Values.Text = "Tên ";
             // 
