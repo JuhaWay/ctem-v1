@@ -61,6 +61,8 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
 
 
                     };
+                    dto.DateFormated = dto.Date.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
+                    dto.NumberFormated = Global.Global.ConvertLongToMoney(dto.Number, Global.Global.SEP);
                     listcons.Add(dto);
                 }
                 return listcons;
@@ -88,7 +90,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.Parameters.Add(new SqlParameter("@Name", "%" + param.Name.Trim() + "%"));
             else
                 cmd.Parameters.Add(new SqlParameter("@Name", DBNull.Value));
-            if (param.Type.Trim().Equals("") == false)
+            if (param.Type.Trim().Equals("") == false && param.Type.Trim().Equals("Tất cả") == false)
                 cmd.Parameters.Add(new SqlParameter("@Type",param.Type.Trim()));
             else
                 cmd.Parameters.Add(new SqlParameter("@Type", DBNull.Value));
@@ -116,6 +118,8 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
 
 
                     };
+                    dto.DateFormated = dto.Date.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
+                    dto.NumberFormated = Global.Global.ConvertLongToMoney(dto.Number, Global.Global.SEP);
                     listcons.Add(dto);
                 }
                 return listcons;

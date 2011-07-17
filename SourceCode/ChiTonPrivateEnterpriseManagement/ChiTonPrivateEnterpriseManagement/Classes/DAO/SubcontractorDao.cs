@@ -42,7 +42,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
         }
 
 
-        public bool CreateSubcontractor(string subcontractorName, string subcontractorAddress, string phoneNumber)
+        public long CreateSubcontractor(string subcontractorName, string subcontractorAddress, string phoneNumber)
         {
             var cmd = new SqlCommand("[dbo].[Subcontractor_Create]", Connection) { CommandType = CommandType.StoredProcedure };
             if (Transaction != null)
@@ -54,6 +54,36 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.Parameters.Add(new SqlParameter("@subcontractorName", subcontractorName));
                 cmd.Parameters.Add(new SqlParameter("@subcontractorAddress", subcontractorAddress));
                 cmd.Parameters.Add(new SqlParameter("@phoneNumber", phoneNumber));
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                    return Convert.ToInt64(reader[0]);
+                return 0;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message);
+                return 0;
+            }
+            finally
+            {
+                if (Transaction == null)
+                    Connection.Close();
+            }
+        }
+
+        public bool updateSubcontractor(SubcontractorDTO  dto)
+        {
+            var cmd = new SqlCommand("[dbo].[Subcontractor_Update]", Connection) { CommandType = CommandType.StoredProcedure };
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@subcontractorID", dto.SubcontractorID));
+                cmd.Parameters.Add(new SqlParameter("@subcontractorName",dto.SubcontractorName));
+                cmd.Parameters.Add(new SqlParameter("@subcontractorAddress",dto.SubcontractorAddress));
+                cmd.Parameters.Add(new SqlParameter("@phoneNumber", dto.PhoneNumber));
                 cmd.ExecuteNonQuery();
                 return true;
             }
@@ -70,6 +100,30 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
         }
 
 
+        public bool deleteSubcontractor(long id)
+        {
+            var cmd = new SqlCommand("[dbo].[Subcontractor_delete]", Connection) { CommandType = CommandType.StoredProcedure };
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@subcontractorID", id));
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message);
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null)
+                    Connection.Close();
+            }
+        }
 
         public List<SubcontractorDTO> LoadAllSubcontractor()
         {
@@ -109,6 +163,50 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
         }
 
 
+
+        public List<SubcontractorDTO> search(string name)
+        {
+            var cmd = new SqlCommand("[dbo].[Subcontractor_search]", Connection);
+
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            cmd.CommandType = CommandType.StoredProcedure;
+            if (!name.Equals(""))
+                     cmd.Parameters.Add(new SqlParameter("@Name","%"+ name+"%"));
+            else
+                     cmd.Parameters.Add(new SqlParameter("@Name", DBNull.Value));
+                    
+            try
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                List<SubcontractorDTO> listSubcons = new List<SubcontractorDTO>();
+                while (reader.Read())
+                {
+                    SubcontractorDTO sconsDto = new SubcontractorDTO
+                    {
+                        SubcontractorID = Convert.ToInt64(reader["SubcontractorID"]),
+                        SubcontractorName = Convert.ToString(reader["SubcontractorName"]),
+                        SubcontractorAddress = Convert.ToString(reader["SubcontractorAddress"]),
+                        PhoneNumber = Convert.ToString(reader["PhoneNumber"])
+                    };
+                    listSubcons.Add(sconsDto);
+                }
+                return listSubcons;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message, "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                if (Transaction == null) Connection.Close();
+            }
+        }
+
+
         public SubcontractorDTO LoadSubcontractorById(long id)
         {
             var cmd = new SqlCommand("[dbo].[Subcontractor_GetByID]", Connection);
@@ -118,6 +216,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.Transaction = Transaction;
             }
             cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@subcontractorID", id));
             try
             {
                 SqlDataReader reader = cmd.ExecuteReader();

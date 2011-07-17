@@ -109,6 +109,11 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             else
                 cmd.Parameters.Add(new SqlParameter("@SubcontractorID", DBNull.Value));
 
+            if (param.ManagerID > 0)
+                cmd.Parameters.Add(new SqlParameter("@ManagerID", param.ManagerID));
+            else
+                cmd.Parameters.Add(new SqlParameter("@ManagerID", DBNull.Value));
+
             cmd.Parameters.Add(new SqlParameter("@FromDate", param.FromDate));
             cmd.Parameters.Add(new SqlParameter("@ToDate", param.ToDate));
             try
@@ -135,6 +140,8 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         Convert.ToInt64(reader["TotalCostEstimate"]) : 0,
                         TotalRealCost = reader["TotalCostReal"] != DBNull.Value ? 
                         Convert.ToInt64(reader["TotalCostReal"]) : 0,
+                        ManagerName = Convert.ToString(reader["Username"]),
+                        ManagerID = Convert.ToInt64(reader["ManagerID"]),
                         CreatedBy =  Convert.ToString(reader["CreatedBy"]),
                         CreatedDate = Convert.ToDateTime(reader["CreatedDate"]),
                         UpdatedBy = Convert.ToString(reader["UpdatedBy"])
@@ -241,6 +248,8 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         CompletionDate = Convert.ToDateTime(reader["CompletionDate"]),
                         HasEstimate = Convert.ToBoolean(reader["HasEstimate"]),
                         ParentID = Convert.ToInt64(reader["ParentID"]),
+                        ManagerName = Convert.ToString(reader["Username"]),
+                        ManagerID = Convert.ToInt64(reader["ManagerID"]),
                         TotalEstimateCost = reader["TotalCostEstimate"] != DBNull.Value ? Convert.ToInt64(reader["TotalCostEstimate"]) : 0,
                         TotalRealCost = reader["TotalCostReal"] != DBNull.Value ? Convert.ToInt64(reader["TotalCostReal"]) : 0,
                         CreatedBy = reader["CreatedBy"] != DBNull.Value ? Convert.ToString(reader["CreatedBy"]) : "",
@@ -299,6 +308,8 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         Convert.ToInt64(reader["TotalCostEstimate"]) : 0,
                         TotalRealCost = reader["TotalCostReal"] != DBNull.Value ?
                         Convert.ToInt64(reader["TotalCostReal"]) : 0,
+                        ManagerName = Convert.ToString(reader["Username"]),
+                        ManagerID = Convert.ToInt64(reader["ManagerID"]),
                         CreatedBy = Convert.ToString(reader["CreatedBy"]),
                         CreatedDate = Convert.ToDateTime(reader["CreatedDate"]),
                         UpdatedBy = Convert.ToString(reader["UpdatedBy"])
@@ -354,6 +365,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.Parameters.Add(new SqlParameter("@status", dto.Status));
                 cmd.Parameters.Add(new SqlParameter("@type", dto.type));
                 cmd.Parameters.Add(new SqlParameter("@hasEstimate", dto.HasEstimate));
+                cmd.Parameters.Add(new SqlParameter("@managerID", dto.ManagerID));
                 cmd.Parameters.Add(new SqlParameter("@parentID", dto.ParentID));
                 cmd.Parameters.Add(new SqlParameter("@createdBy", Global.Global.CurrentUser.Username));
                 cmd.Parameters.Add(new SqlParameter("@progressRate", dto.ProgressRate));
@@ -392,6 +404,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.Parameters.Add(new SqlParameter("@commencementDate", dto.CommencementDate));
                 cmd.Parameters.Add(new SqlParameter("@completionDate", dto.CompletionDate));
                 cmd.Parameters.Add(new SqlParameter("@status", dto.Status));
+                cmd.Parameters.Add(new SqlParameter("@managerID", dto.ManagerID));
                 cmd.Parameters.Add(new SqlParameter("@hasEstimate", dto.HasEstimate));
                 cmd.Parameters.Add(new SqlParameter("@progressRate", dto.ProgressRate));
                 cmd.Parameters.Add(new SqlParameter("@updatedBy",Global.Global.CurrentUser.Username));

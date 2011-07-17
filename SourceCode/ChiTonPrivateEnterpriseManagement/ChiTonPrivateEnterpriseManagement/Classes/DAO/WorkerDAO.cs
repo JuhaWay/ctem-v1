@@ -54,15 +54,27 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         WorkerID = Convert.ToInt64(reader["WorkerID"]),
                         WorkersSalaryID = Convert.ToInt64(reader["WorkersSalaryID"]),
                         Fullname = Convert.ToString(reader["FullName"]),
-                        ManDate = Convert.ToInt32(reader["ManDate"]),
+                        ManDate = Convert.ToDouble(reader["ManDate"]),
                         Salary = Convert.ToInt64(reader["Salary"]),
                         TotalSalary = Convert.ToInt64(reader["TotalSalary"]),
                         Position = Convert.ToString(reader["Position"]),
-                         CreatedBy = reader["CreatedBy"] != DBNull.Value ? Convert.ToString(reader["CreatedBy"]) : "",
-                        CreatedDate = reader["CreatedDate"] != DBNull.Value ? Convert.ToDateTime(reader["CreatedDate"]) : new DateTime(),
-                        UpdatedBy = reader["UpdatedBy"] != DBNull.Value ? Convert.ToString(reader["UpdatedBy"]) : "",
-                        LastUpdated = reader["LastUpdated"] != DBNull.Value ? Convert.ToDateTime(reader["LastUpdated"]) : new DateTime()
+                        CreatedBy =Convert.ToString(reader["CreatedBy"]),
+                        CreatedDate =Convert.ToDateTime(reader["CreatedDate"]),
+                        UpdatedBy =  Convert.ToString(reader["UpdatedBy"]) ,
+                       
                     };
+                    try
+                    {
+                        dto.LastUpdated = Convert.ToDateTime(reader["LastUpdated"]);
+                        dto.LastUpdatedFormated = dto.LastUpdated.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
+                    }
+                    catch
+                    {
+                        dto.LastUpdatedFormated = "";
+                    }
+                    dto.CreatedDateFormated = dto.CreatedDate.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
+                    dto.SalaryFormated = Global.Global.ConvertLongToMoney(dto.Salary, Global.Global.SEP);
+                    dto.TotalSalaryFormated = Global.Global.ConvertLongToMoney(dto.TotalSalary, Global.Global.SEP); 
                     listcons.Add(dto);
                 }
                 return listcons;
