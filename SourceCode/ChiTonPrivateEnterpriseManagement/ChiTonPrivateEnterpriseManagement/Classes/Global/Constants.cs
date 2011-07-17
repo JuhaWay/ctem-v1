@@ -101,6 +101,8 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
 
         public const string CREATE_NEW_EMPLOYEE = "Create New Employee";
 
+        public const string CREATE_NEW_CONSTRUCTION = "Create New Construction";
+
         public const string NOT_PERMISSION = "Bạn Không Có Quyền Cho Chức Năng Này";
 
         public const string NUMBER = "number";
