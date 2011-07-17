@@ -93,5 +93,10 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
         {
             ipFualCost.Text = Global.ConvertLongToMoney(Global.ConvertMoneyToLong(ipFualCost.Text, Global.SEP), Global.SEP);
         }
+
+        private void btClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 } 
