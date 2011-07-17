@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 using ChiTonPrivateEnterpriseManagement.Classes.BUS;
 using ChiTonPrivateEnterpriseManagement.Classes.DTO;
+using ChiTonPrivateEnterpriseManagement.Classes.Global;
 
 namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
 {
@@ -28,9 +29,23 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
 
         private void MaterialManagement_Load(object sender, EventArgs e)
         {
+            SetLayout();
             RefreshDataGridSource();
+            Global.SetLayoutPanelNewForm(subpaint);
         }
-
+        private void SetLayout()
+        {
+            dgvMaterials.Focus();
+            pnlSearch.Height = 72;
+            gbxSearch.Height = 68;
+            Global.SetLayoutForm(this, Constants.CHILD_FORM);
+            Global.SetLayoutHeaderGroup(hdDebt, Constants.CHILD_FORM);
+            Global.SetDaulftDatagridview(dgvMaterials);
+            Global.SetLayoutGroupBoxSearch(gbxSearch);
+            Global.SetLayoutPanelChildForm(pnlSearch);
+            Global.SetLayoutButton(btnSearch);
+        }
+        
         private void btAddNew_Click(object sender, EventArgs e)
         {
             AddNewMaterial add = new AddNewMaterial();
@@ -57,6 +72,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
 
         private void btSave_Click(object sender, EventArgs e)
         {
+            if (!validateForm()) return;
             dtoTemp.MaterialName = ipName.Text;
             dtoTemp.MaterialParentID = 0;
             dtoTemp.EstimateCalUnit = ipEU.Text;
@@ -68,25 +84,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
             RefreshDataGridSource();
         }
 
-        private void dgvMaterials_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.ColumnIndex == 0 && e.RowIndex != -1)
-            {
-                DataGridViewCell c = dgvMaterials.Rows[e.RowIndex].Cells[e.ColumnIndex];
-                if (c.AccessibilityObject.Value.Equals("True"))
-                {
-                    dgvMaterials[e.ColumnIndex, e.RowIndex].Value = false;
-                    c.AccessibilityObject.Value = "False";
-                    dgvMaterials.Rows[e.RowIndex].Selected = false;
-                }
-                else
-                {
-                    dgvMaterials[e.ColumnIndex, e.RowIndex].Value = true;
-                    c.AccessibilityObject.Value = "True";
-                    dgvMaterials.Rows[e.RowIndex].Selected = true;
-                }
-            }
-        }
 
         private void kryptonButton1_Click_1(object sender, EventArgs e)
         {
@@ -94,15 +91,10 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
             {
                 try
                 {
-                    foreach (DataGridViewRow row in dgvMaterials.Rows)
+                    foreach (DataGridViewRow row in dgvMaterials.SelectedRows)
                     {
-                        DataGridViewCell c = dgvMaterials.Rows[row.Index].Cells[0];
-                        if (c.AccessibilityObject.Value.Equals("True"))
-                        {
-                            string strID = row.Cells["MaterialID"].Value.ToString();
-                            long mID = Convert.ToInt64(strID);
+                        long mID = (row.DataBoundItem as MaterialDTO).MaterialID ;
                             _materialBUS.deleteMaterials(mID);
-                        }
                     }
                     RefreshDataGridSource();
                 }catch(Exception ex){
@@ -110,6 +102,48 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
                 }
             }
 
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            dgvMaterials.DataSource = _materialBUS.search(ipSearchName.Text.Trim());
+        }
+        private bool validateForm()
+        {
+            if (ipName.Text.Trim().Equals(""))
+            {
+                KryptonMessageBox.Show("Vui Lòng điền tên", Constants.CONFIRM, MessageBoxButtons.OK,
+                              MessageBoxIcon.Warning);
+                return false;
+            }
+
+            if (ipName.Text.Trim().Equals(""))
+            {
+                KryptonMessageBox.Show("Vui Lòng điền tên", Constants.CONFIRM, MessageBoxButtons.OK,
+                              MessageBoxIcon.Warning);
+                return false;
+            }
+
+            if (ipEU.Text.Trim().Equals(""))
+            {
+                KryptonMessageBox.Show("Vui Lòng điền đơn vị dự toán", Constants.CONFIRM, MessageBoxButtons.OK,
+                              MessageBoxIcon.Warning);
+                return false;
+            }
+
+            if (ipRU.Text.Trim().Equals(""))
+            {
+                KryptonMessageBox.Show("Vui Lòng điền đơn vị quyết toán", Constants.CONFIRM, MessageBoxButtons.OK,
+                              MessageBoxIcon.Warning);
+                return false;
+            }
+            if (!Global.ValidateDoubleNumber(ipRatio.Text.Trim()))
+            {
+                KryptonMessageBox.Show("chỉ số quy đổi sai", Constants.CONFIRM, MessageBoxButtons.OK,
+                              MessageBoxIcon.Warning);
+                return false;
+            }
+            return true;
         }
     }
 }

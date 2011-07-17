@@ -18,18 +18,37 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
         private WorkerSalaryBUS _workerSalaryBUS = new WorkerSalaryBUS();
         private WorkerTempDTO tempDto = new WorkerTempDTO();
         private long _workSalaryID ;
-        public WorkerList(long id)
+        private long _ConstructionID;
+        public WorkerList(long id, long ConstructionID)
         {
-            _workSalaryID = id;
-            CenterToParent();
+            _ConstructionID = ConstructionID;
+            _workSalaryID = id;         
             InitializeComponent();
+            CenterToScreen();
         }
 
         private void WorkerList_Load(object sender, EventArgs e)
         {
-            dgvWorker.DataSource = _workerBUS.LoadAllWks(_workSalaryID);
+            refresh();
+        }
+        public void refresh()
+        {
+            List<WorkerTempDTO> list = _workerBUS.LoadAllWks(_workSalaryID);
+            dgvWorker.DataSource = list;
+            sum(list);
             loadDetailValues(0);
         }
+
+        public void sum(List<WorkerTempDTO> list)
+        {
+            long total = 0;
+            foreach (WorkerTempDTO item in list)
+            {
+                total += item.TotalSalary;
+            }
+            ipSummary.Text = Global.ConvertLongToMoney(total, Global.SEP);
+        }
+
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
@@ -59,7 +78,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             tempDto = dgvWorker.Rows[currentMouseOverRow].DataBoundItem as WorkerTempDTO;
             ipName.Text = tempDto.Fullname;
             ipPosition.Text = tempDto.Position;
-            ipSalary.Text = tempDto.Salary.ToString();
+            ipSalary.Text = tempDto.SalaryFormated;
             ipManDate.Text = tempDto.ManDate.ToString();
         }
 
@@ -70,12 +89,13 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
                 if (!validate()) return;
                 tempDto.Fullname = ipName.Text;
                 tempDto.Position = ipPosition.Text;
-                tempDto.ManDate = Convert.ToInt32(ipManDate.Text);
-                tempDto.Salary = Convert.ToInt64(ipSalary.Text);
-                tempDto.TotalSalary = tempDto.ManDate * tempDto.Salary;
+                tempDto.ManDate = Convert.ToDouble(ipManDate.Text);
+                tempDto.Salary = Global.ConvertMoneyToLong(ipSalary.Text, Global.SEP);
+                tempDto.TotalSalary = (long)(tempDto.ManDate * tempDto.Salary);
                 _workerBUS.updateWks(tempDto);
                 KryptonMessageBox.Show("Cập nhật thành công !      ", Constants.CONFIRM);
-                dgvWorker.DataSource = _workerBUS.LoadAllWks(_workSalaryID);
+                refresh();
+                _workerSalaryBUS.UpdateTotalSalary(_workSalaryID, _ConstructionID);
             }
             else
             {
@@ -94,11 +114,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
                 MessageBox.Show("vui lòng nhập vị trí !");
                 return false;
             }
-            else if (!Global.ValidateIntNumber(ipManDate.Text))
-                return false;
-            else if (!Global.ValidateLongNumber(ipSalary.Text))
-                return false;
-
             return true;
         }
 
@@ -114,25 +129,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             }
         }
 
-        private void dgvWorker_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.ColumnIndex == 0 && e.RowIndex != -1)
-            {
-                DataGridViewCell c = dgvWorker.Rows[e.RowIndex].Cells[e.ColumnIndex];
-                if (c.AccessibilityObject.Value.Equals("True"))
-                {
-                    dgvWorker[e.ColumnIndex, e.RowIndex].Value = false;
-                    c.AccessibilityObject.Value = "False";
-                    dgvWorker.Rows[e.RowIndex].Selected = false;
-                }
-                else
-                {
-                    dgvWorker[e.ColumnIndex, e.RowIndex].Value = true;
-                    c.AccessibilityObject.Value = "True";
-                    dgvWorker.Rows[e.RowIndex].Selected = true;
-                }
-            }
-        }
+     
 
         private void btAddNew_Click(object sender, EventArgs e)
         {
@@ -142,9 +139,8 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
         {
             AddNewWk add = new AddNewWk(_workSalaryID);
             add.ShowDialog();
-            dgvWorker.DataSource = _workerBUS.LoadAllWks(_workSalaryID);
-            loadDetailValues(0);
-            _workerSalaryBUS.UpdateTotalSalary(_workSalaryID);
+            refresh();
+            _workerSalaryBUS.UpdateTotalSalary(_workSalaryID, _ConstructionID);
         }
         private void kryptonButton1_Click(object sender, EventArgs e)
         {
@@ -161,10 +157,20 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
                         _workerBUS.delete(ConstructionID);
                     }
                 }
-                
-                dgvWorker.DataSource = _workerBUS.LoadAllWks(_workSalaryID);
-                loadDetailValues(0);
+
+                refresh();
+                _workerSalaryBUS.UpdateTotalSalary(_workSalaryID, _ConstructionID);
             }
+        }
+
+        private void ipSalary_Leave(object sender, EventArgs e)
+        {
+            ipSalary.Text = Global.ConvertLongToMoney(Global.ConvertMoneyToLong(ipSalary.Text, Global.SEP), Global.SEP);
+        }
+
+        private void ipSalary_MouseLeave(object sender, EventArgs e)
+        {
+            ipSalary.Text = Global.ConvertLongToMoney(Global.ConvertMoneyToLong(ipSalary.Text, Global.SEP), Global.SEP);
         }
     }
 }

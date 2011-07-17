@@ -30,9 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
-            this.kryptonPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.btClose = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.btSave = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.pnMain = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.ipSalary = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.lbSalary = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.ipManDate = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
@@ -41,27 +39,95 @@
             this.lbPosition = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.ipName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.lbName = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
-            this.kryptonPanel.SuspendLayout();
+            this.btClose = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btSave = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            ((System.ComponentModel.ISupportInitialize)(this.pnMain)).BeginInit();
+            this.pnMain.SuspendLayout();
             this.SuspendLayout();
             // 
-            // kryptonPanel
+            // pnMain
             // 
-            this.kryptonPanel.Controls.Add(this.ipSalary);
-            this.kryptonPanel.Controls.Add(this.lbSalary);
-            this.kryptonPanel.Controls.Add(this.ipManDate);
-            this.kryptonPanel.Controls.Add(this.lbManDate);
-            this.kryptonPanel.Controls.Add(this.ipPosition);
-            this.kryptonPanel.Controls.Add(this.lbPosition);
-            this.kryptonPanel.Controls.Add(this.ipName);
-            this.kryptonPanel.Controls.Add(this.lbName);
-            this.kryptonPanel.Controls.Add(this.btClose);
-            this.kryptonPanel.Controls.Add(this.btSave);
-            this.kryptonPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kryptonPanel.Location = new System.Drawing.Point(0, 0);
-            this.kryptonPanel.Name = "kryptonPanel";
-            this.kryptonPanel.Size = new System.Drawing.Size(323, 260);
-            this.kryptonPanel.TabIndex = 0;
+            this.pnMain.Controls.Add(this.ipSalary);
+            this.pnMain.Controls.Add(this.lbSalary);
+            this.pnMain.Controls.Add(this.ipManDate);
+            this.pnMain.Controls.Add(this.lbManDate);
+            this.pnMain.Controls.Add(this.ipPosition);
+            this.pnMain.Controls.Add(this.lbPosition);
+            this.pnMain.Controls.Add(this.ipName);
+            this.pnMain.Controls.Add(this.lbName);
+            this.pnMain.Controls.Add(this.btClose);
+            this.pnMain.Controls.Add(this.btSave);
+            this.pnMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnMain.Location = new System.Drawing.Point(0, 0);
+            this.pnMain.Name = "pnMain";
+            this.pnMain.Size = new System.Drawing.Size(323, 260);
+            this.pnMain.TabIndex = 0;
+            // 
+            // ipSalary
+            // 
+            this.ipSalary.Location = new System.Drawing.Point(122, 152);
+            this.ipSalary.Name = "ipSalary";
+            this.ipSalary.Size = new System.Drawing.Size(181, 22);
+            this.ipSalary.TabIndex = 4;
+            this.ipSalary.Leave += new System.EventHandler(this.ipSalary_Leave);
+            this.ipSalary.MouseLeave += new System.EventHandler(this.ipSalary_MouseLeave);
+            // 
+            // lbSalary
+            // 
+            this.lbSalary.Location = new System.Drawing.Point(13, 152);
+            this.lbSalary.Name = "lbSalary";
+            this.lbSalary.Size = new System.Drawing.Size(103, 19);
+            this.lbSalary.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.lbSalary.TabIndex = 22;
+            this.lbSalary.Values.Text = "Lương/Ngày(VND)";
+            // 
+            // ipManDate
+            // 
+            this.ipManDate.Location = new System.Drawing.Point(122, 117);
+            this.ipManDate.Name = "ipManDate";
+            this.ipManDate.Size = new System.Drawing.Size(181, 22);
+            this.ipManDate.TabIndex = 3;
+            // 
+            // lbManDate
+            // 
+            this.lbManDate.Location = new System.Drawing.Point(34, 117);
+            this.lbManDate.Name = "lbManDate";
+            this.lbManDate.Size = new System.Drawing.Size(72, 19);
+            this.lbManDate.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.lbManDate.TabIndex = 20;
+            this.lbManDate.Values.Text = "Số ngày làm ";
+            // 
+            // ipPosition
+            // 
+            this.ipPosition.Location = new System.Drawing.Point(122, 89);
+            this.ipPosition.Name = "ipPosition";
+            this.ipPosition.Size = new System.Drawing.Size(181, 22);
+            this.ipPosition.TabIndex = 2;
+            // 
+            // lbPosition
+            // 
+            this.lbPosition.Location = new System.Drawing.Point(59, 92);
+            this.lbPosition.Name = "lbPosition";
+            this.lbPosition.Size = new System.Drawing.Size(34, 19);
+            this.lbPosition.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.lbPosition.TabIndex = 18;
+            this.lbPosition.Values.Text = "Vị trí";
+            // 
+            // ipName
+            // 
+            this.ipName.Location = new System.Drawing.Point(122, 50);
+            this.ipName.Name = "ipName";
+            this.ipName.Size = new System.Drawing.Size(181, 22);
+            this.ipName.TabIndex = 1;
+            // 
+            // lbName
+            // 
+            this.lbName.Location = new System.Drawing.Point(12, 50);
+            this.lbName.Name = "lbName";
+            this.lbName.Size = new System.Drawing.Size(85, 19);
+            this.lbName.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.lbName.TabIndex = 16;
+            this.lbName.Values.Text = "Tên công nhân";
             // 
             // btClose
             // 
@@ -80,77 +146,19 @@
             this.btSave.Values.Text = "Lưu";
             this.btSave.Click += new System.EventHandler(this.btSave_Click);
             // 
-            // ipSalary
-            // 
-            this.ipSalary.Location = new System.Drawing.Point(122, 152);
-            this.ipSalary.Name = "ipSalary";
-            this.ipSalary.Size = new System.Drawing.Size(181, 22);
-            this.ipSalary.TabIndex = 4;
-            // 
-            // lbSalary
-            // 
-            this.lbSalary.Location = new System.Drawing.Point(13, 152);
-            this.lbSalary.Name = "lbSalary";
-            this.lbSalary.Size = new System.Drawing.Size(103, 19);
-            this.lbSalary.TabIndex = 22;
-            this.lbSalary.Values.Text = "Lương/Ngày(VND)";
-            // 
-            // ipManDate
-            // 
-            this.ipManDate.Location = new System.Drawing.Point(122, 117);
-            this.ipManDate.Name = "ipManDate";
-            this.ipManDate.Size = new System.Drawing.Size(181, 22);
-            this.ipManDate.TabIndex = 3;
-            // 
-            // lbManDate
-            // 
-            this.lbManDate.Location = new System.Drawing.Point(34, 117);
-            this.lbManDate.Name = "lbManDate";
-            this.lbManDate.Size = new System.Drawing.Size(72, 19);
-            this.lbManDate.TabIndex = 20;
-            this.lbManDate.Values.Text = "Số ngày làm ";
-            // 
-            // ipPosition
-            // 
-            this.ipPosition.Location = new System.Drawing.Point(122, 89);
-            this.ipPosition.Name = "ipPosition";
-            this.ipPosition.Size = new System.Drawing.Size(181, 22);
-            this.ipPosition.TabIndex = 2;
-            // 
-            // lbPosition
-            // 
-            this.lbPosition.Location = new System.Drawing.Point(59, 92);
-            this.lbPosition.Name = "lbPosition";
-            this.lbPosition.Size = new System.Drawing.Size(34, 19);
-            this.lbPosition.TabIndex = 18;
-            this.lbPosition.Values.Text = "Vị trí";
-            // 
-            // ipName
-            // 
-            this.ipName.Location = new System.Drawing.Point(122, 50);
-            this.ipName.Name = "ipName";
-            this.ipName.Size = new System.Drawing.Size(181, 22);
-            this.ipName.TabIndex = 1;
-            // 
-            // lbName
-            // 
-            this.lbName.Location = new System.Drawing.Point(12, 50);
-            this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(85, 19);
-            this.lbName.TabIndex = 16;
-            this.lbName.Values.Text = "Tên công nhân";
-            // 
             // AddNewWk
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(323, 260);
-            this.Controls.Add(this.kryptonPanel);
+            this.Controls.Add(this.pnMain);
             this.Name = "AddNewWk";
-            this.Text = "AddNewWk";
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).EndInit();
-            this.kryptonPanel.ResumeLayout(false);
-            this.kryptonPanel.PerformLayout();
+            this.ShowIcon = false;
+            this.Text = "Tạo mới công nhân";
+            this.Load += new System.EventHandler(this.AddNewWk_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pnMain)).EndInit();
+            this.pnMain.ResumeLayout(false);
+            this.pnMain.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -158,7 +166,7 @@
         #endregion
 
         private ComponentFactory.Krypton.Toolkit.KryptonManager kryptonManager;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel;
+        private ComponentFactory.Krypton.Toolkit.KryptonPanel pnMain;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btClose;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btSave;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox ipSalary;

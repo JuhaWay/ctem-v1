@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 using ChiTonPrivateEnterpriseManagement.Classes.BUS;
 using ChiTonPrivateEnterpriseManagement.Classes.DTO;
+using ChiTonPrivateEnterpriseManagement.Classes.Global;
 
 namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
 {
@@ -21,6 +22,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
         public AddNewVehicle()
         {
             InitializeComponent();
+            CenterToParent();
         }
         public void loadData(){
             cbCons.Items.AddRange(_constructionBus.LoadAllConstructions().ToArray());
@@ -29,23 +31,60 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
             cbManager.Items.AddRange(_employeeBUS.LoadAllEmployee().ToArray());
             cbManager.DisplayMember = "Username";
             cbManager.ValueMember = "employeeID";
+            cbHouse.Items.AddRange(_warehouseBUS.LoadWarehouses("", "", -1).ToArray());
+            cbHouse.DisplayMember = "WarehouseName";
         }
         private void btSave_Click(object sender, EventArgs e)
         {
+            if (!validate()) return;
             VehicleDTO dto = new VehicleDTO();
             dto.Name = ipName.Text;
             dto.Number = ipNumber.Text;
             dto.ConstructionID = (cbCons.SelectedItem as ConstructionDTO).ConstructionID;
             dto.ManagerID = (cbManager.SelectedItem as EmployerDTO).employeeID;
-            dto.WarehouseID = 1;
+            dto.WarehouseID = (cbHouse.SelectedItem as WarehouseDTO).WarehouseID;
             dto.Status = cbStatus.Text;
             _vehicleBUS.CreateVehicle(dto);
             MessageBox.Show(" tạo thành công !");
             this.Close();
         }
-
+        private bool validate()
+        {
+            if (ipName.Text.Trim().Equals(""))
+            {
+                KryptonMessageBox.Show("Vui Lòng điền tên", Constants.CONFIRM, MessageBoxButtons.OK,
+                               MessageBoxIcon.Warning);
+                return false;
+            }
+            if (ipNumber.Text.Trim().Equals(""))
+            {
+                KryptonMessageBox.Show("Vui Lòng điền biển số", Constants.CONFIRM, MessageBoxButtons.OK,
+                               MessageBoxIcon.Warning);
+                return false;
+            }
+            if (cbCons.SelectedIndex<0)
+            {
+                KryptonMessageBox.Show("Vui Lòng chọn công trình", Constants.CONFIRM, MessageBoxButtons.OK,
+                               MessageBoxIcon.Warning);
+                return false;
+            }
+            if (cbManager.SelectedIndex<0)
+            {
+                KryptonMessageBox.Show("Vui Lòng chọn quản lí", Constants.CONFIRM, MessageBoxButtons.OK,
+                               MessageBoxIcon.Warning);
+                return false;
+            }
+            if (cbHouse.SelectedIndex < 0)
+            {
+                KryptonMessageBox.Show("Vui Lòng chọn kho", Constants.CONFIRM, MessageBoxButtons.OK,
+                               MessageBoxIcon.Warning);
+                return false;
+            }
+            return true;
+        }
         private void AddNewVehicle_Load(object sender, EventArgs e)
         {
+            Global.SetLayoutPanelNewForm(pnMain);
             loadData();
         }
 

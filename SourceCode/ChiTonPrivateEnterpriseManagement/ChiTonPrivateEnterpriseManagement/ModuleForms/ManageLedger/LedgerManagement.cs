@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 using ChiTonPrivateEnterpriseManagement.Classes.BUS;
 using ChiTonPrivateEnterpriseManagement.Classes.DTO;
+using ChiTonPrivateEnterpriseManagement.Classes.Global;
 
 namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageLedger
 {
@@ -22,15 +23,37 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageLedger
 
         private void LedgerManagement_Load(object sender, EventArgs e)
         {
-            dgvLedger.DataSource = _ledgerBUS.LoadLedgers();
-            loadDetailValues(0);
+            SetLayout();
+            refresh();
+        }
+        private void SetLayout()
+        {
+            dgvLedger.Focus();
+            pnlSearch.Height = 72;
+            gbxSearch.Height = 68;
+            Global.SetLayoutForm(this, Constants.CHILD_FORM);
+            Global.SetLayoutHeaderGroup(hdDebt, Constants.CHILD_FORM);
+            Global.SetDaulftDatagridview(dgvLedger);
+            Global.SetLayoutGroupBoxSearch(gbxSearch);
+            Global.SetLayoutPanelChildForm(pnlSearch);
+            Global.SetLayoutButton(btnSearch);
         }
 
         private void btAddNew_Click(object sender, EventArgs e)
         {
             AddnewLedger form = new AddnewLedger();
             form.ShowDialog();
-            dgvLedger.DataSource = _ledgerBUS.LoadLedgers();
+            refresh();
+        }
+
+        public void refresh()
+        {
+            LedgerDTO dto = new LedgerDTO();
+            dto.Name = ipSearchName.Text.Trim();
+            dto.Type = cbSearchType.Text.Trim();
+            dto.Person = ipSearchPerson.Text.Trim();
+            dgvLedger.DataSource = _ledgerBUS.LedgerSearch(dto);
+            loadDetailValues(0);
         }
 
         private void dgvLedger_MouseClick(object sender, MouseEventArgs e)
@@ -43,13 +66,14 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageLedger
         {
             if (dgvLedger.Rows.Count == 0)
             {
-
+                reset();
+                dtoTemp = null;
                 return;
             }
             dtoTemp = dgvLedger.Rows[currentMouseOverRow].DataBoundItem as LedgerDTO;
             ipName.Text = dtoTemp.Name;
             cbType.Text = dtoTemp.Type;
-            ipNumber.Text = dtoTemp.Number.ToString();
+            ipNumber.Text = dtoTemp.NumberFormated;
             ipPerson.Text = dtoTemp.Person;
             ipReason.Text = dtoTemp.Reason;
             cbMethod.Text = dtoTemp.Method;
@@ -57,45 +81,88 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageLedger
 
         }
 
+        public void reset()
+        {
+            ipName.Text = "";
+            cbType.Text = "";
+            ipNumber.Text = "";
+            ipPerson.Text = "";
+            ipReason.Text = "";
+            cbMethod.Text = "";
+        }
+
         private void btSave_Click(object sender, EventArgs e)
         {
+            if (dtoTemp == null) return;
+            if (!validateForm()) return;
             dtoTemp.Name = ipName.Text;
             dtoTemp.Type = cbType.Text;
-            dtoTemp.Number = Convert.ToInt64(ipNumber.Text);
+            dtoTemp.Number = Global.ConvertMoneyToLong(ipNumber.Text, Global.SEP);
             dtoTemp.Person = ipPerson.Text;
             dtoTemp.Reason = ipReason.Text;
             dtoTemp.Method = cbMethod.Text;
             dtoTemp.Date = dtDate.Value.Date;
             _ledgerBUS.updateLedger(dtoTemp);
             MessageBox.Show("cập nhật thành công!");
-            dgvLedger.DataSource = _ledgerBUS.LoadLedgers();
+            refresh();
         }
 
         private void btDelete_Click(object sender, EventArgs e)
         {
             if (KryptonMessageBox.Show("Xóa thông tin ?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                foreach (DataGridViewRow row in dgvLedger.Rows)
+                foreach (DataGridViewRow row in dgvLedger.SelectedRows)
                 {
-                    DataGridViewCell c = dgvLedger.Rows[row.Index].Cells[0];
-                    if (c.AccessibilityObject.Value.Equals("True"))
-                    {
-                        string strID = row.Cells["LedgerID"].Value.ToString();
-                        long id = Convert.ToInt64(strID);
+
+                    long id = (row.DataBoundItem as LedgerDTO).LedgerID;
                         _ledgerBUS.delete(id);
-                    }
                 }
-                dgvLedger.DataSource = _ledgerBUS.LoadLedgers();
+                refresh();
             }
         }
 
         private void btSearch_Click(object sender, EventArgs e)
         {
-            LedgerDTO dto = new LedgerDTO();
-            dto.Name = ipSearchName.Text.Trim();
-            dto.Type = cbSearchType.Text.Trim();
-            dto.Person = ipSearchPerson.Text.Trim();
-            dgvLedger.DataSource=_ledgerBUS.LedgerSearch(dto);
+            refresh();
+        }
+
+        private bool validateForm()
+        {
+            if (ipName.Text.Trim().Equals(""))
+            {
+                KryptonMessageBox.Show("Vui Lòng điền tên", Constants.CONFIRM, MessageBoxButtons.OK,
+                              MessageBoxIcon.Warning);
+                return false;
+            }
+            if (cbType.SelectedIndex < 0)
+            {
+                KryptonMessageBox.Show("Vui Lòng chọn loại", Constants.CONFIRM, MessageBoxButtons.OK,
+                              MessageBoxIcon.Warning);
+                return false;
+            }
+            if (!Global.ValidateMoney(ipNumber))
+            {
+                KryptonMessageBox.Show("Nhập sai số tiền", Constants.CONFIRM, MessageBoxButtons.OK,
+                              MessageBoxIcon.Warning);
+                return false;
+            }
+            if (cbMethod.SelectedIndex < 0)
+            {
+                KryptonMessageBox.Show("Vui Lòng chọn hình thức", Constants.CONFIRM, MessageBoxButtons.OK,
+                              MessageBoxIcon.Warning);
+                return false;
+            }
+            return true;
+        }
+
+        private void ipNumber_MouseLeave(object sender, EventArgs e)
+        {
+            ipNumber.Text = Global.ConvertLongToMoney(Global.ConvertMoneyToLong(ipNumber.Text, Global.SEP), Global.SEP);
+        }
+
+        private void ipNumber_Leave(object sender, EventArgs e)
+        {
+            ipNumber.Text = Global.ConvertLongToMoney(Global.ConvertMoneyToLong(ipNumber.Text, Global.SEP), Global.SEP);
         }
     }
 }

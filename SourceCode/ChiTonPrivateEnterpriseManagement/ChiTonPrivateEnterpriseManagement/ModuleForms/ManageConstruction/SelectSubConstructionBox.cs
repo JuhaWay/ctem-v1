@@ -48,13 +48,8 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
 
         private void addButton_Click(object sender, EventArgs e)
         {         
-                bool test = _subcontractorBUS.CreateSubcontractor(subNameInput.Text, addressInPut.Text, phoneInPut.Text);
-                if (test)
-                {
-                    subcontractorDTO = _subcontractorBUS.LoadSubcontractorByName(subNameInput.Text);
-                  
-                }
-
+                long id = _subcontractorBUS.CreateSubcontractor(subNameInput.Text, addressInPut.Text, phoneInPut.Text);
+                subcontractorDTO = _subcontractorBUS.LoadSubcontractorById(id);
                 this.Close();
           
         }

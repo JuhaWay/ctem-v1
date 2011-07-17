@@ -51,16 +51,16 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
         
         private void btnNewEmployee_Click(object sender, EventArgs e)
         {
-            //if (Global.IsAllow(Constants.CREATE_NEW_EMPLOYEE))
-            //{
+            if (Global.IsAllow(Constants.CREATE_NEW_EMPLOYEE))
+            {
                 NewEmployee newEmployee = new NewEmployee();
                 newEmployee.ShowDialog();
                 loadEmployee();
-            //}
-            //else
-            //{
-            //    KryptonMessageBox.Show(Constants.NOT_PERMISSION, Constants.CONFIRM);
-            //}
+            }
+            else
+            {
+                KryptonMessageBox.Show(Constants.NOT_PERMISSION, Constants.CONFIRM);
+            }
         }
 
         private void btnDeleteEmployee_Click(object sender, EventArgs e)

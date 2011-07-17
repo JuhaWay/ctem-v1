@@ -153,7 +153,7 @@
     <value>Lưu</value>
   </data>
   <data name="cmsEdit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>181, 70</value>
+    <value>181, 92</value>
   </data>
   <data name="&gt;&gt;cmsEdit.Name" xml:space="preserve">
     <value>cmsEdit</value>
@@ -934,9 +934,6 @@
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>913, 622</value>
   </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Dự toán</value>
   </data>
@@ -976,10 +973,88 @@
   <data name="&gt;&gt;toolTip1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;EstimateID.Name" xml:space="preserve">
+    <value>EstimateID</value>
+  </data>
+  <data name="&gt;&gt;EstimateID.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ConstructionName.Name" xml:space="preserve">
+    <value>ConstructionName</value>
+  </data>
+  <data name="&gt;&gt;ConstructionName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;EstimateName.Name" xml:space="preserve">
+    <value>EstimateName</value>
+  </data>
+  <data name="&gt;&gt;EstimateName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TotalCostEstimate.Name" xml:space="preserve">
+    <value>TotalCostEstimate</value>
+  </data>
+  <data name="&gt;&gt;TotalCostEstimate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CreatedBy.Name" xml:space="preserve">
+    <value>CreatedBy</value>
+  </data>
+  <data name="&gt;&gt;CreatedBy.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;UpdatedBy.Name" xml:space="preserve">
+    <value>UpdatedBy</value>
+  </data>
+  <data name="&gt;&gt;UpdatedBy.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CreatedDate.Name" xml:space="preserve">
+    <value>CreatedDate</value>
+  </data>
+  <data name="&gt;&gt;CreatedDate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;UpdatedDate.Name" xml:space="preserve">
+    <value>UpdatedDate</value>
+  </data>
+  <data name="&gt;&gt;UpdatedDate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;estimateDTOBindingSource.Name" xml:space="preserve">
+    <value>estimateDTOBindingSource</value>
+  </data>
+  <data name="&gt;&gt;estimateDTOBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnViewListDetail.Name" xml:space="preserve">
+    <value>btnViewListDetail</value>
+  </data>
+  <data name="&gt;&gt;btnViewListDetail.Type" xml:space="preserve">
+    <value>ComponentFactory.Krypton.Toolkit.ButtonSpecAny, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
+  </data>
   <data name="&gt;&gt;btnHideShowSearch.Name" xml:space="preserve">
     <value>btnHideShowSearch</value>
   </data>
   <data name="&gt;&gt;btnHideShowSearch.Type" xml:space="preserve">
+    <value>ComponentFactory.Krypton.Toolkit.ButtonSpecAny, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
+  </data>
+  <data name="&gt;&gt;btnEdit.Name" xml:space="preserve">
+    <value>btnEdit</value>
+  </data>
+  <data name="&gt;&gt;btnEdit.Type" xml:space="preserve">
+    <value>ComponentFactory.Krypton.Toolkit.ButtonSpecAny, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
+  </data>
+  <data name="&gt;&gt;btnUnableEdit.Name" xml:space="preserve">
+    <value>btnUnableEdit</value>
+  </data>
+  <data name="&gt;&gt;btnUnableEdit.Type" xml:space="preserve">
+    <value>ComponentFactory.Krypton.Toolkit.ButtonSpecAny, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
+  </data>
+  <data name="&gt;&gt;btnSave.Name" xml:space="preserve">
+    <value>btnSave</value>
+  </data>
+  <data name="&gt;&gt;btnSave.Type" xml:space="preserve">
     <value>ComponentFactory.Krypton.Toolkit.ButtonSpecAny, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
   </data>
   <data name="&gt;&gt;RefreshToolStripMenuItem.Name" xml:space="preserve">
@@ -1077,84 +1152,6 @@
   </data>
   <data name="&gt;&gt;kryptonContextMenuItems1.Type" xml:space="preserve">
     <value>ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
-  </data>
-  <data name="&gt;&gt;btnViewListDetail.Name" xml:space="preserve">
-    <value>btnViewListDetail</value>
-  </data>
-  <data name="&gt;&gt;btnViewListDetail.Type" xml:space="preserve">
-    <value>ComponentFactory.Krypton.Toolkit.ButtonSpecAny, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
-  </data>
-  <data name="&gt;&gt;btnEdit.Name" xml:space="preserve">
-    <value>btnEdit</value>
-  </data>
-  <data name="&gt;&gt;btnEdit.Type" xml:space="preserve">
-    <value>ComponentFactory.Krypton.Toolkit.ButtonSpecAny, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
-  </data>
-  <data name="&gt;&gt;btnUnableEdit.Name" xml:space="preserve">
-    <value>btnUnableEdit</value>
-  </data>
-  <data name="&gt;&gt;btnUnableEdit.Type" xml:space="preserve">
-    <value>ComponentFactory.Krypton.Toolkit.ButtonSpecAny, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
-  </data>
-  <data name="&gt;&gt;btnSave.Name" xml:space="preserve">
-    <value>btnSave</value>
-  </data>
-  <data name="&gt;&gt;btnSave.Type" xml:space="preserve">
-    <value>ComponentFactory.Krypton.Toolkit.ButtonSpecAny, ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
-  </data>
-  <data name="&gt;&gt;EstimateID.Name" xml:space="preserve">
-    <value>EstimateID</value>
-  </data>
-  <data name="&gt;&gt;EstimateID.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ConstructionName.Name" xml:space="preserve">
-    <value>ConstructionName</value>
-  </data>
-  <data name="&gt;&gt;ConstructionName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;EstimateName.Name" xml:space="preserve">
-    <value>EstimateName</value>
-  </data>
-  <data name="&gt;&gt;EstimateName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TotalCostEstimate.Name" xml:space="preserve">
-    <value>TotalCostEstimate</value>
-  </data>
-  <data name="&gt;&gt;TotalCostEstimate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;CreatedBy.Name" xml:space="preserve">
-    <value>CreatedBy</value>
-  </data>
-  <data name="&gt;&gt;CreatedBy.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;UpdatedBy.Name" xml:space="preserve">
-    <value>UpdatedBy</value>
-  </data>
-  <data name="&gt;&gt;UpdatedBy.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;CreatedDate.Name" xml:space="preserve">
-    <value>CreatedDate</value>
-  </data>
-  <data name="&gt;&gt;CreatedDate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;UpdatedDate.Name" xml:space="preserve">
-    <value>UpdatedDate</value>
-  </data>
-  <data name="&gt;&gt;UpdatedDate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;estimateDTOBindingSource.Name" xml:space="preserve">
-    <value>estimateDTOBindingSource</value>
-  </data>
-  <data name="&gt;&gt;estimateDTOBindingSource.Type" xml:space="preserve">
-    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;finalAccountDetailDTOBindingSource.Name" xml:space="preserve">
     <value>finalAccountDetailDTOBindingSource</value>

@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 using ChiTonPrivateEnterpriseManagement.Classes.DTO;
 using ChiTonPrivateEnterpriseManagement.Classes.BUS;
+using ChiTonPrivateEnterpriseManagement.Classes.Global;
 namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
 {
     public partial class AddnewVehicleDairy : ComponentFactory.Krypton.Toolkit.KryptonForm
@@ -30,22 +31,67 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
             cbDriver.DisplayMember = "Username";
             cbVehicle.Items.AddRange(_vehicleBUS.LoadAllVehicles().ToArray());
             cbVehicle.DisplayMember = "Name";
+            Global.SetLayoutPanelNewForm(pnMain);
         }
 
         private void btSave_Click(object sender, EventArgs e)
         {
+            if (!validateForm()) return;
             VehicleDairyDTO dto = new VehicleDairyDTO();
             dto.ConstructionID = (cbCons.SelectedItem as ConstructionDTO).ConstructionID;
             dto.DriverID = (cbDriver.SelectedItem as EmployerDTO).employeeID;
             dto.VehicleID = (cbVehicle.SelectedItem as VehicleDTO).VehicleID;
             dto.RoadMap = ipMaproad.Text;
-            dto.FualCost = Convert.ToInt64(ipFualCost.Text);
-            dto.DamagedCost = Convert.ToInt64(ipDamagedCost.Text);
+            dto.FualCost = Global.ConvertMoneyToLong(ipFualCost.Text, Global.SEP);
+            dto.DamagedCost = Global.ConvertMoneyToLong(ipDamagedCost.Text, Global.SEP);
             dto.Date = dtDay.Value.Date;
             dto.isPaid = false;
             _vehicleDairyBUS.CreateVehicleDairy(dto);
             MessageBox.Show("Tạo thành công!");
             this.Close();
+        }
+
+        private bool validateForm()
+        {
+
+            if (cbVehicle.SelectedIndex < 0)
+            {
+                KryptonMessageBox.Show("Vui Lòng chọn xe", Constants.CONFIRM, MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return false;
+            }
+            if (cbDriver.SelectedIndex < 0)
+            {
+                KryptonMessageBox.Show("Vui Lòng chọn tài xế", Constants.CONFIRM, MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return false;
+            }
+            if (cbCons.SelectedIndex < 0)
+            {
+                KryptonMessageBox.Show("Vui Lòng chọn công trình", Constants.CONFIRM, MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return false;
+            }
+            return true;
+        }
+        private void ipDamagedCost_Leave(object sender, EventArgs e)
+        {
+            ipDamagedCost.Text = Global.ConvertLongToMoney(Global.ConvertMoneyToLong(ipDamagedCost.Text, Global.SEP), Global.SEP);
+        }
+
+        private void ipDamagedCost_MouseLeave(object sender, EventArgs e)
+        {
+            ipDamagedCost.Text = Global.ConvertLongToMoney(Global.ConvertMoneyToLong(ipDamagedCost.Text, Global.SEP), Global.SEP);
+        }
+
+        private void ipFualCost_Leave(object sender, EventArgs e)
+        {
+            ipFualCost.Text = Global.ConvertLongToMoney(Global.ConvertMoneyToLong(ipFualCost.Text, Global.SEP), Global.SEP);
+        }
+
+        private void ipFualCost_MouseLeave(object sender, EventArgs e)
+        {
+            ipFualCost.Text = Global.ConvertLongToMoney(Global.ConvertMoneyToLong(ipFualCost.Text, Global.SEP), Global.SEP);
         }
     }
 } 

@@ -39,6 +39,15 @@
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.dgvEstimate = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.EstimateID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ConstructionName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EstimateName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalCostEstimate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CreatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UpdatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CreatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UpdatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estimateDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lbEstName = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.lbSearchName = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.lbCons = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
@@ -51,11 +60,15 @@
             this.btnSearch = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.ipSeacrchName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.hdDebt = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
+            this.btnViewListDetail = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.btnHideShowSearch = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.gbcRightBot = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.gbxEdit1 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.ipEstName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.hdEdit = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
+            this.btnEdit = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.btnUnableEdit = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.btnSave = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.cmsDGV = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.RefreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.LoadAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -74,23 +87,11 @@
             this.kryptonContextMenuItems3 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
             this.kryptonContextMenuItems2 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
             this.kryptonContextMenuItems1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
-            this.btnViewListDetail = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.btnEdit = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.btnUnableEdit = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.btnSave = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.EstimateID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ConstructionName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EstimateName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalCostEstimate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CreatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UpdatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CreatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UpdatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estimateDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.finalAccountDetailDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cmsEdit.SuspendLayout();
             this.cmsGen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEstimate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.estimateDTOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbSearchCons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
@@ -114,7 +115,6 @@
             this.gbxEdit1.SuspendLayout();
             this.cmsDGV.SuspendLayout();
             this.cmsMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.estimateDTOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.finalAccountDetailDTOBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -174,6 +174,58 @@
             this.dgvEstimate.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
             this.dgvEstimate.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEstimate_CellContentClick);
             this.dgvEstimate.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvEstimate_MouseClick);
+            // 
+            // EstimateID
+            // 
+            this.EstimateID.DataPropertyName = "EstimateID";
+            resources.ApplyResources(this.EstimateID, "EstimateID");
+            this.EstimateID.Name = "EstimateID";
+            // 
+            // ConstructionName
+            // 
+            this.ConstructionName.DataPropertyName = "ConstructionName";
+            resources.ApplyResources(this.ConstructionName, "ConstructionName");
+            this.ConstructionName.Name = "ConstructionName";
+            // 
+            // EstimateName
+            // 
+            this.EstimateName.DataPropertyName = "EstimateName";
+            resources.ApplyResources(this.EstimateName, "EstimateName");
+            this.EstimateName.Name = "EstimateName";
+            // 
+            // TotalCostEstimate
+            // 
+            this.TotalCostEstimate.DataPropertyName = "TotalCostEstimateFormated";
+            resources.ApplyResources(this.TotalCostEstimate, "TotalCostEstimate");
+            this.TotalCostEstimate.Name = "TotalCostEstimate";
+            // 
+            // CreatedBy
+            // 
+            this.CreatedBy.DataPropertyName = "CreatedBy";
+            resources.ApplyResources(this.CreatedBy, "CreatedBy");
+            this.CreatedBy.Name = "CreatedBy";
+            // 
+            // UpdatedBy
+            // 
+            this.UpdatedBy.DataPropertyName = "UpdatedBy";
+            resources.ApplyResources(this.UpdatedBy, "UpdatedBy");
+            this.UpdatedBy.Name = "UpdatedBy";
+            // 
+            // CreatedDate
+            // 
+            this.CreatedDate.DataPropertyName = "CreatedDateFormated";
+            resources.ApplyResources(this.CreatedDate, "CreatedDate");
+            this.CreatedDate.Name = "CreatedDate";
+            // 
+            // UpdatedDate
+            // 
+            this.UpdatedDate.DataPropertyName = "UpdatedDateFormated";
+            resources.ApplyResources(this.UpdatedDate, "UpdatedDate");
+            this.UpdatedDate.Name = "UpdatedDate";
+            // 
+            // estimateDTOBindingSource
+            // 
+            this.estimateDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.EstimateDTO);
             // 
             // lbEstName
             // 
@@ -297,6 +349,13 @@
             this.hdDebt.Values.Heading = resources.GetString("hdDebt.Values.Heading");
             this.hdDebt.Values.Image = ((System.Drawing.Image)(resources.GetObject("hdDebt.Values.Image")));
             // 
+            // btnViewListDetail
+            // 
+            this.btnViewListDetail.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.application_view_detail;
+            resources.ApplyResources(this.btnViewListDetail, "btnViewListDetail");
+            this.btnViewListDetail.UniqueName = "46715A2AEC0143074F81325F50887305";
+            this.btnViewListDetail.Click += new System.EventHandler(this.btViewDetail_Click);
+            // 
             // btnHideShowSearch
             // 
             resources.ApplyResources(this.btnHideShowSearch, "btnHideShowSearch");
@@ -347,6 +406,27 @@
             this.hdEdit.Values.Description = resources.GetString("hdEdit.Values.Description");
             this.hdEdit.Values.Heading = resources.GetString("hdEdit.Values.Heading");
             this.hdEdit.Values.Image = ((System.Drawing.Image)(resources.GetObject("hdEdit.Values.Image")));
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.Edit;
+            resources.ApplyResources(this.btnEdit, "btnEdit");
+            this.btnEdit.UniqueName = "C645E9231765438901BDC91A1034E5D9";
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
+            // btnUnableEdit
+            // 
+            this.btnUnableEdit.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.freeze;
+            resources.ApplyResources(this.btnUnableEdit, "btnUnableEdit");
+            this.btnUnableEdit.UniqueName = "711D4B5F7134438B489063D5667E49ED";
+            this.btnUnableEdit.Click += new System.EventHandler(this.btnUnableEdit_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.save_edit;
+            resources.ApplyResources(this.btnSave, "btnSave");
+            this.btnSave.UniqueName = "6549634A1C68497476A2DADA48F6958C";
+            this.btnSave.Click += new System.EventHandler(this.btSave_Click);
             // 
             // cmsDGV
             // 
@@ -432,85 +512,6 @@
             // 
             resources.ApplyResources(this.kryptonContextMenuItem1, "kryptonContextMenuItem1");
             // 
-            // btnViewListDetail
-            // 
-            resources.ApplyResources(this.btnViewListDetail, "btnViewListDetail");
-            this.btnViewListDetail.UniqueName = "46715A2AEC0143074F81325F50887305";
-            this.btnViewListDetail.Click += new System.EventHandler(this.btViewDetail_Click);
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.Edit;
-            resources.ApplyResources(this.btnEdit, "btnEdit");
-            this.btnEdit.UniqueName = "C645E9231765438901BDC91A1034E5D9";
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
-            // btnUnableEdit
-            // 
-            this.btnUnableEdit.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.freeze;
-            resources.ApplyResources(this.btnUnableEdit, "btnUnableEdit");
-            this.btnUnableEdit.UniqueName = "711D4B5F7134438B489063D5667E49ED";
-            this.btnUnableEdit.Click += new System.EventHandler(this.btnUnableEdit_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.save_edit;
-            resources.ApplyResources(this.btnSave, "btnSave");
-            this.btnSave.UniqueName = "6549634A1C68497476A2DADA48F6958C";
-            this.btnSave.Click += new System.EventHandler(this.btSave_Click);
-            // 
-            // EstimateID
-            // 
-            this.EstimateID.DataPropertyName = "EstimateID";
-            resources.ApplyResources(this.EstimateID, "EstimateID");
-            this.EstimateID.Name = "EstimateID";
-            // 
-            // ConstructionName
-            // 
-            this.ConstructionName.DataPropertyName = "ConstructionName";
-            resources.ApplyResources(this.ConstructionName, "ConstructionName");
-            this.ConstructionName.Name = "ConstructionName";
-            // 
-            // EstimateName
-            // 
-            this.EstimateName.DataPropertyName = "EstimateName";
-            resources.ApplyResources(this.EstimateName, "EstimateName");
-            this.EstimateName.Name = "EstimateName";
-            // 
-            // TotalCostEstimate
-            // 
-            this.TotalCostEstimate.DataPropertyName = "TotalCostEstimateFormated";
-            resources.ApplyResources(this.TotalCostEstimate, "TotalCostEstimate");
-            this.TotalCostEstimate.Name = "TotalCostEstimate";
-            // 
-            // CreatedBy
-            // 
-            this.CreatedBy.DataPropertyName = "CreatedBy";
-            resources.ApplyResources(this.CreatedBy, "CreatedBy");
-            this.CreatedBy.Name = "CreatedBy";
-            // 
-            // UpdatedBy
-            // 
-            this.UpdatedBy.DataPropertyName = "UpdatedBy";
-            resources.ApplyResources(this.UpdatedBy, "UpdatedBy");
-            this.UpdatedBy.Name = "UpdatedBy";
-            // 
-            // CreatedDate
-            // 
-            this.CreatedDate.DataPropertyName = "CreatedDateFormated";
-            resources.ApplyResources(this.CreatedDate, "CreatedDate");
-            this.CreatedDate.Name = "CreatedDate";
-            // 
-            // UpdatedDate
-            // 
-            this.UpdatedDate.DataPropertyName = "UpdatedDateFormated";
-            resources.ApplyResources(this.UpdatedDate, "UpdatedDate");
-            this.UpdatedDate.Name = "UpdatedDate";
-            // 
-            // estimateDTOBindingSource
-            // 
-            this.estimateDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.EstimateDTO);
-            // 
             // finalAccountDetailDTOBindingSource
             // 
             this.finalAccountDetailDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.FinalAccountDetailDTO);
@@ -526,6 +527,7 @@
             this.cmsEdit.ResumeLayout(false);
             this.cmsGen.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEstimate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.estimateDTOBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbSearchCons)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).EndInit();
             this.kryptonPanel.ResumeLayout(false);
@@ -553,7 +555,6 @@
             this.gbxEdit1.ResumeLayout(false);
             this.cmsDGV.ResumeLayout(false);
             this.cmsMain.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.estimateDTOBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.finalAccountDetailDTOBindingSource)).EndInit();
             this.ResumeLayout(false);
 

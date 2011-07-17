@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 using ChiTonPrivateEnterpriseManagement.Classes.DTO;
 using ChiTonPrivateEnterpriseManagement.Classes.BUS;
+using ChiTonPrivateEnterpriseManagement.Classes.Global;
 namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
 {
     public partial class VehicleDairyManagement : ComponentFactory.Krypton.Toolkit.KryptonForm
@@ -29,11 +30,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
             seachDto.VehicleID = 0;
             seachDto.DriverID = 0;
             dtFromdate.Value = new DateTime(dtTodate.Value.Year, dtTodate.Value.Month, dtTodate.Value.Day - 3);
-            seachDto.FromDate = dtFromdate.Value;
-            seachDto.ToDate = dtTodate.Value;
-            List<VehicleDairyDTO> list = _vehicleDairyBUS.searchVehicleDairy(seachDto);
-            dgvVehicleDairy.DataSource = list;
-            calculateTotal(list);
+          
 
             cbSearchCons.Items.AddRange(_constructionBus.LoadAllConstructions().ToArray());
             cbSearchCons.DisplayMember = "ConstructionName";
@@ -50,8 +47,26 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
             cbDriver.DisplayMember = "Username";
             cbVehicle.Items.AddRange(_vehicleBUS.LoadAllVehicles().ToArray());
             cbVehicle.DisplayMember = "Name";
-            loadDetailValues(0);
+            
 
+
+            SetLayout();
+            initData();
+
+        }
+
+
+        private void SetLayout()
+        {
+            dgvVehicleDairy.Focus();
+            pnlSearch.Height = 72;
+            gbxSearch.Height = 68;
+            Global.SetLayoutForm(this, Constants.CHILD_FORM);
+            Global.SetLayoutHeaderGroup(hdDebt, Constants.CHILD_FORM);
+            Global.SetDaulftDatagridview(dgvVehicleDairy);
+            Global.SetLayoutGroupBoxSearch(gbxSearch);
+            Global.SetLayoutPanelChildForm(pnlSearch);
+            Global.SetLayoutButton(btnSearch);
         }
 
         private void btSearch_Click(object sender, EventArgs e)
@@ -83,19 +98,19 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
                 countFual += dto.FualCost;
                 countDamaged += dto.DamagedCost;
               }
-            ipTotalFualCost.Text = countFual.ToString();
-            ipTotalDamagedCost.Text = countDamaged.ToString();
+            ipTotalFualCost.Text = Global.ConvertLongToMoney(countFual, Global.SEP);
+            ipTotalDamagedCost.Text = Global.ConvertLongToMoney(countDamaged, Global.SEP);
 
         }
         public void initData()
         {
             VehicleDairyDTO seachDto = new VehicleDairyDTO();
-            seachDto.ConstructionID = 0;
-            seachDto.VehicleID = 0;
-            seachDto.DriverID = 0;
             seachDto.FromDate = dtFromdate.Value;
             seachDto.ToDate = dtTodate.Value;
-            dgvVehicleDairy.DataSource = _vehicleDairyBUS.searchVehicleDairy(seachDto);
+            List<VehicleDairyDTO> list = _vehicleDairyBUS.searchVehicleDairy(seachDto);
+            dgvVehicleDairy.DataSource = list;
+            calculateTotal(list);
+            loadDetailValues(0);
         }
         private void dgvVehicleDairy_MouseClick(object sender, MouseEventArgs e)
         {
@@ -127,21 +142,21 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
                 if (dtoTemp.VehicleID.Equals(item.VehicleID))
                     cbVehicle.SelectedItem = item;
             }
-            ipFualCost.Text = dtoTemp.FualCost.ToString();
-            ipDamagedCost.Text = dtoTemp.DamagedCost.ToString();
+            ipFualCost.Text = Global.ConvertLongToMoney(dtoTemp.FualCost, Global.SEP);
+            ipDamagedCost.Text = Global.ConvertLongToMoney(dtoTemp.DamagedCost, Global.SEP);
             ipMaproad.Text = dtoTemp.RoadMap;
 
         }
 
         private void btSave_Click(object sender, EventArgs e)
         {
-
+            if (!validateForm()) return;
             dtoTemp.ConstructionID = (cbCons.SelectedItem as ConstructionDTO).ConstructionID;
             dtoTemp.DriverID = (cbDriver.SelectedItem as EmployerDTO).employeeID;
             dtoTemp.VehicleID = (cbVehicle.SelectedItem as VehicleDTO).VehicleID;
             dtoTemp.RoadMap = ipMaproad.Text;
-            dtoTemp.FualCost = Convert.ToInt64(ipFualCost.Text);
-            dtoTemp.DamagedCost = Convert.ToInt64(ipDamagedCost.Text);
+            dtoTemp.FualCost = Global.ConvertMoneyToLong(ipFualCost.Text, Global.SEP);
+            dtoTemp.DamagedCost = Global.ConvertMoneyToLong(ipDamagedCost.Text, Global.SEP);
             dtoTemp.Date = dtDay.Value.Date;
             dtoTemp.isPaid = false;
             _vehicleDairyBUS.UpdateVehicleDairy(dtoTemp);
@@ -153,18 +168,57 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
         {
             if (KryptonMessageBox.Show("Xóa Nhật ký  ?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                foreach (DataGridViewRow row in dgvVehicleDairy.Rows)
+                foreach (DataGridViewRow row in dgvVehicleDairy.SelectedRows)
                 {
-                    DataGridViewCell c = dgvVehicleDairy.Rows[row.Index].Cells[0];
-                    if (c.AccessibilityObject.Value.Equals("True"))
-                    {
-                        string strID = row.Cells["VehicleDairyID"].Value.ToString();
-                        long id = Convert.ToInt64(strID);
+                    long id = (row.DataBoundItem as VehicleDairyDTO).VehicleDairyID;
                         _vehicleDairyBUS.delete(id);
-                    }
+                   
                 }
                initData();
             }
+        }
+        private bool validateForm()
+        {
+
+            if (cbVehicle.SelectedIndex < 0)
+            {
+                KryptonMessageBox.Show("Vui Lòng chọn xe", Constants.CONFIRM, MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return false;
+            }
+            if (cbDriver.SelectedIndex < 0)
+            {
+                KryptonMessageBox.Show("Vui Lòng chọn tài xế", Constants.CONFIRM, MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return false;
+            }
+            if (cbCons.SelectedIndex < 0)
+            {
+                KryptonMessageBox.Show("Vui Lòng chọn công trình", Constants.CONFIRM, MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return false;
+            }
+            return true;
+        }
+
+        private void ipDamagedCost_Leave(object sender, EventArgs e)
+        {
+            ipDamagedCost.Text = Global.ConvertLongToMoney(Global.ConvertMoneyToLong(ipDamagedCost.Text, Global.SEP), Global.SEP);
+        }
+
+        private void ipDamagedCost_MouseLeave(object sender, EventArgs e)
+        {
+            ipDamagedCost.Text = Global.ConvertLongToMoney(Global.ConvertMoneyToLong(ipDamagedCost.Text, Global.SEP), Global.SEP);
+        }
+
+        private void ipFualCost_Leave(object sender, EventArgs e)
+        {
+            ipFualCost.Text = Global.ConvertLongToMoney(Global.ConvertMoneyToLong(ipFualCost.Text, Global.SEP), Global.SEP);
+        }
+
+        private void ipFualCost_MouseLeave(object sender, EventArgs e)
+        {
+            ipFualCost.Text = Global.ConvertLongToMoney(Global.ConvertMoneyToLong(ipFualCost.Text, Global.SEP), Global.SEP);
         }
 
     }
