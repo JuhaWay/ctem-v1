@@ -74,6 +74,13 @@ namespace ChiTonPrivateEnterpriseManagement.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap application_view_detail1 {
+            get {
+                object obj = ResourceManager.GetObject("application_view_detail1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap cancel {
             get {
                 object obj = ResourceManager.GetObject("cancel", resourceCulture);
