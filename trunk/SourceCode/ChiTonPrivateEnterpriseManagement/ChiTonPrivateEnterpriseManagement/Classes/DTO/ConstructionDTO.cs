@@ -45,6 +45,11 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
 
         public long TotalRealCost { get; set; }
         public long TotalEstimateCost { get; set; }
+        public long TotalMaterialCost { get; set; }
+        public long TotalWorkerCost { get; set; }
+        public long TotalMachineCost { get; set; }
+        public long TotalCostsIncurred { get; set; }
+        
         public string TotalEstimateCostFormated { get; set; }
         public string TotalRealCostFormated { get; set; }
         

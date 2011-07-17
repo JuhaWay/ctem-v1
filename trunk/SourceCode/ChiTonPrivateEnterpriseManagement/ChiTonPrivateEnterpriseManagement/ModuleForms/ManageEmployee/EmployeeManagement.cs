@@ -24,29 +24,66 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
 
         private void loadEmployee()
         {
-            listEmployee = employeeBUS.LoadAllEmployee();
+            string roleName = cbbRole.Text;
+            if (roleName.Equals(Constants.ALL))
+            {
+                roleName = Constants.EMPTY_TEXT;
+            }
+            string username = txtNameSearch.Text;
+            string fullname = txtFullname.Text;
+            int status;
+            if (cbbStatusSearch.Text.Equals(Constants.ACTIVE))
+            {
+                status = 1;
+            }
+            else if (cbbStatusSearch.Text.Equals(Constants.INACTIVE))
+            {
+                status = 0;
+            }
+            else
+            {
+                status = -1;
+            }
+            listEmployee = employeeBUS.LoadEmployee(username, fullname, roleName, status);
             dgvEmployee.DataSource = listEmployee;
+        }
+
+        private void RefreshData()
+        {
+            txtFullname.Text = Constants.EMPTY_TEXT;
+            txtNameSearch.Text = Constants.EMPTY_TEXT;
+            cbbStatusSearch.SelectedIndex = 1;
+            if (cbbRole.Items.Count > 0)
+            {
+                cbbRole.SelectedIndex = 0;
+            }
+            loadEmployee();
         }
 
         private void SetLayout()
         {
+            pnlSearch.Height = 82;
+            gbxSearch.Height = 78;
             Global.SetLayoutForm(this, Constants.CHILD_FORM);
             Global.SetLayoutHeaderGroup(hdEmp, Constants.CHILD_FORM);
-            Global.SetLayoutHeaderGroup(hdEdit, Constants.CHILD_FORM);
             Global.SetDaulftDatagridview(dgvEmployee);
             Global.SetDaulftDatagridview(dgvEmployee);
-            Global.SetLayoutSplipContainer(slcMain, 2);
+            Global.SetLayoutButton(btnSearch);
+            Global.SetLayoutPanelChildForm(pnlSearch);            
+            Global.SetLayoutGroupBoxSearch(gbxSearch);
+            Global.SetDataCombobox(cbbRole, Constants.ROLE_SEARCH);
+            Global.SetDataCombobox(cbbStatusSearch, Constants.STATUS_SEARCH);
         }        
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            loadEmployee();
+            RefreshData();
         }
 
         private void EmployeeManagementForm_Load(object sender, EventArgs e)
         {
             SetLayout();
-            loadEmployee();
+            RefreshData();
         }
         
         private void btnNewEmployee_Click(object sender, EventArgs e)
@@ -55,7 +92,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
             {
                 NewEmployee newEmployee = new NewEmployee();
                 newEmployee.ShowDialog();
-                loadEmployee();
+                RefreshData();
             }
             else
             {
@@ -63,70 +100,131 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
             }
         }
 
-        private void btnDeleteEmployee_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Bạn có chắc chắn muốn xóa những quyền này không?", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-            {
-                bool success = false;
-                foreach (DataGridViewRow row in dgvEmployee.Rows)
-                {
-                    DataGridViewCell c = dgvEmployee.Rows[row.Index].Cells[0];
-                    if (c.AccessibilityObject.Value.Equals("True"))
-                    {
-                        string strEmployeeID = row.Cells["EmployeeID"].Value.ToString();
-                        long EmployeeID = Convert.ToInt64(strEmployeeID);
-                        //success = EmployeeBUS.DeleteEmployee(EmployeeID);
-                        if (success == false)
-                        {
-                            MessageBox.Show("Faile");
-                        }                        
-                    }
-                }
-                loadEmployee();
-            }
-        }
-
-        void ckBox_CheckedChanged(object sender, EventArgs e)
-        {
-        }
 
         private void btnEditEmployee_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in dgvEmployee.Rows)
+            DataGridViewRow row = dgvEmployee.SelectedRows[0];
+            string Username = row.Cells["Username"].Value.ToString();
+            NewEmployee newEmployee = new NewEmployee(Username, listEmployee);
+            newEmployee.ShowDialog();
+            RefreshData();
+        }
+
+        private void btnLoadAll_Click(object sender, EventArgs e)
+        {
+            txtFullname.Text = Constants.EMPTY_TEXT;
+            txtNameSearch.Text = Constants.EMPTY_TEXT;
+            cbbStatusSearch.SelectedIndex = 0;
+            if (cbbRole.Items.Count > 0)
             {
-                DataGridViewCell c = dgvEmployee.Rows[row.Index].Cells[0];
-                if (c.AccessibilityObject.Value.Equals("True"))
+                cbbRole.SelectedIndex = 0;
+            }
+            loadEmployee();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            bool success = false;
+            if (KryptonMessageBox.Show(Constants.CONFIRM_DELETE, Constants.CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                foreach (DataGridViewRow row in dgvEmployee.SelectedRows)
                 {
-                    string Username = row.Cells["Username"].Value.ToString();
-                    NewEmployee newEmployee = new NewEmployee(Username, listEmployee);
-                    newEmployee.ShowDialog();
+                    string username = row.Cells["Username"].Value.ToString();
+                    success = employeeBUS.DeleteEmp(username);
+
                 }
+                KryptonMessageBox.Show(success ? Constants.DELETE_SUCESS : Constants.ERROR);
+                RefreshData();
             }
         }
 
-        private void dgvEmployee_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void btnDeleteAll_Click(object sender, EventArgs e)
         {
-            if (e.ColumnIndex == 0 && e.RowIndex != -1)
+            if (KryptonMessageBox.Show(Constants.CONFIRM_DELETEALL, Constants.CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                DataGridViewCell c = dgvEmployee.Rows[e.RowIndex].Cells[e.ColumnIndex];
-                if (c.AccessibilityObject.Value.Equals("True"))
+                bool success = employeeBUS.DeleteAllEmp();
+                if (success)
                 {
-                    dgvEmployee[e.ColumnIndex, e.RowIndex].Value = false;
-                    c.AccessibilityObject.Value = "False";
-                    dgvEmployee.Rows[e.RowIndex].Selected = false;
+                    KryptonMessageBox.Show(Constants.DELETE_SUCESS);
                 }
                 else
                 {
-                    dgvEmployee[e.ColumnIndex, e.RowIndex].Value = true;
-                    c.AccessibilityObject.Value = "True";
-                    dgvEmployee.Rows[e.RowIndex].Selected = true;
+                    KryptonMessageBox.Show(Constants.ERROR);
                 }
+            }
+            RefreshData();
+        }
+
+        private void btnHideShowSearch_Click(object sender, EventArgs e)
+        {
+            if (gbxSearch.Visible)
+            {
+                btnHideShowSearch.Type = PaletteButtonSpecStyle.ArrowDown;
+                Global.DownUpControl(this, pnlSearch, 82, 2, 4, false);
+                gbxSearch.Visible = false;
+            }
+            else
+            {
+                btnHideShowSearch.Type = PaletteButtonSpecStyle.ArrowUp;
+                gbxSearch.Visible = true;
+                Global.DownUpControl(this, pnlSearch, 82, 2, 4, true);
             }
         }
 
-        private void dgvEmployee_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void btnSearch_Click(object sender, EventArgs e)
         {
+            loadEmployee();
+        }
 
+        private void dgvEmployee_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                DataGridViewRow r = dgvEmployee.Rows[e.RowIndex];
+                string Username = r.Cells["Username"].Value.ToString();
+                NewEmployee newEmployee = new NewEmployee(Username, listEmployee);
+                newEmployee.ShowDialog();
+                RefreshData();
+            }
+        }
+
+        private void txtNameSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnSearch_Click(null, null);
+            }
+        }
+
+        private void btnAuthenticate_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow r = dgvEmployee.SelectedRows[0];
+            string Username = r.Cells["Username"].Value.ToString();
+            Authorization authorization = new Authorization(Username, listEmployee);
+            authorization.ShowDialog();
+            RefreshData();
+        }
+
+        private void SearchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!gbxSearch.Visible)
+            {
+                btnHideShowSearch.Type = PaletteButtonSpecStyle.ArrowUp;
+                gbxSearch.Visible = true;
+                Global.DownUpControl(this, pnlSearch, 62, 2, 4, true);
+            }
+            txtNameSearch.Focus();
+        }
+
+        private void HideSearchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (gbxSearch.Visible)
+            {
+                btnHideShowSearch.Type = PaletteButtonSpecStyle.ArrowDown;
+                Global.DownUpControl(this, pnlSearch, 62, 2, 4, false);
+                gbxSearch.Visible = false;
+            }
+            dgvEmployee.Focus();
         }
     }
 }

@@ -43,6 +43,11 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
         {
             roleDAO.UpdateRole(RoleID, RoleName, description, rightsValue, isActive);
         }
+
+        public List<RoleDTO> GetWithoutAdmin()
+        {
+            return roleDAO.GetWithoutAdmin();
+        }
     }
 }
     

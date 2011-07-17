@@ -16,9 +16,17 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
     public partial class NewCompareDebt : ComponentFactory.Krypton.Toolkit.KryptonForm
     {
         private readonly DebtBUS _debtBus = new DebtBUS();
-        public NewCompareDebt()
+        private string _debtname;
+        private DateTime _from;
+        private DateTime _to;
+        private long _totalCost;
+        public NewCompareDebt(string debtName, DateTime from, DateTime to, long totalCost)
         {
             InitializeComponent();
+            _debtname = debtName;
+            _from = from;
+            _to = to;
+            _totalCost = totalCost;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -72,6 +80,23 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
         private void NewCompareDebt_Load(object sender, EventArgs e)
         {
             SetLayout();
+            SetInnitValue();
+        }
+
+        private void SetInnitValue()
+        {
+            for (int i = 0; i < cbbDebt.Items.Count; i++)
+            {
+                string name = cbbDebt.Items[i].ToString();
+                if (name.Equals(_debtname))
+                {
+                    cbbDebt.SelectedIndex = i;
+                    i = cbbDebt.Items.Count;
+                }
+            }
+            dtpFromDate.Value = _from;
+            dtpToDate.Value = _to;
+            txtTotalOwe.Text = Global.ConvertLongToMoney(_totalCost, Constants.SPLIP_MONEY);
         }
 
         private void SetLayout()

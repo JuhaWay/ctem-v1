@@ -46,6 +46,8 @@
             this.btnClear = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnClose = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnSave = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.cmsMain = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.genarateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.cbbEmployee)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.slcMain)).BeginInit();
             this.slcMain.Panel1.SuspendLayout();
@@ -62,72 +64,76 @@
             ((System.ComponentModel.ISupportInitialize)(this.gbxButton)).BeginInit();
             this.gbxButton.Panel.SuspendLayout();
             this.gbxButton.SuspendLayout();
+            this.cmsMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // cbbEmployee
             // 
             this.cbbEmployee.DropDownWidth = 237;
-            this.cbbEmployee.Location = new System.Drawing.Point(114, 25);
+            this.cbbEmployee.Location = new System.Drawing.Point(114, 20);
             this.cbbEmployee.Name = "cbbEmployee";
-            this.cbbEmployee.Size = new System.Drawing.Size(285, 21);
+            this.cbbEmployee.Size = new System.Drawing.Size(285, 22);
             this.cbbEmployee.TabIndex = 16;
             // 
             // txtNote
             // 
-            this.txtNote.Location = new System.Drawing.Point(119, 10);
+            this.txtNote.Location = new System.Drawing.Point(119, 9);
             this.txtNote.Multiline = true;
             this.txtNote.Name = "txtNote";
-            this.txtNote.Size = new System.Drawing.Size(285, 94);
+            this.txtNote.Size = new System.Drawing.Size(285, 87);
             this.txtNote.TabIndex = 15;
             // 
             // txtReason
             // 
-            this.txtReason.Location = new System.Drawing.Point(114, 78);
+            this.txtReason.Location = new System.Drawing.Point(114, 76);
             this.txtReason.Multiline = true;
             this.txtReason.Name = "txtReason";
-            this.txtReason.Size = new System.Drawing.Size(285, 94);
+            this.txtReason.Size = new System.Drawing.Size(285, 87);
             this.txtReason.TabIndex = 14;
             this.txtReason.TextChanged += new System.EventHandler(this.txtReason_TextChanged);
             // 
             // txtTotalAdvance
             // 
-            this.txtTotalAdvance.Location = new System.Drawing.Point(114, 52);
+            this.txtTotalAdvance.ContextMenuStrip = this.cmsMain;
+            this.txtTotalAdvance.Location = new System.Drawing.Point(114, 48);
             this.txtTotalAdvance.Name = "txtTotalAdvance";
-            this.txtTotalAdvance.Size = new System.Drawing.Size(285, 20);
+            this.txtTotalAdvance.Size = new System.Drawing.Size(285, 22);
             this.txtTotalAdvance.TabIndex = 13;
+            this.txtTotalAdvance.Enter += new System.EventHandler(this.txtTotalAdvance_Enter);
+            this.txtTotalAdvance.Leave += new System.EventHandler(this.txtTotalAdvance_Leave);
             // 
             // kryptonLabel4
             // 
-            this.kryptonLabel4.Location = new System.Drawing.Point(48, 8);
+            this.kryptonLabel4.Location = new System.Drawing.Point(60, 9);
             this.kryptonLabel4.Name = "kryptonLabel4";
-            this.kryptonLabel4.Size = new System.Drawing.Size(54, 20);
+            this.kryptonLabel4.Size = new System.Drawing.Size(50, 19);
             this.kryptonLabel4.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.kryptonLabel4.TabIndex = 12;
             this.kryptonLabel4.Values.Text = "Ghi Chú";
             // 
             // kryptonLabel3
             // 
-            this.kryptonLabel3.Location = new System.Drawing.Point(55, 78);
+            this.kryptonLabel3.Location = new System.Drawing.Point(66, 73);
             this.kryptonLabel3.Name = "kryptonLabel3";
-            this.kryptonLabel3.Size = new System.Drawing.Size(42, 20);
+            this.kryptonLabel3.Size = new System.Drawing.Size(39, 19);
             this.kryptonLabel3.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.kryptonLabel3.TabIndex = 11;
             this.kryptonLabel3.Values.Text = "Lý Do";
             // 
             // kryptonLabel2
             // 
-            this.kryptonLabel2.Location = new System.Drawing.Point(37, 52);
+            this.kryptonLabel2.Location = new System.Drawing.Point(50, 48);
             this.kryptonLabel2.Name = "kryptonLabel2";
-            this.kryptonLabel2.Size = new System.Drawing.Size(60, 20);
+            this.kryptonLabel2.Size = new System.Drawing.Size(55, 19);
             this.kryptonLabel2.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.kryptonLabel2.TabIndex = 10;
             this.kryptonLabel2.Values.Text = "Tiền Ứng";
             // 
             // kryptonLabel1
             // 
-            this.kryptonLabel1.Location = new System.Drawing.Point(29, 26);
+            this.kryptonLabel1.Location = new System.Drawing.Point(43, 23);
             this.kryptonLabel1.Name = "kryptonLabel1";
-            this.kryptonLabel1.Size = new System.Drawing.Size(68, 20);
+            this.kryptonLabel1.Size = new System.Drawing.Size(62, 19);
             this.kryptonLabel1.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.kryptonLabel1.TabIndex = 9;
             this.kryptonLabel1.Values.Text = "Nhân Viên";
@@ -150,8 +156,8 @@
             // 
             this.slcMain.Panel2.Controls.Add(this.gbxAdd2);
             this.slcMain.Panel2.StateCommon.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(57)))), ((int)(((byte)(85)))));
-            this.slcMain.Size = new System.Drawing.Size(441, 353);
-            this.slcMain.SplitterDistance = 211;
+            this.slcMain.Size = new System.Drawing.Size(441, 350);
+            this.slcMain.SplitterDistance = 209;
             this.slcMain.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(57)))), ((int)(((byte)(85)))));
             this.slcMain.TabIndex = 39;
             // 
@@ -169,7 +175,7 @@
             this.gbxAdd1.Panel.Controls.Add(this.kryptonLabel2);
             this.gbxAdd1.Panel.Controls.Add(this.kryptonLabel3);
             this.gbxAdd1.Panel.Controls.Add(this.txtTotalAdvance);
-            this.gbxAdd1.Size = new System.Drawing.Size(436, 206);
+            this.gbxAdd1.Size = new System.Drawing.Size(436, 204);
             this.gbxAdd1.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(89)))), ((int)(((byte)(153)))));
             this.gbxAdd1.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
             this.gbxAdd1.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -187,7 +193,7 @@
             // 
             this.gbxAdd2.Panel.Controls.Add(this.txtNote);
             this.gbxAdd2.Panel.Controls.Add(this.kryptonLabel4);
-            this.gbxAdd2.Size = new System.Drawing.Size(441, 137);
+            this.gbxAdd2.Size = new System.Drawing.Size(441, 136);
             this.gbxAdd2.TabIndex = 5;
             this.gbxAdd2.Values.Heading = "Thông Tin Thêm";
             // 
@@ -195,16 +201,16 @@
             // 
             this.pnlButton.Controls.Add(this.gbxButton);
             this.pnlButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlButton.Location = new System.Drawing.Point(0, 353);
+            this.pnlButton.Location = new System.Drawing.Point(0, 350);
             this.pnlButton.Name = "pnlButton";
-            this.pnlButton.Size = new System.Drawing.Size(441, 99);
+            this.pnlButton.Size = new System.Drawing.Size(441, 92);
             this.pnlButton.StateCommon.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(148)))), ((int)(((byte)(223)))));
             this.pnlButton.TabIndex = 40;
             // 
             // gbxButton
             // 
             this.gbxButton.CaptionOverlap = 0D;
-            this.gbxButton.Location = new System.Drawing.Point(42, 10);
+            this.gbxButton.Location = new System.Drawing.Point(42, 9);
             this.gbxButton.Name = "gbxButton";
             // 
             // gbxButton.Panel
@@ -212,15 +218,15 @@
             this.gbxButton.Panel.Controls.Add(this.btnClear);
             this.gbxButton.Panel.Controls.Add(this.btnClose);
             this.gbxButton.Panel.Controls.Add(this.btnSave);
-            this.gbxButton.Size = new System.Drawing.Size(379, 78);
+            this.gbxButton.Size = new System.Drawing.Size(379, 72);
             this.gbxButton.TabIndex = 0;
             this.gbxButton.Values.Heading = "";
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(139, 23);
+            this.btnClear.Location = new System.Drawing.Point(139, 21);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(90, 25);
+            this.btnClear.Size = new System.Drawing.Size(90, 23);
             this.btnClear.TabIndex = 1;
             this.btnClear.Values.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.edit_clear;
             this.btnClear.Values.Text = "Làm Mới";
@@ -228,9 +234,9 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(235, 23);
+            this.btnClose.Location = new System.Drawing.Point(235, 21);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(90, 25);
+            this.btnClose.Size = new System.Drawing.Size(90, 23);
             this.btnClose.TabIndex = 2;
             this.btnClose.Values.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.close_box_red;
             this.btnClose.Values.Text = "Đóng";
@@ -238,23 +244,39 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(43, 23);
+            this.btnSave.Location = new System.Drawing.Point(43, 21);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(90, 25);
+            this.btnSave.Size = new System.Drawing.Size(90, 23);
             this.btnSave.TabIndex = 0;
             this.btnSave.Values.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.save_edit;
             this.btnSave.Values.Text = "Lưu";
             this.btnSave.Click += new System.EventHandler(this.txtSave_Click);
             // 
+            // cmsMain
+            // 
+            this.cmsMain.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.cmsMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.genarateToolStripMenuItem});
+            this.cmsMain.Name = "cmsMain";
+            this.cmsMain.Size = new System.Drawing.Size(170, 48);
+            // 
+            // genarateToolStripMenuItem
+            // 
+            this.genarateToolStripMenuItem.Name = "genarateToolStripMenuItem";
+            this.genarateToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G)));
+            this.genarateToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.genarateToolStripMenuItem.Text = "Genarate";
+            this.genarateToolStripMenuItem.Click += new System.EventHandler(this.genarateToolStripMenuItem_Click);
+            // 
             // NewAdvance
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(441, 452);
+            this.ClientSize = new System.Drawing.Size(441, 442);
             this.Controls.Add(this.slcMain);
             this.Controls.Add(this.pnlButton);
             this.Name = "NewAdvance";
-            this.Text = "NewAdvance";
+            this.Text = "Tạo Mới Ứng Tiền";
             this.Load += new System.EventHandler(this.NewAdvance_Load);
             ((System.ComponentModel.ISupportInitialize)(this.cbbEmployee)).EndInit();
             this.slcMain.Panel1.ResumeLayout(false);
@@ -274,6 +296,7 @@
             this.gbxButton.Panel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gbxButton)).EndInit();
             this.gbxButton.ResumeLayout(false);
+            this.cmsMain.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -297,6 +320,8 @@
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnClear;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnClose;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnSave;
+        private System.Windows.Forms.ContextMenuStrip cmsMain;
+        private System.Windows.Forms.ToolStripMenuItem genarateToolStripMenuItem;
     }
 }
 

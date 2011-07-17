@@ -119,7 +119,7 @@
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMain.Location = new System.Drawing.Point(0, 0);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(1024, 562);
+            this.pnlMain.Size = new System.Drawing.Size(1024, 522);
             this.pnlMain.TabIndex = 0;
             // 
             // pnlContent
@@ -128,7 +128,7 @@
             this.pnlContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContent.Location = new System.Drawing.Point(0, 0);
             this.pnlContent.Name = "pnlContent";
-            this.pnlContent.Size = new System.Drawing.Size(1024, 562);
+            this.pnlContent.Size = new System.Drawing.Size(1024, 522);
             this.pnlContent.TabIndex = 4;
             // 
             // slcMain
@@ -151,7 +151,7 @@
             this.slcMain.Panel2.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Blue;
             this.slcMain.Panel2.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonFormClose;
             this.slcMain.SeparatorStyle = ComponentFactory.Krypton.Toolkit.SeparatorStyle.HighProfile;
-            this.slcMain.Size = new System.Drawing.Size(1024, 562);
+            this.slcMain.Size = new System.Drawing.Size(1024, 522);
             this.slcMain.SplitterDistance = 221;
             this.slcMain.StateCommon.Separator.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(135)))), ((int)(((byte)(173)))));
             this.slcMain.StateCommon.Separator.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(210)))), ((int)(((byte)(229)))));
@@ -188,7 +188,7 @@
             this.hdgMenu.Panel.Controls.Add(this.pnlConsMenu);
             this.hdgMenu.Panel.Controls.Add(this.kryptonPanel2);
             this.hdgMenu.Panel.Controls.Add(this.kryptonPanel1);
-            this.hdgMenu.Size = new System.Drawing.Size(221, 562);
+            this.hdgMenu.Size = new System.Drawing.Size(221, 522);
             this.hdgMenu.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(212)))), ((int)(((byte)(239)))));
             this.hdgMenu.StateCommon.HeaderPrimary.Back.Color1 = System.Drawing.Color.SteelBlue;
             this.hdgMenu.StateCommon.HeaderPrimary.Back.Color2 = System.Drawing.Color.LightSteelBlue;
@@ -214,13 +214,13 @@
             this.hgxSystemMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.hgxSystemMenu.HeaderStylePrimary = ComponentFactory.Krypton.Toolkit.HeaderStyle.Secondary;
             this.hgxSystemMenu.HeaderVisibleSecondary = false;
-            this.hgxSystemMenu.Location = new System.Drawing.Point(10, 401);
+            this.hgxSystemMenu.Location = new System.Drawing.Point(10, 373);
             this.hgxSystemMenu.Name = "hgxSystemMenu";
             // 
             // hgxSystemMenu.Panel
             // 
             this.hgxSystemMenu.Panel.Controls.Add(this.tvwSystem);
-            this.hgxSystemMenu.Size = new System.Drawing.Size(199, 50);
+            this.hgxSystemMenu.Size = new System.Drawing.Size(199, 46);
             this.hgxSystemMenu.StateCommon.Back.Color1 = System.Drawing.SystemColors.GradientInactiveCaption;
             this.hgxSystemMenu.StateCommon.Back.Color2 = System.Drawing.SystemColors.GradientInactiveCaption;
             this.hgxSystemMenu.StateCommon.Border.Color1 = System.Drawing.Color.RoyalBlue;
@@ -264,7 +264,7 @@
             this.tvwSystem.Location = new System.Drawing.Point(0, 0);
             this.tvwSystem.Name = "tvwSystem";
             this.tvwSystem.SelectedImageIndex = 0;
-            this.tvwSystem.Size = new System.Drawing.Size(193, 24);
+            this.tvwSystem.Size = new System.Drawing.Size(193, 20);
             this.tvwSystem.TabIndex = 1;
             this.tvwSystem.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvwSystem_NodeMouseDoubleClick);
             this.tvwSystem.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tvwSystem_KeyDown);
@@ -280,9 +280,9 @@
             // pnlSystem
             // 
             this.pnlSystem.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlSystem.Location = new System.Drawing.Point(10, 381);
+            this.pnlSystem.Location = new System.Drawing.Point(10, 354);
             this.pnlSystem.Name = "pnlSystem";
-            this.pnlSystem.Size = new System.Drawing.Size(199, 20);
+            this.pnlSystem.Size = new System.Drawing.Size(199, 19);
             this.pnlSystem.StateCommon.Color1 = System.Drawing.Color.Transparent;
             this.pnlSystem.StateCommon.Color2 = System.Drawing.Color.Transparent;
             this.pnlSystem.TabIndex = 12;
@@ -294,13 +294,13 @@
             this.hgxLedgerMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.hgxLedgerMenu.HeaderStylePrimary = ComponentFactory.Krypton.Toolkit.HeaderStyle.Secondary;
             this.hgxLedgerMenu.HeaderVisibleSecondary = false;
-            this.hgxLedgerMenu.Location = new System.Drawing.Point(10, 344);
+            this.hgxLedgerMenu.Location = new System.Drawing.Point(10, 320);
             this.hgxLedgerMenu.Name = "hgxLedgerMenu";
             // 
             // hgxLedgerMenu.Panel
             // 
             this.hgxLedgerMenu.Panel.Controls.Add(this.tvwLedger);
-            this.hgxLedgerMenu.Size = new System.Drawing.Size(199, 37);
+            this.hgxLedgerMenu.Size = new System.Drawing.Size(199, 34);
             this.hgxLedgerMenu.StateCommon.Back.Color1 = System.Drawing.SystemColors.GradientInactiveCaption;
             this.hgxLedgerMenu.StateCommon.Back.Color2 = System.Drawing.SystemColors.GradientInactiveCaption;
             this.hgxLedgerMenu.StateCommon.Border.Color1 = System.Drawing.Color.RoyalBlue;
@@ -344,7 +344,7 @@
             this.tvwLedger.Location = new System.Drawing.Point(0, 0);
             this.tvwLedger.Name = "tvwLedger";
             this.tvwLedger.SelectedImageIndex = 0;
-            this.tvwLedger.Size = new System.Drawing.Size(193, 11);
+            this.tvwLedger.Size = new System.Drawing.Size(193, 8);
             this.tvwLedger.TabIndex = 1;
             this.tvwLedger.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvwLedger_NodeMouseDoubleClick);
             this.tvwLedger.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tvwLedger_KeyDown);
@@ -358,9 +358,9 @@
             // pnlLedgerMenu
             // 
             this.pnlLedgerMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlLedgerMenu.Location = new System.Drawing.Point(10, 324);
+            this.pnlLedgerMenu.Location = new System.Drawing.Point(10, 301);
             this.pnlLedgerMenu.Name = "pnlLedgerMenu";
-            this.pnlLedgerMenu.Size = new System.Drawing.Size(199, 20);
+            this.pnlLedgerMenu.Size = new System.Drawing.Size(199, 19);
             this.pnlLedgerMenu.StateCommon.Color1 = System.Drawing.Color.Transparent;
             this.pnlLedgerMenu.StateCommon.Color2 = System.Drawing.Color.Transparent;
             this.pnlLedgerMenu.TabIndex = 10;
@@ -372,13 +372,13 @@
             this.hgxDebtMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.hgxDebtMenu.HeaderStylePrimary = ComponentFactory.Krypton.Toolkit.HeaderStyle.Secondary;
             this.hgxDebtMenu.HeaderVisibleSecondary = false;
-            this.hgxDebtMenu.Location = new System.Drawing.Point(10, 275);
+            this.hgxDebtMenu.Location = new System.Drawing.Point(10, 256);
             this.hgxDebtMenu.Name = "hgxDebtMenu";
             // 
             // hgxDebtMenu.Panel
             // 
             this.hgxDebtMenu.Panel.Controls.Add(this.tvwDebt);
-            this.hgxDebtMenu.Size = new System.Drawing.Size(199, 49);
+            this.hgxDebtMenu.Size = new System.Drawing.Size(199, 45);
             this.hgxDebtMenu.StateCommon.Back.Color1 = System.Drawing.SystemColors.GradientInactiveCaption;
             this.hgxDebtMenu.StateCommon.Back.Color2 = System.Drawing.SystemColors.GradientInactiveCaption;
             this.hgxDebtMenu.StateCommon.Border.Color1 = System.Drawing.Color.RoyalBlue;
@@ -422,7 +422,7 @@
             this.tvwDebt.Location = new System.Drawing.Point(0, 0);
             this.tvwDebt.Name = "tvwDebt";
             this.tvwDebt.SelectedImageIndex = 0;
-            this.tvwDebt.Size = new System.Drawing.Size(193, 23);
+            this.tvwDebt.Size = new System.Drawing.Size(193, 19);
             this.tvwDebt.TabIndex = 1;
             this.tvwDebt.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvwDebt_NodeMouseDoubleClick);
             this.tvwDebt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tvwDebt_KeyDown);
@@ -437,9 +437,9 @@
             // pnlDebtMenu
             // 
             this.pnlDebtMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlDebtMenu.Location = new System.Drawing.Point(10, 255);
+            this.pnlDebtMenu.Location = new System.Drawing.Point(10, 237);
             this.pnlDebtMenu.Name = "pnlDebtMenu";
-            this.pnlDebtMenu.Size = new System.Drawing.Size(199, 20);
+            this.pnlDebtMenu.Size = new System.Drawing.Size(199, 19);
             this.pnlDebtMenu.StateCommon.Color1 = System.Drawing.Color.Transparent;
             this.pnlDebtMenu.StateCommon.Color2 = System.Drawing.Color.Transparent;
             this.pnlDebtMenu.TabIndex = 8;
@@ -451,13 +451,13 @@
             this.hgxWHMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.hgxWHMenu.HeaderStylePrimary = ComponentFactory.Krypton.Toolkit.HeaderStyle.Secondary;
             this.hgxWHMenu.HeaderVisibleSecondary = false;
-            this.hgxWHMenu.Location = new System.Drawing.Point(10, 190);
+            this.hgxWHMenu.Location = new System.Drawing.Point(10, 177);
             this.hgxWHMenu.Name = "hgxWHMenu";
             // 
             // hgxWHMenu.Panel
             // 
             this.hgxWHMenu.Panel.Controls.Add(this.tvwWH);
-            this.hgxWHMenu.Size = new System.Drawing.Size(199, 65);
+            this.hgxWHMenu.Size = new System.Drawing.Size(199, 60);
             this.hgxWHMenu.StateCommon.Back.Color1 = System.Drawing.SystemColors.GradientInactiveCaption;
             this.hgxWHMenu.StateCommon.Back.Color2 = System.Drawing.SystemColors.GradientInactiveCaption;
             this.hgxWHMenu.StateCommon.Border.Color1 = System.Drawing.Color.RoyalBlue;
@@ -501,7 +501,7 @@
             this.tvwWH.Location = new System.Drawing.Point(0, 0);
             this.tvwWH.Name = "tvwWH";
             this.tvwWH.SelectedImageIndex = 0;
-            this.tvwWH.Size = new System.Drawing.Size(193, 39);
+            this.tvwWH.Size = new System.Drawing.Size(193, 34);
             this.tvwWH.TabIndex = 1;
             this.tvwWH.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvwWH_NodeMouseDoubleClick);
             this.tvwWH.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tvwWH_KeyDown);
@@ -518,9 +518,9 @@
             // pnlWHMenu
             // 
             this.pnlWHMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlWHMenu.Location = new System.Drawing.Point(10, 170);
+            this.pnlWHMenu.Location = new System.Drawing.Point(10, 158);
             this.pnlWHMenu.Name = "pnlWHMenu";
-            this.pnlWHMenu.Size = new System.Drawing.Size(199, 20);
+            this.pnlWHMenu.Size = new System.Drawing.Size(199, 19);
             this.pnlWHMenu.StateCommon.Color1 = System.Drawing.Color.Transparent;
             this.pnlWHMenu.StateCommon.Color2 = System.Drawing.Color.Transparent;
             this.pnlWHMenu.TabIndex = 6;
@@ -532,13 +532,13 @@
             this.hgxEmpMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.hgxEmpMenu.HeaderStylePrimary = ComponentFactory.Krypton.Toolkit.HeaderStyle.Secondary;
             this.hgxEmpMenu.HeaderVisibleSecondary = false;
-            this.hgxEmpMenu.Location = new System.Drawing.Point(10, 104);
+            this.hgxEmpMenu.Location = new System.Drawing.Point(10, 97);
             this.hgxEmpMenu.Name = "hgxEmpMenu";
             // 
             // hgxEmpMenu.Panel
             // 
             this.hgxEmpMenu.Panel.Controls.Add(this.tvwEmp);
-            this.hgxEmpMenu.Size = new System.Drawing.Size(199, 66);
+            this.hgxEmpMenu.Size = new System.Drawing.Size(199, 61);
             this.hgxEmpMenu.StateCommon.Back.Color1 = System.Drawing.SystemColors.GradientInactiveCaption;
             this.hgxEmpMenu.StateCommon.Back.Color2 = System.Drawing.SystemColors.GradientInactiveCaption;
             this.hgxEmpMenu.StateCommon.Border.Color1 = System.Drawing.Color.RoyalBlue;
@@ -582,7 +582,7 @@
             this.tvwEmp.Location = new System.Drawing.Point(0, 0);
             this.tvwEmp.Name = "tvwEmp";
             this.tvwEmp.SelectedImageIndex = 0;
-            this.tvwEmp.Size = new System.Drawing.Size(193, 40);
+            this.tvwEmp.Size = new System.Drawing.Size(193, 35);
             this.tvwEmp.TabIndex = 1;
             this.tvwEmp.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvwEmp_NodeMouseDoubleClick);
             this.tvwEmp.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tvwEmp_KeyDown);
@@ -598,9 +598,9 @@
             // pnlEmpMenu
             // 
             this.pnlEmpMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlEmpMenu.Location = new System.Drawing.Point(10, 84);
+            this.pnlEmpMenu.Location = new System.Drawing.Point(10, 78);
             this.pnlEmpMenu.Name = "pnlEmpMenu";
-            this.pnlEmpMenu.Size = new System.Drawing.Size(199, 20);
+            this.pnlEmpMenu.Size = new System.Drawing.Size(199, 19);
             this.pnlEmpMenu.StateCommon.Color1 = System.Drawing.Color.Transparent;
             this.pnlEmpMenu.StateCommon.Color2 = System.Drawing.Color.Transparent;
             this.pnlEmpMenu.TabIndex = 4;
@@ -612,13 +612,13 @@
             this.hgxConsMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.hgxConsMenu.HeaderStylePrimary = ComponentFactory.Krypton.Toolkit.HeaderStyle.Secondary;
             this.hgxConsMenu.HeaderVisibleSecondary = false;
-            this.hgxConsMenu.Location = new System.Drawing.Point(10, 20);
+            this.hgxConsMenu.Location = new System.Drawing.Point(10, 19);
             this.hgxConsMenu.Name = "hgxConsMenu";
             // 
             // hgxConsMenu.Panel
             // 
             this.hgxConsMenu.Panel.Controls.Add(this.tvwCons);
-            this.hgxConsMenu.Size = new System.Drawing.Size(199, 64);
+            this.hgxConsMenu.Size = new System.Drawing.Size(199, 59);
             this.hgxConsMenu.StateCommon.Back.Color1 = System.Drawing.SystemColors.GradientInactiveCaption;
             this.hgxConsMenu.StateCommon.Back.Color2 = System.Drawing.SystemColors.GradientInactiveCaption;
             this.hgxConsMenu.StateCommon.Border.Color1 = System.Drawing.Color.RoyalBlue;
@@ -664,7 +664,7 @@
             this.tvwCons.Location = new System.Drawing.Point(0, 0);
             this.tvwCons.Name = "tvwCons";
             this.tvwCons.SelectedImageIndex = 0;
-            this.tvwCons.Size = new System.Drawing.Size(193, 38);
+            this.tvwCons.Size = new System.Drawing.Size(193, 33);
             this.tvwCons.TabIndex = 0;
             this.tvwCons.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvwCons_NodeMouseDoubleClick);
             this.tvwCons.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tvwCons_KeyDown);
@@ -685,7 +685,7 @@
             this.pnlConsMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlConsMenu.Location = new System.Drawing.Point(10, 0);
             this.pnlConsMenu.Name = "pnlConsMenu";
-            this.pnlConsMenu.Size = new System.Drawing.Size(199, 20);
+            this.pnlConsMenu.Size = new System.Drawing.Size(199, 19);
             this.pnlConsMenu.StateCommon.Color1 = System.Drawing.Color.Transparent;
             this.pnlConsMenu.StateCommon.Color2 = System.Drawing.Color.Transparent;
             this.pnlConsMenu.TabIndex = 2;
@@ -695,7 +695,7 @@
             this.kryptonPanel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.kryptonPanel2.Location = new System.Drawing.Point(209, 0);
             this.kryptonPanel2.Name = "kryptonPanel2";
-            this.kryptonPanel2.Size = new System.Drawing.Size(10, 560);
+            this.kryptonPanel2.Size = new System.Drawing.Size(10, 520);
             this.kryptonPanel2.StateCommon.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(212)))), ((int)(((byte)(239)))));
             this.kryptonPanel2.StateCommon.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(212)))), ((int)(((byte)(239)))));
             this.kryptonPanel2.StateCommon.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Dashed;
@@ -706,7 +706,7 @@
             this.kryptonPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.kryptonPanel1.Location = new System.Drawing.Point(0, 0);
             this.kryptonPanel1.Name = "kryptonPanel1";
-            this.kryptonPanel1.Size = new System.Drawing.Size(10, 560);
+            this.kryptonPanel1.Size = new System.Drawing.Size(10, 520);
             this.kryptonPanel1.StateCommon.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(212)))), ((int)(((byte)(239)))));
             this.kryptonPanel1.StateCommon.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(212)))), ((int)(((byte)(239)))));
             this.kryptonPanel1.StateCommon.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Dashed;
@@ -715,9 +715,9 @@
             // pnlMainContent
             // 
             this.pnlMainContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlMainContent.Location = new System.Drawing.Point(0, 28);
+            this.pnlMainContent.Location = new System.Drawing.Point(0, 27);
             this.pnlMainContent.Name = "pnlMainContent";
-            this.pnlMainContent.Size = new System.Drawing.Size(798, 534);
+            this.pnlMainContent.Size = new System.Drawing.Size(798, 495);
             this.pnlMainContent.StateCommon.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(212)))), ((int)(((byte)(239)))));
             this.pnlMainContent.StateCommon.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(243)))), ((int)(((byte)(251)))));
             this.pnlMainContent.StateCommon.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Dashed;
@@ -732,7 +732,7 @@
             this.kryptonHeader1.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.Calendar;
             this.kryptonHeader1.Location = new System.Drawing.Point(0, 0);
             this.kryptonHeader1.Name = "kryptonHeader1";
-            this.kryptonHeader1.Size = new System.Drawing.Size(798, 28);
+            this.kryptonHeader1.Size = new System.Drawing.Size(798, 27);
             this.kryptonHeader1.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(135)))), ((int)(((byte)(173)))));
             this.kryptonHeader1.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(210)))), ((int)(((byte)(229)))));
             this.kryptonHeader1.StateCommon.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.GlassSimpleFull;
@@ -765,11 +765,11 @@
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
             this.buttonSpecAny1});
-            this.ClientSize = new System.Drawing.Size(1024, 562);
+            this.ClientSize = new System.Drawing.Size(1024, 522);
             this.Controls.Add(this.pnlMain);
             this.Name = "MainForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;

@@ -1,0 +1,79 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Text;
+using System.Windows.Forms;
+using ComponentFactory.Krypton.Toolkit;
+using ChiTonPrivateEnterpriseManagement.Classes.Global;
+using ChiTonPrivateEnterpriseManagement.Classes.BUS;
+using ChiTonPrivateEnterpriseManagement.Classes.DTO;
+
+namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWarehouse
+{
+    public partial class WarehouseDetail : ComponentFactory.Krypton.Toolkit.KryptonForm
+    {
+        private readonly WarehouseBUS _warehouseBus = new WarehouseBUS();
+        private string _warehousename;
+
+        public WarehouseDetail(string warehousename)
+        {
+            InitializeComponent();
+            _warehousename = warehousename;
+        }
+
+        private void WarehouseDetail_Load(object sender, EventArgs e)
+        {
+            SetLayout();
+            RefreshData();
+        }
+
+        private void SetLayout()
+        {
+            CenterToScreen();
+            dgvWHDetail.Focus();
+            pnlSearch.Height = 62;
+            gbxSearch.Height = 58;
+            Global.SetLayoutForm(this, Constants.DIALOG_FORM);
+            Global.SetLayoutHeaderGroup(hdWH, Constants.CHILD_FORM);
+            Global.SetLayoutGroupBoxSearch(gbxSearch);
+            Global.SetLayoutPanelChildForm(pnlSearch);
+            Global.SetLayoutButton(btnSearch);
+            Global.SetDataCombobox(cbbMaterial, Constants.MATERIAL_SEARCH);
+            Global.SetDataCombobox(cbbNameSearch, Constants.WAREHOUSE_SEARCH);
+            Global.SetDaulftDatagridview(dgvWHDetail);
+        }
+
+        private void RefreshData()
+        {
+            Global.SetDataCombobox(cbbMaterial, Constants.MATERIAL_SEARCH);
+            for (int i = 0; i < cbbNameSearch.Items.Count; i++)
+            {
+                string name = cbbNameSearch.Items[i].ToString();
+                if (name.Equals(_warehousename))
+                {
+                    cbbNameSearch.SelectedIndex = i;
+                    i = cbbNameSearch.Items.Count;
+                }
+            }
+            Global.SetDataCombobox(cbbNameSearch, Constants.WAREHOUSE_SEARCH);            
+            LoadData();
+        }
+
+        private void LoadData()
+        {
+            string whname = cbbNameSearch.Text;
+            if (whname.Equals(Constants.ALL))
+            {
+                whname = Constants.EMPTY_TEXT;
+            }
+            string materialname = cbbMaterial.Text;
+            if (materialname.Equals(Constants.ALL))
+            {
+                materialname = Constants.EMPTY_TEXT;
+            }
+            dgvWHDetail.DataSource = _warehouseBus.GetWarehouseDetail(whname, materialname);
+        }
+    }
+}

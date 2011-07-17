@@ -14,9 +14,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
 {
     public partial class NewSalary : KryptonForm
     {
-        public int locationXpnlNewItem;
         List<EmployeeSalaryDTO> listSalary = new List<EmployeeSalaryDTO>();
-        List<EmployerDTO> listEmployee = new List<EmployerDTO>();
         EmployeeBUS employeeBUS = new EmployeeBUS();
         public NewSalary()
         {
@@ -53,88 +51,9 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
 
         private void setDefaultComboBox()
         {
-            Global.SetDataCombobox(cbbEmployee, Constants.EMPLOYEE);            
-
-            cbbIsPay.Items.Add(Constants.PAY);
-            cbbIsPay.Items.Add(Constants.NOTPAY);
-            cbbIsPay.SelectedIndex = 0;
-        }        
-
-        public void Refreshdgv()
-        {
-        }
-
-        private void btnMoveUp_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void btnMoveDown_Click(object sender, EventArgs e)
-        {
-         
-        }
-
-        private void NewSalary_SizeChanged(object sender, EventArgs e)
-        {
-         
-        }
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            string month = dtpMonth.Text;
-            DateTime dtmonth = DateTime.ParseExact("01/" + month, "dd/MM/yyyy", null);
-            string strmonth = dtmonth.ToString("yyyyMM");
-            EmployerDTO employer = (EmployerDTO) cbbEmployee.SelectedItem;
-            long empId = employer.employeeID;
-            string username = employer.Username;
-            string fullname = employer.Fullname;
-            long salary = Global.ConvertMoneyToLong(txtSalary.Text, ".");
-            long allowance = Global.ConvertMoneyToLong(txtAllowance.Text, ".");
-            long phoneCost = Global.ConvertMoneyToLong(txtPhoneCost.Text, ".");
-            long debtPay = Global.ConvertMoneyToLong(txtDebtPay.Text, ".");
-            long actualIncome = Global.ConvertMoneyToLong(txtActualIncome.Text, ".");
-            int isPay = GenerateStatus(cbbIsPay.Text);
-            string notes = txtNote.Text;
-            EmployeeSalaryDTO salaryDTO = new EmployeeSalaryDTO()
-                                           {
-                                               EmployeeID = empId,
-                                               Fullname = fullname,
-                                               Username = username,
-                                               Month = strmonth,
-                                               Salary = salary,
-                                               Allowance = allowance,
-                                               PhoneCost = phoneCost,
-                                               DebtPay = debtPay,
-                                               ActualIncome = actualIncome,
-                                               IsPay = isPay,
-                                               Note = notes
-                                           };
-            for (int i = 0; i < listEmployee.Count; i++ )
-            {
-                EmployerDTO employee = listEmployee[i];
-                if (employee.employeeID == empId)
-                {
-                    salaryDTO.Fullname = employee.Fullname;
-                    salaryDTO.Username = employee.Username;
-                }
-            }
-            listSalary.Add(salaryDTO);
-            Refreshdgv();
-            ClearInput();
-        }
-
-        private int GenerateStatus(string strStatus)
-        {
-            int isActie;
-            if (strStatus.Equals(Constants.PAY))
-            {
-                isActie = Constants.ISACTIVE_TRUE;
-            }
-            else
-            {
-                isActie = Constants.ISACTIVE_FALSE;
-            }
-            return isActie;
-        }
+            Global.SetDataCombobox(cbbEmployee, Constants.EMPLOYEE);
+            Global.SetDataCombobox(cbbIsPay, Constants.IS_PAY);
+        }              
 
         private void ClearInput()
         {
@@ -150,9 +69,50 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            foreach (EmployeeSalaryDTO salary in listSalary)
+            string month = dtpMonth.Text;
+            DateTime dtmonth = DateTime.ParseExact("01/" + month, "dd/MM/yyyy", null);
+            string strmonth = dtmonth.ToString("yyyyMM");
+            EmployerDTO employer = (EmployerDTO)cbbEmployee.SelectedItem;
+            long empId = employer.employeeID;
+            string username = employer.Username;
+            string fullname = employer.Fullname;
+            long salary = Global.ConvertMoneyToLong(txtSalary.Text, ".");
+            long allowance = Global.ConvertMoneyToLong(txtAllowance.Text, ".");
+            long phoneCost = Global.ConvertMoneyToLong(txtPhoneCost.Text, ".");
+            long debtPay = Global.ConvertMoneyToLong(txtDebtPay.Text, ".");
+            long actualIncome = Global.ConvertMoneyToLong(txtActualIncome.Text, ".");
+            int isPay = Global.GenerateStatus(cbbIsPay.Text);
+            string notes = txtNote.Text;
+            EmployeeSalaryDTO salaryDTO = new EmployeeSalaryDTO()
             {
-                employeeBUS.CreateEmployeeSalary(salary);
+                EmployeeID = empId,
+                Fullname = fullname,
+                Username = username,
+                Month = strmonth,
+                Salary = salary,
+                Allowance = allowance,
+                PhoneCost = phoneCost,
+                DebtPay = debtPay,
+                ActualIncome = actualIncome,
+                IsPay = isPay,
+                Note = notes
+            };
+            bool success = employeeBUS.CreateEmployeeSalary(salaryDTO);
+            if (success)
+            {
+                if (KryptonMessageBox.Show(Constants.CREATE_SUCCESS, Constants.CONFIRM, MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    ClearInput();
+                    dtpMonth.Focus();
+                }
+                else
+                {
+                    Close();
+                }
+            }
+            else
+            {
+                KryptonMessageBox.Show(Constants.CREATE_SUCCESS, Constants.CONFIRM);
             }
         }
 
@@ -160,33 +120,20 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
         private void textboxNewSalary_Enter(object sender, EventArgs e)
         {
             KryptonTextBox textBox = (KryptonTextBox)sender;
-            Global.ClearTextboxSalary(textBox);
+            Global.SetTextBoxNumberEnter(textBox);
         }
 
         private void textboxNewSalary_Leave(object sender, EventArgs e)
         {
-            KryptonTextBox textBox = (KryptonTextBox) sender;
-            SetInitValueTexboxSalary(textBox);
-            if (!Global.ValidateULongNumber(textBox.Text.Trim().Replace(".", "")))
-            {
-                textBox.Focus();
-                textBox.Text = Constants.EMPTY_TEXT;
-            }            
-        }
-        
-        private void SetInitValueTexboxSalary(KryptonTextBox textBox)
-        {
-            if (textBox.Text.Equals(Constants.EMPTY_TEXT))
-            {
-                textBox.Text = "0";
-            }
-        }
+            KryptonTextBox textBox = sender as KryptonTextBox;
+            Global.SetTextBoxMoneyLeave(textBox);
+        }                
 
         private void genarateToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
-                ActiveControl.Text += ".000";                    
+                ActiveControl.Text += Constants.THOUSAND;
             }
             catch (Exception)
             {                

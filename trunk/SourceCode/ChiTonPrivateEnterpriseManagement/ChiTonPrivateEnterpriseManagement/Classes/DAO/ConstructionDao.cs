@@ -498,6 +498,99 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                     Connection.Close();
             }
         }
+
+        public List<ConstructionDTO> GetAllConstructionParentandChildren()
+        {
+            var cmd = new SqlCommand("[dbo].[Construction_GetAllParentandChildren]", Connection);
+
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                List<ConstructionDTO> listcons = new List<ConstructionDTO>();
+                while (reader.Read())
+                {
+                    ConstructionDTO consDto = new ConstructionDTO
+                    {
+                        ConstructionID = Convert.ToInt64(reader["ConstructionID"]),
+                        Status = Convert.ToString(reader["Status"]),
+                        ConstructionName = Convert.ToString(reader["ConstructionName"]),
+                        Description = Convert.ToString(reader["Description"]),
+                        ConstructionAddress = Convert.ToString(reader["ConstructionAddress"]),
+                        CommencementDate = Convert.ToDateTime(reader["CommencementDate"]),
+                        CompletionDate = Convert.ToDateTime(reader["CompletionDate"]),
+                        HasEstimate = Convert.ToBoolean(reader["HasEstimate"]),
+                        ProgressRate = Convert.ToInt64(reader["ProgressRate"]),
+                        ParentID = Convert.ToInt64(reader["ParentID"]),
+                    };
+                    listcons.Add(consDto);
+                }
+                return listcons;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message, "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                if (Transaction == null) Connection.Close();
+            }
+        }
+
+        public ConstructionDTO LoadConstructionReportByName(string consName)
+        {
+            var cmd = new SqlCommand("[dbo].[Construction_GetReportByName]", Connection);
+
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@constructionName", consName));
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    ConstructionDTO consDto = new ConstructionDTO
+                    {
+                        ConstructionID = Convert.ToInt64(reader["ConstructionID"]),
+                        Status = Convert.ToString(reader["Status"]),
+                        ConstructionName = Convert.ToString(reader["ConstructionName"]),
+                        CommencementDate = Convert.ToDateTime(reader["CommencementDate"]),
+                        CompletionDate = Convert.ToDateTime(reader["CompletionDate"]),
+                        ProgressRate = Convert.ToInt64(reader["ProgressRate"]),
+                        ParentID = Convert.ToInt64(reader["ParentID"])                        
+                    };
+                    try
+                    {
+                        consDto.TotalMachineCost = Convert.ToInt64(reader["TotalMachineCost"]);
+                        consDto.TotalWorkerCost = Convert.ToInt64(reader["TotalWorkerCost"]);
+                        consDto.TotalMaterialCost = Convert.ToInt64(reader["TotalMaterialCost"]);
+                        consDto.TotalCostsIncurred = Convert.ToInt64(reader["TotalCostsIncurred"]);
+                    }
+                    catch
+                    {
+                    }
+                    return consDto;
+                }
+                return null;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message, "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                if (Transaction == null) Connection.Close();
+            }
+        }
     }
 
 

@@ -135,6 +135,7 @@
     <Compile Include="Classes\DTO\RoleDTO.cs" />
     <Compile Include="Classes\DTO\LeftMenuDTO.cs" />
     <Compile Include="Classes\DTO\SubcontractorDTO.cs" />
+    <Compile Include="Classes\DTO\WarehouseMaterialDTO.cs" />
     <Compile Include="Classes\DTO\WorkerDTO.cs" />
     <Compile Include="Classes\DTO\WorkerConstructionDTO.cs" />
     <Compile Include="Classes\DTO\RightDTO.cs" />
@@ -176,6 +177,12 @@
     </Compile>
     <Compile Include="ModuleForms\CommonForm.Designer.cs">
       <DependentUpon>CommonForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleForms\ManageDebt\FinalAccountDebt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForms\ManageDebt\FinalAccountDebt.designer.cs">
+      <DependentUpon>FinalAccountDebt.cs</DependentUpon>
     </Compile>
     <Compile Include="ModuleForms\ManageEmployee\Authorization.cs">
       <SubType>Form</SubType>
@@ -375,6 +382,18 @@
     <Compile Include="ModuleForms\ManageMenu\NewMenu.Designer.cs">
       <DependentUpon>NewMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModuleForms\ManageSubconstractor\SelectSubConstructionBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForms\ManageSubconstractor\SelectSubConstructionBox.Designer.cs">
+      <DependentUpon>SelectSubConstructionBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleForms\ManageSubconstractor\SubconstractorManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForms\ManageSubconstractor\SubconstractorManagement.Designer.cs">
+      <DependentUpon>SubconstractorManagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModuleForms\ManageVehicle\AddNewVehicle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -416,6 +435,12 @@
     </Compile>
     <Compile Include="ModuleForms\ManageWarehouse\StockOutManagement.Designer.cs">
       <DependentUpon>StockOutManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleForms\ManageWarehouse\WarehouseDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForms\ManageWarehouse\WarehouseDetail.Designer.cs">
+      <DependentUpon>WarehouseDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="ModuleForms\ManageWarehouse\WarehouseManagement.cs">
       <SubType>Form</SubType>
@@ -466,6 +491,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ModuleForms\CommonForm.resx">
       <DependentUpon>CommonForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\ManageDebt\FinalAccountDebt.resx">
+      <DependentUpon>FinalAccountDebt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModuleForms\ManageEmployee\Authorization.resx">
       <DependentUpon>Authorization.cs</DependentUpon>
@@ -584,6 +612,12 @@
       <DependentUpon>NewMenu.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\ManageSubconstractor\SelectSubConstructionBox.resx">
+      <DependentUpon>SelectSubConstructionBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\ManageSubconstractor\SubconstractorManagement.resx">
+      <DependentUpon>SubconstractorManagement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ModuleForms\ManageVehicle\AddNewVehicle.resx">
       <DependentUpon>AddNewVehicle.cs</DependentUpon>
     </EmbeddedResource>
@@ -606,6 +640,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ModuleForms\ManageWarehouse\StockOutManagement.resx">
       <DependentUpon>StockOutManagement.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\ManageWarehouse\WarehouseDetail.resx">
+      <DependentUpon>WarehouseDetail.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="ModuleForms\ManageWarehouse\WarehouseManagement.resx">
@@ -646,6 +684,7 @@
     <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.StockOutDetailDTO.datasource" />
     <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.StockOutDTO.datasource" />
     <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.WarehouseDTO.datasource" />
+    <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.WarehouseMaterialDTO.datasource" />
     <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.WorkerSalaryDTO.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

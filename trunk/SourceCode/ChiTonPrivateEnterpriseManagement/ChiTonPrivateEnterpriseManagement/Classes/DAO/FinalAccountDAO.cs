@@ -56,7 +56,6 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.Parameters.Add(new SqlParameter("@TransportationCost", finalAccount.TransportationCost));
                 cmd.Parameters.Add(new SqlParameter("@TotalCost", finalAccount.TotalCost));
                 cmd.Parameters.Add(new SqlParameter("@PersonAccount", finalAccount.PersonAccount));
-                cmd.Parameters.Add(new SqlParameter("@CreatedBy", finalAccount.CreatedBy));
                 cmd.Parameters.Add(new SqlParameter("@IsPay", finalAccount.IsPay));
                 cmd.Parameters.Add(new SqlParameter("@Note", finalAccount.Note));
                 cmd.Parameters.Add(new SqlParameter("@CreatedBy", Global.Global.CurrentUser.Username));
@@ -215,6 +214,149 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             {
                 if (Transaction == null)
                     Connection.Close();
+            }
+        }
+
+        public bool UpdateFinalAccount(FinalAccountDTO finalAccount)
+        {
+            var cmd = new SqlCommand("[dbo].[FinalAccount_Update]", Connection) { CommandType = CommandType.StoredProcedure };
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@FinalAccountID", finalAccount.FinalAccountID));
+                cmd.Parameters.Add(new SqlParameter("@FinalAccountName", finalAccount.FinalAccountName));
+                cmd.Parameters.Add(new SqlParameter("@ConstructionID", finalAccount.ConstructionID));
+                cmd.Parameters.Add(new SqlParameter("@DateAccount", finalAccount.DateAccount));
+                cmd.Parameters.Add(new SqlParameter("@DebtID", finalAccount.DebtID));
+                cmd.Parameters.Add(new SqlParameter("@TransportationCost", finalAccount.TransportationCost));
+                cmd.Parameters.Add(new SqlParameter("@TotalCost", finalAccount.TotalCost));
+                cmd.Parameters.Add(new SqlParameter("@PersonAccount", finalAccount.PersonAccount));
+                cmd.Parameters.Add(new SqlParameter("@CreatedBy", finalAccount.CreatedBy));
+                cmd.Parameters.Add(new SqlParameter("@IsPay", finalAccount.IsPay));
+                cmd.Parameters.Add(new SqlParameter("@Note", finalAccount.Note));
+                cmd.Parameters.Add(new SqlParameter("@CreatedBy", Global.Global.CurrentUser.Username));
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException sql)
+            {
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null)
+                    Connection.Close();
+            }
+        }
+
+        public FinalAccountDetailDTO FindAccountItem(long accId, long materialId)
+        {
+            var cmd = new SqlCommand("[dbo].[FinalAccount_GetFinalAccountItem]", Connection);
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@accId", accId));
+                cmd.Parameters.Add(new SqlParameter("@materialId", materialId));
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    var finalAccount = new FinalAccountDetailDTO
+                    {
+                        FinalAccountDetailID = Convert.ToInt64(reader["FinalAccountDetailID"])
+                    };
+                    return finalAccount;
+                }
+                return null;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message, "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                if (Transaction == null) Connection.Close();
+            }
+        }
+
+        public bool UpdateFinalAccountDetail(FinalAccountDetailDTO item)
+        {
+            var cmd = new SqlCommand("[dbo].[FinalAccount_UpdateDetail]", Connection) { CommandType = CommandType.StoredProcedure };
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@FinalAccountDetailID", item.FinalAccountDetailID));
+                cmd.Parameters.Add(new SqlParameter("@FinalAccountID", item.FinalAccountID));
+                cmd.Parameters.Add(new SqlParameter("@MaterialID", item.MaterialID));
+                cmd.Parameters.Add(new SqlParameter("@Quantity", item.Quantity));
+                cmd.Parameters.Add(new SqlParameter("@UnitCost", item.UnitCost));
+                cmd.Parameters.Add(new SqlParameter("@TotalCost", item.TotalCost));
+                cmd.Parameters.Add(new SqlParameter("@Note", item.Note));
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException sql)
+            {
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null)
+                    Connection.Close();
+            }
+        }
+
+        public List<FinalAccountDetailDTO> GetFinalAccountDetail(long id)
+        {
+            var cmd = new SqlCommand("[dbo].[FinalAccount_GetFinalAccountDetial]", Connection);
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@FinalAccountID", id));
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataReader reader = cmd.ExecuteReader();
+                var listitem = new List<FinalAccountDetailDTO>();
+                while (reader.Read())
+                {
+                    var finalAccount = new FinalAccountDetailDTO
+                    {
+                        FinalAccountDetailID = Convert.ToInt64(reader["FinalAccountDetailID"]),
+                        FinalAccountID = Convert.ToInt64(reader["FinalAccountID"]),
+                        MaterialID = Convert.ToInt64(reader["MaterialID"]),
+                        MaterialName = Convert.ToString(reader["MaterialName"]),
+                        Note = Convert.ToString(reader["Note"]),
+                        Quantity = Convert.ToDouble(reader["Quantity"]),
+                        RealCalUnit = Convert.ToString(reader["RealCalUnit"]),
+                        TotalCost = Convert.ToInt64(reader["TotalCost"]),
+                        UnitCost = Convert.ToInt64(reader["UnitCost"]),
+                    };
+                    finalAccount.TotalCostFormated = Global.Global.ConvertLongToMoney(finalAccount.TotalCost, Constants.SPLIP_MONEY);
+                    finalAccount.UnitCostFormated = Global.Global.ConvertLongToMoney(finalAccount.UnitCost, Constants.SPLIP_MONEY);
+                    listitem.Add(finalAccount);
+                }
+                return listitem;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message, "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                if (Transaction == null) Connection.Close();
             }
         }
     }

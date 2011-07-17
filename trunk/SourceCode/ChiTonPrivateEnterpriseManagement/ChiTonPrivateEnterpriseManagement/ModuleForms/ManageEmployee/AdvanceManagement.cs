@@ -16,7 +16,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
     {
         private List<EmployeeAdvanceDTO> _listAdvance;
         readonly EmployeeBUS _employeeBus = new EmployeeBUS();
-        private CheckBox _ckBox;
         public AdvanceManagement()
         {
             InitializeComponent();
@@ -87,7 +86,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
         {
             var newAdvance = new NewAdvance();
             newAdvance.ShowDialog();
-            
+            RefreshData();
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
@@ -166,22 +165,29 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            long id = Convert.ToInt64(txtId.Text);
-            long employeeId = Global.GetDataCombobox(cbbEmployee, Constants.EMPLOYEE);
-            long totalAdvance = Global.ConvertMoneyToLong(txtTotalAdvance.Text, ".");
-            string reason = txtReason.Text;
-            string note = txtNote.Text;
-            var advanceObj = new EmployeeAdvanceDTO()
+            try
             {
-                AdvanceID = id,
-                EmployeeID = employeeId,
-                TotalAdvance = totalAdvance,
-                Reason = reason,
-                Note = note
-            };
-            bool success = _employeeBus.UpdateEmployeeAdvance(advanceObj);
-            KryptonMessageBox.Show(success ? Constants.CREATE_SUCCESS : Constants.ERROR, Constants.CONFIRM);
-            RefreshData();
+                long id = Convert.ToInt64(txtId.Text);
+                long employeeId = Global.GetDataCombobox(cbbEmployee, Constants.EMPLOYEE);
+                long totalAdvance = Global.ConvertMoneyToLong(txtTotalAdvance.Text, ".");
+                string reason = txtReason.Text;
+                string note = txtNote.Text;
+                var advanceObj = new EmployeeAdvanceDTO()
+                {
+                    AdvanceID = id,
+                    EmployeeID = employeeId,
+                    TotalAdvance = totalAdvance,
+                    Reason = reason,
+                    Note = note
+                };
+                bool success = _employeeBus.UpdateEmployeeAdvance(advanceObj);
+                KryptonMessageBox.Show(success ? Constants.CREATE_SUCCESS : Constants.ERROR, Constants.CONFIRM);
+                RefreshData();
+            }
+            catch
+            {
+            }
+            
         }
 
         private void GenMoneyToolStripMenuItem_Click(object sender, EventArgs e)
@@ -214,6 +220,38 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
                 Global.DownUpControl(this, pnlSearch, 62, 2, 4, false);
                 gbxSearch.Visible = false;
             }
+        }
+
+        private void dgvAdvance_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                DataGridViewRow row = dgvAdvance.SelectedRows[0];
+                txtId.Text = row.Cells["AdvanceID"].Value.ToString();
+                txtNote.Text = row.Cells["Note"].Value.ToString();
+                txtReason.Text = row.Cells["Reason"].Value.ToString();
+                txtTotalAdvance.Text = row.Cells["TotalAdvanceFormated"].Value.ToString();
+                string username = row.Cells["Username"].Value.ToString();
+                for (int i = 0; i < cbbEmployee.Items.Count; i++)
+                {
+                    EmployerDTO emp = cbbEmployee.Items[i] as EmployerDTO;
+                    if (emp.Username.Equals(username))
+                    {
+                        cbbEmployee.SelectedIndex = i;
+                        i = cbbEmployee.Items.Count;
+                    }
+                }
+            }
+        }
+
+        private void txtTotalAdvance_Enter(object sender, EventArgs e)
+        {
+            Global.SetTextBoxNumberEnter(txtTotalAdvance);
+        }
+
+        private void txtTotalAdvance_Leave(object sender, EventArgs e)
+        {
+            Global.SetTextBoxMoneyLeave(txtTotalAdvance);
         }
     }
 }

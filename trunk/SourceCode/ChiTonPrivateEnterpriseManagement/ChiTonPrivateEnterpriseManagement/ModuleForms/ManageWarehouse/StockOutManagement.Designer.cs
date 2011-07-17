@@ -93,9 +93,9 @@
             this.LastUpdate});
             this.dgvStockout.DataSource = this.stockOutDTOBindingSource;
             this.dgvStockout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvStockout.Location = new System.Drawing.Point(0, 92);
+            this.dgvStockout.Location = new System.Drawing.Point(0, 87);
             this.dgvStockout.Name = "dgvStockout";
-            this.dgvStockout.Size = new System.Drawing.Size(915, 428);
+            this.dgvStockout.Size = new System.Drawing.Size(915, 396);
             this.dgvStockout.StateCommon.Background.Color1 = System.Drawing.Color.White;
             this.dgvStockout.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
             this.dgvStockout.TabIndex = 8;
@@ -176,10 +176,10 @@
             // 
             this.pnlSearch.Controls.Add(this.gbxSearch);
             this.pnlSearch.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlSearch.Location = new System.Drawing.Point(0, 30);
+            this.pnlSearch.Location = new System.Drawing.Point(0, 29);
             this.pnlSearch.Name = "pnlSearch";
             this.pnlSearch.Padding = new System.Windows.Forms.Padding(50, 0, 50, 5);
-            this.pnlSearch.Size = new System.Drawing.Size(915, 62);
+            this.pnlSearch.Size = new System.Drawing.Size(915, 58);
             this.pnlSearch.TabIndex = 7;
             // 
             // gbxSearch
@@ -198,7 +198,7 @@
             this.gbxSearch.Panel.Controls.Add(this.btnSearch);
             this.gbxSearch.Panel.Controls.Add(this.kryptonLabel10);
             this.gbxSearch.Panel.Controls.Add(this.kryptonLabel9);
-            this.gbxSearch.Size = new System.Drawing.Size(815, 57);
+            this.gbxSearch.Size = new System.Drawing.Size(815, 53);
             this.gbxSearch.TabIndex = 0;
             this.gbxSearch.Values.Heading = "";
             // 
@@ -207,17 +207,17 @@
             this.dtpSearchFrom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpSearchFrom.CustomFormat = "dd/MM/yyyy";
             this.dtpSearchFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpSearchFrom.Location = new System.Drawing.Point(480, 16);
+            this.dtpSearchFrom.Location = new System.Drawing.Point(480, 15);
             this.dtpSearchFrom.Name = "dtpSearchFrom";
-            this.dtpSearchFrom.Size = new System.Drawing.Size(103, 21);
+            this.dtpSearchFrom.Size = new System.Drawing.Size(103, 20);
             this.dtpSearchFrom.TabIndex = 9;
             // 
             // kryptonLabel8
             // 
             this.kryptonLabel8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.kryptonLabel8.Location = new System.Drawing.Point(398, 16);
+            this.kryptonLabel8.Location = new System.Drawing.Point(404, 15);
             this.kryptonLabel8.Name = "kryptonLabel8";
-            this.kryptonLabel8.Size = new System.Drawing.Size(76, 20);
+            this.kryptonLabel8.Size = new System.Drawing.Size(70, 19);
             this.kryptonLabel8.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.kryptonLabel8.TabIndex = 8;
             this.kryptonLabel8.Values.Text = "Ngày Đọ Từ";
@@ -227,9 +227,9 @@
             this.dtpSearchTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpSearchTo.CustomFormat = "dd/MM/yyyy";
             this.dtpSearchTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpSearchTo.Location = new System.Drawing.Point(628, 16);
+            this.dtpSearchTo.Location = new System.Drawing.Point(628, 15);
             this.dtpSearchTo.Name = "dtpSearchTo";
-            this.dtpSearchTo.Size = new System.Drawing.Size(94, 21);
+            this.dtpSearchTo.Size = new System.Drawing.Size(94, 20);
             this.dtpSearchTo.TabIndex = 7;
             // 
             // cbbNameSearch
@@ -239,9 +239,9 @@
             this.cbbNameSearch.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cbbNameSearch.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbbNameSearch.DropDownWidth = 218;
-            this.cbbNameSearch.Location = new System.Drawing.Point(124, 15);
+            this.cbbNameSearch.Location = new System.Drawing.Point(124, 14);
             this.cbbNameSearch.Name = "cbbNameSearch";
-            this.cbbNameSearch.Size = new System.Drawing.Size(268, 21);
+            this.cbbNameSearch.Size = new System.Drawing.Size(268, 22);
             this.cbbNameSearch.TabIndex = 1;
             // 
             // btnSearch
@@ -257,7 +257,7 @@
                         | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
                         | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.btnSearch.OverrideDefault.Border.Rounding = 3;
-            this.btnSearch.Size = new System.Drawing.Size(70, 46);
+            this.btnSearch.Size = new System.Drawing.Size(70, 43);
             this.btnSearch.StateCommon.Back.Color1 = System.Drawing.Color.Khaki;
             this.btnSearch.StateCommon.Back.Color2 = System.Drawing.Color.White;
             this.btnSearch.StateCommon.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.GlassSimpleFull;
@@ -276,18 +276,18 @@
             // kryptonLabel10
             // 
             this.kryptonLabel10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.kryptonLabel10.Location = new System.Drawing.Point(589, 17);
+            this.kryptonLabel10.Location = new System.Drawing.Point(592, 16);
             this.kryptonLabel10.Name = "kryptonLabel10";
-            this.kryptonLabel10.Size = new System.Drawing.Size(33, 20);
+            this.kryptonLabel10.Size = new System.Drawing.Size(30, 19);
             this.kryptonLabel10.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.kryptonLabel10.TabIndex = 6;
             this.kryptonLabel10.Values.Text = "Đến";
             // 
             // kryptonLabel9
             // 
-            this.kryptonLabel9.Location = new System.Drawing.Point(18, 17);
+            this.kryptonLabel9.Location = new System.Drawing.Point(18, 16);
             this.kryptonLabel9.Name = "kryptonLabel9";
-            this.kryptonLabel9.Size = new System.Drawing.Size(100, 20);
+            this.kryptonLabel9.Size = new System.Drawing.Size(92, 19);
             this.kryptonLabel9.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.kryptonLabel9.TabIndex = 5;
             this.kryptonLabel9.Values.Text = "Tên Khách Hàng";
@@ -305,7 +305,7 @@
             this.hdDebt.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.DockActive;
             this.hdDebt.Location = new System.Drawing.Point(0, 0);
             this.hdDebt.Name = "hdDebt";
-            this.hdDebt.Size = new System.Drawing.Size(915, 30);
+            this.hdDebt.Size = new System.Drawing.Size(915, 29);
             this.hdDebt.TabIndex = 6;
             this.hdDebt.Values.Description = "";
             this.hdDebt.Values.Heading = "Danh Nhà Cung Cấp";
@@ -331,6 +331,7 @@
             this.btnAdd.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
             this.btnAdd.Text = "Thêm";
             this.btnAdd.UniqueName = "6E177DC1660348E375BDCE591BF21FCB";
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnDelete
             // 
@@ -354,9 +355,9 @@
             // 
             // StockOutManagement
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(915, 520);
+            this.ClientSize = new System.Drawing.Size(915, 483);
             this.Controls.Add(this.dgvStockout);
             this.Controls.Add(this.pnlSearch);
             this.Controls.Add(this.hdDebt);

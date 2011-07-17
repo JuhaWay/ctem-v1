@@ -123,125 +123,6 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             }
         }
         
-        //public WarehouseDTO LoadWarehouseById(long id)
-        //{
-        //    var cmd = new SqlCommand("[dbo].[Warehouse_GetByID]", Connection);
-
-        //    if (Transaction != null)
-        //    {
-        //        cmd.Transaction = Transaction;
-        //    }
-        //    cmd.CommandType = CommandType.StoredProcedure;
-        //    cmd.Parameters.Add(new SqlParameter("@WarehouseID", id));
-        //    try
-        //    {
-        //        SqlDataReader reader = cmd.ExecuteReader();
-        //        if (reader.Read())
-        //        {
-        //            WarehouseDTO consDto = new WarehouseDTO
-        //            {
-        //                WarehouseID = Convert.ToInt64(reader["WarehouseID"]),
-        //                WarehouseName = Convert.ToString(reader["WarehouseName"]),
-        //                Description = Convert.ToString(reader["Description"]),
-        //                WarehouseAddress = Convert.ToString(reader["WarehouseAddress"]),
-        //                CommencementDate = Convert.ToDateTime(reader["CommencementDate"]),
-        //                CompletionDate = Convert.ToDateTime(reader["CompletionDate"])
-        //            };
-        //            return consDto;
-        //        }
-        //        return null;
-
-        //    }
-        //    catch (SqlException sql)
-        //    {
-        //        MessageBox.Show(sql.Message, "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //        return null;
-        //    }
-        //    finally
-        //    {
-        //        if (Transaction == null) Connection.Close();
-        //    }
-        //}
-
-
-        //public WarehouseDTO LoadWarehouseByName(string name)
-        //{
-        //    var cmd = new SqlCommand("[dbo].[Warehouse_GetByName]", Connection);
-
-        //    if (Transaction != null)
-        //    {
-        //        cmd.Transaction = Transaction;
-        //    }
-        //    cmd.CommandType = CommandType.StoredProcedure;
-        //    cmd.Parameters.Add(new SqlParameter("@WarehouseName", name));
-        //    try
-        //    {
-        //        SqlDataReader reader = cmd.ExecuteReader();
-        //        if (reader.Read())
-        //        {
-        //            WarehouseDTO consDto = new WarehouseDTO
-        //            {
-        //                WarehouseID = Convert.ToInt64(reader["WarehouseID"]),
-        //                WarehouseName = Convert.ToString(reader["WarehouseName"]),
-        //                Description = Convert.ToString(reader["Description"]),
-        //                WarehouseAddress = Convert.ToString(reader["WarehouseAddress"]),
-        //                CommencementDate = Convert.ToDateTime(reader["CommencementDate"]),
-        //                CompletionDate = Convert.ToDateTime(reader["CompletionDate"])
-        //            };
-        //            return consDto;
-        //        }
-        //        return null;
-
-        //    }
-        //    catch (SqlException sql)
-        //    {
-        //        MessageBox.Show(sql.Message, "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //        return null;
-        //    }
-        //    finally
-        //    {
-        //        if (Transaction == null) Connection.Close();
-        //    }
-        //}
-
-
-
-        //internal bool UpdateConstrction(long WarehouseID,string WarehouseName, string description, String WarehouseAddress,
-        //                               DateTime commencementDate, DateTime completionDate, long totalEstimateCost,
-        //                                string status)
-        //{
-        //    var cmd = new SqlCommand("[dbo].[Warehouse_Update]", Connection) { CommandType = CommandType.StoredProcedure };
-        //    if (Transaction != null)
-        //    {
-        //        cmd.Transaction = Transaction;
-        //    }
-        //    try
-        //    {
-        //        cmd.Parameters.Add(new SqlParameter("@WarehouseID", WarehouseID));
-        //        cmd.Parameters.Add(new SqlParameter("@WarehouseName", WarehouseName));
-        //        cmd.Parameters.Add(new SqlParameter("@description", description));
-        //        cmd.Parameters.Add(new SqlParameter("@WarehouseAddress", WarehouseAddress));
-        //        cmd.Parameters.Add(new SqlParameter("@commencementDate", commencementDate));
-        //        cmd.Parameters.Add(new SqlParameter("@completionDate", completionDate));
-        //        cmd.Parameters.Add(new SqlParameter("@totalEstimateCost", totalEstimateCost));
-        //        cmd.Parameters.Add(new SqlParameter("@status", status));
-        //        cmd.Parameters.Add(new SqlParameter("@hasEstimate", true));
-
-        //        cmd.ExecuteNonQuery();
-        //        return true;
-        //    }
-        //    catch (SqlException sql)
-        //    {
-        //        return false;
-        //    }
-        //    finally
-        //    {
-        //        if (Transaction == null)
-        //            Connection.Close();
-        //    }
-        //}
-
-
         public bool DeleteWarehouse(long id)
         {
             var cmd = new SqlCommand("[dbo].[Warehouse_Delete]", Connection) { CommandType = CommandType.StoredProcedure };
@@ -286,6 +167,184 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             {
                 if (Transaction == null)
                     Connection.Close();
+            }
+        }
+
+        public WarehouseMaterialDTO FinMaterial(long warehouseID, long materialId)
+        {
+            var cmd = new SqlCommand("[dbo].[Warehouse_Material]", Connection);
+
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@WarehouseID", warehouseID));
+                cmd.Parameters.Add(new SqlParameter("@MaterialID", materialId));
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    var warehousematerial = new WarehouseMaterialDTO
+                    {
+                        WarehouseID = Convert.ToInt64(reader["WarehouseID"]),
+                        MaterialID = Convert.ToInt64(reader["MaterialID"]),
+                        Quantity = Convert.ToDouble(reader["Quantity"]),
+                        AveragePrice = Convert.ToInt64(reader["AveragePrice"]),
+                        TotalCost = Convert.ToInt64(reader["TotalCost"]),
+                    };
+                    warehousematerial.AveragePriceFormated = Global.Global.ConvertLongToMoney(warehousematerial.AveragePrice, Constants.SPLIP_MONEY);
+                    warehousematerial.TotalCostFormated = Global.Global.ConvertLongToMoney(warehousematerial.TotalCost, Constants.SPLIP_MONEY);
+                    return warehousematerial;
+                }
+                return null;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message, "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                if (Transaction == null) Connection.Close();
+            }
+        }
+
+        public bool UpdateWarehouseItem(WarehouseMaterialDTO materialWH)
+        {
+            var cmd = new SqlCommand("[dbo].[Warehouse_UpdateItem]", Connection);
+
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@WarehouseID", materialWH.WarehouseID));
+                cmd.Parameters.Add(new SqlParameter("@MaterialID", materialWH.MaterialID));
+                cmd.Parameters.Add(new SqlParameter("@Quantity", materialWH.Quantity));
+                cmd.Parameters.Add(new SqlParameter("@TotalCost", materialWH.TotalCost));
+                cmd.Parameters.Add(new SqlParameter("@AveragePrice", materialWH.AveragePrice));
+                SqlDataReader reader = cmd.ExecuteReader();            
+                return true;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message, "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null) Connection.Close();
+            }
+        }
+
+        public bool CreateWarehouseItem(WarehouseMaterialDTO materialWH)
+        {
+            var cmd = new SqlCommand("[dbo].[Warehouse_CreateItem]", Connection);
+
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@WarehouseID", materialWH.WarehouseID));
+                cmd.Parameters.Add(new SqlParameter("@MaterialID", materialWH.MaterialID));
+                cmd.Parameters.Add(new SqlParameter("@Quantity", materialWH.Quantity));
+                cmd.Parameters.Add(new SqlParameter("@TotalCost", materialWH.TotalCost));
+                cmd.Parameters.Add(new SqlParameter("@AveragePrice", materialWH.AveragePrice));
+                SqlDataReader reader = cmd.ExecuteReader();
+                return true;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message, "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null) Connection.Close();
+            }
+        }
+
+        public bool UpdateWarehouse(WarehouseDTO warehouse)
+        {
+            var cmd = new SqlCommand("[dbo].[Warehouse_Update]", Connection) { CommandType = CommandType.StoredProcedure };
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@WarehouseID", warehouse.WarehouseID));
+                cmd.Parameters.Add(new SqlParameter("@WarehouseName", warehouse.WarehouseName));
+                cmd.Parameters.Add(new SqlParameter("@ConstructionID", warehouse.ConstructionID));
+                cmd.Parameters.Add(new SqlParameter("@ManagerName", warehouse.ManagerName));
+                cmd.Parameters.Add(new SqlParameter("@Description", warehouse.Description));
+                cmd.Parameters.Add(new SqlParameter("@Type", warehouse.Type));
+                cmd.Parameters.Add(new SqlParameter("@Address", warehouse.Address));
+                cmd.Parameters.Add(new SqlParameter("@IsActive", warehouse.IsActive));
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message);
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null)
+                    Connection.Close();
+            }
+        }
+
+        public List<WarehouseMaterialDTO> GetWarehouseDetail(string whname, string materialname)
+        {
+            var cmd = new SqlCommand("[dbo].[Warehouse_GetWarehouseMaterial]", Connection);
+
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@WarehouseName", whname));
+                cmd.Parameters.Add(new SqlParameter("@MaterialName", materialname));
+                SqlDataReader reader = cmd.ExecuteReader();
+                List<WarehouseMaterialDTO> listItem = new List<WarehouseMaterialDTO>();
+                if (reader.Read())
+                {
+                    var warehousematerial = new WarehouseMaterialDTO
+                    {
+                        WarehouseID = Convert.ToInt64(reader["WarehouseID"]),
+                        WarehouseName = Convert.ToString(reader["WarehouseName"]),
+                        MaterialID = Convert.ToInt64(reader["MaterialID"]),
+                        MaterialName = Convert.ToString(reader["MaterialName"]),
+                        Quantity = Convert.ToDouble(reader["Quantity"]),
+                        UnitCal = Convert.ToString(reader["RealCalUnit"]),
+                        AveragePrice = Convert.ToInt64(reader["AveragePrice"]),
+                        TotalCost = Convert.ToInt64(reader["TotalCost"]),
+                    };
+                    warehousematerial.AveragePriceFormated = Global.Global.ConvertLongToMoney(warehousematerial.AveragePrice, Constants.SPLIP_MONEY);
+                    warehousematerial.TotalCostFormated = Global.Global.ConvertLongToMoney(warehousematerial.TotalCost, Constants.SPLIP_MONEY);
+                    listItem.Add(warehousematerial);
+                }
+                return listItem;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message, "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                if (Transaction == null) Connection.Close();
             }
         }
     }

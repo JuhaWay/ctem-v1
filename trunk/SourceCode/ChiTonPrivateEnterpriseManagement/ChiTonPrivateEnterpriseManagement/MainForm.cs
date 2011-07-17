@@ -22,6 +22,7 @@ using ChiTonPrivateEnterpriseManagement.ModuleForms.ManageMenu;
 using ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRights;
 using ChiTonPrivateEnterpriseManagement.ModuleForms.ManageRole;
 using ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee;
+using ChiTonPrivateEnterpriseManagement.ModuleForms.ManageSubconstractor;
 
 namespace ChiTonPrivateEnterpriseManagement
 {
@@ -374,6 +375,10 @@ namespace ChiTonPrivateEnterpriseManagement
             {
                 if (tvwCons.Nodes[Constants.MANAGE_SUBCONTRACTORS].IsSelected)
                 {
+                    SubconstractorManagement subCons = new SubconstractorManagement();
+                    subCons.MdiParent = this;
+                    pnlMainContent.Controls.Add(subCons);
+                    subCons.Show();
                     return;
                 }
             }

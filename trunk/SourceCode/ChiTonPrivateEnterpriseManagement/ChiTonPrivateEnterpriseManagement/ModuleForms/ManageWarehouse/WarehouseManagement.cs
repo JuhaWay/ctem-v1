@@ -53,20 +53,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWarehouse
             Global.SetDataCombobox(cbbStatus, Constants.STATUS);
             Global.TextBoxRequireInput(txtWarehouseName);
             Global.TextBoxRequireInput(txtNameManager);
-            MakeEdit(false);
-        }
-
-        private void MakeEdit(bool Edit)
-        {
-            cbbType.Enabled = Edit;
-            cbbStatus.Enabled = Edit;
-            cbbConstruction.Enabled = Edit;
-            txtWarehouseName.ReadOnly = !Edit;
-            txtNameManager.ReadOnly = !Edit;
-            txtAddress.ReadOnly = !Edit;
-            txtDescription.ReadOnly = !Edit;
-            btnSave.Enabled = Edit ? ButtonEnabled.True : ButtonEnabled.False;
-            cmsEdit.Items[2].Enabled = Edit;
         }
 
         private void RefreshData()
@@ -162,6 +148,127 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWarehouse
         private void btnSearch_Click(object sender, EventArgs e)
         {
             LoadData();
+        }
+
+        private void dgvWH_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                DataGridViewRow row = dgvWH.SelectedRows[0];
+                txtId.Text = row.Cells["WarehouseID"].Value.ToString();
+                txtAddress.Text = row.Cells["Address"].Value.ToString();
+                txtDescription.Text = row.Cells["Description"].Value.ToString();
+                txtNameManager.Text = row.Cells["ManagerName"].Value.ToString();
+                txtWarehouseName.Text = row.Cells["WarehouseName"].Value.ToString();
+                string type = row.Cells["Type"].Value.ToString();
+                if (type.Equals(Constants.MAIN_WAREHOUSE))
+                {
+                    cbbType.SelectedIndex = 1;
+                }
+                else
+                {
+                    cbbType.SelectedIndex = 0;
+                    string consName = row.Cells["ConstructionName"].Value.ToString();
+                    for (int i = 0; i < cbbConstruction.Items.Count; i++)
+                    {
+                        ConstructionDTO cons = cbbConstruction.Items[i] as ConstructionDTO;
+                        if (cons.ConstructionName.Equals(consName))
+                        {
+                            cbbConstruction.SelectedIndex = i;
+                            i = cbbConstruction.Items.Count;
+                        }
+                    }
+                }
+                int isactive = Convert.ToInt32(row.Cells["IsActive"].Value.ToString());
+                if (isactive == 1)
+                {
+                    cbbStatus.SelectedIndex = 0;
+                }
+                else
+                {
+                    cbbStatus.SelectedIndex = 1;
+                }
+            }
+        }
+
+        private void cbbType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbbConstruction.Enabled = cbbType.Text.Equals(Constants.CONSTRUCTION_WAREHOUSE);
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (ValidateInput())
+            {
+                long id = Convert.ToInt64(txtId.Text);
+                string warehousename = txtWarehouseName.Text;
+                string type = cbbType.Text;
+                string namemanager = txtNameManager.Text;
+                string address = txtAddress.Text;
+                string description = txtDescription.Text;
+                int isactive;
+                if (cbbStatus.Text.Equals(Constants.ACTIVE))
+                {
+                    isactive = 1;
+                }
+                else
+                {
+                    isactive = 0;
+                }
+                WarehouseDTO warehouse = new WarehouseDTO()
+                {
+                    WarehouseID = id,
+                    WarehouseName = warehousename,
+                    Type = type,
+                    ManagerName = namemanager,
+                    Address = address,
+                    Description = description,
+                    IsActive = isactive
+                };
+                if (cbbConstruction.Enabled)
+                {
+                    ConstructionDTO construcion = (ConstructionDTO)cbbConstruction.SelectedItem;
+                    warehouse.ConstructionID = construcion.ConstructionID;
+                }
+                bool success = _warehouseBus.UpdateWarehouse(warehouse);
+                if (success)
+                {
+                    KryptonMessageBox.Show(Constants.UPDATE_SUCCESS, Constants.CONFIRM);
+                }
+                else
+                {
+                    KryptonMessageBox.Show(Constants.ERROR, Constants.CONFIRM);
+                }
+                txtWarehouseName.Focus();
+                RefreshData();
+            }
+            else
+            {
+                string errors = "";
+                foreach (string error in Global.ListError)
+                {
+                    errors += ("* " + error + "\n");
+                }
+                KryptonMessageBox.Show(errors, Constants.ALERT_ERROR);
+                txtWarehouseName.Focus();
+            }
+        }
+
+        private bool ValidateInput()
+        {
+            Global.ListError.Clear();
+            if (Global.ValidateNotEmptyText(txtWarehouseName) && Global.ValidateNotEmptyText(txtNameManager))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private void btnDetail_Click(object sender, EventArgs e)
+        {
+            string whname = dgvWH.SelectedRows[0].Cells["WarehouseName"].Value.ToString();
+            WarehouseDetail whdetail = new WarehouseDetail(whname);
+            whdetail.ShowDialog();
         }
     }
 }

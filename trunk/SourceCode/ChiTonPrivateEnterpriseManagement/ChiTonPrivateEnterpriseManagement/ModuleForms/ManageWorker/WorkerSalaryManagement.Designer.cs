@@ -456,7 +456,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             // 
             // btViewList
             // 
-            this.btViewList.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.application_view_detail1;
             this.btViewList.Text = "Chi tiết";
             this.btViewList.UniqueName = "11A6598E3E2A4E94CA8D48842706F5EF";
             this.btViewList.Click += new System.EventHandler(this.btViewEst_Click);

@@ -196,5 +196,42 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                     Connection.Close();
             }
         }
+
+        public List<RoleDTO> GetWithoutAdmin()
+        {
+            var cmd = new SqlCommand("[dbo].[Role_GetWithoutAdmin]", Connection);
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                List<RoleDTO> listRoles = new List<RoleDTO>();
+                while (reader.Read())
+                {
+                    RoleDTO role = new RoleDTO
+                    {
+                        RoleID = Convert.ToInt64(reader["RoleID"]),
+                        RoleName = Convert.ToString(reader["RoleName"]),
+                        Description = Convert.ToString(reader["Description"]),
+                        RightsValue = Convert.ToInt64(reader["RightsValue"]),
+                        IsActive = Convert.ToBoolean(reader["IsActive"]),
+                    };
+                    listRoles.Add(role);
+                }
+                return listRoles;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message, "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                if (Transaction == null) Connection.Close();
+            }
+        }
     }
 }
