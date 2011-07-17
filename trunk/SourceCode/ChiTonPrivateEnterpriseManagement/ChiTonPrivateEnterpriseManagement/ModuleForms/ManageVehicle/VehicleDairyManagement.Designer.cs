@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.kryptonPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonPanel4 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
@@ -57,16 +57,6 @@
             this.ipTotalFualCost = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.lbTotalFualCost = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.dgvVehicleDairy = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.VehicleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VehicleDairyID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ConstructionName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RoadMap = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DriverName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FualCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DamagedCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.isPaid = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.vehicleDairyDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dtTodate = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
             this.lbTodate = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.dtFromdate = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
@@ -115,6 +105,16 @@
             this.kryptonContextMenuItems2 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
             this.kryptonContextMenuItems1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
             this.lbDes = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.vehicleDairyDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.VehicleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VehicleDairyID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ConstructionName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RoadMap = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DriverName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FualCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DamagedCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isPaid = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel4)).BeginInit();
@@ -125,7 +125,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).BeginInit();
             this.kryptonPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVehicleDairy)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vehicleDairyDTOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbSearchDriver)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbSearchVehicle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbSearchCons)).BeginInit();
@@ -151,6 +150,7 @@
             this.cmsEdit.SuspendLayout();
             this.cmsGen.SuspendLayout();
             this.cmsMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.vehicleDairyDTOBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // kryptonPanel
@@ -400,79 +400,11 @@
             this.dgvVehicleDairy.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvVehicleDairy.Size = new System.Drawing.Size(781, 250);
             this.dgvVehicleDairy.StateCommon.Background.Color1 = System.Drawing.Color.White;
-            this.dgvVehicleDairy.StateCommon.Background.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.dgvVehicleDairy.StateCommon.Background.Color2 = System.Drawing.Color.White;
             this.dgvVehicleDairy.StateCommon.Background.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.ExpertSquareHighlight;
             this.dgvVehicleDairy.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
             this.dgvVehicleDairy.TabIndex = 11;
             this.dgvVehicleDairy.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvVehicleDairy_MouseClick);
-            // 
-            // VehicleName
-            // 
-            this.VehicleName.DataPropertyName = "VehicleName";
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.VehicleName.DefaultCellStyle = dataGridViewCellStyle7;
-            this.VehicleName.HeaderText = "Tên xe";
-            this.VehicleName.Name = "VehicleName";
-            this.VehicleName.Width = 200;
-            // 
-            // VehicleDairyID
-            // 
-            this.VehicleDairyID.DataPropertyName = "VehicleDairyID";
-            this.VehicleDairyID.HeaderText = "VehicleDairyID";
-            this.VehicleDairyID.Name = "VehicleDairyID";
-            this.VehicleDairyID.Visible = false;
-            // 
-            // ConstructionName
-            // 
-            this.ConstructionName.DataPropertyName = "ConstructionName";
-            this.ConstructionName.HeaderText = "Công trình";
-            this.ConstructionName.Name = "ConstructionName";
-            this.ConstructionName.Width = 200;
-            // 
-            // RoadMap
-            // 
-            this.RoadMap.DataPropertyName = "RoadMap";
-            this.RoadMap.HeaderText = "Lộ trình";
-            this.RoadMap.Name = "RoadMap";
-            this.RoadMap.Width = 200;
-            // 
-            // DriverName
-            // 
-            this.DriverName.DataPropertyName = "DriverName";
-            this.DriverName.HeaderText = "Tài xế";
-            this.DriverName.Name = "DriverName";
-            // 
-            // FualCost
-            // 
-            this.FualCost.DataPropertyName = "FualCostFormated";
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.FualCost.DefaultCellStyle = dataGridViewCellStyle8;
-            this.FualCost.HeaderText = "Chi phí Xăng dầu";
-            this.FualCost.Name = "FualCost";
-            // 
-            // DamagedCost
-            // 
-            this.DamagedCost.DataPropertyName = "DamagedCostFormated";
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.DamagedCost.DefaultCellStyle = dataGridViewCellStyle9;
-            this.DamagedCost.HeaderText = "Chi phí sửa chửa";
-            this.DamagedCost.Name = "DamagedCost";
-            // 
-            // Date
-            // 
-            this.Date.DataPropertyName = "DateFormated";
-            this.Date.HeaderText = "Ngày ";
-            this.Date.Name = "Date";
-            // 
-            // isPaid
-            // 
-            this.isPaid.DataPropertyName = "isPaid";
-            this.isPaid.HeaderText = "Đã thanh toán";
-            this.isPaid.Name = "isPaid";
-            // 
-            // vehicleDairyDTOBindingSource
-            // 
-            this.vehicleDairyDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.VehicleDairyDTO);
             // 
             // dtTodate
             // 
@@ -932,6 +864,75 @@
             this.lbDes.TabIndex = 47;
             this.lbDes.Values.Text = "(*) trường bắt buộc";
             // 
+            // vehicleDairyDTOBindingSource
+            // 
+            this.vehicleDairyDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.VehicleDairyDTO);
+            // 
+            // VehicleName
+            // 
+            this.VehicleName.DataPropertyName = "VehicleName";
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.VehicleName.DefaultCellStyle = dataGridViewCellStyle1;
+            this.VehicleName.HeaderText = "Tên xe";
+            this.VehicleName.Name = "VehicleName";
+            this.VehicleName.Width = 200;
+            // 
+            // VehicleDairyID
+            // 
+            this.VehicleDairyID.DataPropertyName = "VehicleDairyID";
+            this.VehicleDairyID.HeaderText = "VehicleDairyID";
+            this.VehicleDairyID.Name = "VehicleDairyID";
+            this.VehicleDairyID.Visible = false;
+            // 
+            // ConstructionName
+            // 
+            this.ConstructionName.DataPropertyName = "ConstructionName";
+            this.ConstructionName.HeaderText = "Công trình";
+            this.ConstructionName.Name = "ConstructionName";
+            this.ConstructionName.Width = 200;
+            // 
+            // RoadMap
+            // 
+            this.RoadMap.DataPropertyName = "RoadMap";
+            this.RoadMap.HeaderText = "Lộ trình";
+            this.RoadMap.Name = "RoadMap";
+            this.RoadMap.Width = 200;
+            // 
+            // DriverName
+            // 
+            this.DriverName.DataPropertyName = "DriverName";
+            this.DriverName.HeaderText = "Tài xế";
+            this.DriverName.Name = "DriverName";
+            // 
+            // FualCost
+            // 
+            this.FualCost.DataPropertyName = "FualCostFormated";
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.FualCost.DefaultCellStyle = dataGridViewCellStyle2;
+            this.FualCost.HeaderText = "Chi phí Xăng dầu";
+            this.FualCost.Name = "FualCost";
+            // 
+            // DamagedCost
+            // 
+            this.DamagedCost.DataPropertyName = "DamagedCostFormated";
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.DamagedCost.DefaultCellStyle = dataGridViewCellStyle3;
+            this.DamagedCost.HeaderText = "Chi phí sửa chửa";
+            this.DamagedCost.Name = "DamagedCost";
+            // 
+            // Date
+            // 
+            this.Date.DataPropertyName = "DateFormated";
+            this.Date.HeaderText = "Ngày ";
+            this.Date.Name = "Date";
+            // 
+            // isPaid
+            // 
+            this.isPaid.DataPropertyName = "isPaid";
+            this.isPaid.HeaderText = "Đã thanh toán";
+            this.isPaid.Name = "isPaid";
+            this.isPaid.Visible = false;
+            // 
             // VehicleDairyManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -955,7 +956,6 @@
             this.kryptonPanel2.ResumeLayout(false);
             this.kryptonPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVehicleDairy)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vehicleDairyDTOBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbSearchDriver)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbSearchVehicle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbSearchCons)).EndInit();
@@ -985,6 +985,7 @@
             this.cmsEdit.ResumeLayout(false);
             this.cmsGen.ResumeLayout(false);
             this.cmsMain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.vehicleDairyDTOBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1064,6 +1065,7 @@
         private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems kryptonContextMenuItems3;
         private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems kryptonContextMenuItems2;
         private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems kryptonContextMenuItems1;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel lbDes;
         private System.Windows.Forms.DataGridViewTextBoxColumn VehicleName;
         private System.Windows.Forms.DataGridViewTextBoxColumn VehicleDairyID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ConstructionName;
@@ -1073,7 +1075,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DamagedCost;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
         private System.Windows.Forms.DataGridViewCheckBoxColumn isPaid;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel lbDes;
     }
 }
 
