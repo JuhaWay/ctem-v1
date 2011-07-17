@@ -14,5 +14,10 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
         public String Reason { get; set; }
         public string Name { get; set; }
         public long Number { get; set; }
+
+
+        public string NumberFormated { get; set; }
+        public string DateFormated { get; set; }
+
     }
 }

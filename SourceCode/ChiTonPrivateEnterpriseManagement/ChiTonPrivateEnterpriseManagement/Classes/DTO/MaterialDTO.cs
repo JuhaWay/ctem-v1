@@ -11,7 +11,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
         public long MaterialParentID { get; set; }
         public string EstimateCalUnit { get; set; }
         public string RealCalUnit { get; set; }
-        public float Ratio { get; set; }
+        public double Ratio { get; set; }
 
         public MaterialDTO() { }
         public MaterialDTO(string name,long id)

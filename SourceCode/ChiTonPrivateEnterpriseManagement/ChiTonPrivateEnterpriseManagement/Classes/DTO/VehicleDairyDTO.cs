@@ -21,5 +21,10 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
         public DateTime ToDate { get; set; }
         public bool isPaid { get; set; }
         public long DriverID { get; set; }
+
+        public string FualCostFormated { get; set; }
+        public string DamagedCostFormated { get; set; }
+        public string DateFormated { get; set; }
+
     }
 }

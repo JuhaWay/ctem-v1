@@ -19,11 +19,16 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
         public DateTime DOB { get; set; }
         public string MobilePhone { get; set; }
         public string HomePhone { get; set; }
-        public DateTime? CreatedDate { get; set; }
-        public DateTime? LastUpdated { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public DateTime LastUpdated { get; set; }
         public string CreatedBy { get; set; }
         public string UpdatedBy { get; set; }
         public string Status { get; set; }
+
+        public string CreatedDateFormated { get; set; }
+        public string LastUpdatedFormated { get; set; }
+
+
 
         public WorkerDTO()
         {
