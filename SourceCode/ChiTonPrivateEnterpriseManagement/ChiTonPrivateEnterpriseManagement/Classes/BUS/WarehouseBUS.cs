@@ -27,5 +27,30 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
         {
             return warehouseDao.DeleteAllWarehouse();
         }
+
+        public WarehouseMaterialDTO FindMateriral(long warehouseID, long materialId)
+        {
+            return warehouseDao.FinMaterial(warehouseID, materialId);
+        }
+
+        public bool UpdateWarehouseItem(WarehouseMaterialDTO materialWH)
+        {
+            return warehouseDao.UpdateWarehouseItem(materialWH);
+        }
+
+        public bool CreateWarehouseItem(WarehouseMaterialDTO materialWH)
+        {
+            return warehouseDao.CreateWarehouseItem(materialWH);
+        }
+
+        public bool UpdateWarehouse(WarehouseDTO warehouse)
+        {
+            return warehouseDao.UpdateWarehouse(warehouse);
+        }
+
+        public List<WarehouseMaterialDTO> GetWarehouseDetail(string whname, string materialname)
+        {
+            return warehouseDao.GetWarehouseDetail(whname, materialname);
+        }
     }
 }

@@ -311,7 +311,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             {
                 if (Transaction == null)
                     Connection.Close();
-            }      
+            }
         }
 
         public bool CreateEmployeeAdvance(EmployeeAdvanceDTO advanceObj)
@@ -353,7 +353,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             {
                 cmd.Parameters.Add(new SqlParameter("@Name", name));
                 cmd.Parameters.Add(new SqlParameter("@FromDate", fromdate));
-                cmd.Parameters.Add(new SqlParameter("@ToDate", todate));
+                cmd.Parameters.Add(new SqlParameter("@ToDate", todate.AddDays(1)));
                 SqlDataReader reader = cmd.ExecuteReader();
                 var listAdvance = new List<EmployeeAdvanceDTO>();
                 while (reader.Read())
@@ -392,16 +392,19 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             }
         }
 
-        public List<EmployeeSalaryDTO> GetAllSalary()
+        public List<EmployeeSalaryDTO> GetSalary(string name, string from, string to)
         {
-            var cmd = new SqlCommand("[dbo].[Employee_GetAllSalary]", Connection);
+            var cmd = new SqlCommand("[dbo].[Employee_GetSalary]", Connection);
             if (Transaction != null)
             {
                 cmd.Transaction = Transaction;
             }
             cmd.CommandType = CommandType.StoredProcedure;
             try
-            {                
+            {
+                cmd.Parameters.Add(new SqlParameter("@name", name));
+                cmd.Parameters.Add(new SqlParameter("@from", from));
+                cmd.Parameters.Add(new SqlParameter("@to", to));
                 SqlDataReader reader = cmd.ExecuteReader();
                 var listSalary = new List<EmployeeSalaryDTO>();
                 while (reader.Read())
@@ -417,9 +420,17 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         PhoneCost = Convert.ToInt64(reader["PhoneCost"]),
                         DebtPay = Convert.ToInt64(reader["DebtPay"]),
                         ActualIncome = Convert.ToInt64(reader["ActualIncome"]),
+                        Note = Convert.ToString(reader["Note"]),
                         CreatedDate = DateTime.Parse(Convert.ToString(reader["CreatedDate"])),
                         LastUpdate = DateTime.Parse(Convert.ToString(reader["LastUpdate"]))
                     };
+                    DateTime month = DateTime.ParseExact(employersalary.Month + "01 00:00:00", "yyyyMMdd hh:mm:ss", null);
+                    employersalary.MonthFormat = month.ToString("MM/yyyy");
+                    employersalary.SalaryFormat = Global.Global.ConvertLongToMoney(employersalary.Salary, Constants.SPLIP_MONEY);
+                    employersalary.AllowanceFormat = Global.Global.ConvertLongToMoney(employersalary.Allowance, Constants.SPLIP_MONEY);
+                    employersalary.DebtPayFormat = Global.Global.ConvertLongToMoney(employersalary.DebtPay, Constants.SPLIP_MONEY);
+                    employersalary.PhoneCostFormat = Global.Global.ConvertLongToMoney(employersalary.PhoneCost, Constants.SPLIP_MONEY);
+                    employersalary.ActualIncomeFormat = Global.Global.ConvertLongToMoney(employersalary.ActualIncome, Constants.SPLIP_MONEY);
                     bool isPay = Convert.ToBoolean(reader["IsPay"]);
                     if (isPay)
                     {
@@ -571,6 +582,217 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 if (Transaction == null)
                     Connection.Close();
             }
+        }
+
+        public List<EmployerDTO> LoadEmployee(string username, string fullname, string roleName, int status)
+        {
+            var cmd = new SqlCommand("[dbo].[Employee_GetEmployee]", Connection);
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@username", username));
+                cmd.Parameters.Add(new SqlParameter("@fullname", fullname));
+                cmd.Parameters.Add(new SqlParameter("@roleName", roleName));
+                cmd.Parameters.Add(new SqlParameter("@status", status));
+                SqlDataReader reader = cmd.ExecuteReader();
+                List<EmployerDTO> listEmployer = new List<EmployerDTO>();
+                while (reader.Read())
+                {
+                    EmployerDTO employer = new EmployerDTO
+                    {
+                        employeeID = Convert.ToInt64(reader["EmployeeID"]),
+                        Username = Convert.ToString(reader["Username"]),
+                        Password = Convert.ToString(reader["Password"]),
+                        Fullname = Convert.ToString(reader["FullName"]),
+                        Address = Convert.ToString(reader["Address"]),
+                        Email = Convert.ToString(reader["Email"]),
+                        Note = Convert.ToString(reader["Note"]),
+                        RoleID = Convert.ToInt64(reader["RoleID"]),
+                        Position = Convert.ToString(reader["RoleName"]),
+                        RightsValue = Convert.ToInt64(reader["RightsValue"]),
+                        CMND = Convert.ToString(reader["CMND"]),
+                        PhoneNumber = Convert.ToString(reader["PhoneNumber"]),
+                        IsActive = Convert.ToBoolean(reader["IsActive"]),
+                        totalDebt = Convert.ToInt64(reader["TotalDebt"])
+                    };
+                    try
+                    {
+                        employer.Display = employer.Fullname + " (" + employer.Username + ")";
+                        employer.DOB = DateTime.ParseExact(Convert.ToString(reader["DOB"]), "dd/MM/yyyy", null);
+                    }
+                    catch (Exception)
+                    {
+                    }
+                    listEmployer.Add(employer);
+                }
+                return listEmployer;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message, "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                if (Transaction == null) Connection.Close();
+            }
+        }
+
+        public bool DeleteEmp(string username)
+        {
+            var cmd = new SqlCommand("[dbo].[Employee_DeleteEmp]", Connection) { CommandType = CommandType.StoredProcedure };
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@Username", username));
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException sql)
+            {
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null)
+                    Connection.Close();
+            }
+        }
+
+        public bool DeleteAllEmp()
+        {
+            var cmd = new SqlCommand("[dbo].[Employee_DeleteAllEmp]", Connection) { CommandType = CommandType.StoredProcedure };
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException sql)
+            {
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null)
+                    Connection.Close();
+            }
+        }
+
+        public bool UpdateRightEmp(long Id, long roleId, long rightValue)
+        {
+            var cmd = new SqlCommand("[dbo].[Employee_UpdateRight]", Connection) { CommandType = CommandType.StoredProcedure };
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@EmployeeID", Id));
+                cmd.Parameters.Add(new SqlParameter("@RoleID", roleId));
+                cmd.Parameters.Add(new SqlParameter("@RightsValue", rightValue));
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException sql)
+            {
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null)
+                    Connection.Close();
+            }
+        }
+
+        public bool DeleteAllSalary()
+        {
+            var cmd = new SqlCommand("[dbo].[Employee_DeleteAllAdvance]", Connection) { CommandType = CommandType.StoredProcedure };
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException sql)
+            {
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null)
+                    Connection.Close();
+            }
+        }
+
+        public bool DeleteSalary(long salaryId)
+        {
+            var cmd = new SqlCommand("[dbo].[Employee_DeleteSalary]", Connection) { CommandType = CommandType.StoredProcedure };
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@SalaryId", salaryId));
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException sql)
+            {
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null)
+                    Connection.Close();
+            }
+        }
+
+        public bool UpdateSalary(EmployeeSalaryDTO salary)
+        {
+            var cmd = new SqlCommand("[dbo].[Employee_UpdateSalary]", Connection) { CommandType = CommandType.StoredProcedure };
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@SalaryID", salary.EmployeeSalaryID));
+                cmd.Parameters.Add(new SqlParameter("@EmployeeID", salary.EmployeeID));
+                cmd.Parameters.Add(new SqlParameter("@Month", salary.Month));
+                cmd.Parameters.Add(new SqlParameter("@Salary", salary.Salary));
+                cmd.Parameters.Add(new SqlParameter("@Allowance", salary.Allowance));
+                cmd.Parameters.Add(new SqlParameter("@PhoneCost", salary.PhoneCost));
+                cmd.Parameters.Add(new SqlParameter("@DebtPay", salary.DebtPay));
+                cmd.Parameters.Add(new SqlParameter("@ActualIncome", salary.ActualIncome));
+                cmd.Parameters.Add(new SqlParameter("@isPay", salary.IsPay));
+                cmd.Parameters.Add(new SqlParameter("@Note", salary.Note));
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException sql)
+            {
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null)
+                    Connection.Close();
+            }      
         }
     }
 }

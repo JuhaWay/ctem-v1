@@ -87,9 +87,12 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            var compareDebt = new NewCompareDebt();
-            compareDebt.ShowDialog();
-            RefreshData();
+            string debtname = dgvComDebt.SelectedRows[0].Cells["DebtName"].Value.ToString();
+            var DebtAcc = new FinalAccountDebt(debtname);
+            DebtAcc.ShowDialog();
+            //var compareDebt = new NewCompareDebt();
+            //compareDebt.ShowDialog();
+            //RefreshData();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)

@@ -250,15 +250,13 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
         public static bool ValidateMoney(KryptonTextBox textBox)
         {
             try
-            {
+            { 
                 string strLong = textBox.Text.Trim().Replace(".", "");
                 Convert.ToInt64(strLong);
                 return true;
             }
             catch (Exception)
             {
-                KryptonMessageBox.Show(Constants.INVALIDATE_VALUE, Constants.CONFIRM, MessageBoxButtons.OK,
-                                MessageBoxIcon.Warning);
                 return false;
             }
         }
@@ -271,9 +269,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
                 return true;
             }
             catch (Exception)
-            {
-                //KryptonMessageBox.Show(Constants.INVALIDATE_VALUE, Constants.CONFIRM, MessageBoxButtons.OK,
-                 //               MessageBoxIcon.Warning);
+            {                
                 return false;
             }
         }
@@ -323,12 +319,45 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
 
         public static void SetDataCombobox(KryptonComboBox cbbControl, string obj)
         {
+            if (obj.Equals(Constants.MATERIAL_SEARCH))
+            {
+                var materialBus = new MaterialBUS();
+                var listMaterial = materialBus.LoadAllMaterials();
+                cbbControl.Items.Clear();
+                cbbControl.Items.Add(Constants.ALL);
+                foreach (MaterialDTO item in listMaterial)
+                {
+                    cbbControl.Items.Add(item.MaterialName);
+                }
+            }
             if (obj.Equals(Constants.CONSTRUCTION))
             {
                 var constructionBus = new ConstructionBus();
                 cbbControl.DataSource = constructionBus.LoadAllConstructions();
                 cbbControl.ValueMember = Constants.CONSTRUCTION_VALUEMEMBER;
                 cbbControl.DisplayMember = Constants.CONSTRUCTION_DISPLAYMEMBER;
+            }
+            if (obj.Equals(Constants.CONSTRUCTION_SEARCH))
+            {
+                var constructionBus = new ConstructionBus();
+                var listCons = constructionBus.LoadAllConstructions();
+                cbbControl.Items.Clear();
+                cbbControl.Items.Add(Constants.ALL);
+                foreach (ConstructionDTO cons in listCons)
+                {
+                    cbbControl.Items.Add(cons.ConstructionName);
+                }
+            }
+            if (obj.Equals(Constants.ACCOUNT_SEARCH))
+            {
+                var accountBus = new FinalAccountBUS();
+                var listacc = accountBus.GetFinalAccount(0, Constants.EMPTY_TEXT, Constants.EMPTY_TEXT, Constants.EMPTY_TEXT, DateTime.Parse("1/1/1753 12:00:00 AM"), DateTime.Parse("12/31/9998 12:00:00 AM"));
+                cbbControl.Items.Clear();
+                cbbControl.Items.Add(Constants.ALL);
+                foreach (FinalAccountDTO acc in listacc)
+                {
+                    cbbControl.Items.Add(acc.FinalAccountName);
+                }
             }
             if (obj.Equals(Constants.USER))
             {
@@ -430,7 +459,6 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
             if (obj.Equals(Constants.WAREHOUSE_SEARCH))
             {                
                 var warehouseBus = new WarehouseBUS();
-                new List<DebtDTO>();
                 cbbControl.Items.Clear();
                 cbbControl.Items.Add(Constants.ALL);
                 List<WarehouseDTO> listWH = warehouseBus.LoadWarehouses(Constants.EMPTY_TEXT, Constants.EMPTY_TEXT, -1);
@@ -445,6 +473,26 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
                 cbbControl.Items.Add(Constants.ALL);
                 cbbControl.Items.Add(Constants.CONSTRUCTION_WAREHOUSE);
                 cbbControl.Items.Add(Constants.MAIN_WAREHOUSE);
+            }
+
+            if (obj.Equals(Constants.ROLE))
+            {
+                var roleBus = new RoleBUS();
+                cbbControl.DataSource = roleBus.GetWithoutAdmin();
+                cbbControl.DisplayMember = Constants.ROLE_DISPLAYMEMBER;
+                cbbControl.ValueMember = Constants.ROLE_VALUEMEMBER;
+            }
+
+            if (obj.Equals(Constants.ROLE_SEARCH))
+            {
+                var roleBus = new RoleBUS();
+                cbbControl.Items.Clear();
+                cbbControl.Items.Add(Constants.ALL);
+                List<RoleDTO> lisRole = roleBus.GetWithoutAdmin();
+                foreach (RoleDTO roleDTO in lisRole)
+                {
+                    cbbControl.Items.Add(roleDTO.RoleName);
+                }
             }
 
             if (cbbControl.Items.Count > 0)
@@ -465,6 +513,11 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
             {
                 var debtObj = (DebtDTO) cbbControl.SelectedItem;
                 return debtObj.DebtID;
+            }
+            if (obj.Equals(Constants.ROLE))
+            {
+                var roleObj = (RoleDTO)cbbControl.SelectedItem;
+                return roleObj.RoleID;
             }
             return 0;
         }
@@ -527,14 +580,6 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
             dgvControl.EndEdit();
             dgvControl.Refresh();
 
-        }
-
-        public static void ClearTextboxSalary(KryptonTextBox textBox)
-        {
-            if (textBox.Text.Equals("0"))
-            {
-                textBox.Text = Constants.EMPTY_TEXT;
-            }
         }
 
         public static long ConvertMoneyToLong(string strValue, string charFomat)
@@ -846,6 +891,26 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
             }
         }
 
+        public static void SetTextBoxMoneyLeave(KryptonTextBox textBox)
+        {
+            if (textBox.Text.Equals(Constants.EMPTY_TEXT))
+            {
+                textBox.Text = Constants.ZERO_NUMBER;
+            }
+            else
+            {
+                if (ValidateMoney(textBox))
+                {
+                    long money = ConvertMoneyToLong(textBox.Text, ".");
+                    textBox.Text = ConvertLongToMoney(money, ".");
+                }
+                else
+                {
+                    textBox.Text = Constants.ZERO_NUMBER;
+                }
+            }
+        }
+
         public static void SetTextBoxNumberEnter(KryptonTextBox textBox)
         {
             if (textBox.Text.Equals(Constants.ZERO_NUMBER))
@@ -955,6 +1020,32 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
                 return false;
             }
             return true;
+        }
+
+        public static bool ValidateInputNumber(string strNumber)
+        {
+            for (int i = 0; i < strNumber.Length; i++)
+            {
+                if (strNumber[i] < '0' || strNumber[i] > '9')
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        public static int GenerateStatus(string strStatus)
+        {
+            int isActie;
+            if (strStatus.Equals(Constants.PAY))
+            {
+                isActie = Constants.ISACTIVE_TRUE;
+            }
+            else
+            {
+                isActie = Constants.ISACTIVE_FALSE;
+            }
+            return isActie;
         }
     }
 }

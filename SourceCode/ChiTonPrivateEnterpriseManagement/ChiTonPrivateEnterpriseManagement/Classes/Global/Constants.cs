@@ -135,7 +135,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
 
         public const string CONFIRM_DELETEALL = "Bạn có chắc chắn muốn xóa tất cả?";
 
-        public const string UPDATE_SUCCESS = "Đã sửa đổi thành công";
+        public const string UPDATE_SUCCESS = "Đã lưu đổi thành công";
 
         public const string ANNOUNCE = "Thông báo";
 
@@ -149,7 +149,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
 
         public const string ALERT_ERROR = "Thông Báo Lỗi";
 
-        public const string CREATE_SUCCESS = "Đã tạo thành công";
+        public const string CREATE_SUCCESS = " Đã tạo thành công\n Bạn có muốn tiếp tục tạo?";
 
         public const string INVALID_DATE = "Các Ngày Nhập Vào Không Hợp Lệ";
 
@@ -184,5 +184,19 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
         public const string WAREHOUSE_SEARCH = "Warehouse Search";
 
         public const string WAREHOUSE_TYPE_SEARCH = "Warehouse Type Search";
+
+        public const string ROLE = "ROLE";
+
+        public const string ERROR_INPUT_NUMBER = "Chỉ Được Nhập Số";
+
+        public const string ROLE_SEARCH = "ROLE SEARCH";
+
+        public const string SPLIP_MONEY = ".";
+
+        public const string ACCOUNT_SEARCH = "Account Search";
+
+        public const string CONSTRUCTION_SEARCH = "Construction Search";
+
+        public const string MATERIAL_SEARCH = "Material Search";
     }
 }

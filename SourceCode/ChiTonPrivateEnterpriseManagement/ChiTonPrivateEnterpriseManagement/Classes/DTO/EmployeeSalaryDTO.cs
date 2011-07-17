@@ -13,11 +13,17 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
         public string Username { get; set; }
         public string Fullname { get; set; }
         public string Month { get; set; }
+        public string MonthFormat { get; set; }
         public long Salary { get; set; }
+        public string SalaryFormat { get; set; }
         public long Allowance { get; set; }
+        public string AllowanceFormat { get; set; }
         public long PhoneCost { get; set; }
+        public string PhoneCostFormat { get; set; }
         public long DebtPay { get; set; }
+        public string DebtPayFormat { get; set; }
         public long ActualIncome { get; set; }
+        public string ActualIncomeFormat { get; set; }
         public int IsPay { get; set; }
         public string Note { get; set; }
         public DateTime CreatedDate { get; set; }

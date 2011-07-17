@@ -29,10 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.dgvEmployee = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.Column1 = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewCheckBoxColumn();
+            this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fullname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Position = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fullname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Position = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,18 +45,27 @@
             this.DOB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.employerDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.slcMain = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
+            this.PhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CMND = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DOB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employerDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gbxLeftBot = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.pnlSearch = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.gbxSearch = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
-            this.cbbNameSearch = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.txtFullname = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.cbbRole = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.btnSearch = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.cbbStatusSearch = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.kryptonLabel10 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel9 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.txtIdSearch = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.txtNameSearch = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.kryptonLabel8 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.hdEmp = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
+            this.btnAuthenticate = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.btnRefresh = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.btnLoadAll = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.btnAdd = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
@@ -63,14 +73,18 @@
             this.btnDelete = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.btnDeleteAll = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.btnHideShowSearch = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.gbcRightBot = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
-            this.hdEdit = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
+            this.cmsMain = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.sửaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.HideSearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.xóaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.xóaTấtCảToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnHideShowSearch = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployee)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employerDTOBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.slcMain)).BeginInit();
-            this.slcMain.Panel1.SuspendLayout();
-            this.slcMain.Panel2.SuspendLayout();
-            this.slcMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.employerDTOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gbxLeftBot)).BeginInit();
             this.gbxLeftBot.Panel.SuspendLayout();
             this.gbxLeftBot.SuspendLayout();
@@ -79,18 +93,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.gbxSearch)).BeginInit();
             this.gbxSearch.Panel.SuspendLayout();
             this.gbxSearch.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cbbNameSearch)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbbRole)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbbStatusSearch)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gbcRightBot)).BeginInit();
-            this.gbcRightBot.Panel.SuspendLayout();
-            this.gbcRightBot.SuspendLayout();
+            this.cmsMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvEmployee
             // 
             this.dgvEmployee.AutoGenerateColumns = false;
             this.dgvEmployee.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
             this.Username,
             this.Fullname,
             this.Position,
@@ -103,9 +114,11 @@
             this.Note});
             this.dgvEmployee.DataSource = this.employerDTOBindingSource;
             this.dgvEmployee.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvEmployee.Location = new System.Drawing.Point(0, 115);
             this.dgvEmployee.Location = new System.Drawing.Point(0, 89);
             this.dgvEmployee.Name = "dgvEmployee";
             this.dgvEmployee.RowHeadersWidth = 25;
+            this.dgvEmployee.Size = new System.Drawing.Size(786, 443);
             this.dgvEmployee.Size = new System.Drawing.Size(656, 126);
             this.dgvEmployee.StateCommon.Background.Color1 = System.Drawing.Color.White;
             this.dgvEmployee.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
@@ -118,20 +131,25 @@
             this.dgvEmployee.StateCommon.HeaderColumn.Content.Color1 = System.Drawing.Color.White;
             this.dgvEmployee.StateCommon.HeaderColumn.Content.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvEmployee.TabIndex = 4;
-            this.dgvEmployee.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmployee_CellContentClick);
-            this.dgvEmployee.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvEmployee_RowHeaderMouseClick);
+            this.dgvEmployee.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmployee_CellDoubleClick);
             // 
-            // Column1
+            // Username
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.NullValue = false;
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Column1.FalseValue = null;
-            this.Column1.HeaderText = "";
-            this.Column1.IndeterminateValue = null;
-            this.Column1.Name = "Column1";
-            this.Column1.TrueValue = null;
-            this.Column1.Width = 25;
+            this.Username.DataPropertyName = "Username";
+            this.Username.HeaderText = "Tên Đăng Nhập";
+            this.Username.Name = "Username";
+            // 
+            // Fullname
+            // 
+            this.Fullname.DataPropertyName = "Fullname";
+            this.Fullname.HeaderText = "Tên";
+            this.Fullname.Name = "Fullname";
+            // 
+            // Position
+            // 
+            this.Position.DataPropertyName = "Position";
+            this.Position.HeaderText = "Chức Vụ";
+            this.Position.Name = "Position";
             // 
             // Username
             // 
@@ -199,23 +217,43 @@
             // 
             // slcMain
             // 
-            this.slcMain.Cursor = System.Windows.Forms.Cursors.Default;
-            this.slcMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.slcMain.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
-            this.slcMain.Location = new System.Drawing.Point(0, 0);
-            this.slcMain.Name = "slcMain";
-            this.slcMain.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.PhoneNumber.DataPropertyName = "PhoneNumber";
+            this.PhoneNumber.HeaderText = "Số ĐT";
+            this.PhoneNumber.Name = "PhoneNumber";
             // 
-            // slcMain.Panel1
+            // Address
             // 
-            this.slcMain.Panel1.Controls.Add(this.gbxLeftBot);
+            this.Address.DataPropertyName = "Address";
+            this.Address.HeaderText = "Địa Chỉ";
+            this.Address.Name = "Address";
             // 
-            // slcMain.Panel2
+            // Email
             // 
-            this.slcMain.Panel2.Controls.Add(this.gbcRightBot);
-            this.slcMain.Size = new System.Drawing.Size(660, 427);
-            this.slcMain.SplitterDistance = 220;
-            this.slcMain.TabIndex = 14;
+            this.Email.DataPropertyName = "Email";
+            this.Email.HeaderText = "Email";
+            this.Email.Name = "Email";
+            // 
+            // CMND
+            // 
+            this.CMND.DataPropertyName = "CMND";
+            this.CMND.HeaderText = "CMND";
+            this.CMND.Name = "CMND";
+            // 
+            // DOB
+            // 
+            this.DOB.DataPropertyName = "DOB";
+            this.DOB.HeaderText = "Ngày Sinh";
+            this.DOB.Name = "DOB";
+            // 
+            // Note
+            // 
+            this.Note.DataPropertyName = "Note";
+            this.Note.HeaderText = "Ghi Chú";
+            this.Note.Name = "Note";
+            // 
+            // employerDTOBindingSource
+            // 
+            this.employerDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.EmployerDTO);
             // 
             // gbxLeftBot
             // 
@@ -228,6 +266,7 @@
             this.gbxLeftBot.Panel.Controls.Add(this.dgvEmployee);
             this.gbxLeftBot.Panel.Controls.Add(this.pnlSearch);
             this.gbxLeftBot.Panel.Controls.Add(this.hdEmp);
+            this.gbxLeftBot.Size = new System.Drawing.Size(790, 564);
             this.gbxLeftBot.Size = new System.Drawing.Size(660, 221);
             this.gbxLeftBot.TabIndex = 0;
             this.gbxLeftBot.Values.Heading = "";
@@ -239,6 +278,7 @@
             this.pnlSearch.Location = new System.Drawing.Point(0, 31);
             this.pnlSearch.Name = "pnlSearch";
             this.pnlSearch.Padding = new System.Windows.Forms.Padding(50, 0, 50, 5);
+            this.pnlSearch.Size = new System.Drawing.Size(786, 84);
             this.pnlSearch.Size = new System.Drawing.Size(656, 58);
             this.pnlSearch.TabIndex = 1;
             // 
@@ -251,33 +291,56 @@
             // 
             // gbxSearch.Panel
             // 
-            this.gbxSearch.Panel.Controls.Add(this.cbbNameSearch);
+            this.gbxSearch.Panel.Controls.Add(this.kryptonLabel1);
+            this.gbxSearch.Panel.Controls.Add(this.txtFullname);
+            this.gbxSearch.Panel.Controls.Add(this.cbbRole);
             this.gbxSearch.Panel.Controls.Add(this.btnSearch);
             this.gbxSearch.Panel.Controls.Add(this.cbbStatusSearch);
             this.gbxSearch.Panel.Controls.Add(this.kryptonLabel10);
             this.gbxSearch.Panel.Controls.Add(this.kryptonLabel9);
-            this.gbxSearch.Panel.Controls.Add(this.txtIdSearch);
+            this.gbxSearch.Panel.Controls.Add(this.txtNameSearch);
             this.gbxSearch.Panel.Controls.Add(this.kryptonLabel8);
+            this.gbxSearch.Size = new System.Drawing.Size(686, 79);
             this.gbxSearch.Size = new System.Drawing.Size(556, 53);
             this.gbxSearch.TabIndex = 0;
             this.gbxSearch.Values.Heading = "";
             // 
-            // cbbNameSearch
+            // kryptonLabel1
             // 
-            this.cbbNameSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.kryptonLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.kryptonLabel1.Location = new System.Drawing.Point(364, 43);
+            this.kryptonLabel1.Name = "kryptonLabel1";
+            this.kryptonLabel1.Size = new System.Drawing.Size(52, 19);
+            this.kryptonLabel1.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.kryptonLabel1.TabIndex = 8;
+            this.kryptonLabel1.Values.Text = "Chức Vụ";
+            // 
+            // txtFullname
+            // 
+            this.txtFullname.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbbNameSearch.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cbbNameSearch.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbbNameSearch.DropDownWidth = 218;
-            this.cbbNameSearch.Location = new System.Drawing.Point(266, 15);
-            this.cbbNameSearch.Name = "cbbNameSearch";
-            this.cbbNameSearch.Size = new System.Drawing.Size(0, 22);
-            this.cbbNameSearch.TabIndex = 1;
+            this.txtFullname.Location = new System.Drawing.Point(110, 40);
+            this.txtFullname.Name = "txtFullname";
+            this.txtFullname.Size = new System.Drawing.Size(210, 22);
+            this.txtFullname.TabIndex = 7;
+            this.txtFullname.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNameSearch_KeyDown);
+            // 
+            // cbbRole
+            // 
+            this.cbbRole.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbbRole.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cbbRole.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbbRole.DropDownWidth = 218;
+            this.cbbRole.Location = new System.Drawing.Point(422, 43);
+            this.cbbRole.Name = "cbbRole";
+            this.cbbRole.Size = new System.Drawing.Size(171, 22);
+            this.cbbRole.TabIndex = 1;
+            this.cbbRole.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNameSearch_KeyDown);
             // 
             // btnSearch
             // 
             this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSearch.Location = new System.Drawing.Point(469, 2);
+            this.btnSearch.Location = new System.Drawing.Point(599, 12);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.OverrideDefault.Back.Color1 = System.Drawing.Color.NavajoWhite;
             this.btnSearch.OverrideDefault.Back.Color2 = System.Drawing.Color.White;
@@ -287,6 +350,7 @@
                         | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
                         | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.btnSearch.OverrideDefault.Border.Rounding = 3;
+            this.btnSearch.Size = new System.Drawing.Size(70, 50);
             this.btnSearch.Size = new System.Drawing.Size(70, 43);
             this.btnSearch.StateCommon.Back.Color1 = System.Drawing.Color.Khaki;
             this.btnSearch.StateCommon.Back.Color2 = System.Drawing.Color.White;
@@ -302,19 +366,24 @@
             this.btnSearch.TabIndex = 3;
             this.btnSearch.Values.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.find1;
             this.btnSearch.Values.Text = "Tìm";
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // cbbStatusSearch
             // 
             this.cbbStatusSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbbStatusSearch.DropDownWidth = 218;
+            this.cbbStatusSearch.Location = new System.Drawing.Point(422, 12);
             this.cbbStatusSearch.Location = new System.Drawing.Point(331, 15);
             this.cbbStatusSearch.Name = "cbbStatusSearch";
+            this.cbbStatusSearch.Size = new System.Drawing.Size(171, 22);
             this.cbbStatusSearch.Size = new System.Drawing.Size(132, 22);
             this.cbbStatusSearch.TabIndex = 2;
+            this.cbbStatusSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNameSearch_KeyDown);
             // 
             // kryptonLabel10
             // 
             this.kryptonLabel10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.kryptonLabel10.Location = new System.Drawing.Point(353, 15);
             this.kryptonLabel10.Location = new System.Drawing.Point(262, 15);
             this.kryptonLabel10.Name = "kryptonLabel10";
             this.kryptonLabel10.Size = new System.Drawing.Size(63, 19);
@@ -324,32 +393,40 @@
             // 
             // kryptonLabel9
             // 
+            this.kryptonLabel9.Location = new System.Drawing.Point(36, 43);
             this.kryptonLabel9.Location = new System.Drawing.Point(160, 15);
             this.kryptonLabel9.Name = "kryptonLabel9";
+            this.kryptonLabel9.Size = new System.Drawing.Size(68, 19);
             this.kryptonLabel9.Size = new System.Drawing.Size(92, 19);
             this.kryptonLabel9.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.kryptonLabel9.TabIndex = 5;
-            this.kryptonLabel9.Values.Text = "Tên Khách Hàng";
+            this.kryptonLabel9.Values.Text = "Tên Đầy Đủ";
             // 
-            // txtIdSearch
+            // txtNameSearch
             // 
-            this.txtIdSearch.Location = new System.Drawing.Point(65, 15);
-            this.txtIdSearch.Name = "txtIdSearch";
-            this.txtIdSearch.Size = new System.Drawing.Size(89, 22);
-            this.txtIdSearch.TabIndex = 0;
+            this.txtNameSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtNameSearch.Location = new System.Drawing.Point(110, 12);
+            this.txtNameSearch.Name = "txtNameSearch";
+            this.txtNameSearch.Size = new System.Drawing.Size(210, 22);
+            this.txtNameSearch.TabIndex = 0;
+            this.txtNameSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNameSearch_KeyDown);
             // 
             // kryptonLabel8
             // 
+            this.kryptonLabel8.Location = new System.Drawing.Point(15, 15);
             this.kryptonLabel8.Location = new System.Drawing.Point(16, 15);
             this.kryptonLabel8.Name = "kryptonLabel8";
+            this.kryptonLabel8.Size = new System.Drawing.Size(89, 19);
             this.kryptonLabel8.Size = new System.Drawing.Size(42, 19);
             this.kryptonLabel8.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.kryptonLabel8.TabIndex = 4;
-            this.kryptonLabel8.Values.Text = "Mã Số";
+            this.kryptonLabel8.Values.Text = "Tên Đăng Nhập";
             // 
             // hdEmp
             // 
             this.hdEmp.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
+            this.btnAuthenticate,
             this.btnRefresh,
             this.btnLoadAll,
             this.btnAdd,
@@ -361,11 +438,19 @@
             this.hdEmp.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.DockActive;
             this.hdEmp.Location = new System.Drawing.Point(0, 0);
             this.hdEmp.Name = "hdEmp";
+            this.hdEmp.Size = new System.Drawing.Size(786, 31);
             this.hdEmp.Size = new System.Drawing.Size(656, 31);
             this.hdEmp.TabIndex = 0;
             this.hdEmp.Values.Description = "";
-            this.hdEmp.Values.Heading = "Danh Nhà Cung Cấp";
+            this.hdEmp.Values.Heading = "Danh Sách Nhân Viên";
             this.hdEmp.Values.Image = null;
+            // 
+            // btnAuthenticate
+            // 
+            this.btnAuthenticate.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
+            this.btnAuthenticate.Text = "Phân Quyền";
+            this.btnAuthenticate.UniqueName = "4EF8DDE954694916D9ACDA391C25DB27";
+            this.btnAuthenticate.Click += new System.EventHandler(this.btnAuthenticate_Click);
             // 
             // btnRefresh
             // 
@@ -373,6 +458,7 @@
             this.btnRefresh.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
             this.btnRefresh.Text = "Làm Mới";
             this.btnRefresh.UniqueName = "4C2FCC4A6195428907A74FD31E7A9F69";
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // btnLoadAll
             // 
@@ -380,6 +466,7 @@
             this.btnLoadAll.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
             this.btnLoadAll.Text = "Tải Tất Cả";
             this.btnLoadAll.UniqueName = "BEB5C4DDF1A44429B8A9BDEDC950C4D6";
+            this.btnLoadAll.Click += new System.EventHandler(this.btnLoadAll_Click);
             // 
             // btnAdd
             // 
@@ -395,6 +482,14 @@
             this.btnEdit.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
             this.btnEdit.Text = "Sửa";
             this.btnEdit.UniqueName = "F224964E3E844CC3148FD7074101056D";
+            this.btnEdit.Click += new System.EventHandler(this.btnEditEmployee_Click);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.Edit;
+            this.btnEdit.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
+            this.btnEdit.Text = "Sửa";
+            this.btnEdit.UniqueName = "F224964E3E844CC3148FD7074101056D";
             // 
             // btnDelete
             // 
@@ -402,6 +497,7 @@
             this.btnDelete.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
             this.btnDelete.Text = "Xóa";
             this.btnDelete.UniqueName = "46715A2AEC0143074F81325F50887305";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnDeleteAll
             // 
@@ -409,44 +505,99 @@
             this.btnDeleteAll.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
             this.btnDeleteAll.Text = "Xóa Tất Cả";
             this.btnDeleteAll.UniqueName = "CD7065CA8BA743FB00B53BCE567E60B8";
+            this.btnDeleteAll.Click += new System.EventHandler(this.btnDeleteAll_Click);
             // 
             // btnHideShowSearch
             // 
             this.btnHideShowSearch.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
             this.btnHideShowSearch.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.ArrowUp;
             this.btnHideShowSearch.UniqueName = "7CD50F96676F43E7C0B240BAD639EFD5";
+            this.btnHideShowSearch.Click += new System.EventHandler(this.btnHideShowSearch_Click);
+            this.btnHideShowSearch.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
+            this.btnHideShowSearch.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.ArrowUp;
+            this.btnHideShowSearch.UniqueName = "7CD50F96676F43E7C0B240BAD639EFD5";
             // 
+            // cmsMain
             // gbcRightBot
             // 
-            this.gbcRightBot.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbcRightBot.Location = new System.Drawing.Point(0, 0);
-            this.gbcRightBot.Name = "gbcRightBot";
+            this.cmsMain.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.cmsMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
+            this.toolStripMenuItem3,
+            this.sửaToolStripMenuItem,
+            this.SearchToolStripMenuItem,
+            this.HideSearchToolStripMenuItem,
+            this.xóaToolStripMenuItem,
+            this.xóaTấtCảToolStripMenuItem});
+            this.cmsMain.Name = "cmsDGV";
+            this.cmsMain.Size = new System.Drawing.Size(184, 180);
             // 
+            // toolStripMenuItem1
             // gbcRightBot.Panel
             // 
-            this.gbcRightBot.Panel.Controls.Add(this.hdEdit);
-            this.gbcRightBot.Size = new System.Drawing.Size(660, 201);
-            this.gbcRightBot.TabIndex = 1;
-            this.gbcRightBot.Values.Heading = "";
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.ShortcutKeys = System.Windows.Forms.Keys.F5;
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(183, 22);
+            this.toolStripMenuItem1.Text = "Làm Mới";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
+            // toolStripMenuItem3
             // hdEdit
             // 
-            this.hdEdit.Dock = System.Windows.Forms.DockStyle.Top;
-            this.hdEdit.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.DockActive;
-            this.hdEdit.Location = new System.Drawing.Point(0, 0);
-            this.hdEdit.Name = "hdEdit";
-            this.hdEdit.Size = new System.Drawing.Size(656, 22);
-            this.hdEdit.TabIndex = 3;
-            this.hdEdit.Values.Description = "";
-            this.hdEdit.Values.Heading = "Thông Tin Chi Tiết";
-            this.hdEdit.Values.Image = null;
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(183, 22);
+            this.toolStripMenuItem3.Text = "Thêm";
+            this.toolStripMenuItem3.Click += new System.EventHandler(this.btnNewEmployee_Click);
+            // 
+            // sửaToolStripMenuItem
+            // 
+            this.sửaToolStripMenuItem.Name = "sửaToolStripMenuItem";
+            this.sửaToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
+            this.sửaToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.sửaToolStripMenuItem.Text = "Sửa";
+            this.sửaToolStripMenuItem.Click += new System.EventHandler(this.btnEditEmployee_Click);
+            // 
+            // SearchToolStripMenuItem
+            // 
+            this.SearchToolStripMenuItem.Name = "SearchToolStripMenuItem";
+            this.SearchToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
+            this.SearchToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.SearchToolStripMenuItem.Text = "Tìm Kiếm";
+            this.SearchToolStripMenuItem.Click += new System.EventHandler(this.SearchToolStripMenuItem_Click);
+            // 
+            // HideSearchToolStripMenuItem
+            // 
+            this.HideSearchToolStripMenuItem.Name = "HideSearchToolStripMenuItem";
+            this.HideSearchToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
+            this.HideSearchToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.HideSearchToolStripMenuItem.Text = "Ẩn Tìm Kiếm";
+            this.HideSearchToolStripMenuItem.Click += new System.EventHandler(this.HideSearchToolStripMenuItem_Click);
+            // 
+            // xóaToolStripMenuItem
+            // 
+            this.xóaToolStripMenuItem.Name = "xóaToolStripMenuItem";
+            this.xóaToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Delete;
+            this.xóaToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.xóaToolStripMenuItem.Text = "Xóa";
+            this.xóaToolStripMenuItem.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // xóaTấtCảToolStripMenuItem
+            // 
+            this.xóaTấtCảToolStripMenuItem.Name = "xóaTấtCảToolStripMenuItem";
+            this.xóaTấtCảToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
+            this.xóaTấtCảToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.xóaTấtCảToolStripMenuItem.Text = "Xóa Tất Cả";
+            this.xóaTấtCảToolStripMenuItem.Click += new System.EventHandler(this.btnDeleteAll_Click);
             // 
             // EmployeeManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(790, 564);
+            this.ContextMenuStrip = this.cmsMain;
+            this.Controls.Add(this.gbxLeftBot);
             this.ClientSize = new System.Drawing.Size(660, 427);
-            this.Controls.Add(this.slcMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "EmployeeManagement";
             this.ShowIcon = false;
@@ -475,10 +626,7 @@
             this.Load += new System.EventHandler(this.EmployeeManagementForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployee)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.employerDTOBindingSource)).EndInit();
-            this.slcMain.Panel1.ResumeLayout(false);
-            this.slcMain.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.slcMain)).EndInit();
-            this.slcMain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.employerDTOBindingSource)).EndInit();
             this.gbxLeftBot.Panel.ResumeLayout(false);
             this.gbxLeftBot.Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gbxLeftBot)).EndInit();
@@ -489,12 +637,9 @@
             this.gbxSearch.Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gbxSearch)).EndInit();
             this.gbxSearch.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.cbbNameSearch)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbbRole)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbbStatusSearch)).EndInit();
-            this.gbcRightBot.Panel.ResumeLayout(false);
-            this.gbcRightBot.Panel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gbcRightBot)).EndInit();
-            this.gbcRightBot.ResumeLayout(false);
+            this.cmsMain.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -510,7 +655,26 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn mobilePhoneDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn homePhoneDataGridViewTextBoxColumn;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dgvEmployee;
-        private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewCheckBoxColumn Column1;
+        private ComponentFactory.Krypton.Toolkit.KryptonGroupBox gbxLeftBot;
+        private ComponentFactory.Krypton.Toolkit.KryptonPanel pnlSearch;
+        private ComponentFactory.Krypton.Toolkit.KryptonGroupBox gbxSearch;
+        private ComponentFactory.Krypton.Toolkit.KryptonComboBox cbbRole;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnSearch;
+        private ComponentFactory.Krypton.Toolkit.KryptonComboBox cbbStatusSearch;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel10;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel9;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtNameSearch;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel8;
+        private ComponentFactory.Krypton.Toolkit.KryptonHeader hdEmp;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnRefresh;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnLoadAll;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnAdd;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnDelete;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnDeleteAll;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnHideShowSearch;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnEdit;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtFullname;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Username;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fullname;
         private System.Windows.Forms.DataGridViewTextBoxColumn Position;
@@ -521,27 +685,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CMND;
         private System.Windows.Forms.DataGridViewTextBoxColumn DOB;
         private System.Windows.Forms.DataGridViewTextBoxColumn Note;
-        private ComponentFactory.Krypton.Toolkit.KryptonSplitContainer slcMain;
-        private ComponentFactory.Krypton.Toolkit.KryptonGroupBox gbxLeftBot;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel pnlSearch;
-        private ComponentFactory.Krypton.Toolkit.KryptonGroupBox gbxSearch;
-        private ComponentFactory.Krypton.Toolkit.KryptonComboBox cbbNameSearch;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnSearch;
-        private ComponentFactory.Krypton.Toolkit.KryptonComboBox cbbStatusSearch;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel10;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel9;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtIdSearch;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel8;
-        private ComponentFactory.Krypton.Toolkit.KryptonHeader hdEmp;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnRefresh;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnLoadAll;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnAdd;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnDelete;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnDeleteAll;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnHideShowSearch;
-        private ComponentFactory.Krypton.Toolkit.KryptonGroupBox gbcRightBot;
-        private ComponentFactory.Krypton.Toolkit.KryptonHeader hdEdit;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnEdit;
+        private System.Windows.Forms.ContextMenuStrip cmsMain;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem SearchToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem HideSearchToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnAuthenticate;
+        private System.Windows.Forms.ToolStripMenuItem sửaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem xóaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem xóaTấtCảToolStripMenuItem;
     }
 }
 

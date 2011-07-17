@@ -38,18 +38,18 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
             Global.SetDaulftDatagridview(dgvAccount);
             Global.SetLayoutGroupBoxSearch(gbxSearch);
             Global.SetLayoutPanelChildForm(pnlSearch);
-            Global.SetDataCombobox(cbbNameSearch, "Account Search");
-            Global.SetDataCombobox(cbbCons, "Construction Search");
-            Global.SetDataCombobox(cbbDebt, "Debt Search");
+            Global.SetDataCombobox(cbbNameSearch, Constants.ACCOUNT_SEARCH);
+            Global.SetDataCombobox(cbbCons, Constants.CONSTRUCTION_SEARCH);
+            Global.SetDataCombobox(cbbDebt, Constants.DEBT_SEARCH);
             Global.SetLayoutButton(btnSearch);
         }
 
         private void RefreshData()
         {
-            Global.SetDataCombobox(cbbNameSearch, "Account Search");
-            Global.SetDataCombobox(cbbCons, "Construction Search");
-            Global.SetDataCombobox(cbbDebt, "Debt Search");
             txtId.Text = Constants.ZERO_NUMBER;
+            if (cbbNameSearch.Items.Count > 0) { cbbNameSearch.SelectedIndex = 0; }
+            if (cbbCons.Items.Count > 0) { cbbCons.SelectedIndex = 0; }
+            if (cbbDebt.Items.Count > 0) { cbbDebt.SelectedIndex = 0; }
             dtpSearchTo.Value = DateTime.Today;
             dtpSearchFrom.Value = Global.GetFirstDateInMonth();
             LoadData();
@@ -157,6 +157,22 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
                 btnHideShowSearch.Type = PaletteButtonSpecStyle.ArrowDown;
                 Global.DownUpControl(this, pnlSearch, 62, 2, 4, false);
                 gbxSearch.Visible = false;
+            }
+        }
+
+        private void btnDetail_Click(object sender, EventArgs e)
+        {
+            long id = Convert.ToInt64(dgvAccount.SelectedRows[0].Cells["FinalAccountID"].Value.ToString());
+            var newFinalAccountForm = new NewFinalAccount(id);
+            newFinalAccountForm.ShowDialog();
+            RefreshData();
+        }
+
+        private void txtId_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnSearch_Click(null, null);
             }
         }
     }

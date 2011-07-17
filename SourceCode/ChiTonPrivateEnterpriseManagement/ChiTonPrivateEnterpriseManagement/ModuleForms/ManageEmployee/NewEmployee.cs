@@ -68,19 +68,18 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
 
         private void NewEmployee_Load(object sender, EventArgs e)
         {
-            CenterToParent();
             SetLayout();
-            loadRole();
-            //loadRight();
-            DefineStatus();
+            LoadData();
             if (isEdit)
             {
                 SetInnitValueWhenEdit();
+                btnClear.Enabled = false;
             }
         }
 
         private void SetLayout()
         {
+            CenterToParent();
             Global.SetLayoutForm(this, Constants.DIALOG_FORM);
             Global.SetLayoutSplipContainerNewForm(slcMain);
             Global.SetLayoutGroupBoxNewForm(gbxAdd1);
@@ -93,44 +92,11 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
             Global.TextBoxRequireInput(txtFullname);            
         }
 
-        private void DefineStatus()
+        private void LoadData()
         {
-            cbbStatus.Items.Add(Constants.ACTIVE);
-            cbbStatus.Items.Add(Constants.INACTIVE);
-            cbbStatus.SelectedIndex = 0;
+            Global.SetDataCombobox(cbbRole, Constants.ROLE);
+            Global.SetDataCombobox(cbbStatus, Constants.STATUS);
         }
-
-        private void loadRole()
-        {
-            listRoles = roleBUS.GetAll();
-            foreach (var role in listRoles)
-            {
-                cbbRole.Items.Add(role);
-            }
-            cbbRole.DisplayMember = Constants.ROLE_DISPLAYMEMBER;
-            cbbRole.ValueMember = Constants.ROLE_VALUEMEMBER;            
-        }
-
-        //private void cbbRole_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    for (int i = 0; i < clbRights.ListBox.Items.Count; i++)
-        //    {
-        //        clbRights.SetItemChecked(i, false);
-        //    }
-        //    RoleDTO selectedRole = (RoleDTO)cbbRole.SelectedItem;
-        //    List<RightDTO> listRightForRole = new List<RightDTO>();
-        //    listRightForRole = rightBUS.GetRightByRole(selectedRole.RightsValue);
-        //    foreach (RightDTO right in listRightForRole)
-        //    {
-        //        clbRights.SelectedItem = right;                
-        //    }
-        //}
-
-        //private void clbRights_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    int index = clbRights.ListBox.SelectedIndex;
-        //    clbRights.SetItemChecked(index, true);
-        //}
 
         private int GenerateStatus(string strStatus)
         {
@@ -153,7 +119,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
 
         private void txtTotalDebt_Leave(object sender, EventArgs e)
         {
-            Global.SetTextBoxNumberLeave(txtTotalDebt);
+            Global.SetTextBoxMoneyLeave(txtTotalDebt);            
         }
 
         private void txtUsername_TextChanged(object sender, EventArgs e)
@@ -176,34 +142,125 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            bool success = false;
-            string username = txtUsername.Text;
-            string password = DataProvider.Encrypt(Constants.DEFAULT_PASSWORD);
-            string fullname = txtFullname.Text;
-            string address = txtAddress.Text;
-            long totalDebt = Convert.ToInt64(txtTotalDebt.Text);
-            string email = txtEmail.Text;
-            string CMND = txtCMND.Text;
-            string DOB = dtpDOB.Text;
-            RoleDTO selectedRole = (RoleDTO)cbbRole.SelectedItem;
-            long roleID = selectedRole.RoleID;
-            int isActive = GenerateStatus(cbbStatus.Text);
-            string phonenumber = txtPhoneNumber.Text;
-            string notes = txtNote.Text;
-            long rightsValue = 0;
-            if (isNew)
+            if (ValidateInput())
             {
-                success = employeeBUS.CreateEmployee(username, password, fullname, address, email, CMND, DOB, roleID, rightsValue,
-                                       isActive, notes, phonenumber, totalDebt);
+                bool success = false;
+                string username = txtUsername.Text;
+                string password = DataProvider.Encrypt(Constants.DEFAULT_PASSWORD);
+                string fullname = txtFullname.Text;
+                string address = txtAddress.Text;
+                long totalDebt = Global.ConvertMoneyToLong(txtTotalDebt.Text, ".");
+                string email = txtEmail.Text;
+                string CMND = txtCMND.Text;
+                string DOB = dtpDOB.Text;
+                RoleDTO selectedRole = (RoleDTO)cbbRole.SelectedItem;
+                long roleID = selectedRole.RoleID;
+                int isActive = GenerateStatus(cbbStatus.Text);
+                string phonenumber = txtPhoneNumber.Text;
+                string notes = txtNote.Text;
+                long rightsValue = selectedRole.RightsValue;
+                if (isNew)
+                {
+                    success = employeeBUS.CreateEmployee(username, password, fullname, address, email, CMND, DOB, roleID, rightsValue,
+                                           isActive, notes, phonenumber, totalDebt);
+                }
+                if (isEdit)
+                {
+                    success = employeeBUS.UpdateEmployee(employeeID, username, password, fullname, address, email, CMND, DOB, roleID, rightsValue,
+                                           isActive, notes, phonenumber, totalDebt);
+                }
+                if (!success)
+                {
+                    MessageBox.Show("Faile");
+                }
+                if (success)
+                {
+                    if (isNew)
+                    {
+                        if (KryptonMessageBox.Show(Constants.CREATE_SUCCESS, Constants.CONFIRM, MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        {
+                            ClearLayout();
+                            txtUsername.Focus();
+                        }
+                        else
+                        {
+                            Close();
+                        }
+                    }
+
+                    if (isEdit)
+                    {
+                        if (KryptonMessageBox.Show(Constants.UPDATE_SUCCESS, Constants.CONFIRM, MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        {
+                            txtUsername.Focus();
+                        }
+                        else
+                        {
+                            Close();
+                        }
+                    }
+                }
             }
-            if (isEdit)
+            else
             {
-                success = employeeBUS.UpdateEmployee(employeeID, username, password, fullname, address, email, CMND, DOB, roleID, rightsValue,
-                                       isActive, notes, phonenumber, totalDebt);
+                string errors = "";
+                foreach (string error in Global.ListError)
+                {
+                    errors += ("* " + error + "\n");
+                }
+                KryptonMessageBox.Show(errors, Constants.ALERT_ERROR);
+                txtUsername.Focus();
             }
-            if (!success)
+        }
+
+        private bool ValidateInput()
+        {
+            Global.SetTextBoxNumberLeave(txtTotalDebt);
+            Global.ListError.Clear();
+            if (Global.ValidateNotEmptyText(txtUsername) && Global.ValidateNotEmptyText(txtFullname) && Global.ValidatePhoneNumber(txtPhoneNumber))
             {
-                MessageBox.Show("Faile");
+                return true;
+            }
+            return false;
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            ClearLayout();
+        }
+
+        private void ClearLayout()
+        {
+            txtUsername.Text = Constants.EMPTY_TEXT;
+            txtFullname.Text = Constants.EMPTY_TEXT;
+            txtEmail.Text = Constants.EMPTY_TEXT;
+            txtCMND.Text = Constants.EMPTY_TEXT;
+            txtAddress.Text = Constants.EMPTY_TEXT;
+            txtPhoneNumber.Text = Constants.EMPTY_TEXT;
+            txtNote.Text = Constants.EMPTY_TEXT;
+            txtTotalDebt.Text = Constants.ZERO_NUMBER;
+            if (cbbRole.Items.Count > 0)
+            {
+                cbbRole.SelectedIndex = 0;
+            }
+            cbbStatus.SelectedIndex = 0;
+        }
+
+        private void txtPhoneNumber_Leave(object sender, EventArgs e)
+        {
+            if (Global.ValidateNotEmptyText(txtPhoneNumber) && Global.ValidatePhoneNumber(txtPhoneNumber))
+            {
+                txtPhoneNumber.Text = Global.FomatPhoneNumber(txtPhoneNumber.Text);
+            }
+        }
+
+        private void txtCMND_TextChanged(object sender, EventArgs e)
+        {
+            if (!Global.ValidateInputNumber(txtCMND.Text))
+            {
+                KryptonMessageBox.Show(Constants.ERROR_INPUT_NUMBER, Constants.CONFIRM);
+                string removeError = txtCMND.Text.Remove(txtCMND.Text.Length - 1);
+                txtCMND.Text = removeError;                
             }
         }
     }

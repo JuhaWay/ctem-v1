@@ -90,6 +90,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            
             var newDebt = new NewDebt();
             newDebt.ShowDialog();
             RefreshData();
@@ -157,21 +158,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
             cbbStatus.Enabled = edit;
             btnSave.Enabled = edit ? ButtonEnabled.True : ButtonEnabled.False;
             cmsEdit.Items[2].Enabled = edit;
-        }
-
-        private void dgvDebt_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            btnDelete.Enabled = ButtonEnabled.True;
-            cmsDGV.Items[3].Enabled = true;
-            DataGridViewRow r = dgvDebt.Rows[e.RowIndex];
-            long debtId = Convert.ToInt64(r.Cells["DebtID"].Value.ToString());
-            string debtName = Convert.ToString(r.Cells["DebtName"].Value.ToString());
-            string address = Convert.ToString(r.Cells["Address"].Value.ToString());
-            string totalDebt = r.Cells["TotalOwe"].Value.ToString();
-            string note = Convert.ToString(r.Cells["Note"].Value.ToString());
-            string phoneNumber = Convert.ToString(r.Cells["PhoneNumber"].Value.ToString());
-            int isactive = Convert.ToInt32(r.Cells["IsActive"].Value.ToString());
-            FillDataEdit(debtId, debtName, address, phoneNumber, totalDebt, note, isactive);
         }
 
         private void FillDataEdit(long debtId, string name, string address, string phone, string totalDebt, string note, int isactive)
@@ -269,12 +255,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
             }
         }
 
-        private void dgvDebt_CellEnter(object sender, DataGridViewCellEventArgs e)
-        {
-            btnDelete.Enabled = ButtonEnabled.False;
-            cmsDGV.Items[3].Enabled = false;
-        }
-
         private void btnSearch_Click(object sender, EventArgs e)
         {
             LoadData();
@@ -344,6 +324,23 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
             {
                 Global.TextBoxRequireInputed(txtDebtName);
             }
+        }
+
+        private void dgvDebt_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                DataGridViewRow r = dgvDebt.Rows[e.RowIndex];
+                long debtId = Convert.ToInt64(r.Cells["DebtID"].Value.ToString());
+                string debtName = Convert.ToString(r.Cells["DebtName"].Value.ToString());
+                string address = Convert.ToString(r.Cells["Address"].Value.ToString());
+                string totalDebt = r.Cells["TotalOwe"].Value.ToString();
+                string note = Convert.ToString(r.Cells["Note"].Value.ToString());
+                string phoneNumber = Convert.ToString(r.Cells["PhoneNumber"].Value.ToString());
+                int isactive = Convert.ToInt32(r.Cells["IsActive"].Value.ToString());
+                FillDataEdit(debtId, debtName, address, phoneNumber, totalDebt, note, isactive);
+            }
+            
         }
 
     }

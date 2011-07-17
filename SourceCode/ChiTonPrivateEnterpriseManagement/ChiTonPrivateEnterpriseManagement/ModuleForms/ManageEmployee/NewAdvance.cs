@@ -67,8 +67,22 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
                                      Note = note
                                  };
             bool success = _employeeBus.CreateEmployeeAdvance(advanceObj);
-            KryptonMessageBox.Show(success ? Constants.CREATE_SUCCESS : Constants.ERROR, Constants.CONFIRM);
-            ClearLayout();
+            if (success)
+            {
+                if (KryptonMessageBox.Show(Constants.CREATE_SUCCESS, Constants.CONFIRM, MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    ClearLayout();
+                    cbbEmployee.Focus();
+                }
+                else
+                {
+                    Close();
+                }
+            }
+            else
+            {
+                KryptonMessageBox.Show(Constants.CREATE_SUCCESS, Constants.CONFIRM);
+            }            
         }
 
         private void ClearLayout()
@@ -88,6 +102,27 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
             else
             {
                 Global.TextBoxRequireInputed(txtTotalAdvance);
+            }
+        }
+
+        private void txtTotalAdvance_Enter(object sender, EventArgs e)
+        {
+            Global.SetTextBoxNumberEnter(txtTotalAdvance);
+        }
+
+        private void txtTotalAdvance_Leave(object sender, EventArgs e)
+        {
+            Global.SetTextBoxMoneyLeave(txtTotalAdvance);
+        }
+
+        private void genarateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ActiveControl.Text += Constants.THOUSAND;
+            }
+            catch (Exception)
+            {
             }
         }
     }

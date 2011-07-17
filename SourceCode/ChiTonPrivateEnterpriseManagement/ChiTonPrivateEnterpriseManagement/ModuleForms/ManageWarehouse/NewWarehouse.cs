@@ -55,9 +55,23 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWarehouse
                     ConstructionDTO construcion = (ConstructionDTO)cbbConstruction.SelectedItem;
                     warehouse.ConstructionID = construcion.ConstructionID;
                 }
-                warehouseBUS.CreateWarehouse(warehouse);
-                ClearLayout();
-                txtWarehouseName.Focus();
+                bool success = warehouseBUS.CreateWarehouse(warehouse);
+                if (success)
+                {
+                    if (KryptonMessageBox.Show(Constants.UPDATE_SUCCESS, Constants.CONFIRM, MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        ClearLayout();
+                        txtWarehouseName.Focus();
+                    }
+                    else
+                    {
+                        Close();
+                    }
+                }
+                else
+                {
+                    KryptonMessageBox.Show(Constants.ERROR, Constants.CONFIRM);
+                }
             }
             else
             {

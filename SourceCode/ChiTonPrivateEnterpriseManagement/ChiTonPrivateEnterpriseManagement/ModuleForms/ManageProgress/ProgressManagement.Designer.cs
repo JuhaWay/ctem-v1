@@ -29,22 +29,26 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            heaparessential.HeaparGantt.InformationPanel informationPanel1 = new heaparessential.HeaparGantt.InformationPanel();
+            heaparessential.HeaparGantt.InformationPanel informationPanel3 = new heaparessential.HeaparGantt.InformationPanel();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProgressManagement));
-            heaparessential.HeaparGantt.CalendarRuler calendarRuler1 = new heaparessential.HeaparGantt.CalendarRuler();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            heaparessential.HeaparGantt.CalendarRuler calendarRuler3 = new heaparessential.HeaparGantt.CalendarRuler();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.kryptonPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.tclMain = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.kryptonSplitContainer1 = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
             this.gtcConsProgress = new heaparessential.HeaparGantt.GanttControl();
+            this.pnlButton = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.gbxButton = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.hdProgress = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
+            this.btnPreMonth = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.btnNextMonth = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.kryptonSplitContainer2 = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
             this.chartProgress = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.hdChart = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
@@ -53,8 +57,6 @@
             this.kryptonGroupBox1 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.kryptonLabel10 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.txtTotalCostsIncurred = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.kryptonLabel9 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.txtOhter = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.kryptonLabel8 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.txtTotalMachineCost = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.kryptonLabel7 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
@@ -100,8 +102,6 @@
             this.lbTab2 = new System.Windows.Forms.Label();
             this.gbxTab1 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.lbTab1 = new System.Windows.Forms.Label();
-            this.btnNextMonth = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.btnPreMonth = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             this.tclMain.SuspendLayout();
@@ -110,6 +110,10 @@
             this.kryptonSplitContainer1.Panel1.SuspendLayout();
             this.kryptonSplitContainer1.Panel2.SuspendLayout();
             this.kryptonSplitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pnlButton)).BeginInit();
+            this.pnlButton.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gbxButton)).BeginInit();
+            this.gbxButton.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonSplitContainer2)).BeginInit();
             this.kryptonSplitContainer2.Panel1.SuspendLayout();
             this.kryptonSplitContainer2.Panel2.SuspendLayout();
@@ -139,7 +143,7 @@
             this.kryptonPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonPanel.Location = new System.Drawing.Point(0, 0);
             this.kryptonPanel.Name = "kryptonPanel";
-            this.kryptonPanel.Size = new System.Drawing.Size(784, 562);
+            this.kryptonPanel.Size = new System.Drawing.Size(784, 522);
             this.kryptonPanel.TabIndex = 0;
             // 
             // tclMain
@@ -152,7 +156,7 @@
             this.tclMain.Location = new System.Drawing.Point(0, 0);
             this.tclMain.Name = "tclMain";
             this.tclMain.SelectedIndex = 0;
-            this.tclMain.Size = new System.Drawing.Size(784, 562);
+            this.tclMain.Size = new System.Drawing.Size(784, 522);
             this.tclMain.TabIndex = 0;
             this.tclMain.SelectedIndexChanged += new System.EventHandler(this.tclMain_SelectedIndexChanged);
             // 
@@ -162,7 +166,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 32);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(776, 526);
+            this.tabPage1.Size = new System.Drawing.Size(776, 486);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -178,6 +182,7 @@
             // kryptonSplitContainer1.Panel1
             // 
             this.kryptonSplitContainer1.Panel1.Controls.Add(this.gtcConsProgress);
+            this.kryptonSplitContainer1.Panel1.Controls.Add(this.pnlButton);
             this.kryptonSplitContainer1.Panel1.Controls.Add(this.hdProgress);
             // 
             // kryptonSplitContainer1.Panel2
@@ -185,7 +190,7 @@
             this.kryptonSplitContainer1.Panel2.Controls.Add(this.kryptonSplitContainer2);
             this.kryptonSplitContainer1.Panel2.Controls.Add(this.kryptonGroupBox1);
             this.kryptonSplitContainer1.Panel2.Controls.Add(this.hdDetail);
-            this.kryptonSplitContainer1.Size = new System.Drawing.Size(770, 520);
+            this.kryptonSplitContainer1.Size = new System.Drawing.Size(770, 480);
             this.kryptonSplitContainer1.SplitterDistance = 550;
             this.kryptonSplitContainer1.TabIndex = 2;
             // 
@@ -198,49 +203,71 @@
             this.gtcConsProgress.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gtcConsProgress.FixedBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(244)))), ((int)(((byte)(248)))));
             this.gtcConsProgress.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            informationPanel1.Bitmap = ((System.Drawing.Bitmap)(resources.GetObject("informationPanel1.Bitmap")));
-            informationPanel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(215)))), ((int)(((byte)(230)))));
-            informationPanel1.CaptionHeight = 48;
-            informationPanel1.FixedBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(244)))), ((int)(((byte)(248)))));
-            informationPanel1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            informationPanel1.ForeColor = System.Drawing.SystemColors.WindowText;
-            informationPanel1.Height = 490;
-            informationPanel1.LineHeight = 15;
-            informationPanel1.SelectedItem = null;
-            informationPanel1.SelectedItemColor = System.Drawing.SystemColors.Highlight;
-            informationPanel1.TopLine = 0;
-            informationPanel1.Width = 200;
-            this.gtcConsProgress.InfoPanel = informationPanel1;
+            informationPanel3.Bitmap = ((System.Drawing.Bitmap)(resources.GetObject("informationPanel3.Bitmap")));
+            informationPanel3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(215)))), ((int)(((byte)(230)))));
+            informationPanel3.CaptionHeight = 48;
+            informationPanel3.FixedBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(244)))), ((int)(((byte)(248)))));
+            informationPanel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            informationPanel3.ForeColor = System.Drawing.SystemColors.WindowText;
+            informationPanel3.Height = 345;
+            informationPanel3.LineHeight = 15;
+            informationPanel3.SelectedItem = null;
+            informationPanel3.SelectedItemColor = System.Drawing.SystemColors.Highlight;
+            informationPanel3.TopLine = 0;
+            informationPanel3.Width = 200;
+            this.gtcConsProgress.InfoPanel = informationPanel3;
             this.gtcConsProgress.LeafItemColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(111)))));
-            this.gtcConsProgress.Location = new System.Drawing.Point(0, 30);
+            this.gtcConsProgress.Location = new System.Drawing.Point(0, 29);
             this.gtcConsProgress.Margin = new System.Windows.Forms.Padding(4);
             this.gtcConsProgress.Modified = false;
             this.gtcConsProgress.Name = "gtcConsProgress";
             this.gtcConsProgress.RootItemColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(145)))), ((int)(((byte)(0)))));
-            calendarRuler1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(215)))), ((int)(((byte)(230)))));
-            calendarRuler1.FirstDayOfWeek = 64;
-            calendarRuler1.FixedBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(244)))), ((int)(((byte)(248)))));
-            calendarRuler1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            calendarRuler1.ForeColor = System.Drawing.SystemColors.WindowText;
-            calendarRuler1.Holydays = 96;
-            calendarRuler1.HoursPerDay = 8;
-            calendarRuler1.OneDayWidth = 20D;
-            calendarRuler1.SelectedItem = null;
-            calendarRuler1.SelectedItemColor = System.Drawing.SystemColors.Highlight;
-            calendarRuler1.ShowDayStripe = true;
-            calendarRuler1.ShowMonthStripe = true;
-            calendarRuler1.ShowTimeStripe = false;
-            calendarRuler1.ShowYearStripe = true;
-            calendarRuler1.StartDate = new System.DateTime(2011, 7, 15, 0, 0, 0, 0);
-            calendarRuler1.StartHour = 8;
-            calendarRuler1.StripeHeight = 16;
-            calendarRuler1.Width = 350;
-            this.gtcConsProgress.Ruler = calendarRuler1;
+            calendarRuler3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(215)))), ((int)(((byte)(230)))));
+            calendarRuler3.FirstDayOfWeek = 64;
+            calendarRuler3.FixedBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(244)))), ((int)(((byte)(248)))));
+            calendarRuler3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            calendarRuler3.ForeColor = System.Drawing.SystemColors.WindowText;
+            calendarRuler3.Holydays = 96;
+            calendarRuler3.HoursPerDay = 8;
+            calendarRuler3.OneDayWidth = 20D;
+            calendarRuler3.SelectedItem = null;
+            calendarRuler3.SelectedItemColor = System.Drawing.SystemColors.Highlight;
+            calendarRuler3.ShowDayStripe = true;
+            calendarRuler3.ShowMonthStripe = true;
+            calendarRuler3.ShowTimeStripe = false;
+            calendarRuler3.ShowYearStripe = true;
+            calendarRuler3.StartDate = new System.DateTime(2011, 7, 17, 0, 0, 0, 0);
+            calendarRuler3.StartHour = 8;
+            calendarRuler3.StripeHeight = 16;
+            calendarRuler3.Width = 350;
+            this.gtcConsProgress.Ruler = calendarRuler3;
             this.gtcConsProgress.SelectedItem = null;
             this.gtcConsProgress.SelectedItemColor = System.Drawing.SystemColors.Highlight;
-            this.gtcConsProgress.Size = new System.Drawing.Size(550, 490);
+            this.gtcConsProgress.Size = new System.Drawing.Size(550, 345);
             this.gtcConsProgress.TabIndex = 7;
             this.gtcConsProgress.SelectedItemChanged += new heaparessential.HeaparGantt.JobTreeItemEventHandler(this.gtcConsProgress_SelectedItemChanged);
+            // 
+            // pnlButton
+            // 
+            this.pnlButton.Controls.Add(this.gbxButton);
+            this.pnlButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlButton.Location = new System.Drawing.Point(0, 374);
+            this.pnlButton.Name = "pnlButton";
+            this.pnlButton.Size = new System.Drawing.Size(550, 106);
+            this.pnlButton.StateCommon.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(148)))), ((int)(((byte)(223)))));
+            this.pnlButton.TabIndex = 41;
+            // 
+            // gbxButton
+            // 
+            this.gbxButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbxButton.CaptionOverlap = 0D;
+            this.gbxButton.Location = new System.Drawing.Point(5, 7);
+            this.gbxButton.Name = "gbxButton";
+            this.gbxButton.Size = new System.Drawing.Size(542, 94);
+            this.gbxButton.TabIndex = 0;
+            this.gbxButton.Values.Heading = "";
             // 
             // hdProgress
             // 
@@ -251,7 +278,7 @@
             this.hdProgress.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.Secondary;
             this.hdProgress.Location = new System.Drawing.Point(0, 0);
             this.hdProgress.Name = "hdProgress";
-            this.hdProgress.Size = new System.Drawing.Size(550, 30);
+            this.hdProgress.Size = new System.Drawing.Size(550, 29);
             this.hdProgress.StateCommon.Back.Color1 = System.Drawing.Color.White;
             this.hdProgress.StateCommon.Back.Color2 = System.Drawing.Color.Khaki;
             this.hdProgress.StateCommon.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.GlassNormalStump;
@@ -262,12 +289,26 @@
             this.hdProgress.Values.Heading = "Biểu Đồ Thời Gian";
             this.hdProgress.Values.Image = null;
             // 
+            // btnPreMonth
+            // 
+            this.btnPreMonth.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
+            this.btnPreMonth.Text = "< Tháng Trước";
+            this.btnPreMonth.UniqueName = "6C610C83E1EB41A90A93A601D8F61731";
+            this.btnPreMonth.Click += new System.EventHandler(this.btnGotoPreMonth_Click);
+            // 
+            // btnNextMonth
+            // 
+            this.btnNextMonth.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
+            this.btnNextMonth.Text = "Tháng Tới >";
+            this.btnNextMonth.UniqueName = "5C08AE65B23D45C1F085B5D85FCCC913";
+            this.btnNextMonth.Click += new System.EventHandler(this.btnGotoNextMonth_Click);
+            // 
             // kryptonSplitContainer2
             // 
             this.kryptonSplitContainer2.ContainerBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlClient;
             this.kryptonSplitContainer2.Cursor = System.Windows.Forms.Cursors.Default;
             this.kryptonSplitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kryptonSplitContainer2.Location = new System.Drawing.Point(0, 302);
+            this.kryptonSplitContainer2.Location = new System.Drawing.Point(0, 259);
             this.kryptonSplitContainer2.Name = "kryptonSplitContainer2";
             this.kryptonSplitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -280,25 +321,25 @@
             // 
             this.kryptonSplitContainer2.Panel2.Controls.Add(this.chartDisbursement);
             this.kryptonSplitContainer2.Panel2.Controls.Add(this.kryptonHeader5);
-            this.kryptonSplitContainer2.Size = new System.Drawing.Size(215, 218);
-            this.kryptonSplitContainer2.SplitterDistance = 109;
+            this.kryptonSplitContainer2.Size = new System.Drawing.Size(215, 221);
+            this.kryptonSplitContainer2.SplitterDistance = 110;
             this.kryptonSplitContainer2.TabIndex = 1;
             // 
             // chartProgress
             // 
             this.chartProgress.BackColor = System.Drawing.Color.YellowGreen;
-            chartArea1.Name = "ChartArea1";
-            this.chartProgress.ChartAreas.Add(chartArea1);
+            chartArea5.Name = "ChartArea1";
+            this.chartProgress.ChartAreas.Add(chartArea5);
             this.chartProgress.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend1.Name = "Legend1";
-            this.chartProgress.Legends.Add(legend1);
-            this.chartProgress.Location = new System.Drawing.Point(0, 23);
+            legend5.Name = "Legend1";
+            this.chartProgress.Legends.Add(legend5);
+            this.chartProgress.Location = new System.Drawing.Point(0, 22);
             this.chartProgress.Name = "chartProgress";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chartProgress.Series.Add(series1);
-            this.chartProgress.Size = new System.Drawing.Size(215, 86);
+            series5.ChartArea = "ChartArea1";
+            series5.Legend = "Legend1";
+            series5.Name = "Series1";
+            this.chartProgress.Series.Add(series5);
+            this.chartProgress.Size = new System.Drawing.Size(215, 88);
             this.chartProgress.TabIndex = 9;
             this.chartProgress.Text = "chart2";
             // 
@@ -308,7 +349,7 @@
             this.hdChart.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.Calendar;
             this.hdChart.Location = new System.Drawing.Point(0, 0);
             this.hdChart.Name = "hdChart";
-            this.hdChart.Size = new System.Drawing.Size(215, 23);
+            this.hdChart.Size = new System.Drawing.Size(215, 22);
             this.hdChart.StateCommon.Back.Color1 = System.Drawing.Color.White;
             this.hdChart.StateCommon.Back.Color2 = System.Drawing.Color.Khaki;
             this.hdChart.StateCommon.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.GlassNormalSimple;
@@ -322,18 +363,18 @@
             // chartDisbursement
             // 
             this.chartDisbursement.BackColor = System.Drawing.Color.YellowGreen;
-            chartArea2.Name = "ChartArea1";
-            this.chartDisbursement.ChartAreas.Add(chartArea2);
+            chartArea6.Name = "ChartArea1";
+            this.chartDisbursement.ChartAreas.Add(chartArea6);
             this.chartDisbursement.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend2.Name = "Legend1";
-            this.chartDisbursement.Legends.Add(legend2);
-            this.chartDisbursement.Location = new System.Drawing.Point(0, 23);
+            legend6.Name = "Legend1";
+            this.chartDisbursement.Legends.Add(legend6);
+            this.chartDisbursement.Location = new System.Drawing.Point(0, 22);
             this.chartDisbursement.Name = "chartDisbursement";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chartDisbursement.Series.Add(series2);
-            this.chartDisbursement.Size = new System.Drawing.Size(215, 81);
+            series6.ChartArea = "ChartArea1";
+            series6.Legend = "Legend1";
+            series6.Name = "Series1";
+            this.chartDisbursement.Series.Add(series6);
+            this.chartDisbursement.Size = new System.Drawing.Size(215, 84);
             this.chartDisbursement.TabIndex = 9;
             this.chartDisbursement.Text = "chart1";
             // 
@@ -343,7 +384,7 @@
             this.kryptonHeader5.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.Calendar;
             this.kryptonHeader5.Location = new System.Drawing.Point(0, 0);
             this.kryptonHeader5.Name = "kryptonHeader5";
-            this.kryptonHeader5.Size = new System.Drawing.Size(215, 23);
+            this.kryptonHeader5.Size = new System.Drawing.Size(215, 22);
             this.kryptonHeader5.StateCommon.Back.Color1 = System.Drawing.Color.White;
             this.kryptonHeader5.StateCommon.Back.Color2 = System.Drawing.Color.Khaki;
             this.kryptonHeader5.StateCommon.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.GlassNormalSimple;
@@ -358,15 +399,13 @@
             // 
             this.kryptonGroupBox1.CaptionOverlap = 0D;
             this.kryptonGroupBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.kryptonGroupBox1.Location = new System.Drawing.Point(0, 23);
+            this.kryptonGroupBox1.Location = new System.Drawing.Point(0, 22);
             this.kryptonGroupBox1.Name = "kryptonGroupBox1";
             // 
             // kryptonGroupBox1.Panel
             // 
             this.kryptonGroupBox1.Panel.Controls.Add(this.kryptonLabel10);
             this.kryptonGroupBox1.Panel.Controls.Add(this.txtTotalCostsIncurred);
-            this.kryptonGroupBox1.Panel.Controls.Add(this.kryptonLabel9);
-            this.kryptonGroupBox1.Panel.Controls.Add(this.txtOhter);
             this.kryptonGroupBox1.Panel.Controls.Add(this.kryptonLabel8);
             this.kryptonGroupBox1.Panel.Controls.Add(this.txtTotalMachineCost);
             this.kryptonGroupBox1.Panel.Controls.Add(this.kryptonLabel7);
@@ -383,7 +422,7 @@
             this.kryptonGroupBox1.Panel.Controls.Add(this.txtLeft);
             this.kryptonGroupBox1.Panel.Controls.Add(this.txtFinishDay);
             this.kryptonGroupBox1.Panel.Controls.Add(this.txtTotalDay);
-            this.kryptonGroupBox1.Size = new System.Drawing.Size(215, 279);
+            this.kryptonGroupBox1.Size = new System.Drawing.Size(215, 237);
             this.kryptonGroupBox1.StateCommon.Back.Color1 = System.Drawing.Color.MintCream;
             this.kryptonGroupBox1.StateCommon.Border.Color1 = System.Drawing.Color.Red;
             this.kryptonGroupBox1.StateCommon.Border.Color2 = System.Drawing.Color.Gold;
@@ -394,9 +433,9 @@
             // 
             // kryptonLabel10
             // 
-            this.kryptonLabel10.Location = new System.Drawing.Point(14, 218);
+            this.kryptonLabel10.Location = new System.Drawing.Point(14, 202);
             this.kryptonLabel10.Name = "kryptonLabel10";
-            this.kryptonLabel10.Size = new System.Drawing.Size(103, 20);
+            this.kryptonLabel10.Size = new System.Drawing.Size(95, 19);
             this.kryptonLabel10.StateCommon.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.kryptonLabel10.StateCommon.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.kryptonLabel10.StateCommon.ShortText.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.GlassTrackingSimple;
@@ -407,9 +446,9 @@
             // 
             this.txtTotalCostsIncurred.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTotalCostsIncurred.Location = new System.Drawing.Point(123, 216);
+            this.txtTotalCostsIncurred.Location = new System.Drawing.Point(123, 201);
             this.txtTotalCostsIncurred.Name = "txtTotalCostsIncurred";
-            this.txtTotalCostsIncurred.Size = new System.Drawing.Size(84, 22);
+            this.txtTotalCostsIncurred.Size = new System.Drawing.Size(84, 25);
             this.txtTotalCostsIncurred.StateCommon.Back.Color1 = System.Drawing.Color.OldLace;
             this.txtTotalCostsIncurred.StateCommon.Border.Color1 = System.Drawing.Color.Orange;
             this.txtTotalCostsIncurred.StateCommon.Border.Color2 = System.Drawing.Color.Orange;
@@ -423,42 +462,11 @@
             this.txtTotalCostsIncurred.TabIndex = 19;
             this.txtTotalCostsIncurred.Text = "1.000.000.000 (VND)";
             // 
-            // kryptonLabel9
-            // 
-            this.kryptonLabel9.Location = new System.Drawing.Point(40, 244);
-            this.kryptonLabel9.Name = "kryptonLabel9";
-            this.kryptonLabel9.Size = new System.Drawing.Size(78, 20);
-            this.kryptonLabel9.StateCommon.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.kryptonLabel9.StateCommon.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.kryptonLabel9.StateCommon.ShortText.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.GlassTrackingSimple;
-            this.kryptonLabel9.TabIndex = 18;
-            this.kryptonLabel9.Values.Text = "Chi Phí Khác";
-            // 
-            // txtOhter
-            // 
-            this.txtOhter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtOhter.Location = new System.Drawing.Point(123, 244);
-            this.txtOhter.Name = "txtOhter";
-            this.txtOhter.Size = new System.Drawing.Size(84, 22);
-            this.txtOhter.StateCommon.Back.Color1 = System.Drawing.Color.OldLace;
-            this.txtOhter.StateCommon.Border.Color1 = System.Drawing.Color.Orange;
-            this.txtOhter.StateCommon.Border.Color2 = System.Drawing.Color.Orange;
-            this.txtOhter.StateCommon.Border.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.GlassSimpleFull;
-            this.txtOhter.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.txtOhter.StateCommon.Border.Rounding = 4;
-            this.txtOhter.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.txtOhter.StateCommon.Content.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtOhter.TabIndex = 17;
-            this.txtOhter.Text = "1.000.000.000 (VND)";
-            // 
             // kryptonLabel8
             // 
-            this.kryptonLabel8.Location = new System.Drawing.Point(14, 192);
+            this.kryptonLabel8.Location = new System.Drawing.Point(14, 178);
             this.kryptonLabel8.Name = "kryptonLabel8";
-            this.kryptonLabel8.Size = new System.Drawing.Size(103, 20);
+            this.kryptonLabel8.Size = new System.Drawing.Size(95, 19);
             this.kryptonLabel8.StateCommon.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.kryptonLabel8.StateCommon.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.kryptonLabel8.StateCommon.ShortText.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.GlassTrackingSimple;
@@ -469,9 +477,9 @@
             // 
             this.txtTotalMachineCost.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTotalMachineCost.Location = new System.Drawing.Point(124, 190);
+            this.txtTotalMachineCost.Location = new System.Drawing.Point(124, 176);
             this.txtTotalMachineCost.Name = "txtTotalMachineCost";
-            this.txtTotalMachineCost.Size = new System.Drawing.Size(84, 22);
+            this.txtTotalMachineCost.Size = new System.Drawing.Size(84, 25);
             this.txtTotalMachineCost.StateCommon.Back.Color1 = System.Drawing.Color.OldLace;
             this.txtTotalMachineCost.StateCommon.Border.Color1 = System.Drawing.Color.Orange;
             this.txtTotalMachineCost.StateCommon.Border.Color2 = System.Drawing.Color.Orange;
@@ -487,9 +495,9 @@
             // 
             // kryptonLabel7
             // 
-            this.kryptonLabel7.Location = new System.Drawing.Point(3, 166);
+            this.kryptonLabel7.Location = new System.Drawing.Point(3, 154);
             this.kryptonLabel7.Name = "kryptonLabel7";
-            this.kryptonLabel7.Size = new System.Drawing.Size(114, 20);
+            this.kryptonLabel7.Size = new System.Drawing.Size(105, 19);
             this.kryptonLabel7.StateCommon.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.kryptonLabel7.StateCommon.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.kryptonLabel7.StateCommon.ShortText.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.GlassTrackingSimple;
@@ -500,9 +508,9 @@
             // 
             this.txtTotalWorkerCost.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTotalWorkerCost.Location = new System.Drawing.Point(124, 164);
+            this.txtTotalWorkerCost.Location = new System.Drawing.Point(124, 152);
             this.txtTotalWorkerCost.Name = "txtTotalWorkerCost";
-            this.txtTotalWorkerCost.Size = new System.Drawing.Size(84, 22);
+            this.txtTotalWorkerCost.Size = new System.Drawing.Size(84, 25);
             this.txtTotalWorkerCost.StateCommon.Back.Color1 = System.Drawing.Color.OldLace;
             this.txtTotalWorkerCost.StateCommon.Border.Color1 = System.Drawing.Color.Orange;
             this.txtTotalWorkerCost.StateCommon.Border.Color2 = System.Drawing.Color.Orange;
@@ -518,9 +526,9 @@
             // 
             // kryptonLabel6
             // 
-            this.kryptonLabel6.Location = new System.Drawing.Point(30, 140);
+            this.kryptonLabel6.Location = new System.Drawing.Point(30, 130);
             this.kryptonLabel6.Name = "kryptonLabel6";
-            this.kryptonLabel6.Size = new System.Drawing.Size(87, 20);
+            this.kryptonLabel6.Size = new System.Drawing.Size(80, 19);
             this.kryptonLabel6.StateCommon.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.kryptonLabel6.StateCommon.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.kryptonLabel6.StateCommon.ShortText.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.GlassTrackingSimple;
@@ -531,9 +539,9 @@
             // 
             this.txtTotalMaterialCost.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTotalMaterialCost.Location = new System.Drawing.Point(124, 138);
+            this.txtTotalMaterialCost.Location = new System.Drawing.Point(124, 128);
             this.txtTotalMaterialCost.Name = "txtTotalMaterialCost";
-            this.txtTotalMaterialCost.Size = new System.Drawing.Size(84, 22);
+            this.txtTotalMaterialCost.Size = new System.Drawing.Size(84, 25);
             this.txtTotalMaterialCost.StateCommon.Back.Color1 = System.Drawing.Color.OldLace;
             this.txtTotalMaterialCost.StateCommon.Border.Color1 = System.Drawing.Color.Orange;
             this.txtTotalMaterialCost.StateCommon.Border.Color2 = System.Drawing.Color.Orange;
@@ -549,9 +557,9 @@
             // 
             // kryptonLabel5
             // 
-            this.kryptonLabel5.Location = new System.Drawing.Point(3, 114);
+            this.kryptonLabel5.Location = new System.Drawing.Point(3, 106);
             this.kryptonLabel5.Name = "kryptonLabel5";
-            this.kryptonLabel5.Size = new System.Drawing.Size(116, 20);
+            this.kryptonLabel5.Size = new System.Drawing.Size(107, 19);
             this.kryptonLabel5.StateCommon.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.kryptonLabel5.StateCommon.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.kryptonLabel5.StateCommon.ShortText.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.GlassTrackingSimple;
@@ -560,9 +568,9 @@
             // 
             // kryptonLabel4
             // 
-            this.kryptonLabel4.Location = new System.Drawing.Point(3, 88);
+            this.kryptonLabel4.Location = new System.Drawing.Point(3, 82);
             this.kryptonLabel4.Name = "kryptonLabel4";
-            this.kryptonLabel4.Size = new System.Drawing.Size(115, 20);
+            this.kryptonLabel4.Size = new System.Drawing.Size(106, 19);
             this.kryptonLabel4.StateCommon.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.kryptonLabel4.StateCommon.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.kryptonLabel4.StateCommon.ShortText.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.GlassTrackingSimple;
@@ -571,9 +579,9 @@
             // 
             // kryptonLabel3
             // 
-            this.kryptonLabel3.Location = new System.Drawing.Point(36, 58);
+            this.kryptonLabel3.Location = new System.Drawing.Point(36, 54);
             this.kryptonLabel3.Name = "kryptonLabel3";
-            this.kryptonLabel3.Size = new System.Drawing.Size(82, 20);
+            this.kryptonLabel3.Size = new System.Drawing.Size(75, 19);
             this.kryptonLabel3.StateCommon.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.kryptonLabel3.StateCommon.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.kryptonLabel3.StateCommon.ShortText.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.GlassTrackingSimple;
@@ -582,9 +590,9 @@
             // 
             // kryptonLabel2
             // 
-            this.kryptonLabel2.Location = new System.Drawing.Point(31, 32);
+            this.kryptonLabel2.Location = new System.Drawing.Point(31, 30);
             this.kryptonLabel2.Name = "kryptonLabel2";
-            this.kryptonLabel2.Size = new System.Drawing.Size(87, 20);
+            this.kryptonLabel2.Size = new System.Drawing.Size(81, 19);
             this.kryptonLabel2.StateCommon.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.kryptonLabel2.StateCommon.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.kryptonLabel2.StateCommon.ShortText.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.GlassTrackingSimple;
@@ -595,7 +603,7 @@
             // 
             this.kryptonLabel1.Location = new System.Drawing.Point(30, 4);
             this.kryptonLabel1.Name = "kryptonLabel1";
-            this.kryptonLabel1.Size = new System.Drawing.Size(88, 20);
+            this.kryptonLabel1.Size = new System.Drawing.Size(81, 19);
             this.kryptonLabel1.StateCommon.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.kryptonLabel1.StateCommon.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.kryptonLabel1.StateCommon.ShortText.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.GlassTrackingSimple;
@@ -606,9 +614,9 @@
             // 
             this.txtTotalCostAct.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTotalCostAct.Location = new System.Drawing.Point(124, 112);
+            this.txtTotalCostAct.Location = new System.Drawing.Point(124, 104);
             this.txtTotalCostAct.Name = "txtTotalCostAct";
-            this.txtTotalCostAct.Size = new System.Drawing.Size(84, 22);
+            this.txtTotalCostAct.Size = new System.Drawing.Size(84, 25);
             this.txtTotalCostAct.StateCommon.Back.Color1 = System.Drawing.Color.OldLace;
             this.txtTotalCostAct.StateCommon.Border.Color1 = System.Drawing.Color.Orange;
             this.txtTotalCostAct.StateCommon.Border.Color2 = System.Drawing.Color.Orange;
@@ -626,9 +634,9 @@
             // 
             this.txtTotalCostEst.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTotalCostEst.Location = new System.Drawing.Point(124, 86);
+            this.txtTotalCostEst.Location = new System.Drawing.Point(124, 80);
             this.txtTotalCostEst.Name = "txtTotalCostEst";
-            this.txtTotalCostEst.Size = new System.Drawing.Size(84, 22);
+            this.txtTotalCostEst.Size = new System.Drawing.Size(84, 25);
             this.txtTotalCostEst.StateCommon.Back.Color1 = System.Drawing.Color.OldLace;
             this.txtTotalCostEst.StateCommon.Border.Color1 = System.Drawing.Color.Orange;
             this.txtTotalCostEst.StateCommon.Border.Color2 = System.Drawing.Color.Orange;
@@ -646,9 +654,9 @@
             // 
             this.txtLeft.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtLeft.Location = new System.Drawing.Point(124, 58);
+            this.txtLeft.Location = new System.Drawing.Point(124, 54);
             this.txtLeft.Name = "txtLeft";
-            this.txtLeft.Size = new System.Drawing.Size(48, 22);
+            this.txtLeft.Size = new System.Drawing.Size(48, 25);
             this.txtLeft.StateCommon.Back.Color1 = System.Drawing.Color.OldLace;
             this.txtLeft.StateCommon.Border.Color1 = System.Drawing.Color.Orange;
             this.txtLeft.StateCommon.Border.Color2 = System.Drawing.Color.Orange;
@@ -666,9 +674,9 @@
             // 
             this.txtFinishDay.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtFinishDay.Location = new System.Drawing.Point(124, 30);
+            this.txtFinishDay.Location = new System.Drawing.Point(124, 28);
             this.txtFinishDay.Name = "txtFinishDay";
-            this.txtFinishDay.Size = new System.Drawing.Size(48, 22);
+            this.txtFinishDay.Size = new System.Drawing.Size(48, 25);
             this.txtFinishDay.StateCommon.Back.Color1 = System.Drawing.Color.OldLace;
             this.txtFinishDay.StateCommon.Border.Color1 = System.Drawing.Color.Orange;
             this.txtFinishDay.StateCommon.Border.Color2 = System.Drawing.Color.Orange;
@@ -688,7 +696,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTotalDay.Location = new System.Drawing.Point(124, 2);
             this.txtTotalDay.Name = "txtTotalDay";
-            this.txtTotalDay.Size = new System.Drawing.Size(48, 22);
+            this.txtTotalDay.Size = new System.Drawing.Size(48, 25);
             this.txtTotalDay.StateCommon.Back.Color1 = System.Drawing.Color.OldLace;
             this.txtTotalDay.StateCommon.Border.Color1 = System.Drawing.Color.Orange;
             this.txtTotalDay.StateCommon.Border.Color2 = System.Drawing.Color.Orange;
@@ -708,7 +716,7 @@
             this.hdDetail.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.Calendar;
             this.hdDetail.Location = new System.Drawing.Point(0, 0);
             this.hdDetail.Name = "hdDetail";
-            this.hdDetail.Size = new System.Drawing.Size(215, 23);
+            this.hdDetail.Size = new System.Drawing.Size(215, 22);
             this.hdDetail.StateCommon.Back.Color1 = System.Drawing.Color.White;
             this.hdDetail.StateCommon.Back.Color2 = System.Drawing.Color.Khaki;
             this.hdDetail.StateCommon.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.GlassNormalSimple;
@@ -722,10 +730,10 @@
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.toolStrip2);
-            this.tabPage2.Location = new System.Drawing.Point(4, 29);
+            this.tabPage2.Location = new System.Drawing.Point(4, 32);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(742, 598);
+            this.tabPage2.Size = new System.Drawing.Size(776, 486);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -749,7 +757,7 @@
             this.toolStrip2.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
             this.toolStrip2.Location = new System.Drawing.Point(3, 3);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(736, 23);
+            this.toolStrip2.Size = new System.Drawing.Size(736, 21);
             this.toolStrip2.TabIndex = 2;
             this.toolStrip2.Text = "toolStrip2";
             this.toolStrip2.Visible = false;
@@ -838,10 +846,10 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 29);
+            this.tabPage3.Location = new System.Drawing.Point(4, 32);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(742, 629);
+            this.tabPage3.Size = new System.Drawing.Size(776, 486);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "tabPage3";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -932,7 +940,7 @@
             // 
             this.gbxTab3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.gbxTab3.CaptionOverlap = 0D;
-            this.gbxTab3.Location = new System.Drawing.Point(316, 1);
+            this.gbxTab3.Location = new System.Drawing.Point(316, 3);
             this.gbxTab3.Name = "gbxTab3";
             // 
             // gbxTab3.Panel
@@ -941,7 +949,7 @@
             this.gbxTab3.Panel.Click += new System.EventHandler(this.kryptonGroupBox1_Panel_Click);
             this.gbxTab3.Panel.MouseLeave += new System.EventHandler(this.kryptonGroupBox1_Panel_MouseLeave);
             this.gbxTab3.Panel.MouseHover += new System.EventHandler(this.kryptonGroupBox1_Panel_MouseHover);
-            this.gbxTab3.Size = new System.Drawing.Size(150, 30);
+            this.gbxTab3.Size = new System.Drawing.Size(150, 28);
             this.gbxTab3.StateCommon.Back.Color1 = System.Drawing.Color.Orange;
             this.gbxTab3.StateCommon.Back.Color2 = System.Drawing.Color.NavajoWhite;
             this.gbxTab3.StateCommon.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.GlassCenter;
@@ -954,7 +962,7 @@
             this.lbTab3.BackColor = System.Drawing.Color.Transparent;
             this.lbTab3.Location = new System.Drawing.Point(58, 5);
             this.lbTab3.Name = "lbTab3";
-            this.lbTab3.Size = new System.Drawing.Size(30, 14);
+            this.lbTab3.Size = new System.Drawing.Size(32, 13);
             this.lbTab3.TabIndex = 1;
             this.lbTab3.Text = "Tab3";
             this.lbTab3.Click += new System.EventHandler(this.kryptonGroupBox1_Panel_Click);
@@ -965,7 +973,7 @@
             // 
             this.gbxTab2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.gbxTab2.CaptionOverlap = 0D;
-            this.gbxTab2.Location = new System.Drawing.Point(164, 1);
+            this.gbxTab2.Location = new System.Drawing.Point(164, 3);
             this.gbxTab2.Name = "gbxTab2";
             // 
             // gbxTab2.Panel
@@ -974,7 +982,7 @@
             this.gbxTab2.Panel.Click += new System.EventHandler(this.gbxTab2_Panel_Click);
             this.gbxTab2.Panel.MouseLeave += new System.EventHandler(this.gbxTab2_Panel_MouseLeave);
             this.gbxTab2.Panel.MouseHover += new System.EventHandler(this.gbxTab2_Panel_MouseHover);
-            this.gbxTab2.Size = new System.Drawing.Size(150, 30);
+            this.gbxTab2.Size = new System.Drawing.Size(150, 28);
             this.gbxTab2.StateCommon.Back.Color1 = System.Drawing.Color.Orange;
             this.gbxTab2.StateCommon.Back.Color2 = System.Drawing.Color.NavajoWhite;
             this.gbxTab2.StateCommon.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.GlassCenter;
@@ -987,7 +995,7 @@
             this.lbTab2.BackColor = System.Drawing.Color.Transparent;
             this.lbTab2.Location = new System.Drawing.Point(58, 5);
             this.lbTab2.Name = "lbTab2";
-            this.lbTab2.Size = new System.Drawing.Size(30, 14);
+            this.lbTab2.Size = new System.Drawing.Size(32, 13);
             this.lbTab2.TabIndex = 1;
             this.lbTab2.Text = "Tab2";
             this.lbTab2.Click += new System.EventHandler(this.gbxTab2_Panel_Click);
@@ -998,7 +1006,7 @@
             // 
             this.gbxTab1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.gbxTab1.CaptionOverlap = 0D;
-            this.gbxTab1.Location = new System.Drawing.Point(12, 1);
+            this.gbxTab1.Location = new System.Drawing.Point(12, 3);
             this.gbxTab1.Name = "gbxTab1";
             // 
             // gbxTab1.Panel
@@ -1007,7 +1015,7 @@
             this.gbxTab1.Panel.Click += new System.EventHandler(this.gbxTab1_Panel_Click);
             this.gbxTab1.Panel.MouseLeave += new System.EventHandler(this.gbxTab1_Panel_MouseLeave);
             this.gbxTab1.Panel.MouseHover += new System.EventHandler(this.gbxTab1_Panel_MouseHover);
-            this.gbxTab1.Size = new System.Drawing.Size(150, 30);
+            this.gbxTab1.Size = new System.Drawing.Size(150, 28);
             this.gbxTab1.StateCommon.Back.Color1 = System.Drawing.Color.Khaki;
             this.gbxTab1.TabIndex = 0;
             this.gbxTab1.Values.Heading = "";
@@ -1016,32 +1024,20 @@
             // 
             this.lbTab1.AutoSize = true;
             this.lbTab1.BackColor = System.Drawing.Color.Transparent;
-            this.lbTab1.Location = new System.Drawing.Point(53, 5);
+            this.lbTab1.Location = new System.Drawing.Point(26, 5);
             this.lbTab1.Name = "lbTab1";
-            this.lbTab1.Size = new System.Drawing.Size(30, 14);
+            this.lbTab1.Size = new System.Drawing.Size(95, 13);
             this.lbTab1.TabIndex = 0;
-            this.lbTab1.Text = "Tab1";
+            this.lbTab1.Text = "Tiến Độ Tổng Thể";
             this.lbTab1.Click += new System.EventHandler(this.gbxTab1_Panel_Click);
             this.lbTab1.MouseLeave += new System.EventHandler(this.gbxTab1_Panel_MouseLeave);
             this.lbTab1.MouseHover += new System.EventHandler(this.gbxTab1_Panel_MouseHover);
             // 
-            // btnNextMonth
-            // 
-            this.btnNextMonth.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
-            this.btnNextMonth.Text = "Tháng Tới >";
-            this.btnNextMonth.UniqueName = "5C08AE65B23D45C1F085B5D85FCCC913";
-            // 
-            // btnPreMonth
-            // 
-            this.btnPreMonth.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
-            this.btnPreMonth.Text = "< Tháng Trước";
-            this.btnPreMonth.UniqueName = "6C610C83E1EB41A90A93A601D8F61731";
-            // 
             // ProgressManagement
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 562);
+            this.ClientSize = new System.Drawing.Size(784, 522);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.kryptonPanel);
             this.Name = "ProgressManagement";
@@ -1058,6 +1054,10 @@
             this.kryptonSplitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonSplitContainer1)).EndInit();
             this.kryptonSplitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pnlButton)).EndInit();
+            this.pnlButton.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gbxButton)).EndInit();
+            this.gbxButton.ResumeLayout(false);
             this.kryptonSplitContainer2.Panel1.ResumeLayout(false);
             this.kryptonSplitContainer2.Panel1.PerformLayout();
             this.kryptonSplitContainer2.Panel2.ResumeLayout(false);
@@ -1152,12 +1152,12 @@
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtTotalMachineCost;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel7;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtTotalWorkerCost;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel9;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtOhter;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel10;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtTotalCostsIncurred;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnPreMonth;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnNextMonth;
+        private ComponentFactory.Krypton.Toolkit.KryptonPanel pnlButton;
+        private ComponentFactory.Krypton.Toolkit.KryptonGroupBox gbxButton;
     }
 }
 

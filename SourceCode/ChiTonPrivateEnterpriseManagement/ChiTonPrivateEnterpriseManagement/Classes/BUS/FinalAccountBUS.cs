@@ -39,6 +39,31 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
         {
             return finalAccountDAO.DeleteAll();
         }
+
+        public bool UpdateFinalAccount(FinalAccountDTO finalAccount)
+        {
+            return finalAccountDAO.UpdateFinalAccount(finalAccount);
+        }
+
+        public FinalAccountDetailDTO FindAccountItem(long accId, long materialId)
+        {
+            return finalAccountDAO.FindAccountItem(accId, materialId);
+        }
+
+        public bool UpdateFinalAccountDetail(FinalAccountDetailDTO item)
+        {
+            return finalAccountDAO.UpdateFinalAccountDetail(item);
+        }
+
+        public List<FinalAccountDetailDTO> GetFinalAccountDetailByFAId(long id)
+        {
+            return finalAccountDAO.GetFinalAccountDetail(id);
+        }
+
+        public List<FinalAccountDTO> GetFinalAccountById(long id, DateTime from, DateTime to)
+        {
+            return finalAccountDAO.GetFinalAccount(id, Constants.EMPTY_TEXT, Constants.EMPTY_TEXT, Constants.EMPTY_TEXT, from, to);
+        }
     }
 }
     

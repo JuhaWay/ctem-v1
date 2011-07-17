@@ -54,11 +54,6 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
             return employerDAO.CreateEmployeeAdvance(advanceObj);
         }
 
-        public List<EmployeeSalaryDTO> LoadAllSalary()
-        {
-            return employerDAO.GetAllSalary();
-        }
-
         public object LoadAllUser()
         {
             return employerDAO.GetAll();
@@ -77,6 +72,46 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
         public bool DeleteAdvance(long id)
         {
             return employerDAO.DeleteAdvance(id);
+        }
+
+        public List<EmployerDTO> LoadEmployee(string username, string fullname, string roleName, int status)
+        {
+            return employerDAO.LoadEmployee(username, fullname, roleName, status);
+        }
+
+        public bool DeleteEmp(string username)
+        {
+            return employerDAO.DeleteEmp(username);
+        }
+
+        public bool DeleteAllEmp()
+        {
+            return employerDAO.DeleteAllEmp();
+        }
+
+        public bool UpdateEmployeeRight(long Id, long roleId, long rightValue)
+        {
+            return employerDAO.UpdateRightEmp(Id, roleId, rightValue);
+        }
+
+        public bool DeleteSalary(long salaryId)
+        {
+            return employerDAO.DeleteSalary(salaryId);
+        }
+
+        public bool DeleteAllSalary()
+        {
+            return employerDAO.DeleteAllSalary();
+        }
+
+        public bool UpdateEmployeeSalary(EmployeeSalaryDTO salaryDTO)
+        {
+            return employerDAO.UpdateSalary(salaryDTO);
+        }
+
+        public List<EmployeeSalaryDTO> LoadSalary(string name, string from, string to)
+        {
+            return employerDAO.GetSalary(name, from, to);
         }
 
         public bool DeleteAllAdvance()
