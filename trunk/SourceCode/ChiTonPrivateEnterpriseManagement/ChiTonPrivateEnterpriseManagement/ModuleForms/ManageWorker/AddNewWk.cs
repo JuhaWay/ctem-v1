@@ -30,13 +30,9 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             dto.WorkersSalaryID = WksID;
             dto.Fullname = ipName.Text;
             dto.Position = ipPosition.Text;
-            dto.ManDate = Convert.ToInt32(ipManDate.Text);
-            dto.Salary = Convert.ToInt64(ipSalary.Text);
-            dto.TotalSalary = dto.ManDate * dto.Salary;
-            dto.CreatedBy = "";
-            dto.UpdatedBy = "";
-            dto.CreatedDate = new DateTime(2011, 06, 11);
-            dto.LastUpdated = new DateTime(2011, 06, 11);
+            dto.ManDate = Convert.ToDouble(ipManDate.Text);
+            dto.Salary = Global.ConvertMoneyToLong(ipSalary.Text, Global.SEP);
+            dto.TotalSalary = (long)(dto.ManDate * dto.Salary);
             _workerBUS.CreateWks(dto);
             MessageBox.Show("Tạo thành công !           ");
             this.Close();
@@ -51,12 +47,22 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
                  MessageBox.Show("vui lòng nhập vị trí !");
                  return false;
             }
-            else if (!Global.ValidateIntNumber(ipManDate.Text))
-                return false;
-            else if (!Global.ValidateLongNumber(ipSalary.Text))
-                return false;
-
             return true;
+        }
+
+        private void ipSalary_Leave(object sender, EventArgs e)
+        {
+            ipSalary.Text = Global.ConvertLongToMoney(Global.ConvertMoneyToLong(ipSalary.Text, Global.SEP), Global.SEP);
+        }
+
+        private void ipSalary_MouseLeave(object sender, EventArgs e)
+        {
+            ipSalary.Text = Global.ConvertLongToMoney(Global.ConvertMoneyToLong(ipSalary.Text, Global.SEP), Global.SEP);
+        }
+
+        private void AddNewWk_Load(object sender, EventArgs e)
+        {
+            Global.SetLayoutPanelNewForm(pnMain);
         }
     }
 }

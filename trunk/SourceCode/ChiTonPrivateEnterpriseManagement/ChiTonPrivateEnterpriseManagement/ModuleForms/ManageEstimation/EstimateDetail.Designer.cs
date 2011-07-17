@@ -38,11 +38,11 @@
             this.lbSearchMaterial = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.lbType = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.dgvEstimateDetails = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EstimateDetailID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EstimateID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaterialID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaterialName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.QuantityEstimate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UnitCostEstimate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalCostEstimate = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,6 +62,9 @@
             this.kryptonContextMenuItems2 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
             this.slcMain = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
             this.gbxLeftBot = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
+            this.kryptonPanel2 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.ipSummary = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.pnlSearch = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.gbxSearch = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.btnSearch = new ComponentFactory.Krypton.Toolkit.KryptonButton();
@@ -71,8 +74,6 @@
             this.gbcRightBot = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.gbxEdit1 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.hdEdit = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
-            this.btnEdit = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.btnUnableEdit = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.btnSave = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.cmsDGV = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.RefreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -114,6 +115,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gbxLeftBot)).BeginInit();
             this.gbxLeftBot.Panel.SuspendLayout();
             this.gbxLeftBot.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).BeginInit();
+            this.kryptonPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnlSearch)).BeginInit();
             this.pnlSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gbxSearch)).BeginInit();
@@ -150,10 +153,11 @@
             // 
             // ipTotal
             // 
-            this.ipTotal.Location = new System.Drawing.Point(494, 94);
+            this.ipTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.ipTotal.Location = new System.Drawing.Point(477, 66);
             this.ipTotal.Name = "ipTotal";
             this.ipTotal.ReadOnly = true;
-            this.ipTotal.Size = new System.Drawing.Size(248, 20);
+            this.ipTotal.Size = new System.Drawing.Size(234, 20);
             this.ipTotal.StateCommon.Content.Color1 = System.Drawing.Color.Red;
             this.ipTotal.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ipTotal.StateDisabled.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -161,6 +165,7 @@
             // 
             // cbSearchMaterial
             // 
+            this.cbSearchMaterial.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.cbSearchMaterial.DropDownWidth = 146;
             this.cbSearchMaterial.Location = new System.Drawing.Point(234, 11);
             this.cbSearchMaterial.Name = "cbSearchMaterial";
@@ -170,11 +175,12 @@
             // 
             // cbType
             // 
+            this.cbType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.cbType.DropDownWidth = 148;
             this.cbType.Items.AddRange(new object[] {
             "Vật liệu",
             "Tổng quát"});
-            this.cbType.Location = new System.Drawing.Point(152, 64);
+            this.cbType.Location = new System.Drawing.Point(157, 33);
             this.cbType.Name = "cbType";
             this.cbType.Size = new System.Drawing.Size(234, 22);
             this.cbType.TabIndex = 28;
@@ -183,6 +189,7 @@
             // 
             // lbSearchMaterial
             // 
+            this.lbSearchMaterial.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.lbSearchMaterial.Location = new System.Drawing.Point(167, 14);
             this.lbSearchMaterial.Name = "lbSearchMaterial";
             this.lbSearchMaterial.Size = new System.Drawing.Size(48, 19);
@@ -191,7 +198,8 @@
             // 
             // lbType
             // 
-            this.lbType.Location = new System.Drawing.Point(113, 67);
+            this.lbType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.lbType.Location = new System.Drawing.Point(118, 36);
             this.lbType.Name = "lbType";
             this.lbType.Size = new System.Drawing.Size(33, 16);
             this.lbType.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -205,11 +213,11 @@
             // 
             this.dgvEstimateDetails.AutoGenerateColumns = false;
             this.dgvEstimateDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Name,
             this.EstimateDetailID,
             this.EstimateID,
             this.MaterialID,
             this.MaterialName,
+            this.Name,
             this.QuantityEstimate,
             this.UnitCostEstimate,
             this.TotalCostEstimate});
@@ -219,19 +227,12 @@
             this.dgvEstimateDetails.Location = new System.Drawing.Point(0, 87);
             this.dgvEstimateDetails.Name = "dgvEstimateDetails";
             this.dgvEstimateDetails.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEstimateDetails.Size = new System.Drawing.Size(871, 279);
+            this.dgvEstimateDetails.Size = new System.Drawing.Size(871, 247);
             this.dgvEstimateDetails.StateCommon.Background.Color1 = System.Drawing.Color.White;
             this.dgvEstimateDetails.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
             this.dgvEstimateDetails.TabIndex = 0;
             this.dgvEstimateDetails.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEstimateDetails_CellContentClick);
             this.dgvEstimateDetails.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvEstimateDetails_MouseClick);
-            // 
-            // Name
-            // 
-            this.Name.DataPropertyName = "Name";
-            this.Name.HeaderText = "Tên chi tiết";
-            this.Name.Name = "Name";
-            this.Name.Width = 200;
             // 
             // EstimateDetailID
             // 
@@ -259,28 +260,35 @@
             this.MaterialName.DataPropertyName = "MaterialName";
             this.MaterialName.HeaderText = "Vật liệu";
             this.MaterialName.Name = "MaterialName";
-            this.MaterialName.Width = 200;
+            this.MaterialName.Width = 300;
+            // 
+            // Name
+            // 
+            this.Name.DataPropertyName = "Name";
+            this.Name.HeaderText = "Tên chi tiết";
+            this.Name.Name = "Name";
+            this.Name.Width = 300;
             // 
             // QuantityEstimate
             // 
             this.QuantityEstimate.DataPropertyName = "QuantityEstimate";
             this.QuantityEstimate.HeaderText = "Số lượng";
             this.QuantityEstimate.Name = "QuantityEstimate";
-            this.QuantityEstimate.Width = 150;
+            this.QuantityEstimate.Width = 200;
             // 
             // UnitCostEstimate
             // 
             this.UnitCostEstimate.DataPropertyName = "UnitCostEstimateFormated";
             this.UnitCostEstimate.HeaderText = "Gía";
             this.UnitCostEstimate.Name = "UnitCostEstimate";
-            this.UnitCostEstimate.Width = 150;
+            this.UnitCostEstimate.Width = 300;
             // 
             // TotalCostEstimate
             // 
             this.TotalCostEstimate.DataPropertyName = "TotalCostEstimateFormated";
             this.TotalCostEstimate.HeaderText = "Tổng";
             this.TotalCostEstimate.Name = "TotalCostEstimate";
-            this.TotalCostEstimate.Width = 150;
+            this.TotalCostEstimate.Width = 200;
             // 
             // estimateDetailDTOBindingSource1
             // 
@@ -288,7 +296,9 @@
             // 
             // ipName
             // 
-            this.ipName.Location = new System.Drawing.Point(152, 33);
+            this.ipName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.ipName.Enabled = false;
+            this.ipName.Location = new System.Drawing.Point(477, 95);
             this.ipName.Name = "ipName";
             this.ipName.Size = new System.Drawing.Size(234, 22);
             this.ipName.StateDisabled.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -296,7 +306,8 @@
             // 
             // lbName
             // 
-            this.lbName.Location = new System.Drawing.Point(78, 39);
+            this.lbName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.lbName.Location = new System.Drawing.Point(407, 101);
             this.lbName.Name = "lbName";
             this.lbName.Size = new System.Drawing.Size(68, 16);
             this.lbName.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -308,8 +319,9 @@
             // 
             // lbUnit
             // 
+            this.lbUnit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.lbUnit.Enabled = false;
-            this.lbUnit.Location = new System.Drawing.Point(748, 26);
+            this.lbUnit.Location = new System.Drawing.Point(717, 36);
             this.lbUnit.Name = "lbUnit";
             this.lbUnit.Size = new System.Drawing.Size(23, 23);
             this.lbUnit.StateCommon.LongText.Color1 = System.Drawing.Color.Red;
@@ -321,8 +333,9 @@
             // 
             // lbMaterial
             // 
+            this.lbMaterial.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.lbMaterial.Enabled = false;
-            this.lbMaterial.Location = new System.Drawing.Point(48, 92);
+            this.lbMaterial.Location = new System.Drawing.Point(53, 61);
             this.lbMaterial.Name = "lbMaterial";
             this.lbMaterial.Size = new System.Drawing.Size(98, 16);
             this.lbMaterial.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -334,7 +347,8 @@
             // 
             // lbTotalCost
             // 
-            this.lbTotalCost.Location = new System.Drawing.Point(424, 94);
+            this.lbTotalCost.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.lbTotalCost.Location = new System.Drawing.Point(407, 66);
             this.lbTotalCost.Name = "lbTotalCost";
             this.lbTotalCost.Size = new System.Drawing.Size(69, 16);
             this.lbTotalCost.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -346,9 +360,10 @@
             // 
             // cbMaterial
             // 
+            this.cbMaterial.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.cbMaterial.DropDownWidth = 121;
             this.cbMaterial.Enabled = false;
-            this.cbMaterial.Location = new System.Drawing.Point(152, 92);
+            this.cbMaterial.Location = new System.Drawing.Point(157, 61);
             this.cbMaterial.Name = "cbMaterial";
             this.cbMaterial.Size = new System.Drawing.Size(234, 22);
             this.cbMaterial.StateDisabled.ComboBox.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -358,10 +373,11 @@
             // 
             // ipPrice
             // 
+            this.ipPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.ipPrice.Enabled = false;
-            this.ipPrice.Location = new System.Drawing.Point(494, 64);
+            this.ipPrice.Location = new System.Drawing.Point(477, 36);
             this.ipPrice.Name = "ipPrice";
-            this.ipPrice.Size = new System.Drawing.Size(248, 22);
+            this.ipPrice.Size = new System.Drawing.Size(234, 22);
             this.ipPrice.StateDisabled.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ipPrice.TabIndex = 5;
             this.ipPrice.TextChanged += new System.EventHandler(this.ipPrice_TextChanged);
@@ -369,8 +385,9 @@
             // 
             // lbPrice
             // 
+            this.lbPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.lbPrice.Enabled = false;
-            this.lbPrice.Location = new System.Drawing.Point(446, 64);
+            this.lbPrice.Location = new System.Drawing.Point(429, 36);
             this.lbPrice.Name = "lbPrice";
             this.lbPrice.Size = new System.Drawing.Size(35, 16);
             this.lbPrice.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -382,18 +399,20 @@
             // 
             // ipQuantity
             // 
+            this.ipQuantity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.ipQuantity.Enabled = false;
-            this.ipQuantity.Location = new System.Drawing.Point(494, 30);
+            this.ipQuantity.Location = new System.Drawing.Point(157, 95);
             this.ipQuantity.Name = "ipQuantity";
-            this.ipQuantity.Size = new System.Drawing.Size(248, 22);
+            this.ipQuantity.Size = new System.Drawing.Size(234, 22);
             this.ipQuantity.StateDisabled.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ipQuantity.TabIndex = 4;
             this.ipQuantity.TextChanged += new System.EventHandler(this.ipQuantity_TextChanged);
             // 
             // lbQuantity
             // 
+            this.lbQuantity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.lbQuantity.Enabled = false;
-            this.lbQuantity.Location = new System.Drawing.Point(430, 33);
+            this.lbQuantity.Location = new System.Drawing.Point(88, 98);
             this.lbQuantity.Name = "lbQuantity";
             this.lbQuantity.Size = new System.Drawing.Size(63, 16);
             this.lbQuantity.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -440,11 +459,43 @@
             // gbxLeftBot.Panel
             // 
             this.gbxLeftBot.Panel.Controls.Add(this.dgvEstimateDetails);
+            this.gbxLeftBot.Panel.Controls.Add(this.kryptonPanel2);
             this.gbxLeftBot.Panel.Controls.Add(this.pnlSearch);
             this.gbxLeftBot.Panel.Controls.Add(this.hdDebt);
             this.gbxLeftBot.Size = new System.Drawing.Size(875, 372);
             this.gbxLeftBot.TabIndex = 0;
             this.gbxLeftBot.Values.Heading = "";
+            // 
+            // kryptonPanel2
+            // 
+            this.kryptonPanel2.Controls.Add(this.ipSummary);
+            this.kryptonPanel2.Controls.Add(this.kryptonLabel1);
+            this.kryptonPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.kryptonPanel2.Location = new System.Drawing.Point(0, 334);
+            this.kryptonPanel2.Name = "kryptonPanel2";
+            this.kryptonPanel2.Size = new System.Drawing.Size(871, 32);
+            this.kryptonPanel2.StateCommon.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.kryptonPanel2.TabIndex = 2;
+            // 
+            // ipSummary
+            // 
+            this.ipSummary.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.ipSummary.Location = new System.Drawing.Point(361, 6);
+            this.ipSummary.Name = "ipSummary";
+            this.ipSummary.Size = new System.Drawing.Size(218, 22);
+            this.ipSummary.StateCommon.Content.Color1 = System.Drawing.Color.Red;
+            this.ipSummary.TabIndex = 1;
+            // 
+            // kryptonLabel1
+            // 
+            this.kryptonLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.kryptonLabel1.Location = new System.Drawing.Point(286, 6);
+            this.kryptonLabel1.Name = "kryptonLabel1";
+            this.kryptonLabel1.Size = new System.Drawing.Size(69, 16);
+            this.kryptonLabel1.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.kryptonLabel1.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonLabel1.TabIndex = 0;
+            this.kryptonLabel1.Values.Text = "Tổng(VND)";
             // 
             // pnlSearch
             // 
@@ -474,7 +525,7 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.btnSearch.Location = new System.Drawing.Point(440, -1);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.OverrideDefault.Back.Color1 = System.Drawing.Color.NavajoWhite;
@@ -514,7 +565,7 @@
             this.hdDebt.Size = new System.Drawing.Size(871, 29);
             this.hdDebt.TabIndex = 0;
             this.hdDebt.Values.Description = "";
-            this.hdDebt.Values.Heading = "Danh Nhà Cung Cấp";
+            this.hdDebt.Values.Heading = "";
             this.hdDebt.Values.Image = null;
             // 
             // btnAdd
@@ -580,8 +631,6 @@
             // hdEdit
             // 
             this.hdEdit.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
-            this.btnEdit,
-            this.btnUnableEdit,
             this.btnSave});
             this.hdEdit.Dock = System.Windows.Forms.DockStyle.Top;
             this.hdEdit.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.DockActive;
@@ -592,20 +641,6 @@
             this.hdEdit.Values.Description = "";
             this.hdEdit.Values.Heading = "Thông Tin Chi Tiết";
             this.hdEdit.Values.Image = null;
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.Edit;
-            this.btnEdit.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
-            this.btnEdit.Text = "Sửa";
-            this.btnEdit.UniqueName = "C645E9231765438901BDC91A1034E5D9";
-            // 
-            // btnUnableEdit
-            // 
-            this.btnUnableEdit.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.freeze;
-            this.btnUnableEdit.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
-            this.btnUnableEdit.Text = "Đóng Băng";
-            this.btnUnableEdit.UniqueName = "711D4B5F7134438B489063D5667E49ED";
             // 
             // btnSave
             // 
@@ -775,7 +810,9 @@
             this.ClientSize = new System.Drawing.Size(875, 563);
             this.Controls.Add(this.slcMain);
             this.Controls.Add(this.kryptonPanel);
-            this.Text = "EstimateDetail";
+            this.ShowIcon = false;
+            this.Text = "Dự toán chi tiết";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.EstimateDetail_Load);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).EndInit();
             this.kryptonPanel.ResumeLayout(false);
@@ -795,6 +832,9 @@
             this.gbxLeftBot.Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gbxLeftBot)).EndInit();
             this.gbxLeftBot.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).EndInit();
+            this.kryptonPanel2.ResumeLayout(false);
+            this.kryptonPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnlSearch)).EndInit();
             this.pnlSearch.ResumeLayout(false);
             this.gbxSearch.Panel.ResumeLayout(false);
@@ -852,8 +892,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonGroupBox gbcRightBot;
         private ComponentFactory.Krypton.Toolkit.KryptonGroupBox gbxEdit1;
         private ComponentFactory.Krypton.Toolkit.KryptonHeader hdEdit;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnEdit;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnUnableEdit;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnSave;
         private System.Windows.Forms.ContextMenuStrip cmsDGV;
         private System.Windows.Forms.ToolStripMenuItem RefreshToolStripMenuItem;
@@ -879,14 +917,17 @@
         private ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox kryptonContextMenuCheckBox1;
         private ComponentFactory.Krypton.Toolkit.KryptonContextMenuHeading kryptonContextMenuHeading1;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnAdd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
         private System.Windows.Forms.DataGridViewTextBoxColumn EstimateDetailID;
         private System.Windows.Forms.DataGridViewTextBoxColumn EstimateID;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaterialID;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaterialName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
         private System.Windows.Forms.DataGridViewTextBoxColumn QuantityEstimate;
         private System.Windows.Forms.DataGridViewTextBoxColumn UnitCostEstimate;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalCostEstimate;
+        private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel2;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox ipSummary;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel1;
     }
 }
 

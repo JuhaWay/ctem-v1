@@ -46,6 +46,7 @@
             this.ProgressRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalEstimateCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalRealCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ManagerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ConstructionAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CommencementDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,6 +59,8 @@
             this.HasEstimate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlSearch = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.gbxSearch = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
+            this.cbManager = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.dtTodate = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
             this.lbTodate = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.lbSearchName = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
@@ -84,6 +87,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gbxSearch)).BeginInit();
             this.gbxSearch.Panel.SuspendLayout();
             this.gbxSearch.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbStatus)).BeginInit();
             this.SuspendLayout();
             // 
@@ -111,6 +115,7 @@
             this.ProgressRate,
             this.TotalEstimateCost,
             this.TotalRealCost,
+            this.ManagerName,
             this.Description,
             this.ConstructionAddress,
             this.CommencementDate,
@@ -132,7 +137,6 @@
             this.dgvCons.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
             this.dgvCons.TabIndex = 2;
             this.dgvCons.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvCons_CellMouseClick);
-            this.dgvCons.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvCons_MouseClick);
             // 
             // ConstructionID
             // 
@@ -204,6 +208,12 @@
             this.TotalRealCost.Name = "TotalRealCost";
             this.TotalRealCost.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.TotalRealCost.Width = 150;
+            // 
+            // ManagerName
+            // 
+            this.ManagerName.HeaderText = "Người quản lý";
+            this.ManagerName.Name = "ManagerName";
+            this.ManagerName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // Description
             // 
@@ -289,7 +299,7 @@
             this.pnlSearch.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlSearch.Location = new System.Drawing.Point(0, 30);
             this.pnlSearch.Name = "pnlSearch";
-            this.pnlSearch.Padding = new System.Windows.Forms.Padding(50, 0, 50, 5);
+            this.pnlSearch.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
             this.pnlSearch.Size = new System.Drawing.Size(792, 71);
             this.pnlSearch.TabIndex = 11;
             // 
@@ -297,11 +307,13 @@
             // 
             this.gbxSearch.CaptionOverlap = 0D;
             this.gbxSearch.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbxSearch.Location = new System.Drawing.Point(50, 0);
+            this.gbxSearch.Location = new System.Drawing.Point(0, 0);
             this.gbxSearch.Name = "gbxSearch";
             // 
             // gbxSearch.Panel
             // 
+            this.gbxSearch.Panel.Controls.Add(this.cbManager);
+            this.gbxSearch.Panel.Controls.Add(this.kryptonLabel1);
             this.gbxSearch.Panel.Controls.Add(this.dtTodate);
             this.gbxSearch.Panel.Controls.Add(this.lbTodate);
             this.gbxSearch.Panel.Controls.Add(this.lbSearchName);
@@ -311,22 +323,39 @@
             this.gbxSearch.Panel.Controls.Add(this.lbFromdate);
             this.gbxSearch.Panel.Controls.Add(this.cbStatus);
             this.gbxSearch.Panel.Controls.Add(this.lbStatus);
-            this.gbxSearch.Size = new System.Drawing.Size(692, 66);
+            this.gbxSearch.Size = new System.Drawing.Size(792, 66);
             this.gbxSearch.TabIndex = 0;
             this.gbxSearch.Values.Heading = "";
+            // 
+            // cbManager
+            // 
+            this.cbManager.DropDownWidth = 133;
+            this.cbManager.Location = new System.Drawing.Point(588, 29);
+            this.cbManager.Name = "cbManager";
+            this.cbManager.Size = new System.Drawing.Size(133, 22);
+            this.cbManager.TabIndex = 11;
+            // 
+            // kryptonLabel1
+            // 
+            this.kryptonLabel1.Location = new System.Drawing.Point(501, 28);
+            this.kryptonLabel1.Name = "kryptonLabel1";
+            this.kryptonLabel1.Size = new System.Drawing.Size(81, 19);
+            this.kryptonLabel1.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.kryptonLabel1.TabIndex = 10;
+            this.kryptonLabel1.Values.Text = "Người quản lý";
             // 
             // dtTodate
             // 
             this.dtTodate.CustomFormat = "dd/MM/yyyy";
             this.dtTodate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtTodate.Location = new System.Drawing.Point(413, 28);
+            this.dtTodate.Location = new System.Drawing.Point(349, 29);
             this.dtTodate.Name = "dtTodate";
-            this.dtTodate.Size = new System.Drawing.Size(186, 20);
+            this.dtTodate.Size = new System.Drawing.Size(146, 20);
             this.dtTodate.TabIndex = 9;
             // 
             // lbTodate
             // 
-            this.lbTodate.Location = new System.Drawing.Point(346, 28);
+            this.lbTodate.Location = new System.Drawing.Point(282, 29);
             this.lbTodate.Name = "lbTodate";
             this.lbTodate.Size = new System.Drawing.Size(58, 19);
             this.lbTodate.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -345,7 +374,7 @@
             // btnSearch
             // 
             this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSearch.Location = new System.Drawing.Point(605, 4);
+            this.btnSearch.Location = new System.Drawing.Point(733, 28);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.OverrideDefault.Back.Color1 = System.Drawing.Color.NavajoWhite;
             this.btnSearch.OverrideDefault.Back.Color2 = System.Drawing.Color.White;
@@ -355,7 +384,7 @@
                         | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
                         | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.btnSearch.OverrideDefault.Border.Rounding = 3;
-            this.btnSearch.Size = new System.Drawing.Size(70, 43);
+            this.btnSearch.Size = new System.Drawing.Size(52, 26);
             this.btnSearch.StateCommon.Back.Color1 = System.Drawing.Color.Khaki;
             this.btnSearch.StateCommon.Back.Color2 = System.Drawing.Color.White;
             this.btnSearch.StateCommon.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.GlassSimpleFull;
@@ -378,14 +407,14 @@
             this.dtFromdate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtFromdate.Location = new System.Drawing.Point(116, 28);
             this.dtFromdate.Name = "dtFromdate";
-            this.dtFromdate.Size = new System.Drawing.Size(195, 20);
+            this.dtFromdate.Size = new System.Drawing.Size(151, 20);
             this.dtFromdate.TabIndex = 7;
             // 
             // ipName
             // 
             this.ipName.Location = new System.Drawing.Point(116, 1);
             this.ipName.Name = "ipName";
-            this.ipName.Size = new System.Drawing.Size(195, 22);
+            this.ipName.Size = new System.Drawing.Size(151, 22);
             this.ipName.TabIndex = 1;
             // 
             // lbFromdate
@@ -405,15 +434,15 @@
             "Mới",
             "Đang thi công",
             "Treo"});
-            this.cbStatus.Location = new System.Drawing.Point(413, 0);
+            this.cbStatus.Location = new System.Drawing.Point(349, 1);
             this.cbStatus.Name = "cbStatus";
-            this.cbStatus.Size = new System.Drawing.Size(186, 22);
+            this.cbStatus.Size = new System.Drawing.Size(146, 22);
             this.cbStatus.TabIndex = 3;
             this.cbStatus.Text = "chọn...";
             // 
             // lbStatus
             // 
-            this.lbStatus.Location = new System.Drawing.Point(346, 3);
+            this.lbStatus.Location = new System.Drawing.Point(282, 4);
             this.lbStatus.Name = "lbStatus";
             this.lbStatus.Size = new System.Drawing.Size(61, 19);
             this.lbStatus.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -451,6 +480,7 @@
             // btAddchild
             // 
             this.btAddchild.Enabled = ComponentFactory.Krypton.Toolkit.ButtonEnabled.False;
+            this.btAddchild.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.page_add_child;
             this.btAddchild.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
             this.btAddchild.Text = "Thầu con";
             this.btAddchild.UniqueName = "D5520BC889F44104ABA432FF3F78D9BF";
@@ -459,6 +489,7 @@
             // btAddSubs
             // 
             this.btAddSubs.Enabled = ComponentFactory.Krypton.Toolkit.ButtonEnabled.False;
+            this.btAddSubs.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.images;
             this.btAddSubs.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
             this.btAddSubs.Text = "Thầu phụ";
             this.btAddSubs.UniqueName = "3CF0D129E3EF4572FE9B4651DEAEBA47";
@@ -519,6 +550,7 @@
             this.gbxSearch.Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gbxSearch)).EndInit();
             this.gbxSearch.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cbManager)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbStatus)).EndInit();
             this.ResumeLayout(false);
 
@@ -558,6 +590,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ProgressRate;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalEstimateCost;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalRealCost;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ManagerName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Description;
         private System.Windows.Forms.DataGridViewTextBoxColumn ConstructionAddress;
         private System.Windows.Forms.DataGridViewTextBoxColumn CommencementDate;
@@ -568,6 +601,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn UpdatedBy;
         private System.Windows.Forms.DataGridViewTextBoxColumn LastUpdated;
         private System.Windows.Forms.DataGridViewTextBoxColumn HasEstimate;
+        private ComponentFactory.Krypton.Toolkit.KryptonComboBox cbManager;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel1;
     }
 }
 

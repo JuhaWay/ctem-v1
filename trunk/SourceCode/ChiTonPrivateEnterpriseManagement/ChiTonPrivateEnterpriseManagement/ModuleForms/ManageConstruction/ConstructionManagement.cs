@@ -20,6 +20,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
 
         private List<ConstructionDTO> listConstructions;
         private ConstructionBus _constructionBus = new ConstructionBus();
+        private EmployeeBUS _employeeBUS = new EmployeeBUS();
         public ConstructionManagement()
         {
             InitializeComponent();
@@ -29,10 +30,36 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
         {
             SetLayout();         
             dtFromdate.Value = new DateTime(dtTodate.Value.Year, dtTodate.Value.Month - 5, dtTodate.Value.Day);
+            cbManager.Items.Add(new EmployerDTO("Tất cả",0));
+            cbManager.Items.AddRange(_employeeBUS.LoadAllEmployee().ToArray());
+            cbManager.DisplayMember = "Username";
+            authen();
             search();
             displayButton();
+          
 
         }
+
+        private void authen()
+        {
+            if (Global.IsAllow(Constants.CREATE_NEW_CONSTRUCTION))
+            {
+                cbManager.SelectedItem = 0;
+            }
+            else
+            {
+                foreach (EmployerDTO item in cbManager.Items)
+                {
+                    if (Global.CurrentUser.Username.Equals(item.Username))
+                        cbManager.SelectedItem = item;
+                }
+                cbManager.Enabled = false;
+                btAdd.Visible =false;
+            }
+            
+           
+        }
+
 
         private void SetLayout()
         {
@@ -69,35 +96,40 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
         // sửa công trình
         private void btEdit_Click(object sender, EventArgs e)
         {
-           
-            string sParentId = dgvCons.SelectedRows[0].Cells["ParentId"].Value.ToString();
-            long ParentId = Convert.ToInt64(sParentId);
-            string type = dgvCons.SelectedRows[0].Cells["Type"].Value.ToString();
-            string sConstructionID = dgvCons.SelectedRows[0].Cells["ConstructionID"].Value.ToString();
-            long ConstructionID = Convert.ToInt64(sConstructionID);
-            if (ParentId == 0 || type.Trim().Equals(ConstructionDTO.MAIN))
+            foreach (DataGridViewRow row in dgvCons.SelectedRows)
             {
-                AddConstruction editForm = new AddConstruction(ConstructionID);
-                editForm.ShowDialog();
-            }
-            else
-            {
-                AddSubconstruction editForm = new AddSubconstruction(ConstructionID);
-                editForm.ShowDialog();
+
+                string sParentId = row.Cells["ParentId"].Value.ToString();
+                long ParentId = Convert.ToInt64(sParentId);
+                string type = row.Cells["Type"].Value.ToString();
+                string sConstructionID = row.Cells["ConstructionID"].Value.ToString();
+                long ConstructionID = Convert.ToInt64(sConstructionID);
+                if (ParentId == 0 || type.Trim().Equals(ConstructionDTO.MAIN))
+                {
+                    AddConstruction editForm = new AddConstruction(ConstructionID);
+                    editForm.ShowDialog();
+                }
+                else
+                {
+                    AddSubconstruction editForm = new AddSubconstruction(ConstructionID);
+                    editForm.ShowDialog();
+                }
             }
             search();
         }
        
         public void displayButton()
         {
-            if (dgvCons.SelectedRows.Count <= 0) return;
+            if (dgvCons.SelectedRows.Count <= 0)
+            {
+                btAddchild.Enabled = ButtonEnabled.False;
+                btAddSubs.Enabled = ButtonEnabled.False;
+                return;
+            }
             string sParentId = dgvCons.SelectedRows[0].Cells["ParentId"].Value.ToString();
             long ParentId = Convert.ToInt64(sParentId);
 
-            if (dgvCons.SelectedRows.Count==1)
-                btEdit.Enabled = ButtonEnabled.True;
-            else
-                btEdit.Enabled = ButtonEnabled.False;
+            
             if (dgvCons.SelectedRows.Count == 1 && ParentId == 0)
             {
                 btAddchild.Enabled = ButtonEnabled.True;
@@ -127,7 +159,8 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
         // xóa công trình
         private void btDelete_Click(object sender, EventArgs e)
         {
-            if (KryptonMessageBox.Show("Xóa công trình,dự toán?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (KryptonMessageBox.Show("Bạn có muốn xóa Phương tiện này", Constants.CONFIRM, MessageBoxButtons.YesNo,
+                              MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 foreach (DataGridViewRow row in dgvCons.SelectedRows)
                 {
@@ -141,41 +174,22 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
             search();
         }
 
-        // menu chuột phải
-        private void dgvCons_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Right)
-            {
-                ContextMenu m = new ContextMenu();
-                m.MenuItems.Add(new MenuItem("Cut"));
-                m.MenuItems.Add(new MenuItem("Copy"));
-                m.MenuItems.Add(new MenuItem("Paste"));
-
-                int currentMouseOverRow = dgvCons.HitTest(e.X, e.Y).RowIndex;
-
-                if (currentMouseOverRow >= 0)
-                {
-                    m.MenuItems.Add(new MenuItem(string.Format("Do something to row {0}", currentMouseOverRow.ToString())));
-                }
-
-                m.Show(dgvCons, new Point(e.X, e.Y));
-
-            }
-
-        }
+       
         // xem dự toán của công trình
         private void btViewEstimate_Click(object sender, EventArgs e)
         {
-                 
-                string sConstructionID = dgvCons.SelectedRows[0].Cells["ConstructionID"].Value.ToString();
+            foreach (DataGridViewRow row in dgvCons.SelectedRows)
+            {
+                string sConstructionID = row.Cells["ConstructionID"].Value.ToString();
                 long ConstructionID = Convert.ToInt64(sConstructionID);
-                bool HasEstimate = Convert.ToBoolean(dgvCons.SelectedRows[0].Cells["HasEstimate"].Value.ToString());
+                bool HasEstimate = Convert.ToBoolean(row.Cells["HasEstimate"].Value.ToString());
                 if (HasEstimate)
                 {
                     EstimateManagement editForm = new EstimateManagement(ConstructionID);
                     editForm.WindowState = FormWindowState.Normal;
                     editForm.ShowDialog();
                 }
+            }
 
             search();
         }
@@ -205,9 +219,12 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
             {
                 dto.Status = "";
             }
+            if (cbManager.SelectedIndex > 0)
+                dto.ManagerID = (cbManager.SelectedItem as EmployerDTO).employeeID;
             dto.FromDate = dtFromdate.Value;
             dto.ToDate = dtTodate.Value;
             searchData(dto);
+            displayButton();
         }
         public void searchData(ConstructionDTO con)
         {
@@ -227,11 +244,11 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
                     dto.TotalEstimateCostFormated = Global.ConvertLongToMoney(dto.TotalEstimateCost,".");
                     dto.TotalRealCostFormated = Global.ConvertLongToMoney(dto.TotalRealCost, ".");
                     //dto.ProgressRate = dto.ProgressRate / children.Count;
-                    TreeGridNode node = dgvCons.Nodes.Add(dto.ConstructionID, dto.ConstructionName, dto.type, dto.SubcontractorName, dto.Status, dto.ProgressRate, dto.TotalEstimateCostFormated, dto.TotalRealCostFormated, dto.Description, dto.ConstructionAddress,
+                    TreeGridNode node = dgvCons.Nodes.Add(dto.ConstructionID, dto.ConstructionName, dto.type, dto.SubcontractorName, dto.Status, dto.ProgressRate, dto.TotalEstimateCostFormated, dto.TotalRealCostFormated,dto.ManagerName, dto.Description, dto.ConstructionAddress,
                         dto.CommencementDateFormated, dto.CompletionDateFormated, dto.ParentID, dto.CreatedBy, dto.CreateDateFormated, dto.UpdatedBy, dto.LastUpdatedFormated, dto.HasEstimate);                  
                     foreach (ConstructionDTO child in children)
                     {
-                        node.Nodes.Add(child.ConstructionID, child.ConstructionName, child.type, child.SubcontractorName, child.Status, child.ProgressRate, child.TotalEstimateCostFormated, child.TotalRealCostFormated, child.Description, child.ConstructionAddress,
+                        node.Nodes.Add(child.ConstructionID, child.ConstructionName, child.type, child.SubcontractorName, child.Status, child.ProgressRate, child.TotalEstimateCostFormated, child.TotalRealCostFormated, child.ManagerName, child.Description, child.ConstructionAddress,
                         child.CommencementDateFormated, child.CompletionDateFormated, child.ParentID, child.CreatedBy, child.CreateDateFormated, child.UpdatedBy, child.LastUpdatedFormated, child.HasEstimate);
                     }
                     node.Expand();

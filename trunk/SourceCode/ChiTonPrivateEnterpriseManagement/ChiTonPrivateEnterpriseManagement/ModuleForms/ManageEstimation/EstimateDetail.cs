@@ -46,7 +46,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
 
             loadDetailValues(0);
             SetLayout();
-            this.WindowState = FormWindowState.Normal;
         }
         private void SetLayout()
         {
@@ -63,8 +62,22 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
         // load lại dử liệu
         public void resetDataSource(long estimateId,long materialId)
         {
-            dgvEstimateDetails.DataSource = _estimateDetailBUS.search(estimateId, materialId);
+            List<EstimateDetailDTO> list = _estimateDetailBUS.search(estimateId, materialId);
+            dgvEstimateDetails.DataSource = list;
+            sum(list);
         }
+
+
+        private void sum(List<EstimateDetailDTO> list)
+        {
+            long total = 0;
+            foreach (EstimateDetailDTO dto in list)
+            {
+                total += dto.TotalCostEstimate;
+            }
+            ipSummary.Text = Global.ConvertLongToMoney(total, Global.SEP);
+        }
+
         // sưa dự toán chi tiết
         private void btSave_Click(object sender, EventArgs e)
         {
@@ -223,7 +236,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
             if (dtoTemp.MaterialID != 0)
             {
                 cbType.SelectedIndex = 0;
-                setDisplay(true);
                 foreach (MaterialDTO dto in cbMaterial.Items)
                 {
                     if (dto.MaterialID.Equals(dtoTemp.MaterialID))
@@ -234,32 +246,32 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
             }
             else
             {
-                setDisplay(false);
                 cbType.SelectedIndex = 1;
                 ipTotal.Text = dtoTemp.TotalCostEstimateFormated;
                 
             }
 
-        }
-        public void setDisplay(bool flag)
-        {
-                cbMaterial.Enabled = !flag;
-                ipQuantity.Enabled = !flag;
-                ipPrice.Enabled = !flag;
-                ipTotal.ReadOnly = flag;
-                //-----------------------
-                lbMaterial.Enabled = flag;
-                cbMaterial.Enabled = flag;
-                lbQuantity.Enabled = flag;
-                ipQuantity.Enabled = flag;
-                lbPrice.Enabled = flag;
-                ipPrice.Enabled = flag;
+            setDisplay();
 
-                cbMaterial.SelectedIndex = -1;
-                ipQuantity.Text ="";
-                ipPrice.Text = "";
-                ipTotal.Text = "";
-                //-----------------------
+        }
+        public void setDisplay()
+        {
+            if (cbType.SelectedIndex == 1)
+            {
+                cbMaterial.Enabled = false;
+                ipQuantity.Enabled = false;
+                ipPrice.Enabled = false;
+                ipName.Enabled = true;
+                ipTotal.ReadOnly = false;
+            }
+            else
+            {
+                ipName.Enabled = false;
+                cbMaterial.Enabled = true;
+                ipQuantity.Enabled = true;
+                ipPrice.Enabled = true;
+                ipTotal.ReadOnly = true;
+            }
 
                 
 
@@ -318,14 +330,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
 
         private void cbType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbType.SelectedIndex == 1)
-            {
-                setDisplay(false);
-            }
-            else
-            {
-                setDisplay(true);
-            }
+            setDisplay();
         }
 
         private void ipPrice_Leave(object sender, EventArgs e)

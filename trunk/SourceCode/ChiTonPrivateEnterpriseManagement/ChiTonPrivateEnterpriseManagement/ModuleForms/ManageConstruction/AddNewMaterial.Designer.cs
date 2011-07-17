@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
-            this.cbEU = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.pnMain = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.btClose = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btSave = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.ipRatio = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
@@ -39,47 +39,43 @@
             this.lbRU = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.ipEU = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.lbEU = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.cbParent = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
-            this.lbParent = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.ipName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.lbName = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            ((System.ComponentModel.ISupportInitialize)(this.cbEU)).BeginInit();
-            this.cbEU.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cbParent)).BeginInit();
+            this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            ((System.ComponentModel.ISupportInitialize)(this.pnMain)).BeginInit();
+            this.pnMain.SuspendLayout();
             this.SuspendLayout();
             // 
-            // cbEU
+            // pnMain
             // 
-            this.cbEU.Controls.Add(this.btClose);
-            this.cbEU.Controls.Add(this.btSave);
-            this.cbEU.Controls.Add(this.ipRatio);
-            this.cbEU.Controls.Add(this.lbRatio);
-            this.cbEU.Controls.Add(this.ipRU);
-            this.cbEU.Controls.Add(this.lbRU);
-            this.cbEU.Controls.Add(this.ipEU);
-            this.cbEU.Controls.Add(this.lbEU);
-            this.cbEU.Controls.Add(this.cbParent);
-            this.cbEU.Controls.Add(this.lbParent);
-            this.cbEU.Controls.Add(this.ipName);
-            this.cbEU.Controls.Add(this.lbName);
-            this.cbEU.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbEU.Location = new System.Drawing.Point(0, 0);
-            this.cbEU.Name = "cbEU";
-            this.cbEU.Size = new System.Drawing.Size(293, 279);
-            this.cbEU.TabIndex = 0;
+            this.pnMain.Controls.Add(this.kryptonLabel1);
+            this.pnMain.Controls.Add(this.btClose);
+            this.pnMain.Controls.Add(this.btSave);
+            this.pnMain.Controls.Add(this.ipRatio);
+            this.pnMain.Controls.Add(this.lbRatio);
+            this.pnMain.Controls.Add(this.ipRU);
+            this.pnMain.Controls.Add(this.lbRU);
+            this.pnMain.Controls.Add(this.ipEU);
+            this.pnMain.Controls.Add(this.lbEU);
+            this.pnMain.Controls.Add(this.ipName);
+            this.pnMain.Controls.Add(this.lbName);
+            this.pnMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnMain.Location = new System.Drawing.Point(0, 0);
+            this.pnMain.Name = "pnMain";
+            this.pnMain.Size = new System.Drawing.Size(293, 279);
+            this.pnMain.TabIndex = 0;
             // 
             // btClose
             // 
-            this.btClose.Location = new System.Drawing.Point(155, 232);
+            this.btClose.Location = new System.Drawing.Point(155, 217);
             this.btClose.Name = "btClose";
             this.btClose.Size = new System.Drawing.Size(48, 25);
             this.btClose.TabIndex = 11;
             this.btClose.Values.Text = "Đóng";
-            this.btClose.Click += new System.EventHandler(this.btClose_Click);
             // 
             // btSave
             // 
-            this.btSave.Location = new System.Drawing.Point(102, 232);
+            this.btSave.Location = new System.Drawing.Point(102, 217);
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(47, 25);
             this.btSave.TabIndex = 10;
@@ -88,73 +84,51 @@
             // 
             // ipRatio
             // 
-            this.ipRatio.Location = new System.Drawing.Point(103, 195);
+            this.ipRatio.Location = new System.Drawing.Point(102, 180);
             this.ipRatio.Name = "ipRatio";
             this.ipRatio.Size = new System.Drawing.Size(161, 22);
             this.ipRatio.TabIndex = 9;
-            this.ipRatio.TextChanged += new System.EventHandler(this.ipRatio_TextChanged);
             // 
             // lbRatio
             // 
-            this.lbRatio.Location = new System.Drawing.Point(15, 198);
+            this.lbRatio.Location = new System.Drawing.Point(0, 180);
             this.lbRatio.Name = "lbRatio";
-            this.lbRatio.Size = new System.Drawing.Size(82, 19);
+            this.lbRatio.Size = new System.Drawing.Size(93, 19);
+            this.lbRatio.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.lbRatio.TabIndex = 8;
-            this.lbRatio.Values.Text = "Chỉ số quy đổi";
-            this.lbRatio.Paint += new System.Windows.Forms.PaintEventHandler(this.lbRatio_Paint);
+            this.lbRatio.Values.Text = "Chỉ số quy đổi(*)";
             // 
             // ipRU
             // 
-            this.ipRU.Location = new System.Drawing.Point(102, 157);
+            this.ipRU.Location = new System.Drawing.Point(102, 133);
             this.ipRU.Name = "ipRU";
             this.ipRU.Size = new System.Drawing.Size(162, 22);
             this.ipRU.TabIndex = 7;
-            this.ipRU.TextChanged += new System.EventHandler(this.ipRU_TextChanged);
             // 
             // lbRU
             // 
-            this.lbRU.Location = new System.Drawing.Point(3, 160);
+            this.lbRU.Location = new System.Drawing.Point(0, 136);
             this.lbRU.Name = "lbRU";
-            this.lbRU.Size = new System.Drawing.Size(100, 19);
+            this.lbRU.Size = new System.Drawing.Size(111, 19);
+            this.lbRU.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.lbRU.TabIndex = 6;
-            this.lbRU.Values.Text = "Đơn vị quyết toán";
-            this.lbRU.Paint += new System.Windows.Forms.PaintEventHandler(this.lbRU_Paint);
+            this.lbRU.Values.Text = "Đơn vị quyết toán(*)";
             // 
             // ipEU
             // 
-            this.ipEU.Location = new System.Drawing.Point(102, 118);
+            this.ipEU.Location = new System.Drawing.Point(102, 81);
             this.ipEU.Name = "ipEU";
             this.ipEU.Size = new System.Drawing.Size(162, 22);
             this.ipEU.TabIndex = 5;
-            this.ipEU.TextChanged += new System.EventHandler(this.ipEU_TextChanged);
             // 
             // lbEU
             // 
-            this.lbEU.Location = new System.Drawing.Point(11, 118);
+            this.lbEU.Location = new System.Drawing.Point(3, 81);
             this.lbEU.Name = "lbEU";
-            this.lbEU.Size = new System.Drawing.Size(85, 19);
+            this.lbEU.Size = new System.Drawing.Size(96, 19);
+            this.lbEU.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.lbEU.TabIndex = 4;
-            this.lbEU.Values.Text = "Đơn vị dự toán";
-            this.lbEU.Paint += new System.Windows.Forms.PaintEventHandler(this.lbEU_Paint);
-            // 
-            // cbParent
-            // 
-            this.cbParent.DropDownWidth = 162;
-            this.cbParent.Location = new System.Drawing.Point(102, 78);
-            this.cbParent.Name = "cbParent";
-            this.cbParent.Size = new System.Drawing.Size(162, 22);
-            this.cbParent.TabIndex = 3;
-            this.cbParent.Text = "chọn...";
-            this.cbParent.SelectedIndexChanged += new System.EventHandler(this.cbParent_SelectedIndexChanged);
-            // 
-            // lbParent
-            // 
-            this.lbParent.Location = new System.Drawing.Point(28, 78);
-            this.lbParent.Name = "lbParent";
-            this.lbParent.Size = new System.Drawing.Size(68, 19);
-            this.lbParent.TabIndex = 2;
-            this.lbParent.Values.Text = "Vật liệu cha";
-            this.lbParent.Paint += new System.Windows.Forms.PaintEventHandler(this.lbParent_Paint);
+            this.lbEU.Values.Text = "Đơn vị dự toán(*)";
             // 
             // ipName
             // 
@@ -162,29 +136,38 @@
             this.ipName.Name = "ipName";
             this.ipName.Size = new System.Drawing.Size(162, 22);
             this.ipName.TabIndex = 1;
-            this.ipName.TextChanged += new System.EventHandler(this.ipName_TextChanged);
             // 
             // lbName
             // 
-            this.lbName.Location = new System.Drawing.Point(28, 43);
+            this.lbName.Location = new System.Drawing.Point(17, 43);
             this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(68, 19);
+            this.lbName.Size = new System.Drawing.Size(79, 19);
+            this.lbName.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.lbName.TabIndex = 0;
-            this.lbName.Values.Text = "Tên vật liệu";
-            this.lbName.Paint += new System.Windows.Forms.PaintEventHandler(this.lbName_Paint);
+            this.lbName.Values.Text = "Tên vật liệu(*)";
+            // 
+            // kryptonLabel1
+            // 
+            this.kryptonLabel1.Location = new System.Drawing.Point(12, 257);
+            this.kryptonLabel1.Name = "kryptonLabel1";
+            this.kryptonLabel1.Size = new System.Drawing.Size(107, 19);
+            this.kryptonLabel1.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.kryptonLabel1.TabIndex = 12;
+            this.kryptonLabel1.Values.Text = "(*) trường bắt buộc";
             // 
             // AddNewMaterial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(293, 279);
-            this.Controls.Add(this.cbEU);
+            this.Controls.Add(this.pnMain);
             this.Name = "AddNewMaterial";
-            this.Text = "AddNewMaterial";
-            ((System.ComponentModel.ISupportInitialize)(this.cbEU)).EndInit();
-            this.cbEU.ResumeLayout(false);
-            this.cbEU.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cbParent)).EndInit();
+            this.ShowIcon = false;
+            this.Text = "Tạo vật liệu";
+            this.Load += new System.EventHandler(this.AddNewMaterial_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pnMain)).EndInit();
+            this.pnMain.ResumeLayout(false);
+            this.pnMain.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -192,10 +175,8 @@
         #endregion
 
         private ComponentFactory.Krypton.Toolkit.KryptonManager kryptonManager;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel cbEU;
+        private ComponentFactory.Krypton.Toolkit.KryptonPanel pnMain;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel lbEU;
-        private ComponentFactory.Krypton.Toolkit.KryptonComboBox cbParent;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel lbParent;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox ipName;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel lbName;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btClose;
@@ -205,6 +186,7 @@
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox ipRU;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel lbRU;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox ipEU;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel1;
     }
 }
 

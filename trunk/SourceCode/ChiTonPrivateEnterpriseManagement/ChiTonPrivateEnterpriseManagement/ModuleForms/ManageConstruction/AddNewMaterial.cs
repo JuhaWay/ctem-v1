@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 using ChiTonPrivateEnterpriseManagement.Classes.BUS;
 using ChiTonPrivateEnterpriseManagement.Classes.DTO;
+using ChiTonPrivateEnterpriseManagement.Classes.Global;
 
 namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
 {
@@ -24,71 +25,56 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
 
         private void btSave_Click(object sender, EventArgs e)
         {
+            if (!validateForm()) return;
             MaterialDTO dto = new MaterialDTO();
             dto.MaterialName = ipName.Text;
             dto.MaterialParentID = 0;
             dto.EstimateCalUnit = ipEU.Text;
             dto.RealCalUnit = ipRU.Text;
-            dto.Ratio = float.Parse(ipRatio.Text);
+            dto.Ratio = Convert.ToDouble(ipRatio.Text);
 
             _materialBUS.CreateMaterials(dto);
             MessageBox.Show("Tạo thành công");
             this.Close();
         }
-
-        private void ipRU_TextChanged(object sender, EventArgs e)
+        private void AddNewMaterial_Load(object sender, EventArgs e)
         {
-
+            Global.SetLayoutPanelNewForm(pnMain);
         }
-
-        private void ipRatio_TextChanged(object sender, EventArgs e)
+        private bool validateForm()
         {
+            if(ipName.Text.Trim().Equals("")){
+                KryptonMessageBox.Show("Vui Lòng điền tên", Constants.CONFIRM, MessageBoxButtons.OK,
+                              MessageBoxIcon.Warning);
+                return false;
+            }
 
-        }
+            if (ipName.Text.Trim().Equals(""))
+            {
+                KryptonMessageBox.Show("Vui Lòng điền tên", Constants.CONFIRM, MessageBoxButtons.OK,
+                              MessageBoxIcon.Warning);
+                return false;
+            }
 
-        private void lbRatio_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void btClose_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lbRU_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void ipEU_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lbEU_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void cbParent_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lbParent_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void ipName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lbName_Paint(object sender, PaintEventArgs e)
-        {
-
+            if (ipEU.Text.Trim().Equals(""))
+            {
+                KryptonMessageBox.Show("Vui Lòng điền đơn vị dự toán", Constants.CONFIRM, MessageBoxButtons.OK,
+                              MessageBoxIcon.Warning);
+                return false;
+            }
+            
+            if(ipRU.Text.Trim().Equals("")){
+                KryptonMessageBox.Show("Vui Lòng điền đơn vị quyết toán", Constants.CONFIRM, MessageBoxButtons.OK,
+                              MessageBoxIcon.Warning);
+                return false;
+            }
+            if (!Global.ValidateDoubleNumber(ipRatio.Text.Trim()))
+            {
+                KryptonMessageBox.Show("chỉ số quy đổi sai", Constants.CONFIRM, MessageBoxButtons.OK,
+                              MessageBoxIcon.Warning);
+                return false;
+            }
+            return true;
         }
     }
 }

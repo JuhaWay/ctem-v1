@@ -75,6 +75,8 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
                 if (_tempDTO.SubconstractorID.Equals(dto.SubcontractorID))
                     cbSubconName.SelectedItem = dto;
             }
+
+            Global.SetLayoutPanelNewForm(pnMain);
         }
         // lưu
         private void btSave_Click(object sender, EventArgs e)
@@ -82,8 +84,8 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
             if (!validateConstruction()) return;
             if (!update)
             {
-                _constructionDTO.CommencementDate = DateTime.Parse(dtStartDate.Text);
-                _constructionDTO.CompletionDate = DateTime.Parse(dtEndDate.Text);
+                _constructionDTO.CommencementDate = dtStartDate.Value.Date;
+                _constructionDTO.CompletionDate = dtEndDate.Value.Date;
                 _constructionDTO.ConstructionName = ipConstructionName.Text;
                 _constructionDTO.ConstructionAddress = ipAddress.Text;
                 _constructionDTO.Description = ipDes.Text;
@@ -115,8 +117,8 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
             else
             {
                 _constructionDTO.ConstructionID = _tempDTO.ConstructionID;
-                _constructionDTO.CommencementDate = DateTime.Parse(dtStartDate.Text);
-                _constructionDTO.CompletionDate = DateTime.Parse(dtEndDate.Text);
+                _constructionDTO.CommencementDate = dtStartDate.Value.Date;
+                _constructionDTO.CompletionDate = dtEndDate.Value.Date;
                 _constructionDTO.ConstructionName = ipConstructionName.Text;
                 _constructionDTO.ConstructionAddress = ipAddress.Text;
                 _constructionDTO.Description = ipDes.Text;
@@ -175,22 +177,20 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
         {
              if (cbSubconName.SelectedIndex < 0)
             {
-                MessageBox.Show("vui lòng chọn nhà thầu phụ!");
+                KryptonMessageBox.Show("vui lòng chọn nhà thầu phụ", Constants.CONFIRM, MessageBoxButtons.OK,
+                           MessageBoxIcon.Warning);
                 return false;
             }
             else if (ipConstructionName.Text.Equals(""))
             {
-                MessageBox.Show("vui lòng nhập tên!");
-                return false;
-            }
-            else if (ipAddress.Text.Equals(""))
-            {
-                MessageBox.Show("vui lòng nhập Địa chỉ!");
+                KryptonMessageBox.Show("vui lòng điền tên", Constants.CONFIRM, MessageBoxButtons.OK,
+                          MessageBoxIcon.Warning);
                 return false;
             }
             else if (cbStatus.SelectedIndex < 0)
             {
-                MessageBox.Show("vui lòng chọn tình trạng!");
+                KryptonMessageBox.Show("vui lòng chọn tình trạng", Constants.CONFIRM, MessageBoxButtons.OK,
+                           MessageBoxIcon.Warning);
                 return false;
             }
             

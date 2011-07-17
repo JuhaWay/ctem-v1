@@ -85,7 +85,7 @@
             this.kryptonPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonPanel.Location = new System.Drawing.Point(0, 0);
             this.kryptonPanel.Name = "kryptonPanel";
-            this.kryptonPanel.Size = new System.Drawing.Size(456, 488);
+            this.kryptonPanel.Size = new System.Drawing.Size(456, 453);
             this.kryptonPanel.TabIndex = 0;
             // 
             // kryptonPanel1
@@ -95,7 +95,7 @@
             this.kryptonPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonPanel1.Location = new System.Drawing.Point(0, 0);
             this.kryptonPanel1.Name = "kryptonPanel1";
-            this.kryptonPanel1.Size = new System.Drawing.Size(456, 488);
+            this.kryptonPanel1.Size = new System.Drawing.Size(456, 453);
             this.kryptonPanel1.TabIndex = 42;
             // 
             // slcMain
@@ -116,8 +116,8 @@
             // 
             this.slcMain.Panel2.Controls.Add(this.gbxAdd2);
             this.slcMain.Panel2.StateCommon.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(57)))), ((int)(((byte)(85)))));
-            this.slcMain.Size = new System.Drawing.Size(456, 389);
-            this.slcMain.SplitterDistance = 204;
+            this.slcMain.Size = new System.Drawing.Size(456, 361);
+            this.slcMain.SplitterDistance = 189;
             this.slcMain.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(57)))), ((int)(((byte)(85)))));
             this.slcMain.TabIndex = 38;
             // 
@@ -139,7 +139,7 @@
             this.gbxAdd1.Panel.Controls.Add(this.dtpDateCompare);
             this.gbxAdd1.Panel.Controls.Add(this.kryptonLabel6);
             this.gbxAdd1.Panel.Controls.Add(this.kryptonLabel4);
-            this.gbxAdd1.Size = new System.Drawing.Size(451, 199);
+            this.gbxAdd1.Size = new System.Drawing.Size(451, 184);
             this.gbxAdd1.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(89)))), ((int)(((byte)(153)))));
             this.gbxAdd1.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
             this.gbxAdd1.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -149,9 +149,9 @@
             // 
             // kryptonLabel1
             // 
-            this.kryptonLabel1.Location = new System.Drawing.Point(29, 12);
+            this.kryptonLabel1.Location = new System.Drawing.Point(29, 11);
             this.kryptonLabel1.Name = "kryptonLabel1";
-            this.kryptonLabel1.Size = new System.Drawing.Size(87, 20);
+            this.kryptonLabel1.Size = new System.Drawing.Size(81, 19);
             this.kryptonLabel1.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.kryptonLabel1.TabIndex = 17;
             this.kryptonLabel1.Values.Text = "Tên Cung Cấp";
@@ -161,9 +161,9 @@
             this.txtTotalOwe.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTotalOwe.ContextMenuStrip = this.cmsGen;
-            this.txtTotalOwe.Location = new System.Drawing.Point(122, 114);
+            this.txtTotalOwe.Location = new System.Drawing.Point(122, 106);
             this.txtTotalOwe.Name = "txtTotalOwe";
-            this.txtTotalOwe.Size = new System.Drawing.Size(276, 20);
+            this.txtTotalOwe.Size = new System.Drawing.Size(276, 22);
             this.txtTotalOwe.TabIndex = 40;
             this.txtTotalOwe.Enter += new System.EventHandler(this.txtToalOwe_Enter);
             this.txtTotalOwe.Leave += new System.EventHandler(this.txtToalOwe_Leave);
@@ -189,9 +189,9 @@
             this.cbbDebt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.cbbDebt.DropDownWidth = 251;
-            this.cbbDebt.Location = new System.Drawing.Point(122, 11);
+            this.cbbDebt.Location = new System.Drawing.Point(122, 10);
             this.cbbDebt.Name = "cbbDebt";
-            this.cbbDebt.Size = new System.Drawing.Size(276, 21);
+            this.cbbDebt.Size = new System.Drawing.Size(276, 22);
             this.cbbDebt.TabIndex = 34;
             // 
             // dtpToDate
@@ -200,16 +200,16 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpToDate.CustomFormat = "dd/MM/yyyy";
             this.dtpToDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpToDate.Location = new System.Drawing.Point(122, 87);
+            this.dtpToDate.Location = new System.Drawing.Point(122, 81);
             this.dtpToDate.Name = "dtpToDate";
-            this.dtpToDate.Size = new System.Drawing.Size(276, 21);
+            this.dtpToDate.Size = new System.Drawing.Size(276, 20);
             this.dtpToDate.TabIndex = 39;
             // 
             // kryptonLabel3
             // 
-            this.kryptonLabel3.Location = new System.Drawing.Point(60, 61);
+            this.kryptonLabel3.Location = new System.Drawing.Point(60, 57);
             this.kryptonLabel3.Name = "kryptonLabel3";
-            this.kryptonLabel3.Size = new System.Drawing.Size(56, 20);
+            this.kryptonLabel3.Size = new System.Drawing.Size(52, 19);
             this.kryptonLabel3.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.kryptonLabel3.TabIndex = 35;
             this.kryptonLabel3.Values.Text = "Từ Ngày";
@@ -220,16 +220,16 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpFromDate.CustomFormat = "dd/MM/yyyy";
             this.dtpFromDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpFromDate.Location = new System.Drawing.Point(122, 61);
+            this.dtpFromDate.Location = new System.Drawing.Point(122, 57);
             this.dtpFromDate.Name = "dtpFromDate";
-            this.dtpFromDate.Size = new System.Drawing.Size(276, 21);
+            this.dtpFromDate.Size = new System.Drawing.Size(276, 20);
             this.dtpFromDate.TabIndex = 38;
             // 
             // kryptonLabel5
             // 
-            this.kryptonLabel5.Location = new System.Drawing.Point(40, 36);
+            this.kryptonLabel5.Location = new System.Drawing.Point(40, 33);
             this.kryptonLabel5.Name = "kryptonLabel5";
-            this.kryptonLabel5.Size = new System.Drawing.Size(76, 20);
+            this.kryptonLabel5.Size = new System.Drawing.Size(70, 19);
             this.kryptonLabel5.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.kryptonLabel5.TabIndex = 21;
             this.kryptonLabel5.Values.Text = "Ngày Đọ Sổ";
@@ -240,25 +240,25 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpDateCompare.CustomFormat = "dd/MM/yyyy";
             this.dtpDateCompare.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDateCompare.Location = new System.Drawing.Point(122, 36);
+            this.dtpDateCompare.Location = new System.Drawing.Point(122, 33);
             this.dtpDateCompare.Name = "dtpDateCompare";
-            this.dtpDateCompare.Size = new System.Drawing.Size(276, 21);
+            this.dtpDateCompare.Size = new System.Drawing.Size(276, 20);
             this.dtpDateCompare.TabIndex = 37;
             // 
             // kryptonLabel6
             // 
-            this.kryptonLabel6.Location = new System.Drawing.Point(34, 113);
+            this.kryptonLabel6.Location = new System.Drawing.Point(34, 105);
             this.kryptonLabel6.Name = "kryptonLabel6";
-            this.kryptonLabel6.Size = new System.Drawing.Size(82, 20);
+            this.kryptonLabel6.Size = new System.Drawing.Size(76, 19);
             this.kryptonLabel6.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.kryptonLabel6.TabIndex = 22;
             this.kryptonLabel6.Values.Text = "Tổng Số Tiền";
             // 
             // kryptonLabel4
             // 
-            this.kryptonLabel4.Location = new System.Drawing.Point(51, 87);
+            this.kryptonLabel4.Location = new System.Drawing.Point(51, 81);
             this.kryptonLabel4.Name = "kryptonLabel4";
-            this.kryptonLabel4.Size = new System.Drawing.Size(65, 20);
+            this.kryptonLabel4.Size = new System.Drawing.Size(60, 19);
             this.kryptonLabel4.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.kryptonLabel4.TabIndex = 36;
             this.kryptonLabel4.Values.Text = "Đến Ngày";
@@ -275,15 +275,15 @@
             this.gbxAdd2.Panel.Controls.Add(this.txtRepresentationDebtName);
             this.gbxAdd2.Panel.Controls.Add(this.kryptonLabel7);
             this.gbxAdd2.Panel.Controls.Add(this.txtNote);
-            this.gbxAdd2.Size = new System.Drawing.Size(456, 180);
+            this.gbxAdd2.Size = new System.Drawing.Size(456, 167);
             this.gbxAdd2.TabIndex = 5;
             this.gbxAdd2.Values.Heading = "Thông Tin Thêm";
             // 
             // kryptonLabel2
             // 
-            this.kryptonLabel2.Location = new System.Drawing.Point(64, 17);
+            this.kryptonLabel2.Location = new System.Drawing.Point(64, 16);
             this.kryptonLabel2.Name = "kryptonLabel2";
-            this.kryptonLabel2.Size = new System.Drawing.Size(57, 20);
+            this.kryptonLabel2.Size = new System.Drawing.Size(53, 19);
             this.kryptonLabel2.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.kryptonLabel2.TabIndex = 18;
             this.kryptonLabel2.Values.Text = "Đại Diện";
@@ -292,16 +292,16 @@
             // 
             this.txtRepresentationDebtName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtRepresentationDebtName.Location = new System.Drawing.Point(127, 17);
+            this.txtRepresentationDebtName.Location = new System.Drawing.Point(127, 16);
             this.txtRepresentationDebtName.Name = "txtRepresentationDebtName";
-            this.txtRepresentationDebtName.Size = new System.Drawing.Size(276, 20);
+            this.txtRepresentationDebtName.Size = new System.Drawing.Size(276, 22);
             this.txtRepresentationDebtName.TabIndex = 33;
             // 
             // kryptonLabel7
             // 
-            this.kryptonLabel7.Location = new System.Drawing.Point(67, 43);
+            this.kryptonLabel7.Location = new System.Drawing.Point(67, 40);
             this.kryptonLabel7.Name = "kryptonLabel7";
-            this.kryptonLabel7.Size = new System.Drawing.Size(54, 20);
+            this.kryptonLabel7.Size = new System.Drawing.Size(50, 19);
             this.kryptonLabel7.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.kryptonLabel7.TabIndex = 23;
             this.kryptonLabel7.Values.Text = "Ghi Chú";
@@ -310,26 +310,26 @@
             // 
             this.txtNote.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNote.Location = new System.Drawing.Point(127, 43);
+            this.txtNote.Location = new System.Drawing.Point(127, 40);
             this.txtNote.Multiline = true;
             this.txtNote.Name = "txtNote";
-            this.txtNote.Size = new System.Drawing.Size(276, 99);
+            this.txtNote.Size = new System.Drawing.Size(276, 92);
             this.txtNote.TabIndex = 27;
             // 
             // pnlButton
             // 
             this.pnlButton.Controls.Add(this.gbxButton);
             this.pnlButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlButton.Location = new System.Drawing.Point(0, 389);
+            this.pnlButton.Location = new System.Drawing.Point(0, 361);
             this.pnlButton.Name = "pnlButton";
-            this.pnlButton.Size = new System.Drawing.Size(456, 99);
+            this.pnlButton.Size = new System.Drawing.Size(456, 92);
             this.pnlButton.StateCommon.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(148)))), ((int)(((byte)(223)))));
             this.pnlButton.TabIndex = 37;
             // 
             // gbxButton
             // 
             this.gbxButton.CaptionOverlap = 0D;
-            this.gbxButton.Location = new System.Drawing.Point(42, 10);
+            this.gbxButton.Location = new System.Drawing.Point(42, 9);
             this.gbxButton.Name = "gbxButton";
             // 
             // gbxButton.Panel
@@ -337,15 +337,15 @@
             this.gbxButton.Panel.Controls.Add(this.btnClear);
             this.gbxButton.Panel.Controls.Add(this.btnClose);
             this.gbxButton.Panel.Controls.Add(this.btnSave);
-            this.gbxButton.Size = new System.Drawing.Size(379, 78);
+            this.gbxButton.Size = new System.Drawing.Size(379, 72);
             this.gbxButton.TabIndex = 0;
             this.gbxButton.Values.Heading = "";
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(139, 23);
+            this.btnClear.Location = new System.Drawing.Point(139, 21);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(90, 25);
+            this.btnClear.Size = new System.Drawing.Size(90, 23);
             this.btnClear.TabIndex = 1;
             this.btnClear.Values.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.edit_clear;
             this.btnClear.Values.Text = "Làm Mới";
@@ -353,9 +353,9 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(235, 23);
+            this.btnClose.Location = new System.Drawing.Point(235, 21);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(90, 25);
+            this.btnClose.Size = new System.Drawing.Size(90, 23);
             this.btnClose.TabIndex = 2;
             this.btnClose.Values.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.close_box_red;
             this.btnClose.Values.Text = "Đóng";
@@ -363,9 +363,9 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(43, 23);
+            this.btnSave.Location = new System.Drawing.Point(43, 21);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(90, 25);
+            this.btnSave.Size = new System.Drawing.Size(90, 23);
             this.btnSave.TabIndex = 0;
             this.btnSave.Values.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.save_edit;
             this.btnSave.Values.Text = "Lưu";
@@ -373,9 +373,9 @@
             // 
             // NewCompareDebt
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(456, 488);
+            this.ClientSize = new System.Drawing.Size(456, 453);
             this.Controls.Add(this.kryptonPanel);
             this.Name = "NewCompareDebt";
             this.ShowIcon = false;
