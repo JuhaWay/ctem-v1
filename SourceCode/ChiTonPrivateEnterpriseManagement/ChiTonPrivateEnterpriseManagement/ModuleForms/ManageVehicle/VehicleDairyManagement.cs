@@ -30,12 +30,15 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
             seachDto.VehicleID = 0;
             seachDto.DriverID = 0;
             dtFromdate.Value = new DateTime(dtTodate.Value.Year, dtTodate.Value.Month, dtTodate.Value.Day - 3);
-          
 
+            cbSearchCons.Items.Add(new ConstructionDTO("Tất cả",0));
             cbSearchCons.Items.AddRange(_constructionBus.LoadAllConstructions().ToArray());
             cbSearchCons.DisplayMember = "ConstructionName";
+
+            cbSearchDriver.Items.Add(new EmployerDTO("Tất cả", 0));
             cbSearchDriver.Items.AddRange(_employeeBUS.LoadAllEmployee().ToArray());
             cbSearchDriver.DisplayMember = "Username";
+            cbSearchVehicle.Items.Add(new VehicleDTO("Tất cả", 0));
             cbSearchVehicle.Items.AddRange(_vehicleBUS.LoadAllVehicles().ToArray());
             cbSearchVehicle.DisplayMember = "Name";
 
@@ -47,8 +50,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
             cbDriver.DisplayMember = "Username";
             cbVehicle.Items.AddRange(_vehicleBUS.LoadAllVehicles().ToArray());
             cbVehicle.DisplayMember = "Name";
-            
-
 
             SetLayout();
             initData();
