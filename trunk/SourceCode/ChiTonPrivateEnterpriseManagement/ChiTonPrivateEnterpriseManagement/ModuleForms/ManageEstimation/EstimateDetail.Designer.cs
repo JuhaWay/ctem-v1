@@ -279,14 +279,14 @@
             // UnitCostEstimate
             // 
             this.UnitCostEstimate.DataPropertyName = "UnitCostEstimateFormated";
-            this.UnitCostEstimate.HeaderText = "Gía";
+            this.UnitCostEstimate.HeaderText = "Gía(VND)";
             this.UnitCostEstimate.Name = "UnitCostEstimate";
             this.UnitCostEstimate.Width = 300;
             // 
             // TotalCostEstimate
             // 
             this.TotalCostEstimate.DataPropertyName = "TotalCostEstimateFormated";
-            this.TotalCostEstimate.HeaderText = "Tổng";
+            this.TotalCostEstimate.HeaderText = "Tổng(VND)";
             this.TotalCostEstimate.Name = "TotalCostEstimate";
             this.TotalCostEstimate.Width = 200;
             // 
@@ -917,6 +917,9 @@
         private ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox kryptonContextMenuCheckBox1;
         private ComponentFactory.Krypton.Toolkit.KryptonContextMenuHeading kryptonContextMenuHeading1;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnAdd;
+        private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel2;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox ipSummary;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel1;
         private System.Windows.Forms.DataGridViewTextBoxColumn EstimateDetailID;
         private System.Windows.Forms.DataGridViewTextBoxColumn EstimateID;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaterialID;
@@ -925,9 +928,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn QuantityEstimate;
         private System.Windows.Forms.DataGridViewTextBoxColumn UnitCostEstimate;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalCostEstimate;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel2;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox ipSummary;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel1;
     }
 }
 
