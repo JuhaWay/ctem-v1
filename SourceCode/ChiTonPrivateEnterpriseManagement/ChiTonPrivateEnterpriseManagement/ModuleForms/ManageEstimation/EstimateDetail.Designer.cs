@@ -812,7 +812,6 @@
             this.ClientSize = new System.Drawing.Size(875, 563);
             this.Controls.Add(this.slcMain);
             this.Controls.Add(this.kryptonPanel);
-            this.Name = "EstimateDetail";
             this.ShowIcon = false;
             this.Text = "Dự toán chi tiết";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
