@@ -25,13 +25,14 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageLedger
         {
             if (!validateForm()) return;
             LedgerDTO dto = new LedgerDTO();
-            dto.Name = ipName.Text;
-            dto.Type = cbType.Text;
+            dto.Name = ipName.Text.Trim();
+            dto.Type = cbType.Text.Trim();
             dto.Number = Global.ConvertMoneyToLong(ipNumber.Text, Global.SEP);
-            dto.Person = ipPerson.Text;
-            dto.Reason = ipReason.Text;
-            dto.Method = cbMethod.Text;
+            dto.Person = ipPerson.Text.Trim();
+            dto.Reason = ipReason.Text.Trim();
+            dto.Method = cbMethod.Text.Trim();
             dto.Date = dtDate.Value.Date;
+            dto.Kind = cbChiType.Text.Trim();
             _ledgerBUS.CreateLedger(dto);
             MessageBox.Show("tạo thành công!");
             this.Close();
@@ -65,6 +66,12 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageLedger
                               MessageBoxIcon.Warning);
                 return false;
             }
+            if (cbType.SelectedIndex ==1 && cbChiType.SelectedIndex<0)
+            {
+                KryptonMessageBox.Show("Vui Lòng chọn loại chi", Constants.CONFIRM, MessageBoxButtons.OK,
+                              MessageBoxIcon.Warning);
+                return false;
+            }
             if (!Global.ValidateMoney(ipNumber))
             {
                 KryptonMessageBox.Show("Nhập sai số tiền", Constants.CONFIRM, MessageBoxButtons.OK,
@@ -83,6 +90,20 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageLedger
         private void btClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void cbType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbType.SelectedIndex == 1)
+            {
+                lbChiType.Enabled = true;
+                cbChiType.Enabled = true;
+            }else{
+                lbChiType.Enabled = false;
+                cbChiType.Enabled = false;
+                cbChiType.Text = "";
+            }
+
         }
     }
 }

@@ -52,6 +52,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageLedger
             dto.Name = ipSearchName.Text.Trim();
             dto.Type = cbSearchType.Text.Trim();
             dto.Person = ipSearchPerson.Text.Trim();
+            dto.Kind = cbSearchChiType.Text.Trim();
             dgvLedger.DataSource = _ledgerBUS.LedgerSearch(dto);
             loadDetailValues(0);
         }
@@ -78,6 +79,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageLedger
             ipReason.Text = dtoTemp.Reason;
             cbMethod.Text = dtoTemp.Method;
             dtDate.Value = dtoTemp.Date;
+            cbChiType.Text = dtoTemp.Kind;
 
         }
 
@@ -102,6 +104,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageLedger
             dtoTemp.Reason = ipReason.Text;
             dtoTemp.Method = cbMethod.Text;
             dtoTemp.Date = dtDate.Value.Date;
+            dtoTemp.Kind = cbChiType.Text;
             _ledgerBUS.updateLedger(dtoTemp);
             MessageBox.Show("cập nhật thành công!");
             refresh();
@@ -140,6 +143,13 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageLedger
                               MessageBoxIcon.Warning);
                 return false;
             }
+
+            if (cbType.SelectedIndex == 1 && cbChiType.SelectedIndex < 0)
+            {
+                KryptonMessageBox.Show("Vui Lòng chọn loại chi", Constants.CONFIRM, MessageBoxButtons.OK,
+                              MessageBoxIcon.Warning);
+                return false;
+            }
             if (!Global.ValidateMoney(ipNumber))
             {
                 KryptonMessageBox.Show("Nhập sai số tiền", Constants.CONFIRM, MessageBoxButtons.OK,
@@ -164,5 +174,36 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageLedger
         {
             ipNumber.Text = Global.ConvertLongToMoney(Global.ConvertMoneyToLong(ipNumber.Text, Global.SEP), Global.SEP);
         }
+
+        private void cbType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbType.SelectedIndex == 1)
+            {
+                lbChiType.Enabled = true;
+                cbChiType.Enabled = true;
+            }
+            else
+            {
+                lbChiType.Enabled = false;
+                cbChiType.Enabled = false;
+                cbChiType.Text = "";
+            }
+        }
+
+        private void cbSearchType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbSearchType.SelectedIndex == 2)
+            {
+                lbSearchChiType.Enabled = true;
+                cbSearchChiType.Enabled = true;
+            }
+            else
+            {
+                lbSearchChiType.Enabled = false;
+                cbSearchChiType.Enabled = false;
+                cbSearchChiType.Text = "";
+            }
+        }
+
     }
 }

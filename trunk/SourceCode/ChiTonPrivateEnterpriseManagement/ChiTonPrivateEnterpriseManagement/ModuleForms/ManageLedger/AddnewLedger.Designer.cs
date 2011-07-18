@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.pnMain = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.kryptonLabel4 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.btClose = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btSave = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.dtDate = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
@@ -47,15 +48,19 @@
             this.lbType = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.ipName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.lbName = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kryptonLabel4 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.lbChiType = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.cbChiType = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pnMain)).BeginInit();
             this.pnMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbMethod)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbType)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbChiType)).BeginInit();
             this.SuspendLayout();
             // 
             // pnMain
             // 
+            this.pnMain.Controls.Add(this.cbChiType);
+            this.pnMain.Controls.Add(this.lbChiType);
             this.pnMain.Controls.Add(this.kryptonLabel4);
             this.pnMain.Controls.Add(this.btClose);
             this.pnMain.Controls.Add(this.btSave);
@@ -76,12 +81,21 @@
             this.pnMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnMain.Location = new System.Drawing.Point(0, 0);
             this.pnMain.Name = "pnMain";
-            this.pnMain.Size = new System.Drawing.Size(345, 309);
+            this.pnMain.Size = new System.Drawing.Size(345, 352);
             this.pnMain.TabIndex = 0;
+            // 
+            // kryptonLabel4
+            // 
+            this.kryptonLabel4.Location = new System.Drawing.Point(47, 315);
+            this.kryptonLabel4.Name = "kryptonLabel4";
+            this.kryptonLabel4.Size = new System.Drawing.Size(110, 19);
+            this.kryptonLabel4.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.kryptonLabel4.TabIndex = 31;
+            this.kryptonLabel4.Values.Text = "(*) trường  bắt buộc";
             // 
             // btClose
             // 
-            this.btClose.Location = new System.Drawing.Point(194, 254);
+            this.btClose.Location = new System.Drawing.Point(194, 284);
             this.btClose.Name = "btClose";
             this.btClose.Size = new System.Drawing.Size(49, 25);
             this.btClose.TabIndex = 15;
@@ -90,7 +104,7 @@
             // 
             // btSave
             // 
-            this.btSave.Location = new System.Drawing.Point(133, 254);
+            this.btSave.Location = new System.Drawing.Point(133, 284);
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(55, 25);
             this.btSave.TabIndex = 14;
@@ -101,14 +115,14 @@
             // 
             this.dtDate.CustomFormat = "dd/MM/yyyy";
             this.dtDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtDate.Location = new System.Drawing.Point(133, 223);
+            this.dtDate.Location = new System.Drawing.Point(133, 253);
             this.dtDate.Name = "dtDate";
             this.dtDate.Size = new System.Drawing.Size(175, 20);
             this.dtDate.TabIndex = 13;
             // 
             // lbDate
             // 
-            this.lbDate.Location = new System.Drawing.Point(81, 223);
+            this.lbDate.Location = new System.Drawing.Point(81, 253);
             this.lbDate.Name = "lbDate";
             this.lbDate.Size = new System.Drawing.Size(38, 16);
             this.lbDate.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -122,7 +136,7 @@
             this.cbMethod.Items.AddRange(new object[] {
             "Tiền mặt",
             "Chuyển khoảng"});
-            this.cbMethod.Location = new System.Drawing.Point(133, 185);
+            this.cbMethod.Location = new System.Drawing.Point(133, 215);
             this.cbMethod.Name = "cbMethod";
             this.cbMethod.Size = new System.Drawing.Size(175, 22);
             this.cbMethod.TabIndex = 11;
@@ -130,7 +144,7 @@
             // 
             // lbMethod
             // 
-            this.lbMethod.Location = new System.Drawing.Point(56, 185);
+            this.lbMethod.Location = new System.Drawing.Point(56, 215);
             this.lbMethod.Name = "lbMethod";
             this.lbMethod.Size = new System.Drawing.Size(73, 16);
             this.lbMethod.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -140,14 +154,14 @@
             // 
             // ipReason
             // 
-            this.ipReason.Location = new System.Drawing.Point(133, 151);
+            this.ipReason.Location = new System.Drawing.Point(133, 181);
             this.ipReason.Name = "ipReason";
             this.ipReason.Size = new System.Drawing.Size(175, 22);
             this.ipReason.TabIndex = 9;
             // 
             // lbReason
             // 
-            this.lbReason.Location = new System.Drawing.Point(84, 154);
+            this.lbReason.Location = new System.Drawing.Point(84, 184);
             this.lbReason.Name = "lbReason";
             this.lbReason.Size = new System.Drawing.Size(39, 16);
             this.lbReason.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -157,14 +171,14 @@
             // 
             // ipPerson
             // 
-            this.ipPerson.Location = new System.Drawing.Point(133, 120);
+            this.ipPerson.Location = new System.Drawing.Point(133, 150);
             this.ipPerson.Name = "ipPerson";
             this.ipPerson.Size = new System.Drawing.Size(175, 22);
             this.ipPerson.TabIndex = 7;
             // 
             // lbPerson
             // 
-            this.lbPerson.Location = new System.Drawing.Point(70, 120);
+            this.lbPerson.Location = new System.Drawing.Point(70, 150);
             this.lbPerson.Name = "lbPerson";
             this.lbPerson.Size = new System.Drawing.Size(50, 16);
             this.lbPerson.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -174,7 +188,7 @@
             // 
             // ipNumber
             // 
-            this.ipNumber.Location = new System.Drawing.Point(133, 92);
+            this.ipNumber.Location = new System.Drawing.Point(133, 122);
             this.ipNumber.Name = "ipNumber";
             this.ipNumber.Size = new System.Drawing.Size(175, 22);
             this.ipNumber.TabIndex = 5;
@@ -183,7 +197,7 @@
             // 
             // lbNumber
             // 
-            this.lbNumber.Location = new System.Drawing.Point(32, 92);
+            this.lbNumber.Location = new System.Drawing.Point(32, 122);
             this.lbNumber.Name = "lbNumber";
             this.lbNumber.Size = new System.Drawing.Size(95, 16);
             this.lbNumber.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -197,15 +211,16 @@
             this.cbType.Items.AddRange(new object[] {
             "Thu",
             "Chi"});
-            this.cbType.Location = new System.Drawing.Point(133, 64);
+            this.cbType.Location = new System.Drawing.Point(133, 67);
             this.cbType.Name = "cbType";
             this.cbType.Size = new System.Drawing.Size(175, 22);
             this.cbType.TabIndex = 3;
             this.cbType.Text = "chọn...";
+            this.cbType.SelectedIndexChanged += new System.EventHandler(this.cbType_SelectedIndexChanged);
             // 
             // lbType
             // 
-            this.lbType.Location = new System.Drawing.Point(84, 64);
+            this.lbType.Location = new System.Drawing.Point(84, 67);
             this.lbType.Name = "lbType";
             this.lbType.Size = new System.Drawing.Size(45, 16);
             this.lbType.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -230,20 +245,37 @@
             this.lbName.TabIndex = 0;
             this.lbName.Values.Text = "Tên(*)";
             // 
-            // kryptonLabel4
+            // lbChiType
             // 
-            this.kryptonLabel4.Location = new System.Drawing.Point(47, 285);
-            this.kryptonLabel4.Name = "kryptonLabel4";
-            this.kryptonLabel4.Size = new System.Drawing.Size(110, 19);
-            this.kryptonLabel4.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.kryptonLabel4.TabIndex = 31;
-            this.kryptonLabel4.Values.Text = "(*) trường  bắt buộc";
+            this.lbChiType.Enabled = false;
+            this.lbChiType.Location = new System.Drawing.Point(64, 94);
+            this.lbChiType.Name = "lbChiType";
+            this.lbChiType.Size = new System.Drawing.Size(64, 16);
+            this.lbChiType.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.lbChiType.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbChiType.StateDisabled.ShortText.Color1 = System.Drawing.Color.Black;
+            this.lbChiType.TabIndex = 32;
+            this.lbChiType.Values.Text = "Loại chi(*)";
+            // 
+            // cbChiType
+            // 
+            this.cbChiType.DropDownWidth = 175;
+            this.cbChiType.Enabled = false;
+            this.cbChiType.Items.AddRange(new object[] {
+            "Doanh nghiệp",
+            "Ngoài doanh nghiệp",
+            "Gia đình"});
+            this.cbChiType.Location = new System.Drawing.Point(133, 94);
+            this.cbChiType.Name = "cbChiType";
+            this.cbChiType.Size = new System.Drawing.Size(175, 22);
+            this.cbChiType.StateDisabled.ComboBox.Back.Color1 = System.Drawing.Color.Black;
+            this.cbChiType.TabIndex = 33;
             // 
             // AddnewLedger
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(345, 309);
+            this.ClientSize = new System.Drawing.Size(345, 352);
             this.Controls.Add(this.pnMain);
             this.Name = "AddnewLedger";
             this.ShowIcon = false;
@@ -254,6 +286,7 @@
             this.pnMain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbMethod)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbType)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbChiType)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -279,6 +312,8 @@
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox ipName;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel lbName;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel4;
+        private ComponentFactory.Krypton.Toolkit.KryptonComboBox cbChiType;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel lbChiType;
     }
 }
 
