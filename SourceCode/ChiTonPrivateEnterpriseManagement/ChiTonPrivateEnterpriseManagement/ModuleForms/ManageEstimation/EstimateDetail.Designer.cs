@@ -162,6 +162,8 @@
             this.ipTotal.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ipTotal.StateDisabled.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ipTotal.TabIndex = 29;
+            this.ipTotal.Leave += new System.EventHandler(this.ipTotal_Leave);
+            this.ipTotal.MouseLeave += new System.EventHandler(this.ipTotal_MouseLeave);
             // 
             // cbSearchMaterial
             // 

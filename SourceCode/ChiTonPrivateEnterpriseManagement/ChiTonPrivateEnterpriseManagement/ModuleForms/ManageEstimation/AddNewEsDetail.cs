@@ -82,6 +82,11 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
             }
             entity.TotalCostEstimate = Global.ConvertMoneyToLong(ipTotal.Text, ".");
             entity.TotalCostEstimateFormated = ipTotal.Text;
+            if (_estimateDetailBUS.check(entity.MaterialID, entity.EstimateID))
+                {
+                    MessageBox.Show("Vật liệu này đã tồn tại !");
+                    return;
+                }
             _estimateDetailBUS.CreateEstimateDetail(entity);
             refresh(entity);
         }
