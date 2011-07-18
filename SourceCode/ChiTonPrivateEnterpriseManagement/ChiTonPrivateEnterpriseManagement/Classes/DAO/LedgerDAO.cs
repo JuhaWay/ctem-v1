@@ -58,6 +58,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         Reason = Convert.ToString(reader["Reason"]),
                         Method = Convert.ToString(reader["Method"]),
                         Date = Convert.ToDateTime(reader["Date"]),
+                        Kind = Convert.ToString(reader["Kind"])
 
 
                     };
@@ -98,7 +99,10 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.Parameters.Add(new SqlParameter("@Person", param.Person.Trim()));
             else
                 cmd.Parameters.Add(new SqlParameter("@Person", DBNull.Value));
-
+            if (param.Kind.Trim().Equals("") == false && param.Kind.Trim().Equals("Tất cả") == false)
+                cmd.Parameters.Add(new SqlParameter("@Kind", param.Kind.Trim()));
+            else
+                cmd.Parameters.Add(new SqlParameter("@Kind", DBNull.Value));
             try
             {
                 SqlDataReader reader = cmd.ExecuteReader();
@@ -115,6 +119,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         Reason = Convert.ToString(reader["Reason"]),
                         Method = Convert.ToString(reader["Method"]),
                         Date = Convert.ToDateTime(reader["Date"]),
+                        Kind = Convert.ToString(reader["Kind"])
 
 
                     };
@@ -150,6 +155,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.Parameters.Add(new SqlParameter("@Reason", dto.Reason));
                 cmd.Parameters.Add(new SqlParameter("@Method", dto.Method));
                 cmd.Parameters.Add(new SqlParameter("@Date", dto.Date));
+                cmd.Parameters.Add(new SqlParameter("@Kind", dto.Kind));
 
 
                 cmd.ExecuteNonQuery();
@@ -183,6 +189,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.Parameters.Add(new SqlParameter("@Reason", dto.Reason));
                 cmd.Parameters.Add(new SqlParameter("@Method", dto.Method));
                 cmd.Parameters.Add(new SqlParameter("@Date", dto.Date));
+                cmd.Parameters.Add(new SqlParameter("@Kind", dto.Kind));
 
 
                 cmd.ExecuteNonQuery();
