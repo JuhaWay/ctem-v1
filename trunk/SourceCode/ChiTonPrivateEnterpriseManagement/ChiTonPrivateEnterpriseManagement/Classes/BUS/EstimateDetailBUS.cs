@@ -30,5 +30,9 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
         {
             return _estimateDetailDAO.search(estimateId, materialId);
         }
+        public bool check(long mID, long eID)
+        {
+            return _estimateDetailDAO.check(mID, eID);
+        }
     }
 }
