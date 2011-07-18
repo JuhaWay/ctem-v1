@@ -82,6 +82,37 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
         }
 
 
+        public bool check(long mID,long eID)
+        {
+            var cmd = new SqlCommand("[dbo].[EstimateDetal_Check]", Connection);
+
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@MaterialID", mID));
+            cmd.Parameters.Add(new SqlParameter("@EstimateID", eID));
+            try
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message, "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null) Connection.Close();
+            }
+        }
+
         public List<EstimateDetailDTO> search(long estimateId,long materialId)
         {
             var cmd = new SqlCommand("[dbo].[EstimateDetail_search]", Connection);
