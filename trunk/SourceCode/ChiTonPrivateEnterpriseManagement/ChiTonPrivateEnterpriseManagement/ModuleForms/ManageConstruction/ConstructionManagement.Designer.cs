@@ -514,6 +514,7 @@
             this.btViewEst.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
             this.btViewEst.Text = "Dự toán";
             this.btViewEst.UniqueName = "BC9DE0D0E3444571EFA8454D9CC796EA";
+            this.btViewEst.Visible = false;
             this.btViewEst.Click += new System.EventHandler(this.btViewEstimate_Click);
             // 
             // btHideShowSearch
