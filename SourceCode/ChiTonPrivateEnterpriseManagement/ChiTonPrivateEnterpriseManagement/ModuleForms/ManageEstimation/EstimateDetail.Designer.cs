@@ -201,15 +201,15 @@
             // lbType
             // 
             this.lbType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.lbType.Location = new System.Drawing.Point(118, 36);
+            this.lbType.Location = new System.Drawing.Point(106, 36);
             this.lbType.Name = "lbType";
-            this.lbType.Size = new System.Drawing.Size(33, 16);
+            this.lbType.Size = new System.Drawing.Size(45, 16);
             this.lbType.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.lbType.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbType.StateDisabled.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.lbType.StateDisabled.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbType.TabIndex = 27;
-            this.lbType.Values.Text = "Loại";
+            this.lbType.Values.Text = "Loại(*)";
             // 
             // dgvEstimateDetails
             // 
@@ -309,15 +309,15 @@
             // lbName
             // 
             this.lbName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.lbName.Location = new System.Drawing.Point(407, 101);
+            this.lbName.Location = new System.Drawing.Point(390, 101);
             this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(68, 16);
+            this.lbName.Size = new System.Drawing.Size(81, 16);
             this.lbName.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.lbName.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbName.StateDisabled.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.lbName.StateDisabled.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbName.TabIndex = 25;
-            this.lbName.Values.Text = "Tên chi tiết";
+            this.lbName.Values.Text = "Tên chi tiết(*)";
             // 
             // lbUnit
             // 
@@ -337,15 +337,15 @@
             // 
             this.lbMaterial.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.lbMaterial.Enabled = false;
-            this.lbMaterial.Location = new System.Drawing.Point(53, 61);
+            this.lbMaterial.Location = new System.Drawing.Point(44, 61);
             this.lbMaterial.Name = "lbMaterial";
-            this.lbMaterial.Size = new System.Drawing.Size(98, 16);
+            this.lbMaterial.Size = new System.Drawing.Size(107, 16);
             this.lbMaterial.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.lbMaterial.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbMaterial.StateDisabled.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.lbMaterial.StateDisabled.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbMaterial.TabIndex = 0;
-            this.lbMaterial.Values.Text = "Nguyên vật liệu :";
+            this.lbMaterial.Values.Text = "Nguyên vật liệu (*)";
             // 
             // lbTotalCost
             // 
@@ -414,15 +414,15 @@
             // 
             this.lbQuantity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.lbQuantity.Enabled = false;
-            this.lbQuantity.Location = new System.Drawing.Point(88, 98);
+            this.lbQuantity.Location = new System.Drawing.Point(79, 95);
             this.lbQuantity.Name = "lbQuantity";
-            this.lbQuantity.Size = new System.Drawing.Size(63, 16);
+            this.lbQuantity.Size = new System.Drawing.Size(72, 16);
             this.lbQuantity.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.lbQuantity.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbQuantity.StateDisabled.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.lbQuantity.StateDisabled.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbQuantity.TabIndex = 3;
-            this.lbQuantity.Values.Text = "Số lượng :";
+            this.lbQuantity.Values.Text = "Số lượng (*)";
             // 
             // estimateDetailDTOBindingSource
             // 
@@ -812,6 +812,7 @@
             this.ClientSize = new System.Drawing.Size(875, 563);
             this.Controls.Add(this.slcMain);
             this.Controls.Add(this.kryptonPanel);
+            this.Name = "EstimateDetail";
             this.ShowIcon = false;
             this.Text = "Dự toán chi tiết";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
