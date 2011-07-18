@@ -31,6 +31,13 @@
             this.components = new System.ComponentModel.Container();
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.pnMain = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.dgvEst = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.materialNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantityEstimateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitCostEstimateFormatedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalCostEstimateFormatedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estimateDetailDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lbUnit1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.cbType = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.lbType = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
@@ -46,21 +53,14 @@
             this.lbPrice = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.cbMaterial = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.lbMaterial = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.dgvEst = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.materialNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantityEstimateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unitCostEstimateFormatedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalCostEstimateFormatedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estimateDetailDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cmsmain = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.SaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pnMain)).BeginInit();
             this.pnMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cbType)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbMaterial)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEst)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.estimateDetailDTOBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbType)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbMaterial)).BeginInit();
             this.cmsmain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -87,161 +87,6 @@
             this.pnMain.Name = "pnMain";
             this.pnMain.Size = new System.Drawing.Size(791, 491);
             this.pnMain.TabIndex = 0;
-            // 
-            // lbUnit1
-            // 
-            this.lbUnit1.Location = new System.Drawing.Point(379, 103);
-            this.lbUnit1.Name = "lbUnit1";
-            this.lbUnit1.Size = new System.Drawing.Size(20, 19);
-            this.lbUnit1.StateCommon.ShortText.Color1 = System.Drawing.Color.Red;
-            this.lbUnit1.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbUnit1.TabIndex = 25;
-            this.lbUnit1.Values.Text = "()";
-            // 
-            // cbType
-            // 
-            this.cbType.DropDownWidth = 148;
-            this.cbType.Items.AddRange(new object[] {
-            "Vật liệu",
-            "Khác"});
-            this.cbType.Location = new System.Drawing.Point(111, 30);
-            this.cbType.Name = "cbType";
-            this.cbType.Size = new System.Drawing.Size(263, 22);
-            this.cbType.TabIndex = 24;
-            this.cbType.Text = "chọn";
-            this.cbType.SelectedIndexChanged += new System.EventHandler(this.cbType_SelectedIndexChanged);
-            // 
-            // lbType
-            // 
-            this.lbType.Location = new System.Drawing.Point(73, 33);
-            this.lbType.Name = "lbType";
-            this.lbType.Size = new System.Drawing.Size(33, 16);
-            this.lbType.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.lbType.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbType.TabIndex = 23;
-            this.lbType.Values.Text = "Loại";
-            // 
-            // ipTotal
-            // 
-            this.ipTotal.Location = new System.Drawing.Point(490, 66);
-            this.ipTotal.Name = "ipTotal";
-            this.ipTotal.ReadOnly = true;
-            this.ipTotal.Size = new System.Drawing.Size(263, 20);
-            this.ipTotal.StateCommon.Content.Color1 = System.Drawing.Color.Red;
-            this.ipTotal.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ipTotal.TabIndex = 22;
-            this.ipTotal.Leave += new System.EventHandler(this.ipTotal_Leave);
-            this.ipTotal.MouseLeave += new System.EventHandler(this.ipTotal_MouseLeave);
-            // 
-            // ipName
-            // 
-            this.ipName.Enabled = false;
-            this.ipName.Location = new System.Drawing.Point(489, 100);
-            this.ipName.Name = "ipName";
-            this.ipName.Size = new System.Drawing.Size(263, 22);
-            this.ipName.StateDisabled.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ipName.TabIndex = 21;
-            // 
-            // lbName
-            // 
-            this.lbName.Enabled = false;
-            this.lbName.Location = new System.Drawing.Point(418, 100);
-            this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(47, 16);
-            this.lbName.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.lbName.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbName.TabIndex = 20;
-            this.lbName.Values.Text = "Chi tiết";
-            // 
-            // btSave
-            // 
-            this.btSave.Location = new System.Drawing.Point(379, 155);
-            this.btSave.Name = "btSave";
-            this.btSave.Size = new System.Drawing.Size(99, 25);
-            this.btSave.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btSave.TabIndex = 18;
-            this.btSave.Values.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.save_edit;
-            this.btSave.Values.Text = "Lưu";
-            this.btSave.Click += new System.EventHandler(this.btSave_Click);
-            // 
-            // lbUnit
-            // 
-            this.lbUnit.Location = new System.Drawing.Point(511, 16);
-            this.lbUnit.Name = "lbUnit";
-            this.lbUnit.Size = new System.Drawing.Size(6, 2);
-            this.lbUnit.TabIndex = 17;
-            this.lbUnit.Values.Text = "";
-            // 
-            // lbTotalCost
-            // 
-            this.lbTotalCost.Location = new System.Drawing.Point(381, 66);
-            this.lbTotalCost.Name = "lbTotalCost";
-            this.lbTotalCost.Size = new System.Drawing.Size(107, 16);
-            this.lbTotalCost.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.lbTotalCost.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTotalCost.TabIndex = 15;
-            this.lbTotalCost.Values.Text = "Tổng chi phí(VND) ";
-            // 
-            // ipPrice
-            // 
-            this.ipPrice.Location = new System.Drawing.Point(490, 30);
-            this.ipPrice.Name = "ipPrice";
-            this.ipPrice.Size = new System.Drawing.Size(263, 22);
-            this.ipPrice.StateDisabled.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ipPrice.TabIndex = 14;
-            this.ipPrice.TextChanged += new System.EventHandler(this.ipPrice_TextChanged);
-            this.ipPrice.Leave += new System.EventHandler(this.ipPrice_Leave);
-            this.ipPrice.MouseLeave += new System.EventHandler(this.ipPrice_MouseLeave);
-            // 
-            // ipQuantity
-            // 
-            this.ipQuantity.Location = new System.Drawing.Point(110, 100);
-            this.ipQuantity.Name = "ipQuantity";
-            this.ipQuantity.Size = new System.Drawing.Size(263, 22);
-            this.ipQuantity.StateDisabled.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ipQuantity.TabIndex = 13;
-            this.ipQuantity.TextChanged += new System.EventHandler(this.ipQuantity_TextChanged);
-            // 
-            // lbQuantity
-            // 
-            this.lbQuantity.Location = new System.Drawing.Point(43, 100);
-            this.lbQuantity.Name = "lbQuantity";
-            this.lbQuantity.Size = new System.Drawing.Size(63, 16);
-            this.lbQuantity.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.lbQuantity.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbQuantity.TabIndex = 12;
-            this.lbQuantity.Values.Text = "Số lượng :";
-            // 
-            // lbPrice
-            // 
-            this.lbPrice.Location = new System.Drawing.Point(424, 33);
-            this.lbPrice.Name = "lbPrice";
-            this.lbPrice.Size = new System.Drawing.Size(64, 16);
-            this.lbPrice.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.lbPrice.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPrice.TabIndex = 11;
-            this.lbPrice.Values.Text = "Giá (VND)";
-            // 
-            // cbMaterial
-            // 
-            this.cbMaterial.DropDownWidth = 121;
-            this.cbMaterial.Location = new System.Drawing.Point(112, 63);
-            this.cbMaterial.Name = "cbMaterial";
-            this.cbMaterial.Size = new System.Drawing.Size(263, 22);
-            this.cbMaterial.StateDisabled.ComboBox.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.cbMaterial.TabIndex = 10;
-            this.cbMaterial.Text = "chọn...";
-            this.cbMaterial.SelectedIndexChanged += new System.EventHandler(this.cbMaterial_SelectedIndexChanged);
-            // 
-            // lbMaterial
-            // 
-            this.lbMaterial.Location = new System.Drawing.Point(12, 66);
-            this.lbMaterial.Name = "lbMaterial";
-            this.lbMaterial.Size = new System.Drawing.Size(98, 16);
-            this.lbMaterial.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.lbMaterial.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMaterial.TabIndex = 9;
-            this.lbMaterial.Values.Text = "Nguyên vật liệu :";
             // 
             // dgvEst
             // 
@@ -299,6 +144,161 @@
             // 
             this.estimateDetailDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.EstimateDetailDTO);
             // 
+            // lbUnit1
+            // 
+            this.lbUnit1.Location = new System.Drawing.Point(379, 103);
+            this.lbUnit1.Name = "lbUnit1";
+            this.lbUnit1.Size = new System.Drawing.Size(20, 19);
+            this.lbUnit1.StateCommon.ShortText.Color1 = System.Drawing.Color.Red;
+            this.lbUnit1.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbUnit1.TabIndex = 25;
+            this.lbUnit1.Values.Text = "()";
+            // 
+            // cbType
+            // 
+            this.cbType.DropDownWidth = 148;
+            this.cbType.Items.AddRange(new object[] {
+            "Vật liệu",
+            "Khác"});
+            this.cbType.Location = new System.Drawing.Point(111, 30);
+            this.cbType.Name = "cbType";
+            this.cbType.Size = new System.Drawing.Size(263, 22);
+            this.cbType.TabIndex = 24;
+            this.cbType.Text = "chọn";
+            this.cbType.SelectedIndexChanged += new System.EventHandler(this.cbType_SelectedIndexChanged);
+            // 
+            // lbType
+            // 
+            this.lbType.Location = new System.Drawing.Point(65, 33);
+            this.lbType.Name = "lbType";
+            this.lbType.Size = new System.Drawing.Size(45, 16);
+            this.lbType.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.lbType.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbType.TabIndex = 23;
+            this.lbType.Values.Text = "Loại(*)";
+            // 
+            // ipTotal
+            // 
+            this.ipTotal.Location = new System.Drawing.Point(490, 66);
+            this.ipTotal.Name = "ipTotal";
+            this.ipTotal.ReadOnly = true;
+            this.ipTotal.Size = new System.Drawing.Size(263, 20);
+            this.ipTotal.StateCommon.Content.Color1 = System.Drawing.Color.Red;
+            this.ipTotal.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ipTotal.TabIndex = 22;
+            this.ipTotal.Leave += new System.EventHandler(this.ipTotal_Leave);
+            this.ipTotal.MouseLeave += new System.EventHandler(this.ipTotal_MouseLeave);
+            // 
+            // ipName
+            // 
+            this.ipName.Enabled = false;
+            this.ipName.Location = new System.Drawing.Point(489, 100);
+            this.ipName.Name = "ipName";
+            this.ipName.Size = new System.Drawing.Size(263, 22);
+            this.ipName.StateDisabled.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.ipName.TabIndex = 21;
+            // 
+            // lbName
+            // 
+            this.lbName.Enabled = false;
+            this.lbName.Location = new System.Drawing.Point(418, 100);
+            this.lbName.Name = "lbName";
+            this.lbName.Size = new System.Drawing.Size(60, 16);
+            this.lbName.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.lbName.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbName.TabIndex = 20;
+            this.lbName.Values.Text = "Chi tiết(*)";
+            // 
+            // btSave
+            // 
+            this.btSave.Location = new System.Drawing.Point(379, 155);
+            this.btSave.Name = "btSave";
+            this.btSave.Size = new System.Drawing.Size(99, 25);
+            this.btSave.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btSave.TabIndex = 18;
+            this.btSave.Values.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.save_edit;
+            this.btSave.Values.Text = "Lưu";
+            this.btSave.Click += new System.EventHandler(this.btSave_Click);
+            // 
+            // lbUnit
+            // 
+            this.lbUnit.Location = new System.Drawing.Point(511, 16);
+            this.lbUnit.Name = "lbUnit";
+            this.lbUnit.Size = new System.Drawing.Size(6, 2);
+            this.lbUnit.TabIndex = 17;
+            this.lbUnit.Values.Text = "";
+            // 
+            // lbTotalCost
+            // 
+            this.lbTotalCost.Location = new System.Drawing.Point(381, 66);
+            this.lbTotalCost.Name = "lbTotalCost";
+            this.lbTotalCost.Size = new System.Drawing.Size(107, 16);
+            this.lbTotalCost.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.lbTotalCost.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTotalCost.TabIndex = 15;
+            this.lbTotalCost.Values.Text = "Tổng chi phí(VND) ";
+            // 
+            // ipPrice
+            // 
+            this.ipPrice.Location = new System.Drawing.Point(490, 30);
+            this.ipPrice.Name = "ipPrice";
+            this.ipPrice.Size = new System.Drawing.Size(263, 22);
+            this.ipPrice.StateDisabled.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.ipPrice.TabIndex = 14;
+            this.ipPrice.TextChanged += new System.EventHandler(this.ipPrice_TextChanged);
+            this.ipPrice.Leave += new System.EventHandler(this.ipPrice_Leave);
+            this.ipPrice.MouseLeave += new System.EventHandler(this.ipPrice_MouseLeave);
+            // 
+            // ipQuantity
+            // 
+            this.ipQuantity.Location = new System.Drawing.Point(110, 100);
+            this.ipQuantity.Name = "ipQuantity";
+            this.ipQuantity.Size = new System.Drawing.Size(263, 22);
+            this.ipQuantity.StateDisabled.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.ipQuantity.TabIndex = 13;
+            this.ipQuantity.TextChanged += new System.EventHandler(this.ipQuantity_TextChanged);
+            // 
+            // lbQuantity
+            // 
+            this.lbQuantity.Location = new System.Drawing.Point(38, 100);
+            this.lbQuantity.Name = "lbQuantity";
+            this.lbQuantity.Size = new System.Drawing.Size(72, 16);
+            this.lbQuantity.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.lbQuantity.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbQuantity.TabIndex = 12;
+            this.lbQuantity.Values.Text = "Số lượng (*)";
+            // 
+            // lbPrice
+            // 
+            this.lbPrice.Location = new System.Drawing.Point(424, 33);
+            this.lbPrice.Name = "lbPrice";
+            this.lbPrice.Size = new System.Drawing.Size(64, 16);
+            this.lbPrice.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.lbPrice.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPrice.TabIndex = 11;
+            this.lbPrice.Values.Text = "Giá (VND)";
+            // 
+            // cbMaterial
+            // 
+            this.cbMaterial.DropDownWidth = 121;
+            this.cbMaterial.Location = new System.Drawing.Point(112, 63);
+            this.cbMaterial.Name = "cbMaterial";
+            this.cbMaterial.Size = new System.Drawing.Size(263, 22);
+            this.cbMaterial.StateDisabled.ComboBox.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.cbMaterial.TabIndex = 10;
+            this.cbMaterial.Text = "chọn...";
+            this.cbMaterial.SelectedIndexChanged += new System.EventHandler(this.cbMaterial_SelectedIndexChanged);
+            // 
+            // lbMaterial
+            // 
+            this.lbMaterial.Location = new System.Drawing.Point(3, 66);
+            this.lbMaterial.Name = "lbMaterial";
+            this.lbMaterial.Size = new System.Drawing.Size(107, 16);
+            this.lbMaterial.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.lbMaterial.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMaterial.TabIndex = 9;
+            this.lbMaterial.Values.Text = "Nguyên vật liệu (*)\r\n";
+            // 
             // cmsmain
             // 
             this.cmsmain.Font = new System.Drawing.Font("Segoe UI", 8.25F);
@@ -330,10 +330,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pnMain)).EndInit();
             this.pnMain.ResumeLayout(false);
             this.pnMain.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cbType)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbMaterial)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEst)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.estimateDetailDTOBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbType)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbMaterial)).EndInit();
             this.cmsmain.ResumeLayout(false);
             this.ResumeLayout(false);
 

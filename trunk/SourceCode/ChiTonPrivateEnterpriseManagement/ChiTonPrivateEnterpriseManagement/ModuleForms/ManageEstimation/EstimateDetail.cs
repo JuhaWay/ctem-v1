@@ -103,7 +103,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
             {
                 if (ipName.Text.Trim().Equals(""))
                 {
-                    MessageBox.Show("Vui lòng nhập tên");
+                    MessageBox.Show("Vui lòng nhập chi tiết");
                     return;
                 }
                 dtoTemp.QuantityEstimate =0;

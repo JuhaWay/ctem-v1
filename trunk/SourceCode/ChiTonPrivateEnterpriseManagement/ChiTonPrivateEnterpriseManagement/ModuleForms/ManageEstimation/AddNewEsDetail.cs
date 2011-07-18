@@ -77,7 +77,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
             }
             else if (ipName.Text.Trim().Equals(""))
             {
-                MessageBox.Show("Vui lòng nhập tên");
+                MessageBox.Show("Vui lòng nhập chi tiết");
                 return;
             }
             entity.TotalCostEstimate = Global.ConvertMoneyToLong(ipTotal.Text, ".");
