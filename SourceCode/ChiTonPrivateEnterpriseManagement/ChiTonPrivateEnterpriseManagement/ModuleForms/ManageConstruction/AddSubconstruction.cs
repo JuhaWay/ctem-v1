@@ -81,6 +81,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
             }
 
             Global.SetLayoutPanelNewForm(pnMain);
+            Global.SetTextBoxNumberLeave(ipProgressRate);
         }
         // lưu
         private void btSave_Click(object sender, EventArgs e)
@@ -219,7 +220,40 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
 
         private void ipRealCost_MouseLeave(object sender, EventArgs e)
         {
-            ipRealCost.Text = Global.ConvertLongToMoney(Global.ConvertMoneyToLong(ipRealCost.Text, "."),Global.SEP);
+            Global.SetTextBoxMoneyLeave(ipProgressRate);
+            if (Global.ConvertMoneyToLong(ipRealCost.Text, Constants.SPLIP_MONEY) > Global.ConvertMoneyToLong(ipEst.Text, Constants.SPLIP_MONEY))
+            {
+                KryptonMessageBox.Show(" Giải Ngân Không Thể Lớn Hơn Tiền Khoán", Constants.ALERT_ERROR,
+                                       MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                ipRealCost.Focus();
+            }
+        }
+
+        private void ipProgressRate_Leave(object sender, EventArgs e)
+        {
+            if (ipProgressRate.Text.Equals(Constants.EMPTY_TEXT))
+            {
+                ipProgressRate.Text = Constants.ZERO_NUMBER;
+            }
+            else
+            {
+                try
+                {
+                    double progress = Convert.ToDouble(ipProgressRate.Text);
+                    if (progress > 100)
+                    {
+                        KryptonMessageBox.Show("Số Vừa Nhập Không Hợp Lệ", Constants.ALERT_ERROR, MessageBoxButtons.OK,
+                                               MessageBoxIcon.Warning);
+                    }
+                    ipProgressRate.Focus();
+                }
+                catch (Exception)
+                {
+                    KryptonMessageBox.Show("Chỉ Được Nhập Số", Constants.ALERT_ERROR, MessageBoxButtons.OK,
+                                               MessageBoxIcon.Warning);
+                    ipProgressRate.Focus();
+                }
+            }
         }
     }
 }

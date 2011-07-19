@@ -139,5 +139,13 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
                 txtTotalEst.Text = dtoTemp.TotalCostEstimateFormated;
             }
         }
+
+        private void ipSeacrchName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btSave_Click(null, null);
+            }
+        }
     }
 }

@@ -433,7 +433,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
             {
                 if(KryptonMessageBox.Show(Constants.NOT_EXIST_MATERIAL, Constants.CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    AddNewMaterial newMaterial = new AddNewMaterial();
+                    AddNewMaterial newMaterial = new AddNewMaterial(nameMaterial);
                     newMaterial.ShowDialog();
                     listMaterial = materialBUS.LoadAllMaterials();
                     Global.SetDataCombobox(cbbMaterial, "Material");

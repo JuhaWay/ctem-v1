@@ -57,6 +57,9 @@
             this.lbDes = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.dtStartDate = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
             this.ipDes = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.buttonSpecAny1 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny2 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny3 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             ((System.ComponentModel.ISupportInitialize)(this.pnMain)).BeginInit();
             this.pnMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox2)).BeginInit();
@@ -153,7 +156,7 @@
             // 
             // kryptonLabel1
             // 
-            this.kryptonLabel1.Location = new System.Drawing.Point(12, 18);
+            this.kryptonLabel1.Location = new System.Drawing.Point(15, 18);
             this.kryptonLabel1.Name = "kryptonLabel1";
             this.kryptonLabel1.Size = new System.Drawing.Size(89, 16);
             this.kryptonLabel1.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -163,14 +166,17 @@
             // 
             // ipProgressRate
             // 
+            this.ipProgressRate.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
+            this.buttonSpecAny2});
             this.ipProgressRate.Location = new System.Drawing.Point(110, 232);
             this.ipProgressRate.Name = "ipProgressRate";
-            this.ipProgressRate.Size = new System.Drawing.Size(357, 22);
+            this.ipProgressRate.Size = new System.Drawing.Size(357, 25);
             this.ipProgressRate.TabIndex = 9;
+            this.ipProgressRate.Leave += new System.EventHandler(this.ipProgressRate_Leave);
             // 
             // lbConstructionName
             // 
-            this.lbConstructionName.Location = new System.Drawing.Point(4, 68);
+            this.lbConstructionName.Location = new System.Drawing.Point(7, 74);
             this.lbConstructionName.Name = "lbConstructionName";
             this.lbConstructionName.Size = new System.Drawing.Size(97, 16);
             this.lbConstructionName.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -180,7 +186,7 @@
             // 
             // lbProgress
             // 
-            this.lbProgress.Location = new System.Drawing.Point(53, 239);
+            this.lbProgress.Location = new System.Drawing.Point(56, 241);
             this.lbProgress.Name = "lbProgress";
             this.lbProgress.Size = new System.Drawing.Size(48, 16);
             this.lbProgress.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -197,16 +203,18 @@
             // 
             // ipRealCost
             // 
+            this.ipRealCost.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
+            this.buttonSpecAny3});
             this.ipRealCost.Location = new System.Drawing.Point(110, 204);
             this.ipRealCost.Name = "ipRealCost";
-            this.ipRealCost.Size = new System.Drawing.Size(357, 22);
+            this.ipRealCost.Size = new System.Drawing.Size(357, 25);
             this.ipRealCost.TabIndex = 8;
             this.ipRealCost.Leave += new System.EventHandler(this.ipRealCost_Leave);
             this.ipRealCost.MouseLeave += new System.EventHandler(this.ipRealCost_MouseLeave);
             // 
             // lbAddress
             // 
-            this.lbAddress.Location = new System.Drawing.Point(56, 102);
+            this.lbAddress.Location = new System.Drawing.Point(59, 102);
             this.lbAddress.Name = "lbAddress";
             this.lbAddress.Size = new System.Drawing.Size(45, 16);
             this.lbAddress.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -216,13 +224,13 @@
             // 
             // lbRealCost
             // 
-            this.lbRealCost.Location = new System.Drawing.Point(42, 210);
+            this.lbRealCost.Location = new System.Drawing.Point(45, 210);
             this.lbRealCost.Name = "lbRealCost";
             this.lbRealCost.Size = new System.Drawing.Size(59, 16);
             this.lbRealCost.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.lbRealCost.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbRealCost.TabIndex = 42;
-            this.lbRealCost.Values.Text = "Gỉai ngân";
+            this.lbRealCost.Values.Text = "Giải ngân";
             // 
             // ipAddress
             // 
@@ -233,16 +241,18 @@
             // 
             // ipEst
             // 
+            this.ipEst.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
+            this.buttonSpecAny1});
             this.ipEst.Location = new System.Drawing.Point(110, 176);
             this.ipEst.Name = "ipEst";
-            this.ipEst.Size = new System.Drawing.Size(357, 22);
+            this.ipEst.Size = new System.Drawing.Size(357, 25);
             this.ipEst.TabIndex = 7;
             this.ipEst.Leave += new System.EventHandler(this.ipEst_Leave);
             this.ipEst.MouseLeave += new System.EventHandler(this.ipEst_MouseLeave);
             // 
             // lbStartDate
             // 
-            this.lbStartDate.Location = new System.Drawing.Point(13, 124);
+            this.lbStartDate.Location = new System.Drawing.Point(16, 128);
             this.lbStartDate.Name = "lbStartDate";
             this.lbStartDate.Size = new System.Drawing.Size(88, 16);
             this.lbStartDate.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -252,17 +262,17 @@
             // 
             // lbEst
             // 
-            this.lbEst.Location = new System.Drawing.Point(22, 182);
+            this.lbEst.Location = new System.Drawing.Point(63, 185);
             this.lbEst.Name = "lbEst";
-            this.lbEst.Size = new System.Drawing.Size(79, 16);
+            this.lbEst.Size = new System.Drawing.Size(41, 16);
             this.lbEst.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.lbEst.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbEst.TabIndex = 40;
-            this.lbEst.Values.Text = "khoáng(VND)";
+            this.lbEst.Values.Text = "khoán";
             // 
             // lbEndDate
             // 
-            this.lbEndDate.Location = new System.Drawing.Point(22, 154);
+            this.lbEndDate.Location = new System.Drawing.Point(25, 154);
             this.lbEndDate.Name = "lbEndDate";
             this.lbEndDate.Size = new System.Drawing.Size(79, 16);
             this.lbEndDate.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -281,7 +291,7 @@
             // 
             // lbState
             // 
-            this.lbState.Location = new System.Drawing.Point(25, 46);
+            this.lbState.Location = new System.Drawing.Point(28, 46);
             this.lbState.Name = "lbState";
             this.lbState.Size = new System.Drawing.Size(76, 16);
             this.lbState.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -324,7 +334,7 @@
             // 
             // lbDes
             // 
-            this.lbDes.Location = new System.Drawing.Point(63, 261);
+            this.lbDes.Location = new System.Drawing.Point(66, 263);
             this.lbDes.Name = "lbDes";
             this.lbDes.Size = new System.Drawing.Size(38, 16);
             this.lbDes.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -343,12 +353,27 @@
             // 
             // ipDes
             // 
-            this.ipDes.Location = new System.Drawing.Point(110, 260);
+            this.ipDes.Location = new System.Drawing.Point(110, 263);
             this.ipDes.Multiline = true;
             this.ipDes.Name = "ipDes";
-            this.ipDes.Size = new System.Drawing.Size(357, 112);
+            this.ipDes.Size = new System.Drawing.Size(357, 109);
             this.ipDes.TabIndex = 10;
             this.ipDes.Text = "...";
+            // 
+            // buttonSpecAny1
+            // 
+            this.buttonSpecAny1.Text = "(VND)";
+            this.buttonSpecAny1.UniqueName = "0357F75B688346CFD8B1E6D3B535A723";
+            // 
+            // buttonSpecAny2
+            // 
+            this.buttonSpecAny2.Text = "(%)";
+            this.buttonSpecAny2.UniqueName = "AC97B68240444095B99BEE4533A09451";
+            // 
+            // buttonSpecAny3
+            // 
+            this.buttonSpecAny3.Text = "(VND)";
+            this.buttonSpecAny3.UniqueName = "D3C9F319445149C6D1896B2586C35E75";
             // 
             // AddSubconstruction
             // 
@@ -408,6 +433,9 @@
         private ComponentFactory.Krypton.Toolkit.KryptonGroupBox kryptonGroupBox1;
         private ComponentFactory.Krypton.Toolkit.KryptonGroupBox kryptonGroupBox2;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel2;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny2;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny1;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny3;
     }
 }
 
