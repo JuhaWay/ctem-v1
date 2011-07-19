@@ -298,7 +298,8 @@
             this.cbStatus.Items.AddRange(new object[] {
             "Mới ",
             "Đang thi công ",
-            "Treo"});
+            "Treo",
+            "Hoàn thành"});
             this.cbStatus.Location = new System.Drawing.Point(107, 160);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(283, 22);

@@ -38,14 +38,17 @@
             this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.ipProgressRate = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.buttonSpecAny2 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.lbConstructionName = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.lbProgress = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.ipConstructionName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.ipRealCost = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.buttonSpecAny3 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.lbAddress = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.lbRealCost = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.ipAddress = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.ipEst = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.buttonSpecAny1 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.lbStartDate = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.lbEst = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.lbEndDate = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
@@ -57,9 +60,6 @@
             this.lbDes = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.dtStartDate = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
             this.ipDes = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.buttonSpecAny1 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny2 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny3 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             ((System.ComponentModel.ISupportInitialize)(this.pnMain)).BeginInit();
             this.pnMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox2)).BeginInit();
@@ -174,6 +174,11 @@
             this.ipProgressRate.TabIndex = 9;
             this.ipProgressRate.Leave += new System.EventHandler(this.ipProgressRate_Leave);
             // 
+            // buttonSpecAny2
+            // 
+            this.buttonSpecAny2.Text = "(%)";
+            this.buttonSpecAny2.UniqueName = "AC97B68240444095B99BEE4533A09451";
+            // 
             // lbConstructionName
             // 
             this.lbConstructionName.Location = new System.Drawing.Point(7, 74);
@@ -212,6 +217,11 @@
             this.ipRealCost.Leave += new System.EventHandler(this.ipRealCost_Leave);
             this.ipRealCost.MouseLeave += new System.EventHandler(this.ipRealCost_MouseLeave);
             // 
+            // buttonSpecAny3
+            // 
+            this.buttonSpecAny3.Text = "(VND)";
+            this.buttonSpecAny3.UniqueName = "D3C9F319445149C6D1896B2586C35E75";
+            // 
             // lbAddress
             // 
             this.lbAddress.Location = new System.Drawing.Point(59, 102);
@@ -249,6 +259,11 @@
             this.ipEst.TabIndex = 7;
             this.ipEst.Leave += new System.EventHandler(this.ipEst_Leave);
             this.ipEst.MouseLeave += new System.EventHandler(this.ipEst_MouseLeave);
+            // 
+            // buttonSpecAny1
+            // 
+            this.buttonSpecAny1.Text = "(VND)";
+            this.buttonSpecAny1.UniqueName = "0357F75B688346CFD8B1E6D3B535A723";
             // 
             // lbStartDate
             // 
@@ -325,7 +340,8 @@
             this.cbStatus.Items.AddRange(new object[] {
             "Mới ",
             "Đang thi công ",
-            "Treo"});
+            "Treo",
+            "Hoàn thành"});
             this.cbStatus.Location = new System.Drawing.Point(110, 40);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(357, 22);
@@ -359,21 +375,6 @@
             this.ipDes.Size = new System.Drawing.Size(357, 109);
             this.ipDes.TabIndex = 10;
             this.ipDes.Text = "...";
-            // 
-            // buttonSpecAny1
-            // 
-            this.buttonSpecAny1.Text = "(VND)";
-            this.buttonSpecAny1.UniqueName = "0357F75B688346CFD8B1E6D3B535A723";
-            // 
-            // buttonSpecAny2
-            // 
-            this.buttonSpecAny2.Text = "(%)";
-            this.buttonSpecAny2.UniqueName = "AC97B68240444095B99BEE4533A09451";
-            // 
-            // buttonSpecAny3
-            // 
-            this.buttonSpecAny3.Text = "(VND)";
-            this.buttonSpecAny3.UniqueName = "D3C9F319445149C6D1896B2586C35E75";
             // 
             // AddSubconstruction
             // 
