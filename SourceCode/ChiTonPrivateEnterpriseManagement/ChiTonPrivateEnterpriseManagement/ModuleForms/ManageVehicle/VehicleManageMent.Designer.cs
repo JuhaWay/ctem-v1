@@ -45,6 +45,12 @@
             this.ipName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.lbName = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.dgvVehicle = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ConstructionName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WarehouseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ManagerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vehicleDTOBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.kryptonLabel3 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
@@ -96,14 +102,8 @@
             this.slcMain = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
             this.gbcRightBot = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.gbxEdit1 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
-            this.finalAccountDetailDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ConstructionName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WarehouseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ManagerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kryptonLabel5 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.finalAccountDetailDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).BeginInit();
@@ -172,7 +172,7 @@
             this.cbStatus.Location = new System.Drawing.Point(475, 79);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(248, 22);
-            this.cbStatus.TabIndex = 27;
+            this.cbStatus.TabIndex = 11;
             this.cbStatus.Text = "chọn...";
             // 
             // lbStatus
@@ -192,7 +192,7 @@
             this.cbHouse.Location = new System.Drawing.Point(475, 48);
             this.cbHouse.Name = "cbHouse";
             this.cbHouse.Size = new System.Drawing.Size(248, 22);
-            this.cbHouse.TabIndex = 23;
+            this.cbHouse.TabIndex = 9;
             this.cbHouse.Text = "chọn...";
             // 
             // lbHouse
@@ -212,7 +212,7 @@
             this.cbManager.Location = new System.Drawing.Point(475, 20);
             this.cbManager.Name = "cbManager";
             this.cbManager.Size = new System.Drawing.Size(248, 22);
-            this.cbManager.TabIndex = 21;
+            this.cbManager.TabIndex = 7;
             this.cbManager.Text = "chọn...";
             // 
             // kryptonLabel4
@@ -232,7 +232,7 @@
             this.cbCons.Location = new System.Drawing.Point(141, 82);
             this.cbCons.Name = "cbCons";
             this.cbCons.Size = new System.Drawing.Size(215, 22);
-            this.cbCons.TabIndex = 19;
+            this.cbCons.TabIndex = 10;
             this.cbCons.Text = "Chọn...";
             // 
             // lbCons
@@ -251,7 +251,7 @@
             this.ipNumber.Location = new System.Drawing.Point(141, 51);
             this.ipNumber.Name = "ipNumber";
             this.ipNumber.Size = new System.Drawing.Size(215, 22);
-            this.ipNumber.TabIndex = 17;
+            this.ipNumber.TabIndex = 8;
             // 
             // lbNumber
             // 
@@ -269,7 +269,7 @@
             this.ipName.Location = new System.Drawing.Point(141, 23);
             this.ipName.Name = "ipName";
             this.ipName.Size = new System.Drawing.Size(215, 22);
-            this.ipName.TabIndex = 15;
+            this.ipName.TabIndex = 6;
             // 
             // lbName
             // 
@@ -300,8 +300,50 @@
             this.dgvVehicle.StateCommon.Background.Color1 = System.Drawing.Color.White;
             this.dgvVehicle.StateCommon.Background.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.ExpertSquareHighlight;
             this.dgvVehicle.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
-            this.dgvVehicle.TabIndex = 7;
+            this.dgvVehicle.TabIndex = 5;
             this.dgvVehicle.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvVehicle_MouseClick);
+            // 
+            // Name
+            // 
+            this.Name.DataPropertyName = "Name";
+            this.Name.HeaderText = "Tên xe";
+            this.Name.Name = "Name";
+            this.Name.Width = 200;
+            // 
+            // ConstructionName
+            // 
+            this.ConstructionName.DataPropertyName = "ConstructionName";
+            this.ConstructionName.HeaderText = "Công trường";
+            this.ConstructionName.Name = "ConstructionName";
+            this.ConstructionName.Width = 150;
+            // 
+            // WarehouseName
+            // 
+            this.WarehouseName.DataPropertyName = "WarehouseName";
+            this.WarehouseName.HeaderText = "Kho chứa";
+            this.WarehouseName.Name = "WarehouseName";
+            this.WarehouseName.Width = 150;
+            // 
+            // ManagerName
+            // 
+            this.ManagerName.DataPropertyName = "ManagerName";
+            this.ManagerName.HeaderText = "Người quán lý";
+            this.ManagerName.Name = "ManagerName";
+            this.ManagerName.Width = 150;
+            // 
+            // Number
+            // 
+            this.Number.DataPropertyName = "Number";
+            this.Number.HeaderText = "Biến số xe";
+            this.Number.Name = "Number";
+            this.Number.Width = 150;
+            // 
+            // Status
+            // 
+            this.Status.DataPropertyName = "Status";
+            this.Status.HeaderText = "Tình trạng xe";
+            this.Status.Name = "Status";
+            this.Status.Width = 150;
             // 
             // vehicleDTOBindingSource3
             // 
@@ -333,7 +375,7 @@
             this.ipSearchNumber.Location = new System.Drawing.Point(239, 13);
             this.ipSearchNumber.Name = "ipSearchNumber";
             this.ipSearchNumber.Size = new System.Drawing.Size(145, 22);
-            this.ipSearchNumber.TabIndex = 7;
+            this.ipSearchNumber.TabIndex = 2;
             // 
             // ipSearchName
             // 
@@ -341,7 +383,7 @@
             this.ipSearchName.Location = new System.Drawing.Point(51, 13);
             this.ipSearchName.Name = "ipSearchName";
             this.ipSearchName.Size = new System.Drawing.Size(120, 22);
-            this.ipSearchName.TabIndex = 6;
+            this.ipSearchName.TabIndex = 1;
             // 
             // cbSearchCons
             // 
@@ -350,7 +392,7 @@
             this.cbSearchCons.Location = new System.Drawing.Point(459, 13);
             this.cbSearchCons.Name = "cbSearchCons";
             this.cbSearchCons.Size = new System.Drawing.Size(139, 22);
-            this.cbSearchCons.TabIndex = 5;
+            this.cbSearchCons.TabIndex = 3;
             this.cbSearchCons.Text = "chọn...";
             // 
             // kryptonLabel1
@@ -632,7 +674,7 @@
             this.btnSearch.StatePressed.Back.Color1 = System.Drawing.Color.Orange;
             this.btnSearch.StatePressed.Back.Color2 = System.Drawing.Color.NavajoWhite;
             this.btnSearch.StatePressed.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.GlassSimpleFull;
-            this.btnSearch.TabIndex = 3;
+            this.btnSearch.TabIndex = 4;
             this.btnSearch.Values.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.find1;
             this.btnSearch.Values.Text = "Tìm";
             this.btnSearch.Click += new System.EventHandler(this.btSearch_Click);
@@ -739,52 +781,6 @@
             this.gbxEdit1.TabIndex = 6;
             this.gbxEdit1.Values.Heading = "";
             // 
-            // finalAccountDetailDTOBindingSource
-            // 
-            this.finalAccountDetailDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.FinalAccountDetailDTO);
-            // 
-            // Name
-            // 
-            this.Name.DataPropertyName = "Name";
-            this.Name.HeaderText = "Tên xe";
-            this.Name.Name = "Name";
-            this.Name.Width = 200;
-            // 
-            // ConstructionName
-            // 
-            this.ConstructionName.DataPropertyName = "ConstructionName";
-            this.ConstructionName.HeaderText = "Công trường";
-            this.ConstructionName.Name = "ConstructionName";
-            this.ConstructionName.Width = 150;
-            // 
-            // WarehouseName
-            // 
-            this.WarehouseName.DataPropertyName = "WarehouseName";
-            this.WarehouseName.HeaderText = "Kho chứa";
-            this.WarehouseName.Name = "WarehouseName";
-            this.WarehouseName.Width = 150;
-            // 
-            // ManagerName
-            // 
-            this.ManagerName.DataPropertyName = "ManagerName";
-            this.ManagerName.HeaderText = "Người quán lý";
-            this.ManagerName.Name = "ManagerName";
-            this.ManagerName.Width = 150;
-            // 
-            // Number
-            // 
-            this.Number.DataPropertyName = "Number";
-            this.Number.HeaderText = "Biến số xe";
-            this.Number.Name = "Number";
-            this.Number.Width = 150;
-            // 
-            // Status
-            // 
-            this.Status.DataPropertyName = "Status";
-            this.Status.HeaderText = "Tình trạng xe";
-            this.Status.Name = "Status";
-            this.Status.Width = 150;
-            // 
             // kryptonLabel5
             // 
             this.kryptonLabel5.Location = new System.Drawing.Point(8, 133);
@@ -793,6 +789,10 @@
             this.kryptonLabel5.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.kryptonLabel5.TabIndex = 28;
             this.kryptonLabel5.Values.Text = "(*) trường bắt buộc";
+            // 
+            // finalAccountDetailDTOBindingSource
+            // 
+            this.finalAccountDetailDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.FinalAccountDetailDTO);
             // 
             // VehicleManageMent
             // 
