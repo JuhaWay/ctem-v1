@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EstimateManagement));
             this.slcEdit = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
             this.cmsEdit = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.EditToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,15 +47,6 @@
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.dgvEstimate = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.EstimateID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ConstructionName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EstimateName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalCostEstimate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CreatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UpdatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CreatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UpdatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estimateDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lbSearchName = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.lbCons = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.cbSearchCons = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
@@ -93,6 +83,15 @@
             this.kryptonContextMenuItems3 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
             this.kryptonContextMenuItems2 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
             this.kryptonContextMenuItems1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
+            this.EstimateID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ConstructionName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EstimateName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalCostEstimate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CreatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UpdatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CreatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UpdatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estimateDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.slcEdit)).BeginInit();
             this.slcEdit.Panel1.SuspendLayout();
             this.slcEdit.Panel2.SuspendLayout();
@@ -106,7 +105,6 @@
             this.gbxEdit2.SuspendLayout();
             this.cmsGen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEstimate)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.estimateDTOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbSearchCons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
@@ -130,82 +128,102 @@
             this.gbxEdit1.SuspendLayout();
             this.cmsDGV.SuspendLayout();
             this.cmsMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.estimateDTOBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // slcEdit
             // 
             this.slcEdit.ContextMenuStrip = this.cmsEdit;
             this.slcEdit.Cursor = System.Windows.Forms.Cursors.Default;
-            resources.ApplyResources(this.slcEdit, "slcEdit");
+            this.slcEdit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.slcEdit.Location = new System.Drawing.Point(0, 0);
             this.slcEdit.Name = "slcEdit";
             // 
             // slcEdit.Panel1
             // 
             this.slcEdit.Panel1.Controls.Add(this.kryptonGroupBox2);
-            resources.ApplyResources(this.slcEdit.Panel1, "slcEdit.Panel1");
+            this.slcEdit.Panel1.Padding = new System.Windows.Forms.Padding(5, 0, 0, 5);
             this.slcEdit.Panel1.StateCommon.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(57)))), ((int)(((byte)(85)))));
             // 
             // slcEdit.Panel2
             // 
             this.slcEdit.Panel2.Controls.Add(this.gbxEdit2);
             this.slcEdit.Panel2.StateCommon.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(57)))), ((int)(((byte)(85)))));
+            this.slcEdit.Size = new System.Drawing.Size(786, 107);
+            this.slcEdit.SplitterDistance = 393;
             this.slcEdit.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(57)))), ((int)(((byte)(85)))));
+            this.slcEdit.TabIndex = 9;
             // 
             // cmsEdit
             // 
-            resources.ApplyResources(this.cmsEdit, "cmsEdit");
+            this.cmsEdit.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.cmsEdit.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.EditToolStripMenuItem,
             this.FreezeToolStripMenuItem,
             this.SaveToolStripMenuItem});
             this.cmsEdit.Name = "cmsEdit";
+            this.cmsEdit.Size = new System.Drawing.Size(181, 70);
             // 
             // EditToolStripMenuItem
             // 
             this.EditToolStripMenuItem.Name = "EditToolStripMenuItem";
-            resources.ApplyResources(this.EditToolStripMenuItem, "EditToolStripMenuItem");
+            this.EditToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
+            this.EditToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.EditToolStripMenuItem.Text = "Sửa";
             // 
             // FreezeToolStripMenuItem
             // 
             this.FreezeToolStripMenuItem.Name = "FreezeToolStripMenuItem";
-            resources.ApplyResources(this.FreezeToolStripMenuItem, "FreezeToolStripMenuItem");
+            this.FreezeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
+            this.FreezeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.FreezeToolStripMenuItem.Text = "Đóng Băng";
             // 
             // SaveToolStripMenuItem
             // 
             this.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem";
-            resources.ApplyResources(this.SaveToolStripMenuItem, "SaveToolStripMenuItem");
+            this.SaveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.SaveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.SaveToolStripMenuItem.Text = "Lưu";
             // 
             // kryptonGroupBox2
             // 
-            resources.ApplyResources(this.kryptonGroupBox2, "kryptonGroupBox2");
+            this.kryptonGroupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.kryptonGroupBox2.Location = new System.Drawing.Point(5, 0);
             this.kryptonGroupBox2.Name = "kryptonGroupBox2";
             // 
             // kryptonGroupBox2.Panel
             // 
             this.kryptonGroupBox2.Panel.Controls.Add(this.ipEstName);
             this.kryptonGroupBox2.Panel.Controls.Add(this.lbEstName);
+            this.kryptonGroupBox2.Size = new System.Drawing.Size(388, 102);
             this.kryptonGroupBox2.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(92)))), ((int)(((byte)(144)))));
             this.kryptonGroupBox2.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
             this.kryptonGroupBox2.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kryptonGroupBox2.StateCommon.Content.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.kryptonGroupBox2.Values.Heading = resources.GetString("kryptonGroupBox2.Values.Heading");
+            this.kryptonGroupBox2.TabIndex = 5;
+            this.kryptonGroupBox2.Values.Heading = "Thông Tin Có Thể Sửa";
             // 
             // ipEstName
             // 
-            resources.ApplyResources(this.ipEstName, "ipEstName");
+            this.ipEstName.Location = new System.Drawing.Point(107, 30);
             this.ipEstName.Name = "ipEstName";
             this.ipEstName.ReadOnly = true;
+            this.ipEstName.Size = new System.Drawing.Size(222, 22);
+            this.ipEstName.TabIndex = 7;
             // 
             // lbEstName
             // 
-            resources.ApplyResources(this.lbEstName, "lbEstName");
+            this.lbEstName.Location = new System.Drawing.Point(25, 33);
             this.lbEstName.Name = "lbEstName";
+            this.lbEstName.Size = new System.Drawing.Size(76, 19);
             this.lbEstName.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.lbEstName.Values.Text = resources.GetString("lbEstName.Values.Text");
+            this.lbEstName.TabIndex = 6;
+            this.lbEstName.Values.Text = "Tên dự toán :";
             // 
             // gbxEdit2
             // 
-            resources.ApplyResources(this.gbxEdit2, "gbxEdit2");
+            this.gbxEdit2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gbxEdit2.Location = new System.Drawing.Point(0, 0);
             this.gbxEdit2.Name = "gbxEdit2";
             // 
             // gbxEdit2.Panel
@@ -214,45 +232,58 @@
             this.gbxEdit2.Panel.Controls.Add(this.kryptonLabel2);
             this.gbxEdit2.Panel.Controls.Add(this.txtConsName);
             this.gbxEdit2.Panel.Controls.Add(this.kryptonLabel1);
-            this.gbxEdit2.Values.Heading = resources.GetString("gbxEdit2.Values.Heading");
+            this.gbxEdit2.Size = new System.Drawing.Size(388, 107);
+            this.gbxEdit2.TabIndex = 5;
+            this.gbxEdit2.Values.Heading = "Thông Tin Cần Biết";
             // 
             // txtTotalEst
             // 
-            resources.ApplyResources(this.txtTotalEst, "txtTotalEst");
+            this.txtTotalEst.Location = new System.Drawing.Point(137, 45);
             this.txtTotalEst.Name = "txtTotalEst";
             this.txtTotalEst.ReadOnly = true;
+            this.txtTotalEst.Size = new System.Drawing.Size(222, 22);
+            this.txtTotalEst.TabIndex = 11;
             // 
             // kryptonLabel2
             // 
-            resources.ApplyResources(this.kryptonLabel2, "kryptonLabel2");
+            this.kryptonLabel2.Location = new System.Drawing.Point(12, 48);
             this.kryptonLabel2.Name = "kryptonLabel2";
+            this.kryptonLabel2.Size = new System.Drawing.Size(119, 19);
             this.kryptonLabel2.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.kryptonLabel2.Values.Text = resources.GetString("kryptonLabel2.Values.Text");
+            this.kryptonLabel2.TabIndex = 10;
+            this.kryptonLabel2.Values.Text = "Tổng Chi Phí Dự Toán";
             // 
             // txtConsName
             // 
-            resources.ApplyResources(this.txtConsName, "txtConsName");
+            this.txtConsName.Location = new System.Drawing.Point(137, 17);
             this.txtConsName.Name = "txtConsName";
             this.txtConsName.ReadOnly = true;
+            this.txtConsName.Size = new System.Drawing.Size(222, 22);
+            this.txtConsName.TabIndex = 9;
             // 
             // kryptonLabel1
             // 
-            resources.ApplyResources(this.kryptonLabel1, "kryptonLabel1");
+            this.kryptonLabel1.Location = new System.Drawing.Point(20, 20);
             this.kryptonLabel1.Name = "kryptonLabel1";
+            this.kryptonLabel1.Size = new System.Drawing.Size(111, 19);
             this.kryptonLabel1.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.kryptonLabel1.Values.Text = resources.GetString("kryptonLabel1.Values.Text");
+            this.kryptonLabel1.TabIndex = 8;
+            this.kryptonLabel1.Values.Text = "Dự Toán Công Trình";
             // 
             // cmsGen
             // 
-            resources.ApplyResources(this.cmsGen, "cmsGen");
+            this.cmsGen.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.cmsGen.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.GenMoneyToolStripMenuItem});
             this.cmsGen.Name = "cmsGen";
+            this.cmsGen.Size = new System.Drawing.Size(177, 26);
             // 
             // GenMoneyToolStripMenuItem
             // 
             this.GenMoneyToolStripMenuItem.Name = "GenMoneyToolStripMenuItem";
-            resources.ApplyResources(this.GenMoneyToolStripMenuItem, "GenMoneyToolStripMenuItem");
+            this.GenMoneyToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G)));
+            this.GenMoneyToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.GenMoneyToolStripMenuItem.Text = "Thêm 000";
             // 
             // dgvEstimate
             // 
@@ -267,96 +298,63 @@
             this.CreatedDate,
             this.UpdatedDate});
             this.dgvEstimate.DataSource = this.estimateDTOBindingSource;
-            resources.ApplyResources(this.dgvEstimate, "dgvEstimate");
+            this.dgvEstimate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvEstimate.Location = new System.Drawing.Point(0, 95);
             this.dgvEstimate.Name = "dgvEstimate";
             this.dgvEstimate.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvEstimate.Size = new System.Drawing.Size(790, 314);
             this.dgvEstimate.StateCommon.Background.Color1 = System.Drawing.Color.White;
             this.dgvEstimate.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
+            this.dgvEstimate.TabIndex = 1;
             this.dgvEstimate.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEstimate_CellClick);
-            // 
-            // EstimateID
-            // 
-            this.EstimateID.DataPropertyName = "EstimateID";
-            resources.ApplyResources(this.EstimateID, "EstimateID");
-            this.EstimateID.Name = "EstimateID";
-            // 
-            // ConstructionName
-            // 
-            this.ConstructionName.DataPropertyName = "ConstructionName";
-            resources.ApplyResources(this.ConstructionName, "ConstructionName");
-            this.ConstructionName.Name = "ConstructionName";
-            // 
-            // EstimateName
-            // 
-            this.EstimateName.DataPropertyName = "EstimateName";
-            resources.ApplyResources(this.EstimateName, "EstimateName");
-            this.EstimateName.Name = "EstimateName";
-            // 
-            // TotalCostEstimate
-            // 
-            this.TotalCostEstimate.DataPropertyName = "TotalCostEstimateFormated";
-            resources.ApplyResources(this.TotalCostEstimate, "TotalCostEstimate");
-            this.TotalCostEstimate.Name = "TotalCostEstimate";
-            // 
-            // CreatedBy
-            // 
-            this.CreatedBy.DataPropertyName = "CreatedBy";
-            resources.ApplyResources(this.CreatedBy, "CreatedBy");
-            this.CreatedBy.Name = "CreatedBy";
-            // 
-            // UpdatedBy
-            // 
-            this.UpdatedBy.DataPropertyName = "UpdatedBy";
-            resources.ApplyResources(this.UpdatedBy, "UpdatedBy");
-            this.UpdatedBy.Name = "UpdatedBy";
-            // 
-            // CreatedDate
-            // 
-            this.CreatedDate.DataPropertyName = "CreatedDateFormated";
-            resources.ApplyResources(this.CreatedDate, "CreatedDate");
-            this.CreatedDate.Name = "CreatedDate";
-            // 
-            // UpdatedDate
-            // 
-            this.UpdatedDate.DataPropertyName = "UpdatedDateFormated";
-            resources.ApplyResources(this.UpdatedDate, "UpdatedDate");
-            this.UpdatedDate.Name = "UpdatedDate";
-            // 
-            // estimateDTOBindingSource
-            // 
-            this.estimateDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.EstimateDTO);
             // 
             // lbSearchName
             // 
-            resources.ApplyResources(this.lbSearchName, "lbSearchName");
+            this.lbSearchName.Location = new System.Drawing.Point(20, 19);
             this.lbSearchName.Name = "lbSearchName";
+            this.lbSearchName.Size = new System.Drawing.Size(72, 19);
             this.lbSearchName.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.lbSearchName.Values.Text = resources.GetString("lbSearchName.Values.Text");
+            this.lbSearchName.TabIndex = 0;
+            this.lbSearchName.Values.Text = "Tên Dự toán";
             // 
             // lbCons
             // 
-            resources.ApplyResources(this.lbCons, "lbCons");
+            this.lbCons.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbCons.Location = new System.Drawing.Point(306, 19);
             this.lbCons.Name = "lbCons";
+            this.lbCons.Size = new System.Drawing.Size(63, 19);
             this.lbCons.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.lbCons.Values.Text = resources.GetString("lbCons.Values.Text");
+            this.lbCons.TabIndex = 2;
+            this.lbCons.Values.Text = "Công trình";
             // 
             // cbSearchCons
             // 
-            resources.ApplyResources(this.cbSearchCons, "cbSearchCons");
+            this.cbSearchCons.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbSearchCons.DropDownWidth = 146;
+            this.cbSearchCons.Location = new System.Drawing.Point(375, 16);
             this.cbSearchCons.Name = "cbSearchCons";
+            this.cbSearchCons.Size = new System.Drawing.Size(161, 22);
+            this.cbSearchCons.TabIndex = 3;
+            this.cbSearchCons.Text = "chọn...";
+            this.cbSearchCons.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ipSeacrchName_KeyDown);
             // 
             // kryptonPanel
             // 
             this.kryptonPanel.Controls.Add(this.slcMain);
-            resources.ApplyResources(this.kryptonPanel, "kryptonPanel");
+            this.kryptonPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.kryptonPanel.Location = new System.Drawing.Point(0, 0);
             this.kryptonPanel.Name = "kryptonPanel";
+            this.kryptonPanel.Size = new System.Drawing.Size(794, 568);
+            this.kryptonPanel.TabIndex = 0;
             // 
             // slcMain
             // 
             this.slcMain.Cursor = System.Windows.Forms.Cursors.Default;
-            resources.ApplyResources(this.slcMain, "slcMain");
+            this.slcMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.slcMain.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
+            this.slcMain.Location = new System.Drawing.Point(0, 0);
             this.slcMain.Name = "slcMain";
+            this.slcMain.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
             // slcMain.Panel1
             // 
@@ -365,10 +363,14 @@
             // slcMain.Panel2
             // 
             this.slcMain.Panel2.Controls.Add(this.gbcRightBot);
+            this.slcMain.Size = new System.Drawing.Size(794, 568);
+            this.slcMain.SplitterDistance = 415;
+            this.slcMain.TabIndex = 14;
             // 
             // gbxLeftBot
             // 
-            resources.ApplyResources(this.gbxLeftBot, "gbxLeftBot");
+            this.gbxLeftBot.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gbxLeftBot.Location = new System.Drawing.Point(0, 0);
             this.gbxLeftBot.Name = "gbxLeftBot";
             // 
             // gbxLeftBot.Panel
@@ -376,18 +378,25 @@
             this.gbxLeftBot.Panel.Controls.Add(this.dgvEstimate);
             this.gbxLeftBot.Panel.Controls.Add(this.pnlSearch);
             this.gbxLeftBot.Panel.Controls.Add(this.hdDebt);
-            this.gbxLeftBot.Values.Heading = resources.GetString("gbxLeftBot.Values.Heading");
+            this.gbxLeftBot.Size = new System.Drawing.Size(794, 415);
+            this.gbxLeftBot.TabIndex = 0;
+            this.gbxLeftBot.Values.Heading = "";
             // 
             // pnlSearch
             // 
             this.pnlSearch.Controls.Add(this.gbxSearch);
-            resources.ApplyResources(this.pnlSearch, "pnlSearch");
+            this.pnlSearch.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlSearch.Location = new System.Drawing.Point(0, 29);
             this.pnlSearch.Name = "pnlSearch";
+            this.pnlSearch.Padding = new System.Windows.Forms.Padding(50, 0, 50, 5);
+            this.pnlSearch.Size = new System.Drawing.Size(790, 66);
+            this.pnlSearch.TabIndex = 1;
             // 
             // gbxSearch
             // 
             this.gbxSearch.CaptionOverlap = 0D;
-            resources.ApplyResources(this.gbxSearch, "gbxSearch");
+            this.gbxSearch.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gbxSearch.Location = new System.Drawing.Point(50, 0);
             this.gbxSearch.Name = "gbxSearch";
             // 
             // gbxSearch.Panel
@@ -397,11 +406,15 @@
             this.gbxSearch.Panel.Controls.Add(this.cbSearchCons);
             this.gbxSearch.Panel.Controls.Add(this.lbSearchName);
             this.gbxSearch.Panel.Controls.Add(this.ipSeacrchName);
-            this.gbxSearch.Values.Heading = resources.GetString("gbxSearch.Values.Heading");
+            this.gbxSearch.Size = new System.Drawing.Size(690, 61);
+            this.gbxSearch.TabIndex = 0;
+            this.gbxSearch.Values.Heading = "";
             // 
             // btnSearch
             // 
-            resources.ApplyResources(this.btnSearch, "btnSearch");
+            this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSearch.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnSearch.Location = new System.Drawing.Point(556, 5);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.OverrideDefault.Back.Color1 = System.Drawing.Color.NavajoWhite;
             this.btnSearch.OverrideDefault.Back.Color2 = System.Drawing.Color.White;
@@ -411,6 +424,7 @@
                         | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
                         | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.btnSearch.OverrideDefault.Border.Rounding = 3;
+            this.btnSearch.Size = new System.Drawing.Size(70, 43);
             this.btnSearch.StateCommon.Back.Color1 = System.Drawing.Color.Khaki;
             this.btnSearch.StateCommon.Back.Color2 = System.Drawing.Color.White;
             this.btnSearch.StateCommon.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.GlassSimpleFull;
@@ -422,95 +436,118 @@
             this.btnSearch.StatePressed.Back.Color1 = System.Drawing.Color.Orange;
             this.btnSearch.StatePressed.Back.Color2 = System.Drawing.Color.NavajoWhite;
             this.btnSearch.StatePressed.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.GlassSimpleFull;
+            this.btnSearch.TabIndex = 3;
             this.btnSearch.Values.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.find1;
-            this.btnSearch.Values.Text = resources.GetString("btnSearch.Values.Text");
+            this.btnSearch.Values.Text = "Tìm";
             this.btnSearch.Click += new System.EventHandler(this.btSearch_Click);
             // 
             // ipSeacrchName
             // 
-            resources.ApplyResources(this.ipSeacrchName, "ipSeacrchName");
+            this.ipSeacrchName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.ipSeacrchName.Location = new System.Drawing.Point(98, 16);
             this.ipSeacrchName.Name = "ipSeacrchName";
+            this.ipSeacrchName.Size = new System.Drawing.Size(188, 22);
+            this.ipSeacrchName.TabIndex = 1;
+            this.ipSeacrchName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ipSeacrchName_KeyDown);
             // 
             // hdDebt
             // 
             this.hdDebt.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
             this.btnViewListDetail,
             this.btnHideShowSearch});
-            resources.ApplyResources(this.hdDebt, "hdDebt");
+            this.hdDebt.Dock = System.Windows.Forms.DockStyle.Top;
             this.hdDebt.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.DockActive;
+            this.hdDebt.Location = new System.Drawing.Point(0, 0);
             this.hdDebt.Name = "hdDebt";
-            this.hdDebt.Values.Description = resources.GetString("hdDebt.Values.Description");
-            this.hdDebt.Values.Heading = resources.GetString("hdDebt.Values.Heading");
-            this.hdDebt.Values.Image = ((System.Drawing.Image)(resources.GetObject("hdDebt.Values.Image")));
+            this.hdDebt.Size = new System.Drawing.Size(790, 29);
+            this.hdDebt.TabIndex = 0;
+            this.hdDebt.Values.Description = "";
+            this.hdDebt.Values.Heading = "Danh Nhà Cung Cấp";
+            this.hdDebt.Values.Image = null;
             // 
             // btnViewListDetail
             // 
             this.btnViewListDetail.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.application_view_detail;
-            resources.ApplyResources(this.btnViewListDetail, "btnViewListDetail");
+            this.btnViewListDetail.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
+            this.btnViewListDetail.Text = "Dự toán chi tiết";
             this.btnViewListDetail.UniqueName = "46715A2AEC0143074F81325F50887305";
             this.btnViewListDetail.Click += new System.EventHandler(this.btViewDetail_Click);
             // 
             // btnHideShowSearch
             // 
-            resources.ApplyResources(this.btnHideShowSearch, "btnHideShowSearch");
+            this.btnHideShowSearch.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
+            this.btnHideShowSearch.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.ArrowUp;
             this.btnHideShowSearch.UniqueName = "7CD50F96676F43E7C0B240BAD639EFD5";
             this.btnHideShowSearch.Click += new System.EventHandler(this.btnHideShowSearch_Click);
             // 
             // gbcRightBot
             // 
-            resources.ApplyResources(this.gbcRightBot, "gbcRightBot");
+            this.gbcRightBot.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gbcRightBot.Location = new System.Drawing.Point(0, 0);
             this.gbcRightBot.Name = "gbcRightBot";
             // 
             // gbcRightBot.Panel
             // 
             this.gbcRightBot.Panel.Controls.Add(this.gbxEdit1);
             this.gbcRightBot.Panel.Controls.Add(this.hdEdit);
-            this.gbcRightBot.Values.Heading = resources.GetString("gbcRightBot.Values.Heading");
+            this.gbcRightBot.Size = new System.Drawing.Size(794, 148);
+            this.gbcRightBot.TabIndex = 1;
+            this.gbcRightBot.Values.Heading = "";
             // 
             // gbxEdit1
             // 
             this.gbxEdit1.CaptionOverlap = 0D;
-            resources.ApplyResources(this.gbxEdit1, "gbxEdit1");
+            this.gbxEdit1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gbxEdit1.Location = new System.Drawing.Point(0, 29);
             this.gbxEdit1.Name = "gbxEdit1";
             // 
             // gbxEdit1.Panel
             // 
             this.gbxEdit1.Panel.Controls.Add(this.slcEdit);
+            this.gbxEdit1.Size = new System.Drawing.Size(790, 113);
             this.gbxEdit1.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(92)))), ((int)(((byte)(144)))));
             this.gbxEdit1.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
             this.gbxEdit1.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxEdit1.StateCommon.Content.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.gbxEdit1.Values.Heading = resources.GetString("gbxEdit1.Values.Heading");
+            this.gbxEdit1.TabIndex = 6;
+            this.gbxEdit1.Values.Heading = "";
             // 
             // hdEdit
             // 
             this.hdEdit.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
             this.btnEdit,
             this.btnSave});
-            resources.ApplyResources(this.hdEdit, "hdEdit");
+            this.hdEdit.Dock = System.Windows.Forms.DockStyle.Top;
             this.hdEdit.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.DockActive;
+            this.hdEdit.Location = new System.Drawing.Point(0, 0);
             this.hdEdit.Name = "hdEdit";
-            this.hdEdit.Values.Description = resources.GetString("hdEdit.Values.Description");
-            this.hdEdit.Values.Heading = resources.GetString("hdEdit.Values.Heading");
-            this.hdEdit.Values.Image = ((System.Drawing.Image)(resources.GetObject("hdEdit.Values.Image")));
+            this.hdEdit.Size = new System.Drawing.Size(790, 29);
+            this.hdEdit.TabIndex = 3;
+            this.hdEdit.Values.Description = "";
+            this.hdEdit.Values.Heading = "Thông Tin Chi Tiết";
+            this.hdEdit.Values.Image = null;
             // 
             // btnEdit
             // 
             this.btnEdit.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.Edit;
-            resources.ApplyResources(this.btnEdit, "btnEdit");
+            this.btnEdit.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
+            this.btnEdit.Text = "Sửa";
             this.btnEdit.UniqueName = "C645E9231765438901BDC91A1034E5D9";
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnSave
             // 
             this.btnSave.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.save_edit;
-            resources.ApplyResources(this.btnSave, "btnSave");
+            this.btnSave.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
+            this.btnSave.Text = "Lưu";
+            this.btnSave.ToolTipTitle = "Lưu";
             this.btnSave.UniqueName = "6549634A1C68497476A2DADA48F6958C";
             this.btnSave.Click += new System.EventHandler(this.btSave_Click);
             // 
             // cmsDGV
             // 
-            resources.ApplyResources(this.cmsDGV, "cmsDGV");
+            this.cmsDGV.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.cmsDGV.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.RefreshToolStripMenuItem,
             this.LoadAllToolStripMenuItem,
@@ -518,35 +555,46 @@
             this.DeleteToolStripMenuItem,
             this.DeleteAllToolStripMenuItem});
             this.cmsDGV.Name = "cmsDGV";
+            this.cmsDGV.Size = new System.Drawing.Size(182, 114);
             // 
             // RefreshToolStripMenuItem
             // 
             this.RefreshToolStripMenuItem.Name = "RefreshToolStripMenuItem";
-            resources.ApplyResources(this.RefreshToolStripMenuItem, "RefreshToolStripMenuItem");
+            this.RefreshToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
+            this.RefreshToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.RefreshToolStripMenuItem.Text = "Làm Mới";
             // 
             // LoadAllToolStripMenuItem
             // 
             this.LoadAllToolStripMenuItem.Name = "LoadAllToolStripMenuItem";
-            resources.ApplyResources(this.LoadAllToolStripMenuItem, "LoadAllToolStripMenuItem");
+            this.LoadAllToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
+            this.LoadAllToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.LoadAllToolStripMenuItem.Text = "Tải Tất Cả";
             // 
             // AddToolStripMenuItem
             // 
             this.AddToolStripMenuItem.Name = "AddToolStripMenuItem";
-            resources.ApplyResources(this.AddToolStripMenuItem, "AddToolStripMenuItem");
+            this.AddToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.AddToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.AddToolStripMenuItem.Text = "Thêm";
             // 
             // DeleteToolStripMenuItem
             // 
             this.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem";
-            resources.ApplyResources(this.DeleteToolStripMenuItem, "DeleteToolStripMenuItem");
+            this.DeleteToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Delete;
+            this.DeleteToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.DeleteToolStripMenuItem.Text = "Xóa";
             // 
             // DeleteAllToolStripMenuItem
             // 
             this.DeleteAllToolStripMenuItem.Name = "DeleteAllToolStripMenuItem";
-            resources.ApplyResources(this.DeleteAllToolStripMenuItem, "DeleteAllToolStripMenuItem");
+            this.DeleteAllToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
+            this.DeleteAllToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.DeleteAllToolStripMenuItem.Text = "Xóa Tất Cả";
             // 
             // cmsMain
             // 
-            resources.ApplyResources(this.cmsMain, "cmsMain");
+            this.cmsMain.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.cmsMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,
             this.toolStripMenuItem3,
@@ -554,51 +602,119 @@
             this.SearchToolStripMenuItem,
             this.HideSearchToolStripMenuItem});
             this.cmsMain.Name = "cmsDGV";
+            this.cmsMain.Size = new System.Drawing.Size(184, 114);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            resources.ApplyResources(this.toolStripMenuItem1, "toolStripMenuItem1");
+            this.toolStripMenuItem1.ShortcutKeys = System.Windows.Forms.Keys.F5;
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(183, 22);
+            this.toolStripMenuItem1.Text = "Làm Mới";
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            resources.ApplyResources(this.toolStripMenuItem3, "toolStripMenuItem3");
+            this.toolStripMenuItem3.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(183, 22);
+            this.toolStripMenuItem3.Text = "Thêm";
             // 
             // lưuToolStripMenuItem
             // 
             this.lưuToolStripMenuItem.Name = "lưuToolStripMenuItem";
-            resources.ApplyResources(this.lưuToolStripMenuItem, "lưuToolStripMenuItem");
+            this.lưuToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.lưuToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.lưuToolStripMenuItem.Text = "Lưu";
             // 
             // SearchToolStripMenuItem
             // 
             this.SearchToolStripMenuItem.Name = "SearchToolStripMenuItem";
-            resources.ApplyResources(this.SearchToolStripMenuItem, "SearchToolStripMenuItem");
+            this.SearchToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
+            this.SearchToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.SearchToolStripMenuItem.Text = "Tìm Kiếm";
             // 
             // HideSearchToolStripMenuItem
             // 
             this.HideSearchToolStripMenuItem.Name = "HideSearchToolStripMenuItem";
-            resources.ApplyResources(this.HideSearchToolStripMenuItem, "HideSearchToolStripMenuItem");
+            this.HideSearchToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
+            this.HideSearchToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.HideSearchToolStripMenuItem.Text = "Ẩn Tìm Kiếm";
             // 
             // kryptonContextMenuCheckBox1
             // 
-            resources.ApplyResources(this.kryptonContextMenuCheckBox1, "kryptonContextMenuCheckBox1");
+            this.kryptonContextMenuCheckBox1.ExtraText = "";
             // 
             // kryptonContextMenuHeading1
             // 
-            resources.ApplyResources(this.kryptonContextMenuHeading1, "kryptonContextMenuHeading1");
+            this.kryptonContextMenuHeading1.ExtraText = "";
             // 
             // kryptonContextMenuItem1
             // 
-            resources.ApplyResources(this.kryptonContextMenuItem1, "kryptonContextMenuItem1");
+            this.kryptonContextMenuItem1.Text = "Menu Item";
+            // 
+            // EstimateID
+            // 
+            this.EstimateID.DataPropertyName = "EstimateID";
+            this.EstimateID.HeaderText = "EstimateID";
+            this.EstimateID.Name = "EstimateID";
+            this.EstimateID.Visible = false;
+            // 
+            // ConstructionName
+            // 
+            this.ConstructionName.DataPropertyName = "ConstructionName";
+            this.ConstructionName.HeaderText = "Công trình";
+            this.ConstructionName.Name = "ConstructionName";
+            this.ConstructionName.Width = 200;
+            // 
+            // EstimateName
+            // 
+            this.EstimateName.DataPropertyName = "EstimateName";
+            this.EstimateName.HeaderText = "Tên";
+            this.EstimateName.Name = "EstimateName";
+            this.EstimateName.Width = 200;
+            // 
+            // TotalCostEstimate
+            // 
+            this.TotalCostEstimate.DataPropertyName = "TotalCostEstimateFormated";
+            this.TotalCostEstimate.HeaderText = "Tổng Dự toán(VND)";
+            this.TotalCostEstimate.Name = "TotalCostEstimate";
+            this.TotalCostEstimate.Width = 150;
+            // 
+            // CreatedBy
+            // 
+            this.CreatedBy.DataPropertyName = "CreatedBy";
+            this.CreatedBy.HeaderText = "Tạo bởi";
+            this.CreatedBy.Name = "CreatedBy";
+            // 
+            // UpdatedBy
+            // 
+            this.UpdatedBy.DataPropertyName = "UpdatedBy";
+            this.UpdatedBy.HeaderText = "Cập nhật bởi";
+            this.UpdatedBy.Name = "UpdatedBy";
+            // 
+            // CreatedDate
+            // 
+            this.CreatedDate.DataPropertyName = "CreatedDateFormated";
+            this.CreatedDate.HeaderText = "Ngày tạo";
+            this.CreatedDate.Name = "CreatedDate";
+            // 
+            // UpdatedDate
+            // 
+            this.UpdatedDate.DataPropertyName = "UpdatedDateFormated";
+            this.UpdatedDate.HeaderText = "Ngày cập nhật";
+            this.UpdatedDate.Name = "UpdatedDate";
+            // 
+            // estimateDTOBindingSource
+            // 
+            this.estimateDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.EstimateDTO);
             // 
             // EstimateManagement
             // 
-            resources.ApplyResources(this, "$this");
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(794, 568);
             this.Controls.Add(this.kryptonPanel);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "EstimateManagement";
+            this.Text = "Dự toán";
             this.Load += new System.EventHandler(this.EstimateManagement_Load);
             this.slcEdit.Panel1.ResumeLayout(false);
             this.slcEdit.Panel2.ResumeLayout(false);
@@ -615,7 +731,6 @@
             this.gbxEdit2.ResumeLayout(false);
             this.cmsGen.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEstimate)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.estimateDTOBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbSearchCons)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).EndInit();
             this.kryptonPanel.ResumeLayout(false);
@@ -642,6 +757,7 @@
             this.gbxEdit1.ResumeLayout(false);
             this.cmsDGV.ResumeLayout(false);
             this.cmsMain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.estimateDTOBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

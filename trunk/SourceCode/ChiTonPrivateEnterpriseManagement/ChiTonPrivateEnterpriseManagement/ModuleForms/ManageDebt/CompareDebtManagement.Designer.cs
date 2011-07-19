@@ -679,17 +679,17 @@
             // 
             // cmsGen
             // 
-            this.cmsGen.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.cmsGen.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.cmsGen.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.GenMoneyToolStripMenuItem});
             this.cmsGen.Name = "cmsGen";
-            this.cmsGen.Size = new System.Drawing.Size(177, 26);
+            this.cmsGen.Size = new System.Drawing.Size(171, 48);
             // 
             // GenMoneyToolStripMenuItem
             // 
             this.GenMoneyToolStripMenuItem.Name = "GenMoneyToolStripMenuItem";
             this.GenMoneyToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G)));
-            this.GenMoneyToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.GenMoneyToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.GenMoneyToolStripMenuItem.Text = "Thêm 000";
             this.GenMoneyToolStripMenuItem.Click += new System.EventHandler(this.GenMoneyToolStripMenuItem_Click);
             // 

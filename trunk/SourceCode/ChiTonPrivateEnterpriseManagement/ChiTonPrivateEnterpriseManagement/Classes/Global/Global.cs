@@ -771,6 +771,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
         {
             if (type.Equals(Constants.CHILD_FORM))
             {
+                form.ShowIcon = false;
                 form.StartPosition = FormStartPosition.CenterParent;
                 form.WindowState = FormWindowState.Maximized;
                 form.GroupBorderStyle = PaletteBorderStyle.InputControlRibbon;
@@ -911,6 +912,17 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
             if (textBox.Text.Equals(Constants.EMPTY_TEXT))
             {
                 textBox.Text = Constants.ZERO_NUMBER;
+            }
+            else
+            {
+                try
+                {
+                    Convert.ToInt64(textBox.Text);
+                }
+                catch
+                {
+                    textBox.Text = Constants.ZERO_NUMBER;
+                }
             }
         }
 
@@ -1069,6 +1081,25 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
                 isActie = Constants.ISACTIVE_FALSE;
             }
             return isActie;
+        }
+
+        public static void SetTextBoxDoubleLeave(KryptonTextBox textBox)
+        {
+            if (textBox.Text.Equals(Constants.EMPTY_TEXT))
+            {
+                textBox.Text = Constants.ZERO_NUMBER;
+            }
+            else
+            {
+                try
+                {
+                    Convert.ToDouble(textBox.Text);
+                }
+                catch
+                {
+                    textBox.Text = Constants.ZERO_NUMBER;
+                }
+            }
         }
     }
 }

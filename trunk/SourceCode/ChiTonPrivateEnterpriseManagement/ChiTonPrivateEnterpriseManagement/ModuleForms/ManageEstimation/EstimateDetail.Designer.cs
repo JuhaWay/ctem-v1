@@ -38,15 +38,6 @@
             this.lbSearchMaterial = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.lbType = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.dgvEstimateDetails = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.EstimateDetailID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EstimateID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaterialID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaterialName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NameDetail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.QuantityEstimate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UnitCostEstimate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalCostEstimate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estimateDetailDTOBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.ipName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.lbName = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.lbMaterial = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
@@ -62,10 +53,6 @@
             this.gbxLeftBot = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.gbxEdit1 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.slcEdit = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
-            this.cmsEdit = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.EditToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.FreezeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.SaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kryptonGroupBox2 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.gbxEdit2 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.hdDebt = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
@@ -82,18 +69,11 @@
             this.btnSearch = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.hdEdit = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
             this.btnHideShowSearch = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.cmsDGV = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.RefreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.LoadAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.AddToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.DeleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.DeleteAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsGen = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.GenMoneyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kryptonContextMenuItems1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
             this.kryptonContextMenuItems3 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
             this.cmsMain = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.lưuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -101,15 +81,24 @@
             this.kryptonContextMenuItem1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
             this.kryptonContextMenuCheckBox1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox();
             this.kryptonContextMenuHeading1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuHeading();
+            this.EstimateDetailID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EstimateID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaterialID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaterialName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NameDetail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QuantityEstimate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UnitCostEstimate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalCostEstimate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estimateDetailDTOBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.estimateDetailDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.workerDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sửaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.xóaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbSearchMaterial)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbType)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEstimateDetails)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.estimateDetailDTOBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbMaterial)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.slcMain)).BeginInit();
             this.slcMain.Panel1.SuspendLayout();
@@ -125,7 +114,6 @@
             this.slcEdit.Panel1.SuspendLayout();
             this.slcEdit.Panel2.SuspendLayout();
             this.slcEdit.SuspendLayout();
-            this.cmsEdit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox2)).BeginInit();
             this.kryptonGroupBox2.Panel.SuspendLayout();
             this.kryptonGroupBox2.SuspendLayout();
@@ -142,11 +130,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.gbxSearch)).BeginInit();
             this.gbxSearch.Panel.SuspendLayout();
             this.gbxSearch.SuspendLayout();
-            this.cmsDGV.SuspendLayout();
             this.cmsGen.SuspendLayout();
             this.cmsMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.estimateDetailDTOBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.estimateDetailDTOBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.workerDTOBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // kryptonPanel
@@ -176,9 +163,10 @@
             this.ipTotal.StateCommon.Content.Color1 = System.Drawing.Color.Red;
             this.ipTotal.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ipTotal.StateDisabled.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ipTotal.TabIndex = 29;
-            this.ipTotal.Leave += new System.EventHandler(this.ipTotal_Leave);
-            this.ipTotal.MouseLeave += new System.EventHandler(this.ipTotal_MouseLeave);
+            this.ipTotal.TabIndex = 1;
+            this.ipTotal.Enter += new System.EventHandler(this.ipTotal_Enter);
+            this.ipTotal.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbType_KeyDown);
+            this.ipTotal.Leave += new System.EventHandler(this.ipPrice_Leave);
             // 
             // cbSearchMaterial
             // 
@@ -188,7 +176,7 @@
             this.cbSearchMaterial.Location = new System.Drawing.Point(222, 14);
             this.cbSearchMaterial.Name = "cbSearchMaterial";
             this.cbSearchMaterial.Size = new System.Drawing.Size(213, 22);
-            this.cbSearchMaterial.TabIndex = 3;
+            this.cbSearchMaterial.TabIndex = 0;
             this.cbSearchMaterial.Text = "chọn...";
             // 
             // cbType
@@ -201,9 +189,10 @@
             this.cbType.Location = new System.Drawing.Point(130, 22);
             this.cbType.Name = "cbType";
             this.cbType.Size = new System.Drawing.Size(234, 22);
-            this.cbType.TabIndex = 28;
+            this.cbType.TabIndex = 0;
             this.cbType.Text = "chọn";
             this.cbType.SelectedIndexChanged += new System.EventHandler(this.cbType_SelectedIndexChanged);
+            this.cbType.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbType_KeyDown);
             // 
             // lbSearchMaterial
             // 
@@ -251,66 +240,6 @@
             this.dgvEstimateDetails.TabIndex = 0;
             this.dgvEstimateDetails.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvEstimateDetails_MouseClick);
             // 
-            // EstimateDetailID
-            // 
-            this.EstimateDetailID.DataPropertyName = "EstimateDetailID";
-            this.EstimateDetailID.HeaderText = "EstimateDetailID";
-            this.EstimateDetailID.Name = "EstimateDetailID";
-            this.EstimateDetailID.Visible = false;
-            // 
-            // EstimateID
-            // 
-            this.EstimateID.DataPropertyName = "EstimateID";
-            this.EstimateID.HeaderText = "EstimateID";
-            this.EstimateID.Name = "EstimateID";
-            this.EstimateID.Visible = false;
-            // 
-            // MaterialID
-            // 
-            this.MaterialID.DataPropertyName = "MaterialID";
-            this.MaterialID.HeaderText = "MaterialID";
-            this.MaterialID.Name = "MaterialID";
-            this.MaterialID.Visible = false;
-            // 
-            // MaterialName
-            // 
-            this.MaterialName.DataPropertyName = "MaterialName";
-            this.MaterialName.HeaderText = "Vật liệu";
-            this.MaterialName.Name = "MaterialName";
-            this.MaterialName.Width = 300;
-            // 
-            // NameDetail
-            // 
-            this.NameDetail.DataPropertyName = "Name";
-            this.NameDetail.HeaderText = "Tên chi tiết";
-            this.NameDetail.Name = "NameDetail";
-            this.NameDetail.Width = 300;
-            // 
-            // QuantityEstimate
-            // 
-            this.QuantityEstimate.DataPropertyName = "QuantityEstimate";
-            this.QuantityEstimate.HeaderText = "Số lượng";
-            this.QuantityEstimate.Name = "QuantityEstimate";
-            this.QuantityEstimate.Width = 200;
-            // 
-            // UnitCostEstimate
-            // 
-            this.UnitCostEstimate.DataPropertyName = "UnitCostEstimateFormated";
-            this.UnitCostEstimate.HeaderText = "Gía(VND)";
-            this.UnitCostEstimate.Name = "UnitCostEstimate";
-            this.UnitCostEstimate.Width = 300;
-            // 
-            // TotalCostEstimate
-            // 
-            this.TotalCostEstimate.DataPropertyName = "TotalCostEstimateFormated";
-            this.TotalCostEstimate.HeaderText = "Tổng(VND)";
-            this.TotalCostEstimate.Name = "TotalCostEstimate";
-            this.TotalCostEstimate.Width = 200;
-            // 
-            // estimateDetailDTOBindingSource1
-            // 
-            this.estimateDetailDTOBindingSource1.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.EstimateDetailDTO);
-            // 
             // ipName
             // 
             this.ipName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
@@ -319,7 +248,8 @@
             this.ipName.Name = "ipName";
             this.ipName.Size = new System.Drawing.Size(234, 22);
             this.ipName.StateDisabled.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ipName.TabIndex = 26;
+            this.ipName.TabIndex = 2;
+            this.ipName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbType_KeyDown);
             // 
             // lbName
             // 
@@ -371,6 +301,8 @@
             this.cbMaterial.TabIndex = 1;
             this.cbMaterial.Text = "chọn...";
             this.cbMaterial.SelectedIndexChanged += new System.EventHandler(this.cbMaterial_SelectedIndexChanged);
+            this.cbMaterial.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbType_KeyDown);
+            this.cbMaterial.Leave += new System.EventHandler(this.cbMaterial_Leave);
             // 
             // ipPrice
             // 
@@ -380,8 +312,9 @@
             this.ipPrice.Name = "ipPrice";
             this.ipPrice.Size = new System.Drawing.Size(234, 22);
             this.ipPrice.StateDisabled.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ipPrice.TabIndex = 5;
-            this.ipPrice.TextChanged += new System.EventHandler(this.ipPrice_TextChanged);
+            this.ipPrice.TabIndex = 0;
+            this.ipPrice.Enter += new System.EventHandler(this.ipPrice_Enter);
+            this.ipPrice.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbType_KeyDown);
             this.ipPrice.Leave += new System.EventHandler(this.ipPrice_Leave);
             // 
             // lbPrice
@@ -407,8 +340,10 @@
             this.ipQuantity.Name = "ipQuantity";
             this.ipQuantity.Size = new System.Drawing.Size(234, 23);
             this.ipQuantity.StateDisabled.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ipQuantity.TabIndex = 4;
-            this.ipQuantity.TextChanged += new System.EventHandler(this.ipQuantity_TextChanged);
+            this.ipQuantity.TabIndex = 2;
+            this.ipQuantity.Enter += new System.EventHandler(this.ipQuantity_Enter);
+            this.ipQuantity.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbType_KeyDown);
+            this.ipQuantity.Leave += new System.EventHandler(this.ipQuantity_Leave);
             // 
             // btnCalUnit
             // 
@@ -484,7 +419,6 @@
             // 
             // slcEdit
             // 
-            this.slcEdit.ContextMenuStrip = this.cmsEdit;
             this.slcEdit.Cursor = System.Windows.Forms.Cursors.Default;
             this.slcEdit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.slcEdit.Location = new System.Drawing.Point(0, 0);
@@ -504,37 +438,6 @@
             this.slcEdit.SplitterDistance = 415;
             this.slcEdit.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(57)))), ((int)(((byte)(85)))));
             this.slcEdit.TabIndex = 30;
-            // 
-            // cmsEdit
-            // 
-            this.cmsEdit.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.cmsEdit.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.EditToolStripMenuItem,
-            this.FreezeToolStripMenuItem,
-            this.SaveToolStripMenuItem});
-            this.cmsEdit.Name = "cmsEdit";
-            this.cmsEdit.Size = new System.Drawing.Size(183, 70);
-            // 
-            // EditToolStripMenuItem
-            // 
-            this.EditToolStripMenuItem.Name = "EditToolStripMenuItem";
-            this.EditToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
-            this.EditToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.EditToolStripMenuItem.Text = "Sửa";
-            // 
-            // FreezeToolStripMenuItem
-            // 
-            this.FreezeToolStripMenuItem.Name = "FreezeToolStripMenuItem";
-            this.FreezeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
-            this.FreezeToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.FreezeToolStripMenuItem.Text = "Đóng Băng";
-            // 
-            // SaveToolStripMenuItem
-            // 
-            this.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem";
-            this.SaveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.SaveToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.SaveToolStripMenuItem.Text = "Lưu";
             // 
             // kryptonGroupBox2
             // 
@@ -645,7 +548,7 @@
             this.ipSummary.Name = "ipSummary";
             this.ipSummary.Size = new System.Drawing.Size(218, 22);
             this.ipSummary.StateCommon.Content.Color1 = System.Drawing.Color.Red;
-            this.ipSummary.TabIndex = 1;
+            this.ipSummary.TabIndex = 0;
             // 
             // kryptonLabel1
             // 
@@ -725,7 +628,7 @@
             this.btnSearch.StatePressed.Back.Color1 = System.Drawing.Color.Orange;
             this.btnSearch.StatePressed.Back.Color2 = System.Drawing.Color.NavajoWhite;
             this.btnSearch.StatePressed.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.GlassSimpleFull;
-            this.btnSearch.TabIndex = 3;
+            this.btnSearch.TabIndex = 1;
             this.btnSearch.Values.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.find1;
             this.btnSearch.Values.Text = "Tìm";
             this.btnSearch.Click += new System.EventHandler(this.btSearch_Click);
@@ -750,87 +653,36 @@
             this.btnHideShowSearch.ToolTipTitle = "Lưu";
             this.btnHideShowSearch.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.ArrowUp;
             this.btnHideShowSearch.UniqueName = "6549634A1C68497476A2DADA48F6958C";
-            // 
-            // cmsDGV
-            // 
-            this.cmsDGV.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.cmsDGV.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.RefreshToolStripMenuItem,
-            this.LoadAllToolStripMenuItem,
-            this.AddToolStripMenuItem,
-            this.DeleteToolStripMenuItem,
-            this.DeleteAllToolStripMenuItem});
-            this.cmsDGV.Name = "cmsDGV";
-            this.cmsDGV.Size = new System.Drawing.Size(182, 114);
-            // 
-            // RefreshToolStripMenuItem
-            // 
-            this.RefreshToolStripMenuItem.Name = "RefreshToolStripMenuItem";
-            this.RefreshToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
-            this.RefreshToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.RefreshToolStripMenuItem.Text = "Làm Mới";
-            // 
-            // LoadAllToolStripMenuItem
-            // 
-            this.LoadAllToolStripMenuItem.Name = "LoadAllToolStripMenuItem";
-            this.LoadAllToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
-            this.LoadAllToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.LoadAllToolStripMenuItem.Text = "Tải Tất Cả";
-            // 
-            // AddToolStripMenuItem
-            // 
-            this.AddToolStripMenuItem.Name = "AddToolStripMenuItem";
-            this.AddToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.AddToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.AddToolStripMenuItem.Text = "Thêm";
-            // 
-            // DeleteToolStripMenuItem
-            // 
-            this.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem";
-            this.DeleteToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Delete;
-            this.DeleteToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.DeleteToolStripMenuItem.Text = "Xóa";
-            // 
-            // DeleteAllToolStripMenuItem
-            // 
-            this.DeleteAllToolStripMenuItem.Name = "DeleteAllToolStripMenuItem";
-            this.DeleteAllToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
-            this.DeleteAllToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.DeleteAllToolStripMenuItem.Text = "Xóa Tất Cả";
+            this.btnHideShowSearch.Click += new System.EventHandler(this.btnHideShowSearch_Click);
             // 
             // cmsGen
             // 
-            this.cmsGen.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.cmsGen.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.cmsGen.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.GenMoneyToolStripMenuItem});
             this.cmsGen.Name = "cmsGen";
-            this.cmsGen.Size = new System.Drawing.Size(177, 26);
+            this.cmsGen.Size = new System.Drawing.Size(171, 26);
             // 
             // GenMoneyToolStripMenuItem
             // 
             this.GenMoneyToolStripMenuItem.Name = "GenMoneyToolStripMenuItem";
             this.GenMoneyToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G)));
-            this.GenMoneyToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.GenMoneyToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.GenMoneyToolStripMenuItem.Text = "Thêm 000";
+            this.GenMoneyToolStripMenuItem.Click += new System.EventHandler(this.GenMoneyToolStripMenuItem_Click);
             // 
             // cmsMain
             // 
             this.cmsMain.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.cmsMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
             this.toolStripMenuItem3,
+            this.xóaToolStripMenuItem,
+            this.sửaToolStripMenuItem,
             this.lưuToolStripMenuItem,
             this.SearchToolStripMenuItem,
             this.HideSearchToolStripMenuItem});
             this.cmsMain.Name = "cmsDGV";
-            this.cmsMain.Size = new System.Drawing.Size(184, 114);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.ShortcutKeys = System.Windows.Forms.Keys.F5;
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(183, 22);
-            this.toolStripMenuItem1.Text = "Làm Mới";
+            this.cmsMain.Size = new System.Drawing.Size(184, 136);
             // 
             // toolStripMenuItem3
             // 
@@ -838,6 +690,7 @@
             this.toolStripMenuItem3.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
             this.toolStripMenuItem3.Size = new System.Drawing.Size(183, 22);
             this.toolStripMenuItem3.Text = "Thêm";
+            this.toolStripMenuItem3.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // lưuToolStripMenuItem
             // 
@@ -845,6 +698,7 @@
             this.lưuToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
             this.lưuToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.lưuToolStripMenuItem.Text = "Lưu";
+            this.lưuToolStripMenuItem.Click += new System.EventHandler(this.btSave_Click);
             // 
             // SearchToolStripMenuItem
             // 
@@ -852,6 +706,7 @@
             this.SearchToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
             this.SearchToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.SearchToolStripMenuItem.Text = "Tìm Kiếm";
+            this.SearchToolStripMenuItem.Click += new System.EventHandler(this.SearchToolStripMenuItem_Click);
             // 
             // HideSearchToolStripMenuItem
             // 
@@ -859,6 +714,7 @@
             this.HideSearchToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
             this.HideSearchToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.HideSearchToolStripMenuItem.Text = "Ẩn Tìm Kiếm";
+            this.HideSearchToolStripMenuItem.Click += new System.EventHandler(this.HideSearchToolStripMenuItem_Click);
             // 
             // kryptonContextMenuItem1
             // 
@@ -872,19 +728,92 @@
             // 
             this.kryptonContextMenuHeading1.ExtraText = "";
             // 
+            // EstimateDetailID
+            // 
+            this.EstimateDetailID.DataPropertyName = "EstimateDetailID";
+            this.EstimateDetailID.HeaderText = "EstimateDetailID";
+            this.EstimateDetailID.Name = "EstimateDetailID";
+            this.EstimateDetailID.Visible = false;
+            // 
+            // EstimateID
+            // 
+            this.EstimateID.DataPropertyName = "EstimateID";
+            this.EstimateID.HeaderText = "EstimateID";
+            this.EstimateID.Name = "EstimateID";
+            this.EstimateID.Visible = false;
+            // 
+            // MaterialID
+            // 
+            this.MaterialID.DataPropertyName = "MaterialID";
+            this.MaterialID.HeaderText = "MaterialID";
+            this.MaterialID.Name = "MaterialID";
+            this.MaterialID.Visible = false;
+            // 
+            // MaterialName
+            // 
+            this.MaterialName.DataPropertyName = "MaterialName";
+            this.MaterialName.HeaderText = "Vật liệu";
+            this.MaterialName.Name = "MaterialName";
+            this.MaterialName.Width = 300;
+            // 
+            // NameDetail
+            // 
+            this.NameDetail.DataPropertyName = "Name";
+            this.NameDetail.HeaderText = "Tên chi tiết";
+            this.NameDetail.Name = "NameDetail";
+            this.NameDetail.Width = 300;
+            // 
+            // QuantityEstimate
+            // 
+            this.QuantityEstimate.DataPropertyName = "QuantityEstimate";
+            this.QuantityEstimate.HeaderText = "Số lượng";
+            this.QuantityEstimate.Name = "QuantityEstimate";
+            this.QuantityEstimate.Width = 200;
+            // 
+            // UnitCostEstimate
+            // 
+            this.UnitCostEstimate.DataPropertyName = "UnitCostEstimateFormated";
+            this.UnitCostEstimate.HeaderText = "Gía(VND)";
+            this.UnitCostEstimate.Name = "UnitCostEstimate";
+            this.UnitCostEstimate.Width = 300;
+            // 
+            // TotalCostEstimate
+            // 
+            this.TotalCostEstimate.DataPropertyName = "TotalCostEstimateFormated";
+            this.TotalCostEstimate.HeaderText = "Tổng(VND)";
+            this.TotalCostEstimate.Name = "TotalCostEstimate";
+            this.TotalCostEstimate.Width = 200;
+            // 
+            // estimateDetailDTOBindingSource1
+            // 
+            this.estimateDetailDTOBindingSource1.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.EstimateDetailDTO);
+            // 
             // estimateDetailDTOBindingSource
             // 
             this.estimateDetailDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.EstimateDetailDTO);
             // 
-            // workerDTOBindingSource
+            // sửaToolStripMenuItem
             // 
-            this.workerDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.WorkerDTO);
+            this.sửaToolStripMenuItem.Name = "sửaToolStripMenuItem";
+            this.sửaToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
+            this.sửaToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.sửaToolStripMenuItem.Text = "Sửa";
+            this.sửaToolStripMenuItem.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
+            // xóaToolStripMenuItem
+            // 
+            this.xóaToolStripMenuItem.Name = "xóaToolStripMenuItem";
+            this.xóaToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Delete;
+            this.xóaToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.xóaToolStripMenuItem.Text = "Xóa";
+            this.xóaToolStripMenuItem.Click += new System.EventHandler(this.btDelete_Click);
             // 
             // estDetailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(792, 566);
+            this.ContextMenuStrip = this.cmsMain;
             this.Controls.Add(this.slcMain);
             this.Controls.Add(this.kryptonPanel);
             this.Name = "estDetailForm";
@@ -897,7 +826,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.cbSearchMaterial)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbType)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEstimateDetails)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.estimateDetailDTOBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbMaterial)).EndInit();
             this.slcMain.Panel1.ResumeLayout(false);
             this.slcMain.Panel2.ResumeLayout(false);
@@ -914,7 +842,6 @@
             this.slcEdit.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.slcEdit)).EndInit();
             this.slcEdit.ResumeLayout(false);
-            this.cmsEdit.ResumeLayout(false);
             this.kryptonGroupBox2.Panel.ResumeLayout(false);
             this.kryptonGroupBox2.Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox2)).EndInit();
@@ -936,11 +863,10 @@
             this.gbxSearch.Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gbxSearch)).EndInit();
             this.gbxSearch.ResumeLayout(false);
-            this.cmsDGV.ResumeLayout(false);
             this.cmsGen.ResumeLayout(false);
             this.cmsMain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.estimateDetailDTOBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.estimateDetailDTOBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.workerDTOBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -951,7 +877,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dgvEstimateDetails;
         private System.Windows.Forms.BindingSource estimateDetailDTOBindingSource;
-        private System.Windows.Forms.BindingSource workerDTOBindingSource;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel lbTotalCost;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox ipPrice;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox ipQuantity;
@@ -980,22 +905,11 @@
         private ComponentFactory.Krypton.Toolkit.KryptonGroupBox gbxEdit1;
         private ComponentFactory.Krypton.Toolkit.KryptonHeader hdEdit;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnHideShowSearch;
-        private System.Windows.Forms.ContextMenuStrip cmsDGV;
-        private System.Windows.Forms.ToolStripMenuItem RefreshToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem LoadAllToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem AddToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem DeleteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem DeleteAllToolStripMenuItem;
-        private System.Windows.Forms.ContextMenuStrip cmsEdit;
-        private System.Windows.Forms.ToolStripMenuItem EditToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem FreezeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem SaveToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip cmsGen;
         private System.Windows.Forms.ToolStripMenuItem GenMoneyToolStripMenuItem;
         private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems kryptonContextMenuItems1;
         private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems kryptonContextMenuItems3;
         private System.Windows.Forms.ContextMenuStrip cmsMain;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem lưuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem SearchToolStripMenuItem;
@@ -1022,6 +936,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn UnitCostEstimate;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalCostEstimate;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnCalUnit;
+        private System.Windows.Forms.ToolStripMenuItem xóaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sửaToolStripMenuItem;
     }
 }
 

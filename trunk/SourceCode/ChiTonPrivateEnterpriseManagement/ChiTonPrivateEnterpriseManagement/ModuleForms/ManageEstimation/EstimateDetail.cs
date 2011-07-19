@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction;
 using ComponentFactory.Krypton.Toolkit;
 using ChiTonPrivateEnterpriseManagement.Classes.BUS;
 using ChiTonPrivateEnterpriseManagement.Classes.DTO;
@@ -40,7 +41,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
         }
         // load form
         private void EstimateDetail_Load(object sender, EventArgs e)
-        {
+        {            
             cbSearchMaterial.Items.Add(new MaterialDTO("Tất cả",0));
             cbSearchMaterial.Items.AddRange(_materialBUS.LoadAllMaterials().ToArray());
             cbSearchMaterial.DisplayMember = "MaterialName";
@@ -48,6 +49,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
             cbMaterial.DisplayMember = "MaterialName";
             loadDetailValues(0);
             SetLayout();
+            btnHideShowSearch_Click(null, null);
         }
         private void SetLayout()
         {
@@ -177,28 +179,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
             if (dto!=null) btnCalUnit.Text = "(" + dto.EstimateCalUnit + ")";
         }
         
-        // tính tỏng giá tiền
-        private void ipQuantity_TextChanged(object sender, EventArgs e)
-        {
-            if (Global.ValidateDoubleNumber(ipQuantity.Text))
-            {
-                _totalCost = Global.ConvertMoneyToLong(ipPrice.Text,".") * Convert.ToDouble(ipQuantity.Text);
-                ipTotal.Text = Global.ConvertLongToMoney((long)_totalCost, ".");
-            }
-            else
-                _totalCost = 0;
-        }
-
-        //tính tổng gia tiền
-        private void ipPrice_TextChanged(object sender, EventArgs e)
-        {
-            if (Global.ValidateDoubleNumber(ipQuantity.Text))
-            {
-                _totalCost = Global.ConvertMoneyToLong(ipPrice.Text, ".") * Convert.ToDouble(ipQuantity.Text);
-                ipTotal.Text = Global.ConvertLongToMoney((long)_totalCost, ".");
-            }
-            else _totalCost = 0;
-        }
         // xóa dư toán chi tiết 
         private void btDelete_Click(object sender, EventArgs e)
         {
@@ -211,21 +191,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
 
             }
             _estimateBUS.UpdateEstimate(_estimateId);
-            resetDataSource(_estimateId, _materialId);
-            loadDetailValues(0);
-        }
-        private void btDelete_Click_1(object sender, EventArgs e)
-        {
-            foreach (DataGridViewRow row in dgvEstimateDetails.Rows)
-            {
-                DataGridViewCell c = dgvEstimateDetails.Rows[row.Index].Cells[0];
-                if (c.AccessibilityObject.Value.Equals("True"))
-                {
-                    string strRightID = row.Cells["EstimateDetailID"].Value.ToString();
-                    long EstimateDetailID = Convert.ToInt64(strRightID);
-                    _estimateDetailBUS.DeleteEstimateDetail(EstimateDetailID);
-                }
-            }
             resetDataSource(_estimateId, _materialId);
             loadDetailValues(0);
         }
@@ -255,6 +220,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
                 }
                 ipQuantity.Text = dtoTemp.QuantityEstimate.ToString();
                 ipPrice.Text = dtoTemp.UnitCostEstimateFormated;
+                ipTotal.Text = dtoTemp.TotalCostEstimateFormated;
             }
             else
             {
@@ -274,21 +240,15 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
                 ipQuantity.Enabled = false;
                 ipPrice.Enabled = false;
                 ipName.Enabled = true;
-                ipTotal.ReadOnly = false;
-                
+                ipTotal.ReadOnly = false;                
                 cbMaterial.SelectedIndex = -1;
-                ipQuantity.Text = "";
-                ipPrice.Text = "";
-                ipTotal.Text = "";
             }
             else
             {
                 ipName.Enabled = false;
                 cbMaterial.Enabled = true;
                 ipQuantity.Enabled = true;
-                ipPrice.Enabled = true;
-                ipName.Text = "";
-                ipTotal.Text = "";
+                ipPrice.Enabled = true;                
             }
         }
         // validate thong tin
@@ -348,21 +308,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
             setDisplay();
         }
 
-        private void ipPrice_Leave(object sender, EventArgs e)
-        {
-            ipPrice.Text = Global.ConvertLongToMoney(Global.ConvertMoneyToLong(ipPrice.Text,"."),".");
-        }
-
-        private void ipTotal_MouseLeave(object sender, EventArgs e)
-        {
-            ipTotal.Text = Global.ConvertLongToMoney(Global.ConvertMoneyToLong(ipTotal.Text, "."), ".");
-        }
-
-        private void ipTotal_Leave(object sender, EventArgs e)
-        {
-            ipTotal.Text = Global.ConvertLongToMoney(Global.ConvertMoneyToLong(ipTotal.Text, "."), ".");
-        }
-
         private void btnNew_Click(object sender, EventArgs e)
         {
             isNew = true;
@@ -403,6 +348,133 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
             ipPrice.ReadOnly = false;
             ipTotal.ReadOnly = true;
             ipSummary.ReadOnly = false;
+        }
+
+        private void ipQuantity_Enter(object sender, EventArgs e)
+        {
+            Global.SetTextBoxNumberEnter(ipQuantity);
+        }
+
+        private void ipQuantity_Leave(object sender, EventArgs e)
+        {
+            Global.SetTextBoxDoubleLeave(ipQuantity);
+        }
+
+        private void ipPrice_Enter(object sender, EventArgs e)
+        {
+            var textBox = sender as KryptonTextBox;
+            Global.SetTextBoxNumberEnter(textBox);
+        }
+
+        private void ipPrice_Leave(object sender, EventArgs e)
+        {
+            var textBox = sender as KryptonTextBox;
+            Global.SetTextBoxMoneyLeave(textBox);
+        }
+
+        private void ipTotal_Enter(object sender, EventArgs e)
+        {
+            if (ipQuantity.Enabled && ipPrice.Enabled)
+            {
+                if (ipPrice.Text.Equals(Constants.ZERO_NUMBER) || ipQuantity.Text.Equals(Constants.ZERO_NUMBER))
+                {
+                    ipTotal.Text = Constants.EMPTY_TEXT;
+                }
+                else
+                {
+                    ipTotal.Text = Global.ConvertLongToMoney((long)(Global.ConvertMoneyToLong(ipPrice.Text, Constants.SPLIP_MONEY) *
+                                   Convert.ToDouble(ipQuantity.Text)), Constants.SPLIP_MONEY);
+                }
+            }
+        }
+
+        private void cbType_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btSave_Click(null, null);
+            }
+        }
+
+        private void btnHideShowSearch_Click(object sender, EventArgs e)
+        {
+            if (gbxSearch.Visible)
+            {
+                btnHideShowSearch.Type = PaletteButtonSpecStyle.ArrowDown;
+                Global.DownUpControl(this, pnlSearch, 62, 2, 4, false);
+                gbxSearch.Visible = false;
+            }
+            else
+            {
+                btnHideShowSearch.Type = PaletteButtonSpecStyle.ArrowUp;
+                gbxSearch.Visible = true;
+                Global.DownUpControl(this, pnlSearch, 62, 2, 4, true);
+            }
+        }
+
+        private void cbMaterial_Leave(object sender, EventArgs e)
+        {
+            MaterialBUS matBus = new MaterialBUS();
+            List<MaterialDTO> listMaterial = matBus.LoadAllMaterials();
+            bool isExist = false;            
+            string nameMaterial = cbMaterial.Text;
+            for (int i = 0; i < listMaterial.Count; i++)
+            {
+                MaterialDTO materialDTO = listMaterial[i];
+                if (materialDTO.MaterialName.Equals(nameMaterial))
+                {
+                    isExist = true;
+                    i = listMaterial.Count;
+                }
+            }
+            if (!isExist)
+            {
+                if(KryptonMessageBox.Show(Constants.NOT_EXIST_MATERIAL, Constants.CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    AddNewMaterial newMaterial = new AddNewMaterial(nameMaterial);
+                    newMaterial.ShowDialog();
+                    listMaterial = matBus.LoadAllMaterials();
+                    Global.SetDataCombobox(cbMaterial, "Material");
+                    cbMaterial.SelectedIndex = listMaterial.Count - 1;
+                }
+                else
+                {
+                    cbMaterial.Focus();
+                }
+            }          
+        }
+
+        private void GenMoneyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ActiveControl.Text += Constants.THOUSAND;
+            }
+            catch
+            {
+            }
+        }
+
+        private void SearchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!gbxSearch.Visible)
+            {
+                btnHideShowSearch.Type = PaletteButtonSpecStyle.ArrowUp;
+                gbxSearch.Visible = true;
+                Global.DownUpControl(this, pnlSearch, 62, 2, 4, true);
+            }
+            cbSearchMaterial.Focus();
+        }
+
+        private void HideSearchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (gbxSearch.Visible)
+            {
+                btnHideShowSearch.Type = PaletteButtonSpecStyle.ArrowDown;
+                Global.DownUpControl(this, pnlSearch, 62, 2, 4, false);
+                gbxSearch.Visible = false;
+            }
+            dgvEstimateDetails.Focus();
         }
     }
 }

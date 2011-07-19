@@ -15,12 +15,18 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
     public partial class AddNewMaterial : ComponentFactory.Krypton.Toolkit.KryptonForm
     {
         private MaterialBUS _materialBUS = new MaterialBUS(); 
-
     
         public AddNewMaterial()
         {
             CenterToParent();
             InitializeComponent();
+        }
+
+        public AddNewMaterial(string name)
+        {
+            CenterToParent();
+            InitializeComponent();
+            ipName.Text = name;
         }
 
         private void btSave_Click(object sender, EventArgs e)
