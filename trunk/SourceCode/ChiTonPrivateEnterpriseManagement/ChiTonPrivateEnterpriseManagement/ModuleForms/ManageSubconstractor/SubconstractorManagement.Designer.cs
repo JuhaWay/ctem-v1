@@ -293,7 +293,7 @@
             this.btnSearch.StatePressed.Back.Color1 = System.Drawing.Color.Orange;
             this.btnSearch.StatePressed.Back.Color2 = System.Drawing.Color.NavajoWhite;
             this.btnSearch.StatePressed.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.GlassSimpleFull;
-            this.btnSearch.TabIndex = 3;
+            this.btnSearch.TabIndex = 1;
             this.btnSearch.Values.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.find1;
             this.btnSearch.Values.Text = "Tìm";
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
@@ -396,7 +396,7 @@
             this.ipName.Location = new System.Drawing.Point(202, 45);
             this.ipName.Name = "ipName";
             this.ipName.Size = new System.Drawing.Size(444, 22);
-            this.ipName.TabIndex = 0;
+            this.ipName.TabIndex = 2;
             // 
             // kryptonLabel4
             // 
@@ -415,7 +415,7 @@
             this.ipPhone.Location = new System.Drawing.Point(202, 93);
             this.ipPhone.Name = "ipPhone";
             this.ipPhone.Size = new System.Drawing.Size(444, 22);
-            this.ipPhone.TabIndex = 2;
+            this.ipPhone.TabIndex = 4;
             // 
             // cmsGen
             // 
@@ -448,7 +448,7 @@
             this.ipAddress.Location = new System.Drawing.Point(202, 69);
             this.ipAddress.Name = "ipAddress";
             this.ipAddress.Size = new System.Drawing.Size(444, 22);
-            this.ipAddress.TabIndex = 1;
+            this.ipAddress.TabIndex = 3;
             // 
             // kryptonLabel1
             // 
