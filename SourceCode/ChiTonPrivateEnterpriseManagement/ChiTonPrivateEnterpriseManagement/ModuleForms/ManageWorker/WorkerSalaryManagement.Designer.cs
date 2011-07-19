@@ -361,7 +361,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             this.cbSearchCons.Location = new System.Drawing.Point(437, 13);
             this.cbSearchCons.Name = "cbSearchCons";
             this.cbSearchCons.Size = new System.Drawing.Size(172, 22);
-            this.cbSearchCons.TabIndex = 7;
+            this.cbSearchCons.TabIndex = 2;
             this.cbSearchCons.Text = "chọn...";
             // 
             // lbSearchCons
@@ -379,7 +379,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             this.ipSearchName.Location = new System.Drawing.Point(147, 13);
             this.ipSearchName.Name = "ipSearchName";
             this.ipSearchName.Size = new System.Drawing.Size(179, 22);
-            this.ipSearchName.TabIndex = 5;
+            this.ipSearchName.TabIndex = 1;
             // 
             // lbSearchName
             // 
@@ -512,7 +512,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             this.dtTodate.Location = new System.Drawing.Point(528, 83);
             this.dtTodate.Name = "dtTodate";
             this.dtTodate.Size = new System.Drawing.Size(177, 20);
-            this.dtTodate.TabIndex = 17;
+            this.dtTodate.TabIndex = 7;
             // 
             // lbName
             // 
@@ -529,7 +529,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             this.ipName.Location = new System.Drawing.Point(229, 36);
             this.ipName.Name = "ipName";
             this.ipName.Size = new System.Drawing.Size(177, 22);
-            this.ipName.TabIndex = 11;
+            this.ipName.TabIndex = 4;
             // 
             // cbCons
             // 
@@ -537,7 +537,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             this.cbCons.Location = new System.Drawing.Point(229, 84);
             this.cbCons.Name = "cbCons";
             this.cbCons.Size = new System.Drawing.Size(177, 22);
-            this.cbCons.TabIndex = 13;
+            this.cbCons.TabIndex = 6;
             this.cbCons.Text = "chọn...";
             // 
             // lbTodate
@@ -567,7 +567,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             this.dtFromdate.Location = new System.Drawing.Point(528, 39);
             this.dtFromdate.Name = "dtFromdate";
             this.dtFromdate.Size = new System.Drawing.Size(177, 20);
-            this.dtFromdate.TabIndex = 15;
+            this.dtFromdate.TabIndex = 5;
             // 
             // lbFromDate
             // 

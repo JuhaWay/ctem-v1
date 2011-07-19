@@ -69,7 +69,7 @@
             this.btClose.Location = new System.Drawing.Point(164, 226);
             this.btClose.Name = "btClose";
             this.btClose.Size = new System.Drawing.Size(53, 25);
-            this.btClose.TabIndex = 9;
+            this.btClose.TabIndex = 6;
             this.btClose.Values.Text = "Đóng";
             // 
             // btSave
@@ -77,7 +77,7 @@
             this.btSave.Location = new System.Drawing.Point(106, 226);
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(52, 25);
-            this.btSave.TabIndex = 8;
+            this.btSave.TabIndex = 5;
             this.btSave.Values.Text = "Lưu";
             this.btSave.Click += new System.EventHandler(this.btSave_Click);
             // 
@@ -88,7 +88,7 @@
             this.dtTodate.Location = new System.Drawing.Point(96, 182);
             this.dtTodate.Name = "dtTodate";
             this.dtTodate.Size = new System.Drawing.Size(177, 20);
-            this.dtTodate.TabIndex = 7;
+            this.dtTodate.TabIndex = 4;
             // 
             // lbTodate
             // 
@@ -106,7 +106,7 @@
             this.dtFromdate.Location = new System.Drawing.Point(96, 137);
             this.dtFromdate.Name = "dtFromdate";
             this.dtFromdate.Size = new System.Drawing.Size(177, 20);
-            this.dtFromdate.TabIndex = 5;
+            this.dtFromdate.TabIndex = 3;
             // 
             // lbFromDate
             // 
@@ -123,7 +123,7 @@
             this.cbCons.Location = new System.Drawing.Point(96, 94);
             this.cbCons.Name = "cbCons";
             this.cbCons.Size = new System.Drawing.Size(177, 22);
-            this.cbCons.TabIndex = 3;
+            this.cbCons.TabIndex = 2;
             this.cbCons.Text = "chọn...";
             // 
             // lbCons
