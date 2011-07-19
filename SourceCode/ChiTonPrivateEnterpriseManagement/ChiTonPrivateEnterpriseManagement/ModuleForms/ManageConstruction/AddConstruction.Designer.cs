@@ -43,6 +43,7 @@
             this.ipConstructionName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.lbAddress = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.ipProgressRate = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.buttonSpecAny1 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.ipAddress = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.lbProgressRate = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.lbStartDate = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
@@ -52,7 +53,6 @@
             this.dtEndDate = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
             this.lbDes = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.cbStatus = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
-            this.buttonSpecAny1 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             ((System.ComponentModel.ISupportInitialize)(this.pnMain)).BeginInit();
             this.pnMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox2)).BeginInit();
@@ -161,7 +161,7 @@
             this.cbManager.Location = new System.Drawing.Point(108, 52);
             this.cbManager.Name = "cbManager";
             this.cbManager.Size = new System.Drawing.Size(282, 22);
-            this.cbManager.TabIndex = 36;
+            this.cbManager.TabIndex = 2;
             this.cbManager.Text = "chọn";
             // 
             // lbConstructionName
@@ -189,7 +189,7 @@
             this.ipConstructionName.Location = new System.Drawing.Point(107, 24);
             this.ipConstructionName.Name = "ipConstructionName";
             this.ipConstructionName.Size = new System.Drawing.Size(283, 22);
-            this.ipConstructionName.TabIndex = 21;
+            this.ipConstructionName.TabIndex = 1;
             // 
             // lbAddress
             // 
@@ -209,15 +209,20 @@
             this.ipProgressRate.Location = new System.Drawing.Point(107, 188);
             this.ipProgressRate.Name = "ipProgressRate";
             this.ipProgressRate.Size = new System.Drawing.Size(283, 25);
-            this.ipProgressRate.TabIndex = 33;
+            this.ipProgressRate.TabIndex = 7;
             this.ipProgressRate.TextChanged += new System.EventHandler(this.ipProgressRate_TextChanged);
+            // 
+            // buttonSpecAny1
+            // 
+            this.buttonSpecAny1.Text = "%";
+            this.buttonSpecAny1.UniqueName = "69B0917AC0B7485BEA9EC84F62C0EF5A";
             // 
             // ipAddress
             // 
             this.ipAddress.Location = new System.Drawing.Point(107, 80);
             this.ipAddress.Name = "ipAddress";
             this.ipAddress.Size = new System.Drawing.Size(283, 22);
-            this.ipAddress.TabIndex = 23;
+            this.ipAddress.TabIndex = 3;
             // 
             // lbProgressRate
             // 
@@ -246,7 +251,7 @@
             this.dtStartDate.Location = new System.Drawing.Point(107, 108);
             this.dtStartDate.Name = "dtStartDate";
             this.dtStartDate.Size = new System.Drawing.Size(283, 20);
-            this.dtStartDate.TabIndex = 31;
+            this.dtStartDate.TabIndex = 4;
             // 
             // lbEndDate
             // 
@@ -264,7 +269,7 @@
             this.ipDes.Multiline = true;
             this.ipDes.Name = "ipDes";
             this.ipDes.Size = new System.Drawing.Size(283, 132);
-            this.ipDes.TabIndex = 30;
+            this.ipDes.TabIndex = 8;
             this.ipDes.Text = "...";
             // 
             // dtEndDate
@@ -274,7 +279,7 @@
             this.dtEndDate.Location = new System.Drawing.Point(107, 134);
             this.dtEndDate.Name = "dtEndDate";
             this.dtEndDate.Size = new System.Drawing.Size(283, 20);
-            this.dtEndDate.TabIndex = 26;
+            this.dtEndDate.TabIndex = 5;
             this.dtEndDate.ValueChanged += new System.EventHandler(this.dtEndDate_ValueChanged);
             // 
             // lbDes
@@ -297,13 +302,8 @@
             this.cbStatus.Location = new System.Drawing.Point(107, 160);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(283, 22);
-            this.cbStatus.TabIndex = 28;
+            this.cbStatus.TabIndex = 6;
             this.cbStatus.Text = "chọn...";
-            // 
-            // buttonSpecAny1
-            // 
-            this.buttonSpecAny1.Text = "%";
-            this.buttonSpecAny1.UniqueName = "69B0917AC0B7485BEA9EC84F62C0EF5A";
             // 
             // AddConstruction
             // 
