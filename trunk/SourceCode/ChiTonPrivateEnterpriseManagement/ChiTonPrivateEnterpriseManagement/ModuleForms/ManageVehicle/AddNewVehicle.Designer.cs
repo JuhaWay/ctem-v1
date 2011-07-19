@@ -96,7 +96,7 @@
             this.cbStatus.Location = new System.Drawing.Point(99, 177);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(141, 22);
-            this.cbStatus.TabIndex = 13;
+            this.cbStatus.TabIndex = 6;
             this.cbStatus.Text = "chọn...";
             // 
             // lbStatus
@@ -113,7 +113,7 @@
             this.btClose.Location = new System.Drawing.Point(157, 205);
             this.btClose.Name = "btClose";
             this.btClose.Size = new System.Drawing.Size(44, 25);
-            this.btClose.TabIndex = 11;
+            this.btClose.TabIndex = 8;
             this.btClose.Values.Text = "Đóng";
             this.btClose.Click += new System.EventHandler(this.btClose_Click);
             // 
@@ -122,7 +122,7 @@
             this.btSave.Location = new System.Drawing.Point(99, 205);
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(52, 25);
-            this.btSave.TabIndex = 10;
+            this.btSave.TabIndex = 7;
             this.btSave.Values.Text = "Tạo";
             this.btSave.Click += new System.EventHandler(this.btSave_Click);
             // 
@@ -132,7 +132,7 @@
             this.cbHouse.Location = new System.Drawing.Point(99, 146);
             this.cbHouse.Name = "cbHouse";
             this.cbHouse.Size = new System.Drawing.Size(141, 22);
-            this.cbHouse.TabIndex = 9;
+            this.cbHouse.TabIndex = 5;
             this.cbHouse.Text = "chọn...";
             // 
             // lbHouse
@@ -150,7 +150,7 @@
             this.cbManager.Location = new System.Drawing.Point(99, 118);
             this.cbManager.Name = "cbManager";
             this.cbManager.Size = new System.Drawing.Size(141, 22);
-            this.cbManager.TabIndex = 7;
+            this.cbManager.TabIndex = 4;
             this.cbManager.Text = "chọn...";
             // 
             // kryptonLabel1
@@ -168,7 +168,7 @@
             this.cbCons.Location = new System.Drawing.Point(99, 90);
             this.cbCons.Name = "cbCons";
             this.cbCons.Size = new System.Drawing.Size(141, 22);
-            this.cbCons.TabIndex = 5;
+            this.cbCons.TabIndex = 3;
             this.cbCons.Text = "Chọn...";
             // 
             // lbCons
@@ -185,7 +185,7 @@
             this.ipNumber.Location = new System.Drawing.Point(99, 59);
             this.ipNumber.Name = "ipNumber";
             this.ipNumber.Size = new System.Drawing.Size(141, 22);
-            this.ipNumber.TabIndex = 3;
+            this.ipNumber.TabIndex = 2;
             // 
             // lbNumber
             // 

@@ -98,7 +98,7 @@
             this.dtDay.Location = new System.Drawing.Point(109, 159);
             this.dtDay.Name = "dtDay";
             this.dtDay.Size = new System.Drawing.Size(181, 20);
-            this.dtDay.TabIndex = 29;
+            this.dtDay.TabIndex = 6;
             // 
             // lbDay
             // 
@@ -114,7 +114,7 @@
             this.btClose.Location = new System.Drawing.Point(167, 290);
             this.btClose.Name = "btClose";
             this.btClose.Size = new System.Drawing.Size(44, 25);
-            this.btClose.TabIndex = 27;
+            this.btClose.TabIndex = 9;
             this.btClose.Values.Text = "Đóng";
             this.btClose.Click += new System.EventHandler(this.btClose_Click);
             // 
@@ -123,7 +123,7 @@
             this.btSave.Location = new System.Drawing.Point(109, 290);
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(52, 25);
-            this.btSave.TabIndex = 26;
+            this.btSave.TabIndex = 8;
             this.btSave.Values.Text = "Tạo";
             this.btSave.Click += new System.EventHandler(this.btSave_Click);
             // 
@@ -133,7 +133,7 @@
             this.ipMaproad.Multiline = true;
             this.ipMaproad.Name = "ipMaproad";
             this.ipMaproad.Size = new System.Drawing.Size(181, 102);
-            this.ipMaproad.TabIndex = 25;
+            this.ipMaproad.TabIndex = 7;
             // 
             // kryptonTextBox1
             // 
@@ -158,7 +158,7 @@
             this.ipDamagedCost.Location = new System.Drawing.Point(109, 134);
             this.ipDamagedCost.Name = "ipDamagedCost";
             this.ipDamagedCost.Size = new System.Drawing.Size(181, 22);
-            this.ipDamagedCost.TabIndex = 22;
+            this.ipDamagedCost.TabIndex = 5;
             this.ipDamagedCost.Leave += new System.EventHandler(this.ipFualCost_Leave);
             this.ipDamagedCost.MouseLeave += new System.EventHandler(this.ipDamagedCost_MouseLeave);
             // 
@@ -176,7 +176,7 @@
             this.ipFualCost.Location = new System.Drawing.Point(109, 106);
             this.ipFualCost.Name = "ipFualCost";
             this.ipFualCost.Size = new System.Drawing.Size(181, 22);
-            this.ipFualCost.TabIndex = 20;
+            this.ipFualCost.TabIndex = 4;
             this.ipFualCost.Leave += new System.EventHandler(this.ipFualCost_Leave);
             this.ipFualCost.MouseLeave += new System.EventHandler(this.ipFualCost_MouseLeave);
             // 
@@ -195,7 +195,7 @@
             this.cbDriver.Location = new System.Drawing.Point(109, 53);
             this.cbDriver.Name = "cbDriver";
             this.cbDriver.Size = new System.Drawing.Size(181, 22);
-            this.cbDriver.TabIndex = 18;
+            this.cbDriver.TabIndex = 2;
             this.cbDriver.Text = "chọn...";
             // 
             // cbVehicle
@@ -204,7 +204,7 @@
             this.cbVehicle.Location = new System.Drawing.Point(109, 28);
             this.cbVehicle.Name = "cbVehicle";
             this.cbVehicle.Size = new System.Drawing.Size(181, 22);
-            this.cbVehicle.TabIndex = 17;
+            this.cbVehicle.TabIndex = 1;
             this.cbVehicle.Text = "chọn...";
             // 
             // lbDriver
@@ -232,7 +232,7 @@
             this.cbCons.Location = new System.Drawing.Point(109, 78);
             this.cbCons.Name = "cbCons";
             this.cbCons.Size = new System.Drawing.Size(181, 22);
-            this.cbCons.TabIndex = 14;
+            this.cbCons.TabIndex = 3;
             this.cbCons.Text = "chọn...";
             // 
             // kryptonLabel1
