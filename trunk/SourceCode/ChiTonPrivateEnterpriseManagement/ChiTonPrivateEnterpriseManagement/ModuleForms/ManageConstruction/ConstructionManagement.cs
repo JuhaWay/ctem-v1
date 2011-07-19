@@ -83,11 +83,11 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
         private void btAddChild_Click(object sender, EventArgs e)
         {
 
-            string sParentId = dgvCons.SelectedRows[0].Cells["ParentId"].Value.ToString();
+            string sParentId = dgvCons.SelectedRows[0].Cells["ParentID"].Value.ToString();
             long ParentId = Convert.ToInt64(sParentId);
             string sConstructionID = dgvCons.SelectedRows[0].Cells["ConstructionID"].Value.ToString();
             long ConstructionID = Convert.ToInt64(sConstructionID);
-            AddConstruction editForm = new AddConstruction(ConstructionID, 1);
+            AddConstruction editForm = new AddConstruction(ConstructionID,false,1);
             editForm.ShowDialog();
             search();
         }
@@ -104,12 +104,12 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
                 long ConstructionID = Convert.ToInt64(sConstructionID);
                 if (ParentId == 0 || type.Trim().Equals(ConstructionDTO.MAIN))
                 {
-                    AddConstruction editForm = new AddConstruction(ConstructionID, 1);
+                    AddConstruction editForm = new AddConstruction(ConstructionID,true, 1);
                     editForm.ShowDialog();
                 }
-                else if (ParentId != 0)
+                else if (ParentId != 0 && type.Trim().Equals(ConstructionDTO.MAIN))
                 {
-                    AddConstruction editForm = new AddConstruction(ConstructionID, 0);
+                    AddConstruction editForm = new AddConstruction(ConstructionID,true, 0);
                     editForm.ShowDialog();
                 }
                 else
@@ -246,7 +246,8 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
                     }
                     dto.TotalEstimateCostFormated = Global.ConvertLongToMoney(dto.TotalEstimateCost,".");
                     dto.TotalRealCostFormated = Global.ConvertLongToMoney(dto.TotalRealCost, ".");
-                    //dto.ProgressRate = dto.ProgressRate / children.Count;
+                    if (children.Count>0) 
+                        dto.ProgressRate = dto.ProgressRate / children.Count;
                     TreeGridNode node = dgvCons.Nodes.Add(dto.ConstructionID, dto.ConstructionName, dto.type, dto.SubcontractorName, dto.Status, dto.ProgressRate, dto.TotalEstimateCostFormated, dto.TotalRealCostFormated,dto.ManagerName, dto.Description, dto.ConstructionAddress,
                         dto.CommencementDateFormated, dto.CompletionDateFormated, dto.ParentID, dto.CreatedBy, dto.CreateDateFormated, dto.UpdatedBy, dto.LastUpdatedFormated, dto.HasEstimate);                  
                     foreach (ConstructionDTO child in children)

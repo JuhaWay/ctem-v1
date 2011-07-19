@@ -14,23 +14,22 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
 {
     public partial class AddConstruction : ComponentFactory.Krypton.Toolkit.KryptonForm
     {
-        public int Type { get; set; }
-        private const int TYPE_PARENT = 0;
-        private const int TYPE_CHILD = 1;
+       
         private List<SubcontractorDTO> subCons = new List<SubcontractorDTO>();
         private ConstructionBus _constructionBus = new ConstructionBus();
         private SubcontractorBUS _subcontractorBUS = new SubcontractorBUS();
         private EstimateBUS _estimateBUS = new EstimateBUS();
         private EmployeeBUS _employeeBUS = new EmployeeBUS();
-
         private ConstructionDTO _constructionDTO = new ConstructionDTO();
-        private long parentId;
-        private int type = 0;
-        private bool update = false;
-        // khởi tạo với type là  cha
+        //---------------------------------------------------------------------
+        private const int TYPE_PARENT = 0;
+        private const int TYPE_CHILD = 1;
+        private int type = TYPE_PARENT;
+        private long _parentID;
+        private bool _update;
+        // tạo với type là  cha
         public AddConstruction() {
             InitializeComponent();
-            CenterToParent();
             loadSubcons();
             if (!Global.IsAllow(Constants.CREATE_NEW_CONSTRUCTION))
             {
@@ -39,50 +38,55 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
            
            
         }
-        // load nhà thau phụ
-        private void loadSubcons(){
-            cbManager.Items.Add(new EmployerDTO("Tất cả",0));
-            cbManager.Items.AddRange(_employeeBUS.LoadAllEmployee().ToArray());
-            cbManager.DisplayMember = "Username";
-            subCons= _subcontractorBUS.loadAllSubcontractorDTO();
-        }
-        
-        public AddConstruction(long constructionId, int _type)
+        // sửa cha update=true,type=cha|sửa con update = true,type=con|tạo con update = false,type=con
+        public AddConstruction(long ID,bool update, int _type)
         {
-            Type = _type;
+            // khởi tạo value
             InitializeComponent();
             loadSubcons();
-            update = true;
+            _update = update;
             type = _type;
-            _constructionDTO = _constructionBus.LoadConstructionById(constructionId);
-            if (_constructionDTO.ParentID != 0)
+            // kiểm tra xem là update hay tạo mới
+            if (_update)
             {
-                this.ipProgressRate.Enabled = true;
-                cbManager.Enabled = false;
+
+                _constructionDTO = _constructionBus.LoadConstructionById(ID);
+                if (_constructionDTO.ParentID != 0)
+                {
+                    this.ipProgressRate.Enabled = true;
+                    cbManager.Enabled = false;
+                }
+                else
+                {
+                    if (!Global.IsAllow(Constants.CREATE_NEW_CONSTRUCTION))
+                    {
+                        cbManager.Enabled = false;
+                    }
+                }
+
+                ipConstructionName.Text = _constructionDTO.ConstructionName;
+                ipDes.Text = _constructionDTO.ConstructionAddress;
+                ipAddress.Text = _constructionDTO.ConstructionAddress;
+                cbStatus.SelectedItem = _constructionDTO.Status;
+                ipProgressRate.Text = _constructionDTO.ProgressRate.ToString();
+                foreach (EmployerDTO item in cbManager.Items)
+                {
+                    if (_constructionDTO.ManagerID.Equals(item.employeeID))
+                        cbManager.SelectedItem = item;
+                }
             }
             else
             {
-                if (!Global.IsAllow(Constants.CREATE_NEW_CONSTRUCTION))
-                {
-                    cbManager.Enabled = false;
-                }
-            }
-
-            ipConstructionName.Text = _constructionDTO.ConstructionName;
-            ipDes.Text = _constructionDTO.ConstructionAddress;
-            ipAddress.Text = _constructionDTO.ConstructionAddress;
-            cbStatus.SelectedItem = _constructionDTO.Status;
-            ipProgressRate.Text = _constructionDTO.ProgressRate.ToString();
-            foreach (EmployerDTO item in cbManager.Items)
-            {
-                if (_constructionDTO.ManagerID.Equals(item.employeeID))
-                    cbManager.SelectedItem = item;
+                // trường hợp tạo con 
+                _parentID = ID;
+                this.ipProgressRate.Enabled = true;
             }
         }
 
         // load form
         private void AddConstruction_Load(object sender, EventArgs e)
         {
+            loadSubcons();
             CenterToParent();
             Global.SetLayoutPanelNewForm(pnMain);
             Global.SetLayoutForm(this, Constants.DIALOG_FORM);
@@ -91,7 +95,14 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
             Global.SetLayoutButton(btSave);
             Global.SetLayoutButton(btCancel);
         }
-        
+        // load nhà thau phụ
+        private void loadSubcons()
+        {
+            cbManager.Items.Add(new EmployerDTO("Tất cả", 0));
+            cbManager.Items.AddRange(_employeeBUS.LoadAllEmployee().ToArray());
+            cbManager.DisplayMember = "Username";
+            subCons = _subcontractorBUS.loadAllSubcontractorDTO();
+        }
         // tạo và chọn nhà thầu phụ
         private void btEditSubcons_Click(object sender, EventArgs e)
         {
@@ -101,11 +112,11 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
             
         }
        
-        // sửa và tạo
+        // Lưu các giá trị sửa/tạo và DB
         private void btSave_Click(object sender, EventArgs e)
         {
             if (!validateConstruction()) return;
-            if (!update)
+            if (!_update)// trường hợp là tạo mới
             {
                 if (type != TYPE_CHILD)
                 {
@@ -114,7 +125,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
                     createCons(id,true);
                 }
                 else {
-                    createCons(parentId,false);
+                    createCons(_parentID,false);
                 }
                 
                 //--------------------------------------------------------------------
@@ -122,7 +133,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
                             MessageBoxIcon.Information);
                 this.Close();
             }
-            else
+            else// trường hợp là sửa
             {
                 _constructionDTO.CommencementDate = dtStartDate.Value.Date;
                 _constructionDTO.CompletionDate = dtEndDate.Value.Date;
@@ -161,7 +172,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
             _constructionDTO.Description = ipDes.Text;
             _constructionDTO.TotalEstimateCost = 0;
             _constructionDTO.Status = cbStatus.Text;
-            _constructionDTO.ProgressRate = Convert.ToInt64(ipProgressRate.Text);
             _constructionDTO.type = ConstructionDTO.MAIN;
             if (type == TYPE_CHILD)
             {
@@ -188,7 +198,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
                 est.Type = 0;
                 est.TotalCostEstimate = 0;
                 est.ConstructionID = id;
-                est.EstimateName = "Dự toán cho : " + ipConstructionName.Text;
+                est.EstimateName = "Dự toán cho : " + _constructionDTO.ConstructionName;
                 _estimateBUS.creatEstimate(est);
             }
             return id;
@@ -223,18 +233,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
                 KryptonMessageBox.Show(Constants.ERROR_DATE, Constants.ALERT_ERROR, MessageBoxButtons.OK,
                                        MessageBoxIcon.Warning);
                 dtEndDate.Value = dtStartDate.Value;
-            }
-        }
-
-        private void cbStatus_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cbStatus.Text.Equals("Mới"))
-            {
-                ipProgressRate.Enabled = false;
-            }
-            else
-            {
-                ipProgressRate.Enabled = true;
             }
         }
 

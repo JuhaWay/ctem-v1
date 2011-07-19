@@ -82,14 +82,14 @@
             // 
             this.phoneInPut.Location = new System.Drawing.Point(125, 108);
             this.phoneInPut.Name = "phoneInPut";
-            this.phoneInPut.Size = new System.Drawing.Size(183, 20);
+            this.phoneInPut.Size = new System.Drawing.Size(183, 22);
             this.phoneInPut.TabIndex = 22;
             // 
             // PhoneLabel
             // 
             this.PhoneLabel.Location = new System.Drawing.Point(16, 108);
             this.PhoneLabel.Name = "PhoneLabel";
-            this.PhoneLabel.Size = new System.Drawing.Size(71, 16);
+            this.PhoneLabel.Size = new System.Drawing.Size(69, 19);
             this.PhoneLabel.TabIndex = 21;
             this.PhoneLabel.Values.Text = "Điện Thoại :";
             // 
@@ -106,7 +106,7 @@
             // 
             this.DesLabel.Location = new System.Drawing.Point(16, 66);
             this.DesLabel.Name = "DesLabel";
-            this.DesLabel.Size = new System.Drawing.Size(48, 16);
+            this.DesLabel.Size = new System.Drawing.Size(47, 19);
             this.DesLabel.TabIndex = 20;
             this.DesLabel.Values.Text = "Địa chỉ:";
             // 
@@ -114,14 +114,14 @@
             // 
             this.subNameInput.Location = new System.Drawing.Point(125, 12);
             this.subNameInput.Name = "subNameInput";
-            this.subNameInput.Size = new System.Drawing.Size(183, 20);
+            this.subNameInput.Size = new System.Drawing.Size(183, 22);
             this.subNameInput.TabIndex = 19;
             // 
             // SubConLabel
             // 
             this.SubConLabel.Location = new System.Drawing.Point(16, 15);
             this.SubConLabel.Name = "SubConLabel";
-            this.SubConLabel.Size = new System.Drawing.Size(83, 16);
+            this.SubConLabel.Size = new System.Drawing.Size(81, 19);
             this.SubConLabel.TabIndex = 18;
             this.SubConLabel.Values.Text = "Tên nhà thầu :";
             // 
@@ -144,7 +144,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "SelectSubConstructionBox";
-            this.Text = "SelectSubConstructionBox";
+            this.Text = "Tạo mới nhà thầu phụ";
             this.Load += new System.EventHandler(this.SelectSubConstructionBox_Load);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).EndInit();
             this.kryptonPanel.ResumeLayout(false);
