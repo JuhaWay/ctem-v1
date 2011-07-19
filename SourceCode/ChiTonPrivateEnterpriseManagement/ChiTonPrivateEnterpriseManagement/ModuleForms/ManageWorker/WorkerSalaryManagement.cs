@@ -87,7 +87,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             _dtoTemp.FromDate = dtFromdate.Value.Date;
             _dtoTemp.ToDate = dtTodate.Value.Date;
             _workerSalaryBUS.UpdateWks(_dtoTemp);
-            MessageBox.Show("Tạo tổng kết thành công !");
+            MessageBox.Show("cập nhật thành công !");
             refresh();
         }
         // thay đổi lựa chọn
