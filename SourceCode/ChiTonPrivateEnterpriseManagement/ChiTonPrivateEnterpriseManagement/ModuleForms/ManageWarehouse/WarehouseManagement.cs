@@ -269,6 +269,37 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWarehouse
             string whname = dgvWH.SelectedRows[0].Cells["WarehouseName"].Value.ToString();
             WarehouseDetail whdetail = new WarehouseDetail(whname);
             whdetail.ShowDialog();
+            RefreshData();
         }
+
+        private void cbbTypeSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnSearch_Click(null, null);
+            }
+        }
+
+        private void SearchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!gbxSearch.Visible)
+            {
+                btnHideShowSearch.Type = PaletteButtonSpecStyle.ArrowUp;
+                gbxSearch.Visible = true;
+                Global.DownUpControl(this, pnlSearch, 62, 2, 4, true);
+            }
+            cbbNameSearch.Focus();
+        }
+
+        private void HideSearchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (gbxSearch.Visible)
+            {
+                btnHideShowSearch.Type = PaletteButtonSpecStyle.ArrowDown;
+                Global.DownUpControl(this, pnlSearch, 62, 2, 4, false);
+                gbxSearch.Visible = false;
+            }
+        }
+
     }
 }

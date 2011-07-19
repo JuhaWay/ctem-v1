@@ -160,8 +160,6 @@
             // 
             this.slcMain.Panel2.Controls.Add(this.gbcRightBot);
             this.slcMain.Size = new System.Drawing.Size(825, 474);
-            this.slcMain.SplitterDistance = 252;
-            this.slcMain.Size = new System.Drawing.Size(825, 474);
             this.slcMain.SplitterDistance = 268;
             this.slcMain.TabIndex = 13;
             // 
@@ -176,7 +174,6 @@
             this.gbxLeftBot.Panel.Controls.Add(this.dgvDebt);
             this.gbxLeftBot.Panel.Controls.Add(this.pnlSearch);
             this.gbxLeftBot.Panel.Controls.Add(this.hdDebt);
-            this.gbxLeftBot.Size = new System.Drawing.Size(825, 252);
             this.gbxLeftBot.Size = new System.Drawing.Size(825, 268);
             this.gbxLeftBot.TabIndex = 0;
             this.gbxLeftBot.Values.Heading = "";
@@ -201,7 +198,6 @@
             this.dgvDebt.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDebt.Location = new System.Drawing.Point(0, 87);
             this.dgvDebt.Name = "dgvDebt";
-            this.dgvDebt.Size = new System.Drawing.Size(821, 159);
             this.dgvDebt.Size = new System.Drawing.Size(821, 175);
             this.dgvDebt.TabIndex = 0;
             this.dgvDebt.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDebt_CellClick);
@@ -292,14 +288,12 @@
             this.DeleteAllToolStripMenuItem});
             this.cmsDGV.Name = "cmsDGV";
             this.cmsDGV.Size = new System.Drawing.Size(176, 114);
-            this.cmsDGV.Size = new System.Drawing.Size(182, 114);
             // 
             // RefreshToolStripMenuItem
             // 
             this.RefreshToolStripMenuItem.Name = "RefreshToolStripMenuItem";
             this.RefreshToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
             this.RefreshToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
-            this.RefreshToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.RefreshToolStripMenuItem.Text = "Làm Mới";
             this.RefreshToolStripMenuItem.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
@@ -308,7 +302,6 @@
             this.LoadAllToolStripMenuItem.Name = "LoadAllToolStripMenuItem";
             this.LoadAllToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
             this.LoadAllToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
-            this.LoadAllToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.LoadAllToolStripMenuItem.Text = "Tải Tất Cả";
             this.LoadAllToolStripMenuItem.Click += new System.EventHandler(this.btnLoadAll_Click);
             // 
@@ -317,7 +310,6 @@
             this.AddToolStripMenuItem.Name = "AddToolStripMenuItem";
             this.AddToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
             this.AddToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
-            this.AddToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.AddToolStripMenuItem.Text = "Thêm";
             this.AddToolStripMenuItem.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -326,7 +318,6 @@
             this.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem";
             this.DeleteToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Delete;
             this.DeleteToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
-            this.DeleteToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.DeleteToolStripMenuItem.Text = "Xóa";
             this.DeleteToolStripMenuItem.Click += new System.EventHandler(this.btnDelete_Click);
             // 
@@ -335,7 +326,6 @@
             this.DeleteAllToolStripMenuItem.Name = "DeleteAllToolStripMenuItem";
             this.DeleteAllToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
             this.DeleteAllToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
-            this.DeleteAllToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.DeleteAllToolStripMenuItem.Text = "Xóa Tất Cả";
             this.DeleteAllToolStripMenuItem.Click += new System.EventHandler(this.btnDeleteAll_Click);
             // 
@@ -562,7 +552,6 @@
             // 
             this.slcEdit.Panel2.Controls.Add(this.gbxEdit2);
             this.slcEdit.Panel2.StateCommon.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(57)))), ((int)(((byte)(85)))));
-            this.slcEdit.Size = new System.Drawing.Size(821, 182);
             this.slcEdit.Size = new System.Drawing.Size(821, 166);
             this.slcEdit.SplitterDistance = 409;
             this.slcEdit.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(57)))), ((int)(((byte)(85)))));
@@ -618,7 +607,6 @@
             this.gbxEdit1.Panel.Controls.Add(this.kryptonLabel3);
             this.gbxEdit1.Panel.Controls.Add(this.txtDebtName);
             this.gbxEdit1.Panel.Controls.Add(this.kryptonLabel1);
-            this.gbxEdit1.Size = new System.Drawing.Size(404, 177);
             this.gbxEdit1.Size = new System.Drawing.Size(404, 161);
             this.gbxEdit1.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(92)))), ((int)(((byte)(144)))));
             this.gbxEdit1.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
@@ -631,7 +619,7 @@
             // 
             this.txtDebtId.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDebtId.Location = new System.Drawing.Point(118, 15);
+            this.txtDebtId.Location = new System.Drawing.Point(110, 13);
             this.txtDebtId.Name = "txtDebtId";
             this.txtDebtId.Size = new System.Drawing.Size(251, 22);
             this.txtDebtId.TabIndex = 0;
@@ -650,7 +638,7 @@
             this.cbbStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.cbbStatus.DropDownWidth = 218;
-            this.cbbStatus.Location = new System.Drawing.Point(118, 87);
+            this.cbbStatus.Location = new System.Drawing.Point(110, 97);
             this.cbbStatus.Name = "cbbStatus";
             this.cbbStatus.Size = new System.Drawing.Size(251, 22);
             this.cbbStatus.TabIndex = 3;
@@ -669,7 +657,7 @@
             this.txtTotalOwe.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTotalOwe.ContextMenuStrip = this.cmsGen;
-            this.txtTotalOwe.Location = new System.Drawing.Point(118, 63);
+            this.txtTotalOwe.Location = new System.Drawing.Point(110, 69);
             this.txtTotalOwe.Name = "txtTotalOwe";
             this.txtTotalOwe.Size = new System.Drawing.Size(251, 22);
             this.txtTotalOwe.TabIndex = 2;
@@ -705,7 +693,7 @@
             // 
             this.txtDebtName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDebtName.Location = new System.Drawing.Point(118, 39);
+            this.txtDebtName.Location = new System.Drawing.Point(110, 41);
             this.txtDebtName.Name = "txtDebtName";
             this.txtDebtName.Size = new System.Drawing.Size(251, 22);
             this.txtDebtName.TabIndex = 1;
@@ -734,7 +722,6 @@
             this.gbxEdit2.Panel.Controls.Add(this.kryptonLabel5);
             this.gbxEdit2.Panel.Controls.Add(this.kryptonLabel2);
             this.gbxEdit2.Panel.Controls.Add(this.txtPhonenumber);
-            this.gbxEdit2.Size = new System.Drawing.Size(407, 182);
             this.gbxEdit2.Size = new System.Drawing.Size(407, 166);
             this.gbxEdit2.TabIndex = 5;
             this.gbxEdit2.Values.Heading = "Thông Tin Thêm";
@@ -746,7 +733,7 @@
             this.txtDescription.Location = new System.Drawing.Point(118, 85);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(259, 42);
+            this.txtDescription.Size = new System.Drawing.Size(259, 50);
             this.txtDescription.TabIndex = 2;
             // 
             // kryptonLabel7
@@ -779,7 +766,7 @@
             // 
             // kryptonLabel2
             // 
-            this.kryptonLabel2.Location = new System.Drawing.Point(26, 13);
+            this.kryptonLabel2.Location = new System.Drawing.Point(29, 12);
             this.kryptonLabel2.Name = "kryptonLabel2";
             this.kryptonLabel2.Size = new System.Drawing.Size(80, 19);
             this.kryptonLabel2.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -790,7 +777,7 @@
             // 
             this.txtPhonenumber.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPhonenumber.Location = new System.Drawing.Point(118, 13);
+            this.txtPhonenumber.Location = new System.Drawing.Point(118, 9);
             this.txtPhonenumber.Name = "txtPhonenumber";
             this.txtPhonenumber.Size = new System.Drawing.Size(259, 22);
             this.txtPhonenumber.TabIndex = 0;
@@ -859,15 +846,13 @@
             this.SearchToolStripMenuItem,
             this.HideSearchToolStripMenuItem});
             this.cmsMain.Name = "cmsDGV";
-            this.cmsMain.Size = new System.Drawing.Size(184, 136);
-            this.cmsMain.Size = new System.Drawing.Size(195, 114);
+            this.cmsMain.Size = new System.Drawing.Size(184, 114);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.ShortcutKeys = System.Windows.Forms.Keys.F5;
             this.toolStripMenuItem1.Size = new System.Drawing.Size(183, 22);
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(194, 22);
             this.toolStripMenuItem1.Text = "Làm Mới";
             // 
             // toolStripMenuItem3
@@ -875,7 +860,6 @@
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
             this.toolStripMenuItem3.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
             this.toolStripMenuItem3.Size = new System.Drawing.Size(183, 22);
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(194, 22);
             this.toolStripMenuItem3.Text = "Thêm";
             // 
             // lưuToolStripMenuItem
@@ -883,7 +867,6 @@
             this.lưuToolStripMenuItem.Name = "lưuToolStripMenuItem";
             this.lưuToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
             this.lưuToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
-            this.lưuToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
             this.lưuToolStripMenuItem.Text = "Lưu";
             this.lưuToolStripMenuItem.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -892,7 +875,6 @@
             this.SearchToolStripMenuItem.Name = "SearchToolStripMenuItem";
             this.SearchToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
             this.SearchToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
-            this.SearchToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
             this.SearchToolStripMenuItem.Text = "Tìm Kiếm";
             this.SearchToolStripMenuItem.Click += new System.EventHandler(this.SearchToolStripMenuItem_Click);
             // 
@@ -901,7 +883,6 @@
             this.HideSearchToolStripMenuItem.Name = "HideSearchToolStripMenuItem";
             this.HideSearchToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
             this.HideSearchToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
-            this.HideSearchToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
             this.HideSearchToolStripMenuItem.Text = "Ẩn Tìm Kiếm";
             this.HideSearchToolStripMenuItem.Click += new System.EventHandler(this.HideSearchToolStripMenuItem_Click);
             // 

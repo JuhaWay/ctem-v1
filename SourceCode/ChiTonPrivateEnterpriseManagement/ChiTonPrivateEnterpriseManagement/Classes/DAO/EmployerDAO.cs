@@ -41,22 +41,24 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
 
         public EmployerDTO GetEmployerByUsername(string username)
         {
-            var cmd = new SqlCommand("[dbo].[Employer_GetByUsername]", Connection);
-
-            if (Transaction != null)
-            {
-                cmd.Transaction = Transaction;
-            }
-            cmd.Parameters.Add(new SqlParameter("@username", username));
-            cmd.CommandType = CommandType.StoredProcedure;
             try
             {
+                var cmd = new SqlCommand("[dbo].[Employer_GetByUsername]", Connection);
+
+                if (Transaction != null)
+                {
+                    cmd.Transaction = Transaction;
+                }
+                cmd.Parameters.Add(new SqlParameter("@username", username));
+                cmd.CommandType = CommandType.StoredProcedure;
+            
                 SqlDataReader reader = cmd.ExecuteReader();
                 EmployerDTO employer = null;
                 if (reader.Read())
                 {
                     employer = new EmployerDTO
                     {
+                        employeeID = Convert.ToInt64(reader["EmployeeID"]),
                         Username = Convert.ToString(reader["Username"]),
                         Password = Convert.ToString(reader["Password"]),
                         Fullname = Convert.ToString(reader["FullName"]),
@@ -781,6 +783,31 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.Parameters.Add(new SqlParameter("@ActualIncome", salary.ActualIncome));
                 cmd.Parameters.Add(new SqlParameter("@isPay", salary.IsPay));
                 cmd.Parameters.Add(new SqlParameter("@Note", salary.Note));
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException sql)
+            {
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null)
+                    Connection.Close();
+            }      
+        }
+
+        public bool ResetPassword(long empid, string pass)
+        {
+            var cmd = new SqlCommand("[dbo].[Employee_ResetPass]", Connection) { CommandType = CommandType.StoredProcedure };
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@EmployeeID", empid));
+                cmd.Parameters.Add(new SqlParameter("@Password", pass));
                 cmd.ExecuteNonQuery();
                 return true;
             }

@@ -319,6 +319,13 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
 
         public static void SetDataCombobox(KryptonComboBox cbbControl, string obj)
         {
+            if (obj.Equals(Constants.DRIVER))
+            {
+                var employeeBus = new EmployeeBUS();
+                cbbControl.DataSource = employeeBus.LoadDriver();
+                cbbControl.ValueMember = Constants.EMPLOYEE_VALUEMEMBER;
+                cbbControl.DisplayMember = Constants.EMPLOYEE_DISPLAYMEMBER;
+            }
             if (obj.Equals(Constants.MATERIAL_SEARCH))
             {
                 var materialBus = new MaterialBUS();
@@ -446,6 +453,22 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
             {
                 var warehouseBus = new WarehouseBUS();
                 cbbControl.DataSource = warehouseBus.LoadWarehouses(Constants.EMPTY_TEXT, Constants.MAIN_WAREHOUSE, -1);
+                cbbControl.ValueMember = Constants.WAREHOUSE_VALUEMEMBER;
+                cbbControl.DisplayMember = Constants.WAREHOUSE_DISPLAYMEMBER;
+            }
+
+            if (obj.Equals(Constants.WAREHOUSE))
+            {
+                var warehouseBus = new WarehouseBUS();
+                cbbControl.DataSource = warehouseBus.LoadWarehouses(Constants.EMPTY_TEXT, Constants.EMPTY_TEXT, -1);
+                cbbControl.ValueMember = Constants.WAREHOUSE_VALUEMEMBER;
+                cbbControl.DisplayMember = Constants.WAREHOUSE_DISPLAYMEMBER;
+            }
+
+            if (obj.Equals(Constants.CONSTRUCTION_WAREHOUSE))
+            {
+                var warehouseBus = new WarehouseBUS();
+                cbbControl.DataSource = warehouseBus.LoadWarehouses(Constants.EMPTY_TEXT, Constants.CONSTRUCTION_WAREHOUSE, -1);
                 cbbControl.ValueMember = Constants.WAREHOUSE_VALUEMEMBER;
                 cbbControl.DisplayMember = Constants.WAREHOUSE_DISPLAYMEMBER;
             }
@@ -751,7 +774,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
                 form.StartPosition = FormStartPosition.CenterParent;
                 form.WindowState = FormWindowState.Maximized;
                 form.GroupBorderStyle = PaletteBorderStyle.InputControlRibbon;
-                form.MinimumSize = new Size(800, 600);
+                //form.MinimumSize = new Size(800, 600);
 
                 
                 form.StateCommon.Header.Back.Color1 = Color.Khaki;
@@ -773,7 +796,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
 
             if(type.Equals(Constants.DIALOG_FORM))
             {               
-                form.ShowIcon = true;
+                form.ShowIcon = false;
                 form.FormBorderStyle = FormBorderStyle.Fixed3D;
                 form.GroupBorderStyle = PaletteBorderStyle.InputControlRibbon;
                 form.MaximizeBox = false;

@@ -270,13 +270,13 @@
             this.DeleteToolStripMenuItem,
             this.DeleteAllToolStripMenuItem});
             this.cmsDGV.Name = "cmsDGV";
-            this.cmsDGV.Size = new System.Drawing.Size(174, 114);
+            this.cmsDGV.Size = new System.Drawing.Size(182, 114);
             // 
             // RefreshToolStripMenuItem
             // 
             this.RefreshToolStripMenuItem.Name = "RefreshToolStripMenuItem";
             this.RefreshToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
-            this.RefreshToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.RefreshToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.RefreshToolStripMenuItem.Text = "Làm Mới";
             this.RefreshToolStripMenuItem.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
@@ -284,7 +284,7 @@
             // 
             this.LoadAllToolStripMenuItem.Name = "LoadAllToolStripMenuItem";
             this.LoadAllToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
-            this.LoadAllToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.LoadAllToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.LoadAllToolStripMenuItem.Text = "Tải Tất Cả";
             this.LoadAllToolStripMenuItem.Click += new System.EventHandler(this.btnLoadAll_Click);
             // 
@@ -292,7 +292,7 @@
             // 
             this.AddToolStripMenuItem.Name = "AddToolStripMenuItem";
             this.AddToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.AddToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.AddToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.AddToolStripMenuItem.Text = "Thêm";
             this.AddToolStripMenuItem.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -300,7 +300,7 @@
             // 
             this.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem";
             this.DeleteToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Delete;
-            this.DeleteToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.DeleteToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.DeleteToolStripMenuItem.Text = "Xóa";
             this.DeleteToolStripMenuItem.Click += new System.EventHandler(this.btnDelete_Click);
             // 
@@ -308,7 +308,7 @@
             // 
             this.DeleteAllToolStripMenuItem.Name = "DeleteAllToolStripMenuItem";
             this.DeleteAllToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
-            this.DeleteAllToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.DeleteAllToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.DeleteAllToolStripMenuItem.Text = "Xóa Tất Cả";
             this.DeleteAllToolStripMenuItem.Click += new System.EventHandler(this.btnDeleteAll_Click);
             // 
@@ -488,7 +488,7 @@
             this.hdDebt.Size = new System.Drawing.Size(829, 29);
             this.hdDebt.TabIndex = 0;
             this.hdDebt.Values.Description = "";
-            this.hdDebt.Values.Heading = "Danh Nhà Cung Cấp";
+            this.hdDebt.Values.Heading = "Danh Nhà Lịch Đọ Sổ";
             this.hdDebt.Values.Image = null;
             // 
             // btnRefresh
@@ -583,13 +583,13 @@
             this.FreezeToolStripMenuItem,
             this.SaveToolStripMenuItem});
             this.cmsEdit.Name = "cmsEdit";
-            this.cmsEdit.Size = new System.Drawing.Size(175, 70);
+            this.cmsEdit.Size = new System.Drawing.Size(183, 70);
             // 
             // EditToolStripMenuItem
             // 
             this.EditToolStripMenuItem.Name = "EditToolStripMenuItem";
             this.EditToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
-            this.EditToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.EditToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.EditToolStripMenuItem.Text = "Sửa";
             this.EditToolStripMenuItem.Click += new System.EventHandler(this.btnEdit_Click);
             // 
@@ -597,7 +597,7 @@
             // 
             this.FreezeToolStripMenuItem.Name = "FreezeToolStripMenuItem";
             this.FreezeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
-            this.FreezeToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.FreezeToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.FreezeToolStripMenuItem.Text = "Đóng Băng";
             this.FreezeToolStripMenuItem.Click += new System.EventHandler(this.btnUnableEdit_Click);
             // 
@@ -605,7 +605,7 @@
             // 
             this.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem";
             this.SaveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.SaveToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.SaveToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.SaveToolStripMenuItem.Text = "Lưu";
             this.SaveToolStripMenuItem.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -639,6 +639,8 @@
             // 
             // txtId
             // 
+            this.txtId.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.txtId.Location = new System.Drawing.Point(110, 3);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(276, 22);
@@ -667,7 +669,7 @@
             this.txtTotalOwe.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTotalOwe.ContextMenuStrip = this.cmsGen;
-            this.txtTotalOwe.Location = new System.Drawing.Point(110, 123);
+            this.txtTotalOwe.Location = new System.Drawing.Point(110, 122);
             this.txtTotalOwe.Name = "txtTotalOwe";
             this.txtTotalOwe.Size = new System.Drawing.Size(276, 22);
             this.txtTotalOwe.TabIndex = 50;
@@ -681,13 +683,13 @@
             this.cmsGen.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.GenMoneyToolStripMenuItem});
             this.cmsGen.Name = "cmsGen";
-            this.cmsGen.Size = new System.Drawing.Size(169, 26);
+            this.cmsGen.Size = new System.Drawing.Size(177, 26);
             // 
             // GenMoneyToolStripMenuItem
             // 
             this.GenMoneyToolStripMenuItem.Name = "GenMoneyToolStripMenuItem";
             this.GenMoneyToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G)));
-            this.GenMoneyToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.GenMoneyToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.GenMoneyToolStripMenuItem.Text = "Thêm 000";
             this.GenMoneyToolStripMenuItem.Click += new System.EventHandler(this.GenMoneyToolStripMenuItem_Click);
             // 
@@ -696,7 +698,7 @@
             this.cbbDebt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.cbbDebt.DropDownWidth = 251;
-            this.cbbDebt.Location = new System.Drawing.Point(110, 27);
+            this.cbbDebt.Location = new System.Drawing.Point(110, 28);
             this.cbbDebt.Name = "cbbDebt";
             this.cbbDebt.Size = new System.Drawing.Size(276, 22);
             this.cbbDebt.TabIndex = 44;
@@ -707,7 +709,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpToDate.CustomFormat = "dd/MM/yyyy";
             this.dtpToDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpToDate.Location = new System.Drawing.Point(110, 97);
+            this.dtpToDate.Location = new System.Drawing.Point(110, 99);
             this.dtpToDate.Name = "dtpToDate";
             this.dtpToDate.Size = new System.Drawing.Size(276, 20);
             this.dtpToDate.TabIndex = 49;
@@ -727,7 +729,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpFromDate.CustomFormat = "dd/MM/yyyy";
             this.dtpFromDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpFromDate.Location = new System.Drawing.Point(110, 73);
+            this.dtpFromDate.Location = new System.Drawing.Point(110, 76);
             this.dtpFromDate.Name = "dtpFromDate";
             this.dtpFromDate.Size = new System.Drawing.Size(276, 20);
             this.dtpFromDate.TabIndex = 48;
@@ -747,7 +749,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpDateCompare.CustomFormat = "dd/MM/yyyy";
             this.dtpDateCompare.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDateCompare.Location = new System.Drawing.Point(110, 50);
+            this.dtpDateCompare.Location = new System.Drawing.Point(110, 53);
             this.dtpDateCompare.Name = "dtpDateCompare";
             this.dtpDateCompare.Size = new System.Drawing.Size(276, 20);
             this.dtpDateCompare.TabIndex = 47;
@@ -866,7 +868,7 @@
             // 
             // cmsMain
             // 
-            this.cmsMain.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.cmsMain.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.cmsMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,
             this.toolStripMenuItem3,
@@ -874,13 +876,13 @@
             this.SearchToolStripMenuItem,
             this.HideSearchToolStripMenuItem});
             this.cmsMain.Name = "cmsDGV";
-            this.cmsMain.Size = new System.Drawing.Size(187, 114);
+            this.cmsMain.Size = new System.Drawing.Size(184, 114);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.ShortcutKeys = System.Windows.Forms.Keys.F5;
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(186, 22);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(183, 22);
             this.toolStripMenuItem1.Text = "Làm Mới";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
@@ -888,7 +890,7 @@
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
             this.toolStripMenuItem3.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(186, 22);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(183, 22);
             this.toolStripMenuItem3.Text = "Thêm";
             this.toolStripMenuItem3.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -896,7 +898,7 @@
             // 
             this.lưuToolStripMenuItem.Name = "lưuToolStripMenuItem";
             this.lưuToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.lưuToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.lưuToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.lưuToolStripMenuItem.Text = "Lưu";
             this.lưuToolStripMenuItem.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -904,7 +906,7 @@
             // 
             this.SearchToolStripMenuItem.Name = "SearchToolStripMenuItem";
             this.SearchToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
-            this.SearchToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.SearchToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.SearchToolStripMenuItem.Text = "Tìm Kiếm";
             this.SearchToolStripMenuItem.Click += new System.EventHandler(this.SearchToolStripMenuItem_Click);
             // 
@@ -912,7 +914,7 @@
             // 
             this.HideSearchToolStripMenuItem.Name = "HideSearchToolStripMenuItem";
             this.HideSearchToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
-            this.HideSearchToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.HideSearchToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.HideSearchToolStripMenuItem.Text = "Ẩn Tìm Kiếm";
             this.HideSearchToolStripMenuItem.Click += new System.EventHandler(this.HideSearchToolStripMenuItem_Click);
             // 

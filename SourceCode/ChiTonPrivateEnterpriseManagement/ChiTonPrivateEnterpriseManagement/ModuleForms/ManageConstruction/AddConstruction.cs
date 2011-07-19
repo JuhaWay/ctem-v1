@@ -14,6 +14,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
 {
     public partial class AddConstruction : ComponentFactory.Krypton.Toolkit.KryptonForm
     {
+        public int Type { get; set; }
         private const int TYPE_PARENT = 0;
         private const int TYPE_CHILD = 1;
         private List<SubcontractorDTO> subCons = new List<SubcontractorDTO>();
@@ -38,17 +39,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
            
            
         }
-        // khởi tạo với type là  con
-        public AddConstruction(long parent,int type)
-        {
-            InitializeComponent();
-            this.ipProgressRate.Enabled = true;
-            this.parentId = parent;          
-            this.type = type;
-            CenterToParent();
-            loadSubcons();
-            cbManager.Enabled = false;
-        }
         // load nhà thau phụ
         private void loadSubcons(){
             cbManager.Items.Add(new EmployerDTO("Tất cả",0));
@@ -56,12 +46,14 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
             cbManager.DisplayMember = "Username";
             subCons= _subcontractorBUS.loadAllSubcontractorDTO();
         }
-        // khoi tạo để sửa công trình
-        public AddConstruction(long constructionId)
+        
+        public AddConstruction(long constructionId, int _type)
         {
+            Type = _type;
             InitializeComponent();
             loadSubcons();
             update = true;
+            type = _type;
             _constructionDTO = _constructionBus.LoadConstructionById(constructionId);
             if (_constructionDTO.ParentID != 0)
             {
@@ -93,10 +85,13 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
         {
             CenterToParent();
             Global.SetLayoutPanelNewForm(pnMain);
+            Global.SetLayoutForm(this, Constants.DIALOG_FORM);
+            Global.SetLayoutGroupBoxNewForm(kryptonGroupBox2);
+            Global.SetLayoutGroupBoxNewForm(kryptonGroupBox1);
+            Global.SetLayoutButton(btSave);
+            Global.SetLayoutButton(btCancel);
         }
-
-
-
+        
         // tạo và chọn nhà thầu phụ
         private void btEditSubcons_Click(object sender, EventArgs e)
         {
@@ -126,8 +121,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
                 KryptonMessageBox.Show("Tạo thành công", Constants.ALL, MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
                 this.Close();
-
-               
             }
             else
             {
@@ -168,6 +161,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
             _constructionDTO.Description = ipDes.Text;
             _constructionDTO.TotalEstimateCost = 0;
             _constructionDTO.Status = cbStatus.Text;
+            _constructionDTO.ProgressRate = Convert.ToInt64(ipProgressRate.Text);
             _constructionDTO.type = ConstructionDTO.MAIN;
             if (type == TYPE_CHILD)
             {
@@ -199,13 +193,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
             }
             return id;
         }
-        // tạo nhà thau phụ
-        private void btCreateSubcon_Click(object sender, EventArgs e)
-        {
-            SelectSubConstructionBox box = new SelectSubConstructionBox();
-            box.ShowDialog();
-      
-        }
         // đóng form
         private void btCancel_Click(object sender, EventArgs e)
         {
@@ -227,6 +214,46 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
             }
 
             return true;
+        }
+
+        private void dtEndDate_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtEndDate.Value < dtStartDate.Value)
+            {
+                KryptonMessageBox.Show(Constants.ERROR_DATE, Constants.ALERT_ERROR, MessageBoxButtons.OK,
+                                       MessageBoxIcon.Warning);
+                dtEndDate.Value = dtStartDate.Value;
+            }
+        }
+
+        private void cbStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbStatus.Text.Equals("Mới"))
+            {
+                ipProgressRate.Enabled = false;
+            }
+            else
+            {
+                ipProgressRate.Enabled = true;
+            }
+        }
+
+        private void ipProgressRate_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                long progress = Convert.ToInt64(ipProgressRate.Text);
+                if (progress > 100)
+                {
+                    KryptonMessageBox.Show("Tiến Độ Phải Nhỏ Hơn 100%", Constants.ALERT_ERROR, MessageBoxButtons.OK,
+                                           MessageBoxIcon.Warning);
+                }
+            }
+            catch
+            {
+                KryptonMessageBox.Show("Tiến Độ Phải Là Số", Constants.ALERT_ERROR, MessageBoxButtons.OK,
+                                           MessageBoxIcon.Warning);
+            }
         }
     }
 }

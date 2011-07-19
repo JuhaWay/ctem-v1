@@ -75,5 +75,60 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWarehouse
             }
             dgvWHDetail.DataSource = _warehouseBus.GetWarehouseDetail(whname, materialname);
         }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void cbbNameSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode ==Keys.Enter)
+            {
+                btnSearch_Click(null, null);
+            }
+        }
+
+        private void btnHideShowSearch_Click(object sender, EventArgs e)
+        {
+            if (gbxSearch.Visible)
+            {
+                btnHideShowSearch.Type = PaletteButtonSpecStyle.ArrowDown;
+                Global.DownUpControl(this, pnlSearch, 62, 2, 4, false);
+                gbxSearch.Visible = false;
+            }
+            else
+            {
+                btnHideShowSearch.Type = PaletteButtonSpecStyle.ArrowUp;
+                gbxSearch.Visible = true;
+                Global.DownUpControl(this, pnlSearch, 62, 2, 4, true);
+            }
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            RefreshData();
+        }
+
+        private void SearchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!gbxSearch.Visible)
+            {
+                btnHideShowSearch.Type = PaletteButtonSpecStyle.ArrowUp;
+                gbxSearch.Visible = true;
+                Global.DownUpControl(this, pnlSearch, 62, 2, 4, true);
+            }
+            cbbNameSearch.Focus();
+        }
+
+        private void HideSearchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (gbxSearch.Visible)
+            {
+                btnHideShowSearch.Type = PaletteButtonSpecStyle.ArrowDown;
+                Global.DownUpControl(this, pnlSearch, 62, 2, 4, false);
+                gbxSearch.Visible = false;
+            }
+        }
     }
 }

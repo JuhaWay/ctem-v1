@@ -93,15 +93,15 @@
             this.endDate = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.kryptonHeader1 = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
-            this.buttonSpecAny1 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny2 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny3 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.gbxTab3 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.lbTab3 = new System.Windows.Forms.Label();
             this.gbxTab2 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.lbTab2 = new System.Windows.Forms.Label();
             this.gbxTab1 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.lbTab1 = new System.Windows.Forms.Label();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.thángTrướcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.thángSauToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             this.tclMain.SuspendLayout();
@@ -135,6 +135,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gbxTab1)).BeginInit();
             this.gbxTab1.Panel.SuspendLayout();
             this.gbxTab1.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // kryptonPanel
@@ -236,7 +237,7 @@
             calendarRuler3.ShowMonthStripe = true;
             calendarRuler3.ShowTimeStripe = false;
             calendarRuler3.ShowYearStripe = true;
-            calendarRuler3.StartDate = new System.DateTime(2011, 7, 17, 0, 0, 0, 0);
+            calendarRuler3.StartDate = new System.DateTime(2011, 7, 18, 0, 0, 0, 0);
             calendarRuler3.StartHour = 8;
             calendarRuler3.StripeHeight = 16;
             calendarRuler3.Width = 350;
@@ -901,14 +902,10 @@
             // 
             // kryptonHeader1
             // 
-            this.kryptonHeader1.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
-            this.buttonSpecAny1,
-            this.buttonSpecAny2,
-            this.buttonSpecAny3});
             this.kryptonHeader1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.kryptonHeader1.Location = new System.Drawing.Point(721, 0);
+            this.kryptonHeader1.Location = new System.Drawing.Point(778, 0);
             this.kryptonHeader1.Name = "kryptonHeader1";
-            this.kryptonHeader1.Size = new System.Drawing.Size(63, 31);
+            this.kryptonHeader1.Size = new System.Drawing.Size(6, 31);
             this.kryptonHeader1.StateCommon.Back.Color1 = System.Drawing.Color.White;
             this.kryptonHeader1.StateCommon.Back.Color2 = System.Drawing.Color.White;
             this.kryptonHeader1.StateCommon.Border.Color1 = System.Drawing.Color.White;
@@ -920,21 +917,6 @@
             this.kryptonHeader1.Values.Description = "";
             this.kryptonHeader1.Values.Heading = "";
             this.kryptonHeader1.Values.Image = null;
-            // 
-            // buttonSpecAny1
-            // 
-            this.buttonSpecAny1.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Close;
-            this.buttonSpecAny1.UniqueName = "194F1BBCDE8242159794901E1E2E1792";
-            // 
-            // buttonSpecAny2
-            // 
-            this.buttonSpecAny2.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.ArrowLeft;
-            this.buttonSpecAny2.UniqueName = "4079CF1E1E504631158A68E15847362A";
-            // 
-            // buttonSpecAny3
-            // 
-            this.buttonSpecAny3.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.ArrowDown;
-            this.buttonSpecAny3.UniqueName = "D11A2255A14843C9A29776DBEA80E89C";
             // 
             // gbxTab3
             // 
@@ -955,6 +937,7 @@
             this.gbxTab3.StateCommon.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.GlassCenter;
             this.gbxTab3.TabIndex = 2;
             this.gbxTab3.Values.Heading = "";
+            this.gbxTab3.Visible = false;
             // 
             // lbTab3
             // 
@@ -988,6 +971,7 @@
             this.gbxTab2.StateCommon.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.GlassCenter;
             this.gbxTab2.TabIndex = 1;
             this.gbxTab2.Values.Heading = "";
+            this.gbxTab2.Visible = false;
             // 
             // lbTab2
             // 
@@ -1033,15 +1017,42 @@
             this.lbTab1.MouseLeave += new System.EventHandler(this.gbxTab1_Panel_MouseLeave);
             this.lbTab1.MouseHover += new System.EventHandler(this.gbxTab1_Panel_MouseHover);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.thángTrướcToolStripMenuItem,
+            this.thángSauToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(197, 48);
+            // 
+            // thángTrướcToolStripMenuItem
+            // 
+            this.thángTrướcToolStripMenuItem.Name = "thángTrướcToolStripMenuItem";
+            this.thángTrướcToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Left)));
+            this.thángTrướcToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.thángTrướcToolStripMenuItem.Text = "Tháng Trước";
+            this.thángTrướcToolStripMenuItem.Click += new System.EventHandler(this.btnGotoPreMonth_Click);
+            // 
+            // thángSauToolStripMenuItem
+            // 
+            this.thángSauToolStripMenuItem.Name = "thángSauToolStripMenuItem";
+            this.thángSauToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Right)));
+            this.thángSauToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.thángSauToolStripMenuItem.Text = "Tháng Sau";
+            this.thángSauToolStripMenuItem.Click += new System.EventHandler(this.btnGotoNextMonth_Click);
+            // 
             // ProgressManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 522);
+            this.ContextMenuStrip = this.contextMenuStrip1;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.kryptonPanel);
             this.Name = "ProgressManagement";
-            this.Text = "ProgressManagement";
+            this.ShowIcon = false;
+            this.Text = "Xem Tiến Độ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.ProgressManagement_Load);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).EndInit();
@@ -1088,6 +1099,7 @@
             this.gbxTab1.Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gbxTab1)).EndInit();
             this.gbxTab1.ResumeLayout(false);
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1108,9 +1120,6 @@
         private System.Windows.Forms.Label lbTab2;
         private System.Windows.Forms.TabPage tabPage3;
         private ComponentFactory.Krypton.Toolkit.KryptonHeader kryptonHeader1;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny1;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny2;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny3;
         private ComponentFactory.Krypton.Toolkit.KryptonSplitContainer kryptonSplitContainer1;
         private System.Windows.Forms.ToolStrip toolStrip2;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
@@ -1158,6 +1167,9 @@
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnNextMonth;
         private ComponentFactory.Krypton.Toolkit.KryptonPanel pnlButton;
         private ComponentFactory.Krypton.Toolkit.KryptonGroupBox gbxButton;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem thángTrướcToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem thángSauToolStripMenuItem;
     }
 }
 

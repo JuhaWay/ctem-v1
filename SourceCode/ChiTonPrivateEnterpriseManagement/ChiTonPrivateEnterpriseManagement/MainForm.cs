@@ -150,26 +150,6 @@ namespace ChiTonPrivateEnterpriseManagement
             tvwSystem.Nodes.Clear();
         }        
 
-        private void btnhdgMenuHideShow_Click(object sender, EventArgs e)
-        {
-            if (btnhdgMenuHideShow.Text.Equals("Ẩn"))
-            {
-                hdgMenu.HeaderPositionPrimary = VisualOrientation.Left;
-                hdgMenu.Width = Constants.WIDTH_MENU_HIDE;
-                slcMain.SplitterDistance = Constants.WIDTH_MENU_HIDE;
-                slcMain.IsSplitterFixed = true;
-                btnhdgMenuHideShow.Text = "Hiện";
-            }
-            else
-            {
-                hdgMenu.HeaderPositionPrimary = VisualOrientation.Top;
-                hdgMenu.Width = Constants.WIDTH_MENU_SHOW;
-                slcMain.SplitterDistance = Constants.WIDTH_MENU_SHOW;
-                slcMain.IsSplitterFixed = false;
-                btnhdgMenuHideShow.Text = "Ẩn";
-            }
-        }
-
         private void btnLogout_Click(object sender, EventArgs e)
         {
             LoginForm.IsLogout = true;
@@ -362,10 +342,17 @@ namespace ChiTonPrivateEnterpriseManagement
             {
                 if (tvwCons.Nodes[Constants.MANAGE_CONSTRUCTION].IsSelected)
                 {
+                    foreach (Form mdiChild in MdiChildren)
+                    {
+                        if (mdiChild.Name.Equals("ConstructionManagement"))
+                        {
+                            mdiChild.Activate();
+                            return;
+                        }
+                    }                    
                     ConstructionManagement constructionManagement = new ConstructionManagement();
-                    constructionManagement.MdiParent = this;
-                    pnlMainContent.Controls.Add(constructionManagement);
-                    constructionManagement.Show();
+                    constructionManagement.MdiParent = this;                        
+                    constructionManagement.Show();                    
                     return;
                 }
             }
@@ -375,9 +362,16 @@ namespace ChiTonPrivateEnterpriseManagement
             {
                 if (tvwCons.Nodes[Constants.MANAGE_SUBCONTRACTORS].IsSelected)
                 {
+                    foreach (Form mdiChild in MdiChildren)
+                    {
+                        if (mdiChild.Name.Equals("SubconstractorManagement"))
+                        {
+                            mdiChild.Activate();
+                            return;
+                        }
+                    } 
                     SubconstractorManagement subCons = new SubconstractorManagement();
-                    subCons.MdiParent = this;
-                    pnlMainContent.Controls.Add(subCons);
+                    subCons.MdiParent = this;                    
                     subCons.Show();
                     return;
                 }
@@ -388,10 +382,16 @@ namespace ChiTonPrivateEnterpriseManagement
             {
                 if (tvwCons.Nodes[Constants.MANAGE_WORKER].IsSelected)
                 {
+                    foreach (Form mdiChild in MdiChildren)
+                    {
+                        if (mdiChild.Name.Equals("WorkerSalaryManagement"))
+                        {
+                            mdiChild.Activate();
+                            return;
+                        }
+                    } 
                     WorkerSalaryManagement workerSalaryManagement = new WorkerSalaryManagement();
-                    workerSalaryManagement.MdiParent = this;
-                    pnlMainContent.Controls.Add(workerSalaryManagement);
-                    workerSalaryManagement.Dock = DockStyle.Fill;
+                    workerSalaryManagement.MdiParent = this;                    
                     workerSalaryManagement.Show();
                     return;
                 }
@@ -402,9 +402,16 @@ namespace ChiTonPrivateEnterpriseManagement
             {
                 if (tvwCons.Nodes[Constants.MANAGE_ESTIMATE].IsSelected)
                 {
+                    foreach (Form mdiChild in MdiChildren)
+                    {
+                        if (mdiChild.Name.Equals("EstimateManagement"))
+                        {
+                            mdiChild.Activate();
+                            return;
+                        }
+                    } 
                     EstimateManagement estimateManagement = new EstimateManagement();
                     estimateManagement.MdiParent = this;
-                    pnlMainContent.Controls.Add(estimateManagement);
                     estimateManagement.Show();
                     return;
                 }
@@ -415,9 +422,16 @@ namespace ChiTonPrivateEnterpriseManagement
             {
                 if (tvwCons.Nodes[Constants.MANAGE_ACCOUNT].IsSelected)
                 {
+                    foreach (Form mdiChild in MdiChildren)
+                    {
+                        if (mdiChild.Name.Equals("FinalAccountManagement"))
+                        {
+                            mdiChild.Activate();
+                            return;
+                        }
+                    } 
                     FinalAccountManagement finalAccountManagement = new FinalAccountManagement();
                     finalAccountManagement.MdiParent = this;
-                    pnlMainContent.Controls.Add(finalAccountManagement);
                     finalAccountManagement.Show();
                     return;
                 }
@@ -428,9 +442,16 @@ namespace ChiTonPrivateEnterpriseManagement
             {
                 if (tvwCons.Nodes[Constants.MANAGE_PROCESS].IsSelected)
                 {
+                    foreach (Form mdiChild in MdiChildren)
+                    {
+                        if (mdiChild.Name.Equals("ProgressManagement"))
+                        {
+                            mdiChild.Activate();
+                            return;
+                        }
+                    } 
                     ProgressManagement progressManagement = new ProgressManagement();
                     progressManagement.MdiParent = this;
-                    pnlMainContent.Controls.Add(progressManagement);
                     progressManagement.Show();
                     return;
                 }
@@ -452,9 +473,16 @@ namespace ChiTonPrivateEnterpriseManagement
             {
                 if (tvwEmp.Nodes[Constants.MANAGE_USER].IsSelected)
                 {
+                    foreach (Form mdiChild in MdiChildren)
+                    {
+                        if (mdiChild.Name.Equals("EmployeeManagement"))
+                        {
+                            mdiChild.Activate();
+                            return;
+                        }
+                    } 
                     EmployeeManagement employeeManagement = new EmployeeManagement();
                     employeeManagement.MdiParent = this;
-                    pnlMainContent.Controls.Add(employeeManagement);
                     employeeManagement.Show();
                     return;
                 }
@@ -463,11 +491,18 @@ namespace ChiTonPrivateEnterpriseManagement
 
             try
             {
+                foreach (Form mdiChild in MdiChildren)
+                {
+                    if (mdiChild.Name.Equals("SalaryManagement"))
+                    {
+                        mdiChild.Activate();
+                        return;
+                    }
+                } 
                 if (tvwEmp.Nodes[Constants.MANAGE_EMPLOYEE_SALARY].IsSelected)
                 {
                     SalaryManagement salaryManagement = new SalaryManagement();
                     salaryManagement.MdiParent = this;
-                    pnlMainContent.Controls.Add(salaryManagement);
                     salaryManagement.Show();
                     return;
                 }
@@ -476,11 +511,18 @@ namespace ChiTonPrivateEnterpriseManagement
 
             try
             {
+                foreach (Form mdiChild in MdiChildren)
+                {
+                    if (mdiChild.Name.Equals("AdvanceManagement"))
+                    {
+                        mdiChild.Activate();
+                        return;
+                    }
+                } 
                 if (tvwEmp.Nodes[Constants.MANAGE_EMPLOYEE_ADVANCE].IsSelected)
                 {
                     AdvanceManagement advanceManagement = new AdvanceManagement();
                     advanceManagement.MdiParent = this;
-                    pnlMainContent.Controls.Add(advanceManagement);
                     advanceManagement.Show();
                     return;
                 }
@@ -500,11 +542,18 @@ namespace ChiTonPrivateEnterpriseManagement
         {
             try
             {
+                foreach (Form mdiChild in MdiChildren)
+                {
+                    if (mdiChild.Name.Equals("WarehouseManagement"))
+                    {
+                        mdiChild.Activate();
+                        return;
+                    }
+                } 
                 if (tvwWH.Nodes[Constants.MANAGE_WAREHOUSE].IsSelected)
                 {
                     WarehouseManagement warehouseManagement = new WarehouseManagement();
                     warehouseManagement.MdiParent = this;
-                    pnlMainContent.Controls.Add(warehouseManagement);
                     warehouseManagement.Show();
                     return;
                 }
@@ -512,11 +561,18 @@ namespace ChiTonPrivateEnterpriseManagement
             catch { }
             try
             {
+                foreach (Form mdiChild in MdiChildren)
+                {
+                    if (mdiChild.Name.Equals("StockOutManagement"))
+                    {
+                        mdiChild.Activate();
+                        return;
+                    }
+                } 
                 if (tvwWH.Nodes[Constants.MANAGE_STOCK].IsSelected)
                 {
                     StockOutManagement stockOutManagement = new StockOutManagement();
                     stockOutManagement.MdiParent = this;
-                    pnlMainContent.Controls.Add(stockOutManagement);
                     stockOutManagement.Show();
                     return;
                 }
@@ -525,11 +581,18 @@ namespace ChiTonPrivateEnterpriseManagement
 
             try
             {
+                foreach (Form mdiChild in MdiChildren)
+                {
+                    if (mdiChild.Name.Equals("VehicleManageMent"))
+                    {
+                        mdiChild.Activate();
+                        return;
+                    }
+                } 
                 if (tvwWH.Nodes[Constants.MANAGE_VEHICLE].IsSelected)
                 {
                     VehicleManageMent vehicleManageMent = new VehicleManageMent();
                     vehicleManageMent.MdiParent = this;
-                    pnlMainContent.Controls.Add(vehicleManageMent);
                     vehicleManageMent.Show();
                     return;
                 }
@@ -538,12 +601,39 @@ namespace ChiTonPrivateEnterpriseManagement
 
             try
             {
+                foreach (Form mdiChild in MdiChildren)
+                {
+                    if (mdiChild.Name.Equals("MaterialManagement"))
+                    {
+                        mdiChild.Activate();
+                        return;
+                    }
+                } 
                 if (tvwWH.Nodes[Constants.MANAGE_MATERIAL].IsSelected)
                 {
                     MaterialManagement materialManagement = new MaterialManagement();
                     materialManagement.MdiParent = this;
-                    pnlMainContent.Controls.Add(materialManagement);
                     materialManagement.Show();
+                    return;
+                }
+            }
+            catch { }
+
+            try
+            {
+                if (tvwWH.Nodes[Constants.DAILY_VEHICLE].IsSelected)
+                {
+                    foreach (Form mdiChild in MdiChildren)
+                    {
+                        if (mdiChild.Name.Equals("VehicleDairyManagement"))
+                        {
+                            mdiChild.Activate();
+                            return;
+                        }
+                    } 
+                    VehicleDairyManagement vehicleDairyManagement = new VehicleDairyManagement();
+                    vehicleDairyManagement.MdiParent = this;
+                    vehicleDairyManagement.Show();
                     return;
                 }
             }
@@ -564,9 +654,16 @@ namespace ChiTonPrivateEnterpriseManagement
             {
                 if (tvwDebt.Nodes[Constants.MANAGE_DEBT].IsSelected)
                 {
+                    foreach (Form mdiChild in MdiChildren)
+                    {
+                        if (mdiChild.Name.Equals("DebtManagement"))
+                        {
+                            mdiChild.Activate();
+                            return;
+                        }
+                    } 
                     DebtManagement debtManagement = new DebtManagement();
-                    debtManagement.MdiParent = this;
-                    pnlMainContent.Controls.Add(debtManagement);
+                    debtManagement.MdiParent = this;                   
                     debtManagement.Show();
                     return;
                 }
@@ -577,9 +674,16 @@ namespace ChiTonPrivateEnterpriseManagement
             {
                 if (tvwDebt.Nodes[Constants.MANAGE_COMPARE_DEBT].IsSelected)
                 {
+                    foreach (Form mdiChild in MdiChildren)
+                    {
+                        if (mdiChild.Name.Equals("CompareDebtManagement"))
+                        {
+                            mdiChild.Activate();
+                            return;
+                        }
+                    } 
                     CompareDebtManagement compareDebtManagement = new CompareDebtManagement();
                     compareDebtManagement.MdiParent = this;
-                    pnlMainContent.Controls.Add(compareDebtManagement);
                     compareDebtManagement.Show();
                     return;
                 }
@@ -601,9 +705,16 @@ namespace ChiTonPrivateEnterpriseManagement
             {
                 if (tvwLedger.Nodes[Constants.MANAGE_LEDGER].IsSelected)
                 {
+                    foreach (Form mdiChild in MdiChildren)
+                    {
+                        if (mdiChild.Name.Equals("LedgerManagement"))
+                        {
+                            mdiChild.Activate();
+                            return;
+                        }
+                    } 
                     LedgerManagement ledgerManagement = new LedgerManagement();
                     ledgerManagement.MdiParent = this;
-                    pnlMainContent.Controls.Add(ledgerManagement);
                     ledgerManagement.Show();
                 }
             }
@@ -624,9 +735,16 @@ namespace ChiTonPrivateEnterpriseManagement
             {
                 if (tvwSystem.Nodes[Constants.MANAGE_MENU].IsSelected)
                 {
+                    foreach (Form mdiChild in MdiChildren)
+                    {
+                        if (mdiChild.Name.Equals("MenuManagement"))
+                        {
+                            mdiChild.Activate();
+                            return;
+                        }
+                    } 
                     MenuManagement menuManagement = new MenuManagement();
                     menuManagement.MdiParent = this;
-                    pnlMainContent.Controls.Add(menuManagement);
                     menuManagement.Show();
                     return;
                 }
@@ -637,9 +755,16 @@ namespace ChiTonPrivateEnterpriseManagement
             {
                 if (tvwSystem.Nodes[Constants.MANAGE_ROLE].IsSelected)
                 {
+                    foreach (Form mdiChild in MdiChildren)
+                    {
+                        if (mdiChild.Name.Equals("RoleManagement"))
+                        {
+                            mdiChild.Activate();
+                            return;
+                        }
+                    } 
                     RoleManagement roleManagement = new RoleManagement();
                     roleManagement.MdiParent = this;
-                    pnlMainContent.Controls.Add(roleManagement);
                     roleManagement.Show();
                     return;
                 }
@@ -650,9 +775,16 @@ namespace ChiTonPrivateEnterpriseManagement
             {
                 if (tvwSystem.Nodes[Constants.MANAGE_RIGHT].IsSelected)
                 {
+                    foreach (Form mdiChild in MdiChildren)
+                    {
+                        if (mdiChild.Name.Equals("RightsManagement"))
+                        {
+                            mdiChild.Activate();
+                            return;
+                        }
+                    } 
                     RightsManagement rightsManagement = new RightsManagement();
                     rightsManagement.MdiParent = this;
-                    pnlMainContent.Controls.Add(rightsManagement);
                     rightsManagement.Show();
                     return;
                 }
@@ -663,6 +795,17 @@ namespace ChiTonPrivateEnterpriseManagement
             {
                 if (tvwSystem.Nodes[Constants.RESET_PASSWORD].IsSelected)
                 {
+                    foreach (Form mdiChild in MdiChildren)
+                    {
+                        if (mdiChild.Name.Equals("ResetPassword"))
+                        {
+                            mdiChild.Activate();
+                            return;
+                        }
+                    } 
+                    ResetPassword resetPassword = new ResetPassword();
+                    resetPassword.MdiParent = this;
+                    resetPassword.Show();
                     return;
                 }
             }
@@ -675,6 +818,54 @@ namespace ChiTonPrivateEnterpriseManagement
             if (e.KeyCode == Keys.Enter)
             {
                 tvwSystem_NodeMouseDoubleClick(null, null);
+            }
+        }
+
+        private void btnCascade_Click(object sender, EventArgs e)
+        {            
+            LayoutMdi(MdiLayout.Cascade);
+        }
+
+        private void btnTileVer_Click(object sender, EventArgs e)
+        {
+            LayoutMdi(MdiLayout.TileVertical);
+        }
+
+        private void btnTileHor_Click(object sender, EventArgs e)
+        {
+            LayoutMdi(MdiLayout.TileHorizontal);
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ActiveMdiChild.Close();
+            }
+            catch
+            {
+            }
+        }
+
+        private void btnMax_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ActiveMdiChild.WindowState = FormWindowState.Normal;
+            }
+            catch
+            {
+            }
+        }
+
+        private void btnMin_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ActiveMdiChild.MinimizeBox = true;
+            }
+            catch
+            {
             }
         }
     }

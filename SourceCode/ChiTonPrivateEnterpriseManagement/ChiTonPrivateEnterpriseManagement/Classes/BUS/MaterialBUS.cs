@@ -34,5 +34,10 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
         {
             return _materialDAO.search(name);
         }
+
+        public List<MaterialDTO> LoadMaterialByWarehouseId(long warehousId)
+        {
+            return _materialDAO.LoadMaterialbyWarehouseId(warehousId);
+        }
     }
 }

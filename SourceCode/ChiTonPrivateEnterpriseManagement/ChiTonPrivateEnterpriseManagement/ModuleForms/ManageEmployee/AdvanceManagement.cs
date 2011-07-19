@@ -253,5 +253,13 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
         {
             Global.SetTextBoxMoneyLeave(txtTotalAdvance);
         }
+
+        private void cbbNameSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnSearch_Click(null, null);
+            }
+        }
     }
 }

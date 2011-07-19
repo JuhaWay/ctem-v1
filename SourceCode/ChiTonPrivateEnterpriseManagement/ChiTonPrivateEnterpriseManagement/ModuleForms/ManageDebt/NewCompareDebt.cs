@@ -87,8 +87,8 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
         {
             for (int i = 0; i < cbbDebt.Items.Count; i++)
             {
-                string name = cbbDebt.Items[i].ToString();
-                if (name.Equals(_debtname))
+                DebtDTO debt = cbbDebt.Items[i] as DebtDTO;
+                if (debt.DebtName.Equals(_debtname))
                 {
                     cbbDebt.SelectedIndex = i;
                     i = cbbDebt.Items.Count;

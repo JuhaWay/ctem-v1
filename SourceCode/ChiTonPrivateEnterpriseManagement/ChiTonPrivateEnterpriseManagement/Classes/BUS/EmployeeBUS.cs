@@ -118,5 +118,15 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
         {
             return employerDAO.DeleteAllAdvance();
         }
+
+        public List<EmployerDTO> LoadDriver()
+        {
+            return employerDAO.LoadEmployee(Constants.EMPTY_TEXT, Constants.EMPTY_TEXT, Constants.DRIVER_ROLE, 1);
+        }
+
+        public bool ResetPassword(long empid, string pass)
+        {
+            return employerDAO.ResetPassword(empid, pass);
+        }
     }
 }

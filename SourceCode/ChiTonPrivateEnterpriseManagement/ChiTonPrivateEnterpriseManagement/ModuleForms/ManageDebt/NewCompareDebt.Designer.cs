@@ -379,7 +379,7 @@
             this.Controls.Add(this.kryptonPanel);
             this.Name = "NewCompareDebt";
             this.ShowIcon = false;
-            this.Text = "NewCompareDebt";
+            this.Text = "Tạo Mới Đọ Sổ";
             this.Load += new System.EventHandler(this.NewCompareDebt_Load);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).EndInit();
             this.kryptonPanel.ResumeLayout(false);

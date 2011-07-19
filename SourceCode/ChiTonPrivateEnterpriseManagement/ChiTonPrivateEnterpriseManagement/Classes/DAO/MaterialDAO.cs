@@ -248,5 +248,46 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                     Connection.Close();
             }
         }
+
+        public List<MaterialDTO> LoadMaterialbyWarehouseId(long warehousId)
+        {
+            var cmd = new SqlCommand("[dbo].[Material_GetByWarehouseId]", Connection);
+
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@WarehouseId", warehousId));
+                SqlDataReader reader = cmd.ExecuteReader();
+                List<MaterialDTO> listcons = new List<MaterialDTO>();
+                while (reader.Read())
+                {
+                    MaterialDTO consDto = new MaterialDTO
+                    {
+                        MaterialID = Convert.ToInt64(reader["MaterialID"]),
+                        MaterialName = Convert.ToString(reader["MaterialName"]),
+                        MaterialParentID = Convert.ToInt64(reader["MaterialParentID"]),
+                        EstimateCalUnit = Convert.ToString(reader["EstimateCalUnit"]),
+                        RealCalUnit = Convert.ToString(reader["RealCalUnit"]),
+                        Ratio = Convert.ToInt64(reader["Ratio"]),
+
+                    };
+                    listcons.Add(consDto);
+                }
+                return listcons;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message, "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                if (Transaction == null) Connection.Close();
+            }
+        }
     }
 }

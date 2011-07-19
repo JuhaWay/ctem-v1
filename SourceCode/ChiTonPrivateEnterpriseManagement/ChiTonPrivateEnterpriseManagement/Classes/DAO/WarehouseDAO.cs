@@ -347,5 +347,168 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 if (Transaction == null) Connection.Close();
             }
         }
+
+        public bool CreateStockOut(StockOutDTO stockout)
+        {
+            var cmd = new SqlCommand("[dbo].[Warehouse_CreateStockOut]", Connection) { CommandType = CommandType.StoredProcedure };
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@DateStockOut", stockout.DateStockOut));
+                cmd.Parameters.Add(new SqlParameter("@StockOutFrom", stockout.StockOutFrom));
+                cmd.Parameters.Add(new SqlParameter("@StockOutTo", stockout.StockOutTo));
+                cmd.Parameters.Add(new SqlParameter("@Driver", stockout.DriverName));
+                cmd.Parameters.Add(new SqlParameter("@TransportationCost", stockout.TransportationCost));
+                cmd.Parameters.Add(new SqlParameter("@NoVehicle", stockout.NoVehicle));
+                cmd.Parameters.Add(new SqlParameter("@Note", stockout.Note));
+                cmd.Parameters.Add(new SqlParameter("@CreatedBy", Global.Global.CurrentUser.Username));
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message);
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null)
+                    Connection.Close();
+            }
+        }
+
+        public bool CreateStockOutDetail(StockOutDetailDTO stockoutDetailDto)
+        {
+            var cmd = new SqlCommand("[dbo].[Warehouse_CreateStockOutDetail]", Connection) { CommandType = CommandType.StoredProcedure };
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@WarehouseFromID", stockoutDetailDto.WarehouseFromId));
+                cmd.Parameters.Add(new SqlParameter("@WarehouseToID", stockoutDetailDto.WarehouseToId));
+                cmd.Parameters.Add(new SqlParameter("@StockOutID", stockoutDetailDto.StockOutId));
+                cmd.Parameters.Add(new SqlParameter("@MaterialID", stockoutDetailDto.MaterialId));
+                cmd.Parameters.Add(new SqlParameter("@Quantity", stockoutDetailDto.Quantity));
+                cmd.Parameters.Add(new SqlParameter("@Note", stockoutDetailDto.Note));
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message);
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null)
+                    Connection.Close();
+            }
+        }
+
+        public List<StockOutDTO> LoadStockout(string whname, DateTime from, DateTime to)
+        {
+            var cmd = new SqlCommand("[dbo].[Warehouse_GetStockOut]", Connection);
+
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@WarehouseName", whname));
+                cmd.Parameters.Add(new SqlParameter("@from", from));
+                cmd.Parameters.Add(new SqlParameter("@to", to));
+                SqlDataReader reader = cmd.ExecuteReader();
+                var liststockout = new List<StockOutDTO>();
+                while (reader.Read())
+                {
+                    var stockout = new StockOutDTO()
+                    {
+                        StockOutId = Convert.ToInt64(reader["StockOutId"]),
+                        StockOutFrom = Convert.ToString(reader["StockOutFrom"]),
+                        StockOutTo = Convert.ToString(reader["StockOutTo"]),
+                        TransportationCost = Convert.ToInt64(reader["TransportationCost"]),
+                        DriverName = Convert.ToString(reader["Driver"]),
+                        NoVehicle = Convert.ToInt64(reader["NoVehicle"]),
+                        VehicleName = Convert.ToString(reader["VehicleName"]),
+                        Note = Convert.ToString(reader["Note"])
+                    };
+                    try
+                    {
+                        stockout.CreatedBy = Convert.ToString(reader["CreatedBy"]);
+                        stockout.UpdatedBy = Convert.ToString(reader["UpdatedBy"]);
+                        stockout.CreateDate = Convert.ToDateTime(reader["CreateDate"]);
+                        stockout.LastUpdate = Convert.ToDateTime(reader["LastUpdate"]);
+                    }
+                    catch (Exception)
+                    {
+                    }
+                    liststockout.Add(stockout);
+                }
+                return liststockout;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message, "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                if (Transaction == null) Connection.Close();
+            }
+        }
+
+        public bool DeleteStockout(long id)
+        {
+            var cmd = new SqlCommand("[dbo].[Warehouse_DeleteStockOut]", Connection) { CommandType = CommandType.StoredProcedure };
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@StockoutId", id));
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException sql)
+            {
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null)
+                    Connection.Close();
+            }
+        }
+
+        public bool DeleteAllStockout()
+        {
+            var cmd = new SqlCommand("[dbo].[Warehouse_DeleteAllStock]", Connection) { CommandType = CommandType.StoredProcedure };
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException sql)
+            {
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null)
+                    Connection.Close();
+            }
+        }
     }
 }

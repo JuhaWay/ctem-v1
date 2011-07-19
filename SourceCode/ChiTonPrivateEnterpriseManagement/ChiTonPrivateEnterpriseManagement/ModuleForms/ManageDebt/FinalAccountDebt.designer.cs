@@ -42,10 +42,21 @@
             this.SearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.HideSearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dgvAccount = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.FinalAccountID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FinalAccountName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ConstructionName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateAccountFormated = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DebtName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IsPay = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.TransportationCostFormated = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalCostFormated = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.personAccountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CreatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CreatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UpdatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastUpdated = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.finalAccountDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pnlSearch = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.gbxSearch = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.cbbDebtSearch = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
@@ -62,10 +73,8 @@
             this.slcMain = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
             this.gbxLeftBot = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.gbcRightBot = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
-            this.hdEdit = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
-            this.btnUnableEdit = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.btnSave = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.gbxEdit1 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
+            this.cbbStatus = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.txtTotalCost = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.txtNameFinalAccount = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
@@ -73,21 +82,13 @@
             this.txtNo = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel4 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.cbbStatus = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
-            this.FinalAccountID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FinalAccountName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ConstructionName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DateAccountFormated = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DebtName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IsPay = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.TransportationCostFormated = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalCostFormated = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.personAccountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.finalAccountDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.hdEdit = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
+            this.btnUnableEdit = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.btnSave = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.cmsDGV.SuspendLayout();
             this.cmsMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAccount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.finalAccountDTOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlSearch)).BeginInit();
             this.pnlSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gbxSearch)).BeginInit();
@@ -108,7 +109,6 @@
             this.gbxEdit1.Panel.SuspendLayout();
             this.gbxEdit1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbbStatus)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.finalAccountDTOBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // cmsDGV
@@ -228,6 +228,68 @@
             this.dgvAccount.TabIndex = 25;
             this.dgvAccount.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAccount_CellClick);
             // 
+            // FinalAccountID
+            // 
+            this.FinalAccountID.DataPropertyName = "FinalAccountID";
+            this.FinalAccountID.HeaderText = "Mã Số";
+            this.FinalAccountID.Name = "FinalAccountID";
+            // 
+            // FinalAccountName
+            // 
+            this.FinalAccountName.DataPropertyName = "FinalAccountName";
+            this.FinalAccountName.HeaderText = "Tên";
+            this.FinalAccountName.Name = "FinalAccountName";
+            // 
+            // ConstructionName
+            // 
+            this.ConstructionName.DataPropertyName = "ConstructionName";
+            this.ConstructionName.HeaderText = "Công Trình";
+            this.ConstructionName.Name = "ConstructionName";
+            // 
+            // DateAccountFormated
+            // 
+            this.DateAccountFormated.DataPropertyName = "DateAccountFormated";
+            this.DateAccountFormated.HeaderText = "Ngày";
+            this.DateAccountFormated.Name = "DateAccountFormated";
+            // 
+            // DebtName
+            // 
+            this.DebtName.DataPropertyName = "DebtName";
+            this.DebtName.HeaderText = "Khách Hàng";
+            this.DebtName.Name = "DebtName";
+            // 
+            // IsPay
+            // 
+            this.IsPay.DataPropertyName = "IsPay";
+            this.IsPay.HeaderText = "Đã Thanh Toán";
+            this.IsPay.Name = "IsPay";
+            this.IsPay.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.IsPay.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // TransportationCostFormated
+            // 
+            this.TransportationCostFormated.DataPropertyName = "TransportationCostFormated";
+            this.TransportationCostFormated.HeaderText = "Tiền Vận Chuyễn";
+            this.TransportationCostFormated.Name = "TransportationCostFormated";
+            // 
+            // TotalCostFormated
+            // 
+            this.TotalCostFormated.DataPropertyName = "TotalCostFormated";
+            this.TotalCostFormated.HeaderText = "Tổng Số Tiền";
+            this.TotalCostFormated.Name = "TotalCostFormated";
+            // 
+            // personAccountDataGridViewTextBoxColumn
+            // 
+            this.personAccountDataGridViewTextBoxColumn.DataPropertyName = "PersonAccount";
+            this.personAccountDataGridViewTextBoxColumn.HeaderText = "Chịu Trách Nhiệm";
+            this.personAccountDataGridViewTextBoxColumn.Name = "personAccountDataGridViewTextBoxColumn";
+            // 
+            // Note
+            // 
+            this.Note.DataPropertyName = "Note";
+            this.Note.HeaderText = "Ghi Chú";
+            this.Note.Name = "Note";
+            // 
             // CreatedBy
             // 
             this.CreatedBy.DataPropertyName = "CreatedBy";
@@ -251,6 +313,10 @@
             this.LastUpdated.DataPropertyName = "LastUpdated";
             this.LastUpdated.HeaderText = "Ngày Sửa";
             this.LastUpdated.Name = "LastUpdated";
+            // 
+            // finalAccountDTOBindingSource
+            // 
+            this.finalAccountDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.FinalAccountDTO);
             // 
             // pnlSearch
             // 
@@ -391,7 +457,7 @@
             this.hdDebt.Size = new System.Drawing.Size(780, 29);
             this.hdDebt.TabIndex = 23;
             this.hdDebt.Values.Description = "";
-            this.hdDebt.Values.Heading = "Lịch Mua Hàng";
+            this.hdDebt.Values.Heading = "Danh Sách Mua Hàng";
             this.hdDebt.Values.Image = null;
             // 
             // btnRefresh
@@ -465,38 +531,6 @@
             this.gbcRightBot.TabIndex = 1;
             this.gbcRightBot.Values.Heading = "";
             // 
-            // hdEdit
-            // 
-            this.hdEdit.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
-            this.btnUnableEdit,
-            this.btnSave});
-            this.hdEdit.Dock = System.Windows.Forms.DockStyle.Top;
-            this.hdEdit.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.DockActive;
-            this.hdEdit.Location = new System.Drawing.Point(0, 0);
-            this.hdEdit.Name = "hdEdit";
-            this.hdEdit.Size = new System.Drawing.Size(780, 29);
-            this.hdEdit.TabIndex = 3;
-            this.hdEdit.Values.Description = "";
-            this.hdEdit.Values.Heading = "Cập Nhật Tình Trạng";
-            this.hdEdit.Values.Image = null;
-            // 
-            // btnUnableEdit
-            // 
-            this.btnUnableEdit.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.freeze;
-            this.btnUnableEdit.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
-            this.btnUnableEdit.Text = "Bước Tiếp Theo";
-            this.btnUnableEdit.UniqueName = "711D4B5F7134438B489063D5667E49ED";
-            this.btnUnableEdit.Click += new System.EventHandler(this.btnUnableEdit_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.save_edit;
-            this.btnSave.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
-            this.btnSave.Text = "Lưu";
-            this.btnSave.ToolTipTitle = "Lưu";
-            this.btnSave.UniqueName = "6549634A1C68497476A2DADA48F6958C";
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
             // gbxEdit1
             // 
             this.gbxEdit1.CaptionOverlap = 0D;
@@ -521,6 +555,15 @@
             this.gbxEdit1.StateCommon.Content.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
             this.gbxEdit1.TabIndex = 6;
             this.gbxEdit1.Values.Heading = "";
+            // 
+            // cbbStatus
+            // 
+            this.cbbStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbbStatus.DropDownWidth = 214;
+            this.cbbStatus.Location = new System.Drawing.Point(521, 13);
+            this.cbbStatus.Name = "cbbStatus";
+            this.cbbStatus.Size = new System.Drawing.Size(207, 22);
+            this.cbbStatus.TabIndex = 32;
             // 
             // txtTotalCost
             // 
@@ -586,80 +629,37 @@
             this.kryptonLabel4.TabIndex = 25;
             this.kryptonLabel4.Values.Text = "Mã Số";
             // 
-            // cbbStatus
+            // hdEdit
             // 
-            this.cbbStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbbStatus.DropDownWidth = 214;
-            this.cbbStatus.Location = new System.Drawing.Point(521, 13);
-            this.cbbStatus.Name = "cbbStatus";
-            this.cbbStatus.Size = new System.Drawing.Size(207, 22);
-            this.cbbStatus.TabIndex = 32;
+            this.hdEdit.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
+            this.btnUnableEdit,
+            this.btnSave});
+            this.hdEdit.Dock = System.Windows.Forms.DockStyle.Top;
+            this.hdEdit.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.DockActive;
+            this.hdEdit.Location = new System.Drawing.Point(0, 0);
+            this.hdEdit.Name = "hdEdit";
+            this.hdEdit.Size = new System.Drawing.Size(780, 29);
+            this.hdEdit.TabIndex = 3;
+            this.hdEdit.Values.Description = "";
+            this.hdEdit.Values.Heading = "Cập Nhật Tình Trạng";
+            this.hdEdit.Values.Image = null;
             // 
-            // FinalAccountID
+            // btnUnableEdit
             // 
-            this.FinalAccountID.DataPropertyName = "FinalAccountID";
-            this.FinalAccountID.HeaderText = "Mã Số";
-            this.FinalAccountID.Name = "FinalAccountID";
+            this.btnUnableEdit.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.right;
+            this.btnUnableEdit.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
+            this.btnUnableEdit.Text = "Bước Tiếp Theo";
+            this.btnUnableEdit.UniqueName = "711D4B5F7134438B489063D5667E49ED";
+            this.btnUnableEdit.Click += new System.EventHandler(this.btnUnableEdit_Click);
             // 
-            // FinalAccountName
+            // btnSave
             // 
-            this.FinalAccountName.DataPropertyName = "FinalAccountName";
-            this.FinalAccountName.HeaderText = "Tên";
-            this.FinalAccountName.Name = "FinalAccountName";
-            // 
-            // ConstructionName
-            // 
-            this.ConstructionName.DataPropertyName = "ConstructionName";
-            this.ConstructionName.HeaderText = "Công Trình";
-            this.ConstructionName.Name = "ConstructionName";
-            // 
-            // DateAccountFormated
-            // 
-            this.DateAccountFormated.DataPropertyName = "DateAccountFormated";
-            this.DateAccountFormated.HeaderText = "Ngày";
-            this.DateAccountFormated.Name = "DateAccountFormated";
-            // 
-            // DebtName
-            // 
-            this.DebtName.DataPropertyName = "DebtName";
-            this.DebtName.HeaderText = "Khách Hàng";
-            this.DebtName.Name = "DebtName";
-            // 
-            // IsPay
-            // 
-            this.IsPay.DataPropertyName = "IsPay";
-            this.IsPay.HeaderText = "Đã Thanh Toán";
-            this.IsPay.Name = "IsPay";
-            this.IsPay.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.IsPay.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // TransportationCostFormated
-            // 
-            this.TransportationCostFormated.DataPropertyName = "TransportationCostFormated";
-            this.TransportationCostFormated.HeaderText = "Tiền Vận Chuyễn";
-            this.TransportationCostFormated.Name = "TransportationCostFormated";
-            // 
-            // TotalCostFormated
-            // 
-            this.TotalCostFormated.DataPropertyName = "TotalCostFormated";
-            this.TotalCostFormated.HeaderText = "Tổng Số Tiền";
-            this.TotalCostFormated.Name = "TotalCostFormated";
-            // 
-            // personAccountDataGridViewTextBoxColumn
-            // 
-            this.personAccountDataGridViewTextBoxColumn.DataPropertyName = "PersonAccount";
-            this.personAccountDataGridViewTextBoxColumn.HeaderText = "Chịu Trách Nhiệm";
-            this.personAccountDataGridViewTextBoxColumn.Name = "personAccountDataGridViewTextBoxColumn";
-            // 
-            // Note
-            // 
-            this.Note.DataPropertyName = "Note";
-            this.Note.HeaderText = "Ghi Chú";
-            this.Note.Name = "Note";
-            // 
-            // finalAccountDTOBindingSource
-            // 
-            this.finalAccountDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.FinalAccountDTO);
+            this.btnSave.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.save_edit;
+            this.btnSave.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
+            this.btnSave.Text = "Lưu";
+            this.btnSave.ToolTipTitle = "Lưu";
+            this.btnSave.UniqueName = "6549634A1C68497476A2DADA48F6958C";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // FinalAccountDebt
             // 
@@ -670,11 +670,12 @@
             this.Controls.Add(this.slcMain);
             this.Name = "FinalAccountDebt";
             this.ShowIcon = false;
-            this.Text = "Quản Lý Mua Hàng";
+            this.Text = "Bảng Công Nợ";
             this.Load += new System.EventHandler(this.FinalAccountManagement_Load);
             this.cmsDGV.ResumeLayout(false);
             this.cmsMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAccount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.finalAccountDTOBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlSearch)).EndInit();
             this.pnlSearch.ResumeLayout(false);
             this.gbxSearch.Panel.ResumeLayout(false);
@@ -699,7 +700,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gbxEdit1)).EndInit();
             this.gbxEdit1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cbbStatus)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.finalAccountDTOBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -399,6 +399,7 @@
             this.Controls.Add(this.slcMain);
             this.Controls.Add(this.pnlButton);
             this.Name = "NewSalary";
+            this.ShowIcon = false;
             this.Text = "Tạo Mới Lương";
             this.Load += new System.EventHandler(this.NewSalary_Load);
             this.cmsMain.ResumeLayout(false);

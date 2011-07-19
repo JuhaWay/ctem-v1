@@ -29,6 +29,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
         public const string MANAGE_STOCK = "Lịch Xuất Kho";
         public const string MANAGE_VEHICLE = "Quản Lý Phương Tiện";
         public const string MANAGE_MATERIAL = "Quản Lý Vật Tư Vật Liệu";
+        public const string DAILY_VEHICLE = "Quản Lý Tình Hình Phương Tiện";
 
         public const string MANAGE_COMPARE_DEBT = "Lịch Đọ Sổ";
 
@@ -117,7 +118,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
         public const int MIN_HEIGHT_HEADER_GROUP = 26;
         public const int MAX_HEIGHT_HG_CONS = 180;
         public const int MAX_HEIGHT_HG_EMP = 120;
-        public const int MAX_HEIGHT_HG_WH = 160;
+        public const int MAX_HEIGHT_HG_WH = 180;
         public const int MAX_HEIGHT_HG_DEBT = 100;
         public const int MAX_HEIGHT_HG_LEDGER = 100;
         public const int MAX_HEIGHT_HG_SYSTEM = 160;
@@ -198,5 +199,17 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
         public const string CONSTRUCTION_SEARCH = "Construction Search";
 
         public const string MATERIAL_SEARCH = "Material Search";
+
+        public const string VERHICLE = "Verhicle";
+
+        public const string DRIVER = "Driver";
+
+        public const string DRIVER_ROLE = "Tài Xế";
+
+        public const string PASS_NOT_MATCH = "Mật Khẩu Bạn Vừa Nhập Không Đúng";
+
+        public const string NOT_CONFIRM_PASS = "Mật Khẩu Bạn Vừa Nhập Không Khớp Với Mật Khẩu Trên";
+
+        public const string ERROR_DATE = "Ngày Vừa Chọn Không Hợp Lệ";
     }
 }

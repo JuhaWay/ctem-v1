@@ -224,7 +224,7 @@
             this.gbxAdd1.Panel.Controls.Add(this.kryptonLabel3);
             this.gbxAdd1.Panel.Controls.Add(this.txtWarehouseName);
             this.gbxAdd1.Panel.Controls.Add(this.txtNameManager);
-            this.gbxAdd1.Size = new System.Drawing.Size(455, 144);
+            this.gbxAdd1.Size = new System.Drawing.Size(455, 143);
             this.gbxAdd1.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(89)))), ((int)(((byte)(153)))));
             this.gbxAdd1.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
             this.gbxAdd1.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -246,7 +246,7 @@
             this.gbxAdd2.Panel.Controls.Add(this.txtDescription);
             this.gbxAdd2.Panel.Controls.Add(this.kryptonLabel6);
             this.gbxAdd2.Panel.Controls.Add(this.txtAddress);
-            this.gbxAdd2.Size = new System.Drawing.Size(460, 214);
+            this.gbxAdd2.Size = new System.Drawing.Size(460, 215);
             this.gbxAdd2.TabIndex = 5;
             this.gbxAdd2.Values.Heading = "Thông Tin Thêm";
             // 
@@ -313,7 +313,8 @@
             this.Controls.Add(this.slcMain);
             this.Controls.Add(this.pnlButton);
             this.Name = "NewWarehouse";
-            this.Text = "NewWarehouse";
+            this.ShowIcon = false;
+            this.Text = "Tạo Mới Kho";
             this.Load += new System.EventHandler(this.NewWarehouse_Load);
             ((System.ComponentModel.ISupportInitialize)(this.cbbStatus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbbConstruction)).EndInit();
