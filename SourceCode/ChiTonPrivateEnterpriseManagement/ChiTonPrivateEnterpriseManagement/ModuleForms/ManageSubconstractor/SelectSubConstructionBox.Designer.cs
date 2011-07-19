@@ -31,14 +31,14 @@
             this.components = new System.ComponentModel.Container();
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.pnMain = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.addButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.phoneInPut = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.PhoneLabel = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.addressInPut = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.DesLabel = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.subNameInput = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.SubConLabel = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.addButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)(this.pnMain)).BeginInit();
             this.pnMain.SuspendLayout();
             this.SuspendLayout();
@@ -60,21 +60,21 @@
             this.pnMain.StateDisabled.Color1 = System.Drawing.Color.Silver;
             this.pnMain.TabIndex = 0;
             // 
-            // addButton
+            // kryptonLabel1
             // 
-            this.addButton.Location = new System.Drawing.Point(197, 185);
-            this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(89, 25);
-            this.addButton.TabIndex = 17;
-            this.addButton.Values.Text = "Thêm nhà thầu";
-            this.addButton.Click += new System.EventHandler(this.addButton_Click);
+            this.kryptonLabel1.Location = new System.Drawing.Point(12, 202);
+            this.kryptonLabel1.Name = "kryptonLabel1";
+            this.kryptonLabel1.Size = new System.Drawing.Size(107, 19);
+            this.kryptonLabel1.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.kryptonLabel1.TabIndex = 29;
+            this.kryptonLabel1.Values.Text = "(*) trường bắt buộc";
             // 
             // phoneInPut
             // 
             this.phoneInPut.Location = new System.Drawing.Point(159, 132);
             this.phoneInPut.Name = "phoneInPut";
             this.phoneInPut.Size = new System.Drawing.Size(244, 22);
-            this.phoneInPut.TabIndex = 28;
+            this.phoneInPut.TabIndex = 3;
             // 
             // PhoneLabel
             // 
@@ -93,7 +93,7 @@
             this.addressInPut.Multiline = true;
             this.addressInPut.Name = "addressInPut";
             this.addressInPut.Size = new System.Drawing.Size(244, 22);
-            this.addressInPut.TabIndex = 23;
+            this.addressInPut.TabIndex = 2;
             // 
             // DesLabel
             // 
@@ -110,7 +110,7 @@
             this.subNameInput.Location = new System.Drawing.Point(159, 36);
             this.subNameInput.Name = "subNameInput";
             this.subNameInput.Size = new System.Drawing.Size(244, 22);
-            this.subNameInput.TabIndex = 25;
+            this.subNameInput.TabIndex = 1;
             // 
             // SubConLabel
             // 
@@ -122,14 +122,14 @@
             this.SubConLabel.TabIndex = 24;
             this.SubConLabel.Values.Text = "Tên nhà thầu(*)";
             // 
-            // kryptonLabel1
+            // addButton
             // 
-            this.kryptonLabel1.Location = new System.Drawing.Point(12, 202);
-            this.kryptonLabel1.Name = "kryptonLabel1";
-            this.kryptonLabel1.Size = new System.Drawing.Size(107, 19);
-            this.kryptonLabel1.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.kryptonLabel1.TabIndex = 29;
-            this.kryptonLabel1.Values.Text = "(*) trường bắt buộc";
+            this.addButton.Location = new System.Drawing.Point(197, 185);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(89, 25);
+            this.addButton.TabIndex = 4;
+            this.addButton.Values.Text = "Thêm nhà thầu";
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // SelectSubConstructionBox
             // 
