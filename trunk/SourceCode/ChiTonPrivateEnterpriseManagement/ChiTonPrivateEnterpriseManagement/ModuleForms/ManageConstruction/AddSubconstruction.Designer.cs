@@ -31,42 +31,42 @@
             this.components = new System.ComponentModel.Container();
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.pnMain = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.ipProgressRate = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.lbProgress = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.ipRealCost = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.lbRealCost = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.ipEst = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.lbEst = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.btSave = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.kryptonGroupBox2 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.btCancel = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.cbSubconName = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.btSave = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.kryptonGroupBox1 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
+            this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.ipProgressRate = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.lbConstructionName = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.lbProgress = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.ipConstructionName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.ipRealCost = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.lbAddress = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.lbRealCost = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.ipAddress = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.ipEst = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.lbStartDate = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.lbEst = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.lbEndDate = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.dtEndDate = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
+            this.lbState = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.cbSubconName = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.btnAddSubC = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.cbStatus = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.lbDes = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.dtStartDate = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
             this.ipDes = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.lbDes = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.cbStatus = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
-            this.lbState = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.dtEndDate = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
-            this.lbEndDate = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.lbStartDate = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.ipAddress = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.lbAddress = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.ipConstructionName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.lbConstructionName = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.btnAddSubC = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.kryptonGroupBox1 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
-            this.kryptonGroupBox2 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
-            this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pnMain)).BeginInit();
             this.pnMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cbSubconName)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbStatus)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).BeginInit();
-            this.kryptonGroupBox1.Panel.SuspendLayout();
-            this.kryptonGroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox2)).BeginInit();
             this.kryptonGroupBox2.Panel.SuspendLayout();
             this.kryptonGroupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).BeginInit();
+            this.kryptonGroupBox1.Panel.SuspendLayout();
+            this.kryptonGroupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbSubconName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbStatus)).BeginInit();
             this.SuspendLayout();
             // 
             // pnMain
@@ -79,222 +79,36 @@
             this.pnMain.Size = new System.Drawing.Size(525, 515);
             this.pnMain.TabIndex = 0;
             // 
-            // ipProgressRate
+            // kryptonGroupBox2
             // 
-            this.ipProgressRate.Location = new System.Drawing.Point(110, 232);
-            this.ipProgressRate.Name = "ipProgressRate";
-            this.ipProgressRate.Size = new System.Drawing.Size(357, 22);
-            this.ipProgressRate.TabIndex = 45;
+            this.kryptonGroupBox2.Location = new System.Drawing.Point(12, 425);
+            this.kryptonGroupBox2.Name = "kryptonGroupBox2";
             // 
-            // lbProgress
+            // kryptonGroupBox2.Panel
             // 
-            this.lbProgress.Location = new System.Drawing.Point(53, 239);
-            this.lbProgress.Name = "lbProgress";
-            this.lbProgress.Size = new System.Drawing.Size(48, 16);
-            this.lbProgress.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.lbProgress.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbProgress.TabIndex = 44;
-            this.lbProgress.Values.Text = "Tiến độ";
-            // 
-            // ipRealCost
-            // 
-            this.ipRealCost.Location = new System.Drawing.Point(110, 204);
-            this.ipRealCost.Name = "ipRealCost";
-            this.ipRealCost.Size = new System.Drawing.Size(357, 22);
-            this.ipRealCost.TabIndex = 43;
-            this.ipRealCost.Leave += new System.EventHandler(this.ipRealCost_Leave);
-            this.ipRealCost.MouseLeave += new System.EventHandler(this.ipRealCost_MouseLeave);
-            // 
-            // lbRealCost
-            // 
-            this.lbRealCost.Location = new System.Drawing.Point(42, 210);
-            this.lbRealCost.Name = "lbRealCost";
-            this.lbRealCost.Size = new System.Drawing.Size(59, 16);
-            this.lbRealCost.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.lbRealCost.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbRealCost.TabIndex = 42;
-            this.lbRealCost.Values.Text = "Gỉai ngân";
-            // 
-            // ipEst
-            // 
-            this.ipEst.Location = new System.Drawing.Point(110, 176);
-            this.ipEst.Name = "ipEst";
-            this.ipEst.Size = new System.Drawing.Size(357, 22);
-            this.ipEst.TabIndex = 41;
-            this.ipEst.Leave += new System.EventHandler(this.ipEst_Leave);
-            this.ipEst.MouseLeave += new System.EventHandler(this.ipEst_MouseLeave);
-            // 
-            // lbEst
-            // 
-            this.lbEst.Location = new System.Drawing.Point(22, 182);
-            this.lbEst.Name = "lbEst";
-            this.lbEst.Size = new System.Drawing.Size(79, 16);
-            this.lbEst.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.lbEst.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbEst.TabIndex = 40;
-            this.lbEst.Values.Text = "khoáng(VND)";
-            // 
-            // btSave
-            // 
-            this.btSave.Location = new System.Drawing.Point(104, 27);
-            this.btSave.Name = "btSave";
-            this.btSave.Size = new System.Drawing.Size(78, 25);
-            this.btSave.TabIndex = 28;
-            this.btSave.Values.Text = "Lưu";
-            this.btSave.Click += new System.EventHandler(this.btSave_Click);
+            this.kryptonGroupBox2.Panel.Controls.Add(this.btCancel);
+            this.kryptonGroupBox2.Panel.Controls.Add(this.btSave);
+            this.kryptonGroupBox2.Size = new System.Drawing.Size(501, 78);
+            this.kryptonGroupBox2.TabIndex = 47;
+            this.kryptonGroupBox2.Values.Heading = "";
             // 
             // btCancel
             // 
             this.btCancel.Location = new System.Drawing.Point(340, 27);
             this.btCancel.Name = "btCancel";
             this.btCancel.Size = new System.Drawing.Size(72, 25);
-            this.btCancel.TabIndex = 31;
+            this.btCancel.TabIndex = 12;
             this.btCancel.Values.Text = "Đóng";
             this.btCancel.Click += new System.EventHandler(this.btCancel_Click);
             // 
-            // cbSubconName
+            // btSave
             // 
-            this.cbSubconName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cbSubconName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbSubconName.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
-            this.btnAddSubC});
-            this.cbSubconName.DropDownWidth = 159;
-            this.cbSubconName.Location = new System.Drawing.Point(110, 9);
-            this.cbSubconName.Name = "cbSubconName";
-            this.cbSubconName.Size = new System.Drawing.Size(357, 25);
-            this.cbSubconName.TabIndex = 38;
-            this.cbSubconName.Text = "chọn...";
-            // 
-            // kryptonLabel1
-            // 
-            this.kryptonLabel1.Location = new System.Drawing.Point(12, 18);
-            this.kryptonLabel1.Name = "kryptonLabel1";
-            this.kryptonLabel1.Size = new System.Drawing.Size(89, 16);
-            this.kryptonLabel1.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.kryptonLabel1.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonLabel1.TabIndex = 37;
-            this.kryptonLabel1.Values.Text = "Tên nhà thầu(*)";
-            // 
-            // dtStartDate
-            // 
-            this.dtStartDate.CustomFormat = "dd/MM/yyyy";
-            this.dtStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtStartDate.Location = new System.Drawing.Point(110, 124);
-            this.dtStartDate.Name = "dtStartDate";
-            this.dtStartDate.Size = new System.Drawing.Size(357, 20);
-            this.dtStartDate.TabIndex = 36;
-            // 
-            // ipDes
-            // 
-            this.ipDes.Location = new System.Drawing.Point(110, 260);
-            this.ipDes.Multiline = true;
-            this.ipDes.Name = "ipDes";
-            this.ipDes.Size = new System.Drawing.Size(357, 112);
-            this.ipDes.TabIndex = 35;
-            this.ipDes.Text = "...";
-            // 
-            // lbDes
-            // 
-            this.lbDes.Location = new System.Drawing.Point(63, 261);
-            this.lbDes.Name = "lbDes";
-            this.lbDes.Size = new System.Drawing.Size(38, 16);
-            this.lbDes.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.lbDes.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDes.TabIndex = 34;
-            this.lbDes.Values.Text = "Mô tả ";
-            // 
-            // cbStatus
-            // 
-            this.cbStatus.DropDownWidth = 172;
-            this.cbStatus.Items.AddRange(new object[] {
-            "Mới ",
-            "Đang thi công ",
-            "Treo"});
-            this.cbStatus.Location = new System.Drawing.Point(110, 40);
-            this.cbStatus.Name = "cbStatus";
-            this.cbStatus.Size = new System.Drawing.Size(357, 22);
-            this.cbStatus.TabIndex = 33;
-            this.cbStatus.Text = "chọn...";
-            // 
-            // lbState
-            // 
-            this.lbState.Location = new System.Drawing.Point(25, 46);
-            this.lbState.Name = "lbState";
-            this.lbState.Size = new System.Drawing.Size(76, 16);
-            this.lbState.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.lbState.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbState.TabIndex = 32;
-            this.lbState.Values.Text = "Tình trạng (*)";
-            // 
-            // dtEndDate
-            // 
-            this.dtEndDate.CustomFormat = "dd/MM/yyyy";
-            this.dtEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtEndDate.Location = new System.Drawing.Point(110, 150);
-            this.dtEndDate.Name = "dtEndDate";
-            this.dtEndDate.Size = new System.Drawing.Size(357, 20);
-            this.dtEndDate.TabIndex = 30;
-            // 
-            // lbEndDate
-            // 
-            this.lbEndDate.Location = new System.Drawing.Point(22, 154);
-            this.lbEndDate.Name = "lbEndDate";
-            this.lbEndDate.Size = new System.Drawing.Size(79, 16);
-            this.lbEndDate.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.lbEndDate.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbEndDate.TabIndex = 29;
-            this.lbEndDate.Values.Text = "Ngày kết thúc ";
-            // 
-            // lbStartDate
-            // 
-            this.lbStartDate.Location = new System.Drawing.Point(13, 124);
-            this.lbStartDate.Name = "lbStartDate";
-            this.lbStartDate.Size = new System.Drawing.Size(88, 16);
-            this.lbStartDate.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.lbStartDate.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbStartDate.TabIndex = 27;
-            this.lbStartDate.Values.Text = "Ngày khởi công ";
-            // 
-            // ipAddress
-            // 
-            this.ipAddress.Location = new System.Drawing.Point(110, 96);
-            this.ipAddress.Name = "ipAddress";
-            this.ipAddress.Size = new System.Drawing.Size(357, 22);
-            this.ipAddress.TabIndex = 26;
-            // 
-            // lbAddress
-            // 
-            this.lbAddress.Location = new System.Drawing.Point(56, 102);
-            this.lbAddress.Name = "lbAddress";
-            this.lbAddress.Size = new System.Drawing.Size(45, 16);
-            this.lbAddress.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.lbAddress.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbAddress.TabIndex = 25;
-            this.lbAddress.Values.Text = "Địa chỉ ";
-            // 
-            // ipConstructionName
-            // 
-            this.ipConstructionName.Location = new System.Drawing.Point(110, 68);
-            this.ipConstructionName.Name = "ipConstructionName";
-            this.ipConstructionName.Size = new System.Drawing.Size(357, 22);
-            this.ipConstructionName.TabIndex = 24;
-            // 
-            // lbConstructionName
-            // 
-            this.lbConstructionName.Location = new System.Drawing.Point(4, 68);
-            this.lbConstructionName.Name = "lbConstructionName";
-            this.lbConstructionName.Size = new System.Drawing.Size(97, 16);
-            this.lbConstructionName.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.lbConstructionName.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbConstructionName.TabIndex = 23;
-            this.lbConstructionName.Values.Text = "Tên công trình (*)";
-            // 
-            // btnAddSubC
-            // 
-            this.btnAddSubC.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.add;
-            this.btnAddSubC.Text = "Tạo Mới";
-            this.btnAddSubC.UniqueName = "6DF84878B4BD4CB440B448841D40571A";
-            this.btnAddSubC.Click += new System.EventHandler(this.btcreateSubcon_Click);
+            this.btSave.Location = new System.Drawing.Point(104, 27);
+            this.btSave.Name = "btSave";
+            this.btSave.Size = new System.Drawing.Size(78, 25);
+            this.btSave.TabIndex = 11;
+            this.btSave.Values.Text = "Lưu";
+            this.btSave.Click += new System.EventHandler(this.btSave_Click);
             // 
             // kryptonGroupBox1
             // 
@@ -328,19 +142,6 @@
             this.kryptonGroupBox1.TabIndex = 46;
             this.kryptonGroupBox1.Values.Heading = "";
             // 
-            // kryptonGroupBox2
-            // 
-            this.kryptonGroupBox2.Location = new System.Drawing.Point(12, 425);
-            this.kryptonGroupBox2.Name = "kryptonGroupBox2";
-            // 
-            // kryptonGroupBox2.Panel
-            // 
-            this.kryptonGroupBox2.Panel.Controls.Add(this.btCancel);
-            this.kryptonGroupBox2.Panel.Controls.Add(this.btSave);
-            this.kryptonGroupBox2.Size = new System.Drawing.Size(501, 78);
-            this.kryptonGroupBox2.TabIndex = 47;
-            this.kryptonGroupBox2.Values.Heading = "";
-            // 
             // kryptonLabel2
             // 
             this.kryptonLabel2.Location = new System.Drawing.Point(12, 378);
@@ -349,6 +150,205 @@
             this.kryptonLabel2.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.kryptonLabel2.TabIndex = 46;
             this.kryptonLabel2.Values.Text = "(*) trường bắt buộc";
+            // 
+            // kryptonLabel1
+            // 
+            this.kryptonLabel1.Location = new System.Drawing.Point(12, 18);
+            this.kryptonLabel1.Name = "kryptonLabel1";
+            this.kryptonLabel1.Size = new System.Drawing.Size(89, 16);
+            this.kryptonLabel1.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.kryptonLabel1.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonLabel1.TabIndex = 37;
+            this.kryptonLabel1.Values.Text = "Tên nhà thầu(*)";
+            // 
+            // ipProgressRate
+            // 
+            this.ipProgressRate.Location = new System.Drawing.Point(110, 232);
+            this.ipProgressRate.Name = "ipProgressRate";
+            this.ipProgressRate.Size = new System.Drawing.Size(357, 22);
+            this.ipProgressRate.TabIndex = 9;
+            // 
+            // lbConstructionName
+            // 
+            this.lbConstructionName.Location = new System.Drawing.Point(4, 68);
+            this.lbConstructionName.Name = "lbConstructionName";
+            this.lbConstructionName.Size = new System.Drawing.Size(97, 16);
+            this.lbConstructionName.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.lbConstructionName.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbConstructionName.TabIndex = 23;
+            this.lbConstructionName.Values.Text = "Tên công trình (*)";
+            // 
+            // lbProgress
+            // 
+            this.lbProgress.Location = new System.Drawing.Point(53, 239);
+            this.lbProgress.Name = "lbProgress";
+            this.lbProgress.Size = new System.Drawing.Size(48, 16);
+            this.lbProgress.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.lbProgress.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbProgress.TabIndex = 44;
+            this.lbProgress.Values.Text = "Tiến độ";
+            // 
+            // ipConstructionName
+            // 
+            this.ipConstructionName.Location = new System.Drawing.Point(110, 68);
+            this.ipConstructionName.Name = "ipConstructionName";
+            this.ipConstructionName.Size = new System.Drawing.Size(357, 22);
+            this.ipConstructionName.TabIndex = 3;
+            // 
+            // ipRealCost
+            // 
+            this.ipRealCost.Location = new System.Drawing.Point(110, 204);
+            this.ipRealCost.Name = "ipRealCost";
+            this.ipRealCost.Size = new System.Drawing.Size(357, 22);
+            this.ipRealCost.TabIndex = 8;
+            this.ipRealCost.Leave += new System.EventHandler(this.ipRealCost_Leave);
+            this.ipRealCost.MouseLeave += new System.EventHandler(this.ipRealCost_MouseLeave);
+            // 
+            // lbAddress
+            // 
+            this.lbAddress.Location = new System.Drawing.Point(56, 102);
+            this.lbAddress.Name = "lbAddress";
+            this.lbAddress.Size = new System.Drawing.Size(45, 16);
+            this.lbAddress.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.lbAddress.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbAddress.TabIndex = 25;
+            this.lbAddress.Values.Text = "Địa chỉ ";
+            // 
+            // lbRealCost
+            // 
+            this.lbRealCost.Location = new System.Drawing.Point(42, 210);
+            this.lbRealCost.Name = "lbRealCost";
+            this.lbRealCost.Size = new System.Drawing.Size(59, 16);
+            this.lbRealCost.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.lbRealCost.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbRealCost.TabIndex = 42;
+            this.lbRealCost.Values.Text = "Gỉai ngân";
+            // 
+            // ipAddress
+            // 
+            this.ipAddress.Location = new System.Drawing.Point(110, 96);
+            this.ipAddress.Name = "ipAddress";
+            this.ipAddress.Size = new System.Drawing.Size(357, 22);
+            this.ipAddress.TabIndex = 4;
+            // 
+            // ipEst
+            // 
+            this.ipEst.Location = new System.Drawing.Point(110, 176);
+            this.ipEst.Name = "ipEst";
+            this.ipEst.Size = new System.Drawing.Size(357, 22);
+            this.ipEst.TabIndex = 7;
+            this.ipEst.Leave += new System.EventHandler(this.ipEst_Leave);
+            this.ipEst.MouseLeave += new System.EventHandler(this.ipEst_MouseLeave);
+            // 
+            // lbStartDate
+            // 
+            this.lbStartDate.Location = new System.Drawing.Point(13, 124);
+            this.lbStartDate.Name = "lbStartDate";
+            this.lbStartDate.Size = new System.Drawing.Size(88, 16);
+            this.lbStartDate.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.lbStartDate.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbStartDate.TabIndex = 27;
+            this.lbStartDate.Values.Text = "Ngày khởi công ";
+            // 
+            // lbEst
+            // 
+            this.lbEst.Location = new System.Drawing.Point(22, 182);
+            this.lbEst.Name = "lbEst";
+            this.lbEst.Size = new System.Drawing.Size(79, 16);
+            this.lbEst.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.lbEst.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbEst.TabIndex = 40;
+            this.lbEst.Values.Text = "khoáng(VND)";
+            // 
+            // lbEndDate
+            // 
+            this.lbEndDate.Location = new System.Drawing.Point(22, 154);
+            this.lbEndDate.Name = "lbEndDate";
+            this.lbEndDate.Size = new System.Drawing.Size(79, 16);
+            this.lbEndDate.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.lbEndDate.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbEndDate.TabIndex = 29;
+            this.lbEndDate.Values.Text = "Ngày kết thúc ";
+            // 
+            // dtEndDate
+            // 
+            this.dtEndDate.CustomFormat = "dd/MM/yyyy";
+            this.dtEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtEndDate.Location = new System.Drawing.Point(110, 150);
+            this.dtEndDate.Name = "dtEndDate";
+            this.dtEndDate.Size = new System.Drawing.Size(357, 20);
+            this.dtEndDate.TabIndex = 6;
+            // 
+            // lbState
+            // 
+            this.lbState.Location = new System.Drawing.Point(25, 46);
+            this.lbState.Name = "lbState";
+            this.lbState.Size = new System.Drawing.Size(76, 16);
+            this.lbState.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.lbState.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbState.TabIndex = 32;
+            this.lbState.Values.Text = "Tình trạng (*)";
+            // 
+            // cbSubconName
+            // 
+            this.cbSubconName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbSubconName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbSubconName.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
+            this.btnAddSubC});
+            this.cbSubconName.DropDownWidth = 159;
+            this.cbSubconName.Location = new System.Drawing.Point(110, 9);
+            this.cbSubconName.Name = "cbSubconName";
+            this.cbSubconName.Size = new System.Drawing.Size(357, 25);
+            this.cbSubconName.TabIndex = 1;
+            this.cbSubconName.Text = "chọn...";
+            // 
+            // btnAddSubC
+            // 
+            this.btnAddSubC.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.add;
+            this.btnAddSubC.Text = "Tạo Mới";
+            this.btnAddSubC.UniqueName = "6DF84878B4BD4CB440B448841D40571A";
+            this.btnAddSubC.Click += new System.EventHandler(this.btcreateSubcon_Click);
+            // 
+            // cbStatus
+            // 
+            this.cbStatus.DropDownWidth = 172;
+            this.cbStatus.Items.AddRange(new object[] {
+            "Mới ",
+            "Đang thi công ",
+            "Treo"});
+            this.cbStatus.Location = new System.Drawing.Point(110, 40);
+            this.cbStatus.Name = "cbStatus";
+            this.cbStatus.Size = new System.Drawing.Size(357, 22);
+            this.cbStatus.TabIndex = 2;
+            this.cbStatus.Text = "chọn...";
+            // 
+            // lbDes
+            // 
+            this.lbDes.Location = new System.Drawing.Point(63, 261);
+            this.lbDes.Name = "lbDes";
+            this.lbDes.Size = new System.Drawing.Size(38, 16);
+            this.lbDes.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.lbDes.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDes.TabIndex = 34;
+            this.lbDes.Values.Text = "Mô tả ";
+            // 
+            // dtStartDate
+            // 
+            this.dtStartDate.CustomFormat = "dd/MM/yyyy";
+            this.dtStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtStartDate.Location = new System.Drawing.Point(110, 124);
+            this.dtStartDate.Name = "dtStartDate";
+            this.dtStartDate.Size = new System.Drawing.Size(357, 20);
+            this.dtStartDate.TabIndex = 5;
+            // 
+            // ipDes
+            // 
+            this.ipDes.Location = new System.Drawing.Point(110, 260);
+            this.ipDes.Multiline = true;
+            this.ipDes.Name = "ipDes";
+            this.ipDes.Size = new System.Drawing.Size(357, 112);
+            this.ipDes.TabIndex = 10;
+            this.ipDes.Text = "...";
             // 
             // AddSubconstruction
             // 
@@ -365,15 +365,15 @@
             this.Load += new System.EventHandler(this.AddConstruction_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pnMain)).EndInit();
             this.pnMain.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.cbSubconName)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbStatus)).EndInit();
+            this.kryptonGroupBox2.Panel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox2)).EndInit();
+            this.kryptonGroupBox2.ResumeLayout(false);
             this.kryptonGroupBox1.Panel.ResumeLayout(false);
             this.kryptonGroupBox1.Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).EndInit();
             this.kryptonGroupBox1.ResumeLayout(false);
-            this.kryptonGroupBox2.Panel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox2)).EndInit();
-            this.kryptonGroupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cbSubconName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbStatus)).EndInit();
             this.ResumeLayout(false);
 
         }
