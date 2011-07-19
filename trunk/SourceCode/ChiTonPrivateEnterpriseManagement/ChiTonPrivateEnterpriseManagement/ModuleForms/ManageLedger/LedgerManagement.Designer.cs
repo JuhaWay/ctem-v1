@@ -880,7 +880,6 @@
             this.Controls.Add(this.slcMain);
             this.Controls.Add(this.kryptonPanel);
             this.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.DockActive;
-            this.Name = "LedgerManagement";
             this.ShowIcon = false;
             this.Text = "Sổ cái";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
