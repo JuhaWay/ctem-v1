@@ -299,7 +299,6 @@
             this.cbStatus.Size = new System.Drawing.Size(283, 22);
             this.cbStatus.TabIndex = 28;
             this.cbStatus.Text = "chọn...";
-            this.cbStatus.SelectedIndexChanged += new System.EventHandler(this.cbStatus_SelectedIndexChanged);
             // 
             // buttonSpecAny1
             // 
