@@ -174,7 +174,7 @@
             this.Controls.Add(this.pnlmain);
             this.Controls.Add(this.pnlButton);
             this.Name = "Authorization";
-            this.Text = "Authorization";
+            this.Text = "Phân Quyền";
             this.Load += new System.EventHandler(this.Authorization_Load);
             ((System.ComponentModel.ISupportInitialize)(this.cbbRole)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlButton)).EndInit();

@@ -48,6 +48,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
 
         private void SetLayout()
         {
+            CenterToParent();
             dgvAccount.Focus();
             pnlSearch.Height = 82;
             gbxSearch.Height = 78;

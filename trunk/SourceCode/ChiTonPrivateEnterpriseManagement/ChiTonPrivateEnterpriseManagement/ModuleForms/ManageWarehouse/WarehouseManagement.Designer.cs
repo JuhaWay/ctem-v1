@@ -282,6 +282,7 @@
             this.cbbTypeSearch.Name = "cbbTypeSearch";
             this.cbbTypeSearch.Size = new System.Drawing.Size(113, 22);
             this.cbbTypeSearch.TabIndex = 7;
+            this.cbbTypeSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbbTypeSearch_KeyDown);
             // 
             // kryptonLabel11
             // 
@@ -303,6 +304,7 @@
             this.cbbNameSearch.Name = "cbbNameSearch";
             this.cbbNameSearch.Size = new System.Drawing.Size(129, 22);
             this.cbbNameSearch.TabIndex = 1;
+            this.cbbNameSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbbTypeSearch_KeyDown);
             // 
             // btnSearch
             // 
@@ -342,6 +344,7 @@
             this.cbbStatusSearch.Name = "cbbStatusSearch";
             this.cbbStatusSearch.Size = new System.Drawing.Size(140, 22);
             this.cbbStatusSearch.TabIndex = 2;
+            this.cbbStatusSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbbTypeSearch_KeyDown);
             // 
             // kryptonLabel10
             // 
@@ -695,6 +698,7 @@
             this.SearchToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
             this.SearchToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.SearchToolStripMenuItem.Text = "Tìm Kiếm";
+            this.SearchToolStripMenuItem.Click += new System.EventHandler(this.SearchToolStripMenuItem_Click);
             // 
             // HideSearchToolStripMenuItem
             // 
@@ -702,6 +706,7 @@
             this.HideSearchToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
             this.HideSearchToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.HideSearchToolStripMenuItem.Text = "Ẩn Tìm Kiếm";
+            this.HideSearchToolStripMenuItem.Click += new System.EventHandler(this.HideSearchToolStripMenuItem_Click);
             // 
             // WarehouseManagement
             // 

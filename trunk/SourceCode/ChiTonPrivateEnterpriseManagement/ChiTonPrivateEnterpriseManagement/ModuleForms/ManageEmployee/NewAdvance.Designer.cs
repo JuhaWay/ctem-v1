@@ -34,6 +34,8 @@
             this.txtNote = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.txtReason = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.txtTotalAdvance = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.cmsMain = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.genarateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kryptonLabel4 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel3 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
@@ -46,9 +48,8 @@
             this.btnClear = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnClose = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnSave = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.cmsMain = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.genarateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.cbbEmployee)).BeginInit();
+            this.cmsMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.slcMain)).BeginInit();
             this.slcMain.Panel1.SuspendLayout();
             this.slcMain.Panel2.SuspendLayout();
@@ -64,7 +65,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gbxButton)).BeginInit();
             this.gbxButton.Panel.SuspendLayout();
             this.gbxButton.SuspendLayout();
-            this.cmsMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // cbbEmployee
@@ -101,6 +101,22 @@
             this.txtTotalAdvance.TabIndex = 13;
             this.txtTotalAdvance.Enter += new System.EventHandler(this.txtTotalAdvance_Enter);
             this.txtTotalAdvance.Leave += new System.EventHandler(this.txtTotalAdvance_Leave);
+            // 
+            // cmsMain
+            // 
+            this.cmsMain.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.cmsMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.genarateToolStripMenuItem});
+            this.cmsMain.Name = "cmsMain";
+            this.cmsMain.Size = new System.Drawing.Size(170, 48);
+            // 
+            // genarateToolStripMenuItem
+            // 
+            this.genarateToolStripMenuItem.Name = "genarateToolStripMenuItem";
+            this.genarateToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G)));
+            this.genarateToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.genarateToolStripMenuItem.Text = "Genarate";
+            this.genarateToolStripMenuItem.Click += new System.EventHandler(this.genarateToolStripMenuItem_Click);
             // 
             // kryptonLabel4
             // 
@@ -252,22 +268,6 @@
             this.btnSave.Values.Text = "Lưu";
             this.btnSave.Click += new System.EventHandler(this.txtSave_Click);
             // 
-            // cmsMain
-            // 
-            this.cmsMain.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.cmsMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.genarateToolStripMenuItem});
-            this.cmsMain.Name = "cmsMain";
-            this.cmsMain.Size = new System.Drawing.Size(170, 48);
-            // 
-            // genarateToolStripMenuItem
-            // 
-            this.genarateToolStripMenuItem.Name = "genarateToolStripMenuItem";
-            this.genarateToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G)));
-            this.genarateToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
-            this.genarateToolStripMenuItem.Text = "Genarate";
-            this.genarateToolStripMenuItem.Click += new System.EventHandler(this.genarateToolStripMenuItem_Click);
-            // 
             // NewAdvance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -276,9 +276,11 @@
             this.Controls.Add(this.slcMain);
             this.Controls.Add(this.pnlButton);
             this.Name = "NewAdvance";
+            this.ShowIcon = false;
             this.Text = "Tạo Mới Ứng Tiền";
             this.Load += new System.EventHandler(this.NewAdvance_Load);
             ((System.ComponentModel.ISupportInitialize)(this.cbbEmployee)).EndInit();
+            this.cmsMain.ResumeLayout(false);
             this.slcMain.Panel1.ResumeLayout(false);
             this.slcMain.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.slcMain)).EndInit();
@@ -296,7 +298,6 @@
             this.gbxButton.Panel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gbxButton)).EndInit();
             this.gbxButton.ResumeLayout(false);
-            this.cmsMain.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

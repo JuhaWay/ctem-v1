@@ -26,8 +26,7 @@ namespace ChiTonPrivateEnterpriseManagement
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
-        {
-            Global.Rights = rightBUS.LoadAllRight();
+        {            
             string username = txtUsername.Text;
             string password = txtPassword.Text;
             if (username.Equals(Constants.EMPTY_TEXT) || password.Equals(Constants.EMPTY_TEXT))
@@ -52,6 +51,7 @@ namespace ChiTonPrivateEnterpriseManagement
             if (_currentUser != null)
             {
                 Global.CurrentUser = _currentUser;
+                Global.Rights = rightBUS.LoadAllRight();
                 Hide();
                 MainForm mainForm = new MainForm();
                 mainForm.ShowDialog();
@@ -76,6 +76,8 @@ namespace ChiTonPrivateEnterpriseManagement
             DatabaseInfo dbInfo;
             dbInfo = new DatabaseInfo();
             dbInfo.LoadInfo();
+            Global.SetLayoutButton(btnLogin);
+            Global.SetLayoutButton(btnExit);
         }
 
         private void btnExit_Click(object sender, EventArgs e)

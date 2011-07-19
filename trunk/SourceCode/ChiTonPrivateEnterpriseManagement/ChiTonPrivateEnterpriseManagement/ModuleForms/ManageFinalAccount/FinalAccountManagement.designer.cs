@@ -63,12 +63,6 @@
             this.kryptonLabel10 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel9 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.hdDebt = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
-            this.btnDetail = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.btnRefresh = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.btnLoadAll = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.btnAdd = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.btnDelete = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.btnDeleteAll = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.btnHideShowSearch = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.FinalAccountID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FinalAccountName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -81,6 +75,12 @@
             this.IsPay = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.finalAccountDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnDetail = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.btnRefresh = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.btnLoadAll = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.btnAdd = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.btnDelete = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.btnDeleteAll = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.cmsDGV.SuspendLayout();
             this.cmsMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAccount)).BeginInit();
@@ -326,7 +326,9 @@
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(153, 22);
             this.txtId.TabIndex = 11;
+            this.txtId.Enter += new System.EventHandler(this.txtId_Enter);
             this.txtId.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtId_KeyDown);
+            this.txtId.Leave += new System.EventHandler(this.txtId_Leave);
             // 
             // kryptonLabel1
             // 
@@ -451,53 +453,6 @@
             this.hdDebt.Values.Heading = "Lịch Mua Hàng";
             this.hdDebt.Values.Image = null;
             // 
-            // btnDetail
-            // 
-            this.btnDetail.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
-            this.btnDetail.Text = "Chi Tiết";
-            this.btnDetail.UniqueName = "9ED4C66AD88E43F2E6A7F88849090635";
-            this.btnDetail.Click += new System.EventHandler(this.btnDetail_Click);
-            // 
-            // btnRefresh
-            // 
-            this.btnRefresh.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.reload;
-            this.btnRefresh.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
-            this.btnRefresh.Text = "Làm Mới";
-            this.btnRefresh.UniqueName = "4C2FCC4A6195428907A74FD31E7A9F69";
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
-            // 
-            // btnLoadAll
-            // 
-            this.btnLoadAll.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.load_all;
-            this.btnLoadAll.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
-            this.btnLoadAll.Text = "Tải Tất Cả";
-            this.btnLoadAll.UniqueName = "BEB5C4DDF1A44429B8A9BDEDC950C4D6";
-            this.btnLoadAll.Click += new System.EventHandler(this.btnLoadAll_Click);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
-            this.btnAdd.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
-            this.btnAdd.Text = "Thêm";
-            this.btnAdd.UniqueName = "6E177DC1660348E375BDCE591BF21FCB";
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.delete1;
-            this.btnDelete.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
-            this.btnDelete.Text = "Xóa";
-            this.btnDelete.UniqueName = "46715A2AEC0143074F81325F50887305";
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnDeleteAll
-            // 
-            this.btnDeleteAll.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.cancel;
-            this.btnDeleteAll.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
-            this.btnDeleteAll.Text = "Xóa Tất Cả";
-            this.btnDeleteAll.UniqueName = "CD7065CA8BA743FB00B53BCE567E60B8";
-            this.btnDeleteAll.Click += new System.EventHandler(this.btnDeleteAll_Click);
-            // 
             // btnHideShowSearch
             // 
             this.btnHideShowSearch.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
@@ -570,6 +525,54 @@
             // finalAccountDTOBindingSource
             // 
             this.finalAccountDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.FinalAccountDTO);
+            // 
+            // btnDetail
+            // 
+            this.btnDetail.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.application_view_detail;
+            this.btnDetail.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
+            this.btnDetail.Text = "Chi Tiết";
+            this.btnDetail.UniqueName = "9ED4C66AD88E43F2E6A7F88849090635";
+            this.btnDetail.Click += new System.EventHandler(this.btnDetail_Click);
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.reload;
+            this.btnRefresh.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
+            this.btnRefresh.Text = "Làm Mới";
+            this.btnRefresh.UniqueName = "4C2FCC4A6195428907A74FD31E7A9F69";
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
+            // btnLoadAll
+            // 
+            this.btnLoadAll.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.load_all;
+            this.btnLoadAll.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
+            this.btnLoadAll.Text = "Tải Tất Cả";
+            this.btnLoadAll.UniqueName = "BEB5C4DDF1A44429B8A9BDEDC950C4D6";
+            this.btnLoadAll.Click += new System.EventHandler(this.btnLoadAll_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
+            this.btnAdd.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
+            this.btnAdd.Text = "Thêm";
+            this.btnAdd.UniqueName = "6E177DC1660348E375BDCE591BF21FCB";
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.delete1;
+            this.btnDelete.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
+            this.btnDelete.Text = "Xóa";
+            this.btnDelete.UniqueName = "46715A2AEC0143074F81325F50887305";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnDeleteAll
+            // 
+            this.btnDeleteAll.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.cancel;
+            this.btnDeleteAll.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
+            this.btnDeleteAll.Text = "Xóa Tất Cả";
+            this.btnDeleteAll.UniqueName = "CD7065CA8BA743FB00B53BCE567E60B8";
+            this.btnDeleteAll.Click += new System.EventHandler(this.btnDeleteAll_Click);
             // 
             // FinalAccountManagement
             // 

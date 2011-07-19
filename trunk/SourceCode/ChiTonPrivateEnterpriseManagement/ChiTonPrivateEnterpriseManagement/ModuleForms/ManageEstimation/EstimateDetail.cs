@@ -12,8 +12,10 @@ using ChiTonPrivateEnterpriseManagement.Classes.Global;
 
 namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
 {
-    public partial class EstimateDetail : ComponentFactory.Krypton.Toolkit.KryptonForm
+    public partial class estDetailForm : ComponentFactory.Krypton.Toolkit.KryptonForm
     {
+        private bool isEdit;
+        private bool isNew;
         private  EstimateDetailBUS _estimateDetailBUS = new EstimateDetailBUS();
         private EstimateBUS _estimateBUS = new EstimateBUS();
         private MaterialBUS _materialBUS = new MaterialBUS();
@@ -26,14 +28,15 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
         private long temID;
 
         //khởi tạo dư toán chi tiết
-        public EstimateDetail(long estimateId)
+        public estDetailForm(long estimateId)
         {
             _estimateId = estimateId;
             InitializeComponent();
             CenterToParent();
             resetDataSource(estimateId,-1);
-            
-            
+            isEdit = true;
+            isNew = false;
+            LayoutEdit();
         }
         // load form
         private void EstimateDetail_Load(object sender, EventArgs e)
@@ -43,22 +46,29 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
             cbSearchMaterial.DisplayMember = "MaterialName";
             cbMaterial.Items.AddRange(_materialBUS.LoadAllMaterials().ToArray());
             cbMaterial.DisplayMember = "MaterialName";
-
-
             loadDetailValues(0);
             SetLayout();
         }
         private void SetLayout()
         {
+            ipTotal.ReadOnly = true;
             dgvEstimateDetails.Focus();
-            pnlSearch.Height = 72;
-            gbxSearch.Height = 68;
-            Global.SetLayoutForm(this, Constants.CHILD_FORM);
+            pnlSearch.Height = 62;
+            gbxSearch.Height = 58;
+            Global.SetLayoutForm(this, Constants.DIALOG_FORM);
             Global.SetLayoutHeaderGroup(hdDebt, Constants.CHILD_FORM);
             Global.SetDaulftDatagridview(dgvEstimateDetails);
             Global.SetLayoutGroupBoxSearch(gbxSearch);
             Global.SetLayoutPanelChildForm(pnlSearch);
             Global.SetLayoutButton(btnSearch);
+            Global.SetLayoutSplipContainer(slcMain, 1);
+            Global.SetLayoutSplipContainerInChildForm(slcEdit);
+            Global.SetLayoutGroupBoxChildForm(gbxEdit1);
+            Global.SetLayoutGroupBoxChildForm(gbxEdit2);
+            Global.SetLayoutPanelChildForm(kryptonPanel2);
+            Global.SetTextBoxNumberLeave(ipQuantity);
+            Global.SetTextBoxMoneyLeave(ipPrice);
+            Global.SetTextBoxMoneyLeave(ipTotal);
         }
         // load lại dử liệu
         public void resetDataSource(long estimateId,long materialId)
@@ -67,8 +77,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
             dgvEstimateDetails.DataSource = list;
             sum(list);
         }
-
-
+        
         private void sum(List<EstimateDetailDTO> list)
         {
             long total = 0;
@@ -82,69 +91,95 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
         // sưa dự toán chi tiết
         private void btSave_Click(object sender, EventArgs e)
         {
-            dtoTemp.Name = ipName.Text;
-            if (cbType.SelectedIndex == 0)
+            if (isEdit)
             {
-                if (cbMaterial.SelectedIndex < 0)
+                dtoTemp.Name = ipName.Text;
+                if (cbType.SelectedIndex == 0)
                 {
-                    MessageBox.Show("Vui lòng chọn Vật liệu");
+                    if (cbMaterial.SelectedIndex < 0)
+                    {
+                        MessageBox.Show("Vui lòng chọn Vật liệu");
+                        return;
+                    }
+
+                    if (!validateQuantity(ipQuantity.Text)) return;
+                    dtoTemp.QuantityEstimate = Convert.ToDouble(ipQuantity.Text);
+                    dtoTemp.UnitCostEstimate = Global.ConvertMoneyToLong(ipPrice.Text, ".");
+                    dtoTemp.MaterialID = (cbMaterial.SelectedItem as MaterialDTO).MaterialID;
+                    dtoTemp.UnitCostEstimateFormated = ipPrice.Text;
+                }
+                else
+                {
+                    if (ipName.Text.Trim().Equals(""))
+                    {
+                        MessageBox.Show("Vui lòng nhập chi tiết");
+                        return;
+                    }
+                    dtoTemp.QuantityEstimate = 0;
+                    dtoTemp.UnitCostEstimate = 0;
+                    dtoTemp.MaterialID = 0;
+                }
+                dtoTemp.TotalCostEstimate = Global.ConvertMoneyToLong(ipTotal.Text, ".");
+                dtoTemp.TotalCostEstimateFormated = ipTotal.Text;
+                if (temID != dtoTemp.MaterialID && _estimateDetailBUS.check(dtoTemp.MaterialID, dtoTemp.EstimateID))
+                {
+                    MessageBox.Show("Vật liệu này đã tồn tại !");
                     return;
                 }
-
-                if (!validateQuantity(ipQuantity.Text)) return;
-                dtoTemp.QuantityEstimate = Convert.ToDouble(ipQuantity.Text);
-                dtoTemp.UnitCostEstimate = Global.ConvertMoneyToLong(ipPrice.Text, ".");
-                dtoTemp.MaterialID = (cbMaterial.SelectedItem as MaterialDTO).MaterialID;
-                dtoTemp.UnitCostEstimateFormated = ipPrice.Text;
-
-
+                _estimateDetailBUS.UpdateEstimateDetail(dtoTemp);
+                MessageBox.Show("Cập nhật thành công!");
+                resetDataSource(_estimateId, _materialId);
             }
-            else
+            if (isNew)
             {
-                if (ipName.Text.Trim().Equals(""))
+                EstimateDetailDTO entity = new EstimateDetailDTO();
+                entity.Name = ipName.Text;
+                entity.EstimateID = _estimateId;
+                if (cbType.SelectedIndex == 0)
+                {
+                    if (cbMaterial.SelectedIndex < 0)
+                    {
+                        MessageBox.Show("Vui lòng chọn Vật liệu");
+                        return;
+                    }
+
+                    if (!validateQuantity(ipQuantity.Text)) return;
+                    entity.QuantityEstimate = Convert.ToDouble(ipQuantity.Text);
+                    entity.UnitCostEstimate = Global.ConvertMoneyToLong(ipPrice.Text, ".");
+                    entity.MaterialID = (cbMaterial.SelectedItem as MaterialDTO).MaterialID;
+                    entity.MaterialName = (cbMaterial.SelectedItem as MaterialDTO).MaterialName;
+                    entity.UnitCostEstimateFormated = ipPrice.Text;
+
+
+                }
+                else if (ipName.Text.Trim().Equals(""))
                 {
                     MessageBox.Show("Vui lòng nhập chi tiết");
                     return;
                 }
-                dtoTemp.QuantityEstimate =0;
-                dtoTemp.UnitCostEstimate = 0;
-                dtoTemp.MaterialID = 0;
+                entity.TotalCostEstimate = Global.ConvertMoneyToLong(ipTotal.Text, ".");
+                entity.TotalCostEstimateFormated = ipTotal.Text;
+                if (_estimateDetailBUS.check(entity.MaterialID, entity.EstimateID))
+                {
+                    MessageBox.Show("Vật liệu này đã tồn tại !");
+                    return;
+                }
+                _estimateDetailBUS.CreateEstimateDetail(entity);
+                resetDataSource(_estimateId, _materialId);
             }
-            dtoTemp.TotalCostEstimate = Global.ConvertMoneyToLong(ipTotal.Text, ".");
-            dtoTemp.TotalCostEstimateFormated = ipTotal.Text;
-            if (temID != dtoTemp.MaterialID && _estimateDetailBUS.check(dtoTemp.MaterialID, dtoTemp.EstimateID))
-            {
-                MessageBox.Show("Vật liệu này đã tồn tại !");
-                return;
-            }
-            _estimateDetailBUS.UpdateEstimateDetail (dtoTemp);
-            MessageBox.Show("Cập nhật thành công!");
-            resetDataSource(_estimateId, _materialId);
 
         }
 
-        private void btAdd_Click_1(object sender, EventArgs e)
-        {
-            AddNewEsDetail add = new AddNewEsDetail(_estimateId);
-            add.ShowDialog();
-            _estimateBUS.UpdateEstimate(_estimateId);
-            resetDataSource(_estimateId, _materialId);
-            loadDetailValues(0);
-        }
         // chọn nguyên vật liệu
         private void cbMaterial_SelectedIndexChanged(object sender, EventArgs e)
         {
             MaterialDTO dto = cbMaterial.SelectedItem as MaterialDTO;
-            if (dto!=null) lbUnit.Text = "(" + dto.EstimateCalUnit + ")";
-            
-
+            if (dto!=null) btnCalUnit.Text = "(" + dto.EstimateCalUnit + ")";
         }
         
         // tính tỏng giá tiền
         private void ipQuantity_TextChanged(object sender, EventArgs e)
         {
-
-
             if (Global.ValidateDoubleNumber(ipQuantity.Text))
             {
                 _totalCost = Global.ConvertMoneyToLong(ipPrice.Text,".") * Convert.ToDouble(ipQuantity.Text);
@@ -194,36 +229,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
             resetDataSource(_estimateId, _materialId);
             loadDetailValues(0);
         }
-
-        // sửa lổi check box
-        private void dgvEstimateDetails_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.ColumnIndex == 0 && e.RowIndex != -1)
-            {
-                DataGridViewCell c = dgvEstimateDetails.Rows[e.RowIndex].Cells[e.ColumnIndex];
-                if (c.AccessibilityObject.Value.Equals("True"))
-                {
-                    dgvEstimateDetails[e.ColumnIndex, e.RowIndex].Value = false;
-                    c.AccessibilityObject.Value = "False";
-                    dgvEstimateDetails.Rows[e.RowIndex].Selected = false;
-                }
-                else
-                {
-                    dgvEstimateDetails[e.ColumnIndex, e.RowIndex].Value = true;
-                    c.AccessibilityObject.Value = "True";
-                    dgvEstimateDetails.Rows[e.RowIndex].Selected = true;
-                }
-            }
-        }
-        //thêm -------------------------------------------
-        private void btAdd_Click(object sender, EventArgs e)
-        {
-            AddNewEsDetail add = new AddNewEsDetail(_estimateId);
-            add.ShowDialog();
-            _estimateBUS.UpdateEstimate(_estimateId);
-            resetDataSource(_estimateId, _materialId);
-            loadDetailValues(0);
-        }
+                        
         //chọn để xem chi tiết
         private void dgvEstimateDetails_MouseClick(object sender, MouseEventArgs e)
         {
@@ -235,7 +241,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
         {
             if (dgvEstimateDetails.Rows.Count == 0)
             {
-
                 return;
             }
             dtoTemp = dgvEstimateDetails.Rows[currentMouseOverRow].DataBoundItem as EstimateDetailDTO;
@@ -270,9 +275,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
                 ipPrice.Enabled = false;
                 ipName.Enabled = true;
                 ipTotal.ReadOnly = false;
-
-
-
+                
                 cbMaterial.SelectedIndex = -1;
                 ipQuantity.Text = "";
                 ipPrice.Text = "";
@@ -287,9 +290,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
                 ipName.Text = "";
                 ipTotal.Text = "";
             }
-
-                
-
         }
         // validate thong tin
         public bool validateMaterial(MaterialDTO dto)
@@ -363,7 +363,46 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
             ipTotal.Text = Global.ConvertLongToMoney(Global.ConvertMoneyToLong(ipTotal.Text, "."), ".");
         }
 
-      
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            isNew = true;
+            isEdit = false;
+            ClearLayout();
+        }
 
+        private void ClearLayout()
+        {
+            cbType.Enabled = true;
+            cbType.SelectedIndex = 0;
+            if (cbMaterial.Items.Count > 0)
+            {
+                cbMaterial.SelectedIndex = 0;
+            }
+            ipQuantity.Text = Constants.ZERO_NUMBER;
+            ipPrice.Text = Constants.ZERO_NUMBER;
+            ipTotal.Text = Constants.ZERO_NUMBER;
+            ipSummary.Text = Constants.EMPTY_TEXT;
+            ipQuantity.ReadOnly = false;
+            ipPrice.ReadOnly = false;
+            ipTotal.ReadOnly = true;
+            ipSummary.ReadOnly = false;
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            isNew = false;
+            isEdit = true;
+            LayoutEdit();
+            ipQuantity.Focus();
+        }
+        private void LayoutEdit()
+        {
+            cbType.Enabled = false;
+            cbMaterial.Enabled = false;
+            ipQuantity.ReadOnly = false;
+            ipPrice.ReadOnly = false;
+            ipTotal.ReadOnly = true;
+            ipSummary.ReadOnly = false;
+        }
     }
 }

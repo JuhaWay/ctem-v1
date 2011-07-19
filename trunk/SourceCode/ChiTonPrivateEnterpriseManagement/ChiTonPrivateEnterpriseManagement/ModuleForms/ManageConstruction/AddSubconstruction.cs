@@ -66,7 +66,11 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
         // load form
         private void AddConstruction_Load(object sender, EventArgs e)
         {
-
+            Global.SetLayoutForm(this, Constants.DIALOG_FORM);
+            Global.SetLayoutGroupBoxNewForm(kryptonGroupBox1);
+            Global.SetLayoutGroupBoxNewForm(kryptonGroupBox2);
+            Global.SetLayoutButton(btSave);
+            Global.SetLayoutButton(btCancel);
             CenterToParent();
             cbSubconName.DisplayMember = "SubcontractorName";
             cbSubconName.Items.AddRange(subCons.ToArray());

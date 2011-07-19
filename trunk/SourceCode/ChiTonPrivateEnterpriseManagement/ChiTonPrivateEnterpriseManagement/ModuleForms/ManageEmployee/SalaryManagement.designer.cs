@@ -348,6 +348,7 @@
             this.dtpSearchFrom.Name = "dtpSearchFrom";
             this.dtpSearchFrom.Size = new System.Drawing.Size(91, 20);
             this.dtpSearchFrom.TabIndex = 9;
+            this.dtpSearchFrom.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbbNameSearch_KeyDown);
             // 
             // kryptonLabel8
             // 
@@ -368,6 +369,7 @@
             this.dtpSearchTo.Name = "dtpSearchTo";
             this.dtpSearchTo.Size = new System.Drawing.Size(80, 20);
             this.dtpSearchTo.TabIndex = 7;
+            this.dtpSearchTo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbbNameSearch_KeyDown);
             // 
             // cbbNameSearch
             // 
@@ -380,6 +382,7 @@
             this.cbbNameSearch.Name = "cbbNameSearch";
             this.cbbNameSearch.Size = new System.Drawing.Size(181, 22);
             this.cbbNameSearch.TabIndex = 1;
+            this.cbbNameSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbbNameSearch_KeyDown);
             // 
             // btnSearch
             // 
@@ -913,6 +916,7 @@
             this.ClientSize = new System.Drawing.Size(810, 526);
             this.Controls.Add(this.slcMain);
             this.Name = "SalaryManagement";
+            this.ShowIcon = false;
             this.Text = "Quản Lý Lương";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.SalaryManagement_Load);

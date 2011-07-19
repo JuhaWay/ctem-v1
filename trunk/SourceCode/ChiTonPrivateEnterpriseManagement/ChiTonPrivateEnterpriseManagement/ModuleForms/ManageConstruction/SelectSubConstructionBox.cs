@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using ChiTonPrivateEnterpriseManagement.Classes.Global;
 using ComponentFactory.Krypton.Toolkit;
 using ChiTonPrivateEnterpriseManagement.Classes.BUS;
 using ChiTonPrivateEnterpriseManagement.Classes.DTO;
@@ -24,26 +25,19 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
         public SelectSubConstructionBox(List<SubcontractorDTO> _list)
         {
             
-            
         }
 
         private void SelectSubConstructionBox_Load(object sender, EventArgs e)
         {
-            
-
-            
+            Global.SetLayoutForm(this, Constants.DIALOG_FORM);
+            Global.SetLayoutGroupBoxNewForm(newSubContainer);
+            Global.SetLayoutPanelNewForm(kryptonPanel);
+            Global.SetLayoutButton(addButton);
         }
-
-       
 
         private void okeButton_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void kryptonPanel2_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void addButton_Click(object sender, EventArgs e)

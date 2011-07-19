@@ -52,5 +52,30 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
         {
             return warehouseDao.GetWarehouseDetail(whname, materialname);
         }
+
+        public bool CreateStockOut(StockOutDTO stockout)
+        {
+            return warehouseDao.CreateStockOut(stockout);
+        }
+
+        public bool CreateStockOutDetail(StockOutDetailDTO materialDto)
+        {
+            return warehouseDao.CreateStockOutDetail(materialDto);
+        }
+
+        public List<StockOutDTO> LoadStockOut(string whname, DateTime from, DateTime to)
+        {
+            return warehouseDao.LoadStockout(whname, from, to);
+        }
+
+        public bool DeleteStockOut(long id)
+        {
+            return warehouseDao.DeleteStockout(id);
+        }
+
+        public bool DeleteAllEmp()
+        {
+            return warehouseDao.DeleteAllStockout();
+        }
     }
 }

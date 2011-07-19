@@ -339,6 +339,7 @@
             this.dtpSearchFrom.Name = "dtpSearchFrom";
             this.dtpSearchFrom.Size = new System.Drawing.Size(103, 20);
             this.dtpSearchFrom.TabIndex = 9;
+            this.dtpSearchFrom.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbbNameSearch_KeyDown);
             // 
             // kryptonLabel8
             // 
@@ -359,6 +360,7 @@
             this.dtpSearchTo.Name = "dtpSearchTo";
             this.dtpSearchTo.Size = new System.Drawing.Size(94, 20);
             this.dtpSearchTo.TabIndex = 7;
+            this.dtpSearchTo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbbNameSearch_KeyDown);
             // 
             // cbbNameSearch
             // 
@@ -371,6 +373,7 @@
             this.cbbNameSearch.Name = "cbbNameSearch";
             this.cbbNameSearch.Size = new System.Drawing.Size(175, 22);
             this.cbbNameSearch.TabIndex = 1;
+            this.cbbNameSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbbNameSearch_KeyDown);
             // 
             // btnSearch
             // 

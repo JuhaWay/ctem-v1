@@ -36,6 +36,8 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageProgress
         private void SetLayout()
         {
             Global.SetLayoutForm(this, Constants.CHILD_FORM);
+            Global.SetLayoutPanelChildForm(pnlButton);
+            Global.SetLayoutGroupBoxNewForm(gbxButton);
         }
 
         private void gbxTab1_Panel_Click(object sender, EventArgs e)

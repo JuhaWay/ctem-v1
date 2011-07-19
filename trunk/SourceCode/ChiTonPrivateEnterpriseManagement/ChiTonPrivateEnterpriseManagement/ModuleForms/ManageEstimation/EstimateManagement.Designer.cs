@@ -30,10 +30,19 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EstimateManagement));
+            this.slcEdit = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
             this.cmsEdit = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.EditToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.FreezeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kryptonGroupBox2 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
+            this.ipEstName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.lbEstName = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.gbxEdit2 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
+            this.txtTotalEst = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.txtConsName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.cmsGen = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.GenMoneyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
@@ -48,7 +57,6 @@
             this.CreatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UpdatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estimateDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.lbEstName = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.lbSearchName = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.lbCons = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.cbSearchCons = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
@@ -64,10 +72,8 @@
             this.btnHideShowSearch = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.gbcRightBot = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.gbxEdit1 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
-            this.ipEstName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.hdEdit = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
             this.btnEdit = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.btnUnableEdit = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.btnSave = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.cmsDGV = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.RefreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -87,8 +93,17 @@
             this.kryptonContextMenuItems3 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
             this.kryptonContextMenuItems2 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
             this.kryptonContextMenuItems1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
-            this.finalAccountDetailDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.slcEdit)).BeginInit();
+            this.slcEdit.Panel1.SuspendLayout();
+            this.slcEdit.Panel2.SuspendLayout();
+            this.slcEdit.SuspendLayout();
             this.cmsEdit.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox2)).BeginInit();
+            this.kryptonGroupBox2.Panel.SuspendLayout();
+            this.kryptonGroupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gbxEdit2)).BeginInit();
+            this.gbxEdit2.Panel.SuspendLayout();
+            this.gbxEdit2.SuspendLayout();
             this.cmsGen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEstimate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.estimateDTOBindingSource)).BeginInit();
@@ -115,8 +130,26 @@
             this.gbxEdit1.SuspendLayout();
             this.cmsDGV.SuspendLayout();
             this.cmsMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.finalAccountDetailDTOBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // slcEdit
+            // 
+            this.slcEdit.ContextMenuStrip = this.cmsEdit;
+            this.slcEdit.Cursor = System.Windows.Forms.Cursors.Default;
+            resources.ApplyResources(this.slcEdit, "slcEdit");
+            this.slcEdit.Name = "slcEdit";
+            // 
+            // slcEdit.Panel1
+            // 
+            this.slcEdit.Panel1.Controls.Add(this.kryptonGroupBox2);
+            resources.ApplyResources(this.slcEdit.Panel1, "slcEdit.Panel1");
+            this.slcEdit.Panel1.StateCommon.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(57)))), ((int)(((byte)(85)))));
+            // 
+            // slcEdit.Panel2
+            // 
+            this.slcEdit.Panel2.Controls.Add(this.gbxEdit2);
+            this.slcEdit.Panel2.StateCommon.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(57)))), ((int)(((byte)(85)))));
+            this.slcEdit.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(57)))), ((int)(((byte)(85)))));
             // 
             // cmsEdit
             // 
@@ -141,6 +174,73 @@
             // 
             this.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem";
             resources.ApplyResources(this.SaveToolStripMenuItem, "SaveToolStripMenuItem");
+            // 
+            // kryptonGroupBox2
+            // 
+            resources.ApplyResources(this.kryptonGroupBox2, "kryptonGroupBox2");
+            this.kryptonGroupBox2.Name = "kryptonGroupBox2";
+            // 
+            // kryptonGroupBox2.Panel
+            // 
+            this.kryptonGroupBox2.Panel.Controls.Add(this.ipEstName);
+            this.kryptonGroupBox2.Panel.Controls.Add(this.lbEstName);
+            this.kryptonGroupBox2.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(92)))), ((int)(((byte)(144)))));
+            this.kryptonGroupBox2.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.kryptonGroupBox2.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonGroupBox2.StateCommon.Content.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.kryptonGroupBox2.Values.Heading = resources.GetString("kryptonGroupBox2.Values.Heading");
+            // 
+            // ipEstName
+            // 
+            resources.ApplyResources(this.ipEstName, "ipEstName");
+            this.ipEstName.Name = "ipEstName";
+            this.ipEstName.ReadOnly = true;
+            // 
+            // lbEstName
+            // 
+            resources.ApplyResources(this.lbEstName, "lbEstName");
+            this.lbEstName.Name = "lbEstName";
+            this.lbEstName.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.lbEstName.Values.Text = resources.GetString("lbEstName.Values.Text");
+            // 
+            // gbxEdit2
+            // 
+            resources.ApplyResources(this.gbxEdit2, "gbxEdit2");
+            this.gbxEdit2.Name = "gbxEdit2";
+            // 
+            // gbxEdit2.Panel
+            // 
+            this.gbxEdit2.Panel.Controls.Add(this.txtTotalEst);
+            this.gbxEdit2.Panel.Controls.Add(this.kryptonLabel2);
+            this.gbxEdit2.Panel.Controls.Add(this.txtConsName);
+            this.gbxEdit2.Panel.Controls.Add(this.kryptonLabel1);
+            this.gbxEdit2.Values.Heading = resources.GetString("gbxEdit2.Values.Heading");
+            // 
+            // txtTotalEst
+            // 
+            resources.ApplyResources(this.txtTotalEst, "txtTotalEst");
+            this.txtTotalEst.Name = "txtTotalEst";
+            this.txtTotalEst.ReadOnly = true;
+            // 
+            // kryptonLabel2
+            // 
+            resources.ApplyResources(this.kryptonLabel2, "kryptonLabel2");
+            this.kryptonLabel2.Name = "kryptonLabel2";
+            this.kryptonLabel2.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.kryptonLabel2.Values.Text = resources.GetString("kryptonLabel2.Values.Text");
+            // 
+            // txtConsName
+            // 
+            resources.ApplyResources(this.txtConsName, "txtConsName");
+            this.txtConsName.Name = "txtConsName";
+            this.txtConsName.ReadOnly = true;
+            // 
+            // kryptonLabel1
+            // 
+            resources.ApplyResources(this.kryptonLabel1, "kryptonLabel1");
+            this.kryptonLabel1.Name = "kryptonLabel1";
+            this.kryptonLabel1.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.kryptonLabel1.Values.Text = resources.GetString("kryptonLabel1.Values.Text");
             // 
             // cmsGen
             // 
@@ -172,8 +272,7 @@
             this.dgvEstimate.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEstimate.StateCommon.Background.Color1 = System.Drawing.Color.White;
             this.dgvEstimate.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
-            this.dgvEstimate.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEstimate_CellContentClick);
-            this.dgvEstimate.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvEstimate_MouseClick);
+            this.dgvEstimate.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEstimate_CellClick);
             // 
             // EstimateID
             // 
@@ -227,29 +326,24 @@
             // 
             this.estimateDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.EstimateDTO);
             // 
-            // lbEstName
-            // 
-            resources.ApplyResources(this.lbEstName, "lbEstName");
-            this.lbEstName.Name = "lbEstName";
-            this.lbEstName.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.lbEstName.Values.Text = resources.GetString("lbEstName.Values.Text");
-            // 
             // lbSearchName
             // 
             resources.ApplyResources(this.lbSearchName, "lbSearchName");
             this.lbSearchName.Name = "lbSearchName";
+            this.lbSearchName.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.lbSearchName.Values.Text = resources.GetString("lbSearchName.Values.Text");
             // 
             // lbCons
             // 
             resources.ApplyResources(this.lbCons, "lbCons");
             this.lbCons.Name = "lbCons";
+            this.lbCons.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.lbCons.Values.Text = resources.GetString("lbCons.Values.Text");
             // 
             // cbSearchCons
             // 
-            this.cbSearchCons.DropDownWidth = 146;
             resources.ApplyResources(this.cbSearchCons, "cbSearchCons");
+            this.cbSearchCons.DropDownWidth = 146;
             this.cbSearchCons.Name = "cbSearchCons";
             // 
             // kryptonPanel
@@ -351,6 +445,7 @@
             // 
             // btnViewListDetail
             // 
+            this.btnViewListDetail.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.application_view_detail;
             resources.ApplyResources(this.btnViewListDetail, "btnViewListDetail");
             this.btnViewListDetail.UniqueName = "46715A2AEC0143074F81325F50887305";
             this.btnViewListDetail.Click += new System.EventHandler(this.btViewDetail_Click);
@@ -359,6 +454,7 @@
             // 
             resources.ApplyResources(this.btnHideShowSearch, "btnHideShowSearch");
             this.btnHideShowSearch.UniqueName = "7CD50F96676F43E7C0B240BAD639EFD5";
+            this.btnHideShowSearch.Click += new System.EventHandler(this.btnHideShowSearch_Click);
             // 
             // gbcRightBot
             // 
@@ -379,25 +475,17 @@
             // 
             // gbxEdit1.Panel
             // 
-            this.gbxEdit1.Panel.Controls.Add(this.lbEstName);
-            this.gbxEdit1.Panel.Controls.Add(this.ipEstName);
+            this.gbxEdit1.Panel.Controls.Add(this.slcEdit);
             this.gbxEdit1.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(92)))), ((int)(((byte)(144)))));
             this.gbxEdit1.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
             this.gbxEdit1.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxEdit1.StateCommon.Content.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
             this.gbxEdit1.Values.Heading = resources.GetString("gbxEdit1.Values.Heading");
             // 
-            // ipEstName
-            // 
-            resources.ApplyResources(this.ipEstName, "ipEstName");
-            this.ipEstName.Name = "ipEstName";
-            this.ipEstName.ReadOnly = true;
-            // 
             // hdEdit
             // 
             this.hdEdit.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
             this.btnEdit,
-            this.btnUnableEdit,
             this.btnSave});
             resources.ApplyResources(this.hdEdit, "hdEdit");
             this.hdEdit.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.DockActive;
@@ -412,13 +500,6 @@
             resources.ApplyResources(this.btnEdit, "btnEdit");
             this.btnEdit.UniqueName = "C645E9231765438901BDC91A1034E5D9";
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
-            // btnUnableEdit
-            // 
-            this.btnUnableEdit.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.freeze;
-            resources.ApplyResources(this.btnUnableEdit, "btnUnableEdit");
-            this.btnUnableEdit.UniqueName = "711D4B5F7134438B489063D5667E49ED";
-            this.btnUnableEdit.Click += new System.EventHandler(this.btnUnableEdit_Click);
             // 
             // btnSave
             // 
@@ -511,10 +592,6 @@
             // 
             resources.ApplyResources(this.kryptonContextMenuItem1, "kryptonContextMenuItem1");
             // 
-            // finalAccountDetailDTOBindingSource
-            // 
-            this.finalAccountDetailDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.FinalAccountDetailDTO);
-            // 
             // EstimateManagement
             // 
             resources.ApplyResources(this, "$this");
@@ -523,7 +600,19 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "EstimateManagement";
             this.Load += new System.EventHandler(this.EstimateManagement_Load);
+            this.slcEdit.Panel1.ResumeLayout(false);
+            this.slcEdit.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.slcEdit)).EndInit();
+            this.slcEdit.ResumeLayout(false);
             this.cmsEdit.ResumeLayout(false);
+            this.kryptonGroupBox2.Panel.ResumeLayout(false);
+            this.kryptonGroupBox2.Panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox2)).EndInit();
+            this.kryptonGroupBox2.ResumeLayout(false);
+            this.gbxEdit2.Panel.ResumeLayout(false);
+            this.gbxEdit2.Panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gbxEdit2)).EndInit();
+            this.gbxEdit2.ResumeLayout(false);
             this.cmsGen.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEstimate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.estimateDTOBindingSource)).EndInit();
@@ -549,12 +638,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.gbcRightBot)).EndInit();
             this.gbcRightBot.ResumeLayout(false);
             this.gbxEdit1.Panel.ResumeLayout(false);
-            this.gbxEdit1.Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gbxEdit1)).EndInit();
             this.gbxEdit1.ResumeLayout(false);
             this.cmsDGV.ResumeLayout(false);
             this.cmsMain.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.finalAccountDetailDTOBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -594,7 +681,6 @@
         private System.Windows.Forms.ToolStripMenuItem GenMoneyToolStripMenuItem;
         private ComponentFactory.Krypton.Toolkit.KryptonHeader hdEdit;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnEdit;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnUnableEdit;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnSave;
         private System.Windows.Forms.ContextMenuStrip cmsMain;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
@@ -608,7 +694,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems kryptonContextMenuItems3;
         private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems kryptonContextMenuItems2;
         private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems kryptonContextMenuItems1;
-        private System.Windows.Forms.BindingSource finalAccountDetailDTOBindingSource;
         private ComponentFactory.Krypton.Toolkit.KryptonGroupBox gbxEdit1;
         private System.Windows.Forms.DataGridViewTextBoxColumn EstimateID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ConstructionName;
@@ -618,5 +703,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn UpdatedBy;
         private System.Windows.Forms.DataGridViewTextBoxColumn CreatedDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn UpdatedDate;
+        private ComponentFactory.Krypton.Toolkit.KryptonSplitContainer slcEdit;
+        private ComponentFactory.Krypton.Toolkit.KryptonGroupBox kryptonGroupBox2;
+        private ComponentFactory.Krypton.Toolkit.KryptonGroupBox gbxEdit2;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtTotalEst;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel2;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtConsName;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel1;
     }
 }

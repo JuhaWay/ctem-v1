@@ -16,5 +16,6 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
         public long TotalCost { get; set; }
         public string TotalCostFormated { get; set; }
         public string AveragePriceFormated { get; set; }
+        public string Note { get; set; }
     }
 }

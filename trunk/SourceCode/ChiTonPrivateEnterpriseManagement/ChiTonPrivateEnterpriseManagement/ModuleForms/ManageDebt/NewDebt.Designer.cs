@@ -342,7 +342,8 @@
             this.ClientSize = new System.Drawing.Size(446, 427);
             this.Controls.Add(this.pnlMain);
             this.Name = "NewDebt";
-            this.Text = "NewDebt";
+            this.ShowIcon = false;
+            this.Text = "Tạo Mới Nhà Cung Cấp";
             this.Load += new System.EventHandler(this.NewDebt_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pnlMain)).EndInit();
             this.pnlMain.ResumeLayout(false);

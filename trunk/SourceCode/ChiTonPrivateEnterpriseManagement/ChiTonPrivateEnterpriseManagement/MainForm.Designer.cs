@@ -31,11 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
-            this.pnlMain = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.pnlContent = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.slcMain = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
-            this.hdgMenu = new ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup();
-            this.btnhdgMenuHideShow = new ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup();
             this.hgxSystemMenu = new ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup();
             this.btnHideShow6 = new ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup();
             this.tvwSystem = new System.Windows.Forms.TreeView();
@@ -68,22 +63,17 @@
             this.pnlConsMenu = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonPanel2 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.pnlMainContent = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonHeader1 = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
             this.bsaLogout = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.bsaProfiles = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.buttonSpecAny1 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            ((System.ComponentModel.ISupportInitialize)(this.pnlMain)).BeginInit();
-            this.pnlMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pnlContent)).BeginInit();
-            this.pnlContent.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.slcMain)).BeginInit();
-            this.slcMain.Panel1.SuspendLayout();
-            this.slcMain.Panel2.SuspendLayout();
-            this.slcMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.hdgMenu)).BeginInit();
-            this.hdgMenu.Panel.SuspendLayout();
-            this.hdgMenu.SuspendLayout();
+            this.btnCascade = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.kryptonPanel3 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.btnTileHor = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.btnTileVer = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.btnClose = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.btnMax = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.btnMin = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             ((System.ComponentModel.ISupportInitialize)(this.hgxSystemMenu)).BeginInit();
             this.hgxSystemMenu.Panel.SuspendLayout();
             this.hgxSystemMenu.SuspendLayout();
@@ -110,102 +100,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pnlConsMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pnlMainContent)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel3)).BeginInit();
+            this.kryptonPanel3.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // pnlMain
-            // 
-            this.pnlMain.Controls.Add(this.pnlContent);
-            this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlMain.Location = new System.Drawing.Point(0, 0);
-            this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(1024, 522);
-            this.pnlMain.TabIndex = 0;
-            // 
-            // pnlContent
-            // 
-            this.pnlContent.Controls.Add(this.slcMain);
-            this.pnlContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlContent.Location = new System.Drawing.Point(0, 0);
-            this.pnlContent.Name = "pnlContent";
-            this.pnlContent.Size = new System.Drawing.Size(1024, 522);
-            this.pnlContent.TabIndex = 4;
-            // 
-            // slcMain
-            // 
-            this.slcMain.ContainerBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlClient;
-            this.slcMain.Cursor = System.Windows.Forms.Cursors.Default;
-            this.slcMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.slcMain.Location = new System.Drawing.Point(0, 0);
-            this.slcMain.Name = "slcMain";
-            this.slcMain.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Blue;
-            // 
-            // slcMain.Panel1
-            // 
-            this.slcMain.Panel1.Controls.Add(this.hdgMenu);
-            // 
-            // slcMain.Panel2
-            // 
-            this.slcMain.Panel2.Controls.Add(this.pnlMainContent);
-            this.slcMain.Panel2.Controls.Add(this.kryptonHeader1);
-            this.slcMain.Panel2.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Blue;
-            this.slcMain.Panel2.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonFormClose;
-            this.slcMain.SeparatorStyle = ComponentFactory.Krypton.Toolkit.SeparatorStyle.HighProfile;
-            this.slcMain.Size = new System.Drawing.Size(1024, 522);
-            this.slcMain.SplitterDistance = 221;
-            this.slcMain.StateCommon.Separator.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(135)))), ((int)(((byte)(173)))));
-            this.slcMain.StateCommon.Separator.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(210)))), ((int)(((byte)(229)))));
-            this.slcMain.StateCommon.Separator.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.GlassSimpleFull;
-            this.slcMain.TabIndex = 10;
-            // 
-            // hdgMenu
-            // 
-            this.hdgMenu.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup[] {
-            this.btnhdgMenuHideShow});
-            this.hdgMenu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.hdgMenu.GroupBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonNavigatorStack;
-            this.hdgMenu.GroupBorderStyle = ComponentFactory.Krypton.Toolkit.PaletteBorderStyle.GridHeaderColumnList;
-            this.hdgMenu.HeaderStylePrimary = ComponentFactory.Krypton.Toolkit.HeaderStyle.Secondary;
-            this.hdgMenu.HeaderStyleSecondary = ComponentFactory.Krypton.Toolkit.HeaderStyle.Primary;
-            this.hdgMenu.HeaderVisiblePrimary = false;
-            this.hdgMenu.HeaderVisibleSecondary = false;
-            this.hdgMenu.Location = new System.Drawing.Point(0, 0);
-            this.hdgMenu.Name = "hdgMenu";
-            // 
-            // hdgMenu.Panel
-            // 
-            this.hdgMenu.Panel.Controls.Add(this.hgxSystemMenu);
-            this.hdgMenu.Panel.Controls.Add(this.pnlSystem);
-            this.hdgMenu.Panel.Controls.Add(this.hgxLedgerMenu);
-            this.hdgMenu.Panel.Controls.Add(this.pnlLedgerMenu);
-            this.hdgMenu.Panel.Controls.Add(this.hgxDebtMenu);
-            this.hdgMenu.Panel.Controls.Add(this.pnlDebtMenu);
-            this.hdgMenu.Panel.Controls.Add(this.hgxWHMenu);
-            this.hdgMenu.Panel.Controls.Add(this.pnlWHMenu);
-            this.hdgMenu.Panel.Controls.Add(this.hgxEmpMenu);
-            this.hdgMenu.Panel.Controls.Add(this.pnlEmpMenu);
-            this.hdgMenu.Panel.Controls.Add(this.hgxConsMenu);
-            this.hdgMenu.Panel.Controls.Add(this.pnlConsMenu);
-            this.hdgMenu.Panel.Controls.Add(this.kryptonPanel2);
-            this.hdgMenu.Panel.Controls.Add(this.kryptonPanel1);
-            this.hdgMenu.Size = new System.Drawing.Size(221, 522);
-            this.hdgMenu.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(212)))), ((int)(((byte)(239)))));
-            this.hdgMenu.StateCommon.HeaderPrimary.Back.Color1 = System.Drawing.Color.SteelBlue;
-            this.hdgMenu.StateCommon.HeaderPrimary.Back.Color2 = System.Drawing.Color.LightSteelBlue;
-            this.hdgMenu.StateCommon.HeaderPrimary.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.GlassPressedFull;
-            this.hdgMenu.StateCommon.HeaderPrimary.Border.Color1 = System.Drawing.Color.CornflowerBlue;
-            this.hdgMenu.StateCommon.HeaderPrimary.Border.Color2 = System.Drawing.Color.CornflowerBlue;
-            this.hdgMenu.StateCommon.HeaderPrimary.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.hdgMenu.StateCommon.HeaderPrimary.Border.Rounding = 3;
-            this.hdgMenu.TabIndex = 2;
-            this.hdgMenu.ValuesPrimary.Heading = "Menu";
-            // 
-            // btnhdgMenuHideShow
-            // 
-            this.btnhdgMenuHideShow.Text = "Ẩn";
-            this.btnhdgMenuHideShow.UniqueName = "9531C247F9A54D80609B91864473DF48";
-            this.btnhdgMenuHideShow.Click += new System.EventHandler(this.btnhdgMenuHideShow_Click);
             // 
             // hgxSystemMenu
             // 
@@ -220,7 +117,7 @@
             // hgxSystemMenu.Panel
             // 
             this.hgxSystemMenu.Panel.Controls.Add(this.tvwSystem);
-            this.hgxSystemMenu.Size = new System.Drawing.Size(199, 46);
+            this.hgxSystemMenu.Size = new System.Drawing.Size(239, 46);
             this.hgxSystemMenu.StateCommon.Back.Color1 = System.Drawing.SystemColors.GradientInactiveCaption;
             this.hgxSystemMenu.StateCommon.Back.Color2 = System.Drawing.SystemColors.GradientInactiveCaption;
             this.hgxSystemMenu.StateCommon.Border.Color1 = System.Drawing.Color.RoyalBlue;
@@ -245,6 +142,7 @@
             this.hgxSystemMenu.StateCommon.HeaderPrimary.Content.ShortText.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hgxSystemMenu.TabIndex = 13;
             this.hgxSystemMenu.ValuesPrimary.Heading = "HỆ THỐNG";
+            this.hgxSystemMenu.ValuesPrimary.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.application_x_desktop;
             this.hgxSystemMenu.Click += new System.EventHandler(this.hgxSystemMenu_Click);
             // 
             // btnHideShow6
@@ -263,8 +161,8 @@
             this.tvwSystem.ImageList = this.imageListSystem;
             this.tvwSystem.Location = new System.Drawing.Point(0, 0);
             this.tvwSystem.Name = "tvwSystem";
-            this.tvwSystem.SelectedImageIndex = 0;
-            this.tvwSystem.Size = new System.Drawing.Size(193, 20);
+            this.tvwSystem.SelectedImageIndex = 4;
+            this.tvwSystem.Size = new System.Drawing.Size(233, 20);
             this.tvwSystem.TabIndex = 1;
             this.tvwSystem.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvwSystem_NodeMouseDoubleClick);
             this.tvwSystem.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tvwSystem_KeyDown);
@@ -276,13 +174,15 @@
             this.imageListSystem.Images.SetKeyName(0, "17.quanlymenu.png");
             this.imageListSystem.Images.SetKeyName(1, "18.Quan Ly Chuc Vu.png");
             this.imageListSystem.Images.SetKeyName(2, "19.Quan Ly Quyen.png");
+            this.imageListSystem.Images.SetKeyName(3, "key.png");
+            this.imageListSystem.Images.SetKeyName(4, "old_edit_redo.png");
             // 
             // pnlSystem
             // 
             this.pnlSystem.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlSystem.Location = new System.Drawing.Point(10, 354);
             this.pnlSystem.Name = "pnlSystem";
-            this.pnlSystem.Size = new System.Drawing.Size(199, 19);
+            this.pnlSystem.Size = new System.Drawing.Size(239, 19);
             this.pnlSystem.StateCommon.Color1 = System.Drawing.Color.Transparent;
             this.pnlSystem.StateCommon.Color2 = System.Drawing.Color.Transparent;
             this.pnlSystem.TabIndex = 12;
@@ -300,7 +200,7 @@
             // hgxLedgerMenu.Panel
             // 
             this.hgxLedgerMenu.Panel.Controls.Add(this.tvwLedger);
-            this.hgxLedgerMenu.Size = new System.Drawing.Size(199, 34);
+            this.hgxLedgerMenu.Size = new System.Drawing.Size(239, 34);
             this.hgxLedgerMenu.StateCommon.Back.Color1 = System.Drawing.SystemColors.GradientInactiveCaption;
             this.hgxLedgerMenu.StateCommon.Back.Color2 = System.Drawing.SystemColors.GradientInactiveCaption;
             this.hgxLedgerMenu.StateCommon.Border.Color1 = System.Drawing.Color.RoyalBlue;
@@ -325,6 +225,7 @@
             this.hgxLedgerMenu.StateCommon.HeaderPrimary.Content.ShortText.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hgxLedgerMenu.TabIndex = 11;
             this.hgxLedgerMenu.ValuesPrimary.Heading = "SỔ CÁI";
+            this.hgxLedgerMenu.ValuesPrimary.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.notebook;
             this.hgxLedgerMenu.Click += new System.EventHandler(this.hgxLedgerMenu_Click);
             // 
             // btnHideShow5
@@ -343,8 +244,8 @@
             this.tvwLedger.ImageList = this.imageListLedger;
             this.tvwLedger.Location = new System.Drawing.Point(0, 0);
             this.tvwLedger.Name = "tvwLedger";
-            this.tvwLedger.SelectedImageIndex = 0;
-            this.tvwLedger.Size = new System.Drawing.Size(193, 8);
+            this.tvwLedger.SelectedImageIndex = 1;
+            this.tvwLedger.Size = new System.Drawing.Size(233, 8);
             this.tvwLedger.TabIndex = 1;
             this.tvwLedger.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvwLedger_NodeMouseDoubleClick);
             this.tvwLedger.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tvwLedger_KeyDown);
@@ -354,13 +255,14 @@
             this.imageListLedger.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListLedger.ImageStream")));
             this.imageListLedger.TransparentColor = System.Drawing.Color.Transparent;
             this.imageListLedger.Images.SetKeyName(0, "16.Quan Ly so cai.png");
+            this.imageListLedger.Images.SetKeyName(1, "old_edit_redo.png");
             // 
             // pnlLedgerMenu
             // 
             this.pnlLedgerMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlLedgerMenu.Location = new System.Drawing.Point(10, 301);
             this.pnlLedgerMenu.Name = "pnlLedgerMenu";
-            this.pnlLedgerMenu.Size = new System.Drawing.Size(199, 19);
+            this.pnlLedgerMenu.Size = new System.Drawing.Size(239, 19);
             this.pnlLedgerMenu.StateCommon.Color1 = System.Drawing.Color.Transparent;
             this.pnlLedgerMenu.StateCommon.Color2 = System.Drawing.Color.Transparent;
             this.pnlLedgerMenu.TabIndex = 10;
@@ -378,7 +280,7 @@
             // hgxDebtMenu.Panel
             // 
             this.hgxDebtMenu.Panel.Controls.Add(this.tvwDebt);
-            this.hgxDebtMenu.Size = new System.Drawing.Size(199, 45);
+            this.hgxDebtMenu.Size = new System.Drawing.Size(239, 45);
             this.hgxDebtMenu.StateCommon.Back.Color1 = System.Drawing.SystemColors.GradientInactiveCaption;
             this.hgxDebtMenu.StateCommon.Back.Color2 = System.Drawing.SystemColors.GradientInactiveCaption;
             this.hgxDebtMenu.StateCommon.Border.Color1 = System.Drawing.Color.RoyalBlue;
@@ -403,6 +305,7 @@
             this.hgxDebtMenu.StateCommon.HeaderPrimary.Content.ShortText.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hgxDebtMenu.TabIndex = 9;
             this.hgxDebtMenu.ValuesPrimary.Heading = "CÔNG NỢ";
+            this.hgxDebtMenu.ValuesPrimary.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.customers;
             this.hgxDebtMenu.Click += new System.EventHandler(this.hgxDebtMenu_Click);
             // 
             // btnHideShow4
@@ -421,8 +324,8 @@
             this.tvwDebt.ImageList = this.imageListDebt;
             this.tvwDebt.Location = new System.Drawing.Point(0, 0);
             this.tvwDebt.Name = "tvwDebt";
-            this.tvwDebt.SelectedImageIndex = 0;
-            this.tvwDebt.Size = new System.Drawing.Size(193, 19);
+            this.tvwDebt.SelectedImageIndex = 2;
+            this.tvwDebt.Size = new System.Drawing.Size(233, 19);
             this.tvwDebt.TabIndex = 1;
             this.tvwDebt.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvwDebt_NodeMouseDoubleClick);
             this.tvwDebt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tvwDebt_KeyDown);
@@ -433,13 +336,14 @@
             this.imageListDebt.TransparentColor = System.Drawing.Color.Transparent;
             this.imageListDebt.Images.SetKeyName(0, "14.Quanlycongno.png");
             this.imageListDebt.Images.SetKeyName(1, "15.Lich Do So.png");
+            this.imageListDebt.Images.SetKeyName(2, "old_edit_redo.png");
             // 
             // pnlDebtMenu
             // 
             this.pnlDebtMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlDebtMenu.Location = new System.Drawing.Point(10, 237);
             this.pnlDebtMenu.Name = "pnlDebtMenu";
-            this.pnlDebtMenu.Size = new System.Drawing.Size(199, 19);
+            this.pnlDebtMenu.Size = new System.Drawing.Size(239, 19);
             this.pnlDebtMenu.StateCommon.Color1 = System.Drawing.Color.Transparent;
             this.pnlDebtMenu.StateCommon.Color2 = System.Drawing.Color.Transparent;
             this.pnlDebtMenu.TabIndex = 8;
@@ -457,7 +361,7 @@
             // hgxWHMenu.Panel
             // 
             this.hgxWHMenu.Panel.Controls.Add(this.tvwWH);
-            this.hgxWHMenu.Size = new System.Drawing.Size(199, 60);
+            this.hgxWHMenu.Size = new System.Drawing.Size(239, 60);
             this.hgxWHMenu.StateCommon.Back.Color1 = System.Drawing.SystemColors.GradientInactiveCaption;
             this.hgxWHMenu.StateCommon.Back.Color2 = System.Drawing.SystemColors.GradientInactiveCaption;
             this.hgxWHMenu.StateCommon.Border.Color1 = System.Drawing.Color.RoyalBlue;
@@ -482,6 +386,7 @@
             this.hgxWHMenu.StateCommon.HeaderPrimary.Content.ShortText.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hgxWHMenu.TabIndex = 7;
             this.hgxWHMenu.ValuesPrimary.Heading = "KHO";
+            this.hgxWHMenu.ValuesPrimary.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.home;
             this.hgxWHMenu.Click += new System.EventHandler(this.hgxWHMenu_Click);
             // 
             // btnHideShow3
@@ -500,8 +405,8 @@
             this.tvwWH.ImageList = this.imageListWH;
             this.tvwWH.Location = new System.Drawing.Point(0, 0);
             this.tvwWH.Name = "tvwWH";
-            this.tvwWH.SelectedImageIndex = 0;
-            this.tvwWH.Size = new System.Drawing.Size(193, 34);
+            this.tvwWH.SelectedImageIndex = 5;
+            this.tvwWH.Size = new System.Drawing.Size(233, 34);
             this.tvwWH.TabIndex = 1;
             this.tvwWH.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvwWH_NodeMouseDoubleClick);
             this.tvwWH.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tvwWH_KeyDown);
@@ -514,13 +419,15 @@
             this.imageListWH.Images.SetKeyName(1, "11.PhuongTien.png");
             this.imageListWH.Images.SetKeyName(2, "12.materials.png");
             this.imageListWH.Images.SetKeyName(3, "13.Lichxuatkho.png");
+            this.imageListWH.Images.SetKeyName(4, "whack_notepad.png");
+            this.imageListWH.Images.SetKeyName(5, "old_edit_redo.png");
             // 
             // pnlWHMenu
             // 
             this.pnlWHMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlWHMenu.Location = new System.Drawing.Point(10, 158);
             this.pnlWHMenu.Name = "pnlWHMenu";
-            this.pnlWHMenu.Size = new System.Drawing.Size(199, 19);
+            this.pnlWHMenu.Size = new System.Drawing.Size(239, 19);
             this.pnlWHMenu.StateCommon.Color1 = System.Drawing.Color.Transparent;
             this.pnlWHMenu.StateCommon.Color2 = System.Drawing.Color.Transparent;
             this.pnlWHMenu.TabIndex = 6;
@@ -538,7 +445,7 @@
             // hgxEmpMenu.Panel
             // 
             this.hgxEmpMenu.Panel.Controls.Add(this.tvwEmp);
-            this.hgxEmpMenu.Size = new System.Drawing.Size(199, 61);
+            this.hgxEmpMenu.Size = new System.Drawing.Size(239, 61);
             this.hgxEmpMenu.StateCommon.Back.Color1 = System.Drawing.SystemColors.GradientInactiveCaption;
             this.hgxEmpMenu.StateCommon.Back.Color2 = System.Drawing.SystemColors.GradientInactiveCaption;
             this.hgxEmpMenu.StateCommon.Border.Color1 = System.Drawing.Color.RoyalBlue;
@@ -563,6 +470,7 @@
             this.hgxEmpMenu.StateCommon.HeaderPrimary.Content.ShortText.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hgxEmpMenu.TabIndex = 5;
             this.hgxEmpMenu.ValuesPrimary.Heading = "NHÂN VIÊN";
+            this.hgxEmpMenu.ValuesPrimary.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.profile;
             this.hgxEmpMenu.Click += new System.EventHandler(this.hgxEmpMenu_Click);
             // 
             // btnHideShow2
@@ -581,8 +489,8 @@
             this.tvwEmp.ImageList = this.imageListEmp;
             this.tvwEmp.Location = new System.Drawing.Point(0, 0);
             this.tvwEmp.Name = "tvwEmp";
-            this.tvwEmp.SelectedImageIndex = 0;
-            this.tvwEmp.Size = new System.Drawing.Size(193, 35);
+            this.tvwEmp.SelectedImageIndex = 3;
+            this.tvwEmp.Size = new System.Drawing.Size(233, 35);
             this.tvwEmp.TabIndex = 1;
             this.tvwEmp.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvwEmp_NodeMouseDoubleClick);
             this.tvwEmp.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tvwEmp_KeyDown);
@@ -594,13 +502,14 @@
             this.imageListEmp.Images.SetKeyName(0, "7.Quan Ly nhan vien.png");
             this.imageListEmp.Images.SetKeyName(1, "8.Luong.png");
             this.imageListEmp.Images.SetKeyName(2, "9.tienung.png");
+            this.imageListEmp.Images.SetKeyName(3, "old_edit_redo.png");
             // 
             // pnlEmpMenu
             // 
             this.pnlEmpMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlEmpMenu.Location = new System.Drawing.Point(10, 78);
             this.pnlEmpMenu.Name = "pnlEmpMenu";
-            this.pnlEmpMenu.Size = new System.Drawing.Size(199, 19);
+            this.pnlEmpMenu.Size = new System.Drawing.Size(239, 19);
             this.pnlEmpMenu.StateCommon.Color1 = System.Drawing.Color.Transparent;
             this.pnlEmpMenu.StateCommon.Color2 = System.Drawing.Color.Transparent;
             this.pnlEmpMenu.TabIndex = 4;
@@ -618,7 +527,7 @@
             // hgxConsMenu.Panel
             // 
             this.hgxConsMenu.Panel.Controls.Add(this.tvwCons);
-            this.hgxConsMenu.Size = new System.Drawing.Size(199, 59);
+            this.hgxConsMenu.Size = new System.Drawing.Size(239, 59);
             this.hgxConsMenu.StateCommon.Back.Color1 = System.Drawing.SystemColors.GradientInactiveCaption;
             this.hgxConsMenu.StateCommon.Back.Color2 = System.Drawing.SystemColors.GradientInactiveCaption;
             this.hgxConsMenu.StateCommon.Border.Color1 = System.Drawing.Color.RoyalBlue;
@@ -644,7 +553,7 @@
             this.hgxConsMenu.StateCommon.HeaderPrimary.Content.ShortText.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hgxConsMenu.TabIndex = 3;
             this.hgxConsMenu.ValuesPrimary.Heading = "CÔNG TRÌNH";
-            this.hgxConsMenu.ValuesPrimary.Image = ((System.Drawing.Image)(resources.GetObject("hgxConsMenu.ValuesPrimary.Image")));
+            this.hgxConsMenu.ValuesPrimary.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.hotel;
             this.hgxConsMenu.Click += new System.EventHandler(this.hgxConsMenu_Click);
             // 
             // btnHideShow1
@@ -663,8 +572,8 @@
             this.tvwCons.ImageList = this.imageListCons;
             this.tvwCons.Location = new System.Drawing.Point(0, 0);
             this.tvwCons.Name = "tvwCons";
-            this.tvwCons.SelectedImageIndex = 0;
-            this.tvwCons.Size = new System.Drawing.Size(193, 33);
+            this.tvwCons.SelectedImageIndex = 6;
+            this.tvwCons.Size = new System.Drawing.Size(233, 33);
             this.tvwCons.TabIndex = 0;
             this.tvwCons.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvwCons_NodeMouseDoubleClick);
             this.tvwCons.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tvwCons_KeyDown);
@@ -679,13 +588,14 @@
             this.imageListCons.Images.SetKeyName(3, "dutoan.png");
             this.imageListCons.Images.SetKeyName(4, "5.Quanlymuahang.ico");
             this.imageListCons.Images.SetKeyName(5, "tiendo.ico");
+            this.imageListCons.Images.SetKeyName(6, "old_edit_redo.png");
             // 
             // pnlConsMenu
             // 
             this.pnlConsMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlConsMenu.Location = new System.Drawing.Point(10, 0);
             this.pnlConsMenu.Name = "pnlConsMenu";
-            this.pnlConsMenu.Size = new System.Drawing.Size(199, 19);
+            this.pnlConsMenu.Size = new System.Drawing.Size(239, 19);
             this.pnlConsMenu.StateCommon.Color1 = System.Drawing.Color.Transparent;
             this.pnlConsMenu.StateCommon.Color2 = System.Drawing.Color.Transparent;
             this.pnlConsMenu.TabIndex = 2;
@@ -693,9 +603,9 @@
             // kryptonPanel2
             // 
             this.kryptonPanel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.kryptonPanel2.Location = new System.Drawing.Point(209, 0);
+            this.kryptonPanel2.Location = new System.Drawing.Point(249, 0);
             this.kryptonPanel2.Name = "kryptonPanel2";
-            this.kryptonPanel2.Size = new System.Drawing.Size(10, 520);
+            this.kryptonPanel2.Size = new System.Drawing.Size(10, 522);
             this.kryptonPanel2.StateCommon.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(212)))), ((int)(((byte)(239)))));
             this.kryptonPanel2.StateCommon.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(212)))), ((int)(((byte)(239)))));
             this.kryptonPanel2.StateCommon.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Dashed;
@@ -706,33 +616,28 @@
             this.kryptonPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.kryptonPanel1.Location = new System.Drawing.Point(0, 0);
             this.kryptonPanel1.Name = "kryptonPanel1";
-            this.kryptonPanel1.Size = new System.Drawing.Size(10, 520);
+            this.kryptonPanel1.Size = new System.Drawing.Size(10, 522);
             this.kryptonPanel1.StateCommon.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(212)))), ((int)(((byte)(239)))));
             this.kryptonPanel1.StateCommon.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(212)))), ((int)(((byte)(239)))));
             this.kryptonPanel1.StateCommon.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Dashed;
             this.kryptonPanel1.TabIndex = 0;
             // 
-            // pnlMainContent
-            // 
-            this.pnlMainContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlMainContent.Location = new System.Drawing.Point(0, 27);
-            this.pnlMainContent.Name = "pnlMainContent";
-            this.pnlMainContent.Size = new System.Drawing.Size(798, 495);
-            this.pnlMainContent.StateCommon.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(212)))), ((int)(((byte)(239)))));
-            this.pnlMainContent.StateCommon.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(243)))), ((int)(((byte)(251)))));
-            this.pnlMainContent.StateCommon.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Dashed;
-            this.pnlMainContent.TabIndex = 19;
-            // 
             // kryptonHeader1
             // 
             this.kryptonHeader1.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
+            this.btnTileVer,
+            this.btnTileHor,
+            this.btnCascade,
             this.bsaLogout,
-            this.bsaProfiles});
+            this.bsaProfiles,
+            this.btnMin,
+            this.btnMax,
+            this.btnClose});
             this.kryptonHeader1.Dock = System.Windows.Forms.DockStyle.Top;
             this.kryptonHeader1.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.Calendar;
-            this.kryptonHeader1.Location = new System.Drawing.Point(0, 0);
+            this.kryptonHeader1.Location = new System.Drawing.Point(259, 0);
             this.kryptonHeader1.Name = "kryptonHeader1";
-            this.kryptonHeader1.Size = new System.Drawing.Size(798, 27);
+            this.kryptonHeader1.Size = new System.Drawing.Size(765, 29);
             this.kryptonHeader1.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(135)))), ((int)(((byte)(173)))));
             this.kryptonHeader1.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(210)))), ((int)(((byte)(229)))));
             this.kryptonHeader1.StateCommon.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.GlassSimpleFull;
@@ -763,16 +668,82 @@
             this.buttonSpecAny1.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.ArrowUp;
             this.buttonSpecAny1.UniqueName = "DAF9E72742304D3884ACCAC1366A3F5B";
             // 
+            // btnCascade
+            // 
+            this.btnCascade.Text = "Phân Lớp";
+            this.btnCascade.UniqueName = "AC85E1327F8E4A0C83B357E4F525EF17";
+            this.btnCascade.Click += new System.EventHandler(this.btnCascade_Click);
+            // 
+            // kryptonPanel3
+            // 
+            this.kryptonPanel3.Controls.Add(this.hgxSystemMenu);
+            this.kryptonPanel3.Controls.Add(this.pnlSystem);
+            this.kryptonPanel3.Controls.Add(this.hgxLedgerMenu);
+            this.kryptonPanel3.Controls.Add(this.pnlLedgerMenu);
+            this.kryptonPanel3.Controls.Add(this.hgxDebtMenu);
+            this.kryptonPanel3.Controls.Add(this.pnlDebtMenu);
+            this.kryptonPanel3.Controls.Add(this.hgxWHMenu);
+            this.kryptonPanel3.Controls.Add(this.pnlWHMenu);
+            this.kryptonPanel3.Controls.Add(this.hgxEmpMenu);
+            this.kryptonPanel3.Controls.Add(this.pnlEmpMenu);
+            this.kryptonPanel3.Controls.Add(this.hgxConsMenu);
+            this.kryptonPanel3.Controls.Add(this.pnlConsMenu);
+            this.kryptonPanel3.Controls.Add(this.kryptonPanel1);
+            this.kryptonPanel3.Controls.Add(this.kryptonPanel2);
+            this.kryptonPanel3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.kryptonPanel3.Location = new System.Drawing.Point(0, 0);
+            this.kryptonPanel3.Name = "kryptonPanel3";
+            this.kryptonPanel3.Size = new System.Drawing.Size(259, 522);
+            this.kryptonPanel3.StateCommon.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(212)))), ((int)(((byte)(239)))));
+            this.kryptonPanel3.StateCommon.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(212)))), ((int)(((byte)(239)))));
+            this.kryptonPanel3.TabIndex = 11;
+            // 
+            // btnTileHor
+            // 
+            this.btnTileHor.Text = "Phân Dọc";
+            this.btnTileHor.UniqueName = "5C37876A40DD4E69CDA1D19831E31AFE";
+            this.btnTileHor.Click += new System.EventHandler(this.btnTileHor_Click);
+            // 
+            // btnTileVer
+            // 
+            this.btnTileVer.Text = "Phân Ngang";
+            this.btnTileVer.UniqueName = "FB2E1F761D9D45C46BB820CAD138595D";
+            this.btnTileVer.Click += new System.EventHandler(this.btnTileVer_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.FormClose;
+            this.btnClose.UniqueName = "6E998BF0D29F4D318584BDC15A8A0413";
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnMax
+            // 
+            this.btnMax.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.FormRestore;
+            this.btnMax.UniqueName = "22AB8F8276144454A39217B7BBF81167";
+            this.btnMax.Click += new System.EventHandler(this.btnMax_Click);
+            // 
+            // btnMin
+            // 
+            this.btnMin.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.FormMin;
+            this.btnMin.UniqueName = "7FD12F3D331645ECA8BA073E2990EF21";
+            this.btnMin.Click += new System.EventHandler(this.btnMin_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(212)))), ((int)(((byte)(239)))));
             this.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
             this.buttonSpecAny1});
             this.ClientSize = new System.Drawing.Size(1024, 522);
-            this.Controls.Add(this.pnlMain);
+            this.Controls.Add(this.kryptonHeader1);
+            this.Controls.Add(this.kryptonPanel3);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
+            this.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(212)))), ((int)(((byte)(239)))));
+            this.StateCommon.Back.Color2 = System.Drawing.Color.White;
+            this.StateCommon.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.GlassSimpleFull;
             this.StateCommon.Border.Color1 = System.Drawing.Color.RoyalBlue;
             this.StateCommon.Border.Color2 = System.Drawing.Color.RoyalBlue;
             this.StateCommon.Border.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.GlassSimpleFull;
@@ -788,18 +759,6 @@
             this.Text = "Quản Lý Xây Dựng - Power by ADS";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pnlMain)).EndInit();
-            this.pnlMain.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pnlContent)).EndInit();
-            this.pnlContent.ResumeLayout(false);
-            this.slcMain.Panel1.ResumeLayout(false);
-            this.slcMain.Panel2.ResumeLayout(false);
-            this.slcMain.Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.slcMain)).EndInit();
-            this.slcMain.ResumeLayout(false);
-            this.hdgMenu.Panel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.hdgMenu)).EndInit();
-            this.hdgMenu.ResumeLayout(false);
             this.hgxSystemMenu.Panel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.hgxSystemMenu)).EndInit();
             this.hgxSystemMenu.ResumeLayout(false);
@@ -826,25 +785,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.pnlConsMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pnlMainContent)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel3)).EndInit();
+            this.kryptonPanel3.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private ComponentFactory.Krypton.Toolkit.KryptonManager kryptonManager;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel pnlMain;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel pnlContent;
-        private ComponentFactory.Krypton.Toolkit.KryptonSplitContainer slcMain;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel pnlMainContent;
         private System.Windows.Forms.ImageList imageListCons;
         private ComponentFactory.Krypton.Toolkit.KryptonHeader kryptonHeader1;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny bsaLogout;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny bsaProfiles;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny1;
-        private ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup hdgMenu;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup btnhdgMenuHideShow;
         private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel2;
         private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel1;
         private ComponentFactory.Krypton.Toolkit.KryptonPanel pnlConsMenu;
@@ -876,6 +831,13 @@
         private System.Windows.Forms.ImageList imageListLedger;
         private System.Windows.Forms.ImageList imageListDebt;
         private System.Windows.Forms.ImageList imageListWH;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnCascade;
+        private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel3;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnTileVer;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnTileHor;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnMin;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnMax;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnClose;
     }
 }
 

@@ -315,5 +315,13 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
             }
             dgvSalary.Focus();
         }
+
+        private void cbbNameSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnSearch_Click(null, null);
+            }
+        }
     }
 }

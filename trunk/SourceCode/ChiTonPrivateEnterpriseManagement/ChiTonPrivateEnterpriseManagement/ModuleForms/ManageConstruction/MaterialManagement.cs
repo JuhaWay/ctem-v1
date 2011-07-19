@@ -44,6 +44,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
             Global.SetLayoutGroupBoxSearch(gbxSearch);
             Global.SetLayoutPanelChildForm(pnlSearch);
             Global.SetLayoutButton(btnSearch);
+            Global.SetLayoutGroupBoxNewForm(kryptonGroupBox1);
         }
         
         private void btAddNew_Click(object sender, EventArgs e)
@@ -144,6 +145,22 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
                 return false;
             }
             return true;
+        }
+
+        private void btnHideShowSearch_Click(object sender, EventArgs e)
+        {
+            if (gbxSearch.Visible)
+            {
+                btnHideShowSearch.Type = PaletteButtonSpecStyle.ArrowDown;
+                Global.DownUpControl(this, pnlSearch, 62, 2, 4, false);
+                gbxSearch.Visible = false;
+            }
+            else
+            {
+                btnHideShowSearch.Type = PaletteButtonSpecStyle.ArrowUp;
+                gbxSearch.Visible = true;
+                Global.DownUpControl(this, pnlSearch, 62, 2, 4, true);
+            }
         }
     }
 }

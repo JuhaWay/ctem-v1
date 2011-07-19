@@ -126,13 +126,13 @@
             this.cmsGenerate.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.generateToolStripMenuItem});
             this.cmsGenerate.Name = "cmsGenerate";
-            this.cmsGenerate.Size = new System.Drawing.Size(164, 26);
+            this.cmsGenerate.Size = new System.Drawing.Size(172, 26);
             // 
             // generateToolStripMenuItem
             // 
             this.generateToolStripMenuItem.Name = "generateToolStripMenuItem";
             this.generateToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G)));
-            this.generateToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.generateToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.generateToolStripMenuItem.Text = "Generate";
             this.generateToolStripMenuItem.Click += new System.EventHandler(this.generateToolStripMenuItem_Click);
             // 
@@ -752,7 +752,8 @@
             this.ClientSize = new System.Drawing.Size(784, 467);
             this.Controls.Add(this.slcMain);
             this.Name = "NewFinalAccount";
-            this.Text = "NewFinalAccount";
+            this.ShowIcon = false;
+            this.Text = "Tạo Mới Phiếu Mua Hàng";
             this.Load += new System.EventHandler(this.NewFinalAccount_Load);
             this.SizeChanged += new System.EventHandler(this.NewFinalAccount_SizeChanged);
             this.cmsGenerate.ResumeLayout(false);

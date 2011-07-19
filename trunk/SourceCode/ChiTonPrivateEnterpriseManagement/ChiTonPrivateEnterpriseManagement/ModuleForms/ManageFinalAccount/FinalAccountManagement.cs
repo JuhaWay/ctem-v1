@@ -175,5 +175,15 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
                 btnSearch_Click(null, null);
             }
         }
+
+        private void txtId_Enter(object sender, EventArgs e)
+        {
+            Global.SetTextBoxNumberEnter(txtId);
+        }
+
+        private void txtId_Leave(object sender, EventArgs e)
+        {
+            Global.SetTextBoxNumberLeave(txtId);
+        }
     }
 }

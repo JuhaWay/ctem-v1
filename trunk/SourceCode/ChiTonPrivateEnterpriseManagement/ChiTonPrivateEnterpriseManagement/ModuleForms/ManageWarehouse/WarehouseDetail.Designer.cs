@@ -49,6 +49,10 @@
             this.hdWH = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
             this.btnRefresh = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.btnHideShowSearch = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.cmsMain = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.SearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.HideSearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWHDetail)).BeginInit();
@@ -60,6 +64,7 @@
             this.gbxSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbbNameSearch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbbMaterial)).BeginInit();
+            this.cmsMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // kryptonPanel
@@ -172,6 +177,7 @@
             this.cbbNameSearch.Name = "cbbNameSearch";
             this.cbbNameSearch.Size = new System.Drawing.Size(161, 22);
             this.cbbNameSearch.TabIndex = 1;
+            this.cbbNameSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbbNameSearch_KeyDown);
             // 
             // btnSearch
             // 
@@ -201,6 +207,7 @@
             this.btnSearch.TabIndex = 3;
             this.btnSearch.Values.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.find1;
             this.btnSearch.Values.Text = "Tìm";
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // cbbMaterial
             // 
@@ -210,6 +217,7 @@
             this.cbbMaterial.Name = "cbbMaterial";
             this.cbbMaterial.Size = new System.Drawing.Size(245, 22);
             this.cbbMaterial.TabIndex = 2;
+            this.cbbMaterial.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbbNameSearch_KeyDown);
             // 
             // kryptonLabel10
             // 
@@ -251,12 +259,47 @@
             this.btnRefresh.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
             this.btnRefresh.Text = "Làm Mới";
             this.btnRefresh.UniqueName = "4C2FCC4A6195428907A74FD31E7A9F69";
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // btnHideShowSearch
             // 
             this.btnHideShowSearch.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
             this.btnHideShowSearch.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.ArrowUp;
             this.btnHideShowSearch.UniqueName = "7CD50F96676F43E7C0B240BAD639EFD5";
+            this.btnHideShowSearch.Click += new System.EventHandler(this.btnHideShowSearch_Click);
+            // 
+            // cmsMain
+            // 
+            this.cmsMain.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.cmsMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
+            this.SearchToolStripMenuItem,
+            this.HideSearchToolStripMenuItem});
+            this.cmsMain.Name = "cmsDGV";
+            this.cmsMain.Size = new System.Drawing.Size(184, 70);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.ShortcutKeys = System.Windows.Forms.Keys.F5;
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(183, 22);
+            this.toolStripMenuItem1.Text = "Làm Mới";
+            // 
+            // SearchToolStripMenuItem
+            // 
+            this.SearchToolStripMenuItem.Name = "SearchToolStripMenuItem";
+            this.SearchToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
+            this.SearchToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.SearchToolStripMenuItem.Text = "Tìm Kiếm";
+            this.SearchToolStripMenuItem.Click += new System.EventHandler(this.SearchToolStripMenuItem_Click);
+            // 
+            // HideSearchToolStripMenuItem
+            // 
+            this.HideSearchToolStripMenuItem.Name = "HideSearchToolStripMenuItem";
+            this.HideSearchToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
+            this.HideSearchToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.HideSearchToolStripMenuItem.Text = "Ẩn Tìm Kiếm";
+            this.HideSearchToolStripMenuItem.Click += new System.EventHandler(this.HideSearchToolStripMenuItem_Click);
             // 
             // WarehouseDetail
             // 
@@ -265,6 +308,7 @@
             this.ClientSize = new System.Drawing.Size(765, 444);
             this.Controls.Add(this.kryptonPanel);
             this.Name = "WarehouseDetail";
+            this.ShowIcon = false;
             this.Text = "Thôn Tin Chi Tiết Kho Hàng";
             this.Load += new System.EventHandler(this.WarehouseDetail_Load);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).EndInit();
@@ -280,6 +324,7 @@
             this.gbxSearch.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cbbNameSearch)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbbMaterial)).EndInit();
+            this.cmsMain.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -306,6 +351,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn UnitCal;
         private System.Windows.Forms.DataGridViewTextBoxColumn AveragePriceFormated;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalCostFormated;
+        private System.Windows.Forms.ContextMenuStrip cmsMain;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem SearchToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem HideSearchToolStripMenuItem;
     }
 }
 

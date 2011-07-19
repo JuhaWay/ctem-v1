@@ -295,7 +295,8 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         ConstructionID = Convert.ToInt64(reader["ConstructionID"]),
                         Status = Convert.ToString(reader["Status"]),
                         type = Convert.ToString(reader["Type"]),
-                        SubcontractorName = Convert.ToString(reader["SubcontractorName"]),
+                        SubcontractorName = reader["SubcontractorName"] != DBNull.Value ? 
+                        Convert.ToString(reader["SubcontractorName"]) : Constants.EMPTY_TEXT,
                         ConstructionName = Convert.ToString(reader["ConstructionName"]),
                         Description = Convert.ToString(reader["Description"]),
                         ConstructionAddress = Convert.ToString(reader["ConstructionAddress"]),
@@ -308,12 +309,13 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         Convert.ToInt64(reader["TotalCostEstimate"]) : 0,
                         TotalRealCost = reader["TotalCostReal"] != DBNull.Value ?
                         Convert.ToInt64(reader["TotalCostReal"]) : 0,
-                        ManagerName = Convert.ToString(reader["Username"]),
-                        ManagerID = Convert.ToInt64(reader["ManagerID"]),
+                        ManagerName = reader["Username"] != DBNull.Value ?
+                        Convert.ToString(reader["Username"]) : Constants.EMPTY_TEXT,
+                        ManagerID = reader["ManagerID"] != DBNull.Value?
+                        Convert.ToInt64(reader["ManagerID"]) : 0,
                         CreatedBy = Convert.ToString(reader["CreatedBy"]),
                         CreatedDate = Convert.ToDateTime(reader["CreatedDate"]),
                         UpdatedBy = Convert.ToString(reader["UpdatedBy"])
-
                     };
 
                     try

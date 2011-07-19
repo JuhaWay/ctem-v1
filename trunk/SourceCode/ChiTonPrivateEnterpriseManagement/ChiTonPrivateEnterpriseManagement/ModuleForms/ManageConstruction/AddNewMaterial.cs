@@ -40,6 +40,11 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
         private void AddNewMaterial_Load(object sender, EventArgs e)
         {
             Global.SetLayoutPanelNewForm(pnMain);
+            Global.SetLayoutForm(this, Constants.DIALOG_FORM);
+            Global.SetLayoutGroupBoxNewForm(kryptonGroupBox1);
+            Global.SetLayoutGroupBoxNewForm(kryptonGroupBox2);
+            Global.SetLayoutButton(btSave);
+            Global.SetLayoutButton(btClose);
         }
         private bool validateForm()
         {

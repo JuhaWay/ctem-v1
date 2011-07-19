@@ -67,6 +67,20 @@ namespace ChiTonPrivateEnterpriseManagement.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap application_view_detail {
+            get {
+                object obj = ResourceManager.GetObject("application_view_detail", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap application_x_desktop {
+            get {
+                object obj = ResourceManager.GetObject("application_x_desktop", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap cancel {
             get {
                 object obj = ResourceManager.GetObject("cancel", resourceCulture);
@@ -74,9 +88,23 @@ namespace ChiTonPrivateEnterpriseManagement.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap classic_folder_projects {
+            get {
+                object obj = ResourceManager.GetObject("classic_folder_projects", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap close_box_red {
             get {
                 object obj = ResourceManager.GetObject("close_box_red", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap customers {
+            get {
+                object obj = ResourceManager.GetObject("customers", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -116,6 +144,27 @@ namespace ChiTonPrivateEnterpriseManagement.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap home {
+            get {
+                object obj = ResourceManager.GetObject("home", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap hotel {
+            get {
+                object obj = ResourceManager.GetObject("hotel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap key2 {
+            get {
+                object obj = ResourceManager.GetObject("key2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap load_all {
             get {
                 object obj = ResourceManager.GetObject("load_all", resourceCulture);
@@ -123,9 +172,37 @@ namespace ChiTonPrivateEnterpriseManagement.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap notebook {
+            get {
+                object obj = ResourceManager.GetObject("notebook", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap profile {
+            get {
+                object obj = ResourceManager.GetObject("profile", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap project_open {
+            get {
+                object obj = ResourceManager.GetObject("project_open", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap reload {
             get {
                 object obj = ResourceManager.GetObject("reload", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap right {
+            get {
+                object obj = ResourceManager.GetObject("right", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

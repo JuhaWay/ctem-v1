@@ -35,9 +35,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
             cbManager.DisplayMember = "Username";
             authen();
             search();
-            displayButton();
-          
-
+            displayButton();            
         }
 
         private void authen()
@@ -106,7 +104,12 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
                 long ConstructionID = Convert.ToInt64(sConstructionID);
                 if (ParentId == 0 || type.Trim().Equals(ConstructionDTO.MAIN))
                 {
-                    AddConstruction editForm = new AddConstruction(ConstructionID);
+                    AddConstruction editForm = new AddConstruction(ConstructionID, 1);
+                    editForm.ShowDialog();
+                }
+                else if (ParentId != 0)
+                {
+                    AddConstruction editForm = new AddConstruction(ConstructionID, 0);
                     editForm.ShowDialog();
                 }
                 else
@@ -260,6 +263,44 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
         private void dgvCons_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             displayButton();
+        }
+
+        private void btHideShowSearch_Click(object sender, EventArgs e)
+        {
+            if (gbxSearch.Visible)
+            {
+                btnHideShowSearch.Type = PaletteButtonSpecStyle.ArrowDown;
+                Global.DownUpControl(this, pnlSearch, 72, 2, 4, false);
+                gbxSearch.Visible = false;
+            }
+            else
+            {
+                btnHideShowSearch.Type = PaletteButtonSpecStyle.ArrowUp;
+                gbxSearch.Visible = true;
+                Global.DownUpControl(this, pnlSearch, 72, 2, 4, true);
+            }
+        }
+
+        private void SearchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!gbxSearch.Visible)
+            {
+                btnHideShowSearch.Type = PaletteButtonSpecStyle.ArrowUp;
+                gbxSearch.Visible = true;
+                Global.DownUpControl(this, pnlSearch, 72, 2, 4, true);
+            }
+            ipName.Focus();
+        }
+
+        private void HideSearchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (gbxSearch.Visible)
+            {
+                btnHideShowSearch.Type = PaletteButtonSpecStyle.ArrowDown;
+                Global.DownUpControl(this, pnlSearch, 72, 2, 4, false);
+                gbxSearch.Visible = false;
+                dgvCons.Focus();
+            }
         }
        
     }

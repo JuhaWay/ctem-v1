@@ -16,7 +16,7 @@
     <OldToolsVersion>2.0</OldToolsVersion>
     <UpgradeBackupLocation />
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>publish\</PublishUrl>
+    <PublishUrl>C:\Documents and Settings\Violet_Ink\Desktop\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -26,9 +26,10 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationRevision>1</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -50,12 +51,28 @@
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>community.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>6DDA0BC09F10E859F384B09B2D07E887171D571D</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>ChiTonPrivateEnterpriseManagement_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Accessibility">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\ComponentFactory.Krypton.Toolkit.dll</HintPath>
     </Reference>
     <Reference Include="ExpandableGridView">
       <HintPath>..\..\..\Tools\dll\ExpandableGridView.dll</HintPath>
@@ -190,6 +207,12 @@
     <Compile Include="ModuleForms\ManageEmployee\Authorization.Designer.cs">
       <DependentUpon>Authorization.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModuleForms\ManageEmployee\ResetPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForms\ManageEmployee\ResetPassword.Designer.cs">
+      <DependentUpon>ResetPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModuleForms\ManageLedger\AddnewLedger.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -309,18 +332,6 @@
     </Compile>
     <Compile Include="ModuleForms\ManageEmployee\SalaryManagement.designer.cs">
       <DependentUpon>SalaryManagement.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ModuleForms\ManageEstimation\AddNewEsDetail.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ModuleForms\ManageEstimation\AddNewEsDetail.Designer.cs">
-      <DependentUpon>AddNewEsDetail.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ModuleForms\ManageEstimation\AddNewEstimate.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ModuleForms\ManageEstimation\AddNewEstimate.Designer.cs">
-      <DependentUpon>AddNewEstimate.cs</DependentUpon>
     </Compile>
     <Compile Include="ModuleForms\ManageEstimation\EstimateDetail.cs">
       <SubType>Form</SubType>
@@ -499,6 +510,10 @@
       <DependentUpon>Authorization.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\ManageEmployee\ResetPassword.resx">
+      <DependentUpon>ResetPassword.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="ModuleForms\ManageLedger\AddnewLedger.resx">
       <DependentUpon>AddnewLedger.cs</DependentUpon>
     </EmbeddedResource>
@@ -567,13 +582,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ModuleForms\ManageEmployee\SalaryManagement.resx">
       <DependentUpon>SalaryManagement.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ModuleForms\ManageEstimation\AddNewEsDetail.resx">
-      <DependentUpon>AddNewEsDetail.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ModuleForms\ManageEstimation\AddNewEstimate.resx">
-      <DependentUpon>AddNewEstimate.cs</DependentUpon>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="ModuleForms\ManageEstimation\EstimateDetail.resx">
       <DependentUpon>EstimateDetail.cs</DependentUpon>
@@ -672,6 +680,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="ChiTonPrivateEnterpriseManagement_TemporaryKey.pfx" />
     <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.CompareDebtDTO.datasource" />
     <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.DebtDTO.datasource" />
     <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.EmployeeAdvanceDTO.datasource" />
@@ -718,7 +727,17 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\key2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="community.ico" />
+    <None Include="Resources\classic_folder_projects.png" />
+    <None Include="Resources\project_open.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
