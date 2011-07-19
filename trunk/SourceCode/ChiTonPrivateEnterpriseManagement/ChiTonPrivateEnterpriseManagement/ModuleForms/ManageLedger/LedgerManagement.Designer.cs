@@ -153,7 +153,7 @@
             this.dtDate.Location = new System.Drawing.Point(241, 125);
             this.dtDate.Name = "dtDate";
             this.dtDate.Size = new System.Drawing.Size(175, 20);
-            this.dtDate.TabIndex = 29;
+            this.dtDate.TabIndex = 13;
             // 
             // lbDate
             // 
@@ -176,7 +176,7 @@
             this.cbMethod.Location = new System.Drawing.Point(502, 124);
             this.cbMethod.Name = "cbMethod";
             this.cbMethod.Size = new System.Drawing.Size(175, 22);
-            this.cbMethod.TabIndex = 27;
+            this.cbMethod.TabIndex = 14;
             this.cbMethod.Text = "chọn...";
             // 
             // lbMethod
@@ -196,7 +196,7 @@
             this.ipReason.Location = new System.Drawing.Point(241, 88);
             this.ipReason.Name = "ipReason";
             this.ipReason.Size = new System.Drawing.Size(175, 22);
-            this.ipReason.TabIndex = 25;
+            this.ipReason.TabIndex = 11;
             // 
             // lbReason
             // 
@@ -215,7 +215,7 @@
             this.ipPerson.Location = new System.Drawing.Point(502, 88);
             this.ipPerson.Name = "ipPerson";
             this.ipPerson.Size = new System.Drawing.Size(175, 22);
-            this.ipPerson.TabIndex = 23;
+            this.ipPerson.TabIndex = 12;
             // 
             // lbPerson
             // 
@@ -234,7 +234,7 @@
             this.ipNumber.Location = new System.Drawing.Point(241, 49);
             this.ipNumber.Name = "ipNumber";
             this.ipNumber.Size = new System.Drawing.Size(175, 22);
-            this.ipNumber.TabIndex = 21;
+            this.ipNumber.TabIndex = 9;
             this.ipNumber.Leave += new System.EventHandler(this.ipNumber_Leave);
             this.ipNumber.MouseLeave += new System.EventHandler(this.ipNumber_MouseLeave);
             // 
@@ -259,7 +259,7 @@
             this.cbType.Location = new System.Drawing.Point(502, 9);
             this.cbType.Name = "cbType";
             this.cbType.Size = new System.Drawing.Size(175, 22);
-            this.cbType.TabIndex = 19;
+            this.cbType.TabIndex = 8;
             this.cbType.Text = "chọn...";
             this.cbType.SelectedIndexChanged += new System.EventHandler(this.cbType_SelectedIndexChanged);
             // 
@@ -280,7 +280,7 @@
             this.ipName.Location = new System.Drawing.Point(241, 9);
             this.ipName.Name = "ipName";
             this.ipName.Size = new System.Drawing.Size(175, 22);
-            this.ipName.TabIndex = 17;
+            this.ipName.TabIndex = 7;
             // 
             // lbName
             // 
@@ -316,7 +316,7 @@
             this.dgvLedger.StateCommon.Background.Color2 = System.Drawing.Color.White;
             this.dgvLedger.StateCommon.Background.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.GlassCenter;
             this.dgvLedger.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
-            this.dgvLedger.TabIndex = 11;
+            this.dgvLedger.TabIndex = 6;
             this.dgvLedger.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvLedger_MouseClick);
             // 
             // LedgerID
@@ -415,7 +415,7 @@
             this.ipSearchPerson.Location = new System.Drawing.Point(451, 12);
             this.ipSearchPerson.Name = "ipSearchPerson";
             this.ipSearchPerson.Size = new System.Drawing.Size(145, 22);
-            this.ipSearchPerson.TabIndex = 7;
+            this.ipSearchPerson.TabIndex = 2;
             // 
             // ipSearchName
             // 
@@ -423,7 +423,7 @@
             this.ipSearchName.Location = new System.Drawing.Point(205, 12);
             this.ipSearchName.Name = "ipSearchName";
             this.ipSearchName.Size = new System.Drawing.Size(176, 22);
-            this.ipSearchName.TabIndex = 6;
+            this.ipSearchName.TabIndex = 1;
             // 
             // cbSearchType
             // 
@@ -436,7 +436,7 @@
             this.cbSearchType.Location = new System.Drawing.Point(207, 45);
             this.cbSearchType.Name = "cbSearchType";
             this.cbSearchType.Size = new System.Drawing.Size(174, 22);
-            this.cbSearchType.TabIndex = 5;
+            this.cbSearchType.TabIndex = 3;
             this.cbSearchType.SelectedIndexChanged += new System.EventHandler(this.cbSearchType_SelectedIndexChanged);
             // 
             // kryptonLabel1
@@ -530,7 +530,7 @@
             this.cbSearchChiType.Location = new System.Drawing.Point(456, 46);
             this.cbSearchChiType.Name = "cbSearchChiType";
             this.cbSearchChiType.Size = new System.Drawing.Size(140, 22);
-            this.cbSearchChiType.TabIndex = 12;
+            this.cbSearchChiType.TabIndex = 4;
             // 
             // lbSearchChiType
             // 
@@ -569,7 +569,7 @@
             this.btnSearch.StatePressed.Back.Color1 = System.Drawing.Color.Orange;
             this.btnSearch.StatePressed.Back.Color2 = System.Drawing.Color.NavajoWhite;
             this.btnSearch.StatePressed.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.GlassSimpleFull;
-            this.btnSearch.TabIndex = 3;
+            this.btnSearch.TabIndex = 5;
             this.btnSearch.Values.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.find1;
             this.btnSearch.Values.Text = "Tìm";
             this.btnSearch.Click += new System.EventHandler(this.btSearch_Click);
@@ -673,7 +673,7 @@
             this.cbChiType.Name = "cbChiType";
             this.cbChiType.Size = new System.Drawing.Size(175, 22);
             this.cbChiType.StateDisabled.ComboBox.Back.Color1 = System.Drawing.Color.Black;
-            this.cbChiType.TabIndex = 35;
+            this.cbChiType.TabIndex = 10;
             // 
             // lbChiType
             // 
@@ -880,6 +880,7 @@
             this.Controls.Add(this.slcMain);
             this.Controls.Add(this.kryptonPanel);
             this.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.DockActive;
+            this.Name = "LedgerManagement";
             this.ShowIcon = false;
             this.Text = "Sổ cái";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
