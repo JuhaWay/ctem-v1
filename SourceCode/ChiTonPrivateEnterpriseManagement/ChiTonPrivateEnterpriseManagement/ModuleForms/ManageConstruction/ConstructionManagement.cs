@@ -32,7 +32,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
             dtFromdate.Value = new DateTime(dtTodate.Value.Year, dtTodate.Value.Month - 5, dtTodate.Value.Day);
             cbManager.Items.Add(new EmployerDTO("Tất cả",0));
             cbManager.Items.AddRange(_employeeBUS.LoadAllEmployee().ToArray());
-            cbManager.DisplayMember = "Username";
+            cbManager.DisplayMember = Constants.EMPLOYEE_DISPLAYMEMBER;
             authen();
             search();
             displayButton();            

@@ -211,5 +211,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
         public const string NOT_CONFIRM_PASS = "Mật Khẩu Bạn Vừa Nhập Không Khớp Với Mật Khẩu Trên";
 
         public const string ERROR_DATE = "Ngày Vừa Chọn Không Hợp Lệ";
+
+        public const string INPUT_NUMBER_ONLY = "Chỉ Được Nhập Số";
     }
 }

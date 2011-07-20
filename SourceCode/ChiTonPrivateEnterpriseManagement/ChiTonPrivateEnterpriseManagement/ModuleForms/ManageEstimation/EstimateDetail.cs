@@ -34,22 +34,19 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
             _estimateId = estimateId;
             InitializeComponent();
             CenterToParent();
-            resetDataSource(estimateId,-1);
-            isEdit = true;
-            isNew = false;
-            LayoutEdit();
+            resetDataSource(estimateId,-1);            
         }
         // load form
         private void EstimateDetail_Load(object sender, EventArgs e)
-        {            
+        {
             cbSearchMaterial.Items.Add(new MaterialDTO("Tất cả",0));
             cbSearchMaterial.Items.AddRange(_materialBUS.LoadAllMaterials().ToArray());
             cbSearchMaterial.DisplayMember = "MaterialName";
             cbMaterial.Items.AddRange(_materialBUS.LoadAllMaterials().ToArray());
-            cbMaterial.DisplayMember = "MaterialName";
-            loadDetailValues(0);
+            cbMaterial.DisplayMember = "MaterialName";            
             SetLayout();
-            btnHideShowSearch_Click(null, null);
+            btnNew_Click(null, null);
+            btnHideShowSearch_Click(null, null);            
         }
         private void SetLayout()
         {
@@ -66,8 +63,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
             Global.SetLayoutSplipContainer(slcMain, 1);
             Global.SetLayoutSplipContainerInChildForm(slcEdit);
             Global.SetLayoutGroupBoxChildForm(gbxEdit1);
-            Global.SetLayoutGroupBoxChildForm(gbxEdit2);
-            Global.SetLayoutPanelChildForm(kryptonPanel2);
+            Global.SetLayoutGroupBoxChildForm(gbxEdit2);            
             Global.SetTextBoxNumberLeave(ipQuantity);
             Global.SetTextBoxMoneyLeave(ipPrice);
             Global.SetTextBoxMoneyLeave(ipTotal);
@@ -105,6 +101,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
                     {
                         KryptonMessageBox.Show("Kiểm Tra Các Con Số Đã Nhập", Constants.ALERT_ERROR, MessageBoxButtons.OK,
                                                MessageBoxIcon.Warning);
+                        return;
                     }
                 }
                 else
@@ -155,6 +152,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
                     {
                         KryptonMessageBox.Show("Kiểm Tra Các Con Số Đã Nhập", Constants.ALERT_ERROR, MessageBoxButtons.OK,
                                                MessageBoxIcon.Warning);
+                        return;
                     }
                 }
                 else if (ipName.Text.Trim().Equals(""))
@@ -275,7 +273,8 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
                 ipName.Enabled = false;
                 cbMaterial.Enabled = true;
                 ipQuantity.Enabled = true;
-                ipPrice.Enabled = true;                
+                ipPrice.Enabled = true;
+                ipTotal.ReadOnly = true;
             }
         }
         // validate thong tin
@@ -373,7 +372,14 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
             cbMaterial.Enabled = false;
             ipQuantity.ReadOnly = false;
             ipPrice.ReadOnly = false;
-            ipTotal.ReadOnly = true;
+            if (cbType.SelectedIndex == 0)
+            {
+                ipTotal.ReadOnly = false;
+            }
+            else
+            {
+                ipTotal.ReadOnly = true;
+            }
         }
 
         private void ipQuantity_Enter(object sender, EventArgs e)
@@ -529,6 +535,48 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
             {
                 btSearch_Click(null, null);
             }
+        }
+
+        private void ipQuantity_TextChanged(object sender, EventArgs e)
+        {
+            if (!ipQuantity.Text.Equals(Constants.EMPTY_TEXT))
+            {
+                if (!Global.ValidateDoubleNumber(ipQuantity.Text))
+                {
+                    KryptonMessageBox.Show(Constants.INPUT_NUMBER_ONLY, Constants.ALERT_ERROR, MessageBoxButtons.OK,
+                                           MessageBoxIcon.Warning);
+                    ipQuantity.Text = Constants.ZERO_NUMBER;
+                    ipQuantity.Focus();
+                }
+            }
+        }
+
+        private void ipTotal_TextChanged(object sender, EventArgs e)
+        {
+            if (!ipTotal.Text.Equals(Constants.ZERO_NUMBER) && !ipTotal.Text.Equals(Constants.EMPTY_TEXT))
+            {
+                if (Global.ConvertMoneyToLong(ipTotal.Text, Constants.SPLIP_MONEY) == 0)
+                {
+                    KryptonMessageBox.Show(Constants.INPUT_NUMBER_ONLY, Constants.ALERT_ERROR, MessageBoxButtons.OK,
+                                           MessageBoxIcon.Warning);
+                    ipTotal.Text = Constants.ZERO_NUMBER;
+                    ipTotal.Focus();
+                }
+            }            
+        }
+
+        private void ipPrice_TextChanged(object sender, EventArgs e)
+        {
+            if (!ipPrice.Text.Equals(Constants.ZERO_NUMBER) && !ipPrice.Text.Equals(Constants.EMPTY_TEXT))
+            {
+                if (Global.ConvertMoneyToLong(ipPrice.Text, Constants.SPLIP_MONEY) == 0)
+                {
+                    KryptonMessageBox.Show(Constants.INPUT_NUMBER_ONLY, Constants.ALERT_ERROR, MessageBoxButtons.OK,
+                                           MessageBoxIcon.Warning);
+                    ipPrice.Text = Constants.ZERO_NUMBER;
+                    ipPrice.Focus();
+                }
+            }            
         }
     }
 }

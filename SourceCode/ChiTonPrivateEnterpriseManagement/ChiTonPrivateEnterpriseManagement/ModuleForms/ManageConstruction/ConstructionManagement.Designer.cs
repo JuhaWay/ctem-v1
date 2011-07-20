@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConstructionManagement));
             this.kryptonPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.dgvCons = new AdvancedDataGridView.TreeGridView();
@@ -158,8 +158,8 @@
             // ConstructionName
             // 
             this.ConstructionName.DataPropertyName = "ConstructionName";
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ConstructionName.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConstructionName.DefaultCellStyle = dataGridViewCellStyle7;
             this.ConstructionName.DefaultNodeImage = null;
             this.ConstructionName.HeaderText = "Tên công trình";
             this.ConstructionName.Name = "ConstructionName";
@@ -189,9 +189,9 @@
             // 
             // ProgressRate
             // 
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.GreenYellow;
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.ProgressRate.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.GreenYellow;
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.ProgressRate.DefaultCellStyle = dataGridViewCellStyle8;
             this.ProgressRate.HeaderText = "Tiến độ(%)";
             this.ProgressRate.Name = "ProgressRate";
             this.ProgressRate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -199,9 +199,9 @@
             // TotalEstimateCost
             // 
             this.TotalEstimateCost.DataPropertyName = "TotalEstimateCost";
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.GreenYellow;
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Red;
-            this.TotalEstimateCost.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.GreenYellow;
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Red;
+            this.TotalEstimateCost.DefaultCellStyle = dataGridViewCellStyle9;
             this.TotalEstimateCost.HeaderText = "Tổng dự toán(VND)";
             this.TotalEstimateCost.Name = "TotalEstimateCost";
             this.TotalEstimateCost.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -209,9 +209,9 @@
             // 
             // TotalRealCost
             // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.GreenYellow;
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Red;
-            this.TotalRealCost.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.GreenYellow;
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Red;
+            this.TotalRealCost.DefaultCellStyle = dataGridViewCellStyle10;
             this.TotalRealCost.HeaderText = "Tổng giải ngân(VND)";
             this.TotalRealCost.Name = "TotalRealCost";
             this.TotalRealCost.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -242,8 +242,8 @@
             // CommencementDate
             // 
             this.CommencementDate.DataPropertyName = "CommencementDate";
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Yellow;
-            this.CommencementDate.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.Yellow;
+            this.CommencementDate.DefaultCellStyle = dataGridViewCellStyle11;
             this.CommencementDate.HeaderText = "Ngày khởi công";
             this.CommencementDate.Name = "CommencementDate";
             this.CommencementDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -252,9 +252,9 @@
             // CompletionDate
             // 
             this.CompletionDate.DataPropertyName = "CompletionDate";
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Yellow;
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Red;
-            this.CompletionDate.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.Yellow;
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Red;
+            this.CompletionDate.DefaultCellStyle = dataGridViewCellStyle12;
             this.CompletionDate.HeaderText = "Hạn hoàn thành";
             this.CompletionDate.Name = "CompletionDate";
             this.CompletionDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -338,6 +338,8 @@
             // cbManager
             // 
             this.cbManager.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbManager.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cbManager.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbManager.DropDownWidth = 133;
             this.cbManager.Location = new System.Drawing.Point(539, 18);
             this.cbManager.Name = "cbManager";
@@ -419,18 +421,18 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.dtFromdate.CustomFormat = "dd/MM/yyyy";
             this.dtFromdate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtFromdate.Location = new System.Drawing.Point(122, 32);
+            this.dtFromdate.Location = new System.Drawing.Point(134, 32);
             this.dtFromdate.Name = "dtFromdate";
-            this.dtFromdate.Size = new System.Drawing.Size(104, 20);
+            this.dtFromdate.Size = new System.Drawing.Size(92, 20);
             this.dtFromdate.TabIndex = 1;
             // 
             // ipName
             // 
             this.ipName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.ipName.Location = new System.Drawing.Point(122, 5);
+            this.ipName.Location = new System.Drawing.Point(134, 5);
             this.ipName.Name = "ipName";
-            this.ipName.Size = new System.Drawing.Size(104, 22);
+            this.ipName.Size = new System.Drawing.Size(92, 22);
             this.ipName.TabIndex = 0;
             // 
             // lbFromdate
