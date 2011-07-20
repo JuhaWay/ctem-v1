@@ -77,19 +77,8 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
         {
             List<EstimateDetailDTO> list = _estimateDetailBUS.search(estimateId, materialId);
             dgvEstimateDetails.DataSource = list;
-            sum(list);
         }
         
-        private void sum(List<EstimateDetailDTO> list)
-        {
-            long total = 0;
-            foreach (EstimateDetailDTO dto in list)
-            {
-                total += dto.TotalCostEstimate;
-            }
-            ipSummary.Text = Global.ConvertLongToMoney(total, Global.SEP);
-        }
-
         // sưa dự toán chi tiết
         private void btSave_Click(object sender, EventArgs e)
         {
@@ -185,6 +174,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
                 btnNew_Click(null, null);
                 cbType.Focus();
                 }
+            _estimateBUS.UpdateEstimate(_estimateId);
             //
 
         }
@@ -365,11 +355,9 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
             ipQuantity.Text = Constants.ZERO_NUMBER;
             ipPrice.Text = Constants.ZERO_NUMBER;
             ipTotal.Text = Constants.ZERO_NUMBER;
-            ipSummary.Text = Constants.EMPTY_TEXT;
             ipQuantity.ReadOnly = false;
             ipPrice.ReadOnly = false;
             ipTotal.ReadOnly = true;
-            ipSummary.ReadOnly = false;
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -386,7 +374,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
             ipQuantity.ReadOnly = false;
             ipPrice.ReadOnly = false;
             ipTotal.ReadOnly = true;
-            ipSummary.ReadOnly = false;
         }
 
         private void ipQuantity_Enter(object sender, EventArgs e)

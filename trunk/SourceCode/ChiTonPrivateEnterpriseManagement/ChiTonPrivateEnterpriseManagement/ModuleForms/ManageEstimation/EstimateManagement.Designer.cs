@@ -46,13 +46,22 @@
             this.GenMoneyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.dgvEstimate = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.estimateDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lbSearchName = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.lbCons = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.cbSearchCons = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.kryptonPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.slcMain = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
             this.gbxLeftBot = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
+            this.dgvEstimate = new AdvancedDataGridView.TreeGridView();
+            this.ConstructionName = new AdvancedDataGridView.TreeGridColumn();
+            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CreatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UpdatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CreatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UpdatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EstimateID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlSearch = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.gbxSearch = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.btnSearch = new ComponentFactory.Krypton.Toolkit.KryptonButton();
@@ -83,15 +92,6 @@
             this.kryptonContextMenuItems3 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
             this.kryptonContextMenuItems2 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
             this.kryptonContextMenuItems1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
-            this.EstimateID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ConstructionName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EstimateName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalCostEstimate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CreatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UpdatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CreatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UpdatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estimateDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.slcEdit)).BeginInit();
             this.slcEdit.Panel1.SuspendLayout();
             this.slcEdit.Panel2.SuspendLayout();
@@ -104,7 +104,7 @@
             this.gbxEdit2.Panel.SuspendLayout();
             this.gbxEdit2.SuspendLayout();
             this.cmsGen.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEstimate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.estimateDTOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbSearchCons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
@@ -115,6 +115,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gbxLeftBot)).BeginInit();
             this.gbxLeftBot.Panel.SuspendLayout();
             this.gbxLeftBot.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEstimate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlSearch)).BeginInit();
             this.pnlSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gbxSearch)).BeginInit();
@@ -128,7 +129,6 @@
             this.gbxEdit1.SuspendLayout();
             this.cmsDGV.SuspendLayout();
             this.cmsMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.estimateDTOBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // slcEdit
@@ -285,28 +285,9 @@
             this.GenMoneyToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.GenMoneyToolStripMenuItem.Text = "Thêm 000";
             // 
-            // dgvEstimate
+            // estimateDTOBindingSource
             // 
-            this.dgvEstimate.AutoGenerateColumns = false;
-            this.dgvEstimate.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.EstimateID,
-            this.ConstructionName,
-            this.EstimateName,
-            this.TotalCostEstimate,
-            this.CreatedBy,
-            this.UpdatedBy,
-            this.CreatedDate,
-            this.UpdatedDate});
-            this.dgvEstimate.DataSource = this.estimateDTOBindingSource;
-            this.dgvEstimate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvEstimate.Location = new System.Drawing.Point(0, 95);
-            this.dgvEstimate.Name = "dgvEstimate";
-            this.dgvEstimate.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEstimate.Size = new System.Drawing.Size(790, 314);
-            this.dgvEstimate.StateCommon.Background.Color1 = System.Drawing.Color.White;
-            this.dgvEstimate.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
-            this.dgvEstimate.TabIndex = 1;
-            this.dgvEstimate.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEstimate_CellClick);
+            this.estimateDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.EstimateDTO);
             // 
             // lbSearchName
             // 
@@ -381,6 +362,83 @@
             this.gbxLeftBot.Size = new System.Drawing.Size(794, 415);
             this.gbxLeftBot.TabIndex = 0;
             this.gbxLeftBot.Values.Heading = "";
+            // 
+            // dgvEstimate
+            // 
+            this.dgvEstimate.AllowUserToAddRows = false;
+            this.dgvEstimate.AllowUserToDeleteRows = false;
+            this.dgvEstimate.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ConstructionName,
+            this.Name,
+            this.Total,
+            this.CreatedBy,
+            this.UpdatedBy,
+            this.CreatedDate,
+            this.UpdatedDate,
+            this.EstimateID});
+            this.dgvEstimate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvEstimate.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvEstimate.ImageList = null;
+            this.dgvEstimate.Location = new System.Drawing.Point(0, 95);
+            this.dgvEstimate.Name = "dgvEstimate";
+            this.dgvEstimate.Size = new System.Drawing.Size(790, 314);
+            this.dgvEstimate.StateCommon.Background.Color1 = System.Drawing.Color.White;
+            this.dgvEstimate.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
+            this.dgvEstimate.TabIndex = 2;
+            this.dgvEstimate.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEstimate_CellClick);
+            // 
+            // ConstructionName
+            // 
+            this.ConstructionName.DefaultNodeImage = null;
+            this.ConstructionName.HeaderText = "Công trình";
+            this.ConstructionName.Name = "ConstructionName";
+            this.ConstructionName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ConstructionName.Width = 200;
+            // 
+            // Name
+            // 
+            this.Name.HeaderText = "Tên";
+            this.Name.Name = "Name";
+            this.Name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Name.Width = 300;
+            // 
+            // Total
+            // 
+            this.Total.HeaderText = "Tổng dự toán(VND)";
+            this.Total.Name = "Total";
+            this.Total.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Total.Width = 200;
+            // 
+            // CreatedBy
+            // 
+            this.CreatedBy.HeaderText = "Tạo bởi";
+            this.CreatedBy.Name = "CreatedBy";
+            this.CreatedBy.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // UpdatedBy
+            // 
+            this.UpdatedBy.HeaderText = "Cập nhật bởi";
+            this.UpdatedBy.Name = "UpdatedBy";
+            this.UpdatedBy.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // CreatedDate
+            // 
+            this.CreatedDate.HeaderText = "Ngày tạo";
+            this.CreatedDate.Name = "CreatedDate";
+            this.CreatedDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // UpdatedDate
+            // 
+            this.UpdatedDate.HeaderText = "Ngày cập nhật";
+            this.UpdatedDate.Name = "UpdatedDate";
+            this.UpdatedDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // EstimateID
+            // 
+            this.EstimateID.HeaderText = "EstimateID";
+            this.EstimateID.Name = "EstimateID";
+            this.EstimateID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.EstimateID.Visible = false;
             // 
             // pnlSearch
             // 
@@ -651,69 +709,12 @@
             // 
             this.kryptonContextMenuItem1.Text = "Menu Item";
             // 
-            // EstimateID
-            // 
-            this.EstimateID.DataPropertyName = "EstimateID";
-            this.EstimateID.HeaderText = "EstimateID";
-            this.EstimateID.Name = "EstimateID";
-            this.EstimateID.Visible = false;
-            // 
-            // ConstructionName
-            // 
-            this.ConstructionName.DataPropertyName = "ConstructionName";
-            this.ConstructionName.HeaderText = "Công trình";
-            this.ConstructionName.Name = "ConstructionName";
-            this.ConstructionName.Width = 200;
-            // 
-            // EstimateName
-            // 
-            this.EstimateName.DataPropertyName = "EstimateName";
-            this.EstimateName.HeaderText = "Tên";
-            this.EstimateName.Name = "EstimateName";
-            this.EstimateName.Width = 200;
-            // 
-            // TotalCostEstimate
-            // 
-            this.TotalCostEstimate.DataPropertyName = "TotalCostEstimateFormated";
-            this.TotalCostEstimate.HeaderText = "Tổng Dự toán(VND)";
-            this.TotalCostEstimate.Name = "TotalCostEstimate";
-            this.TotalCostEstimate.Width = 150;
-            // 
-            // CreatedBy
-            // 
-            this.CreatedBy.DataPropertyName = "CreatedBy";
-            this.CreatedBy.HeaderText = "Tạo bởi";
-            this.CreatedBy.Name = "CreatedBy";
-            // 
-            // UpdatedBy
-            // 
-            this.UpdatedBy.DataPropertyName = "UpdatedBy";
-            this.UpdatedBy.HeaderText = "Cập nhật bởi";
-            this.UpdatedBy.Name = "UpdatedBy";
-            // 
-            // CreatedDate
-            // 
-            this.CreatedDate.DataPropertyName = "CreatedDateFormated";
-            this.CreatedDate.HeaderText = "Ngày tạo";
-            this.CreatedDate.Name = "CreatedDate";
-            // 
-            // UpdatedDate
-            // 
-            this.UpdatedDate.DataPropertyName = "UpdatedDateFormated";
-            this.UpdatedDate.HeaderText = "Ngày cập nhật";
-            this.UpdatedDate.Name = "UpdatedDate";
-            // 
-            // estimateDTOBindingSource
-            // 
-            this.estimateDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.EstimateDTO);
-            // 
             // EstimateManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(794, 568);
             this.Controls.Add(this.kryptonPanel);
-            this.Name = "EstimateManagement";
             this.Text = "Dự toán";
             this.Load += new System.EventHandler(this.EstimateManagement_Load);
             this.slcEdit.Panel1.ResumeLayout(false);
@@ -730,7 +731,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gbxEdit2)).EndInit();
             this.gbxEdit2.ResumeLayout(false);
             this.cmsGen.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEstimate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.estimateDTOBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbSearchCons)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).EndInit();
             this.kryptonPanel.ResumeLayout(false);
@@ -742,6 +743,7 @@
             this.gbxLeftBot.Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gbxLeftBot)).EndInit();
             this.gbxLeftBot.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEstimate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlSearch)).EndInit();
             this.pnlSearch.ResumeLayout(false);
             this.gbxSearch.Panel.ResumeLayout(false);
@@ -757,7 +759,6 @@
             this.gbxEdit1.ResumeLayout(false);
             this.cmsDGV.ResumeLayout(false);
             this.cmsMain.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.estimateDTOBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -766,7 +767,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonManager kryptonManager;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.BindingSource estimateDTOBindingSource;
-        private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dgvEstimate;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel lbEstName;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel lbSearchName;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel lbCons;
@@ -811,14 +811,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems kryptonContextMenuItems2;
         private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems kryptonContextMenuItems1;
         private ComponentFactory.Krypton.Toolkit.KryptonGroupBox gbxEdit1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EstimateID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ConstructionName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EstimateName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TotalCostEstimate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CreatedBy;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UpdatedBy;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CreatedDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UpdatedDate;
         private ComponentFactory.Krypton.Toolkit.KryptonSplitContainer slcEdit;
         private ComponentFactory.Krypton.Toolkit.KryptonGroupBox kryptonGroupBox2;
         private ComponentFactory.Krypton.Toolkit.KryptonGroupBox gbxEdit2;
@@ -826,5 +818,14 @@
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel2;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtConsName;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel1;
+        private AdvancedDataGridView.TreeGridView dgvEstimate;
+        private AdvancedDataGridView.TreeGridColumn ConstructionName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Total;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CreatedBy;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UpdatedBy;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CreatedDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UpdatedDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EstimateID;
     }
 }
