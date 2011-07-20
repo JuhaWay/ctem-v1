@@ -9,6 +9,7 @@ using ChiTonPrivateEnterpriseManagement.Classes.BUS;
 using ChiTonPrivateEnterpriseManagement.Classes.DTO;
 using ChiTonPrivateEnterpriseManagement.Classes.Global;
 using ComponentFactory.Krypton.Toolkit;
+using AdvancedDataGridView;
 
 namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
 {
@@ -17,7 +18,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
 
         private EstimateBUS _estimateBUS = new EstimateBUS();
         ConstructionBus _constructionBus = new ConstructionBus();
-        private long _constructionID=-1;
+        private List<EstimateDTO> _dtoList = new List<EstimateDTO>();
         private EstimateDTO dtoTemp = new EstimateDTO();
         // khoi tao cua so chinh'
         public EstimateManagement()
@@ -29,7 +30,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
         {
             initForm();
             CenterToParent();
-            _constructionID = consID;
         }
         //khoi tao chuong trinh
         public void initForm()
@@ -64,21 +64,22 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
         }
         public void loadData()
         {
-            if (_constructionID == -1)
-            {
                 EstimateDTO dto = new EstimateDTO();
                 dto.EstimateName ="";
                 search(dto);
-            }
-            else dgvEstimate.DataSource = _estimateBUS.LoadEstimateByConstruction(_constructionID);
+          
+         
         }
        
         // lưu thông tin dự toán
         private void btSave_Click(object sender, EventArgs e)
         {
-            _estimateBUS.UpdateNameEstimate(dtoTemp.EstimateID, ipEstName.Text);
-            MessageBox.Show("cập nhật thành công!");
-            loadData();
+            if (dtoTemp.EstimateID > 0)
+            {
+                _estimateBUS.UpdateNameEstimate(dtoTemp.EstimateID, ipEstName.Text);
+                MessageBox.Show("cập nhật thành công!");
+                loadData();
+            }
         }        
         //xem du toan chi tiet
         private void btViewDetail_Click(object sender, EventArgs e)
@@ -93,6 +94,15 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
 
             loadData();
         }
+
+        public EstimateDTO getDto(long ID)
+        {
+            foreach(EstimateDTO item in _dtoList){
+                if (item.EstimateID == ID)
+                    return item;
+            }
+            return null;
+        }
         // fix checkall box
         private void btSearch_Click(object sender, EventArgs e)
         {
@@ -105,7 +115,23 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
         }
         public void search(EstimateDTO dto)
         {
-            dgvEstimate.DataSource=_estimateBUS.search(dto);
+            dgvEstimate.Nodes.Clear();
+            List<EstimateDTO> list = _estimateBUS.search(dto);
+            _dtoList = list;
+            string flag="";
+            TreeGridNode node = new TreeGridNode();
+            foreach (EstimateDTO item in list)
+            {
+                if (!item.ParentName.Equals(flag))
+                {
+                     node = dgvEstimate.Nodes.Add(item.ParentName, "", "", "", "", "", "",0);
+                 }
+                 node.Nodes.Add(item.ConstructionName,item.EstimateName,item.TotalCostEstimateFormated,
+                     item.CreatedBy,item.UpdatedBy,item.CreatedDateFormated,item.UpdatedDateFormated,item.EstimateID);
+                 flag = item.ParentName;
+                 node.Expand();
+             }
+            selection();
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -131,15 +157,38 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
 
         private void dgvEstimate_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+
             if (e.RowIndex != -1)
             {
-                dtoTemp = dgvEstimate.SelectedRows[0].DataBoundItem as EstimateDTO;
+
+                selection();
+            }
+        }
+        private void selection()
+        {
+            string strEstimateID = dgvEstimate.SelectedRows[0].Cells["EstimateID"].Value.ToString();
+            long EstimateID = Convert.ToInt64(strEstimateID);
+            if (EstimateID != 0)
+            {
+                dtoTemp = getDto(EstimateID);
                 ipEstName.Text = dtoTemp.EstimateName;
                 txtConsName.Text = dtoTemp.ConstructionName;
                 txtTotalEst.Text = dtoTemp.TotalCostEstimateFormated;
+                ipEstName.Enabled = true;
+                txtConsName.Enabled = true;
+                txtTotalEst.Enabled = true;
+            }
+            else
+            {
+                dtoTemp = new EstimateDTO();
+                ipEstName.Text = "";
+                txtConsName.Text = "";
+                txtTotalEst.Text = "";
+                ipEstName.Enabled = false;
+                txtConsName.Enabled = false;
+                txtTotalEst.Enabled = false;
             }
         }
-
         private void ipSeacrchName_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
