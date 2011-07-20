@@ -84,15 +84,22 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
         //xem du toan chi tiet
         private void btViewDetail_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in dgvEstimate.SelectedRows)
+            DataGridViewRow row = dgvEstimate.SelectedRows[0];
+            string strRightID = row.Cells["EstimateID"].Value.ToString();
+            long EstimateID = Convert.ToInt64(strRightID);
+            if (EstimateID != 0)
             {
-                    string strRightID = row.Cells["EstimateID"].Value.ToString();
-                    long EstimateID = Convert.ToInt64(strRightID);
-                    estDetailForm editForm = new estDetailForm(EstimateID);
-                    editForm.ShowDialog();
+                estDetailForm editForm = new estDetailForm(EstimateID);
+                editForm.ShowDialog();
+                loadData();
             }
-
-            loadData();
+            else
+            {
+                KryptonMessageBox.Show("Chọn 1 Bảng Dự Toán Trước Khi Bạn Muốn Xem Chi Tiết", Constants.ALERT_ERROR,
+                                       MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                dgvEstimate.Focus();
+            }
+            
         }
 
         public EstimateDTO getDto(long ID)
