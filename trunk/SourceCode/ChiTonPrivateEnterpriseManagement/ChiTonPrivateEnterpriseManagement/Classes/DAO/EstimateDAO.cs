@@ -120,6 +120,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         TotalCostEstimate = Convert.ToInt64(reader["TotalCostEstimate"]),
                         TotalCostReal = Convert.ToInt64(reader["TotalCostReal"]),
                         CreatedBy =  Convert.ToString(reader["CreatedBy"]),
+                        ParentName = Convert.ToString(reader["ParentName"]),
                         CreatedDate = Convert.ToDateTime(reader["CreatedDate"]),
                         UpdatedBy = Convert.ToString(reader["UpdatedBy"])
                        
