@@ -80,41 +80,44 @@
             // 
             // phoneInPut
             // 
-            this.phoneInPut.Location = new System.Drawing.Point(125, 108);
+            this.phoneInPut.Location = new System.Drawing.Point(112, 108);
             this.phoneInPut.Name = "phoneInPut";
-            this.phoneInPut.Size = new System.Drawing.Size(183, 22);
+            this.phoneInPut.Size = new System.Drawing.Size(196, 22);
             this.phoneInPut.TabIndex = 22;
+            this.phoneInPut.Leave += new System.EventHandler(this.phoneInPut_Leave);
             // 
             // PhoneLabel
             // 
-            this.PhoneLabel.Location = new System.Drawing.Point(16, 108);
+            this.PhoneLabel.Location = new System.Drawing.Point(28, 111);
             this.PhoneLabel.Name = "PhoneLabel";
             this.PhoneLabel.Size = new System.Drawing.Size(69, 19);
+            this.PhoneLabel.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.PhoneLabel.TabIndex = 21;
             this.PhoneLabel.Values.Text = "Điện Thoại :";
             // 
             // addressInPut
             // 
             this.addressInPut.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.addressInPut.Location = new System.Drawing.Point(125, 63);
+            this.addressInPut.Location = new System.Drawing.Point(112, 63);
             this.addressInPut.Multiline = true;
             this.addressInPut.Name = "addressInPut";
-            this.addressInPut.Size = new System.Drawing.Size(183, 22);
+            this.addressInPut.Size = new System.Drawing.Size(196, 22);
             this.addressInPut.TabIndex = 17;
             // 
             // DesLabel
             // 
-            this.DesLabel.Location = new System.Drawing.Point(16, 66);
+            this.DesLabel.Location = new System.Drawing.Point(50, 66);
             this.DesLabel.Name = "DesLabel";
             this.DesLabel.Size = new System.Drawing.Size(47, 19);
+            this.DesLabel.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.DesLabel.TabIndex = 20;
             this.DesLabel.Values.Text = "Địa chỉ:";
             // 
             // subNameInput
             // 
-            this.subNameInput.Location = new System.Drawing.Point(125, 12);
+            this.subNameInput.Location = new System.Drawing.Point(112, 12);
             this.subNameInput.Name = "subNameInput";
-            this.subNameInput.Size = new System.Drawing.Size(183, 22);
+            this.subNameInput.Size = new System.Drawing.Size(196, 22);
             this.subNameInput.TabIndex = 19;
             // 
             // SubConLabel
@@ -122,14 +125,15 @@
             this.SubConLabel.Location = new System.Drawing.Point(16, 15);
             this.SubConLabel.Name = "SubConLabel";
             this.SubConLabel.Size = new System.Drawing.Size(81, 19);
+            this.SubConLabel.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.SubConLabel.TabIndex = 18;
             this.SubConLabel.Values.Text = "Tên nhà thầu :";
             // 
             // addButton
             // 
-            this.addButton.Location = new System.Drawing.Point(206, 195);
+            this.addButton.Location = new System.Drawing.Point(175, 196);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(89, 25);
+            this.addButton.Size = new System.Drawing.Size(133, 25);
             this.addButton.TabIndex = 17;
             this.addButton.Values.Text = "Thêm nhà thầu";
             this.addButton.Click += new System.EventHandler(this.addButton_Click);

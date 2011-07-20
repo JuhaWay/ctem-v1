@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConstructionManagement));
             this.kryptonPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.dgvCons = new AdvancedDataGridView.TreeGridView();
@@ -158,8 +158,8 @@
             // ConstructionName
             // 
             this.ConstructionName.DataPropertyName = "ConstructionName";
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ConstructionName.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConstructionName.DefaultCellStyle = dataGridViewCellStyle1;
             this.ConstructionName.DefaultNodeImage = null;
             this.ConstructionName.HeaderText = "Tên công trình";
             this.ConstructionName.Name = "ConstructionName";
@@ -189,9 +189,9 @@
             // 
             // ProgressRate
             // 
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.GreenYellow;
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.ProgressRate.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.GreenYellow;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.ProgressRate.DefaultCellStyle = dataGridViewCellStyle2;
             this.ProgressRate.HeaderText = "Tiến độ(%)";
             this.ProgressRate.Name = "ProgressRate";
             this.ProgressRate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -199,9 +199,9 @@
             // TotalEstimateCost
             // 
             this.TotalEstimateCost.DataPropertyName = "TotalEstimateCost";
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.GreenYellow;
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Red;
-            this.TotalEstimateCost.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.GreenYellow;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Red;
+            this.TotalEstimateCost.DefaultCellStyle = dataGridViewCellStyle3;
             this.TotalEstimateCost.HeaderText = "Tổng dự toán(VND)";
             this.TotalEstimateCost.Name = "TotalEstimateCost";
             this.TotalEstimateCost.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -209,9 +209,9 @@
             // 
             // TotalRealCost
             // 
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.GreenYellow;
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Red;
-            this.TotalRealCost.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.GreenYellow;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Red;
+            this.TotalRealCost.DefaultCellStyle = dataGridViewCellStyle4;
             this.TotalRealCost.HeaderText = "Tổng giải ngân(VND)";
             this.TotalRealCost.Name = "TotalRealCost";
             this.TotalRealCost.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -242,8 +242,8 @@
             // CommencementDate
             // 
             this.CommencementDate.DataPropertyName = "CommencementDate";
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.Yellow;
-            this.CommencementDate.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Yellow;
+            this.CommencementDate.DefaultCellStyle = dataGridViewCellStyle5;
             this.CommencementDate.HeaderText = "Ngày khởi công";
             this.CommencementDate.Name = "CommencementDate";
             this.CommencementDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -252,9 +252,9 @@
             // CompletionDate
             // 
             this.CompletionDate.DataPropertyName = "CompletionDate";
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.Yellow;
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Red;
-            this.CompletionDate.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Yellow;
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Red;
+            this.CompletionDate.DefaultCellStyle = dataGridViewCellStyle6;
             this.CompletionDate.HeaderText = "Hạn hoàn thành";
             this.CompletionDate.Name = "CompletionDate";
             this.CompletionDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -337,17 +337,17 @@
             // 
             // cbManager
             // 
-            this.cbManager.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.cbManager.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbManager.DropDownWidth = 133;
-            this.cbManager.Location = new System.Drawing.Point(528, 18);
+            this.cbManager.Location = new System.Drawing.Point(539, 18);
             this.cbManager.Name = "cbManager";
-            this.cbManager.Size = new System.Drawing.Size(133, 22);
+            this.cbManager.Size = new System.Drawing.Size(122, 22);
             this.cbManager.TabIndex = 4;
             // 
             // kryptonLabel1
             // 
-            this.kryptonLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.kryptonLabel1.Location = new System.Drawing.Point(441, 18);
+            this.kryptonLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.kryptonLabel1.Location = new System.Drawing.Point(452, 21);
             this.kryptonLabel1.Name = "kryptonLabel1";
             this.kryptonLabel1.Size = new System.Drawing.Size(81, 19);
             this.kryptonLabel1.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -356,18 +356,18 @@
             // 
             // dtTodate
             // 
-            this.dtTodate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.dtTodate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtTodate.CustomFormat = "dd/MM/yyyy";
             this.dtTodate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtTodate.Location = new System.Drawing.Point(289, 33);
+            this.dtTodate.Location = new System.Drawing.Point(299, 33);
             this.dtTodate.Name = "dtTodate";
             this.dtTodate.Size = new System.Drawing.Size(146, 20);
             this.dtTodate.TabIndex = 3;
             // 
             // lbTodate
             // 
-            this.lbTodate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.lbTodate.Location = new System.Drawing.Point(222, 33);
+            this.lbTodate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbTodate.Location = new System.Drawing.Point(232, 33);
             this.lbTodate.Name = "lbTodate";
             this.lbTodate.Size = new System.Drawing.Size(58, 19);
             this.lbTodate.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -376,7 +376,6 @@
             // 
             // lbSearchName
             // 
-            this.lbSearchName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.lbSearchName.Location = new System.Drawing.Point(3, 8);
             this.lbSearchName.Name = "lbSearchName";
             this.lbSearchName.Size = new System.Drawing.Size(113, 19);
@@ -386,7 +385,7 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSearch.Location = new System.Drawing.Point(667, 8);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.OverrideDefault.Back.Color1 = System.Drawing.Color.NavajoWhite;
@@ -416,25 +415,26 @@
             // 
             // dtFromdate
             // 
-            this.dtFromdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.dtFromdate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.dtFromdate.CustomFormat = "dd/MM/yyyy";
             this.dtFromdate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtFromdate.Location = new System.Drawing.Point(122, 33);
+            this.dtFromdate.Location = new System.Drawing.Point(122, 32);
             this.dtFromdate.Name = "dtFromdate";
-            this.dtFromdate.Size = new System.Drawing.Size(91, 20);
+            this.dtFromdate.Size = new System.Drawing.Size(104, 20);
             this.dtFromdate.TabIndex = 1;
             // 
             // ipName
             // 
-            this.ipName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.ipName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.ipName.Location = new System.Drawing.Point(122, 5);
             this.ipName.Name = "ipName";
-            this.ipName.Size = new System.Drawing.Size(91, 22);
+            this.ipName.Size = new System.Drawing.Size(104, 22);
             this.ipName.TabIndex = 0;
             // 
             // lbFromdate
             // 
-            this.lbFromdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.lbFromdate.Location = new System.Drawing.Point(14, 33);
             this.lbFromdate.Name = "lbFromdate";
             this.lbFromdate.Size = new System.Drawing.Size(102, 19);
@@ -444,7 +444,7 @@
             // 
             // cbStatus
             // 
-            this.cbStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.cbStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbStatus.DropDownWidth = 146;
             this.cbStatus.Items.AddRange(new object[] {
             "Tất cả",
@@ -452,7 +452,7 @@
             "Đang thi công",
             "Treo",
             "Hoàn thành"});
-            this.cbStatus.Location = new System.Drawing.Point(289, 5);
+            this.cbStatus.Location = new System.Drawing.Point(299, 5);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(146, 22);
             this.cbStatus.TabIndex = 2;
@@ -460,8 +460,8 @@
             // 
             // lbStatus
             // 
-            this.lbStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.lbStatus.Location = new System.Drawing.Point(222, 8);
+            this.lbStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbStatus.Location = new System.Drawing.Point(232, 8);
             this.lbStatus.Name = "lbStatus";
             this.lbStatus.Size = new System.Drawing.Size(61, 19);
             this.lbStatus.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -485,7 +485,7 @@
             this.hdDebt.Size = new System.Drawing.Size(792, 29);
             this.hdDebt.TabIndex = 10;
             this.hdDebt.Values.Description = "";
-            this.hdDebt.Values.Heading = "Danh Nhà Công Trình";
+            this.hdDebt.Values.Heading = "Danh Sách Công Trình";
             this.hdDebt.Values.Image = null;
             // 
             // btAdd
@@ -622,7 +622,6 @@
             this.StateCommon.Header.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.GlassSimpleFull;
             this.Text = "Quản lý công trình";
             this.TransparencyKey = System.Drawing.Color.White;
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.ConstructionManagement_Load);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).EndInit();
             this.kryptonPanel.ResumeLayout(false);

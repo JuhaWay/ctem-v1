@@ -1036,15 +1036,21 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
 
         public static string FomatPhoneNumber(string phonenumber)
         {
-            string result = Constants.EMPTY_TEXT;
-            phonenumber = phonenumber.Replace("-", "");
-            phonenumber = phonenumber.Replace("(", "");
-            phonenumber = phonenumber.Replace(")", "");
-            string header = "(" + phonenumber.Substring(0, phonenumber.Length - 7) + ")";
-            string mainNumber = phonenumber.Substring(phonenumber.Length - 7);
-            mainNumber = mainNumber[0] + "-" + mainNumber.Substring(1, 3) + "-" + mainNumber.Substring(4);
-            result = header + mainNumber;
-            return result;
+            try
+            {
+                phonenumber = phonenumber.Replace("-", "");
+                phonenumber = phonenumber.Replace("(", "");
+                phonenumber = phonenumber.Replace(")", "");
+                string header = "(" + phonenumber.Substring(0, phonenumber.Length - 7) + ")";
+                string mainNumber = phonenumber.Substring(phonenumber.Length - 7);
+                mainNumber = mainNumber[0] + "-" + mainNumber.Substring(1, 3) + "-" + mainNumber.Substring(4);
+                string result = header + mainNumber;
+                return result;
+            }
+            catch
+            {                
+            }
+            return phonenumber;
         }
 
         public static bool ValidateDateFromTo(DateTime dateTimeFrom, DateTime dateTimeTo)

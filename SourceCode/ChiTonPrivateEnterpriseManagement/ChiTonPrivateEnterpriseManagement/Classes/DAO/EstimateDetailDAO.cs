@@ -142,6 +142,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         Name = Convert.ToString(reader["Name"]),
                         MaterialID = reader["MaterialID"]!=DBNull.Value?Convert.ToInt64(reader["MaterialID"]):0,
                         QuantityEstimate = Convert.ToDouble(reader["QuantityEstimate"]),
+                        MaterialEstCal = Convert.ToString(reader["EstimateCalUnit"]),
                         UnitCostEstimate = Convert.ToInt32(reader["UnitCostEstimate"]),
                         TotalCostEstimate = Convert.ToInt64(reader["TotalCostEstimate"])
                     };

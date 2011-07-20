@@ -296,8 +296,8 @@
             // 
             this.cbStatus.DropDownWidth = 172;
             this.cbStatus.Items.AddRange(new object[] {
-            "Mới ",
-            "Đang thi công ",
+            "Mới",
+            "Đang thi công",
             "Treo",
             "Hoàn thành"});
             this.cbStatus.Location = new System.Drawing.Point(107, 160);
@@ -305,6 +305,7 @@
             this.cbStatus.Size = new System.Drawing.Size(283, 22);
             this.cbStatus.TabIndex = 6;
             this.cbStatus.Text = "chọn...";
+            this.cbStatus.SelectedIndexChanged += new System.EventHandler(this.cbStatus_SelectedIndexChanged);
             // 
             // AddConstruction
             // 

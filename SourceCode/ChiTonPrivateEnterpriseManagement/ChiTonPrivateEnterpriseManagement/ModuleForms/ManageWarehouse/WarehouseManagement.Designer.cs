@@ -718,7 +718,6 @@
             this.Name = "WarehouseManagement";
             this.ShowIcon = false;
             this.Text = "Quản Lý Kho";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.WarehouseManagement_Load);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWH)).EndInit();

@@ -215,18 +215,13 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
 
         private void ipRealCost_Leave(object sender, EventArgs e)
         {
-            ipRealCost.Text = Global.ConvertLongToMoney(Global.ConvertMoneyToLong(ipRealCost.Text, "."), Global.SEP);
-        }
-
-        private void ipRealCost_MouseLeave(object sender, EventArgs e)
-        {
             Global.SetTextBoxMoneyLeave(ipProgressRate);
             if (Global.ConvertMoneyToLong(ipRealCost.Text, Constants.SPLIP_MONEY) > Global.ConvertMoneyToLong(ipEst.Text, Constants.SPLIP_MONEY))
             {
                 KryptonMessageBox.Show(" Giải Ngân Không Thể Lớn Hơn Tiền Khoán", Constants.ALERT_ERROR,
                                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 ipRealCost.Focus();
-            }
+            }            
         }
 
         private void ipProgressRate_Leave(object sender, EventArgs e)
@@ -244,8 +239,8 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
                     {
                         KryptonMessageBox.Show("Số Vừa Nhập Không Hợp Lệ", Constants.ALERT_ERROR, MessageBoxButtons.OK,
                                                MessageBoxIcon.Warning);
+                        ipProgressRate.Focus();
                     }
-                    ipProgressRate.Focus();
                 }
                 catch (Exception)
                 {
@@ -253,6 +248,34 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
                                                MessageBoxIcon.Warning);
                     ipProgressRate.Focus();
                 }
+            }
+        }
+
+        private void cbStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbStatus.Text.Equals("Chọn") || cbStatus.Text.Equals("Mới"))
+            {
+                ipProgressRate.Text = Constants.ZERO_NUMBER;
+                ipProgressRate.Enabled = false;
+            }
+            else if (cbStatus.Text.Equals("Hoàn thành"))
+            {
+                ipProgressRate.Text = "100";
+                ipProgressRate.Enabled = false;
+            }
+            else
+            {
+                ipProgressRate.Enabled = true;
+            }
+        }
+
+        private void dtEndDate_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtEndDate.Value > dtStartDate.Value)
+            {
+                KryptonMessageBox.Show(Constants.ERROR_DATE, Constants.ALERT_ERROR, MessageBoxButtons.OK,
+                                       MessageBoxIcon.Warning);
+                dtEndDate.Focus();
             }
         }
     }

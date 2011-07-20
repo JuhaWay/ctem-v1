@@ -144,7 +144,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
         {
             if (e.KeyCode == Keys.Enter)
             {
-                btSave_Click(null, null);
+                btSearch_Click(null, null);
             }
         }
     }

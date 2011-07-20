@@ -40,7 +40,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
             dto.Ratio = Convert.ToDouble(ipRatio.Text);
 
             _materialBUS.CreateMaterials(dto);
-            MessageBox.Show("Tạo thành công");
+            KryptonMessageBox.Show("Tạo thành công");
             this.Close();
         }
         private void AddNewMaterial_Load(object sender, EventArgs e)
