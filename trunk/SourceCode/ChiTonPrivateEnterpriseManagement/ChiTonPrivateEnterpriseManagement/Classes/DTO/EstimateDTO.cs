@@ -15,6 +15,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
         public string UpdatedBy { get; set; }
         
         public int Type { get; set; }
+        public string ParentName { get; set; }
 
 
         public string CreatedDateFormated { get; set; }
