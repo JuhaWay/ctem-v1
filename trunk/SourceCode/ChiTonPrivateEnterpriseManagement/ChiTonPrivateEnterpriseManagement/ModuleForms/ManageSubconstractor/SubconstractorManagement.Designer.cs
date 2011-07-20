@@ -37,12 +37,6 @@
             this.subcontractorNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.subcontractorAddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmsDGV = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.RefreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.LoadAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.AddToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.DeleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.DeleteAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.subcontractorDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pnlSearch = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.gbxSearch = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
@@ -55,24 +49,19 @@
             this.btnHideShowSearch = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.gbcRightBot = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.gbxEdit1 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
-            this.ipName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.kryptonLabel4 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.newSubContainer = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.ipPhone = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.cmsGen = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.GenMoneyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.kryptonLabel3 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.PhoneLabel = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.ipAddress = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.DesLabel = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.ipName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.SubConLabel = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.hdEdit = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
             this.btnSave = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.cmsEdit = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.EditToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.FreezeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.SaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kryptonContextMenuCheckBox1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox();
             this.cmsMain = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.xóaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lưuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.HideSearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -90,7 +79,6 @@
             this.gbxLeftBot.Panel.SuspendLayout();
             this.gbxLeftBot.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubcons)).BeginInit();
-            this.cmsDGV.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.subcontractorDTOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlSearch)).BeginInit();
             this.pnlSearch.SuspendLayout();
@@ -103,8 +91,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.gbxEdit1)).BeginInit();
             this.gbxEdit1.Panel.SuspendLayout();
             this.gbxEdit1.SuspendLayout();
-            this.cmsGen.SuspendLayout();
-            this.cmsEdit.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.newSubContainer)).BeginInit();
+            this.newSubContainer.Panel.SuspendLayout();
+            this.newSubContainer.SuspendLayout();
             this.cmsMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -133,7 +122,7 @@
             // 
             this.slcMain.Panel2.Controls.Add(this.gbcRightBot);
             this.slcMain.Size = new System.Drawing.Size(745, 543);
-            this.slcMain.SplitterDistance = 337;
+            this.slcMain.SplitterDistance = 363;
             this.slcMain.TabIndex = 14;
             // 
             // gbxLeftBot
@@ -147,7 +136,7 @@
             this.gbxLeftBot.Panel.Controls.Add(this.dgvSubcons);
             this.gbxLeftBot.Panel.Controls.Add(this.pnlSearch);
             this.gbxLeftBot.Panel.Controls.Add(this.hdDebt);
-            this.gbxLeftBot.Size = new System.Drawing.Size(745, 337);
+            this.gbxLeftBot.Size = new System.Drawing.Size(745, 363);
             this.gbxLeftBot.TabIndex = 0;
             this.gbxLeftBot.Values.Heading = "";
             // 
@@ -158,13 +147,12 @@
             this.subcontractorNameDataGridViewTextBoxColumn,
             this.subcontractorAddressDataGridViewTextBoxColumn,
             this.phoneNumberDataGridViewTextBoxColumn});
-            this.dgvSubcons.ContextMenuStrip = this.cmsDGV;
             this.dgvSubcons.DataSource = this.subcontractorDTOBindingSource;
             this.dgvSubcons.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvSubcons.Location = new System.Drawing.Point(0, 87);
             this.dgvSubcons.Name = "dgvSubcons";
             this.dgvSubcons.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSubcons.Size = new System.Drawing.Size(741, 244);
+            this.dgvSubcons.Size = new System.Drawing.Size(741, 270);
             this.dgvSubcons.StateCommon.Background.Color1 = System.Drawing.Color.White;
             this.dgvSubcons.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
             this.dgvSubcons.TabIndex = 0;
@@ -190,53 +178,6 @@
             this.phoneNumberDataGridViewTextBoxColumn.HeaderText = "Số điện thoại";
             this.phoneNumberDataGridViewTextBoxColumn.Name = "phoneNumberDataGridViewTextBoxColumn";
             this.phoneNumberDataGridViewTextBoxColumn.Width = 300;
-            // 
-            // cmsDGV
-            // 
-            this.cmsDGV.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.cmsDGV.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.RefreshToolStripMenuItem,
-            this.LoadAllToolStripMenuItem,
-            this.AddToolStripMenuItem,
-            this.DeleteToolStripMenuItem,
-            this.DeleteAllToolStripMenuItem});
-            this.cmsDGV.Name = "cmsDGV";
-            this.cmsDGV.Size = new System.Drawing.Size(182, 114);
-            // 
-            // RefreshToolStripMenuItem
-            // 
-            this.RefreshToolStripMenuItem.Name = "RefreshToolStripMenuItem";
-            this.RefreshToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
-            this.RefreshToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.RefreshToolStripMenuItem.Text = "Làm Mới";
-            // 
-            // LoadAllToolStripMenuItem
-            // 
-            this.LoadAllToolStripMenuItem.Name = "LoadAllToolStripMenuItem";
-            this.LoadAllToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
-            this.LoadAllToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.LoadAllToolStripMenuItem.Text = "Tải Tất Cả";
-            // 
-            // AddToolStripMenuItem
-            // 
-            this.AddToolStripMenuItem.Name = "AddToolStripMenuItem";
-            this.AddToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.AddToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.AddToolStripMenuItem.Text = "Thêm";
-            // 
-            // DeleteToolStripMenuItem
-            // 
-            this.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem";
-            this.DeleteToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Delete;
-            this.DeleteToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.DeleteToolStripMenuItem.Text = "Xóa";
-            // 
-            // DeleteAllToolStripMenuItem
-            // 
-            this.DeleteAllToolStripMenuItem.Name = "DeleteAllToolStripMenuItem";
-            this.DeleteAllToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
-            this.DeleteAllToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.DeleteAllToolStripMenuItem.Text = "Xóa Tất Cả";
             // 
             // subcontractorDTOBindingSource
             // 
@@ -327,7 +268,7 @@
             this.hdDebt.Size = new System.Drawing.Size(741, 29);
             this.hdDebt.TabIndex = 0;
             this.hdDebt.Values.Description = "";
-            this.hdDebt.Values.Heading = "Danh Nhà Cung Cấp";
+            this.hdDebt.Values.Heading = "Danh Sách Nhà Thầu Phụ";
             this.hdDebt.Values.Image = null;
             // 
             // btnAdd
@@ -363,7 +304,7 @@
             // 
             this.gbcRightBot.Panel.Controls.Add(this.gbxEdit1);
             this.gbcRightBot.Panel.Controls.Add(this.hdEdit);
-            this.gbcRightBot.Size = new System.Drawing.Size(745, 201);
+            this.gbcRightBot.Size = new System.Drawing.Size(745, 175);
             this.gbcRightBot.TabIndex = 1;
             this.gbcRightBot.Values.Heading = "";
             // 
@@ -376,13 +317,8 @@
             // 
             // gbxEdit1.Panel
             // 
-            this.gbxEdit1.Panel.Controls.Add(this.ipName);
-            this.gbxEdit1.Panel.Controls.Add(this.kryptonLabel4);
-            this.gbxEdit1.Panel.Controls.Add(this.ipPhone);
-            this.gbxEdit1.Panel.Controls.Add(this.kryptonLabel3);
-            this.gbxEdit1.Panel.Controls.Add(this.ipAddress);
-            this.gbxEdit1.Panel.Controls.Add(this.kryptonLabel1);
-            this.gbxEdit1.Size = new System.Drawing.Size(741, 166);
+            this.gbxEdit1.Panel.Controls.Add(this.newSubContainer);
+            this.gbxEdit1.Size = new System.Drawing.Size(741, 140);
             this.gbxEdit1.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(92)))), ((int)(((byte)(144)))));
             this.gbxEdit1.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
             this.gbxEdit1.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -390,75 +326,77 @@
             this.gbxEdit1.TabIndex = 6;
             this.gbxEdit1.Values.Heading = "";
             // 
-            // ipName
+            // newSubContainer
             // 
-            this.ipName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.ipName.Location = new System.Drawing.Point(202, 45);
-            this.ipName.Name = "ipName";
-            this.ipName.Size = new System.Drawing.Size(444, 22);
-            this.ipName.TabIndex = 2;
+            this.newSubContainer.Location = new System.Drawing.Point(63, 7);
+            this.newSubContainer.Name = "newSubContainer";
             // 
-            // kryptonLabel4
+            // newSubContainer.Panel
             // 
-            this.kryptonLabel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.kryptonLabel4.Location = new System.Drawing.Point(149, 47);
-            this.kryptonLabel4.Name = "kryptonLabel4";
-            this.kryptonLabel4.Size = new System.Drawing.Size(28, 19);
-            this.kryptonLabel4.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.kryptonLabel4.TabIndex = 46;
-            this.kryptonLabel4.Values.Text = "Tên";
+            this.newSubContainer.Panel.Controls.Add(this.ipPhone);
+            this.newSubContainer.Panel.Controls.Add(this.PhoneLabel);
+            this.newSubContainer.Panel.Controls.Add(this.ipAddress);
+            this.newSubContainer.Panel.Controls.Add(this.DesLabel);
+            this.newSubContainer.Panel.Controls.Add(this.ipName);
+            this.newSubContainer.Panel.Controls.Add(this.SubConLabel);
+            this.newSubContainer.Size = new System.Drawing.Size(647, 117);
+            this.newSubContainer.StateDisabled.Border.Color1 = System.Drawing.Color.Silver;
+            this.newSubContainer.StateDisabled.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
+                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
+                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.newSubContainer.TabIndex = 20;
+            this.newSubContainer.Values.Heading = "";
             // 
             // ipPhone
             // 
-            this.ipPhone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.ipPhone.ContextMenuStrip = this.cmsGen;
-            this.ipPhone.Location = new System.Drawing.Point(202, 93);
+            this.ipPhone.Location = new System.Drawing.Point(180, 74);
             this.ipPhone.Name = "ipPhone";
-            this.ipPhone.Size = new System.Drawing.Size(444, 22);
-            this.ipPhone.TabIndex = 4;
+            this.ipPhone.Size = new System.Drawing.Size(307, 22);
+            this.ipPhone.TabIndex = 22;
+            this.ipPhone.Leave += new System.EventHandler(this.phoneInPut_Leave);
             // 
-            // cmsGen
+            // PhoneLabel
             // 
-            this.cmsGen.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.cmsGen.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.GenMoneyToolStripMenuItem});
-            this.cmsGen.Name = "cmsGen";
-            this.cmsGen.Size = new System.Drawing.Size(177, 26);
-            // 
-            // GenMoneyToolStripMenuItem
-            // 
-            this.GenMoneyToolStripMenuItem.Name = "GenMoneyToolStripMenuItem";
-            this.GenMoneyToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G)));
-            this.GenMoneyToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
-            this.GenMoneyToolStripMenuItem.Text = "Thêm 000";
-            // 
-            // kryptonLabel3
-            // 
-            this.kryptonLabel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.kryptonLabel3.Location = new System.Drawing.Point(119, 95);
-            this.kryptonLabel3.Name = "kryptonLabel3";
-            this.kryptonLabel3.Size = new System.Drawing.Size(58, 19);
-            this.kryptonLabel3.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.kryptonLabel3.TabIndex = 40;
-            this.kryptonLabel3.Values.Text = "Số phone";
+            this.PhoneLabel.Location = new System.Drawing.Point(96, 77);
+            this.PhoneLabel.Name = "PhoneLabel";
+            this.PhoneLabel.Size = new System.Drawing.Size(69, 19);
+            this.PhoneLabel.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.PhoneLabel.TabIndex = 21;
+            this.PhoneLabel.Values.Text = "Điện Thoại :";
             // 
             // ipAddress
             // 
-            this.ipAddress.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.ipAddress.Location = new System.Drawing.Point(202, 69);
+            this.ipAddress.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.ipAddress.Location = new System.Drawing.Point(180, 46);
+            this.ipAddress.Multiline = true;
             this.ipAddress.Name = "ipAddress";
-            this.ipAddress.Size = new System.Drawing.Size(444, 22);
-            this.ipAddress.TabIndex = 3;
+            this.ipAddress.Size = new System.Drawing.Size(307, 22);
+            this.ipAddress.TabIndex = 17;
             // 
-            // kryptonLabel1
+            // DesLabel
             // 
-            this.kryptonLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.kryptonLabel1.Location = new System.Drawing.Point(133, 69);
-            this.kryptonLabel1.Name = "kryptonLabel1";
-            this.kryptonLabel1.Size = new System.Drawing.Size(44, 19);
-            this.kryptonLabel1.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.kryptonLabel1.TabIndex = 36;
-            this.kryptonLabel1.Values.Text = "Địa chỉ";
+            this.DesLabel.Location = new System.Drawing.Point(118, 46);
+            this.DesLabel.Name = "DesLabel";
+            this.DesLabel.Size = new System.Drawing.Size(47, 19);
+            this.DesLabel.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.DesLabel.TabIndex = 20;
+            this.DesLabel.Values.Text = "Địa chỉ:";
+            // 
+            // ipName
+            // 
+            this.ipName.Location = new System.Drawing.Point(180, 18);
+            this.ipName.Name = "ipName";
+            this.ipName.Size = new System.Drawing.Size(307, 22);
+            this.ipName.TabIndex = 19;
+            // 
+            // SubConLabel
+            // 
+            this.SubConLabel.Location = new System.Drawing.Point(84, 21);
+            this.SubConLabel.Name = "SubConLabel";
+            this.SubConLabel.Size = new System.Drawing.Size(81, 19);
+            this.SubConLabel.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.SubConLabel.TabIndex = 18;
+            this.SubConLabel.Values.Text = "Tên nhà thầu :";
             // 
             // hdEdit
             // 
@@ -483,87 +421,61 @@
             this.btnSave.UniqueName = "6549634A1C68497476A2DADA48F6958C";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // cmsEdit
-            // 
-            this.cmsEdit.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.cmsEdit.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.EditToolStripMenuItem,
-            this.FreezeToolStripMenuItem,
-            this.SaveToolStripMenuItem});
-            this.cmsEdit.Name = "cmsEdit";
-            this.cmsEdit.Size = new System.Drawing.Size(183, 70);
-            // 
-            // EditToolStripMenuItem
-            // 
-            this.EditToolStripMenuItem.Name = "EditToolStripMenuItem";
-            this.EditToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
-            this.EditToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.EditToolStripMenuItem.Text = "Sửa";
-            // 
-            // FreezeToolStripMenuItem
-            // 
-            this.FreezeToolStripMenuItem.Name = "FreezeToolStripMenuItem";
-            this.FreezeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
-            this.FreezeToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.FreezeToolStripMenuItem.Text = "Đóng Băng";
-            // 
-            // SaveToolStripMenuItem
-            // 
-            this.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem";
-            this.SaveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.SaveToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.SaveToolStripMenuItem.Text = "Lưu";
-            // 
             // kryptonContextMenuCheckBox1
             // 
             this.kryptonContextMenuCheckBox1.ExtraText = "";
             // 
             // cmsMain
             // 
-            this.cmsMain.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.cmsMain.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.cmsMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
             this.toolStripMenuItem3,
+            this.xóaToolStripMenuItem,
             this.lưuToolStripMenuItem,
             this.SearchToolStripMenuItem,
             this.HideSearchToolStripMenuItem});
             this.cmsMain.Name = "cmsDGV";
-            this.cmsMain.Size = new System.Drawing.Size(195, 114);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.ShortcutKeys = System.Windows.Forms.Keys.F5;
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(194, 22);
-            this.toolStripMenuItem1.Text = "Làm Mới";
+            this.cmsMain.Size = new System.Drawing.Size(184, 114);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
             this.toolStripMenuItem3.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(194, 22);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(183, 22);
             this.toolStripMenuItem3.Text = "Thêm";
+            this.toolStripMenuItem3.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // xóaToolStripMenuItem
+            // 
+            this.xóaToolStripMenuItem.Name = "xóaToolStripMenuItem";
+            this.xóaToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Delete;
+            this.xóaToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.xóaToolStripMenuItem.Text = "Xóa";
+            this.xóaToolStripMenuItem.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // lưuToolStripMenuItem
             // 
             this.lưuToolStripMenuItem.Name = "lưuToolStripMenuItem";
             this.lưuToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.lưuToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.lưuToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.lưuToolStripMenuItem.Text = "Lưu";
+            this.lưuToolStripMenuItem.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // SearchToolStripMenuItem
             // 
             this.SearchToolStripMenuItem.Name = "SearchToolStripMenuItem";
             this.SearchToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
-            this.SearchToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.SearchToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.SearchToolStripMenuItem.Text = "Tìm Kiếm";
+            this.SearchToolStripMenuItem.Click += new System.EventHandler(this.SearchToolStripMenuItem_Click);
             // 
             // HideSearchToolStripMenuItem
             // 
             this.HideSearchToolStripMenuItem.Name = "HideSearchToolStripMenuItem";
             this.HideSearchToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
-            this.HideSearchToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.HideSearchToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.HideSearchToolStripMenuItem.Text = "Ẩn Tìm Kiếm";
+            this.HideSearchToolStripMenuItem.Click += new System.EventHandler(this.HideSearchToolStripMenuItem_Click);
             // 
             // kryptonContextMenuHeading1
             // 
@@ -578,6 +490,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(745, 543);
+            this.ContextMenuStrip = this.cmsMain;
             this.Controls.Add(this.slcMain);
             this.Controls.Add(this.kryptonPanel);
             this.Name = "SubconstractorManagement";
@@ -594,7 +507,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gbxLeftBot)).EndInit();
             this.gbxLeftBot.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubcons)).EndInit();
-            this.cmsDGV.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.subcontractorDTOBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlSearch)).EndInit();
             this.pnlSearch.ResumeLayout(false);
@@ -607,11 +519,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.gbcRightBot)).EndInit();
             this.gbcRightBot.ResumeLayout(false);
             this.gbxEdit1.Panel.ResumeLayout(false);
-            this.gbxEdit1.Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gbxEdit1)).EndInit();
             this.gbxEdit1.ResumeLayout(false);
-            this.cmsGen.ResumeLayout(false);
-            this.cmsEdit.ResumeLayout(false);
+            this.newSubContainer.Panel.ResumeLayout(false);
+            this.newSubContainer.Panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.newSubContainer)).EndInit();
+            this.newSubContainer.ResumeLayout(false);
             this.cmsMain.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -627,12 +540,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn subcontractorNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn subcontractorAddressDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn phoneNumberDataGridViewTextBoxColumn;
-        private System.Windows.Forms.ContextMenuStrip cmsDGV;
-        private System.Windows.Forms.ToolStripMenuItem RefreshToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem LoadAllToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem AddToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem DeleteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem DeleteAllToolStripMenuItem;
         private System.Windows.Forms.BindingSource subcontractorDTOBindingSource;
         private ComponentFactory.Krypton.Toolkit.KryptonPanel pnlSearch;
         private ComponentFactory.Krypton.Toolkit.KryptonGroupBox gbxSearch;
@@ -644,17 +551,10 @@
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnDelete;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnHideShowSearch;
         private ComponentFactory.Krypton.Toolkit.KryptonGroupBox gbcRightBot;
-        private System.Windows.Forms.ContextMenuStrip cmsEdit;
-        private System.Windows.Forms.ToolStripMenuItem EditToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem FreezeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem SaveToolStripMenuItem;
-        private System.Windows.Forms.ContextMenuStrip cmsGen;
-        private System.Windows.Forms.ToolStripMenuItem GenMoneyToolStripMenuItem;
         private ComponentFactory.Krypton.Toolkit.KryptonHeader hdEdit;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnSave;
         private ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox kryptonContextMenuCheckBox1;
         private System.Windows.Forms.ContextMenuStrip cmsMain;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem lưuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem SearchToolStripMenuItem;
@@ -665,12 +565,14 @@
         private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems kryptonContextMenuItems2;
         private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems kryptonContextMenuItems1;
         private ComponentFactory.Krypton.Toolkit.KryptonGroupBox gbxEdit1;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox ipName;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel4;
+        private System.Windows.Forms.ToolStripMenuItem xóaToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonGroupBox newSubContainer;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox ipPhone;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel3;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel PhoneLabel;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox ipAddress;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel1;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel DesLabel;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox ipName;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel SubConLabel;
     }
 }
 

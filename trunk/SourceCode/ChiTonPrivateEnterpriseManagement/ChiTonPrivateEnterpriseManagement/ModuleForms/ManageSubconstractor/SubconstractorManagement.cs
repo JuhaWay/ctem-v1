@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction;
 using ComponentFactory.Krypton.Toolkit;
 using ChiTonPrivateEnterpriseManagement.Classes.BUS;
 using ChiTonPrivateEnterpriseManagement.Classes.DTO;
@@ -45,6 +46,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageSubconstractor
             Global.SetLayoutGroupBoxSearch(gbxSearch);
             Global.SetLayoutPanelChildForm(pnlSearch);
             Global.SetLayoutButton(btnSearch);
+            Global.SetLayoutGroupBoxNewForm(newSubContainer);
         }
         public void refresh()
         {
@@ -113,7 +115,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageSubconstractor
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (KryptonMessageBox.Show("bạn có muốn xóa không ? ", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (KryptonMessageBox.Show(Constants.CONFIRM_DELETE, Constants.CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 foreach (DataGridViewRow row in dgvSubcons.SelectedRows)
                 {
@@ -137,6 +139,40 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageSubconstractor
                 btnHideShowSearch.Type = PaletteButtonSpecStyle.ArrowUp;
                 gbxSearch.Visible = true;
                 Global.DownUpControl(this, pnlSearch, 62, 2, 4, true);
+            }
+        }
+
+        private void SearchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!gbxSearch.Visible)
+            {
+                btnHideShowSearch.Type = PaletteButtonSpecStyle.ArrowUp;
+                gbxSearch.Visible = true;
+                Global.DownUpControl(this, pnlSearch, 62, 2, 4, true);
+            }
+        }
+
+        private void HideSearchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (gbxSearch.Visible)
+            {
+                btnHideShowSearch.Type = PaletteButtonSpecStyle.ArrowDown;
+                Global.DownUpControl(this, pnlSearch, 62, 2, 4, false);
+                gbxSearch.Visible = false;
+            }
+        }
+
+        private void phoneInPut_Leave(object sender, EventArgs e)
+        {
+            if (Global.ValidatePhoneNumber(ipPhone) && Global.ValidateNotEmptyText(ipPhone))
+            {
+                ipPhone.Text = Global.FomatPhoneNumber(ipPhone.Text);
+            }
+            else
+            {
+                KryptonMessageBox.Show("Số Điện Thoại Không Đúng", Constants.ALERT_ERROR, MessageBoxButtons.OK,
+                                       MessageBoxIcon.Warning);
+                ipPhone.Focus();
             }
         }
     }

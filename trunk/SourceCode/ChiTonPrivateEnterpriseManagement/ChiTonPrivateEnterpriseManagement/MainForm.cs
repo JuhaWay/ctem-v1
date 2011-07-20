@@ -857,16 +857,5 @@ namespace ChiTonPrivateEnterpriseManagement
             {
             }
         }
-
-        private void btnMin_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                ActiveMdiChild.MinimizeBox = true;
-            }
-            catch
-            {
-            }
-        }
     }
 }

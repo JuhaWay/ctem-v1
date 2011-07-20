@@ -162,7 +162,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
         // xóa công trình
         private void btDelete_Click(object sender, EventArgs e)
         {
-            if (KryptonMessageBox.Show("Bạn có muốn xóa Phương tiện này", Constants.CONFIRM, MessageBoxButtons.YesNo,
+            if (KryptonMessageBox.Show(Constants.CONFIRM_DELETE, Constants.CONFIRM, MessageBoxButtons.YesNo,
                               MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 foreach (DataGridViewRow row in dgvCons.SelectedRows)

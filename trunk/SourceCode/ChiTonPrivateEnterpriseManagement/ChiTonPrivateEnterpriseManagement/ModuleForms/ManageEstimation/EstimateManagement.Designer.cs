@@ -463,7 +463,7 @@
             this.hdDebt.Size = new System.Drawing.Size(790, 29);
             this.hdDebt.TabIndex = 0;
             this.hdDebt.Values.Description = "";
-            this.hdDebt.Values.Heading = "Danh Nhà Cung Cấp";
+            this.hdDebt.Values.Heading = "Bảng Dự Toán";
             this.hdDebt.Values.Image = null;
             // 
             // btnViewListDetail

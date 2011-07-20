@@ -29,8 +29,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
         private bool _update;
         // tạo với type là  cha
         public AddConstruction() {
-            InitializeComponent();
-            loadSubcons();
+            InitializeComponent();            
             if (!Global.IsAllow(Constants.CREATE_NEW_CONSTRUCTION))
             {
                 cbManager.Enabled = false;
@@ -42,8 +41,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
         public AddConstruction(long ID,bool update, int _type)
         {
             // khởi tạo value
-            InitializeComponent();
-            loadSubcons();
+            InitializeComponent();            
             _update = update;
             type = _type;
             // kiểm tra xem là update hay tạo mới
@@ -97,19 +95,10 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
         }
         // load nhà thau phụ
         private void loadSubcons()
-        {
-            cbManager.Items.Add(new EmployerDTO("Tất cả", 0));
+        {            
             cbManager.Items.AddRange(_employeeBUS.LoadAllEmployee().ToArray());
-            cbManager.DisplayMember = "Username";
+            cbManager.DisplayMember = Constants.EMPLOYEE_DISPLAYMEMBER;
             subCons = _subcontractorBUS.loadAllSubcontractorDTO();
-        }
-        // tạo và chọn nhà thầu phụ
-        private void btEditSubcons_Click(object sender, EventArgs e)
-        {
-
-            SelectSubConstructionBox box = new SelectSubConstructionBox(subCons);
-            box.ShowDialog();
-            
         }
        
         // Lưu các giá trị sửa/tạo và DB
@@ -176,7 +165,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
             if (type == TYPE_CHILD)
             {
                 if (autoMode)
-                    _constructionDTO.ConstructionName = "công trình con " + ipConstructionName.Text;
+                    _constructionDTO.ConstructionName = ipConstructionName.Text;
                 _constructionDTO.ParentID = parent_Id;
                 _constructionDTO.HasEstimate = true;
                 _constructionDTO.ManagerID = 0;
@@ -251,6 +240,24 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
             {
                 KryptonMessageBox.Show("Tiến Độ Phải Là Số", Constants.ALERT_ERROR, MessageBoxButtons.OK,
                                            MessageBoxIcon.Warning);
+            }
+        }
+
+        private void cbStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbStatus.Text.Equals("Chọn") || cbStatus.Text.Equals("Mới"))
+            {
+                ipProgressRate.Text = Constants.ZERO_NUMBER;
+                ipProgressRate.Enabled = false;
+            }
+            else if (cbStatus.Text.Equals("Hoàn thành"))
+            {
+                ipProgressRate.Text = "100";
+                ipProgressRate.Enabled = false;
+            }
+            else
+            {
+                ipProgressRate.Enabled = true;
             }
         }
     }

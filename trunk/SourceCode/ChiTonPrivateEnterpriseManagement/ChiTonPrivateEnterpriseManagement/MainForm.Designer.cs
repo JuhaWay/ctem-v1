@@ -64,16 +64,15 @@
             this.kryptonPanel2 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonHeader1 = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
+            this.btnTileVer = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.btnTileHor = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.btnCascade = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.bsaLogout = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.bsaProfiles = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny1 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.btnCascade = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.kryptonPanel3 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.btnTileHor = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.btnTileVer = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.btnClose = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.btnMax = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.btnMin = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.btnClose = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny1 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.kryptonPanel3 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             ((System.ComponentModel.ISupportInitialize)(this.hgxSystemMenu)).BeginInit();
             this.hgxSystemMenu.Panel.SuspendLayout();
             this.hgxSystemMenu.SuspendLayout();
@@ -630,7 +629,6 @@
             this.btnCascade,
             this.bsaLogout,
             this.bsaProfiles,
-            this.btnMin,
             this.btnMax,
             this.btnClose});
             this.kryptonHeader1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -651,6 +649,24 @@
             this.kryptonHeader1.Values.Heading = "    ";
             this.kryptonHeader1.Values.Image = null;
             // 
+            // btnTileVer
+            // 
+            this.btnTileVer.Text = "Phân Ngang";
+            this.btnTileVer.UniqueName = "FB2E1F761D9D45C46BB820CAD138595D";
+            this.btnTileVer.Click += new System.EventHandler(this.btnTileVer_Click);
+            // 
+            // btnTileHor
+            // 
+            this.btnTileHor.Text = "Phân Dọc";
+            this.btnTileHor.UniqueName = "5C37876A40DD4E69CDA1D19831E31AFE";
+            this.btnTileHor.Click += new System.EventHandler(this.btnTileHor_Click);
+            // 
+            // btnCascade
+            // 
+            this.btnCascade.Text = "Phân Lớp";
+            this.btnCascade.UniqueName = "AC85E1327F8E4A0C83B357E4F525EF17";
+            this.btnCascade.Click += new System.EventHandler(this.btnCascade_Click);
+            // 
             // bsaLogout
             // 
             this.bsaLogout.Text = "Đăng Xuất";
@@ -663,16 +679,22 @@
             this.bsaProfiles.UniqueName = "D9B5EB8A1A494B3F5D8F8DFFBF0AE881";
             this.bsaProfiles.Click += new System.EventHandler(this.txtProfiles_LinkClicked);
             // 
+            // btnMax
+            // 
+            this.btnMax.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.FormRestore;
+            this.btnMax.UniqueName = "22AB8F8276144454A39217B7BBF81167";
+            this.btnMax.Click += new System.EventHandler(this.btnMax_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.FormClose;
+            this.btnClose.UniqueName = "6E998BF0D29F4D318584BDC15A8A0413";
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // buttonSpecAny1
             // 
             this.buttonSpecAny1.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.ArrowUp;
             this.buttonSpecAny1.UniqueName = "DAF9E72742304D3884ACCAC1366A3F5B";
-            // 
-            // btnCascade
-            // 
-            this.btnCascade.Text = "Phân Lớp";
-            this.btnCascade.UniqueName = "AC85E1327F8E4A0C83B357E4F525EF17";
-            this.btnCascade.Click += new System.EventHandler(this.btnCascade_Click);
             // 
             // kryptonPanel3
             // 
@@ -697,36 +719,6 @@
             this.kryptonPanel3.StateCommon.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(212)))), ((int)(((byte)(239)))));
             this.kryptonPanel3.StateCommon.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(212)))), ((int)(((byte)(239)))));
             this.kryptonPanel3.TabIndex = 11;
-            // 
-            // btnTileHor
-            // 
-            this.btnTileHor.Text = "Phân Dọc";
-            this.btnTileHor.UniqueName = "5C37876A40DD4E69CDA1D19831E31AFE";
-            this.btnTileHor.Click += new System.EventHandler(this.btnTileHor_Click);
-            // 
-            // btnTileVer
-            // 
-            this.btnTileVer.Text = "Phân Ngang";
-            this.btnTileVer.UniqueName = "FB2E1F761D9D45C46BB820CAD138595D";
-            this.btnTileVer.Click += new System.EventHandler(this.btnTileVer_Click);
-            // 
-            // btnClose
-            // 
-            this.btnClose.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.FormClose;
-            this.btnClose.UniqueName = "6E998BF0D29F4D318584BDC15A8A0413";
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // btnMax
-            // 
-            this.btnMax.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.FormRestore;
-            this.btnMax.UniqueName = "22AB8F8276144454A39217B7BBF81167";
-            this.btnMax.Click += new System.EventHandler(this.btnMax_Click);
-            // 
-            // btnMin
-            // 
-            this.btnMin.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.FormMin;
-            this.btnMin.UniqueName = "7FD12F3D331645ECA8BA073E2990EF21";
-            this.btnMin.Click += new System.EventHandler(this.btnMin_Click);
             // 
             // MainForm
             // 
@@ -835,7 +827,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel3;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnTileVer;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnTileHor;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnMin;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnMax;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnClose;
     }

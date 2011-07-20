@@ -32,6 +32,13 @@
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.kryptonPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.dgvMaterials = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.MaterialID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaterialName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaterialParentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EstimateCalUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RealCalUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ratio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.materialDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cmsDGV = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.RefreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.LoadAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,13 +69,13 @@
             this.subpaint = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonGroupBox1 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.lbEU = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.ipName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.lbName = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.ipEU = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.ipName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.ipRatio = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.lbName = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.lbRatio = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.ipRU = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.ipEU = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.lbRU = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.gbxLeftBot = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.pnlSearch = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
@@ -81,15 +88,9 @@
             this.btnDelete = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.btnHideShowSearch = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.slcMain = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
-            this.MaterialID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaterialName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaterialParentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EstimateCalUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RealCalUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ratio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.materialDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaterials)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.materialDTOBindingSource)).BeginInit();
             this.cmsDGV.SuspendLayout();
             this.cmsGen.SuspendLayout();
             this.cmsMain.SuspendLayout();
@@ -114,7 +115,6 @@
             this.slcMain.Panel1.SuspendLayout();
             this.slcMain.Panel2.SuspendLayout();
             this.slcMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.materialDTOBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // kryptonPanel
@@ -144,6 +144,53 @@
             this.dgvMaterials.StateNormal.Background.Color1 = System.Drawing.Color.White;
             this.dgvMaterials.TabIndex = 0;
             this.dgvMaterials.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvMaterials_MouseClick);
+            // 
+            // MaterialID
+            // 
+            this.MaterialID.DataPropertyName = "MaterialID";
+            this.MaterialID.HeaderText = "MaterialID";
+            this.MaterialID.Name = "MaterialID";
+            this.MaterialID.Visible = false;
+            // 
+            // MaterialName
+            // 
+            this.MaterialName.DataPropertyName = "MaterialName";
+            this.MaterialName.HeaderText = "Tên vật liệu";
+            this.MaterialName.Name = "MaterialName";
+            this.MaterialName.Width = 400;
+            // 
+            // MaterialParentID
+            // 
+            this.MaterialParentID.DataPropertyName = "MaterialParentID";
+            this.MaterialParentID.HeaderText = "Vật liệu cha";
+            this.MaterialParentID.Name = "MaterialParentID";
+            this.MaterialParentID.Visible = false;
+            this.MaterialParentID.Width = 200;
+            // 
+            // EstimateCalUnit
+            // 
+            this.EstimateCalUnit.DataPropertyName = "EstimateCalUnit";
+            this.EstimateCalUnit.HeaderText = "Đơn vị dự toán";
+            this.EstimateCalUnit.Name = "EstimateCalUnit";
+            this.EstimateCalUnit.Width = 200;
+            // 
+            // RealCalUnit
+            // 
+            this.RealCalUnit.DataPropertyName = "RealCalUnit";
+            this.RealCalUnit.HeaderText = "Đơn vị quyết toán";
+            this.RealCalUnit.Name = "RealCalUnit";
+            this.RealCalUnit.Width = 200;
+            // 
+            // Ratio
+            // 
+            this.Ratio.DataPropertyName = "Ratio";
+            this.Ratio.HeaderText = "Chỉ số quy đổi";
+            this.Ratio.Name = "Ratio";
+            this.Ratio.Width = 200;
+            // 
+            // materialDTOBindingSource
+            // 
+            this.materialDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.MaterialDTO);
             // 
             // cmsDGV
             // 
@@ -376,6 +423,15 @@
             this.lbEU.TabIndex = 32;
             this.lbEU.Values.Text = "Đơn vị dự toán(*)";
             // 
+            // kryptonLabel1
+            // 
+            this.kryptonLabel1.Location = new System.Drawing.Point(23, 82);
+            this.kryptonLabel1.Name = "kryptonLabel1";
+            this.kryptonLabel1.Size = new System.Drawing.Size(107, 19);
+            this.kryptonLabel1.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.kryptonLabel1.TabIndex = 38;
+            this.kryptonLabel1.Values.Text = "(*) trường bắt buộc";
+            // 
             // ipName
             // 
             this.ipName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
@@ -383,6 +439,14 @@
             this.ipName.Name = "ipName";
             this.ipName.Size = new System.Drawing.Size(162, 22);
             this.ipName.TabIndex = 31;
+            // 
+            // ipRatio
+            // 
+            this.ipRatio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.ipRatio.Location = new System.Drawing.Point(517, 57);
+            this.ipRatio.Name = "ipRatio";
+            this.ipRatio.Size = new System.Drawing.Size(161, 22);
+            this.ipRatio.TabIndex = 37;
             // 
             // lbName
             // 
@@ -394,31 +458,6 @@
             this.lbName.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbName.TabIndex = 30;
             this.lbName.Values.Text = "Tên vật liệu(*)";
-            // 
-            // ipEU
-            // 
-            this.ipEU.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.ipEU.Location = new System.Drawing.Point(169, 57);
-            this.ipEU.Name = "ipEU";
-            this.ipEU.Size = new System.Drawing.Size(162, 22);
-            this.ipEU.TabIndex = 33;
-            // 
-            // kryptonLabel1
-            // 
-            this.kryptonLabel1.Location = new System.Drawing.Point(23, 82);
-            this.kryptonLabel1.Name = "kryptonLabel1";
-            this.kryptonLabel1.Size = new System.Drawing.Size(107, 19);
-            this.kryptonLabel1.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.kryptonLabel1.TabIndex = 38;
-            this.kryptonLabel1.Values.Text = "(*) trường bắt buộc";
-            // 
-            // ipRatio
-            // 
-            this.ipRatio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.ipRatio.Location = new System.Drawing.Point(517, 57);
-            this.ipRatio.Name = "ipRatio";
-            this.ipRatio.Size = new System.Drawing.Size(161, 22);
-            this.ipRatio.TabIndex = 37;
             // 
             // lbRatio
             // 
@@ -438,6 +477,14 @@
             this.ipRU.Name = "ipRU";
             this.ipRU.Size = new System.Drawing.Size(162, 22);
             this.ipRU.TabIndex = 35;
+            // 
+            // ipEU
+            // 
+            this.ipEU.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.ipEU.Location = new System.Drawing.Point(169, 57);
+            this.ipEU.Name = "ipEU";
+            this.ipEU.Size = new System.Drawing.Size(162, 22);
+            this.ipEU.TabIndex = 33;
             // 
             // lbRU
             // 
@@ -599,53 +646,6 @@
             this.slcMain.SplitterDistance = 476;
             this.slcMain.TabIndex = 14;
             // 
-            // MaterialID
-            // 
-            this.MaterialID.DataPropertyName = "MaterialID";
-            this.MaterialID.HeaderText = "MaterialID";
-            this.MaterialID.Name = "MaterialID";
-            this.MaterialID.Visible = false;
-            // 
-            // MaterialName
-            // 
-            this.MaterialName.DataPropertyName = "MaterialName";
-            this.MaterialName.HeaderText = "Tên vật liệu";
-            this.MaterialName.Name = "MaterialName";
-            this.MaterialName.Width = 400;
-            // 
-            // MaterialParentID
-            // 
-            this.MaterialParentID.DataPropertyName = "MaterialParentID";
-            this.MaterialParentID.HeaderText = "Vật liệu cha";
-            this.MaterialParentID.Name = "MaterialParentID";
-            this.MaterialParentID.Visible = false;
-            this.MaterialParentID.Width = 200;
-            // 
-            // EstimateCalUnit
-            // 
-            this.EstimateCalUnit.DataPropertyName = "EstimateCalUnit";
-            this.EstimateCalUnit.HeaderText = "Đơn vị dự toán";
-            this.EstimateCalUnit.Name = "EstimateCalUnit";
-            this.EstimateCalUnit.Width = 200;
-            // 
-            // RealCalUnit
-            // 
-            this.RealCalUnit.DataPropertyName = "RealCalUnit";
-            this.RealCalUnit.HeaderText = "Đơn vị quyết toán";
-            this.RealCalUnit.Name = "RealCalUnit";
-            this.RealCalUnit.Width = 200;
-            // 
-            // Ratio
-            // 
-            this.Ratio.DataPropertyName = "Ratio";
-            this.Ratio.HeaderText = "Chỉ số quy đổi";
-            this.Ratio.Name = "Ratio";
-            this.Ratio.Width = 200;
-            // 
-            // materialDTOBindingSource
-            // 
-            this.materialDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.MaterialDTO);
-            // 
             // MaterialManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -660,6 +660,7 @@
             this.Load += new System.EventHandler(this.MaterialManagement_Load);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaterials)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.materialDTOBindingSource)).EndInit();
             this.cmsDGV.ResumeLayout(false);
             this.cmsGen.ResumeLayout(false);
             this.cmsMain.ResumeLayout(false);
@@ -688,7 +689,6 @@
             this.slcMain.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.slcMain)).EndInit();
             this.slcMain.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.materialDTOBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

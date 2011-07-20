@@ -33,6 +33,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
             Global.SetLayoutGroupBoxNewForm(newSubContainer);
             Global.SetLayoutPanelNewForm(kryptonPanel);
             Global.SetLayoutButton(addButton);
+            Global.TextBoxRequireInput(subNameInput);
         }
 
         private void okeButton_Click(object sender, EventArgs e)
@@ -41,11 +42,45 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
         }
 
         private void addButton_Click(object sender, EventArgs e)
-        {         
+        {
+            if (Validate())
+            {
                 long id = _subcontractorBUS.CreateSubcontractor(subNameInput.Text, addressInPut.Text, phoneInPut.Text);
                 subcontractorDTO = _subcontractorBUS.LoadSubcontractorById(id);
                 this.Close();
-          
+            }
+            else
+            {
+                string error = Constants.EMPTY_TEXT;
+                foreach (string err in Global.ListError)
+                {
+                    error += " * " + err + '\n';
+                }
+                KryptonMessageBox.Show(error, Constants.ALERT_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private bool Validate()
+        {
+            if (Global.ValidateNotEmptyText(subNameInput))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private void phoneInPut_Leave(object sender, EventArgs e)
+        {
+            if (Global.ValidatePhoneNumber(phoneInPut) && Global.ValidateNotEmptyText(phoneInPut))
+            {
+                phoneInPut.Text = Global.FomatPhoneNumber(phoneInPut.Text);
+            }
+            else
+            {
+                KryptonMessageBox.Show("Số Điện Thoại Không Đúng", Constants.ALERT_ERROR, MessageBoxButtons.OK,
+                                       MessageBoxIcon.Warning);
+                phoneInPut.Focus();
+            }
         }
     }
 }

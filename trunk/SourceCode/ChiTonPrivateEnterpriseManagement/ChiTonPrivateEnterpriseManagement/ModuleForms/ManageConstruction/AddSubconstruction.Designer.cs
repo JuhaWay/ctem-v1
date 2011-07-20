@@ -215,7 +215,6 @@
             this.ipRealCost.Size = new System.Drawing.Size(357, 25);
             this.ipRealCost.TabIndex = 8;
             this.ipRealCost.Leave += new System.EventHandler(this.ipRealCost_Leave);
-            this.ipRealCost.MouseLeave += new System.EventHandler(this.ipRealCost_MouseLeave);
             // 
             // buttonSpecAny3
             // 
@@ -303,6 +302,7 @@
             this.dtEndDate.Name = "dtEndDate";
             this.dtEndDate.Size = new System.Drawing.Size(357, 20);
             this.dtEndDate.TabIndex = 6;
+            this.dtEndDate.ValueChanged += new System.EventHandler(this.dtEndDate_ValueChanged);
             // 
             // lbState
             // 
@@ -338,8 +338,8 @@
             // 
             this.cbStatus.DropDownWidth = 172;
             this.cbStatus.Items.AddRange(new object[] {
-            "Mới ",
-            "Đang thi công ",
+            "Mới",
+            "Đang thi công",
             "Treo",
             "Hoàn thành"});
             this.cbStatus.Location = new System.Drawing.Point(110, 40);
@@ -347,6 +347,7 @@
             this.cbStatus.Size = new System.Drawing.Size(357, 22);
             this.cbStatus.TabIndex = 2;
             this.cbStatus.Text = "chọn...";
+            this.cbStatus.SelectedIndexChanged += new System.EventHandler(this.cbStatus_SelectedIndexChanged);
             // 
             // lbDes
             // 
