@@ -20,6 +20,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
         ConstructionBus _constructionBus = new ConstructionBus();
         private List<EstimateDTO> _dtoList = new List<EstimateDTO>();
         private EstimateDTO dtoTemp = new EstimateDTO();
+        private long _ManagerID;
         // khoi tao cua so chinh'
         public EstimateManagement()
         {
@@ -60,11 +61,28 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
             cbSearchCons.Items.Add(new ConstructionDTO("Tất cả",0));
             cbSearchCons.Items.AddRange(_constructionBus.LoadAllConstructions().ToArray());
             cbSearchCons.DisplayMember="ConstructionName";
+            authen();
             loadData();
+        }
+        private void authen()
+        {
+            if (Global.IsAllow(Constants.CREATE_NEW_CONSTRUCTION))
+            {
+                cbSearchCons.Enabled = true;
+                _ManagerID = 0;
+            }
+            else
+            {
+                _ManagerID = Global.CurrentUser.employeeID;
+                cbSearchCons.Enabled = false;
+            }
+
+
         }
         public void loadData()
         {
                 EstimateDTO dto = new EstimateDTO();
+                dto.ManagerID = _ManagerID;
                 dto.EstimateName ="";
                 search(dto);
           
@@ -115,6 +133,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
         {
             EstimateDTO dto = new EstimateDTO();
             dto.EstimateName = ipSeacrchName.Text;
+            dto.ManagerID = _ManagerID;
             if (cbSearchCons.SelectedIndex > -1)
                 dto.ConstructionID = (cbSearchCons.SelectedItem as ConstructionDTO).ConstructionID;
             search(dto);
@@ -173,6 +192,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
         }
         private void selection()
         {
+            if (dgvEstimate.SelectedRows.Count <= 0) return;
             string strEstimateID = dgvEstimate.SelectedRows[0].Cells["EstimateID"].Value.ToString();
             long EstimateID = Convert.ToInt64(strEstimateID);
             if (EstimateID != 0)
