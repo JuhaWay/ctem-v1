@@ -104,6 +104,11 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.Parameters.Add(new SqlParameter("@ConstructionID", dto.ConstructionID));
             else
                 cmd.Parameters.Add(new SqlParameter("@ConstructionID", DBNull.Value));
+
+            if (dto.ManagerID > 0)
+                cmd.Parameters.Add(new SqlParameter("@ManagerID", dto.ManagerID));
+            else
+                cmd.Parameters.Add(new SqlParameter("@ManagerID", DBNull.Value));
             List<EstimateDTO> listcons = new List<EstimateDTO>();
             try
             {
