@@ -10,24 +10,31 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
     {
         public long EmployeeSalaryID { get; set; }
         public long EmployeeID { get; set; }
+        public string Month { get; set; }
+        public long Salary { get; set; }
+        public long Salarypc { get; set; }
+        public long TotalAllowance { get; set; }
+        public long DebtPay { get; set; }
+        public long Debt1 { get; set; }
+        public long Debt2 { get; set; }
+        public long TotalAdvanceSalary { get; set; }
+        public long ActualIncome { get; set; }
+        public DateTime DateReceive { get; set; }
         public string Username { get; set; }
         public string Fullname { get; set; }
-        public string Month { get; set; }
+        public bool IsPay { get; set; }        
+
         public string MonthFormat { get; set; }
-        public long Salary { get; set; }
         public string SalaryFormat { get; set; }
-        public long Allowance { get; set; }
-        public string AllowanceFormat { get; set; }
-        public long PhoneCost { get; set; }
-        public string PhoneCostFormat { get; set; }
-        public long DebtPay { get; set; }
+        public string SalarypcFormat { get; set; }
+        public string TotalAllowanceFormat { get; set; }
         public string DebtPayFormat { get; set; }
-        public long ActualIncome { get; set; }
+        public string Debt1Format { get; set; }
+        public string Debt2Format { get; set; }
+        public string TotalAdvanceSalaryFormat { get; set; }
         public string ActualIncomeFormat { get; set; }
-        public int IsPay { get; set; }
-        public string Note { get; set; }
-        public DateTime CreatedDate { get; set; }
-        public DateTime LastUpdate { get; set; }
+        public string DateReceiveFormat {get;set;}
+                
 
         public EmployeeSalaryDTO()
         {

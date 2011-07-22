@@ -70,8 +70,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             foreach (WorkerSalaryDTO item in list)
             {
                 total += item.TotalSalary;
-            }
-            ipSummary.Text = Global.ConvertLongToMoney(total, Global.SEP);
+            }            
         }
         // lưu thông tin thay đổi 
         private void btSave_Click(object sender, EventArgs e)

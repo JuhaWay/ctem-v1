@@ -151,16 +151,16 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
                 finalaccountitem.RealCalUnit = material.RealCalUnit;
                 finalaccountitem.Quantity = Convert.ToDouble(txtQuantity.Text);
                 finalaccountitem.QuantityEst = finalaccountitem.Quantity * material.Ratio;
-                finalaccountitem.UnitCost = Global.ConvertMoneyToLong(txtUnitCost.Text, ".");
+                finalaccountitem.UnitCost = Global.ConvertMoneyToLong(txtUnitCost.Text, Constants.SPLIP_MONEY);
                 finalaccountitem.UnitCostFormated = txtUnitCost.Text;
-                finalaccountitem.TotalCost = Global.ConvertMoneyToLong(txtTotalCostItem.Text, ".");
+                finalaccountitem.TotalCost = Global.ConvertMoneyToLong(txtTotalCostItem.Text, Constants.SPLIP_MONEY);
                 finalaccountitem.TotalCostFormated = txtTotalCostItem.Text;
                 finalaccountitem.Note = txtNoteItem.Text;
                 listFinalAccountDetail.Add(finalaccountitem);
                 RefreshDisplayData();
-                long totalCostCurr = Global.ConvertMoneyToLong(txtTotalCost.Text, ".");
+                long totalCostCurr = Global.ConvertMoneyToLong(txtTotalCost.Text, Constants.SPLIP_MONEY);
                 long totalCost = totalCostCurr + finalaccountitem.TotalCost;
-                txtTotalCost.Text = Global.ConvertLongToMoney(totalCost, ".");
+                txtTotalCost.Text = Global.ConvertLongToMoney(totalCost, Constants.SPLIP_MONEY);
             }
         }
 
@@ -185,8 +185,8 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
             string accountPerson = txtPersonAccount.Text;
             long debtId = Global.GetDataCombobox(cbbDebt, Constants.DEBT);
             DateTime dateaccount = DateTime.Parse(dtpDateAccount.Text);
-            long transportationCost = Global.ConvertMoneyToLong(txtTransportationCost.Text, ".");
-            long totalCost = Global.ConvertMoneyToLong(txtTotalCost.Text, ".");
+            long transportationCost = Global.ConvertMoneyToLong(txtTransportationCost.Text, Constants.SPLIP_MONEY);
+            long totalCost = Global.ConvertMoneyToLong(txtTotalCost.Text, Constants.SPLIP_MONEY);
             string note = txtNote.Text;
             int ispay;            
             if (cbbStatus.Text.Equals(Constants.PAY))

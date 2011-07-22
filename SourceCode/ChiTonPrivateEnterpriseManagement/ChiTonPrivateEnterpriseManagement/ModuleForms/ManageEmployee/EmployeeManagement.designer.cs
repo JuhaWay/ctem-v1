@@ -525,7 +525,6 @@
             this.Tag = "";
             this.Text = "Quản Lý Nhân Viên";
             this.TextExtra = "";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.EmployeeManagementForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployee)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.employerDTOBindingSource)).EndInit();

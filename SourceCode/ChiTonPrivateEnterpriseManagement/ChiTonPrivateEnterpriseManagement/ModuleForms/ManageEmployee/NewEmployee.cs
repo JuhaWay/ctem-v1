@@ -149,7 +149,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
                 string password = DataProvider.Encrypt(Constants.DEFAULT_PASSWORD);
                 string fullname = txtFullname.Text;
                 string address = txtAddress.Text;
-                long totalDebt = Global.ConvertMoneyToLong(txtTotalDebt.Text, ".");
+                long totalDebt = Global.ConvertMoneyToLong(txtTotalDebt.Text, Constants.SPLIP_MONEY);
                 string email = txtEmail.Text;
                 string CMND = txtCMND.Text;
                 string DOB = dtpDOB.Text;

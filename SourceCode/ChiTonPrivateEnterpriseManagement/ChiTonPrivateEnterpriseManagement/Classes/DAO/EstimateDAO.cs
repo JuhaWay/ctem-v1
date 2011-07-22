@@ -138,7 +138,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         consDto.UpdatedDateFormated="";
                     }
                     consDto.CreatedDateFormated = consDto.CreatedDate.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
-                    consDto.TotalCostEstimateFormated = Global.Global.ConvertLongToMoney(consDto.TotalCostEstimate,".");
+                    consDto.TotalCostEstimateFormated = Global.Global.ConvertLongToMoney(consDto.TotalCostEstimate,Constants.SPLIP_MONEY);
                     listcons.Add(consDto);
                 }
                 return listcons;

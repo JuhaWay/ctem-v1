@@ -191,7 +191,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
                 long debtId = Convert.ToInt64(txtDebtId.Text);
                 string debtName = txtDebtName.Text;
                 string address = txtAddress.Text;
-                long totalDebt = Global.ConvertMoneyToLong(txtTotalOwe.Text, ".");
+                long totalDebt = Global.ConvertMoneyToLong(txtTotalOwe.Text, Constants.SPLIP_MONEY);
                 string note = txtDescription.Text;
                 string phoneNumber = txtPhonenumber.Text;
                 int isactive = cbbStatus.Text.Equals(Constants.ACTIVE) ? 1 : 0;

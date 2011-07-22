@@ -71,6 +71,7 @@
             this.btClose.Size = new System.Drawing.Size(53, 25);
             this.btClose.TabIndex = 6;
             this.btClose.Values.Text = "Đóng";
+            this.btClose.Click += new System.EventHandler(this.btClose_Click);
             // 
             // btSave
             // 

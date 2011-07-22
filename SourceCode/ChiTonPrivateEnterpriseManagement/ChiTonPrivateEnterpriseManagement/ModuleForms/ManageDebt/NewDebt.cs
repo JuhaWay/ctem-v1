@@ -26,7 +26,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
             if (ValidateInput())
             {
                 string nameDebt = txtDebtName.Text;
-                long totalOwe = Global.ConvertMoneyToLong(txtTotalOwe.Text, ".");
+                long totalOwe = Global.ConvertMoneyToLong(txtTotalOwe.Text, Constants.SPLIP_MONEY);
                 string phonenumber = txtPhonenumber.Text;
                 string address = txtAddress.Text;
                 string description = txtDescription.Text;

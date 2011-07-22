@@ -349,7 +349,6 @@
             this.cbMaterial.TabIndex = 1;
             this.cbMaterial.Text = "chọn...";
             this.cbMaterial.SelectedIndexChanged += new System.EventHandler(this.cbMaterial_SelectedIndexChanged);
-            this.cbMaterial.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbType_KeyDown);
             this.cbMaterial.Leave += new System.EventHandler(this.cbMaterial_Leave);
             // 
             // ipPrice

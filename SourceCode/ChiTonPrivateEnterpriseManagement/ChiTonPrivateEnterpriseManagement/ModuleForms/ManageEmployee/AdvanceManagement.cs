@@ -15,10 +15,24 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
     public partial class AdvanceManagement : ComponentFactory.Krypton.Toolkit.KryptonForm
     {
         private List<EmployeeAdvanceDTO> _listAdvance;
+        private string _emp;
+        private DateTime _month;
+        private string _type;
+        private bool _isNew;
         readonly EmployeeBUS _employeeBus = new EmployeeBUS();
         public AdvanceManagement()
         {
             InitializeComponent();
+            _isNew = true;
+        }
+
+        public AdvanceManagement(string emp, DateTime month, string type)
+        {
+            InitializeComponent();
+            _emp = emp;
+            _month = month;
+            _type = type;
+            _isNew = true;
         }
 
         private void AdvanceManagement_Load(object sender, EventArgs e)
@@ -33,11 +47,11 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
             pnlSearch.Height = 62;
             gbxSearch.Height = 58;
             txtTotalAdvance.Text = Constants.ZERO_NUMBER;
-            Global.SetLayoutForm(this, Constants.CHILD_FORM);
+            Global.SetLayoutForm(this, Constants.DIALOG_FORM);
             Global.SetLayoutHeaderGroup(hdAdvance, Constants.CHILD_FORM);
             Global.SetLayoutHeaderGroup(hdEdit, Constants.CHILD_FORM);
             Global.SetDaulftDatagridview(dgvAdvance);
-            Global.SetLayoutSplipContainer(slcMain, 2);
+            Global.SetLayoutSplipContainer(slcMain, 1);
             Global.SetLayoutSplipContainerInChildForm(slcEdit);
             Global.SetLayoutGroupBoxChildForm(gbxEdit1);
             Global.SetLayoutGroupBoxChildForm(gbxEdit2);
@@ -46,18 +60,29 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
             Global.SetDataCombobox(cbbNameSearch, Constants.EMPLOYEE_SEARCH);
             Global.SetDataCombobox(cbbEmployee, Constants.EMPLOYEE);
             Global.SetLayoutButton(btnSearch);
-            MakeEdit(false);
+            for (int i = 0; i < cbbEmployee.Items.Count; i++)
+            {
+                var emp = cbbEmployee.Items[i] as EmployerDTO;
+                if (emp.Fullname.Equals(_emp))
+                {
+                    cbbEmployee.SelectedIndex = i;
+                    i = cbbEmployee.Items.Count;
+                }
+            }
+            cbbEmployee.Enabled = false;
+            if (_type.Equals("Ứng Cho Doanh Nghiệp"))
+            {
+                cbbEmployee.Enabled = true;
+            }            
         }
 
         private void MakeEdit(bool Edit)
-        {
-            cbbEmployee.Enabled = Edit;
+        {            
             txtTotalAdvance.ReadOnly = !Edit;
             txtReason.ReadOnly = !Edit;
             txtNote.ReadOnly = !Edit;
             btnSave.Enabled = Edit ? ButtonEnabled.True : ButtonEnabled.False;
             cmsEdit.Items[2].Enabled = Edit;
-
         }
 
         private void LoadData()
@@ -67,26 +92,42 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
             {
                 name = Constants.EMPTY_TEXT;
             }
+            string type = cbbTypeSearch.Text;
+            if (cbbTypeSearch.Equals("Tất Cả"))
+            {
+                type = Constants.EMPTY_TEXT;
+            }
             DateTime fromdate = dtpSearchFrom.Value;
             DateTime todate = dtpSearchTo.Value.AddDays(1);
-            _listAdvance = _employeeBus.LoadAdvance(name, fromdate, todate);
+            _listAdvance = _employeeBus.LoadAdvance(name, fromdate, todate, type);
             dgvAdvance.DataSource = _listAdvance;
         }
 
         private void RefreshData()
         {
             Global.SetDataCombobox(cbbNameSearch, Constants.EMPLOYEE_SEARCH);
-            cbbNameSearch.SelectedIndex = 0;
-            dtpSearchTo.Value = DateTime.Today;
-            dtpSearchFrom.Value = Global.GetFirstDateInMonth();
+            for (int i = 1; i < cbbNameSearch.Items.Count; i++)
+            {
+                string item = cbbNameSearch.Items[i].ToString();
+                if (item.Equals(_emp))
+                {
+                    cbbNameSearch.SelectedIndex = i;
+                    i = cbbNameSearch.Items.Count;
+                }
+            }
+            if (_type.Equals("Ứng Lương"))
+            {
+                cbbTypeSearch.SelectedIndex = 1;
+            }
+            else
+            {
+                cbbTypeSearch.SelectedIndex = 2;
+            }            
+            int year = _month.Year;
+            int month = _month.Month;
+            dtpSearchTo.Value = new DateTime(year, month, DateTime.DaysInMonth(year, month), 23, 59, 59);
+            dtpSearchFrom.Value = new DateTime(year, month, 1);
             LoadData();
-        }
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            var newAdvance = new NewAdvance();
-            newAdvance.ShowDialog();
-            RefreshData();
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
@@ -166,22 +207,34 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
-            {
-                long id = Convert.ToInt64(txtId.Text);
+            {                
                 long employeeId = Global.GetDataCombobox(cbbEmployee, Constants.EMPLOYEE);
-                long totalAdvance = Global.ConvertMoneyToLong(txtTotalAdvance.Text, ".");
+                long totalAdvance = Global.ConvertMoneyToLong(txtTotalAdvance.Text, Constants.SPLIP_MONEY);
                 string reason = txtReason.Text;
                 string note = txtNote.Text;
+                DateTime dateAdv = dtpDateAdv.Value;
                 var advanceObj = new EmployeeAdvanceDTO()
-                {
-                    AdvanceID = id,
+                {                    
                     EmployeeID = employeeId,
                     TotalAdvance = totalAdvance,
                     Reason = reason,
-                    Note = note
+                    Note = note,
+                    DateAdvance = dateAdv,
+                    Type = _type
                 };
-                bool success = _employeeBus.UpdateEmployeeAdvance(advanceObj);
-                KryptonMessageBox.Show(success ? Constants.CREATE_SUCCESS : Constants.ERROR, Constants.CONFIRM);
+                bool success;
+                if (_isNew)
+                {
+                    success = _employeeBus.CreateEmployeeAdvance(advanceObj);                    
+                }
+                else
+                {
+                    long id = Convert.ToInt64(dgvAdvance.SelectedRows[0].Cells["AdvanceID"].Value.ToString());
+                    advanceObj.AdvanceID = id;
+                    success = _employeeBus.UpdateEmployeeAdvance(advanceObj);
+                    KryptonMessageBox.Show(success ? Constants.UPDATE_SUCCESS : Constants.ERROR, Constants.CONFIRM);
+                }
+                
                 RefreshData();
             }
             catch
@@ -226,8 +279,8 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
         {
             if (e.RowIndex != -1)
             {
+                _isNew = false;
                 DataGridViewRow row = dgvAdvance.SelectedRows[0];
-                txtId.Text = row.Cells["AdvanceID"].Value.ToString();
                 txtNote.Text = row.Cells["Note"].Value.ToString();
                 txtReason.Text = row.Cells["Reason"].Value.ToString();
                 txtTotalAdvance.Text = row.Cells["TotalAdvanceFormated"].Value.ToString();
@@ -260,6 +313,20 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
             {
                 btnSearch_Click(null, null);
             }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {           
+            ClearLayout();
+        }
+
+        private void ClearLayout()
+        {
+            _isNew = true;
+            txtTotalAdvance.Text = Constants.ZERO_NUMBER;
+            txtReason.Text = Constants.EMPTY_TEXT;
+            txtNote.Text = Constants.EMPTY_TEXT;
+            MakeEdit(true);
         }
     }
 }

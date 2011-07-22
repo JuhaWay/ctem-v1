@@ -146,8 +146,8 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         UnitCostEstimate = Convert.ToInt32(reader["UnitCostEstimate"]),
                         TotalCostEstimate = Convert.ToInt64(reader["TotalCostEstimate"])
                     };
-                    edDto.UnitCostEstimateFormated = Global.Global.ConvertLongToMoney(edDto.UnitCostEstimate,".");
-                    edDto.TotalCostEstimateFormated = Global.Global.ConvertLongToMoney(edDto.TotalCostEstimate, ".");
+                    edDto.UnitCostEstimateFormated = Global.Global.ConvertLongToMoney(edDto.UnitCostEstimate,Constants.SPLIP_MONEY);
+                    edDto.TotalCostEstimateFormated = Global.Global.ConvertLongToMoney(edDto.TotalCostEstimate, Constants.SPLIP_MONEY);
                     listcons.Add(edDto);
                 }
                 return listcons;

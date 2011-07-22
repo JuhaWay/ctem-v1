@@ -38,7 +38,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
                 var compareDate = dtpDateCompare.Value;
                 var fromDate = dtpFromDate.Value;
                 var toDate = dtpToDate.Value;
-                long totalOwe = Global.ConvertMoneyToLong(txtTotalOwe.Text, ".");
+                long totalOwe = Global.ConvertMoneyToLong(txtTotalOwe.Text, Constants.SPLIP_MONEY);
                 string note = txtNote.Text;
                 var compareDebtDto = new CompareDebtDTO()
                 {

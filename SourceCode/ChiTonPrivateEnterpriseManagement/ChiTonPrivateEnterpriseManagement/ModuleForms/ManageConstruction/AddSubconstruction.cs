@@ -205,12 +205,12 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
 
         private void ipEst_Leave(object sender, EventArgs e)
         {
-            ipEst.Text = Global.ConvertLongToMoney(Global.ConvertMoneyToLong(ipEst.Text, "."), Global.SEP);
+            ipEst.Text = Global.ConvertLongToMoney(Global.ConvertMoneyToLong(ipEst.Text, Constants.SPLIP_MONEY), Global.SEP);
         }
 
         private void ipEst_MouseLeave(object sender, EventArgs e)
         {
-            ipEst.Text = Global.ConvertLongToMoney(Global.ConvertMoneyToLong(ipEst.Text, "."), Global.SEP);
+            ipEst.Text = Global.ConvertLongToMoney(Global.ConvertMoneyToLong(ipEst.Text, Constants.SPLIP_MONEY), Global.SEP);
         }
 
         private void ipRealCost_Leave(object sender, EventArgs e)

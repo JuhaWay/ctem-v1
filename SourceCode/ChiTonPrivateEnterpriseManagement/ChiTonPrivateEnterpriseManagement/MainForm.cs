@@ -491,18 +491,18 @@ namespace ChiTonPrivateEnterpriseManagement
 
             try
             {
-                foreach (Form mdiChild in MdiChildren)
-                {
-                    if (mdiChild.Name.Equals("SalaryManagement"))
-                    {
-                        mdiChild.Activate();
-                        return;
-                    }
-                } 
                 if (tvwEmp.Nodes[Constants.MANAGE_EMPLOYEE_SALARY].IsSelected)
                 {
-                    SalaryManagement salaryManagement = new SalaryManagement();
-                    salaryManagement.MdiParent = this;
+                    foreach (Form mdiChild in MdiChildren)
+                    {
+                        if (mdiChild.Name.Equals("EmployeeExpenseReceipts"))
+                        {
+                            mdiChild.Activate();
+                            return;
+                        }
+                    } 
+                    var salaryManagement = new EmployeeExpenseReceipts();
+                    salaryManagement.MdiParent = this;                    
                     salaryManagement.Show();
                     return;
                 }
@@ -511,18 +511,19 @@ namespace ChiTonPrivateEnterpriseManagement
 
             try
             {
-                foreach (Form mdiChild in MdiChildren)
-                {
-                    if (mdiChild.Name.Equals("AdvanceManagement"))
-                    {
-                        mdiChild.Activate();
-                        return;
-                    }
-                } 
+                
                 if (tvwEmp.Nodes[Constants.MANAGE_EMPLOYEE_ADVANCE].IsSelected)
                 {
+                    foreach (Form mdiChild in MdiChildren)
+                    {
+                        if (mdiChild.Name.Equals("AdvanceManagement"))
+                        {
+                            mdiChild.Activate();
+                            return;
+                        }
+                    }
                     AdvanceManagement advanceManagement = new AdvanceManagement();
-                    advanceManagement.MdiParent = this;
+                    advanceManagement.MdiParent = this;                    
                     advanceManagement.Show();
                     return;
                 }

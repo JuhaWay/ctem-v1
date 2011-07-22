@@ -244,8 +244,8 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
                         dto.TotalRealCost += item.TotalRealCost;
                         dto.ProgressRate += item.ProgressRate;
                     }
-                    dto.TotalEstimateCostFormated = Global.ConvertLongToMoney(dto.TotalEstimateCost,".");
-                    dto.TotalRealCostFormated = Global.ConvertLongToMoney(dto.TotalRealCost, ".");
+                    dto.TotalEstimateCostFormated = Global.ConvertLongToMoney(dto.TotalEstimateCost,Constants.SPLIP_MONEY);
+                    dto.TotalRealCostFormated = Global.ConvertLongToMoney(dto.TotalRealCost, Constants.SPLIP_MONEY);
                     if (children.Count>0) 
                         dto.ProgressRate = dto.ProgressRate / children.Count;
                     TreeGridNode node = dgvCons.Nodes.Add(dto.ConstructionID, dto.ConstructionName, dto.type, dto.SubcontractorName, dto.Status, dto.ProgressRate, dto.TotalEstimateCostFormated, dto.TotalRealCostFormated,dto.ManagerName, dto.Description, dto.ConstructionAddress,

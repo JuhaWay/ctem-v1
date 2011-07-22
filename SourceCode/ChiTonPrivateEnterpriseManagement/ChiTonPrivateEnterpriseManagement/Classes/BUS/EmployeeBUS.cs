@@ -59,9 +59,9 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
             return employerDAO.GetAll();
         }
 
-        public List<EmployeeAdvanceDTO> LoadAdvance(string name, DateTime fromdate, DateTime todate)
+        public List<EmployeeAdvanceDTO> LoadAdvance(string name, DateTime fromdate, DateTime todate, string type)
         {
-            return employerDAO.GetAdvance(name, fromdate, todate);
+            return employerDAO.GetAdvance(name, fromdate, todate, type);
         }
 
         public bool UpdateEmployeeAdvance(EmployeeAdvanceDTO advanceObj)
@@ -127,6 +127,20 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
         public bool ResetPassword(long empid, string pass)
         {
             return employerDAO.ResetPassword(empid, pass);
+        }
+
+        public long GetTotal(string emp, DateTime month, string type)
+        {
+            int year = month.Year;
+            int monthnb = month.Month;
+            DateTime to = new DateTime(year, monthnb, DateTime.DaysInMonth(year, monthnb), 23, 59, 59);
+            DateTime from = new DateTime(year, monthnb, 1);
+            return employerDAO.GetTotalAllowance(emp, from, to, type);            
+        }
+
+        public EmployeeSalaryDTO LoadSalaryById(long salaryId)
+        {
+            return employerDAO.GetSalaryById(salaryId);
         }
     }
 }
