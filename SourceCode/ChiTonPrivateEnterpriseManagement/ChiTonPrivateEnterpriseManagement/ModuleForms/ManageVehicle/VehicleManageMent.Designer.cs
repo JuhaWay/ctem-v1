@@ -240,10 +240,10 @@
             this.lbCons.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.lbCons.Location = new System.Drawing.Point(54, 82);
             this.lbCons.Name = "lbCons";
-            this.lbCons.Size = new System.Drawing.Size(75, 19);
+            this.lbCons.Size = new System.Drawing.Size(63, 19);
             this.lbCons.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.lbCons.TabIndex = 18;
-            this.lbCons.Values.Text = "Công trình(*)";
+            this.lbCons.Values.Text = "Công trình";
             // 
             // ipNumber
             // 
@@ -362,12 +362,12 @@
             // kryptonLabel2
             // 
             this.kryptonLabel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.kryptonLabel2.Location = new System.Drawing.Point(-2, 14);
+            this.kryptonLabel2.Location = new System.Drawing.Point(3, 14);
             this.kryptonLabel2.Name = "kryptonLabel2";
-            this.kryptonLabel2.Size = new System.Drawing.Size(43, 19);
+            this.kryptonLabel2.Size = new System.Drawing.Size(45, 19);
             this.kryptonLabel2.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.kryptonLabel2.TabIndex = 9;
-            this.kryptonLabel2.Values.Text = "Tên xe";
+            this.kryptonLabel2.Values.Text = "Loại xe";
             // 
             // ipSearchNumber
             // 
@@ -692,7 +692,7 @@
             this.hdDebt.Size = new System.Drawing.Size(761, 29);
             this.hdDebt.TabIndex = 0;
             this.hdDebt.Values.Description = "";
-            this.hdDebt.Values.Heading = "";
+            this.hdDebt.Values.Heading = "Quản lý phương tiện";
             this.hdDebt.Values.Image = null;
             // 
             // btnAdd
@@ -716,6 +716,7 @@
             this.btnHideShowSearch.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
             this.btnHideShowSearch.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.ArrowUp;
             this.btnHideShowSearch.UniqueName = "7CD50F96676F43E7C0B240BAD639EFD5";
+            this.btnHideShowSearch.Click += new System.EventHandler(this.btnHideShowSearch_Click);
             // 
             // slcMain
             // 
@@ -785,10 +786,10 @@
             // 
             this.kryptonLabel5.Location = new System.Drawing.Point(8, 133);
             this.kryptonLabel5.Name = "kryptonLabel5";
-            this.kryptonLabel5.Size = new System.Drawing.Size(107, 19);
+            this.kryptonLabel5.Size = new System.Drawing.Size(109, 19);
             this.kryptonLabel5.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.kryptonLabel5.TabIndex = 28;
-            this.kryptonLabel5.Values.Text = "(*) trường bắt buộc";
+            this.kryptonLabel5.Values.Text = "(*) Trường bắt buộc";
             // 
             // finalAccountDetailDTOBindingSource
             // 

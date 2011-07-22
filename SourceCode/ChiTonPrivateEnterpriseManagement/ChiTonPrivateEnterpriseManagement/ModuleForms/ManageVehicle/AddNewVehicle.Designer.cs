@@ -81,10 +81,10 @@
             // 
             this.kryptonLabel2.Location = new System.Drawing.Point(12, 244);
             this.kryptonLabel2.Name = "kryptonLabel2";
-            this.kryptonLabel2.Size = new System.Drawing.Size(107, 19);
+            this.kryptonLabel2.Size = new System.Drawing.Size(109, 19);
             this.kryptonLabel2.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.kryptonLabel2.TabIndex = 14;
-            this.kryptonLabel2.Values.Text = "(*) trường bắt buộc";
+            this.kryptonLabel2.Values.Text = "(*) Trường bắt buộc";
             // 
             // cbStatus
             // 
@@ -173,12 +173,12 @@
             // 
             // lbCons
             // 
-            this.lbCons.Location = new System.Drawing.Point(7, 90);
+            this.lbCons.Location = new System.Drawing.Point(12, 90);
             this.lbCons.Name = "lbCons";
-            this.lbCons.Size = new System.Drawing.Size(75, 19);
+            this.lbCons.Size = new System.Drawing.Size(63, 19);
             this.lbCons.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.lbCons.TabIndex = 4;
-            this.lbCons.Values.Text = "Công trình(*)";
+            this.lbCons.Values.Text = "Công trình";
             // 
             // ipNumber
             // 
@@ -207,10 +207,10 @@
             // 
             this.lbName.Location = new System.Drawing.Point(27, 34);
             this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(54, 19);
+            this.lbName.Size = new System.Drawing.Size(56, 19);
             this.lbName.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.lbName.TabIndex = 0;
-            this.lbName.Values.Text = "Tên xe(*)";
+            this.lbName.Values.Text = "Loại xe(*)";
             // 
             // AddNewVehicle
             // 
