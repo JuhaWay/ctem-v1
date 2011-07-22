@@ -77,6 +77,39 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             }
         }
 
+
+        public int Check(string name,string num,long id)
+        {
+            var cmd = new SqlCommand("[dbo].[Vehicle_Check]", Connection);
+
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@VehicleID", id));
+            cmd.Parameters.Add(new SqlParameter("@Name", name));
+            cmd.Parameters.Add(new SqlParameter("@Number", num));
+           
+            try
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                int count = 0;
+                if (reader.Read())
+                    count = Convert.ToInt32(reader[0]);
+                return count;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message, "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return 0;
+            }
+            finally
+            {
+                if (Transaction == null) Connection.Close();
+            }
+        }
+
         public List<VehicleDTO> searchVehicle(VehicleDTO param)
         {
             var cmd = new SqlCommand("[dbo].[Vehicle_search]", Connection);
