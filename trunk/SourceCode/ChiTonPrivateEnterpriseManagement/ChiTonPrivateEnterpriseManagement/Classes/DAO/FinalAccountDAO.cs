@@ -145,8 +145,8 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         finalAccount.DateAccountFormated =
                             finalAccount.DateAccount.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
                         finalAccount.TransportationCostFormated =
-                            Global.Global.ConvertLongToMoney(finalAccount.TransportationCost, ".");
-                        finalAccount.TotalCostFormated = Global.Global.ConvertLongToMoney(finalAccount.TotalCost, ".");
+                            Global.Global.ConvertLongToMoney(finalAccount.TransportationCost, Constants.SPLIP_MONEY);
+                        finalAccount.TotalCostFormated = Global.Global.ConvertLongToMoney(finalAccount.TotalCost, Constants.SPLIP_MONEY);
                         var ispay = Convert.ToBoolean(reader["IsPay"]);
                         finalAccount.IsPay = ispay ? 1 : 0;
                         finalAccount.ComparationDebtID = Convert.ToInt64(reader["ComparationDebtID"]);

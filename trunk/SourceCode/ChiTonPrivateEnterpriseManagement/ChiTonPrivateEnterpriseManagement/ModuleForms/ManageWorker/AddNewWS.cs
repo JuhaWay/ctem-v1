@@ -54,5 +54,10 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             }
             return true;
         }
+
+        private void btClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

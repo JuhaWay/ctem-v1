@@ -140,7 +140,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
 
         public const string ANNOUNCE = "Thông báo";
 
-        public const string THOUSAND = ".000";
+        public const string THOUSAND = " 000";
 
         public const string ERROR_EMPTY_TEXT = "Vui lòng điền vào các ô có gạch đỏ";
 
@@ -192,7 +192,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
 
         public const string ROLE_SEARCH = "ROLE SEARCH";
 
-        public const string SPLIP_MONEY = ".";
+        public const string SPLIP_MONEY = " ";
 
         public const string ACCOUNT_SEARCH = "Account Search";
 

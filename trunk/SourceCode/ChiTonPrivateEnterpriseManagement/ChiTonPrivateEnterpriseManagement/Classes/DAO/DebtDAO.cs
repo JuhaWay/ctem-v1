@@ -179,7 +179,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         UpdatedBy = Convert.ToString(reader["UpdatedBy"]),
                         LastUpdated = Convert.ToDateTime(reader["UpdatedDate"])
                     };
-                    debt.TotalOweFomated = Global.Global.ConvertLongToMoney(debt.TotalOwe, ".");
+                    debt.TotalOweFomated = Global.Global.ConvertLongToMoney(debt.TotalOwe, Constants.SPLIP_MONEY);
                     if (Convert.ToBoolean(reader["IsActive"]))
                     {
                         debt.IsActive = 1;
@@ -237,7 +237,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         CreatedDate = Convert.ToDateTime(reader["CreatedDate"]),
                         LastUpdated = Convert.ToDateTime(reader["LastUpdated"])
                     };
-                    debt.TotalOweFormat = Global.Global.ConvertLongToMoney(debt.TotalOwe, ".");
+                    debt.TotalOweFormat = Global.Global.ConvertLongToMoney(debt.TotalOwe, Constants.SPLIP_MONEY);
                     debt.DateCompareFormated = debt.DateCompare.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
                     debt.FromDateFormated = debt.FromDate.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
                     debt.ToDateFormated = debt.ToDate.ToString(Constants.DATETIME_FORMAT_SHORTDATE);

@@ -163,7 +163,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
                 var compareDate = dtpDateCompare.Value;
                 var fromDate = dtpFromDate.Value;
                 var toDate = dtpToDate.Value;
-                long totalOwe = Global.ConvertMoneyToLong(txtTotalOwe.Text, ".");
+                long totalOwe = Global.ConvertMoneyToLong(txtTotalOwe.Text, Constants.SPLIP_MONEY);
                 string note = txtNote.Text;
                 var compareDebtDto = new CompareDebtDTO()
                 {
@@ -299,8 +299,8 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
             {
                 if (Global.ValidateMoney(txtTotalOwe))
                 {
-                    long number = Convert.ToInt64(txtTotalOwe.Text.Trim().Replace(".", ""));
-                    txtTotalOwe.Text = Global.ConvertLongToMoney(number, ".");
+                    long number = Convert.ToInt64(txtTotalOwe.Text.Trim().Replace(Constants.SPLIP_MONEY, ""));
+                    txtTotalOwe.Text = Global.ConvertLongToMoney(number, Constants.SPLIP_MONEY);
                 }
                 else
                 {                    

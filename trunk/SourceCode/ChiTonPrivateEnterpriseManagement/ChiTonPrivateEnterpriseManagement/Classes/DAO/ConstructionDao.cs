@@ -161,8 +161,8 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                     consDto.CreateDateFormated = consDto.CreatedDate.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
                     consDto.CommencementDateFormated = consDto.CommencementDate.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
                     consDto.CompletionDateFormated = consDto.CompletionDate.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
-                    consDto.TotalEstimateCostFormated = Global.Global.ConvertLongToMoney(consDto.TotalEstimateCost,".");
-                    consDto.TotalRealCostFormated = Global.Global.ConvertLongToMoney(consDto.TotalRealCost, ".");
+                    consDto.TotalEstimateCostFormated = Global.Global.ConvertLongToMoney(consDto.TotalEstimateCost,Constants.SPLIP_MONEY);
+                    consDto.TotalRealCostFormated = Global.Global.ConvertLongToMoney(consDto.TotalRealCost, Constants.SPLIP_MONEY);
                     listcons.Add(consDto);
                 }
                 return listcons;
@@ -331,8 +331,8 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                     consDto.CreateDateFormated = consDto.CreatedDate.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
                     consDto.CommencementDateFormated = consDto.CommencementDate.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
                     consDto.CompletionDateFormated = consDto.CompletionDate.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
-                    consDto.TotalEstimateCostFormated = Global.Global.ConvertLongToMoney(consDto.TotalEstimateCost, ".");
-                    consDto.TotalRealCostFormated = Global.Global.ConvertLongToMoney(consDto.TotalRealCost, ".");
+                    consDto.TotalEstimateCostFormated = Global.Global.ConvertLongToMoney(consDto.TotalEstimateCost, Constants.SPLIP_MONEY);
+                    consDto.TotalRealCostFormated = Global.Global.ConvertLongToMoney(consDto.TotalRealCost, Constants.SPLIP_MONEY);
                     listcons.Add(consDto);
                 }
                 return listcons;

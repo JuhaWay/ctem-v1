@@ -14,7 +14,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
     {
         public static List<RightDTO> Rights;
         public static EmployerDTO CurrentUser;
-        public static string SEP = ".";
+        public static string SEP = Constants.SPLIP_MONEY;
         public static List<string> ListError = new List<string>();
         public static bool DownUpControl(KryptonForm form, KryptonPanel panel, int maxheight, int minheight, int speed, bool isDown)
         {
@@ -251,7 +251,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
         {
             try
             { 
-                string strLong = textBox.Text.Trim().Replace(".", "");
+                string strLong = textBox.Text.Trim().Replace(Constants.SPLIP_MONEY, "");
                 Convert.ToInt64(strLong);
                 return true;
             }
@@ -629,7 +629,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
                 float a = (sizeStr - i - 1) % 3;
                 if (tempSize != 0 && a == 0)
                 {
-                    result += ".";                    
+                    result += Constants.SPLIP_MONEY;                    
                 }
             }            
             return result;
@@ -936,8 +936,8 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
             {
                 if (ValidateMoney(textBox))
                 {
-                    long money = ConvertMoneyToLong(textBox.Text, ".");
-                    textBox.Text = ConvertLongToMoney(money, ".");
+                    long money = ConvertMoneyToLong(textBox.Text, Constants.SPLIP_MONEY);
+                    textBox.Text = ConvertLongToMoney(money, Constants.SPLIP_MONEY);
                 }
                 else
                 {
@@ -964,7 +964,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
 
         public static void SetLayoutGroupBoxButton(KryptonGroupBox groupBox)
         {
-            groupBox.StateCommon.Back.Color1 = Color.FromArgb(41, 57, 85);
+            groupBox.StateCommon.Back.Color1 = Color.FromArgb(62, 92, 144);
             groupBox.CaptionOverlap = 0;
             groupBox.StateCommon.Border.Rounding = 5;
             groupBox.StateCommon.Border.DrawBorders = PaletteDrawBorders.All;
@@ -1075,17 +1075,9 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
             return true;
         }
 
-        public static int GenerateStatus(string strStatus)
+        public static bool GenerateStatus(string strStatus)
         {
-            int isActie;
-            if (strStatus.Equals(Constants.PAY))
-            {
-                isActie = Constants.ISACTIVE_TRUE;
-            }
-            else
-            {
-                isActie = Constants.ISACTIVE_FALSE;
-            }
+            bool isActie = strStatus.Equals(Constants.PAY);
             return isActie;
         }
 

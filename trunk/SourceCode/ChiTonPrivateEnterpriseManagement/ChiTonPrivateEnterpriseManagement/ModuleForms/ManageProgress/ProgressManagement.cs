@@ -195,12 +195,12 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageProgress
                 Global.DrawChart(chartProgress, progessobj, "", SeriesChartType.Pie);
 
                 //Set Data Disbursement
-                txtTotalCostEst.Text = Global.ConvertLongToMoney(currentCons.TotalEstimateCost, ".") + " (VND)";
-                txtTotalCostAct.Text = Global.ConvertLongToMoney(currentCons.TotalRealCost, ".") + " (VND)";
-                txtTotalMaterialCost.Text = Global.ConvertLongToMoney(currentCons.TotalMaterialCost, ".") + " (VND)";
-                txtTotalWorkerCost.Text = Global.ConvertLongToMoney(currentCons.TotalWorkerCost, ".") + " (VND)";
-                txtTotalMachineCost.Text = Global.ConvertLongToMoney(currentCons.TotalMachineCost, ".") + " (VND)";
-                txtTotalCostsIncurred.Text = Global.ConvertLongToMoney(currentCons.TotalCostsIncurred, ".") + " (VND)";
+                txtTotalCostEst.Text = Global.ConvertLongToMoney(currentCons.TotalEstimateCost, Constants.SPLIP_MONEY) + " (VND)";
+                txtTotalCostAct.Text = Global.ConvertLongToMoney(currentCons.TotalRealCost, Constants.SPLIP_MONEY) + " (VND)";
+                txtTotalMaterialCost.Text = Global.ConvertLongToMoney(currentCons.TotalMaterialCost, Constants.SPLIP_MONEY) + " (VND)";
+                txtTotalWorkerCost.Text = Global.ConvertLongToMoney(currentCons.TotalWorkerCost, Constants.SPLIP_MONEY) + " (VND)";
+                txtTotalMachineCost.Text = Global.ConvertLongToMoney(currentCons.TotalMachineCost, Constants.SPLIP_MONEY) + " (VND)";
+                txtTotalCostsIncurred.Text = Global.ConvertLongToMoney(currentCons.TotalCostsIncurred, Constants.SPLIP_MONEY) + " (VND)";
                 var disburobj = new object[4];
                 if (currentCons.TotalMaterialCost > 0)
                 {

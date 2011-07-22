@@ -93,7 +93,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
 
                         if (!validateQuantity(ipQuantity.Text)) return;
                         dtoTemp.QuantityEstimate = Convert.ToDouble(ipQuantity.Text);
-                        dtoTemp.UnitCostEstimate = Global.ConvertMoneyToLong(ipPrice.Text, ".");
+                        dtoTemp.UnitCostEstimate = Global.ConvertMoneyToLong(ipPrice.Text, Constants.SPLIP_MONEY);
                         dtoTemp.MaterialID = (cbMaterial.SelectedItem as MaterialDTO).MaterialID;
                         dtoTemp.UnitCostEstimateFormated = ipPrice.Text;
                     }
@@ -115,7 +115,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
                     dtoTemp.UnitCostEstimate = 0;
                     dtoTemp.MaterialID = 0;
                 }
-                dtoTemp.TotalCostEstimate = Global.ConvertMoneyToLong(ipTotal.Text, ".");
+                dtoTemp.TotalCostEstimate = Global.ConvertMoneyToLong(ipTotal.Text, Constants.SPLIP_MONEY);
                 dtoTemp.TotalCostEstimateFormated = ipTotal.Text;
                 if (temID != dtoTemp.MaterialID && _estimateDetailBUS.check(dtoTemp.MaterialID, dtoTemp.EstimateID))
                 {
@@ -143,7 +143,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
 
                         if (!validateQuantity(ipQuantity.Text)) return;
                         entity.QuantityEstimate = Convert.ToDouble(ipQuantity.Text);
-                        entity.UnitCostEstimate = Global.ConvertMoneyToLong(ipPrice.Text, ".");
+                        entity.UnitCostEstimate = Global.ConvertMoneyToLong(ipPrice.Text, Constants.SPLIP_MONEY);
                         entity.MaterialID = (cbMaterial.SelectedItem as MaterialDTO).MaterialID;
                         entity.MaterialName = (cbMaterial.SelectedItem as MaterialDTO).MaterialName;
                         entity.UnitCostEstimateFormated = ipPrice.Text;
@@ -160,7 +160,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
                     MessageBox.Show("Vui lòng nhập chi tiết");
                     return;
                 }
-                entity.TotalCostEstimate = Global.ConvertMoneyToLong(ipTotal.Text, ".");
+                entity.TotalCostEstimate = Global.ConvertMoneyToLong(ipTotal.Text, Constants.SPLIP_MONEY);
                 entity.TotalCostEstimateFormated = ipTotal.Text;
                 if (_estimateDetailBUS.check(entity.MaterialID, entity.EstimateID))
                 {

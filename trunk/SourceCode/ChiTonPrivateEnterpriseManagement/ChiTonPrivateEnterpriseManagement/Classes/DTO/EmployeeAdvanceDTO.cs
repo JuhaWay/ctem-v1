@@ -16,9 +16,8 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
         public string TotalAdvanceFormated { get; set; }
         public string Reason { get; set; }
         public string Note { get; set; }
-        public DateTime CreatedDate { get; set; }
-        public DateTime LastUpdate { get; set; }
-
+        public DateTime DateAdvance { get; set; }
+        public string Type { get; set; }
         public EmployeeAdvanceDTO()
         {
             Username = "";
