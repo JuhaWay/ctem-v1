@@ -26,12 +26,13 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
 
         private void VehicleManageMent_Load(object sender, EventArgs e)
         {
-            dgvVehicle.DataSource = _vehicleBUS.LoadAllVehicles();
             cbSearchCons.Items.Add(new ConstructionDTO("toàn bộ",-1));
             cbSearchCons.Items.AddRange(_constructionBus.LoadAllConstructions().ToArray());
             cbSearchCons.DisplayMember = "ConstructionName";
             cbSearchCons.ValueMember = "ConstructionID";
 
+
+            cbCons.Items.Add(new ConstructionDTO("",0));
             cbCons.Items.AddRange(_constructionBus.LoadAllConstructions().ToArray());
             cbCons.DisplayMember = "ConstructionName";
             cbCons.ValueMember = "ConstructionID";
@@ -41,10 +42,22 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
 
             cbHouse.Items.AddRange(_warehouseBUS.LoadWarehouses("", "", -1).ToArray());
             cbHouse.DisplayMember = "WarehouseName";
-            loadDetailValues(0);
+            loadData();
             SetLayout();
 
         }
+
+        public void loadData()
+        {
+            VehicleDTO dto = new VehicleDTO();
+            dto.Name = ipSearchName.Text.Trim().Equals("") ? null : ipSearchName.Text;
+            if (cbSearchCons.SelectedIndex > -1)
+                dto.ConstructionID = (cbSearchCons.SelectedItem as ConstructionDTO).ConstructionID;
+            dto.Number = ipSearchNumber.Text.Trim().Equals("") ? null : ipSearchNumber.Text;
+            dgvVehicle.DataSource = _vehicleBUS.searchVehicle(dto);
+            loadDetailValues(0);
+        }
+
         private void SetLayout()
         {
             dgvVehicle.Focus();
@@ -59,19 +72,14 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
         }
         private void btSearch_Click(object sender, EventArgs e)
         {
-            VehicleDTO dto = new VehicleDTO();
-            dto.Name = ipSearchName.Text.Trim().Equals("") ? null : ipSearchName.Text;
-            if (cbSearchCons.SelectedIndex > -1)
-                dto.ConstructionID = (cbSearchCons.SelectedItem as ConstructionDTO).ConstructionID;
-            dto.Number = ipSearchNumber.Text.Trim().Equals("") ? null : ipSearchNumber.Text;
-            dgvVehicle.DataSource = _vehicleBUS.searchVehicle(dto);
+            loadData();
         }
 
         private void btAddNew_Click(object sender, EventArgs e)
         {
             AddNewVehicle form = new AddNewVehicle();
             form.ShowDialog();
-            dgvVehicle.DataSource = _vehicleBUS.LoadAllVehicles();
+            loadData();
 
         }
 
@@ -85,7 +93,15 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
         {
             if (dgvVehicle.Rows.Count == 0)
             {
-                
+
+                dtoTemp = null;
+                ipName.Text = "";
+                ipNumber.Text = "";
+                cbCons.SelectedIndex = -1;
+
+                cbManager.SelectedIndex = -1;
+                cbHouse.SelectedIndex = -1;
+                cbStatus.Text = "";
                 return;
             }
             dtoTemp = dgvVehicle.Rows[currentMouseOverRow].DataBoundItem as VehicleDTO;
@@ -111,29 +127,38 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
 
         private void btSave_Click(object sender, EventArgs e)
         {
+            if (dtoTemp == null) return;
+            if (_vehicleBUS.Check(ipName.Text.Trim(), ipNumber.Text.Trim(), dtoTemp.VehicleID) > 0)
+            {
+                KryptonMessageBox.Show("Trùng lặp loại xe hoặc biển số", Constants.CONFIRM, MessageBoxButtons.OK,
+                              MessageBoxIcon.Warning);
+                return;
+            }
             if (!validate()) return;
-            dtoTemp.Name = ipName.Text;
-            dtoTemp.Number = ipNumber.Text;
-            dtoTemp.ConstructionID = (cbCons.SelectedItem as ConstructionDTO).ConstructionID;
+            dtoTemp.Name = ipName.Text.Trim();
+            dtoTemp.Number = ipNumber.Text.Trim();
+            if (cbCons.SelectedIndex >-1)
+                     dtoTemp.ConstructionID = (cbCons.SelectedItem as ConstructionDTO).ConstructionID;
             dtoTemp.ManagerID = (cbManager.SelectedItem as EmployerDTO).employeeID;
             dtoTemp.WarehouseID = (cbHouse.SelectedItem as WarehouseDTO).WarehouseID;
             dtoTemp.Status = cbStatus.Text;
             _vehicleBUS.UpdateVehicle(dtoTemp);
-            MessageBox.Show(" cập nhật thành công !");
-            dgvVehicle.DataSource = _vehicleBUS.LoadAllVehicles();
+            KryptonMessageBox.Show("Cập nhật thành công", Constants.CONFIRM, MessageBoxButtons.OK,
+                               MessageBoxIcon.Information);
+            loadData();
         }
 
         private void btDelete_Click(object sender, EventArgs e)
         {
 
-            if (KryptonMessageBox.Show("Xóa bảng lương ?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (KryptonMessageBox.Show("Bạn có muốn xóa phương tiện này không", Constants.CONFIRM, MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 foreach (DataGridViewRow row in dgvVehicle.SelectedRows)
                 {
                     long id = (row.DataBoundItem as VehicleDTO).VehicleID;
                         _vehicleBUS.delete(id);
                 }
-                dgvVehicle.DataSource = _vehicleBUS.LoadAllVehicles();
+                loadData();
             }
         }
         private bool validate()
@@ -150,12 +175,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
                                MessageBoxIcon.Warning);
                 return false;
             }
-            if (cbCons.SelectedIndex < 0)
-            {
-                KryptonMessageBox.Show("Vui Lòng chọn công trình", Constants.CONFIRM, MessageBoxButtons.OK,
-                               MessageBoxIcon.Warning);
-                return false;
-            }
             if (cbManager.SelectedIndex < 0)
             {
                 KryptonMessageBox.Show("Vui Lòng chọn quản lí", Constants.CONFIRM, MessageBoxButtons.OK,
@@ -164,11 +183,33 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
             }
             if (cbHouse.SelectedIndex < 0)
             {
-                KryptonMessageBox.Show("Vui Lòng chọn khó", Constants.CONFIRM, MessageBoxButtons.OK,
+                KryptonMessageBox.Show("Vui Lòng chọn kho", Constants.CONFIRM, MessageBoxButtons.OK,
+                               MessageBoxIcon.Warning);
+                return false;
+            }
+            if (cbStatus.SelectedIndex < 0)
+            {
+                KryptonMessageBox.Show("Vui Lòng chọn tình trạng", Constants.CONFIRM, MessageBoxButtons.OK,
                                MessageBoxIcon.Warning);
                 return false;
             }
             return true;
+        }
+
+        private void btnHideShowSearch_Click(object sender, EventArgs e)
+        {
+            if (gbxSearch.Visible)
+            {
+                btnHideShowSearch.Type = PaletteButtonSpecStyle.ArrowDown;
+                Global.DownUpControl(this, pnlSearch, 62, 2, 4, false);
+                gbxSearch.Visible = false;
+            }
+            else
+            {
+                btnHideShowSearch.Type = PaletteButtonSpecStyle.ArrowUp;
+                gbxSearch.Visible = true;
+                Global.DownUpControl(this, pnlSearch, 62, 2, 4, true);
+            }
         }
 
     }
