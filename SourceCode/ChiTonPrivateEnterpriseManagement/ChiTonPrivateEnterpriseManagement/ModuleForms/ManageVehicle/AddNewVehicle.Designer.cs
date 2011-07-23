@@ -172,14 +172,14 @@
             // cbHouse
             // 
             this.cbHouse.DropDownWidth = 141;
-            this.cbHouse.Location = new System.Drawing.Point(99, 174);
+            this.cbHouse.Location = new System.Drawing.Point(98, 149);
             this.cbHouse.Name = "cbHouse";
             this.cbHouse.Size = new System.Drawing.Size(141, 22);
-            this.cbHouse.TabIndex = 6;
+            this.cbHouse.TabIndex = 5;
             // 
             // lbHouse
             // 
-            this.lbHouse.Location = new System.Drawing.Point(12, 177);
+            this.lbHouse.Location = new System.Drawing.Point(11, 152);
             this.lbHouse.Name = "lbHouse";
             this.lbHouse.Size = new System.Drawing.Size(69, 19);
             this.lbHouse.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -189,14 +189,14 @@
             // cbManager
             // 
             this.cbManager.DropDownWidth = 141;
-            this.cbManager.Location = new System.Drawing.Point(99, 146);
+            this.cbManager.Location = new System.Drawing.Point(98, 177);
             this.cbManager.Name = "cbManager";
             this.cbManager.Size = new System.Drawing.Size(141, 22);
-            this.cbManager.TabIndex = 5;
+            this.cbManager.TabIndex = 6;
             // 
             // kryptonLabel1
             // 
-            this.kryptonLabel1.Location = new System.Drawing.Point(20, 149);
+            this.kryptonLabel1.Location = new System.Drawing.Point(20, 177);
             this.kryptonLabel1.Name = "kryptonLabel1";
             this.kryptonLabel1.Size = new System.Drawing.Size(60, 19);
             this.kryptonLabel1.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -210,6 +210,7 @@
             this.cbCons.Name = "cbCons";
             this.cbCons.Size = new System.Drawing.Size(141, 22);
             this.cbCons.TabIndex = 4;
+            this.cbCons.SelectedIndexChanged += new System.EventHandler(this.cbCons_SelectedIndexChanged);
             // 
             // lbCons
             // 
