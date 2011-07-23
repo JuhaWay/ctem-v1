@@ -29,7 +29,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
             seachDto.ConstructionID = 0;
             seachDto.VehicleID = 0;
             seachDto.DriverID = 0;
-            dtFromdate.Value = new DateTime(dtTodate.Value.Year, dtTodate.Value.Month, dtTodate.Value.Day - 3);
+            dtFromdate.Value = new DateTime(dtTodate.Value.Year, dtTodate.Value.Month-3, dtTodate.Value.Day);
 
             cbSearchCons.Items.Add(new ConstructionDTO("Tất cả",0));
             cbSearchCons.Items.AddRange(_constructionBus.LoadAllConstructions().ToArray());
@@ -40,16 +40,9 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
             cbSearchDriver.DisplayMember = "Username";
             cbSearchVehicle.Items.Add(new VehicleDTO("Tất cả", 0));
             cbSearchVehicle.Items.AddRange(_vehicleBUS.LoadAllVehicles().ToArray());
-            cbSearchVehicle.DisplayMember = "Name";
+            cbSearchVehicle.DisplayMember = "Number";
 
-
-
-            cbCons.Items.AddRange(_constructionBus.LoadAllConstructions().ToArray());
-            cbCons.DisplayMember = "ConstructionName";
-            cbDriver.Items.AddRange(_employeeBUS.LoadAllEmployee().ToArray());
-            cbDriver.DisplayMember = "Username";
-            cbVehicle.Items.AddRange(_vehicleBUS.LoadAllVehicles().ToArray());
-            cbVehicle.DisplayMember = "Name";
+            cbSearchCategory.Items.AddRange(VehicleDTO.getCategory().ToArray());
 
             SetLayout();
             initData();
@@ -81,9 +74,9 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
             seachDto.DriverID = (cbSearchDriver.SelectedItem as EmployerDTO).employeeID; ;
             seachDto.FromDate = dtFromdate.Value;
             seachDto.ToDate = dtTodate.Value;
+            seachDto.Category = cbSearchCategory.Text;
             List<VehicleDairyDTO> list = _vehicleDairyBUS.searchVehicleDairy(seachDto);
             dgvVehicleDairy.DataSource = list;
-            calculateTotal(list);
         }
 
         private void btAddNew_Click(object sender, EventArgs e)
@@ -92,78 +85,24 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
             form.ShowDialog();
             initData();
         }
-        public void calculateTotal(List<VehicleDairyDTO>dtos){
-            long countFual=0;
-            long countDamaged=0;
-            foreach(VehicleDairyDTO dto in dtos){
-                countFual += dto.FualCost;
-                countDamaged += dto.DamagedCost;
-              }
-            ipTotalFualCost.Text = Global.ConvertLongToMoney(countFual, Global.SEP);
-            ipTotalDamagedCost.Text = Global.ConvertLongToMoney(countDamaged, Global.SEP);
-
-        }
+       
         public void initData()
         {
             VehicleDairyDTO seachDto = new VehicleDairyDTO();
             seachDto.FromDate = dtFromdate.Value;
             seachDto.ToDate = dtTodate.Value;
+            seachDto.Category = cbSearchCategory.Text;
             List<VehicleDairyDTO> list = _vehicleDairyBUS.searchVehicleDairy(seachDto);
             dgvVehicleDairy.DataSource = list;
-            calculateTotal(list);
-            loadDetailValues(0);
         }
         private void dgvVehicleDairy_MouseClick(object sender, MouseEventArgs e)
         {
 
-            int currentMouseOverRow = dgvVehicleDairy.HitTest(e.X, e.Y).RowIndex;
-            if (currentMouseOverRow < 0) currentMouseOverRow = 0;
-            loadDetailValues(currentMouseOverRow);
-        }
-        private void loadDetailValues(int currentMouseOverRow)
-        {
-            if (dgvVehicleDairy.Rows.Count == 0)
-            {
-
-                return;
-            }
-            dtoTemp = dgvVehicleDairy.Rows[currentMouseOverRow].DataBoundItem as VehicleDairyDTO;
-            foreach (ConstructionDTO item in cbCons.Items)
-            {
-                if (dtoTemp.ConstructionID.Equals(item.ConstructionID))
-                    cbCons.SelectedItem = item;
-            }
-            foreach (EmployerDTO item in cbDriver.Items)
-            {
-                if (dtoTemp.DriverID.Equals(item.employeeID))
-                    cbDriver.SelectedItem = item;
-            }
-            foreach (VehicleDTO item in cbVehicle.Items)
-            {
-                if (dtoTemp.VehicleID.Equals(item.VehicleID))
-                    cbVehicle.SelectedItem = item;
-            }
-            ipFualCost.Text = Global.ConvertLongToMoney(dtoTemp.FualCost, Global.SEP);
-            ipDamagedCost.Text = Global.ConvertLongToMoney(dtoTemp.DamagedCost, Global.SEP);
-            ipMaproad.Text = dtoTemp.RoadMap;
+           
 
         }
-
-        private void btSave_Click(object sender, EventArgs e)
-        {
-            if (!validateForm()) return;
-            dtoTemp.ConstructionID = (cbCons.SelectedItem as ConstructionDTO).ConstructionID;
-            dtoTemp.DriverID = (cbDriver.SelectedItem as EmployerDTO).employeeID;
-            dtoTemp.VehicleID = (cbVehicle.SelectedItem as VehicleDTO).VehicleID;
-            dtoTemp.RoadMap = ipMaproad.Text;
-            dtoTemp.FualCost = Global.ConvertMoneyToLong(ipFualCost.Text, Global.SEP);
-            dtoTemp.DamagedCost = Global.ConvertMoneyToLong(ipDamagedCost.Text, Global.SEP);
-            dtoTemp.Date = dtDay.Value.Date;
-            dtoTemp.isPaid = false;
-            _vehicleDairyBUS.UpdateVehicleDairy(dtoTemp);
-            MessageBox.Show("Cập nhật  thành công!");
-            initData();
-        }
+    
+       
 
         private void btDelete_Click(object sender, EventArgs e)
         {
@@ -178,49 +117,46 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
                initData();
             }
         }
-        private bool validateForm()
+
+        private void btEdit_Click(object sender, EventArgs e)
         {
 
-            if (cbVehicle.SelectedIndex < 0)
+            foreach (DataGridViewRow row in dgvVehicleDairy.SelectedRows)
             {
-                KryptonMessageBox.Show("Vui Lòng chọn xe", Constants.CONFIRM, MessageBoxButtons.OK,
-                                MessageBoxIcon.Warning);
-                return false;
+                VehicleDairyDTO item = (row.DataBoundItem as VehicleDairyDTO);
+                if (item.Category.Equals(VehicleDTO.CATEGORY_VEHICLE))
+                {
+                    AddnewVehicleDairy form = new AddnewVehicleDairy(item.VehicleDairyID);
+                    form.ShowDialog();
+                }
+                else if (item.Category.Equals(VehicleDTO.CATEGORY_MACHINE))
+                {
+                    AddNewMachineDairy form = new AddNewMachineDairy(item.VehicleDairyID);
+                    form.ShowDialog();
+                }
+                else
+                {
+                    AddNewBargeDairy form = new AddNewBargeDairy(item.VehicleDairyID);
+                    form.ShowDialog();
+                }
             }
-            if (cbDriver.SelectedIndex < 0)
-            {
-                KryptonMessageBox.Show("Vui Lòng chọn tài xế", Constants.CONFIRM, MessageBoxButtons.OK,
-                                MessageBoxIcon.Warning);
-                return false;
-            }
-            if (cbCons.SelectedIndex < 0)
-            {
-                KryptonMessageBox.Show("Vui Lòng chọn công trình", Constants.CONFIRM, MessageBoxButtons.OK,
-                                MessageBoxIcon.Warning);
-                return false;
-            }
-            return true;
+            initData();
         }
 
-        private void ipDamagedCost_Leave(object sender, EventArgs e)
+        private void addMachineDairy_Click(object sender, EventArgs e)
         {
-            ipDamagedCost.Text = Global.ConvertLongToMoney(Global.ConvertMoneyToLong(ipDamagedCost.Text, Global.SEP), Global.SEP);
+            AddNewMachineDairy form = new AddNewMachineDairy();
+            form.ShowDialog();
+            initData();
         }
 
-        private void ipDamagedCost_MouseLeave(object sender, EventArgs e)
+        private void addBarge_Click(object sender, EventArgs e)
         {
-            ipDamagedCost.Text = Global.ConvertLongToMoney(Global.ConvertMoneyToLong(ipDamagedCost.Text, Global.SEP), Global.SEP);
+            AddNewBargeDairy form = new AddNewBargeDairy();
+            form.ShowDialog();
+            initData();
         }
-
-        private void ipFualCost_Leave(object sender, EventArgs e)
-        {
-            ipFualCost.Text = Global.ConvertLongToMoney(Global.ConvertMoneyToLong(ipFualCost.Text, Global.SEP), Global.SEP);
-        }
-
-        private void ipFualCost_MouseLeave(object sender, EventArgs e)
-        {
-            ipFualCost.Text = Global.ConvertLongToMoney(Global.ConvertMoneyToLong(ipFualCost.Text, Global.SEP), Global.SEP);
-        }
+        
 
     }
 }

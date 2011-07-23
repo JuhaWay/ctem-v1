@@ -11,7 +11,7 @@ using ChiTonPrivateEnterpriseManagement.Classes.BUS;
 using ChiTonPrivateEnterpriseManagement.Classes.Global;
 namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
 {
-    public partial class AddnewVehicleDairy : ComponentFactory.Krypton.Toolkit.KryptonForm
+    public partial class AddNewMachineDairy : ComponentFactory.Krypton.Toolkit.KryptonForm
     {
         private VehicleDairyBUS _vehicleDairyBUS = new VehicleDairyBUS();
         private EmployeeBUS _employeeBUS = new EmployeeBUS();
@@ -21,39 +21,38 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
         private RoadMapDTO dtoTemp = new RoadMapDTO();
         private VehicleDairyDTO _vehicleDairyDTO = new VehicleDairyDTO();
         private long _ID = 0;
-        public AddnewVehicleDairy()
+        public AddNewMachineDairy()
         {
-           
             InitializeComponent();
             CenterToParent();
         }
 
-        public AddnewVehicleDairy(long ID)
+        public AddNewMachineDairy(long ID)
         {
-          
             InitializeComponent();
             CenterToParent();
             _ID = ID;
-
-
         }
 
-        private void AddnewVehicleDairy_Load(object sender, EventArgs e)
+        private void AddNewMachineDairy_Load(object sender, EventArgs e)
         {
             cbDriver.Items.AddRange(_employeeBUS.LoadAllEmployee().ToArray());
             cbDriver.DisplayMember = "Username";
-            cbVehicle.Items.AddRange(_vehicleBUS.LoadAllVehicles().ToArray());
+            VehicleDTO dto = new VehicleDTO();
+            dto.Name = "";
+            dto.Number = "";
+            dto.Category = VehicleDTO.CATEGORY_MACHINE;
+            cbVehicle.Items.AddRange(_vehicleBUS.searchVehicle(dto).ToArray());
             cbVehicle.DisplayMember = "Number";
-            Global.SetLayoutPanelNewForm(pnMain);
+            cbCons.Items.AddRange(_constructionBus.LoadAllConstructions().ToArray());
+            cbCons.DisplayMember = "ConstructionName";
 
-            if(_ID>0)
+            if (_ID > 0)
                 loadUpdateForm();
-
-           
         }
-
-        public void loadUpdateForm(){
-             _vehicleDairyDTO = _vehicleDairyBUS.getByID(_ID);
+        public void loadUpdateForm()
+        {
+            _vehicleDairyDTO = _vehicleDairyBUS.getByID(_ID);
             foreach (VehicleDTO dto in cbVehicle.Items)
             {
                 if (dto.VehicleID == _vehicleDairyDTO.VehicleID)
@@ -64,16 +63,20 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
                 if (dto.employeeID == _vehicleDairyDTO.DriverID)
                     cbDriver.SelectedItem = dto;
             }
+            foreach (ConstructionDTO dto in cbCons.Items)
+            {
+                if (dto.ConstructionID == _vehicleDairyDTO.ConstructionID)
+                    cbCons.SelectedItem = dto;
+            }
             ipFualCost.Text = _vehicleDairyDTO.FualCostFormated;
             ipDamagedCost.Text = _vehicleDairyDTO.DamagedCostFormated;
             ipReason.Text = _vehicleDairyDTO.Reason;
             cbPaid.Checked = _vehicleDairyDTO.isPaid;
             ipTotalCost.Text = _vehicleDairyDTO.TotalcostFormated;
             dtDay.Value = _vehicleDairyDTO.Date;
-            list = _vehicleDairyBUS.getALLRoads(_ID);
-            dgvRoadMap.DataSource = null;
-            dgvRoadMap.DataSource = list;
-            
+            ipTask.Text = _vehicleDairyDTO.Task;
+
+
         }
 
         private void btSave_Click(object sender, EventArgs e)
@@ -90,12 +93,10 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
                 dto.isPaid = cbPaid.Checked;
                 dto.Reason = ipReason.Text;
                 dto.Totalcost = dto.FualCost + dto.DamagedCost;
+                dto.ConstructionID = (cbCons.SelectedItem as ConstructionDTO).ConstructionID;
+                dto.Task = ipTask.Text.Trim();
                 long ID = _vehicleDairyBUS.CreateVehicleDairy(dto);
-                foreach (RoadMapDTO item in list)
-                {
-                    item.VehicleDairyID = ID;
-                    _vehicleDairyBUS.CreateRoadMap(item);
-                }
+               
             }
             else
             {
@@ -108,59 +109,12 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
                 _vehicleDairyDTO.isPaid = cbPaid.Checked;
                 _vehicleDairyDTO.Reason = ipReason.Text;
                 _vehicleDairyDTO.Totalcost = _vehicleDairyDTO.FualCost + _vehicleDairyDTO.DamagedCost;
+                _vehicleDairyDTO.ConstructionID = (cbCons.SelectedItem as ConstructionDTO).ConstructionID;
+                _vehicleDairyDTO.Task = ipTask.Text.Trim();
                 _vehicleDairyBUS.UpdateVehicleDairy(_vehicleDairyDTO);
-                foreach (RoadMapDTO item in list)
-                {
-                    item.VehicleDairyID = _ID;
-                    _vehicleDairyBUS.CreateRoadMap(item);
-                }
             }
             this.Close();
         }
-
-       
-
-        private void btSaveRoad_Click(object sender, EventArgs e)
-        {
-            if (!validateRoad()) return;
-            dtoTemp = new RoadMapDTO();
-            dtoTemp.Km = ipKm.Text;
-            dtoTemp.From = ipFrom.Text;
-            dtoTemp.To = ipTo.Text;
-            list.Add(dtoTemp);
-            dgvRoadMap.DataSource = null;
-            dgvRoadMap.DataSource = list;
-           
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-       
-            foreach(DataGridViewRow row in dgvRoadMap.SelectedRows){
-                list.Remove(row.DataBoundItem as RoadMapDTO);
-               
-            }
-            dgvRoadMap.DataSource = null;
-            dgvRoadMap.DataSource = list;
-           
-        }
-
-        private void ipFualCost_TextChanged(object sender, EventArgs e)
-        {
-            long f = (Global.ConvertMoneyToLong(ipFualCost.Text, Global.SEP));
-            long d = (Global.ConvertMoneyToLong(ipDamagedCost.Text, Global.SEP));
-            long t = d + f;
-            ipTotalCost.Text = Global.ConvertLongToMoney(t, Global.SEP);
-        }
-
-        private void ipDamagedCost_TextChanged(object sender, EventArgs e)
-        {
-            long f = (Global.ConvertMoneyToLong(ipFualCost.Text, Global.SEP));
-            long d = (Global.ConvertMoneyToLong(ipDamagedCost.Text, Global.SEP));
-            long t = d + f;
-            ipTotalCost.Text = Global.ConvertLongToMoney(t, Global.SEP);
-        }
-
 
         private bool validateForm()
         {
@@ -177,32 +131,30 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
                                 MessageBoxIcon.Warning);
                 return false;
             }
+            if (cbCons.SelectedIndex < 0)
+            {
+                KryptonMessageBox.Show("Vui Lòng chọn công trình", Constants.CONFIRM, MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return false;
+            }
             return true;
         }
-
-        private bool validateRoad()
+        private void ipFualCost_TextChanged(object sender, EventArgs e)
         {
-
-            if (ipFrom.Text.Trim().Equals(""))
-            {
-                KryptonMessageBox.Show("Vui Lòng điền nơi đi", Constants.CONFIRM, MessageBoxButtons.OK,
-                                MessageBoxIcon.Warning);
-                return false;
-            }
-            if (ipTo.Text.Trim().Equals(""))
-            {
-                KryptonMessageBox.Show("Vui Lòng điền nơi đến", Constants.CONFIRM, MessageBoxButtons.OK,
-                                MessageBoxIcon.Warning);
-                return false;
-            }
-            if (!Global.ValidateIntNumber(ipKm.Text))
-            {
-                KryptonMessageBox.Show("Nhập sai thông tin Km", Constants.CONFIRM, MessageBoxButtons.OK,
-                                MessageBoxIcon.Warning);
-                return false;
-            }
-            return true;
+            long f = (Global.ConvertMoneyToLong(ipFualCost.Text, Global.SEP));
+            long d = (Global.ConvertMoneyToLong(ipDamagedCost.Text, Global.SEP));
+            long t = d + f;
+            ipTotalCost.Text = Global.ConvertLongToMoney(t, Global.SEP);
         }
+
+        private void ipDamagedCost_TextChanged(object sender, EventArgs e)
+        {
+            long f = (Global.ConvertMoneyToLong(ipFualCost.Text, Global.SEP));
+            long d = (Global.ConvertMoneyToLong(ipDamagedCost.Text, Global.SEP));
+            long t = d + f;
+            ipTotalCost.Text = Global.ConvertLongToMoney(t, Global.SEP);
+        }
+     
 
         private void ipDamagedCost_Leave(object sender, EventArgs e)
         {
@@ -229,21 +181,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
             this.Close();
         }
 
-        private void dgvRoadMap_CellEndEdit(object sender, DataGridViewCellEventArgs e)
-        {
-            if (dgvRoadMap.Rows.Count <= 0) return;
-            if (e.ColumnIndex == 2)
-            {
-                string s = dgvRoadMap.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
-                if (!Global.ValidateIntNumber(s))
-                {
-                    KryptonMessageBox.Show("Nhập sai thông tin Km", Constants.CONFIRM, MessageBoxButtons.OK,
-                               MessageBoxIcon.Warning);
-                    dgvRoadMap.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = DBNull.Value;
-                }
-            }
-            
-        }
 
     }
-} 
+}
