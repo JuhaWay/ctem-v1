@@ -9,6 +9,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
         public long VehicleDairyID { get; set; }
         public long VehicleID { get; set; }
         public String VehicleName { get; set; }
+        public String VehicleNumber { get; set; }
         public long ConstructionID { get; set; }
         public String ConstructionName { get; set; }
         public String RoadMap { get; set; }
@@ -21,10 +22,15 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
         public DateTime ToDate { get; set; }
         public bool isPaid { get; set; }
         public long DriverID { get; set; }
-
+        public string Category { get; set; }
+        public string Reason { get; set; }
+        public long Totalcost { get; set; }
         public string FualCostFormated { get; set; }
         public string DamagedCostFormated { get; set; }
         public string DateFormated { get; set; }
+        public string TotalcostFormated { get; set; }
+        public string Task { get; set; }
+
 
     }
 }
