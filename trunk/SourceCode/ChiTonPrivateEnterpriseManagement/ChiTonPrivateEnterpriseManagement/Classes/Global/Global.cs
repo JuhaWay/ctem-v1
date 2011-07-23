@@ -261,6 +261,20 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
             }
         }
 
+        public static bool ValidatePrice(KryptonTextBox textBox)
+        {
+            try
+            {
+                string strLong = textBox.Text.Trim().Replace(Constants.SPLIP_MONEY, "");
+                Convert.ToDouble(strLong);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
         public static bool ValidateIntNumber(string strInt)
         {
             try
@@ -617,6 +631,20 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
             }
         }
 
+        public static double ConvertMoneyToDouble(string strValue, string charFomat)
+        {
+            try
+            {
+                strValue = strValue.Trim().Replace(charFomat, Constants.EMPTY_TEXT);
+                strValue = strValue.Trim().Replace(",", ".");
+                return Convert.ToDouble(strValue);
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+        }
+
         public static string ConvertLongToMoney(long number, string charFomat)
         {
             string result = Constants.EMPTY_TEXT;
@@ -632,6 +660,29 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
                     result += Constants.SPLIP_MONEY;                    
                 }
             }            
+            return result;
+        }
+
+        public static string ConvertDoubleToMoney(double number, string charFomat)
+        {
+            string result = Constants.EMPTY_TEXT;
+            string strNumber = number.ToString();
+            char[] c = {'.'};
+            string[] dd = strNumber.Split(c, 2);
+            string hearder = dd[0];
+            string fofter = dd.Length == 2 ? ("," + dd[1]) : "";
+            int sizeStr = hearder.Length;
+            for (int i = 0; i < sizeStr; i++)
+            {
+                result += hearder[i];
+                int tempSize = sizeStr - i - 1;
+                float a = (sizeStr - i - 1) % 3;
+                if (tempSize != 0 && a == 0)
+                {
+                    result += Constants.SPLIP_MONEY;
+                }
+            }
+            result += fofter;
             return result;
         }
 

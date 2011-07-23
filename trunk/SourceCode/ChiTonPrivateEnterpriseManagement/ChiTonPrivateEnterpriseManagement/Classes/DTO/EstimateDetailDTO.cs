@@ -10,7 +10,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
         public long EstimateID { get; set; }
         public long MaterialID { get; set; }
         public double QuantityEstimate { get; set; }
-        public long UnitCostEstimate { get; set; }
+        public double UnitCostEstimate { get; set; }
         public long TotalCostEstimate { get; set; }
         public string MaterialName { get; set; }
         public string MaterialEstCal { get; set; }

@@ -60,6 +60,7 @@
             this.lbDes = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.dtStartDate = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
             this.ipDes = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.btnAdvance = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             ((System.ComponentModel.ISupportInitialize)(this.pnMain)).BeginInit();
             this.pnMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox2)).BeginInit();
@@ -209,7 +210,8 @@
             // ipRealCost
             // 
             this.ipRealCost.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
-            this.buttonSpecAny3});
+            this.buttonSpecAny3,
+            this.btnAdvance});
             this.ipRealCost.Location = new System.Drawing.Point(110, 204);
             this.ipRealCost.Name = "ipRealCost";
             this.ipRealCost.Size = new System.Drawing.Size(357, 25);
@@ -377,6 +379,11 @@
             this.ipDes.TabIndex = 10;
             this.ipDes.Text = "...";
             // 
+            // btnAdvance
+            // 
+            this.btnAdvance.Text = "Lịch Giải Ngân";
+            this.btnAdvance.UniqueName = "C56298F0A92B43C266B292ECE4B78BC5";
+            // 
             // AddSubconstruction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -438,6 +445,7 @@
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny2;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny1;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny3;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnAdvance;
     }
 }
 
