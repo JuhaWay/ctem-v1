@@ -42,19 +42,33 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
 
             cbHouse.Items.AddRange(_warehouseBUS.LoadWarehouses("", "", -1).ToArray());
             cbHouse.DisplayMember = "WarehouseName";
-            loadData();
+           
             SetLayout();
 
+            cbCategory.Items.AddRange(VehicleDTO.getCategory().ToArray());
+            cbSearchCategory.Items.AddRange(VehicleDTO.getCategory().ToArray());
+            disableEdition();
+            loadData();
         }
+
+        private void disableEdition()
+        {
+            cbCategory.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbCons.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbManager.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbHouse.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
+
 
         public void loadData()
         {
             VehicleDTO dto = new VehicleDTO();
-            dto.Name = ipSearchName.Text.Trim().Equals("") ? null : ipSearchName.Text;
+            dto.Name = ipSearchName.Text.Trim();
             if (cbSearchCons.SelectedIndex > -1)
                 dto.ConstructionID = (cbSearchCons.SelectedItem as ConstructionDTO).ConstructionID;
-            dto.Number = ipSearchNumber.Text.Trim().Equals("") ? null : ipSearchNumber.Text;
-            dgvVehicle.DataSource = _vehicleBUS.searchVehicle(dto);
+            dto.Number = ipSearchNumber.Text.Trim();
+            dto.Category = cbSearchCategory.Text.Trim();
+            dgvVehicle.DataSource = _vehicleBUS.searchVehicle(dto);           
             loadDetailValues(0);
         }
 
@@ -122,15 +136,17 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
                     cbHouse.SelectedItem = item;
             }
             cbStatus.Text = dtoTemp.Status;
+            cbCategory.Text = dtoTemp.Category;
+            dtDate.Value = dtoTemp.Date;
            
         }
 
         private void btSave_Click(object sender, EventArgs e)
         {
             if (dtoTemp == null) return;
-            if (_vehicleBUS.Check(ipName.Text.Trim(), ipNumber.Text.Trim(), dtoTemp.VehicleID) > 0)
+            if (_vehicleBUS.Check(ipNumber.Text.Trim(), dtoTemp.VehicleID) > 0)
             {
-                KryptonMessageBox.Show("Trùng lặp loại xe hoặc biển số", Constants.CONFIRM, MessageBoxButtons.OK,
+                KryptonMessageBox.Show("Trùng lặp biển số", Constants.CONFIRM, MessageBoxButtons.OK,
                               MessageBoxIcon.Warning);
                 return;
             }
@@ -142,6 +158,8 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
             dtoTemp.ManagerID = (cbManager.SelectedItem as EmployerDTO).employeeID;
             dtoTemp.WarehouseID = (cbHouse.SelectedItem as WarehouseDTO).WarehouseID;
             dtoTemp.Status = cbStatus.Text;
+            dtoTemp.Category = cbCategory.Text.Trim();
+            dtoTemp.Date = dtDate.Value.Date;
             _vehicleBUS.UpdateVehicle(dtoTemp);
             KryptonMessageBox.Show("Cập nhật thành công", Constants.CONFIRM, MessageBoxButtons.OK,
                                MessageBoxIcon.Information);
@@ -172,6 +190,12 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
             if (ipNumber.Text.Trim().Equals(""))
             {
                 KryptonMessageBox.Show("Vui Lòng điền biển số", Constants.CONFIRM, MessageBoxButtons.OK,
+                               MessageBoxIcon.Warning);
+                return false;
+            }
+            if (cbCategory.SelectedIndex < 0)
+            {
+                KryptonMessageBox.Show("Vui Lòng chọn chức năng", Constants.CONFIRM, MessageBoxButtons.OK,
                                MessageBoxIcon.Warning);
                 return false;
             }
@@ -210,6 +234,16 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
                 gbxSearch.Visible = true;
                 Global.DownUpControl(this, pnlSearch, 62, 2, 4, true);
             }
+        }
+
+        private void ipSearchName_TextChanged(object sender, EventArgs e)
+        {
+                loadData();
+        }
+
+        private void ipSearchNumber_TextChanged(object sender, EventArgs e)
+        {
+                loadData();
         }
 
     }

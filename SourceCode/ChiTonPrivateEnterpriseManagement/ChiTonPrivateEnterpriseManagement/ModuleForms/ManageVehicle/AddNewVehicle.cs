@@ -34,13 +34,25 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
             cbManager.ValueMember = "employeeID";
             cbHouse.Items.AddRange(_warehouseBUS.LoadWarehouses("", "", -1).ToArray());
             cbHouse.DisplayMember = "WarehouseName";
+            cbCategory.Items.AddRange(VehicleDTO.getCategory().ToArray());
+            cbCategory.DropDownStyle = ComboBoxStyle.DropDownList;
+            disableEdition();
         }
+
+        private void disableEdition()
+        {
+            cbCategory.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbCons.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbManager.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbHouse.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
+
         private void btSave_Click(object sender, EventArgs e)
         {
             if (!validate()) return;
-            if (_vehicleBUS.Check(ipName.Text.Trim(), ipNumber.Text.Trim(), 0) > 0)
+            if (_vehicleBUS.Check(ipNumber.Text.Trim(), 0) > 0)
             {
-                KryptonMessageBox.Show("Trùng lặp loại xe hoặc biển số", Constants.CONFIRM, MessageBoxButtons.OK,
+                KryptonMessageBox.Show("Trùng lặp  biển số", Constants.CONFIRM, MessageBoxButtons.OK,
                               MessageBoxIcon.Warning);
                 return;
             }
@@ -52,6 +64,8 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
             dto.ManagerID = (cbManager.SelectedItem as EmployerDTO).employeeID;
             dto.WarehouseID = (cbHouse.SelectedItem as WarehouseDTO).WarehouseID;
             dto.Status = cbStatus.Text;
+            dto.Category = cbCategory.Text.Trim();
+            dto.Date = dtDate.Value.Date;
             _vehicleBUS.CreateVehicle(dto);
             this.Close();
         }
@@ -69,7 +83,13 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
                                MessageBoxIcon.Warning);
                 return false;
             }
-       
+
+            if (cbCategory.SelectedIndex < 0)
+            {
+                KryptonMessageBox.Show("Vui Lòng chọn chức năng", Constants.CONFIRM, MessageBoxButtons.OK,
+                               MessageBoxIcon.Warning);
+                return false;
+            }
             if (cbManager.SelectedIndex<0)
             {
                 KryptonMessageBox.Show("Vui Lòng chọn quản lí", Constants.CONFIRM, MessageBoxButtons.OK,
