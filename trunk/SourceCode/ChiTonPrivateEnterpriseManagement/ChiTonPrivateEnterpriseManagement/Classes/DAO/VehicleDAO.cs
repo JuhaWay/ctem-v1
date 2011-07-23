@@ -78,7 +78,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
         }
 
 
-        public int Check(string name,string num,long id)
+        public int Check(string num,long id)
         {
             var cmd = new SqlCommand("[dbo].[Vehicle_Check]", Connection);
 
@@ -88,7 +88,6 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             }
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add(new SqlParameter("@VehicleID", id));
-            cmd.Parameters.Add(new SqlParameter("@Name", name));
             cmd.Parameters.Add(new SqlParameter("@Number", num));
            
             try
@@ -119,14 +118,18 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.Transaction = Transaction;
             }
             cmd.CommandType = CommandType.StoredProcedure;
-            if (param.Name!=null)
+            if (!param.Name.Equals(""))
                 cmd.Parameters.Add(new SqlParameter("@Name","%"+param.Name+"%"));
             else
                 cmd.Parameters.Add(new SqlParameter("@Name", DBNull.Value));
-            if (param.Number!=null)
+            if (!param.Number.Equals(""))
                 cmd.Parameters.Add(new SqlParameter("@Number", "%" + param.Number + "%"));
             else
                 cmd.Parameters.Add(new SqlParameter("@Number", DBNull.Value));
+            if (!param.Category.Equals(""))
+                cmd.Parameters.Add(new SqlParameter("@Category", "%" + param.Category + "%"));
+            else
+                cmd.Parameters.Add(new SqlParameter("@Category", DBNull.Value));
             if (param.ConstructionID>0) 
                 cmd.Parameters.Add(new SqlParameter("@ConstructionID", param.ConstructionID));
             else
@@ -148,10 +151,13 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         WarehouseName = Convert.ToString(reader["WarehouseName"]),
                         Status = Convert.ToString(reader["Status"]),
                         Name = Convert.ToString(reader["Name"]),
-                        Number = Convert.ToString(reader["Number"])
+                        Number = Convert.ToString(reader["Number"]),
+                        Date = Convert.ToDateTime(reader["Date"]),
+                        Category = Convert.ToString(reader["Category"])
 
 
                     };
+                    dto.DateFormated = dto.Date.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
                     listcons.Add(dto);
                 }
                 return listcons;
@@ -181,6 +187,8 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.Parameters.Add(new SqlParameter("@Name", dto.Name));
                 cmd.Parameters.Add(new SqlParameter("@Number", dto.Number));
                 cmd.Parameters.Add(new SqlParameter("@Status", dto.Status));
+                cmd.Parameters.Add(new SqlParameter("@Category", dto.Category));
+                cmd.Parameters.Add(new SqlParameter("@Date", dto.Date));
 
                 cmd.ExecuteNonQuery();
                 return true;
@@ -212,6 +220,8 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.Parameters.Add(new SqlParameter("@Name", dto.Name));
                 cmd.Parameters.Add(new SqlParameter("@Number", dto.Number));
                 cmd.Parameters.Add(new SqlParameter("@Status", dto.Status));
+                cmd.Parameters.Add(new SqlParameter("@Category", dto.Category));
+                cmd.Parameters.Add(new SqlParameter("@Date", dto.Date));
 
                 cmd.ExecuteNonQuery();
                 return true;
