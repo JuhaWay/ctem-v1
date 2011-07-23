@@ -62,7 +62,10 @@
             this.dgvVehicleDairy = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.VehicleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DriverName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isPaid = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.vehicleDairyDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.kryptonPanel5 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.pnlSearch = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.gbxSearch = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
@@ -86,9 +89,6 @@
             this.btEdit = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.btnDelete = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.btnHideShowSearch = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.DriverName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vehicleDairyDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel4)).BeginInit();
@@ -103,6 +103,7 @@
             this.gbxLeftBot.Panel.SuspendLayout();
             this.gbxLeftBot.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVehicleDairy)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vehicleDairyDTOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlSearch)).BeginInit();
             this.pnlSearch.SuspendLayout();
@@ -113,7 +114,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.cbSearchCons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbSearchVehicle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbSearchDriver)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vehicleDairyDTOBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // kryptonPanel
@@ -359,6 +359,20 @@
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.Width = 300;
             // 
+            // DriverName
+            // 
+            this.DriverName.DataPropertyName = "DriverName";
+            this.DriverName.HeaderText = "Tài xế";
+            this.DriverName.Name = "DriverName";
+            this.DriverName.Width = 200;
+            // 
+            // Date
+            // 
+            this.Date.DataPropertyName = "DateFormated";
+            this.Date.HeaderText = "Ngày ";
+            this.Date.Name = "Date";
+            this.Date.Width = 200;
+            // 
             // isPaid
             // 
             this.isPaid.DataPropertyName = "isPaid";
@@ -366,6 +380,10 @@
             this.isPaid.Name = "isPaid";
             this.isPaid.Visible = false;
             this.isPaid.Width = 200;
+            // 
+            // vehicleDairyDTOBindingSource
+            // 
+            this.vehicleDairyDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.VehicleDairyDTO);
             // 
             // kryptonPanel5
             // 
@@ -586,7 +604,7 @@
             // 
             this.btnAdd.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.add;
             this.btnAdd.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
-            this.btnAdd.Text = "Thêm";
+            this.btnAdd.Text = "Tạo nhật ký phương tiện";
             this.btnAdd.UniqueName = "6E177DC1660348E375BDCE591BF21FCB";
             this.btnAdd.Click += new System.EventHandler(this.btAddNew_Click);
             // 
@@ -610,24 +628,6 @@
             this.btnHideShowSearch.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
             this.btnHideShowSearch.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.ArrowUp;
             this.btnHideShowSearch.UniqueName = "7CD50F96676F43E7C0B240BAD639EFD5";
-            // 
-            // DriverName
-            // 
-            this.DriverName.DataPropertyName = "DriverName";
-            this.DriverName.HeaderText = "Tài xế";
-            this.DriverName.Name = "DriverName";
-            this.DriverName.Width = 200;
-            // 
-            // Date
-            // 
-            this.Date.DataPropertyName = "DateFormated";
-            this.Date.HeaderText = "Ngày ";
-            this.Date.Name = "Date";
-            this.Date.Width = 200;
-            // 
-            // vehicleDairyDTOBindingSource
-            // 
-            this.vehicleDairyDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.VehicleDairyDTO);
             // 
             // VehicleDairyManagement
             // 
@@ -655,6 +655,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gbxLeftBot)).EndInit();
             this.gbxLeftBot.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvVehicleDairy)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vehicleDairyDTOBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlSearch)).EndInit();
             this.pnlSearch.ResumeLayout(false);
@@ -666,7 +667,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.cbSearchCons)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbSearchVehicle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbSearchDriver)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vehicleDairyDTOBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
