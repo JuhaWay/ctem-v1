@@ -124,7 +124,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
             cbPaid.Checked = _vehicleDairyDTO.isPaid;
             ipTotalCost.Text = _vehicleDairyDTO.TotalcostFormated;
             dtDay.Value = _vehicleDairyDTO.Date;
-
+            ipTask.Text = _vehicleDairyDTO.Task;
 
         }
 
