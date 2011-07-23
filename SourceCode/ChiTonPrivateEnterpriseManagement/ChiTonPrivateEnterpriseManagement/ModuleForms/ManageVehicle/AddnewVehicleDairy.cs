@@ -89,6 +89,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
                 dto.Date = dtDay.Value.Date;
                 dto.isPaid = cbPaid.Checked;
                 dto.Reason = ipReason.Text;
+                dto.Task = "";
                 dto.Totalcost = dto.FualCost + dto.DamagedCost;
                 long ID = _vehicleDairyBUS.CreateVehicleDairy(dto);
                 foreach (RoadMapDTO item in list)
@@ -106,6 +107,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
                 _vehicleDairyDTO.DamagedCost = Global.ConvertMoneyToLong(ipDamagedCost.Text, Global.SEP);
                 _vehicleDairyDTO.Date = dtDay.Value.Date;
                 _vehicleDairyDTO.isPaid = cbPaid.Checked;
+                _vehicleDairyDTO.Task = "";
                 _vehicleDairyDTO.Reason = ipReason.Text;
                 _vehicleDairyDTO.Totalcost = _vehicleDairyDTO.FualCost + _vehicleDairyDTO.DamagedCost;
                 _vehicleDairyBUS.UpdateVehicleDairy(_vehicleDairyDTO);
