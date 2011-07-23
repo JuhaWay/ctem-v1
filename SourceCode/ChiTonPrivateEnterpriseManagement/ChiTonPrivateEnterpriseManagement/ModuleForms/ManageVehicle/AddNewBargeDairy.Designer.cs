@@ -52,6 +52,8 @@
             this.cbVehicle = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.lbDriver = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.ipTask = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.kryptonLabel5 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonComboBox1)).BeginInit();
@@ -61,6 +63,8 @@
             // 
             // kryptonPanel
             // 
+            this.kryptonPanel.Controls.Add(this.ipTask);
+            this.kryptonPanel.Controls.Add(this.kryptonLabel5);
             this.kryptonPanel.Controls.Add(this.kryptonComboBox1);
             this.kryptonPanel.Controls.Add(this.kryptonLabel1);
             this.kryptonPanel.Controls.Add(this.cbPaid);
@@ -93,7 +97,7 @@
             // 
             this.kryptonComboBox1.DropDownWidth = 204;
             this.kryptonComboBox1.Enabled = false;
-            this.kryptonComboBox1.Location = new System.Drawing.Point(189, 70);
+            this.kryptonComboBox1.Location = new System.Drawing.Point(192, 42);
             this.kryptonComboBox1.Name = "kryptonComboBox1";
             this.kryptonComboBox1.Size = new System.Drawing.Size(204, 22);
             this.kryptonComboBox1.TabIndex = 100;
@@ -101,7 +105,7 @@
             // 
             // kryptonLabel1
             // 
-            this.kryptonLabel1.Location = new System.Drawing.Point(104, 70);
+            this.kryptonLabel1.Location = new System.Drawing.Point(107, 42);
             this.kryptonLabel1.Name = "kryptonLabel1";
             this.kryptonLabel1.Size = new System.Drawing.Size(64, 19);
             this.kryptonLabel1.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -111,7 +115,7 @@
             // 
             // cbPaid
             // 
-            this.cbPaid.Location = new System.Drawing.Point(188, 306);
+            this.cbPaid.Location = new System.Drawing.Point(191, 278);
             this.cbPaid.Name = "cbPaid";
             this.cbPaid.Size = new System.Drawing.Size(19, 13);
             this.cbPaid.TabIndex = 8;
@@ -119,7 +123,7 @@
             // 
             // lbPaid
             // 
-            this.lbPaid.Location = new System.Drawing.Point(96, 300);
+            this.lbPaid.Location = new System.Drawing.Point(99, 272);
             this.lbPaid.Name = "lbPaid";
             this.lbPaid.Size = new System.Drawing.Size(78, 19);
             this.lbPaid.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -128,7 +132,7 @@
             // 
             // ipTotalCost
             // 
-            this.ipTotalCost.Location = new System.Drawing.Point(188, 243);
+            this.ipTotalCost.Location = new System.Drawing.Point(191, 215);
             this.ipTotalCost.Name = "ipTotalCost";
             this.ipTotalCost.ReadOnly = true;
             this.ipTotalCost.Size = new System.Drawing.Size(204, 22);
@@ -137,7 +141,7 @@
             // 
             // lbTotal
             // 
-            this.lbTotal.Location = new System.Drawing.Point(96, 246);
+            this.lbTotal.Location = new System.Drawing.Point(99, 218);
             this.lbTotal.Name = "lbTotal";
             this.lbTotal.Size = new System.Drawing.Size(69, 19);
             this.lbTotal.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -146,14 +150,14 @@
             // 
             // ipReason
             // 
-            this.ipReason.Location = new System.Drawing.Point(189, 213);
+            this.ipReason.Location = new System.Drawing.Point(192, 185);
             this.ipReason.Name = "ipReason";
             this.ipReason.Size = new System.Drawing.Size(204, 22);
             this.ipReason.TabIndex = 5;
             // 
             // kryptonLabel3
             // 
-            this.kryptonLabel3.Location = new System.Drawing.Point(131, 216);
+            this.kryptonLabel3.Location = new System.Drawing.Point(134, 188);
             this.kryptonLabel3.Name = "kryptonLabel3";
             this.kryptonLabel3.Size = new System.Drawing.Size(37, 19);
             this.kryptonLabel3.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -164,14 +168,14 @@
             // 
             this.dtDay.CustomFormat = "dd/MM/yyyy";
             this.dtDay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtDay.Location = new System.Drawing.Point(188, 271);
+            this.dtDay.Location = new System.Drawing.Point(191, 243);
             this.dtDay.Name = "dtDay";
             this.dtDay.Size = new System.Drawing.Size(204, 20);
             this.dtDay.TabIndex = 7;
             // 
             // lbDay
             // 
-            this.lbDay.Location = new System.Drawing.Point(85, 271);
+            this.lbDay.Location = new System.Drawing.Point(88, 243);
             this.lbDay.Name = "lbDay";
             this.lbDay.Size = new System.Drawing.Size(83, 19);
             this.lbDay.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -180,7 +184,7 @@
             // 
             // btClose
             // 
-            this.btClose.Location = new System.Drawing.Point(206, 357);
+            this.btClose.Location = new System.Drawing.Point(200, 402);
             this.btClose.Name = "btClose";
             this.btClose.Size = new System.Drawing.Size(52, 25);
             this.btClose.TabIndex = 10;
@@ -189,7 +193,7 @@
             // 
             // btSave
             // 
-            this.btSave.Location = new System.Drawing.Point(140, 357);
+            this.btSave.Location = new System.Drawing.Point(134, 402);
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(60, 25);
             this.btSave.TabIndex = 9;
@@ -198,7 +202,7 @@
             // 
             // kryptonTextBox1
             // 
-            this.kryptonTextBox1.Location = new System.Drawing.Point(191, 185);
+            this.kryptonTextBox1.Location = new System.Drawing.Point(194, 157);
             this.kryptonTextBox1.Multiline = true;
             this.kryptonTextBox1.Name = "kryptonTextBox1";
             this.kryptonTextBox1.Size = new System.Drawing.Size(162, 0);
@@ -207,7 +211,7 @@
             // 
             // ipDamagedCost
             // 
-            this.ipDamagedCost.Location = new System.Drawing.Point(189, 185);
+            this.ipDamagedCost.Location = new System.Drawing.Point(192, 157);
             this.ipDamagedCost.Name = "ipDamagedCost";
             this.ipDamagedCost.Size = new System.Drawing.Size(204, 22);
             this.ipDamagedCost.TabIndex = 4;
@@ -217,7 +221,7 @@
             // 
             // lbDamagedCost
             // 
-            this.lbDamagedCost.Location = new System.Drawing.Point(40, 185);
+            this.lbDamagedCost.Location = new System.Drawing.Point(43, 157);
             this.lbDamagedCost.Name = "lbDamagedCost";
             this.lbDamagedCost.Size = new System.Drawing.Size(128, 19);
             this.lbDamagedCost.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -226,7 +230,7 @@
             // 
             // ipFualCost
             // 
-            this.ipFualCost.Location = new System.Drawing.Point(189, 157);
+            this.ipFualCost.Location = new System.Drawing.Point(192, 129);
             this.ipFualCost.Name = "ipFualCost";
             this.ipFualCost.Size = new System.Drawing.Size(204, 22);
             this.ipFualCost.TabIndex = 3;
@@ -236,7 +240,7 @@
             // 
             // lbFualCost
             // 
-            this.lbFualCost.Location = new System.Drawing.Point(44, 157);
+            this.lbFualCost.Location = new System.Drawing.Point(47, 129);
             this.lbFualCost.Name = "lbFualCost";
             this.lbFualCost.Size = new System.Drawing.Size(130, 19);
             this.lbFualCost.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -246,7 +250,7 @@
             // cbDriver
             // 
             this.cbDriver.DropDownWidth = 121;
-            this.cbDriver.Location = new System.Drawing.Point(189, 126);
+            this.cbDriver.Location = new System.Drawing.Point(192, 98);
             this.cbDriver.Name = "cbDriver";
             this.cbDriver.Size = new System.Drawing.Size(204, 22);
             this.cbDriver.TabIndex = 2;
@@ -255,7 +259,7 @@
             // cbVehicle
             // 
             this.cbVehicle.DropDownWidth = 121;
-            this.cbVehicle.Location = new System.Drawing.Point(189, 98);
+            this.cbVehicle.Location = new System.Drawing.Point(192, 70);
             this.cbVehicle.Name = "cbVehicle";
             this.cbVehicle.Size = new System.Drawing.Size(204, 22);
             this.cbVehicle.TabIndex = 1;
@@ -263,7 +267,7 @@
             // 
             // lbDriver
             // 
-            this.lbDriver.Location = new System.Drawing.Point(118, 126);
+            this.lbDriver.Location = new System.Drawing.Point(121, 98);
             this.lbDriver.Name = "lbDriver";
             this.lbDriver.Size = new System.Drawing.Size(50, 19);
             this.lbDriver.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -272,13 +276,30 @@
             // 
             // kryptonLabel2
             // 
-            this.kryptonLabel2.Location = new System.Drawing.Point(100, 98);
+            this.kryptonLabel2.Location = new System.Drawing.Point(103, 70);
             this.kryptonLabel2.Name = "kryptonLabel2";
             this.kryptonLabel2.Size = new System.Drawing.Size(72, 19);
             this.kryptonLabel2.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.kryptonLabel2.StateCommon.ShortText.Prefix = ComponentFactory.Krypton.Toolkit.PaletteTextHotkeyPrefix.Show;
             this.kryptonLabel2.TabIndex = 115;
             this.kryptonLabel2.Values.Text = "Biển số xe(*)";
+            // 
+            // ipTask
+            // 
+            this.ipTask.Location = new System.Drawing.Point(192, 297);
+            this.ipTask.Multiline = true;
+            this.ipTask.Name = "ipTask";
+            this.ipTask.Size = new System.Drawing.Size(204, 86);
+            this.ipTask.TabIndex = 128;
+            // 
+            // kryptonLabel5
+            // 
+            this.kryptonLabel5.Location = new System.Drawing.Point(116, 297);
+            this.kryptonLabel5.Name = "kryptonLabel5";
+            this.kryptonLabel5.Size = new System.Drawing.Size(59, 19);
+            this.kryptonLabel5.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.kryptonLabel5.TabIndex = 129;
+            this.kryptonLabel5.Values.Text = "Công việc";
             // 
             // AddNewBargeDairy
             // 
@@ -327,6 +348,8 @@
         private ComponentFactory.Krypton.Toolkit.KryptonComboBox cbVehicle;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel lbDriver;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel2;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox ipTask;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel5;
     }
 }
 
