@@ -32,7 +32,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
             cbManager.Items.AddRange(_employeeBUS.LoadAllEmployee().ToArray());
             cbManager.DisplayMember = "Username";
             cbManager.ValueMember = "employeeID";
-            cbHouse.Items.AddRange(_warehouseBUS.LoadWarehouses("", "", -1).ToArray());
+            cbHouse.Items.AddRange(_warehouseBUS.LoadWarehouses("", Constants.MAIN_WAREHOUSE, -1).ToArray());
             cbHouse.DisplayMember = "WarehouseName";
             cbCategory.Items.AddRange(VehicleDTO.getCategory().ToArray());
             cbCategory.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -62,7 +62,10 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
             if (cbCons.SelectedIndex>-1)
                 dto.ConstructionID = (cbCons.SelectedItem as ConstructionDTO).ConstructionID;
             dto.ManagerID = (cbManager.SelectedItem as EmployerDTO).employeeID;
-            dto.WarehouseID = (cbHouse.SelectedItem as WarehouseDTO).WarehouseID;
+            if (cbHouse.Enabled)
+                dto.WarehouseID = (cbHouse.SelectedItem as WarehouseDTO).WarehouseID;
+            else
+                dto.WarehouseID = 0;
             dto.Status = cbStatus.Text;
             dto.Category = cbCategory.Text.Trim();
             dto.Date = dtDate.Value.Date;
@@ -96,7 +99,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
                                MessageBoxIcon.Warning);
                 return false;
             }
-            if (cbHouse.SelectedIndex < 0)
+            if (cbHouse.Enabled && cbHouse.SelectedIndex < 0)
             {
                 KryptonMessageBox.Show("Vui Lòng chọn kho", Constants.CONFIRM, MessageBoxButtons.OK,
                                MessageBoxIcon.Warning);
@@ -119,6 +122,14 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
         private void btClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void cbCons_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbCons.SelectedIndex >0)
+                cbHouse.Enabled = false;
+            else
+                cbHouse.Enabled = true;
         }
     }
 }

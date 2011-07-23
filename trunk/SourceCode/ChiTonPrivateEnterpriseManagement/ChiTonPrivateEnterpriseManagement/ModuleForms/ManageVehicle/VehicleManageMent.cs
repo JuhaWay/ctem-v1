@@ -40,7 +40,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
             cbManager.DisplayMember = "Username";
             cbManager.ValueMember = "employeeID";
 
-            cbHouse.Items.AddRange(_warehouseBUS.LoadWarehouses("", "", -1).ToArray());
+            cbHouse.Items.AddRange(_warehouseBUS.LoadWarehouses("", Constants.MAIN_WAREHOUSE, -1).ToArray());
             cbHouse.DisplayMember = "WarehouseName";
            
             SetLayout();
@@ -156,7 +156,10 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
             if (cbCons.SelectedIndex >-1)
                      dtoTemp.ConstructionID = (cbCons.SelectedItem as ConstructionDTO).ConstructionID;
             dtoTemp.ManagerID = (cbManager.SelectedItem as EmployerDTO).employeeID;
-            dtoTemp.WarehouseID = (cbHouse.SelectedItem as WarehouseDTO).WarehouseID;
+            if (cbHouse.Enabled)
+                dtoTemp.WarehouseID = (cbHouse.SelectedItem as WarehouseDTO).WarehouseID;
+            else
+                dtoTemp.WarehouseID = 0;
             dtoTemp.Status = cbStatus.Text;
             dtoTemp.Category = cbCategory.Text.Trim();
             dtoTemp.Date = dtDate.Value.Date;
@@ -205,7 +208,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
                                MessageBoxIcon.Warning);
                 return false;
             }
-            if (cbHouse.SelectedIndex < 0)
+            if (cbHouse.Enabled && cbHouse.SelectedIndex < 0)
             {
                 KryptonMessageBox.Show("Vui Lòng chọn kho", Constants.CONFIRM, MessageBoxButtons.OK,
                                MessageBoxIcon.Warning);
@@ -244,6 +247,14 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
         private void ipSearchNumber_TextChanged(object sender, EventArgs e)
         {
                 loadData();
+        }
+
+        private void cbCons_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbCons.SelectedIndex >0)
+                cbHouse.Enabled = false;
+            else
+                cbHouse.Enabled = true;
         }
 
     }
