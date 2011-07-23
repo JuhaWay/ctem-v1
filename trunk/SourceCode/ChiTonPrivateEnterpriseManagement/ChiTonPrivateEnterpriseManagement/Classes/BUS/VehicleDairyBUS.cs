@@ -13,7 +13,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
         {
             return _vehicleDairyDAO.searchVehicleDairy(param);
         }
-        public bool CreateVehicleDairy(VehicleDairyDTO dto)
+        public long CreateVehicleDairy(VehicleDairyDTO dto)
         {
             return _vehicleDairyDAO.CreateVehicleDairy(dto);
         }
@@ -24,6 +24,26 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
         public bool delete(long id)
         {
             return _vehicleDairyDAO.delete(id);
+        }
+        public bool CreateRoadMap(RoadMapDTO dto)
+        {
+            return _vehicleDairyDAO.CreateRoadMap(dto);
+        }
+        public bool UpdateRoadMap(RoadMapDTO dto)
+        {
+            return _vehicleDairyDAO.UpdateRoadMap(dto);
+        }
+        public bool DeleteRoadMap(long id)
+        {
+            return _vehicleDairyDAO.deleteRoadMap(id);
+        }
+        public List<RoadMapDTO> getALLRoads(long id)
+        {
+            return _vehicleDairyDAO.getRoads(id);
+        }
+        public VehicleDairyDTO getByID(long ID)
+        {
+            return _vehicleDairyDAO.getByID(ID);
         }
     }
 }
