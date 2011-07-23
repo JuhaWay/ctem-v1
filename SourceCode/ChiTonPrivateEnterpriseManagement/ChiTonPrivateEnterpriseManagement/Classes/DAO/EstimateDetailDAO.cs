@@ -63,7 +63,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         EstimateID = Convert.ToInt64(reader["EstimateID"]),
                         MaterialID = Convert.ToInt64(reader["MaterialID"]),
                         QuantityEstimate = Convert.ToInt32(reader["QuantityEstimate"]), 
-                        UnitCostEstimate = Convert.ToInt32(reader["UnitCostEstimate"]),
+                        UnitCostEstimate = Convert.ToDouble(reader["UnitCostEstimate"]),
                         TotalCostEstimate = Convert.ToInt64(reader["TotalCostEstimate"])
                     };
                     listcons.Add(edDto);
@@ -143,10 +143,10 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         MaterialID = reader["MaterialID"]!=DBNull.Value?Convert.ToInt64(reader["MaterialID"]):0,
                         QuantityEstimate = Convert.ToDouble(reader["QuantityEstimate"]),
                         MaterialEstCal = Convert.ToString(reader["EstimateCalUnit"]),
-                        UnitCostEstimate = Convert.ToInt32(reader["UnitCostEstimate"]),
+                        UnitCostEstimate = Convert.ToDouble(reader["UnitCostEstimate"]),
                         TotalCostEstimate = Convert.ToInt64(reader["TotalCostEstimate"])
                     };
-                    edDto.UnitCostEstimateFormated = Global.Global.ConvertLongToMoney(edDto.UnitCostEstimate,Constants.SPLIP_MONEY);
+                    edDto.UnitCostEstimateFormated = Global.Global.ConvertDoubleToMoney(edDto.UnitCostEstimate,Constants.SPLIP_MONEY);
                     edDto.TotalCostEstimateFormated = Global.Global.ConvertLongToMoney(edDto.TotalCostEstimate, Constants.SPLIP_MONEY);
                     listcons.Add(edDto);
                 }

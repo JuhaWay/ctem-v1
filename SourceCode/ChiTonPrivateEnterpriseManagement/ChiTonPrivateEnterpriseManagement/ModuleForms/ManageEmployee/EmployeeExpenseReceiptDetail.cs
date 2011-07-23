@@ -242,7 +242,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
             long debt1 = Global.ConvertMoneyToLong(txtDebt1.Text, Constants.SPLIP_MONEY);
             long debt2 = Global.ConvertMoneyToLong(txtDebt1.Text, Constants.SPLIP_MONEY);
             long totalAdvance = Global.ConvertMoneyToLong(txtTotalAdvance.Text, Constants.SPLIP_MONEY);
-            long actualIncome = salary - salarycp + allowance - debtPay - debt1 - debt2 - totalAdvance;
+            long actualIncome = salary - salarycp - debtPay - debt1 - debt2 - totalAdvance;
             txtActIncome.Text = Global.ConvertLongToMoney(actualIncome, Constants.SPLIP_MONEY);
         }
 

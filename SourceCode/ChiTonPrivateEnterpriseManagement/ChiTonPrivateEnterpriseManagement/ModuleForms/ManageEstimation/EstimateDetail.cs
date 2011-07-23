@@ -93,7 +93,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
 
                         if (!validateQuantity(ipQuantity.Text)) return;
                         dtoTemp.QuantityEstimate = Convert.ToDouble(ipQuantity.Text);
-                        dtoTemp.UnitCostEstimate = Global.ConvertMoneyToLong(ipPrice.Text, Constants.SPLIP_MONEY);
+                        dtoTemp.UnitCostEstimate = Global.ConvertMoneyToDouble(ipPrice.Text, Constants.SPLIP_MONEY);
                         dtoTemp.MaterialID = (cbMaterial.SelectedItem as MaterialDTO).MaterialID;
                         dtoTemp.UnitCostEstimateFormated = ipPrice.Text;
                     }
@@ -143,7 +143,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
 
                         if (!validateQuantity(ipQuantity.Text)) return;
                         entity.QuantityEstimate = Convert.ToDouble(ipQuantity.Text);
-                        entity.UnitCostEstimate = Global.ConvertMoneyToLong(ipPrice.Text, Constants.SPLIP_MONEY);
+                        entity.UnitCostEstimate = Global.ConvertMoneyToDouble(ipPrice.Text, Constants.SPLIP_MONEY);
                         entity.MaterialID = (cbMaterial.SelectedItem as MaterialDTO).MaterialID;
                         entity.MaterialName = (cbMaterial.SelectedItem as MaterialDTO).MaterialName;
                         entity.UnitCostEstimateFormated = ipPrice.Text;
@@ -198,18 +198,20 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
         {
             if (dgvEstimateDetails.SelectedRows.Count > 0)
             {
-                KryptonMessageBox.Show(Constants.CONFIRM_DELETE, Constants.CONFIRM);
-                foreach (DataGridViewRow row in dgvEstimateDetails.SelectedRows)
+                if (KryptonMessageBox.Show(Constants.CONFIRM_DELETE, Constants.CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
                 {
-                    string strRightID = row.Cells["EstimateDetailID"].Value.ToString();
-                    long EstimateDetailID = Convert.ToInt64(strRightID);
-                    _estimateDetailBUS.DeleteEstimateDetail(EstimateDetailID);
+                    foreach (DataGridViewRow row in dgvEstimateDetails.SelectedRows)
+                    {
+                        string strRightID = row.Cells["EstimateDetailID"].Value.ToString();
+                        long EstimateDetailID = Convert.ToInt64(strRightID);
+                        _estimateDetailBUS.DeleteEstimateDetail(EstimateDetailID);
 
+                    }
+                    _estimateBUS.UpdateEstimate(_estimateId);
+                    resetDataSource(_estimateId, _materialId);
+                    loadDetailValues(0);
                 }
-                _estimateBUS.UpdateEstimate(_estimateId);
-                resetDataSource(_estimateId, _materialId);
-                loadDetailValues(0);
-            }
+            }            
             else
             {
                 KryptonMessageBox.Show("Phải Chọn Đối Tượng Trước Khi Xóa", Constants.ALERT_ERROR, MessageBoxButtons.OK,
@@ -411,16 +413,21 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
         private void ipPrice_Leave(object sender, EventArgs e)
         {
             var textBox = sender as KryptonTextBox;
-            Global.SetTextBoxMoneyLeave(textBox);
-            try
+            if (textBox.Text.Equals(Constants.EMPTY_TEXT))
             {
-                if (Convert.ToDouble(ipQuantity) < 0)
-                {
-                    ipQuantity.Text = Constants.ZERO_NUMBER;
-                };
+                textBox.Text = Constants.ZERO_NUMBER;
             }
-            catch
+            else
             {
+                if (Global.ValidatePrice(textBox))
+                {
+                    double money = Global.ConvertMoneyToDouble(textBox.Text, Constants.SPLIP_MONEY);
+                    textBox.Text = Global.ConvertDoubleToMoney(money, Constants.SPLIP_MONEY);
+                }
+                else
+                {
+                    textBox.Text = Constants.ZERO_NUMBER;
+                }
             }
         }
 
@@ -434,8 +441,8 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
                 }
                 else
                 {
-                    ipTotal.Text = Global.ConvertLongToMoney((long)(Global.ConvertMoneyToLong(ipPrice.Text, Constants.SPLIP_MONEY) *
-                                   Convert.ToDouble(ipQuantity.Text)), Constants.SPLIP_MONEY);
+                    ipTotal.Text = Global.ConvertLongToMoney((long) ((Global.ConvertMoneyToDouble(ipPrice.Text, Constants.SPLIP_MONEY) *
+                                   Convert.ToDouble(ipQuantity.Text))), Constants.SPLIP_MONEY);
                 }
             }
         }
@@ -569,7 +576,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
         {
             if (!ipPrice.Text.Equals(Constants.ZERO_NUMBER) && !ipPrice.Text.Equals(Constants.EMPTY_TEXT))
             {
-                if (Global.ConvertMoneyToLong(ipPrice.Text, Constants.SPLIP_MONEY) == 0)
+                if (Global.ConvertMoneyToDouble(ipPrice.Text, Constants.SPLIP_MONEY) == 0)
                 {
                     KryptonMessageBox.Show(Constants.INPUT_NUMBER_ONLY, Constants.ALERT_ERROR, MessageBoxButtons.OK,
                                            MessageBoxIcon.Warning);
