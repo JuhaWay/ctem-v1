@@ -896,7 +896,6 @@
             this.Controls.Add(this.slcMain);
             this.Controls.Add(this.kryptonPanel);
             this.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.DockActive;
-            this.Name = "VehicleManageMent";
             this.Text = "VehicleManageMent";
             this.Load += new System.EventHandler(this.VehicleManageMent_Load);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).EndInit();

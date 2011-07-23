@@ -236,7 +236,7 @@
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(60, 25);
             this.btSave.TabIndex = 11;
-            this.btSave.Values.Text = "Tạo";
+            this.btSave.Values.Text = "Lưu";
             this.btSave.Click += new System.EventHandler(this.btSave_Click);
             // 
             // kryptonTextBox1
