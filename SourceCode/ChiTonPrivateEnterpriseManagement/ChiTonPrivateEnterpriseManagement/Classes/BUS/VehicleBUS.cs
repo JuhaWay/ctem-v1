@@ -29,9 +29,9 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
         {
             return _vehicleDAO.delete(id);
         }
-        public int Check(string name, string num,long id)
+        public int Check(string num,long id)
         {
-            return _vehicleDAO.Check(name,num,id);
+            return _vehicleDAO.Check(num,id);
         }
     }
 }
