@@ -30,6 +30,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
         public string DateFormated { get; set; }
         public string TotalcostFormated { get; set; }
         public string Task { get; set; }
+        public long ManagerID { get; set; }
 
 
     }
