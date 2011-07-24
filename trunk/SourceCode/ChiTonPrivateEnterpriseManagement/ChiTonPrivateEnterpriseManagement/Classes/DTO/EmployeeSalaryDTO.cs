@@ -19,6 +19,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
         public long Debt2 { get; set; }
         public long TotalAdvanceSalary { get; set; }
         public long ActualIncome { get; set; }
+        public long GenDebt { get; set; }
         public DateTime DateReceive { get; set; }
         public string Username { get; set; }
         public string Fullname { get; set; }
@@ -33,6 +34,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
         public string Debt2Format { get; set; }
         public string TotalAdvanceSalaryFormat { get; set; }
         public string ActualIncomeFormat { get; set; }
+        public string GenDebtFormat { get; set; }
         public string DateReceiveFormat {get;set;}
                 
 

@@ -33,31 +33,6 @@
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.kryptonPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.dgvSalary = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.EmployeeSalaryID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EmployeeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Month = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Salarypc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalAllowance = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Salary = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DebtPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Debt1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Debt2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalAdvanceSalary = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ActualIncome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DateReceive = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fullname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MonthFormat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SalaryFormat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SalarypcFormat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalAllowanceFormat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DebtPayFormat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Debt1Format = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Debt2Format = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalAdvanceSalaryFormat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ActualIncomeFormat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DateReceiveFormat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IsPay = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.employeeSalaryDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pnlSearch = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.gbxSearch = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
@@ -83,6 +58,33 @@
             this.HideSearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xóaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xóaTấtCảToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.EmployeeSalaryID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GenDebt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EmployeeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Month = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Salarypc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalAllowance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Salary = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DebtPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Debt1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Debt2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalAdvanceSalary = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ActualIncome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateReceive = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fullname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MonthFormat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SalaryFormat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SalarypcFormat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalAllowanceFormat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DebtPayFormat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Debt1Format = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Debt2Format = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalAdvanceSalaryFormat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ActualIncomeFormat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GenDebtFormat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateReceiveFormat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IsPay = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSalary)).BeginInit();
@@ -112,6 +114,7 @@
             this.dgvSalary.AutoGenerateColumns = false;
             this.dgvSalary.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.EmployeeSalaryID,
+            this.GenDebt,
             this.EmployeeID,
             this.Month,
             this.Salarypc,
@@ -134,6 +137,7 @@
             this.Debt2Format,
             this.TotalAdvanceSalaryFormat,
             this.ActualIncomeFormat,
+            this.GenDebtFormat,
             this.DateReceiveFormat,
             this.IsPay});
             this.dgvSalary.DataSource = this.employeeSalaryDTOBindingSource;
@@ -143,175 +147,7 @@
             this.dgvSalary.RowHeadersWidth = 25;
             this.dgvSalary.Size = new System.Drawing.Size(792, 479);
             this.dgvSalary.TabIndex = 15;
-            // 
-            // EmployeeSalaryID
-            // 
-            this.EmployeeSalaryID.DataPropertyName = "EmployeeSalaryID";
-            this.EmployeeSalaryID.HeaderText = "EmployeeSalaryID";
-            this.EmployeeSalaryID.Name = "EmployeeSalaryID";
-            this.EmployeeSalaryID.Visible = false;
-            this.EmployeeSalaryID.Width = 120;
-            // 
-            // EmployeeID
-            // 
-            this.EmployeeID.DataPropertyName = "EmployeeID";
-            this.EmployeeID.HeaderText = "EmployeeID";
-            this.EmployeeID.Name = "EmployeeID";
-            this.EmployeeID.Visible = false;
-            // 
-            // Month
-            // 
-            this.Month.DataPropertyName = "Month";
-            this.Month.HeaderText = "Month";
-            this.Month.Name = "Month";
-            this.Month.Visible = false;
-            // 
-            // Salarypc
-            // 
-            this.Salarypc.DataPropertyName = "Salarypc";
-            this.Salarypc.HeaderText = "Salarypc";
-            this.Salarypc.Name = "Salarypc";
-            this.Salarypc.Visible = false;
-            // 
-            // TotalAllowance
-            // 
-            this.TotalAllowance.DataPropertyName = "TotalAllowance";
-            this.TotalAllowance.HeaderText = "TotalAllowance";
-            this.TotalAllowance.Name = "TotalAllowance";
-            this.TotalAllowance.Visible = false;
-            // 
-            // Salary
-            // 
-            this.Salary.DataPropertyName = "Salary";
-            this.Salary.HeaderText = "Salary";
-            this.Salary.Name = "Salary";
-            this.Salary.Visible = false;
-            // 
-            // DebtPay
-            // 
-            this.DebtPay.DataPropertyName = "DebtPay";
-            this.DebtPay.HeaderText = "DebtPay";
-            this.DebtPay.Name = "DebtPay";
-            this.DebtPay.Visible = false;
-            // 
-            // Debt1
-            // 
-            this.Debt1.DataPropertyName = "Debt1";
-            this.Debt1.HeaderText = "Debt1";
-            this.Debt1.Name = "Debt1";
-            this.Debt1.Visible = false;
-            // 
-            // Debt2
-            // 
-            this.Debt2.DataPropertyName = "Debt2";
-            this.Debt2.HeaderText = "Debt2";
-            this.Debt2.Name = "Debt2";
-            this.Debt2.Visible = false;
-            // 
-            // TotalAdvanceSalary
-            // 
-            this.TotalAdvanceSalary.DataPropertyName = "TotalAdvanceSalary";
-            this.TotalAdvanceSalary.HeaderText = "TotalAdvanceSalary";
-            this.TotalAdvanceSalary.Name = "TotalAdvanceSalary";
-            this.TotalAdvanceSalary.Visible = false;
-            // 
-            // ActualIncome
-            // 
-            this.ActualIncome.DataPropertyName = "ActualIncome";
-            this.ActualIncome.HeaderText = "ActualIncome";
-            this.ActualIncome.Name = "ActualIncome";
-            this.ActualIncome.Visible = false;
-            // 
-            // DateReceive
-            // 
-            this.DateReceive.DataPropertyName = "DateReceive";
-            this.DateReceive.HeaderText = "DateReceive";
-            this.DateReceive.Name = "DateReceive";
-            this.DateReceive.Visible = false;
-            // 
-            // Username
-            // 
-            this.Username.DataPropertyName = "Username";
-            this.Username.HeaderText = "Tên Đăng Nhập";
-            this.Username.Name = "Username";
-            // 
-            // Fullname
-            // 
-            this.Fullname.DataPropertyName = "Fullname";
-            this.Fullname.HeaderText = "Tên Đầy Đủ";
-            this.Fullname.Name = "Fullname";
-            this.Fullname.Width = 150;
-            // 
-            // MonthFormat
-            // 
-            this.MonthFormat.DataPropertyName = "MonthFormat";
-            this.MonthFormat.HeaderText = "Tháng";
-            this.MonthFormat.Name = "MonthFormat";
-            this.MonthFormat.Width = 70;
-            // 
-            // SalaryFormat
-            // 
-            this.SalaryFormat.DataPropertyName = "SalaryFormat";
-            this.SalaryFormat.HeaderText = "Lương Cứng";
-            this.SalaryFormat.Name = "SalaryFormat";
-            // 
-            // SalarypcFormat
-            // 
-            this.SalarypcFormat.DataPropertyName = "SalarypcFormat";
-            this.SalarypcFormat.HeaderText = "10% Lương";
-            this.SalarypcFormat.Name = "SalarypcFormat";
-            // 
-            // TotalAllowanceFormat
-            // 
-            this.TotalAllowanceFormat.DataPropertyName = "TotalAllowanceFormat";
-            this.TotalAllowanceFormat.HeaderText = "Tổng Tiền Phụ Cấp";
-            this.TotalAllowanceFormat.Name = "TotalAllowanceFormat";
-            this.TotalAllowanceFormat.Width = 150;
-            // 
-            // DebtPayFormat
-            // 
-            this.DebtPayFormat.DataPropertyName = "DebtPayFormat";
-            this.DebtPayFormat.HeaderText = "Tiền Nợ Doanh Nghiệp";
-            this.DebtPayFormat.Name = "DebtPayFormat";
-            this.DebtPayFormat.Width = 150;
-            // 
-            // Debt1Format
-            // 
-            this.Debt1Format.DataPropertyName = "Debt1Format";
-            this.Debt1Format.HeaderText = "Tiền Nợ Khác 1";
-            this.Debt1Format.Name = "Debt1Format";
-            // 
-            // Debt2Format
-            // 
-            this.Debt2Format.DataPropertyName = "Debt2Format";
-            this.Debt2Format.HeaderText = "Tiền Nợ Khác 2";
-            this.Debt2Format.Name = "Debt2Format";
-            // 
-            // TotalAdvanceSalaryFormat
-            // 
-            this.TotalAdvanceSalaryFormat.DataPropertyName = "TotalAdvanceSalaryFormat";
-            this.TotalAdvanceSalaryFormat.HeaderText = "Tổng Tiền Ứng Lương";
-            this.TotalAdvanceSalaryFormat.Name = "TotalAdvanceSalaryFormat";
-            this.TotalAdvanceSalaryFormat.Width = 150;
-            // 
-            // ActualIncomeFormat
-            // 
-            this.ActualIncomeFormat.DataPropertyName = "ActualIncomeFormat";
-            this.ActualIncomeFormat.HeaderText = "Thực Lãnh";
-            this.ActualIncomeFormat.Name = "ActualIncomeFormat";
-            // 
-            // DateReceiveFormat
-            // 
-            this.DateReceiveFormat.DataPropertyName = "DateReceiveFormat";
-            this.DateReceiveFormat.HeaderText = "Ngày Lãnh";
-            this.DateReceiveFormat.Name = "DateReceiveFormat";
-            // 
-            // IsPay
-            // 
-            this.IsPay.DataPropertyName = "IsPay";
-            this.IsPay.HeaderText = "Đã Lãnh";
-            this.IsPay.Name = "IsPay";
-            this.IsPay.Width = 70;
+            this.dgvSalary.DoubleClick += new System.EventHandler(this.dgvSalary_DoubleClick);
             // 
             // employeeSalaryDTOBindingSource
             // 
@@ -574,6 +410,187 @@
             this.xóaTấtCảToolStripMenuItem.Text = "Xóa Tất Cả";
             this.xóaTấtCảToolStripMenuItem.Click += new System.EventHandler(this.btnDeleteAll_Click);
             // 
+            // EmployeeSalaryID
+            // 
+            this.EmployeeSalaryID.DataPropertyName = "EmployeeSalaryID";
+            this.EmployeeSalaryID.HeaderText = "EmployeeSalaryID";
+            this.EmployeeSalaryID.Name = "EmployeeSalaryID";
+            this.EmployeeSalaryID.Visible = false;
+            this.EmployeeSalaryID.Width = 120;
+            // 
+            // GenDebt
+            // 
+            this.GenDebt.DataPropertyName = "GenDebt";
+            this.GenDebt.HeaderText = "GenDebt";
+            this.GenDebt.Name = "GenDebt";
+            // 
+            // EmployeeID
+            // 
+            this.EmployeeID.DataPropertyName = "EmployeeID";
+            this.EmployeeID.HeaderText = "EmployeeID";
+            this.EmployeeID.Name = "EmployeeID";
+            this.EmployeeID.Visible = false;
+            // 
+            // Month
+            // 
+            this.Month.DataPropertyName = "Month";
+            this.Month.HeaderText = "Month";
+            this.Month.Name = "Month";
+            this.Month.Visible = false;
+            // 
+            // Salarypc
+            // 
+            this.Salarypc.DataPropertyName = "Salarypc";
+            this.Salarypc.HeaderText = "Salarypc";
+            this.Salarypc.Name = "Salarypc";
+            this.Salarypc.Visible = false;
+            // 
+            // TotalAllowance
+            // 
+            this.TotalAllowance.DataPropertyName = "TotalAllowance";
+            this.TotalAllowance.HeaderText = "TotalAllowance";
+            this.TotalAllowance.Name = "TotalAllowance";
+            this.TotalAllowance.Visible = false;
+            // 
+            // Salary
+            // 
+            this.Salary.DataPropertyName = "Salary";
+            this.Salary.HeaderText = "Salary";
+            this.Salary.Name = "Salary";
+            this.Salary.Visible = false;
+            // 
+            // DebtPay
+            // 
+            this.DebtPay.DataPropertyName = "DebtPay";
+            this.DebtPay.HeaderText = "DebtPay";
+            this.DebtPay.Name = "DebtPay";
+            this.DebtPay.Visible = false;
+            // 
+            // Debt1
+            // 
+            this.Debt1.DataPropertyName = "Debt1";
+            this.Debt1.HeaderText = "Debt1";
+            this.Debt1.Name = "Debt1";
+            this.Debt1.Visible = false;
+            // 
+            // Debt2
+            // 
+            this.Debt2.DataPropertyName = "Debt2";
+            this.Debt2.HeaderText = "Debt2";
+            this.Debt2.Name = "Debt2";
+            this.Debt2.Visible = false;
+            // 
+            // TotalAdvanceSalary
+            // 
+            this.TotalAdvanceSalary.DataPropertyName = "TotalAdvanceSalary";
+            this.TotalAdvanceSalary.HeaderText = "TotalAdvanceSalary";
+            this.TotalAdvanceSalary.Name = "TotalAdvanceSalary";
+            this.TotalAdvanceSalary.Visible = false;
+            // 
+            // ActualIncome
+            // 
+            this.ActualIncome.DataPropertyName = "ActualIncome";
+            this.ActualIncome.HeaderText = "ActualIncome";
+            this.ActualIncome.Name = "ActualIncome";
+            this.ActualIncome.Visible = false;
+            // 
+            // DateReceive
+            // 
+            this.DateReceive.DataPropertyName = "DateReceive";
+            this.DateReceive.HeaderText = "DateReceive";
+            this.DateReceive.Name = "DateReceive";
+            this.DateReceive.Visible = false;
+            // 
+            // Username
+            // 
+            this.Username.DataPropertyName = "Username";
+            this.Username.HeaderText = "Tên Đăng Nhập";
+            this.Username.Name = "Username";
+            // 
+            // Fullname
+            // 
+            this.Fullname.DataPropertyName = "Fullname";
+            this.Fullname.HeaderText = "Tên Đầy Đủ";
+            this.Fullname.Name = "Fullname";
+            this.Fullname.Width = 150;
+            // 
+            // MonthFormat
+            // 
+            this.MonthFormat.DataPropertyName = "MonthFormat";
+            this.MonthFormat.HeaderText = "Tháng";
+            this.MonthFormat.Name = "MonthFormat";
+            this.MonthFormat.Width = 70;
+            // 
+            // SalaryFormat
+            // 
+            this.SalaryFormat.DataPropertyName = "SalaryFormat";
+            this.SalaryFormat.HeaderText = "Lương Cứng";
+            this.SalaryFormat.Name = "SalaryFormat";
+            // 
+            // SalarypcFormat
+            // 
+            this.SalarypcFormat.DataPropertyName = "SalarypcFormat";
+            this.SalarypcFormat.HeaderText = "10% Lương";
+            this.SalarypcFormat.Name = "SalarypcFormat";
+            // 
+            // TotalAllowanceFormat
+            // 
+            this.TotalAllowanceFormat.DataPropertyName = "TotalAllowanceFormat";
+            this.TotalAllowanceFormat.HeaderText = "Tổng Tiền Phụ Cấp";
+            this.TotalAllowanceFormat.Name = "TotalAllowanceFormat";
+            this.TotalAllowanceFormat.Width = 150;
+            // 
+            // DebtPayFormat
+            // 
+            this.DebtPayFormat.DataPropertyName = "DebtPayFormat";
+            this.DebtPayFormat.HeaderText = "Tiền Nợ Doanh Nghiệp";
+            this.DebtPayFormat.Name = "DebtPayFormat";
+            this.DebtPayFormat.Width = 150;
+            // 
+            // Debt1Format
+            // 
+            this.Debt1Format.DataPropertyName = "Debt1Format";
+            this.Debt1Format.HeaderText = "Tiền Nợ Khác 1";
+            this.Debt1Format.Name = "Debt1Format";
+            // 
+            // Debt2Format
+            // 
+            this.Debt2Format.DataPropertyName = "Debt2Format";
+            this.Debt2Format.HeaderText = "Tiền Nợ Khác 2";
+            this.Debt2Format.Name = "Debt2Format";
+            // 
+            // TotalAdvanceSalaryFormat
+            // 
+            this.TotalAdvanceSalaryFormat.DataPropertyName = "TotalAdvanceSalaryFormat";
+            this.TotalAdvanceSalaryFormat.HeaderText = "Tổng Tiền Ứng Lương";
+            this.TotalAdvanceSalaryFormat.Name = "TotalAdvanceSalaryFormat";
+            this.TotalAdvanceSalaryFormat.Width = 150;
+            // 
+            // ActualIncomeFormat
+            // 
+            this.ActualIncomeFormat.DataPropertyName = "ActualIncomeFormat";
+            this.ActualIncomeFormat.HeaderText = "Thực Lãnh";
+            this.ActualIncomeFormat.Name = "ActualIncomeFormat";
+            // 
+            // GenDebtFormat
+            // 
+            this.GenDebtFormat.DataPropertyName = "GenDebtFormat";
+            this.GenDebtFormat.HeaderText = "Nợ Phát Sinh";
+            this.GenDebtFormat.Name = "GenDebtFormat";
+            // 
+            // DateReceiveFormat
+            // 
+            this.DateReceiveFormat.DataPropertyName = "DateReceiveFormat";
+            this.DateReceiveFormat.HeaderText = "Ngày Lãnh";
+            this.DateReceiveFormat.Name = "DateReceiveFormat";
+            // 
+            // IsPay
+            // 
+            this.IsPay.DataPropertyName = "IsPay";
+            this.IsPay.HeaderText = "Đã Lãnh";
+            this.IsPay.Name = "IsPay";
+            this.IsPay.Width = 70;
+            // 
             // EmployeeExpenseReceipts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -632,6 +649,7 @@
         private System.Windows.Forms.ToolStripMenuItem xóaTấtCảToolStripMenuItem;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnDetail;
         private System.Windows.Forms.DataGridViewTextBoxColumn EmployeeSalaryID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GenDebt;
         private System.Windows.Forms.DataGridViewTextBoxColumn EmployeeID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Month;
         private System.Windows.Forms.DataGridViewTextBoxColumn Salarypc;
@@ -654,6 +672,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Debt2Format;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalAdvanceSalaryFormat;
         private System.Windows.Forms.DataGridViewTextBoxColumn ActualIncomeFormat;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GenDebtFormat;
         private System.Windows.Forms.DataGridViewTextBoxColumn DateReceiveFormat;
         private System.Windows.Forms.DataGridViewCheckBoxColumn IsPay;
     }

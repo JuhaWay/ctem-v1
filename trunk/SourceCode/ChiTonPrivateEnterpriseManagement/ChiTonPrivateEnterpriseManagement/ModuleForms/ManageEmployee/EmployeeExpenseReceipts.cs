@@ -173,5 +173,10 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
             expenseReceiptDetail.ShowDialog();
             RefreshData();
         }
+
+        private void dgvSalary_DoubleClick(object sender, EventArgs e)
+        {
+            btnDetail_Click(null, null);
+        }
     }
 }

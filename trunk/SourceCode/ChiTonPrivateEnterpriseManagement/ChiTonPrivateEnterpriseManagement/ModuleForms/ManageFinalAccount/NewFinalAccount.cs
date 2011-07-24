@@ -14,7 +14,7 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
 {
-    public partial class NewFinalAccount : ComponentFactory.Krypton.Toolkit.KryptonForm
+    public partial class NewFinalAccount : KryptonForm
     {
         bool isNew;
         bool isEdit;

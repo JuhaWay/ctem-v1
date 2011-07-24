@@ -48,6 +48,8 @@
             this.kryptonLabel8 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonGroupBox2 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.txtDebt2 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.cmsGen = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.GenMoneyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txtDebt1 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.kryptonLabel7 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel6 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
@@ -65,8 +67,8 @@
             this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.txtSalary = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.cmsGen = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.GenMoneyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtGenDebt = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.kryptonLabel13 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox5)).BeginInit();
@@ -82,11 +84,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox2)).BeginInit();
             this.kryptonGroupBox2.Panel.SuspendLayout();
             this.kryptonGroupBox2.SuspendLayout();
+            this.cmsGen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).BeginInit();
             this.kryptonGroupBox1.Panel.SuspendLayout();
             this.kryptonGroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbbEmployee)).BeginInit();
-            this.cmsGen.SuspendLayout();
             this.SuspendLayout();
             // 
             // kryptonPanel1
@@ -99,14 +101,14 @@
             this.kryptonPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonPanel1.Location = new System.Drawing.Point(0, 0);
             this.kryptonPanel1.Name = "kryptonPanel1";
-            this.kryptonPanel1.Size = new System.Drawing.Size(525, 696);
+            this.kryptonPanel1.Size = new System.Drawing.Size(525, 721);
             this.kryptonPanel1.TabIndex = 0;
             // 
             // kryptonGroupBox5
             // 
             this.kryptonGroupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.kryptonGroupBox5.Location = new System.Drawing.Point(12, 588);
+            this.kryptonGroupBox5.Location = new System.Drawing.Point(12, 614);
             this.kryptonGroupBox5.Name = "kryptonGroupBox5";
             // 
             // kryptonGroupBox5.Panel
@@ -157,13 +159,15 @@
             // 
             // kryptonGroupBox4.Panel
             // 
+            this.kryptonGroupBox4.Panel.Controls.Add(this.txtGenDebt);
+            this.kryptonGroupBox4.Panel.Controls.Add(this.kryptonLabel13);
             this.kryptonGroupBox4.Panel.Controls.Add(this.dtpDateReceive);
             this.kryptonGroupBox4.Panel.Controls.Add(this.cbbIsPay);
             this.kryptonGroupBox4.Panel.Controls.Add(this.kryptonLabel12);
             this.kryptonGroupBox4.Panel.Controls.Add(this.txtActIncome);
             this.kryptonGroupBox4.Panel.Controls.Add(this.kryptonLabel11);
             this.kryptonGroupBox4.Panel.Controls.Add(this.kryptonLabel10);
-            this.kryptonGroupBox4.Size = new System.Drawing.Size(501, 139);
+            this.kryptonGroupBox4.Size = new System.Drawing.Size(501, 165);
             this.kryptonGroupBox4.TabIndex = 3;
             this.kryptonGroupBox4.Values.Heading = "Thông Tin Nhân Lương";
             // 
@@ -179,14 +183,14 @@
             // cbbIsPay
             // 
             this.cbbIsPay.DropDownWidth = 223;
-            this.cbbIsPay.Location = new System.Drawing.Point(155, 70);
+            this.cbbIsPay.Location = new System.Drawing.Point(155, 98);
             this.cbbIsPay.Name = "cbbIsPay";
             this.cbbIsPay.Size = new System.Drawing.Size(294, 22);
             this.cbbIsPay.TabIndex = 42;
             // 
             // kryptonLabel12
             // 
-            this.kryptonLabel12.Location = new System.Drawing.Point(86, 72);
+            this.kryptonLabel12.Location = new System.Drawing.Point(86, 100);
             this.kryptonLabel12.Name = "kryptonLabel12";
             this.kryptonLabel12.Size = new System.Drawing.Size(63, 19);
             this.kryptonLabel12.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -202,6 +206,7 @@
             this.txtActIncome.Size = new System.Drawing.Size(294, 22);
             this.txtActIncome.TabIndex = 40;
             this.txtActIncome.Text = "0";
+            this.txtActIncome.TextChanged += new System.EventHandler(this.txtActIncome_TextChanged);
             this.txtActIncome.Enter += new System.EventHandler(this.txtActIncome_Enter);
             // 
             // kryptonLabel11
@@ -296,6 +301,22 @@
             this.txtDebt2.Text = "0";
             this.txtDebt2.Enter += new System.EventHandler(this.txtSalary_Enter);
             this.txtDebt2.Leave += new System.EventHandler(this.txtSalary_Leave);
+            // 
+            // cmsGen
+            // 
+            this.cmsGen.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.cmsGen.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.GenMoneyToolStripMenuItem});
+            this.cmsGen.Name = "cmsGen";
+            this.cmsGen.Size = new System.Drawing.Size(171, 26);
+            // 
+            // GenMoneyToolStripMenuItem
+            // 
+            this.GenMoneyToolStripMenuItem.Name = "GenMoneyToolStripMenuItem";
+            this.GenMoneyToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G)));
+            this.GenMoneyToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.GenMoneyToolStripMenuItem.Text = "Thêm 000";
+            this.GenMoneyToolStripMenuItem.Click += new System.EventHandler(this.GenMoneyToolStripMenuItem_Click);
             // 
             // txtDebt1
             // 
@@ -485,27 +506,30 @@
             this.txtSalary.Enter += new System.EventHandler(this.txtSalary_Enter);
             this.txtSalary.Leave += new System.EventHandler(this.txtSalary_Leave);
             // 
-            // cmsGen
+            // txtGenDebt
             // 
-            this.cmsGen.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.cmsGen.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.GenMoneyToolStripMenuItem});
-            this.cmsGen.Name = "cmsGen";
-            this.cmsGen.Size = new System.Drawing.Size(171, 26);
+            this.txtGenDebt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtGenDebt.Location = new System.Drawing.Point(155, 70);
+            this.txtGenDebt.Name = "txtGenDebt";
+            this.txtGenDebt.Size = new System.Drawing.Size(294, 22);
+            this.txtGenDebt.TabIndex = 45;
+            this.txtGenDebt.Text = "0";
             // 
-            // GenMoneyToolStripMenuItem
+            // kryptonLabel13
             // 
-            this.GenMoneyToolStripMenuItem.Name = "GenMoneyToolStripMenuItem";
-            this.GenMoneyToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G)));
-            this.GenMoneyToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.GenMoneyToolStripMenuItem.Text = "Thêm 000";
-            this.GenMoneyToolStripMenuItem.Click += new System.EventHandler(this.GenMoneyToolStripMenuItem_Click);
+            this.kryptonLabel13.Location = new System.Drawing.Point(73, 73);
+            this.kryptonLabel13.Name = "kryptonLabel13";
+            this.kryptonLabel13.Size = new System.Drawing.Size(76, 19);
+            this.kryptonLabel13.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.kryptonLabel13.TabIndex = 44;
+            this.kryptonLabel13.Values.Text = "Nợ Phát Sinh";
             // 
             // EmployeeExpenseReceiptDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(525, 696);
+            this.ClientSize = new System.Drawing.Size(525, 721);
             this.Controls.Add(this.kryptonPanel1);
             this.Name = "EmployeeExpenseReceiptDetail";
             this.Text = "Thông Tin Chi Tiết Thu Chi Nhân Viên";
@@ -528,12 +552,12 @@
             this.kryptonGroupBox2.Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox2)).EndInit();
             this.kryptonGroupBox2.ResumeLayout(false);
+            this.cmsGen.ResumeLayout(false);
             this.kryptonGroupBox1.Panel.ResumeLayout(false);
             this.kryptonGroupBox1.Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).EndInit();
             this.kryptonGroupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cbbEmployee)).EndInit();
-            this.cmsGen.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -578,6 +602,8 @@
         private ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker dtpDateReceive;
         private System.Windows.Forms.ContextMenuStrip cmsGen;
         private System.Windows.Forms.ToolStripMenuItem GenMoneyToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtGenDebt;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel13;
     }
 }
 

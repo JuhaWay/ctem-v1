@@ -241,6 +241,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.Parameters.Add(new SqlParameter("@Debt2", salary.Debt2));
                 cmd.Parameters.Add(new SqlParameter("@TotalAdvanceSalary", salary.Debt2));
                 cmd.Parameters.Add(new SqlParameter("@ActualIncome", salary.ActualIncome));
+                cmd.Parameters.Add(new SqlParameter("@GenDebt", salary.GenDebt));
                 cmd.Parameters.Add(new SqlParameter("@DateReceive", salary.DateReceive));
                 cmd.Parameters.Add(new SqlParameter("@isPay", salary.IsPay));
                 cmd.ExecuteNonQuery();
@@ -367,7 +368,8 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         Debt1 = reader["Debt1"] != DBNull.Value ? Convert.ToInt64(reader["Debt1"]) : 0,
                         Debt2 = reader["Debt2"] != DBNull.Value ? Convert.ToInt64(reader["Debt2"]) : 0,
                         TotalAdvanceSalary = reader["TotalAdvanceSalary"] != DBNull.Value ? Convert.ToInt64(reader["TotalAdvanceSalary"]) : 0,
-                        ActualIncome = Convert.ToInt64(reader["ActualIncome"]),                        
+                        ActualIncome = Convert.ToInt64(reader["ActualIncome"]),
+                        GenDebt = reader["GenerateDebt"] != DBNull.Value ? Convert.ToInt64(reader["GenerateDebt"]) : 0,
                         DateReceive = reader["DateReceive"] != DBNull.Value ? Convert.ToDateTime(reader["DateReceive"]) : DateTime.Today,
                         IsPay = Convert.ToBoolean(reader["IsPay"])
                     };
@@ -381,6 +383,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                     employersalary.Debt2Format = Global.Global.ConvertLongToMoney(employersalary.Debt2, Constants.SPLIP_MONEY);
                     employersalary.TotalAdvanceSalaryFormat = Global.Global.ConvertLongToMoney(employersalary.TotalAdvanceSalary, Constants.SPLIP_MONEY);
                     employersalary.ActualIncomeFormat = Global.Global.ConvertLongToMoney(employersalary.ActualIncome, Constants.SPLIP_MONEY);
+                    employersalary.GenDebtFormat = Global.Global.ConvertLongToMoney(employersalary.GenDebt, Constants.SPLIP_MONEY);
                     employersalary.DateReceiveFormat = employersalary.DateReceive.ToString("dd/MM/yyyy");
                     listSalary.Add(employersalary);
                 }
@@ -726,6 +729,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.Parameters.Add(new SqlParameter("@Debt2", salary.Debt2));
                 cmd.Parameters.Add(new SqlParameter("@TotalAdvanceSalary", salary.Debt2));
                 cmd.Parameters.Add(new SqlParameter("@ActualIncome", salary.ActualIncome));
+                cmd.Parameters.Add(new SqlParameter("@GenDebt", salary.GenDebt));
                 cmd.Parameters.Add(new SqlParameter("@DateReceive", salary.DateReceive));
                 cmd.Parameters.Add(new SqlParameter("@isPay", salary.IsPay));
                 cmd.ExecuteNonQuery();
@@ -827,6 +831,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         Debt2 = reader["Debt2"] != DBNull.Value ? Convert.ToInt64(reader["Debt2"]) : 0,
                         TotalAdvanceSalary = reader["TotalAdvanceSalary"] != DBNull.Value ? Convert.ToInt64(reader["TotalAdvanceSalary"]) : 0,
                         ActualIncome = Convert.ToInt64(reader["ActualIncome"]),
+                        GenDebt = reader["GenerateDebt"] != DBNull.Value ? Convert.ToInt64(reader["GenerateDebt"]) : 0,
                         DateReceive = reader["DateReceive"] != DBNull.Value ? Convert.ToDateTime(reader["DateReceive"]) : DateTime.Today,
                         IsPay = Convert.ToBoolean(reader["IsPay"])
                     };
@@ -840,6 +845,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                     employersalary.Debt2Format = Global.Global.ConvertLongToMoney(employersalary.Debt2, Constants.SPLIP_MONEY);
                     employersalary.TotalAdvanceSalaryFormat = Global.Global.ConvertLongToMoney(employersalary.TotalAdvanceSalary, Constants.SPLIP_MONEY);
                     employersalary.ActualIncomeFormat = Global.Global.ConvertLongToMoney(employersalary.ActualIncome, Constants.SPLIP_MONEY);
+                    employersalary.GenDebtFormat = Global.Global.ConvertLongToMoney(employersalary.GenDebt, Constants.SPLIP_MONEY);
                     employersalary.DateReceiveFormat = employersalary.DateReceive.ToString("dd/MM/yyyy");
                     return employersalary;
                 }

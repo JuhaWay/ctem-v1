@@ -613,6 +613,7 @@
             this.kryptonLabel17.Location = new System.Drawing.Point(47, 99);
             this.kryptonLabel17.Name = "kryptonLabel17";
             this.kryptonLabel17.Size = new System.Drawing.Size(50, 19);
+            this.kryptonLabel17.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.kryptonLabel17.TabIndex = 24;
             this.kryptonLabel17.Values.Text = "Ghi Chú";
             // 
@@ -625,7 +626,7 @@
             this.cbbMaterial.DropDownWidth = 214;
             this.cbbMaterial.Location = new System.Drawing.Point(107, 2);
             this.cbbMaterial.Name = "cbbMaterial";
-            this.cbbMaterial.Size = new System.Drawing.Size(249, 22);
+            this.cbbMaterial.Size = new System.Drawing.Size(250, 22);
             this.cbbMaterial.TabIndex = 23;
             this.cbbMaterial.Leave += new System.EventHandler(this.cbbMaterial_Leave);
             // 
@@ -671,6 +672,7 @@
             this.kryptonLabel13.Location = new System.Drawing.Point(32, 75);
             this.kryptonLabel13.Name = "kryptonLabel13";
             this.kryptonLabel13.Size = new System.Drawing.Size(65, 19);
+            this.kryptonLabel13.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.kryptonLabel13.TabIndex = 19;
             this.kryptonLabel13.Values.Text = "Thành Tiền";
             // 
@@ -679,6 +681,7 @@
             this.kryptonLabel14.Location = new System.Drawing.Point(46, 50);
             this.kryptonLabel14.Name = "kryptonLabel14";
             this.kryptonLabel14.Size = new System.Drawing.Size(51, 19);
+            this.kryptonLabel14.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.kryptonLabel14.TabIndex = 18;
             this.kryptonLabel14.Values.Text = "Đơn Giá";
             // 
@@ -687,6 +690,7 @@
             this.kryptonLabel15.Location = new System.Drawing.Point(39, 27);
             this.kryptonLabel15.Name = "kryptonLabel15";
             this.kryptonLabel15.Size = new System.Drawing.Size(58, 19);
+            this.kryptonLabel15.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.kryptonLabel15.TabIndex = 17;
             this.kryptonLabel15.Values.Text = "Số Lượng";
             // 
@@ -695,6 +699,7 @@
             this.kryptonLabel16.Location = new System.Drawing.Point(29, 3);
             this.kryptonLabel16.Name = "kryptonLabel16";
             this.kryptonLabel16.Size = new System.Drawing.Size(66, 19);
+            this.kryptonLabel16.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.kryptonLabel16.TabIndex = 16;
             this.kryptonLabel16.Values.Text = "Loại Vật Tư";
             // 

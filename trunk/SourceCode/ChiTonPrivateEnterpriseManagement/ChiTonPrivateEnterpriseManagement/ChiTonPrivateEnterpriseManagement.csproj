@@ -135,9 +135,11 @@
     <Compile Include="Classes\DAO\WorkSalaryDAO.cs" />
     <Compile Include="Classes\DTO\ConstructionDTO.cs" />
     <Compile Include="Classes\DTO\CompareDebtDTO.cs" />
+    <Compile Include="Classes\DTO\DayWorkingDTO.cs" />
     <Compile Include="Classes\DTO\EmployeeAdvanceDTO.cs" />
     <Compile Include="Classes\DTO\DebtDTO.cs" />
     <Compile Include="Classes\DTO\LedgerDTO.cs" />
+    <Compile Include="Classes\DTO\RoadMapDTO.cs" />
     <Compile Include="Classes\DTO\StockOutDetailDTO.cs" />
     <Compile Include="Classes\DTO\StockOutDTO.cs" />
     <Compile Include="Classes\DTO\VehicleDairyDTO.cs" />
@@ -393,6 +395,18 @@
     <Compile Include="ModuleForms\ManageSubconstractor\SubconstractorManagement.Designer.cs">
       <DependentUpon>SubconstractorManagement.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModuleForms\ManageVehicle\AddNewBargeDairy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForms\ManageVehicle\AddNewBargeDairy.Designer.cs">
+      <DependentUpon>AddNewBargeDairy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleForms\ManageVehicle\AddNewMachineDairy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForms\ManageVehicle\AddNewMachineDairy.Designer.cs">
+      <DependentUpon>AddNewMachineDairy.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModuleForms\ManageVehicle\AddNewVehicle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -608,6 +622,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ModuleForms\ManageSubconstractor\SubconstractorManagement.resx">
       <DependentUpon>SubconstractorManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\ManageVehicle\AddNewBargeDairy.resx">
+      <DependentUpon>AddNewBargeDairy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\ManageVehicle\AddNewMachineDairy.resx">
+      <DependentUpon>AddNewMachineDairy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModuleForms\ManageVehicle\AddNewVehicle.resx">
       <DependentUpon>AddNewVehicle.cs</DependentUpon>

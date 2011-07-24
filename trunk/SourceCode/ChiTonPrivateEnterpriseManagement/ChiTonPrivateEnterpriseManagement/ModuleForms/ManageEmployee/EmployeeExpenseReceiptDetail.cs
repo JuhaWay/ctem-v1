@@ -59,7 +59,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
             Global.SetDataCombobox(cbbIsPay, Constants.IS_PAY);
             txtTotalAdvance.ReadOnly = true;
             txtAllowance.ReadOnly = true;
-            txtActIncome.ReadOnly = true;
+            txtGenDebt.ReadOnly = true;
             var empDto = cbbEmployee.SelectedItem as EmployerDTO;
             string emp = empDto.Fullname;
             DateTime month = dtpMonth.Value;            
@@ -79,6 +79,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
                 txtDebt1.Text = salary.Debt1Format;
                 txtDebt2.Text = salary.Debt2Format;
                 txtActIncome.Text = salary.ActualIncomeFormat;
+                txtGenDebt.Text = salary.GenDebtFormat;
                 for (int i = 0; i < cbbEmployee.Items.Count; i++)
                 {
                     var emp = cbbEmployee.Items[i] as EmployerDTO;
@@ -128,6 +129,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
             long debt2 = Global.ConvertMoneyToLong(txtDebt1.Text, Constants.SPLIP_MONEY);
             long totalAdvance = Global.ConvertMoneyToLong(txtTotalAdvance.Text, Constants.SPLIP_MONEY);            
             long actualIncome = Global.ConvertMoneyToLong(txtActIncome.Text, Constants.SPLIP_MONEY);
+            long genDetb = Global.ConvertMoneyToLong(txtGenDebt.Text, Constants.SPLIP_MONEY);
             bool isPay = Global.GenerateStatus(cbbIsPay.Text);
             DateTime dateReceive = dtpDateReceive.Value;
             var salaryDTO = new EmployeeSalaryDTO()
@@ -145,6 +147,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
                 Debt2 = debt2,
                 TotalAdvanceSalary = totalAdvance,
                 ActualIncome = actualIncome,
+                GenDebt = genDetb,
                 IsPay = isPay,
                 DateReceive = dateReceive,
             };
@@ -243,7 +246,19 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
             long debt2 = Global.ConvertMoneyToLong(txtDebt1.Text, Constants.SPLIP_MONEY);
             long totalAdvance = Global.ConvertMoneyToLong(txtTotalAdvance.Text, Constants.SPLIP_MONEY);
             long actualIncome = salary - salarycp - debtPay - debt1 - debt2 - totalAdvance;
-            txtActIncome.Text = Global.ConvertLongToMoney(actualIncome, Constants.SPLIP_MONEY);
+            if (actualIncome < 0)
+            {
+                txtActIncome.Text = Constants.ZERO_NUMBER;
+                txtActIncome.ReadOnly = false;
+                txtGenDebt.Text = Global.ConvertLongToMoney((-actualIncome), Constants.SPLIP_MONEY);
+            }
+            else
+            {
+                txtAllowance.ReadOnly = true;
+                txtActIncome.Text = Global.ConvertLongToMoney(actualIncome, Constants.SPLIP_MONEY);
+                txtGenDebt.Text = Constants.ZERO_NUMBER;
+            }
+            
         }
 
         private void txtSalary_Enter(object sender, EventArgs e)
@@ -267,6 +282,21 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEmployee
             catch
             {
             }
+        }
+
+        private void txtActIncome_TextChanged(object sender, EventArgs e)
+        {
+            long salary = Global.ConvertMoneyToLong(txtSalary.Text, Constants.SPLIP_MONEY);
+            long salarycp = Global.ConvertMoneyToLong(txt10pcSalary.Text, Constants.SPLIP_MONEY);
+            long debtPay = Global.ConvertMoneyToLong(txtDebtPay.Text, Constants.SPLIP_MONEY);
+            long debt1 = Global.ConvertMoneyToLong(txtDebt1.Text, Constants.SPLIP_MONEY);
+            long debt2 = Global.ConvertMoneyToLong(txtDebt1.Text, Constants.SPLIP_MONEY);
+            long totalAdvance = Global.ConvertMoneyToLong(txtTotalAdvance.Text, Constants.SPLIP_MONEY);
+            long debtgenold = salary - salarycp - debtPay - debt1 - debt2 - totalAdvance;
+
+            long actIncome = Global.ConvertMoneyToLong(txtActIncome.Text, Constants.SPLIP_MONEY);
+            long debtgen = (-debtgenold) + actIncome;
+            txtGenDebt.Text = Global.ConvertLongToMoney(debtgen, Constants.SPLIP_MONEY);
         }
     }
 }
