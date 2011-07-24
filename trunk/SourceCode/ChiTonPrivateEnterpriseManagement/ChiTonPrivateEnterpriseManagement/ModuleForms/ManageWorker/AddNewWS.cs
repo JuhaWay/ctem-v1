@@ -16,6 +16,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
     {
         private ConstructionBus _constructionBus = new ConstructionBus();
         private WorkerSalaryBUS _workerSalaryBUS = new WorkerSalaryBUS();
+        private EmployeeBUS _employeeBUS = new EmployeeBUS();
         public AddNewWS()
         {
             CenterToParent();
@@ -24,6 +25,8 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
 
         private void AddNewWS_Load(object sender, EventArgs e)
         {
+            cbManager.Items.AddRange(_employeeBUS.LoadAllEmployee().ToArray());
+            cbManager.DisplayMember = "Username";
             cbCons.Items.AddRange(_constructionBus.LoadAllConstructions().ToArray());
             cbCons.DisplayMember = "ConstructionName";
             Global.SetLayoutPanelNewForm(pnMain);
@@ -34,6 +37,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             if (!validate()) return;
             WorkerSalaryDTO dto = new WorkerSalaryDTO();
             dto.ConstructionID = (cbCons.SelectedItem as ConstructionDTO).ConstructionID;
+            dto.ManagerID = (cbManager.SelectedItem as EmployerDTO).employeeID;
             dto.Name = ipName.Text;
             dto.FromDate  = dtFromdate.Value.Date;
             dto.ToDate =dtTodate.Value.Date;
@@ -50,6 +54,11 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             else if (cbCons.SelectedIndex < 0)
             {
                 MessageBox.Show("vui lòng chọn công trình");
+                return false;
+            }
+            else if (cbManager.SelectedIndex < 0)
+            {
+                MessageBox.Show("vui lòng chọn quản lý");
                 return false;
             }
             return true;
