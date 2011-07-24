@@ -30,18 +30,35 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.kryptonPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.slcMain = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
             this.gbxLeftBot = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.dgvWks = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.constructionNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WorkersSalaryID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.constructionIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ManagerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fromDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.toDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OthersCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalSalaryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.createDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastUpdateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.createdByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.updatedByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.workerSalaryDTOBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.pnlSearch = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.gbxSearch = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
+            this.kryptonDateTimePicker1 = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
+            this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.cbSearchCons = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.lbSearchCons = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.ipSearchName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
@@ -54,6 +71,10 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             this.btnHideShowSearch = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.gbcRightBot = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.gbxEdit1 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
+            this.cbManager = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.kryptonLabel3 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.ipOthersCost = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.dtTodate = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
             this.lbName = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.ipName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
@@ -90,21 +111,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             this.kryptonContextMenuItems3 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
             this.kryptonContextMenuItems2 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
             this.kryptonContextMenuItems1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
-            this.workerSalaryDTOBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.workerSalaryDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.constructionNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WorkersSalaryID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.constructionIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fromDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.toDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalSalaryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.createDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastUpdateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.createdByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.updatedByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kryptonDateTimePicker1 = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.slcMain)).BeginInit();
@@ -115,6 +122,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             this.gbxLeftBot.Panel.SuspendLayout();
             this.gbxLeftBot.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWks)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.workerSalaryDTOBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlSearch)).BeginInit();
             this.pnlSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gbxSearch)).BeginInit();
@@ -127,12 +135,12 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             ((System.ComponentModel.ISupportInitialize)(this.gbxEdit1)).BeginInit();
             this.gbxEdit1.Panel.SuspendLayout();
             this.gbxEdit1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbCons)).BeginInit();
             this.cmsDGV.SuspendLayout();
             this.cmsEdit.SuspendLayout();
             this.cmsGen.SuspendLayout();
             this.cmsMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.workerSalaryDTOBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.workerSalaryDTOBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -187,9 +195,12 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             this.constructionNameDataGridViewTextBoxColumn,
             this.WorkersSalaryID,
             this.constructionIDDataGridViewTextBoxColumn,
+            this.ManagerName,
             this.nameDataGridViewTextBoxColumn,
             this.fromDateDataGridViewTextBoxColumn,
             this.toDateDataGridViewTextBoxColumn,
+            this.OthersCost,
+            this.TotalCost,
             this.totalSalaryDataGridViewTextBoxColumn,
             this.createDateDataGridViewTextBoxColumn,
             this.lastUpdateDataGridViewTextBoxColumn,
@@ -204,6 +215,110 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             this.dgvWks.StateNormal.Background.Color1 = System.Drawing.Color.White;
             this.dgvWks.TabIndex = 0;
             this.dgvWks.SelectionChanged += new System.EventHandler(this.dgvWks_SelectionChanged);
+            // 
+            // constructionNameDataGridViewTextBoxColumn
+            // 
+            this.constructionNameDataGridViewTextBoxColumn.DataPropertyName = "ConstructionName";
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Lime;
+            this.constructionNameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            this.constructionNameDataGridViewTextBoxColumn.HeaderText = "Công trình";
+            this.constructionNameDataGridViewTextBoxColumn.Name = "constructionNameDataGridViewTextBoxColumn";
+            this.constructionNameDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // WorkersSalaryID
+            // 
+            this.WorkersSalaryID.DataPropertyName = "WorkersSalaryID";
+            this.WorkersSalaryID.HeaderText = "WorkersSalaryID";
+            this.WorkersSalaryID.Name = "WorkersSalaryID";
+            this.WorkersSalaryID.Visible = false;
+            // 
+            // constructionIDDataGridViewTextBoxColumn
+            // 
+            this.constructionIDDataGridViewTextBoxColumn.DataPropertyName = "ConstructionID";
+            this.constructionIDDataGridViewTextBoxColumn.HeaderText = "ConstructionID";
+            this.constructionIDDataGridViewTextBoxColumn.Name = "constructionIDDataGridViewTextBoxColumn";
+            this.constructionIDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // ManagerName
+            // 
+            this.ManagerName.DataPropertyName = "ManagerName";
+            this.ManagerName.HeaderText = "Quản lý";
+            this.ManagerName.Name = "ManagerName";
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Lime;
+            this.nameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Tên Bảng Công Nhật";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // fromDateDataGridViewTextBoxColumn
+            // 
+            this.fromDateDataGridViewTextBoxColumn.DataPropertyName = "FromDateFormated";
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Yellow;
+            this.fromDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.fromDateDataGridViewTextBoxColumn.HeaderText = "Từ ngày";
+            this.fromDateDataGridViewTextBoxColumn.Name = "fromDateDataGridViewTextBoxColumn";
+            // 
+            // toDateDataGridViewTextBoxColumn
+            // 
+            this.toDateDataGridViewTextBoxColumn.DataPropertyName = "ToDateFormated";
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Yellow;
+            this.toDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            this.toDateDataGridViewTextBoxColumn.HeaderText = "Tới ngày";
+            this.toDateDataGridViewTextBoxColumn.Name = "toDateDataGridViewTextBoxColumn";
+            // 
+            // OthersCost
+            // 
+            this.OthersCost.DataPropertyName = "OthersCostFormated";
+            this.OthersCost.HeaderText = "Chi phí khác";
+            this.OthersCost.Name = "OthersCost";
+            // 
+            // TotalCost
+            // 
+            this.TotalCost.DataPropertyName = "TotalCostFormated";
+            this.TotalCost.HeaderText = "Tổng chi phí";
+            this.TotalCost.Name = "TotalCost";
+            // 
+            // totalSalaryDataGridViewTextBoxColumn
+            // 
+            this.totalSalaryDataGridViewTextBoxColumn.DataPropertyName = "TotalSalaryFormated";
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Yellow;
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Red;
+            this.totalSalaryDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
+            this.totalSalaryDataGridViewTextBoxColumn.HeaderText = "Tổng số tiền";
+            this.totalSalaryDataGridViewTextBoxColumn.Name = "totalSalaryDataGridViewTextBoxColumn";
+            // 
+            // createDateDataGridViewTextBoxColumn
+            // 
+            this.createDateDataGridViewTextBoxColumn.DataPropertyName = "CreateDateFormated";
+            this.createDateDataGridViewTextBoxColumn.HeaderText = "Ngày tạo";
+            this.createDateDataGridViewTextBoxColumn.Name = "createDateDataGridViewTextBoxColumn";
+            // 
+            // lastUpdateDataGridViewTextBoxColumn
+            // 
+            this.lastUpdateDataGridViewTextBoxColumn.DataPropertyName = "LastUpdateFormated";
+            this.lastUpdateDataGridViewTextBoxColumn.HeaderText = "Ngày cập nhật";
+            this.lastUpdateDataGridViewTextBoxColumn.Name = "lastUpdateDataGridViewTextBoxColumn";
+            this.lastUpdateDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // createdByDataGridViewTextBoxColumn
+            // 
+            this.createdByDataGridViewTextBoxColumn.DataPropertyName = "CreatedBy";
+            this.createdByDataGridViewTextBoxColumn.HeaderText = "Tạo bởi";
+            this.createdByDataGridViewTextBoxColumn.Name = "createdByDataGridViewTextBoxColumn";
+            // 
+            // updatedByDataGridViewTextBoxColumn
+            // 
+            this.updatedByDataGridViewTextBoxColumn.DataPropertyName = "UpdatedBy";
+            this.updatedByDataGridViewTextBoxColumn.HeaderText = "Cập nhật bởi";
+            this.updatedByDataGridViewTextBoxColumn.Name = "updatedByDataGridViewTextBoxColumn";
+            // 
+            // workerSalaryDTOBindingSource1
+            // 
+            this.workerSalaryDTOBindingSource1.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.WorkerSalaryDTO);
             // 
             // pnlSearch
             // 
@@ -234,6 +349,27 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             this.gbxSearch.Size = new System.Drawing.Size(820, 57);
             this.gbxSearch.TabIndex = 0;
             this.gbxSearch.Values.Heading = "";
+            // 
+            // kryptonDateTimePicker1
+            // 
+            this.kryptonDateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.kryptonDateTimePicker1.CustomFormat = "MM/yyyy";
+            this.kryptonDateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.kryptonDateTimePicker1.Location = new System.Drawing.Point(322, 18);
+            this.kryptonDateTimePicker1.Name = "kryptonDateTimePicker1";
+            this.kryptonDateTimePicker1.Size = new System.Drawing.Size(142, 20);
+            this.kryptonDateTimePicker1.TabIndex = 8;
+            // 
+            // kryptonLabel1
+            // 
+            this.kryptonLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.kryptonLabel1.Location = new System.Drawing.Point(267, 19);
+            this.kryptonLabel1.Name = "kryptonLabel1";
+            this.kryptonLabel1.Size = new System.Drawing.Size(49, 19);
+            this.kryptonLabel1.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.kryptonLabel1.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonLabel1.TabIndex = 7;
+            this.kryptonLabel1.Values.Text = "Tháng";
             // 
             // cbSearchCons
             // 
@@ -373,6 +509,10 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             // 
             // gbxEdit1.Panel
             // 
+            this.gbxEdit1.Panel.Controls.Add(this.cbManager);
+            this.gbxEdit1.Panel.Controls.Add(this.kryptonLabel3);
+            this.gbxEdit1.Panel.Controls.Add(this.ipOthersCost);
+            this.gbxEdit1.Panel.Controls.Add(this.kryptonLabel2);
             this.gbxEdit1.Panel.Controls.Add(this.dtTodate);
             this.gbxEdit1.Panel.Controls.Add(this.lbName);
             this.gbxEdit1.Panel.Controls.Add(this.ipName);
@@ -389,11 +529,48 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             this.gbxEdit1.TabIndex = 6;
             this.gbxEdit1.Values.Heading = "";
             // 
+            // cbManager
+            // 
+            this.cbManager.DropDownWidth = 177;
+            this.cbManager.Location = new System.Drawing.Point(529, 89);
+            this.cbManager.Name = "cbManager";
+            this.cbManager.Size = new System.Drawing.Size(177, 22);
+            this.cbManager.TabIndex = 20;
+            this.cbManager.Text = "chọn...";
+            // 
+            // kryptonLabel3
+            // 
+            this.kryptonLabel3.Location = new System.Drawing.Point(445, 89);
+            this.kryptonLabel3.Name = "kryptonLabel3";
+            this.kryptonLabel3.Size = new System.Drawing.Size(60, 19);
+            this.kryptonLabel3.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.kryptonLabel3.TabIndex = 19;
+            this.kryptonLabel3.Values.Text = "Quản lý(*)";
+            // 
+            // ipOthersCost
+            // 
+            this.ipOthersCost.Location = new System.Drawing.Point(229, 92);
+            this.ipOthersCost.Name = "ipOthersCost";
+            this.ipOthersCost.Size = new System.Drawing.Size(177, 22);
+            this.ipOthersCost.TabIndex = 18;
+            this.ipOthersCost.Leave += new System.EventHandler(this.ipOthersCost_Leave);
+            this.ipOthersCost.MouseLeave += new System.EventHandler(this.ipOthersCost_MouseLeave);
+            // 
+            // kryptonLabel2
+            // 
+            this.kryptonLabel2.Location = new System.Drawing.Point(135, 92);
+            this.kryptonLabel2.Name = "kryptonLabel2";
+            this.kryptonLabel2.Size = new System.Drawing.Size(72, 16);
+            this.kryptonLabel2.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.kryptonLabel2.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonLabel2.TabIndex = 17;
+            this.kryptonLabel2.Values.Text = "Chi phí khác";
+            // 
             // dtTodate
             // 
             this.dtTodate.CustomFormat = "dd/MM/yyyy";
             this.dtTodate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtTodate.Location = new System.Drawing.Point(528, 83);
+            this.dtTodate.Location = new System.Drawing.Point(529, 63);
             this.dtTodate.Name = "dtTodate";
             this.dtTodate.Size = new System.Drawing.Size(177, 20);
             this.dtTodate.TabIndex = 7;
@@ -402,9 +579,9 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             // 
             this.lbName.Location = new System.Drawing.Point(176, 39);
             this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(34, 19);
+            this.lbName.Size = new System.Drawing.Size(30, 16);
             this.lbName.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.lbName.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbName.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbName.TabIndex = 10;
             this.lbName.Values.Text = "Tên ";
             // 
@@ -418,7 +595,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             // cbCons
             // 
             this.cbCons.DropDownWidth = 177;
-            this.cbCons.Location = new System.Drawing.Point(229, 84);
+            this.cbCons.Location = new System.Drawing.Point(230, 64);
             this.cbCons.Name = "cbCons";
             this.cbCons.Size = new System.Drawing.Size(177, 22);
             this.cbCons.TabIndex = 6;
@@ -426,21 +603,21 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             // 
             // lbTodate
             // 
-            this.lbTodate.Location = new System.Drawing.Point(445, 84);
+            this.lbTodate.Location = new System.Drawing.Point(446, 64);
             this.lbTodate.Name = "lbTodate";
-            this.lbTodate.Size = new System.Drawing.Size(68, 19);
+            this.lbTodate.Size = new System.Drawing.Size(59, 16);
             this.lbTodate.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.lbTodate.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTodate.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTodate.TabIndex = 16;
             this.lbTodate.Values.Text = "Đến ngày";
             // 
             // lbCons
             // 
-            this.lbCons.Location = new System.Drawing.Point(145, 84);
+            this.lbCons.Location = new System.Drawing.Point(146, 64);
             this.lbCons.Name = "lbCons";
-            this.lbCons.Size = new System.Drawing.Size(73, 19);
+            this.lbCons.Size = new System.Drawing.Size(62, 16);
             this.lbCons.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.lbCons.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCons.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbCons.TabIndex = 12;
             this.lbCons.Values.Text = "Công trình";
             // 
@@ -457,9 +634,9 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             // 
             this.lbFromDate.Location = new System.Drawing.Point(453, 39);
             this.lbFromDate.Name = "lbFromDate";
-            this.lbFromDate.Size = new System.Drawing.Size(59, 19);
+            this.lbFromDate.Size = new System.Drawing.Size(51, 16);
             this.lbFromDate.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.lbFromDate.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbFromDate.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbFromDate.TabIndex = 14;
             this.lbFromDate.Values.Text = "Từ ngày";
             // 
@@ -638,116 +815,9 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             // 
             this.kryptonContextMenuItem1.Text = "Menu Item";
             // 
-            // workerSalaryDTOBindingSource1
-            // 
-            this.workerSalaryDTOBindingSource1.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.WorkerSalaryDTO);
-            // 
             // workerSalaryDTOBindingSource
             // 
             this.workerSalaryDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.WorkerSalaryDTO);
-            // 
-            // constructionNameDataGridViewTextBoxColumn
-            // 
-            this.constructionNameDataGridViewTextBoxColumn.DataPropertyName = "ConstructionName";
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Lime;
-            this.constructionNameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
-            this.constructionNameDataGridViewTextBoxColumn.HeaderText = "Công trình";
-            this.constructionNameDataGridViewTextBoxColumn.Name = "constructionNameDataGridViewTextBoxColumn";
-            this.constructionNameDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // WorkersSalaryID
-            // 
-            this.WorkersSalaryID.DataPropertyName = "WorkersSalaryID";
-            this.WorkersSalaryID.HeaderText = "WorkersSalaryID";
-            this.WorkersSalaryID.Name = "WorkersSalaryID";
-            this.WorkersSalaryID.Visible = false;
-            // 
-            // constructionIDDataGridViewTextBoxColumn
-            // 
-            this.constructionIDDataGridViewTextBoxColumn.DataPropertyName = "ConstructionID";
-            this.constructionIDDataGridViewTextBoxColumn.HeaderText = "ConstructionID";
-            this.constructionIDDataGridViewTextBoxColumn.Name = "constructionIDDataGridViewTextBoxColumn";
-            this.constructionIDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Lime;
-            this.nameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle7;
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Tên Bảng Công Nhật";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // fromDateDataGridViewTextBoxColumn
-            // 
-            this.fromDateDataGridViewTextBoxColumn.DataPropertyName = "FromDateFormated";
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Yellow;
-            this.fromDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle8;
-            this.fromDateDataGridViewTextBoxColumn.HeaderText = "Từ ngày";
-            this.fromDateDataGridViewTextBoxColumn.Name = "fromDateDataGridViewTextBoxColumn";
-            // 
-            // toDateDataGridViewTextBoxColumn
-            // 
-            this.toDateDataGridViewTextBoxColumn.DataPropertyName = "ToDateFormated";
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.Yellow;
-            this.toDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle9;
-            this.toDateDataGridViewTextBoxColumn.HeaderText = "Tới ngày";
-            this.toDateDataGridViewTextBoxColumn.Name = "toDateDataGridViewTextBoxColumn";
-            // 
-            // totalSalaryDataGridViewTextBoxColumn
-            // 
-            this.totalSalaryDataGridViewTextBoxColumn.DataPropertyName = "TotalSalaryFormated";
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.Yellow;
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Red;
-            this.totalSalaryDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle10;
-            this.totalSalaryDataGridViewTextBoxColumn.HeaderText = "Tổng số tiền";
-            this.totalSalaryDataGridViewTextBoxColumn.Name = "totalSalaryDataGridViewTextBoxColumn";
-            // 
-            // createDateDataGridViewTextBoxColumn
-            // 
-            this.createDateDataGridViewTextBoxColumn.DataPropertyName = "CreateDateFormated";
-            this.createDateDataGridViewTextBoxColumn.HeaderText = "Ngày tạo";
-            this.createDateDataGridViewTextBoxColumn.Name = "createDateDataGridViewTextBoxColumn";
-            // 
-            // lastUpdateDataGridViewTextBoxColumn
-            // 
-            this.lastUpdateDataGridViewTextBoxColumn.DataPropertyName = "LastUpdateFormated";
-            this.lastUpdateDataGridViewTextBoxColumn.HeaderText = "Ngày cập nhật";
-            this.lastUpdateDataGridViewTextBoxColumn.Name = "lastUpdateDataGridViewTextBoxColumn";
-            this.lastUpdateDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // createdByDataGridViewTextBoxColumn
-            // 
-            this.createdByDataGridViewTextBoxColumn.DataPropertyName = "CreatedBy";
-            this.createdByDataGridViewTextBoxColumn.HeaderText = "Tạo bởi";
-            this.createdByDataGridViewTextBoxColumn.Name = "createdByDataGridViewTextBoxColumn";
-            // 
-            // updatedByDataGridViewTextBoxColumn
-            // 
-            this.updatedByDataGridViewTextBoxColumn.DataPropertyName = "UpdatedBy";
-            this.updatedByDataGridViewTextBoxColumn.HeaderText = "Cập nhật bởi";
-            this.updatedByDataGridViewTextBoxColumn.Name = "updatedByDataGridViewTextBoxColumn";
-            // 
-            // kryptonLabel1
-            // 
-            this.kryptonLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.kryptonLabel1.Location = new System.Drawing.Point(267, 19);
-            this.kryptonLabel1.Name = "kryptonLabel1";
-            this.kryptonLabel1.Size = new System.Drawing.Size(49, 19);
-            this.kryptonLabel1.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.kryptonLabel1.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonLabel1.TabIndex = 7;
-            this.kryptonLabel1.Values.Text = "Tháng";
-            // 
-            // kryptonDateTimePicker1
-            // 
-            this.kryptonDateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.kryptonDateTimePicker1.CustomFormat = "MM/yyyy";
-            this.kryptonDateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.kryptonDateTimePicker1.Location = new System.Drawing.Point(322, 18);
-            this.kryptonDateTimePicker1.Name = "kryptonDateTimePicker1";
-            this.kryptonDateTimePicker1.Size = new System.Drawing.Size(142, 20);
-            this.kryptonDateTimePicker1.TabIndex = 8;
             // 
             // WorkerSalaryManagement
             // 
@@ -770,6 +840,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             ((System.ComponentModel.ISupportInitialize)(this.gbxLeftBot)).EndInit();
             this.gbxLeftBot.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvWks)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.workerSalaryDTOBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlSearch)).EndInit();
             this.pnlSearch.ResumeLayout(false);
             this.gbxSearch.Panel.ResumeLayout(false);
@@ -785,12 +856,12 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             this.gbxEdit1.Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gbxEdit1)).EndInit();
             this.gbxEdit1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cbManager)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbCons)).EndInit();
             this.cmsDGV.ResumeLayout(false);
             this.cmsEdit.ResumeLayout(false);
             this.cmsGen.ResumeLayout(false);
             this.cmsMain.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.workerSalaryDTOBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.workerSalaryDTOBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -855,19 +926,26 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox ipSearchName;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel lbSearchName;
         private ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker dtTodate;
+        private ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker kryptonDateTimePicker1;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel1;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox ipOthersCost;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel2;
+        private ComponentFactory.Krypton.Toolkit.KryptonComboBox cbManager;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel3;
         private DataGridViewTextBoxColumn constructionNameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn WorkersSalaryID;
         private DataGridViewTextBoxColumn constructionIDDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn ManagerName;
         private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn fromDateDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn toDateDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn OthersCost;
+        private DataGridViewTextBoxColumn TotalCost;
         private DataGridViewTextBoxColumn totalSalaryDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn createDateDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn lastUpdateDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn createdByDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn updatedByDataGridViewTextBoxColumn;
-        private ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker kryptonDateTimePicker1;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel1;
     }
 }
 

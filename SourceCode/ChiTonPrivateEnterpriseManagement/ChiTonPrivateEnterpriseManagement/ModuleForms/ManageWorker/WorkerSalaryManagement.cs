@@ -16,6 +16,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
     {
         private WorkerSalaryBUS _workerSalaryBUS = new WorkerSalaryBUS();
         private ConstructionBus _constructionBus = new ConstructionBus();
+        private EmployeeBUS _employeeBUS = new EmployeeBUS();
 
         private WorkerSalaryDTO _dtoTemp = new WorkerSalaryDTO();
         private long _ConstructionID;
@@ -47,12 +48,15 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
         // load dử liệu của form
         private void WorkerSalaryManagement_Load(object sender, EventArgs e)
         {
-            refresh();
+           
+            cbManager.DataSource=_employeeBUS.LoadAllEmployee();
+            cbManager.DisplayMember = "Username";
             cbCons.DataSource = _constructionBus.LoadAllConstructions();
             cbCons.DisplayMember = "ConstructionName";
             cbSearchCons.Items.Add(new ConstructionDTO("Tất cả",0));
             cbSearchCons.Items.AddRange(_constructionBus.LoadAllConstructions().ToArray());
             cbSearchCons.DisplayMember = "ConstructionName";
+            refresh();
 
         }
         public void refresh(){
@@ -85,6 +89,9 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             _dtoTemp.Name = ipName.Text;
             _dtoTemp.FromDate = dtFromdate.Value.Date;
             _dtoTemp.ToDate = dtTodate.Value.Date;
+            _dtoTemp.ManagerID = (cbManager.SelectedItem as EmployerDTO).employeeID;
+            _dtoTemp.OthersCost = Global.ConvertMoneyToLong(ipOthersCost.Text, Global.SEP);
+            _dtoTemp.TotalCost = _dtoTemp.TotalSalary + _dtoTemp.OthersCost;
             _workerSalaryBUS.UpdateWks(_dtoTemp);
             MessageBox.Show("cập nhật thành công !");
             refresh();
@@ -102,14 +109,21 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
                    _dtoTemp = item.DataBoundItem as WorkerSalaryDTO;
 
                }
+               if (_dtoTemp == null) return;
                ipName.Text = _dtoTemp.Name;
                foreach (ConstructionDTO temp in cbCons.Items)
                {
                    if (temp.ConstructionID.Equals(_dtoTemp.ConstructionID))
                        cbCons.SelectedItem = temp;
                }
+               foreach (EmployerDTO temp in cbManager.Items)
+               {
+                   if (temp.employeeID.Equals(_dtoTemp.ManagerID))
+                       cbManager.SelectedItem = temp;
+               }
                dtFromdate.Value = _dtoTemp.FromDate;
                dtTodate.Value = _dtoTemp.ToDate;
+               ipOthersCost.Text = _dtoTemp.OthersCostFormated;
 
            }
            else
@@ -141,10 +155,12 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
         {
             foreach (DataGridViewRow row in dgvWks.SelectedRows)
             {
-                _ConstructionID = (row.DataBoundItem as WorkerSalaryDTO).ConstructionID;
-                string strID = row.Cells["WorkersSalaryID"].Value.ToString();
-                long id = Convert.ToInt64(strID);
-                WorkerList editForm = new WorkerList(id, _ConstructionID);
+                WorkerSalaryDTO item = row.DataBoundItem as WorkerSalaryDTO;
+                _ConstructionID = item.ConstructionID;
+                long id = item.WorkersSalaryID;
+                DateTime fromDate = item.FromDate;
+                 DateTime toDate = item.ToDate;
+                 WorkerList editForm = new WorkerList(id, _ConstructionID, fromDate, toDate);
                 editForm.ShowDialog();
             }
             refresh();
@@ -158,6 +174,11 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             else if (cbCons.SelectedIndex < 0)
             {
                 MessageBox.Show("vui lòng chọn công trình");
+                return false;
+            }
+            else if (cbManager.SelectedIndex < 0)
+            {
+                MessageBox.Show("vui lòng chọn quản lý");
                 return false;
             }
             return true;
@@ -182,6 +203,16 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
         {
             refresh();
 
+        }
+
+        private void ipOthersCost_Leave(object sender, EventArgs e)
+        {
+            ipOthersCost.Text = Global.ConvertLongToMoney(Global.ConvertMoneyToLong(ipOthersCost.Text, Global.SEP), Global.SEP);
+        }
+
+        private void ipOthersCost_MouseLeave(object sender, EventArgs e)
+        {
+            ipOthersCost.Text = Global.ConvertLongToMoney(Global.ConvertMoneyToLong(ipOthersCost.Text, Global.SEP), Global.SEP);
         }
 
     }
