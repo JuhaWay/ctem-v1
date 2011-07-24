@@ -68,6 +68,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.Parameters.Add(new SqlParameter("@Category", param.Category.Trim()));
             else
                 cmd.Parameters.Add(new SqlParameter("@Category", DBNull.Value));
+            cmd.Parameters.Add(new SqlParameter("@ManagerID", param.ManagerID));
             try
             {
                 SqlDataReader reader = cmd.ExecuteReader();
