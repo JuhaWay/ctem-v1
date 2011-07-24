@@ -124,7 +124,11 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         FromDate = Convert.ToDateTime(reader["FromDate"]),
                         ToDate = Convert.ToDateTime(reader["ToDate"]),
                         TotalSalary = Convert.ToInt64(reader["TotalSalary"]),
-                        CreateDate = Convert.ToDateTime(reader["CreateDate"])
+                        CreateDate = Convert.ToDateTime(reader["CreateDate"]),
+                        OthersCost = Convert.ToInt64(reader["OthersCost"]),
+                        TotalCost = Convert.ToInt64(reader["TotalCost"]),
+                        ManagerID = Convert.ToInt64(reader["ManagerID"]),
+                        ManagerName = Convert.ToString(reader["Username"])
                     };
                     try
                     {
@@ -139,6 +143,8 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                     dto.FromDateFormated = dto.FromDate.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
                     dto.ToDateFormated = dto.ToDate.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
                     dto.TotalSalaryFormated = Global.Global.ConvertLongToMoney(dto.TotalSalary, Global.Global.SEP);
+                    dto.OthersCostFormated = Global.Global.ConvertLongToMoney(dto.OthersCost, Global.Global.SEP);
+                    dto.TotalCostFormated = Global.Global.ConvertLongToMoney(dto.TotalCost, Global.Global.SEP);
                     listcons.Add(dto);
                 }
                 
@@ -166,6 +172,9 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             try
             {
                 cmd.Parameters.Add(new SqlParameter("@constructionID", dto.ConstructionID));
+                cmd.Parameters.Add(new SqlParameter("@ManagerID", dto.ManagerID));
+                cmd.Parameters.Add(new SqlParameter("@OthersCost", dto.OthersCost));
+                cmd.Parameters.Add(new SqlParameter("@TotalCost", dto.TotalCost));
                 cmd.Parameters.Add(new SqlParameter("@name", dto.Name));
                 cmd.Parameters.Add(new SqlParameter("@fromDate", dto.FromDate));
                 cmd.Parameters.Add(new SqlParameter("@toDate", dto.ToDate));
@@ -203,6 +212,9 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.Parameters.Add(new SqlParameter("@toDate", dto.ToDate));
                 cmd.Parameters.Add(new SqlParameter("@totalSalary", dto.TotalSalary));
                 cmd.Parameters.Add(new SqlParameter("@updatedBy", Global.Global.CurrentUser.Username));
+                cmd.Parameters.Add(new SqlParameter("@ManagerID", dto.ManagerID));
+                cmd.Parameters.Add(new SqlParameter("@OthersCost", dto.OthersCost));
+                cmd.Parameters.Add(new SqlParameter("@TotalCost", dto.TotalCost));
                 cmd.ExecuteNonQuery();
                 return true;
             }
