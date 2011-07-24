@@ -384,6 +384,8 @@
             this.dgvEstimate.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
             this.dgvEstimate.TabIndex = 2;
             this.dgvEstimate.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEstimate_CellClick);
+            this.dgvEstimate.DoubleClick += new System.EventHandler(this.dgvEstimate_DoubleClick);
+            this.dgvEstimate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvEstimate_KeyDown);
             // 
             // ConstructionName
             // 

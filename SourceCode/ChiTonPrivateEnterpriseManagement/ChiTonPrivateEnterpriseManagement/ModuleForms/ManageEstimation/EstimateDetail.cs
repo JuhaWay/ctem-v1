@@ -78,6 +78,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
         // sưa dự toán chi tiết
         private void btSave_Click(object sender, EventArgs e)
         {
+            dtoTemp.No = txtNo.Text;
             if (isEdit)
             {
                 dtoTemp.Name = ipName.Text;
@@ -115,7 +116,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
                     dtoTemp.UnitCostEstimate = 0;
                     dtoTemp.MaterialID = 0;
                 }
-                dtoTemp.TotalCostEstimate = Global.ConvertMoneyToLong(ipTotal.Text, Constants.SPLIP_MONEY);
+                dtoTemp.TotalCostEstimate = Global.ConvertMoneyToDouble(ipTotal.Text, Constants.SPLIP_MONEY);
                 dtoTemp.TotalCostEstimateFormated = ipTotal.Text;
                 if (temID != dtoTemp.MaterialID && _estimateDetailBUS.check(dtoTemp.MaterialID, dtoTemp.EstimateID))
                 {
@@ -129,6 +130,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
             if (isNew)
             {
                 EstimateDetailDTO entity = new EstimateDetailDTO();
+                entity.No = txtNo.Text;
                 entity.Name = ipName.Text;
                 entity.EstimateID = _estimateId;
                 if (cbType.SelectedIndex == 0)
@@ -160,7 +162,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
                     MessageBox.Show("Vui lòng nhập chi tiết");
                     return;
                 }
-                entity.TotalCostEstimate = Global.ConvertMoneyToLong(ipTotal.Text, Constants.SPLIP_MONEY);
+                entity.TotalCostEstimate = Global.ConvertMoneyToDouble(ipTotal.Text, Constants.SPLIP_MONEY);
                 entity.TotalCostEstimateFormated = ipTotal.Text;
                 if (_estimateDetailBUS.check(entity.MaterialID, entity.EstimateID))
                 {
@@ -173,13 +175,11 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
                 cbType.Focus();
                 }
             _estimateBUS.UpdateEstimate(_estimateId);
-            //
-
         }
 
         private bool ValidateInput()
         {
-            if ((Global.ConvertMoneyToLong(ipPrice.Text, Constants.SPLIP_MONEY) > 0 || Convert.ToDouble(ipQuantity.Text) > 0) && Global.ConvertMoneyToLong(ipTotal.Text, Constants.SPLIP_MONEY) <= 0)
+            if ((Global.ConvertMoneyToDouble(ipPrice.Text, Constants.SPLIP_MONEY) > 0 || Convert.ToDouble(ipQuantity.Text) > 0) && Global.ConvertMoneyToDouble(ipTotal.Text, Constants.SPLIP_MONEY) <= 0)
             {
                 return false;
             }
@@ -314,9 +314,9 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
             return true;
         }
 
-        public long getTotalCost(List<EstimateDetailDTO> esDetails)
+        public double getTotalCost(List<EstimateDetailDTO> esDetails)
         {
-            long total = 0;
+            double total = 0;
             foreach (EstimateDetailDTO dto in esDetails)
             {
                 total += dto.TotalCostEstimate;
@@ -441,7 +441,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
                 }
                 else
                 {
-                    ipTotal.Text = Global.ConvertLongToMoney((long) ((Global.ConvertMoneyToDouble(ipPrice.Text, Constants.SPLIP_MONEY) *
+                    ipTotal.Text = Global.ConvertDoubleToMoney(((Global.ConvertMoneyToDouble(ipPrice.Text, Constants.SPLIP_MONEY) *
                                    Convert.ToDouble(ipQuantity.Text))), Constants.SPLIP_MONEY);
                 }
             }
@@ -562,7 +562,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
         {
             if (!ipTotal.Text.Equals(Constants.ZERO_NUMBER) && !ipTotal.Text.Equals(Constants.EMPTY_TEXT))
             {
-                if (Global.ConvertMoneyToLong(ipTotal.Text, Constants.SPLIP_MONEY) == 0)
+                if (Global.ConvertMoneyToDouble(ipTotal.Text, Constants.SPLIP_MONEY) == 0)
                 {
                     KryptonMessageBox.Show(Constants.INPUT_NUMBER_ONLY, Constants.ALERT_ERROR, MessageBoxButtons.OK,
                                            MessageBoxIcon.Warning);

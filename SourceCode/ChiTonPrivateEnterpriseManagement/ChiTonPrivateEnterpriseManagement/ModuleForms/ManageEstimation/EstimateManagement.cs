@@ -223,5 +223,18 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
                 btSearch_Click(null, null);
             }
         }
+
+        private void dgvEstimate_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btViewDetail_Click(null, null);
+            }
+        }
+
+        private void dgvEstimate_DoubleClick(object sender, EventArgs e)
+        {
+            btViewDetail_Click(null, null);
+        }
     }
 }

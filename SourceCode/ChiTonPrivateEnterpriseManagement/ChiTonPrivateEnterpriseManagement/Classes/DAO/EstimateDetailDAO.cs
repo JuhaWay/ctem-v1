@@ -58,13 +58,14 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 {
                     EstimateDetailDTO edDto = new EstimateDetailDTO
                     {
+                        No = Convert.ToString(reader["No"]),
                         EstimateDetailID = Convert.ToInt64(reader["EstimateDetailID"]),
                         MaterialName = Convert.ToString(reader["MaterialName"]),
                         EstimateID = Convert.ToInt64(reader["EstimateID"]),
                         MaterialID = Convert.ToInt64(reader["MaterialID"]),
                         QuantityEstimate = Convert.ToInt32(reader["QuantityEstimate"]), 
                         UnitCostEstimate = Convert.ToDouble(reader["UnitCostEstimate"]),
-                        TotalCostEstimate = Convert.ToInt64(reader["TotalCostEstimate"])
+                        TotalCostEstimate = Convert.ToDouble(reader["TotalCostEstimate"])
                     };
                     listcons.Add(edDto);
                 }
@@ -136,6 +137,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 {
                     EstimateDetailDTO edDto = new EstimateDetailDTO
                     {
+                        No = Convert.ToString(reader["No"]),
                         EstimateDetailID = Convert.ToInt64(reader["EstimateDetailID"]),
                         MaterialName = Convert.ToString(reader["MaterialName"]),
                         EstimateID = Convert.ToInt64(reader["EstimateID"]),
@@ -144,10 +146,10 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         QuantityEstimate = Convert.ToDouble(reader["QuantityEstimate"]),
                         MaterialEstCal = Convert.ToString(reader["EstimateCalUnit"]),
                         UnitCostEstimate = Convert.ToDouble(reader["UnitCostEstimate"]),
-                        TotalCostEstimate = Convert.ToInt64(reader["TotalCostEstimate"])
+                        TotalCostEstimate = Convert.ToDouble(reader["TotalCostEstimate"])
                     };
                     edDto.UnitCostEstimateFormated = Global.Global.ConvertDoubleToMoney(edDto.UnitCostEstimate,Constants.SPLIP_MONEY);
-                    edDto.TotalCostEstimateFormated = Global.Global.ConvertLongToMoney(edDto.TotalCostEstimate, Constants.SPLIP_MONEY);
+                    edDto.TotalCostEstimateFormated = Global.Global.ConvertDoubleToMoney(edDto.TotalCostEstimate, Constants.SPLIP_MONEY);
                     listcons.Add(edDto);
                 }
                 return listcons;
@@ -172,6 +174,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             }
             try
             {
+                cmd.Parameters.Add(new SqlParameter("@no", dto.No));
                 cmd.Parameters.Add(new SqlParameter("@estimateID", dto.EstimateID));
                 if (dto.MaterialID>0)
                     cmd.Parameters.Add(new SqlParameter("@materialID", dto.MaterialID));
@@ -205,6 +208,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             }
             try
             {
+                cmd.Parameters.Add(new SqlParameter("@no", dto.No));
                 cmd.Parameters.Add(new SqlParameter("@estimateDetailID", dto.EstimateDetailID));
                 if (dto.MaterialID > 0)
                     cmd.Parameters.Add(new SqlParameter("@materialID", dto.MaterialID));
