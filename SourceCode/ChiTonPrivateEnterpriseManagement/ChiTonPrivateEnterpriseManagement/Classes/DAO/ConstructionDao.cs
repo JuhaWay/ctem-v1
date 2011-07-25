@@ -387,7 +387,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                     Connection.Close();
             }
         }
-
+      
 
         internal bool UpdateConstruction(ConstructionDTO dto)
         {
@@ -591,6 +591,342 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             finally
             {
                 if (Transaction == null) Connection.Close();
+            }
+        }
+
+        public List<PayDTO> LoadAllDisbursementProgress(long id, int type)
+        {
+            var cmd = new SqlCommand("[dbo].[DisbursementProgress_GetByIDAndType]", Connection);
+
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@ConstructionID", id));
+            cmd.Parameters.Add(new SqlParameter("@Type", type));
+            try
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                List<PayDTO> listcons = new List<PayDTO>();
+                while (reader.Read())
+                {
+                    PayDTO dto = new PayDTO
+                    {
+                        DisbursementProgressID = Convert.ToInt64(reader["DisbursementProgressID"]),
+                        ConstructionID = Convert.ToInt64(reader["ConstructionID"]),
+                        State = Convert.ToString(reader["State"]),
+                        Rate = Convert.ToInt32(reader["Rate"]),
+                        Start = Convert.ToDateTime(reader["Start"]),
+                        End = Convert.ToDateTime(reader["End"]),
+                        Number = Convert.ToInt64(reader["Number"]),
+                        Note = Convert.ToString(reader["Note"])
+
+                    };
+
+                    dto.StartFormated = dto.Start.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
+                    dto.EndFormated = dto.End.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
+                    dto.NumberFormated = Global.Global.ConvertLongToMoney(dto.Number, Global.Global.SEP);
+                    listcons.Add(dto);
+                }
+                return listcons;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message, "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                if (Transaction == null) Connection.Close();
+            }
+        }
+
+        public PayDTO LoadAllDisbursementProgress(long id)
+        {
+            var cmd = new SqlCommand("[dbo].[DisbursementProgress_GetByID]", Connection);
+
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@DisbursementProgressID", id));
+            try
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    PayDTO dto = new PayDTO
+                    {
+                        DisbursementProgressID = Convert.ToInt64(reader["DisbursementProgressID"]),
+                        ConstructionID = Convert.ToInt64(reader["ConstructionID"]),
+                        State = Convert.ToString(reader["State"]),
+                        Rate = Convert.ToInt32(reader["Rate"]),
+                        Start = Convert.ToDateTime(reader["Start"]),
+                        End = Convert.ToDateTime(reader["End"]),
+                        Number = Convert.ToInt64(reader["Number"]),
+                        Note = Convert.ToString(reader["Note"])
+
+                    };
+
+                    dto.StartFormated = dto.Start.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
+                    dto.EndFormated = dto.End.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
+                    dto.NumberFormated = Global.Global.ConvertLongToMoney(dto.Number, Global.Global.SEP);
+                    return dto;
+                }
+                return null; ;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message, "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                if (Transaction == null) Connection.Close();
+            }
+        }
+
+
+        public bool CreateDisbursementProgress(PayDTO dto)
+        {
+            var cmd = new SqlCommand("[dbo].[DisbursementProgress_Create]", Connection) { CommandType = CommandType.StoredProcedure };
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@ConstructionID", dto.ConstructionID));
+                cmd.Parameters.Add(new SqlParameter("@State", dto.State));
+                cmd.Parameters.Add(new SqlParameter("@Rate", dto.Rate));
+                cmd.Parameters.Add(new SqlParameter("@Start", dto.Start));
+                cmd.Parameters.Add(new SqlParameter("@End", dto.End));
+                cmd.Parameters.Add(new SqlParameter("@Number", dto.Number));
+                cmd.Parameters.Add(new SqlParameter("@Note", dto.Note));
+                cmd.Parameters.Add(new SqlParameter("@Type", dto.Type));
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message);
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null)
+                    Connection.Close();
+            }
+        }
+
+
+        public bool CreateProgressHrt(ProgressHrtDTO dto)
+        {
+            var cmd = new SqlCommand("[dbo].[ProgressHtr_Create]", Connection) { CommandType = CommandType.StoredProcedure };
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@ConstructionID", dto.ConstructionID));
+                cmd.Parameters.Add(new SqlParameter("@Editor", dto.Editor));
+                cmd.Parameters.Add(new SqlParameter("@Progress", dto.Progress));
+                cmd.Parameters.Add(new SqlParameter("@Date", dto.Date));
+                cmd.Parameters.Add(new SqlParameter("@Note", dto.Note));
+
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message);
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null)
+                    Connection.Close();
+            }
+        }
+
+        public List<ProgressHrtDTO> LoadAllProgressHtr(long id)
+        {
+            var cmd = new SqlCommand("[dbo].[ProgressHtr_getAll]", Connection);
+
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@ConstructionID", id));
+            try
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                List<ProgressHrtDTO> listcons = new List<ProgressHrtDTO>();
+                while (reader.Read())
+                {
+                    ProgressHrtDTO dto = new ProgressHrtDTO
+                    {
+                        ConstructionID = Convert.ToInt64(reader["ConstructionID"]),
+                        Editor = Convert.ToString(reader["Editor"]),
+                        Progress = Convert.ToInt32(reader["Progress"]),
+                        Date = Convert.ToDateTime(reader["Date"]),
+                        Note = Convert.ToString(reader["Note"])
+
+                    };
+
+                    dto.DateFormated = dto.Date.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
+                    listcons.Add(dto);
+                }
+                return listcons;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message, "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                if (Transaction == null) Connection.Close();
+            }
+        }
+
+
+
+        public List<DisbursementDTO> LoadAllDisbursement(long id,long conID)
+        {
+            var cmd = new SqlCommand("[dbo].[Disbursement_GetAll]", Connection);
+
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@DisbursementProgressID", id));
+            cmd.Parameters.Add(new SqlParameter("@ConstructionID", conID));
+            try
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                List<DisbursementDTO> listcons = new List<DisbursementDTO>();
+                while (reader.Read())
+                {
+                    DisbursementDTO dto = new DisbursementDTO
+                    {
+                        DisbursementID = Convert.ToInt64(reader["DisbursementID"]),
+                        DisbursementProgressID = Convert.ToInt64(reader["DisbursementProgressID"]),
+                        Number = Convert.ToInt64(reader["Number"]),
+                        Taker = Convert.ToString(reader["Taker"]),
+                        OthersCost = Convert.ToInt64(reader["OthersCost"]),
+                        Reason = Convert.ToString(reader["Reason"]),
+                        Date = Convert.ToDateTime(reader["Date"]),
+                        Note = Convert.ToString(reader["Note"])
+
+                    };
+                    dto.NumberFormated = Global.Global.ConvertLongToMoney(dto.Number, Global.Global.SEP);
+                    dto.OthersCostFormated = Global.Global.ConvertLongToMoney(dto.OthersCost, Global.Global.SEP);
+                    listcons.Add(dto);
+                }
+                return listcons;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message, "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                if (Transaction == null) Connection.Close();
+            }
+        }
+        internal bool DeleteDisbursement(long id, long conID)
+        {
+            var cmd = new SqlCommand("[dbo].[Disbursement_Delete]", Connection) { CommandType = CommandType.StoredProcedure };
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@DisbursementProgressID", id));
+                cmd.Parameters.Add(new SqlParameter("@ConstructionID", conID));
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException sql)
+            {
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null)
+                    Connection.Close();
+            }
+        }
+        public bool CreateDisbursement(DisbursementDTO dto)
+        {
+            var cmd = new SqlCommand("[dbo].[Disbursement_Create]", Connection) { CommandType = CommandType.StoredProcedure };
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@DisbursementProgressID", dto.DisbursementProgressID));
+                cmd.Parameters.Add(new SqlParameter("@ConstructionID", dto.ConstructionID));
+                cmd.Parameters.Add(new SqlParameter("@Number", dto.Number));
+                cmd.Parameters.Add(new SqlParameter("@Taker", dto.Taker));
+                cmd.Parameters.Add(new SqlParameter("@OthersCost", dto.OthersCost));
+                cmd.Parameters.Add(new SqlParameter("@Reason", dto.Reason));
+                cmd.Parameters.Add(new SqlParameter("@Note", dto.Note));
+                cmd.Parameters.Add(new SqlParameter("@Date", dto.Date));
+
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message);
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null)
+                    Connection.Close();
+            }
+        }
+        public bool UpdateDisbursement(DisbursementDTO dto)
+        {
+            var cmd = new SqlCommand("[dbo].[Disbursement_Update]", Connection) { CommandType = CommandType.StoredProcedure };
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+
+                cmd.Parameters.Add(new SqlParameter("@DisbursementID", dto.DisbursementID));
+                cmd.Parameters.Add(new SqlParameter("@Number", dto.Number));
+                cmd.Parameters.Add(new SqlParameter("@Taker", dto.Taker));
+                cmd.Parameters.Add(new SqlParameter("@OthersCost", dto.OthersCost));
+                cmd.Parameters.Add(new SqlParameter("@Reason", dto.Reason));
+                cmd.Parameters.Add(new SqlParameter("@Note", dto.Note));
+                cmd.Parameters.Add(new SqlParameter("@Date", dto.Date));
+
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message);
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null)
+                    Connection.Close();
             }
         }
     }
