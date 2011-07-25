@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.kryptonPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.ipTask = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.kryptonLabel5 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonComboBox1 = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.cbPaid = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
@@ -52,8 +54,7 @@
             this.cbVehicle = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.lbDriver = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.ipTask = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.kryptonLabel5 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.kryptonLabel4 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonComboBox1)).BeginInit();
@@ -63,6 +64,7 @@
             // 
             // kryptonPanel
             // 
+            this.kryptonPanel.Controls.Add(this.kryptonLabel4);
             this.kryptonPanel.Controls.Add(this.ipTask);
             this.kryptonPanel.Controls.Add(this.kryptonLabel5);
             this.kryptonPanel.Controls.Add(this.kryptonComboBox1);
@@ -92,6 +94,23 @@
             this.kryptonPanel.Size = new System.Drawing.Size(463, 439);
             this.kryptonPanel.StateCommon.Color1 = System.Drawing.SystemColors.HotTrack;
             this.kryptonPanel.TabIndex = 0;
+            // 
+            // ipTask
+            // 
+            this.ipTask.Location = new System.Drawing.Point(192, 297);
+            this.ipTask.Multiline = true;
+            this.ipTask.Name = "ipTask";
+            this.ipTask.Size = new System.Drawing.Size(204, 86);
+            this.ipTask.TabIndex = 128;
+            // 
+            // kryptonLabel5
+            // 
+            this.kryptonLabel5.Location = new System.Drawing.Point(116, 297);
+            this.kryptonLabel5.Name = "kryptonLabel5";
+            this.kryptonLabel5.Size = new System.Drawing.Size(59, 19);
+            this.kryptonLabel5.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.kryptonLabel5.TabIndex = 129;
+            this.kryptonLabel5.Values.Text = "Công việc";
             // 
             // kryptonComboBox1
             // 
@@ -125,10 +144,10 @@
             // 
             this.lbPaid.Location = new System.Drawing.Point(99, 272);
             this.lbPaid.Name = "lbPaid";
-            this.lbPaid.Size = new System.Drawing.Size(78, 19);
+            this.lbPaid.Size = new System.Drawing.Size(67, 19);
             this.lbPaid.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.lbPaid.TabIndex = 125;
-            this.lbPaid.Values.Text = "Thanh toán(*)";
+            this.lbPaid.Values.Text = "Thanh toán";
             // 
             // ipTotalCost
             // 
@@ -177,10 +196,10 @@
             // 
             this.lbDay.Location = new System.Drawing.Point(88, 243);
             this.lbDay.Name = "lbDay";
-            this.lbDay.Size = new System.Drawing.Size(83, 19);
+            this.lbDay.Size = new System.Drawing.Size(81, 19);
             this.lbDay.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.lbDay.TabIndex = 120;
-            this.lbDay.Values.Text = "Ngày xuất bến";
+            this.lbDay.Values.Text = "Ngày ứng tiền";
             // 
             // btClose
             // 
@@ -284,22 +303,14 @@
             this.kryptonLabel2.TabIndex = 115;
             this.kryptonLabel2.Values.Text = "Biển số xe(*)";
             // 
-            // ipTask
+            // kryptonLabel4
             // 
-            this.ipTask.Location = new System.Drawing.Point(192, 297);
-            this.ipTask.Multiline = true;
-            this.ipTask.Name = "ipTask";
-            this.ipTask.Size = new System.Drawing.Size(204, 86);
-            this.ipTask.TabIndex = 128;
-            // 
-            // kryptonLabel5
-            // 
-            this.kryptonLabel5.Location = new System.Drawing.Point(116, 297);
-            this.kryptonLabel5.Name = "kryptonLabel5";
-            this.kryptonLabel5.Size = new System.Drawing.Size(59, 19);
-            this.kryptonLabel5.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.kryptonLabel5.TabIndex = 129;
-            this.kryptonLabel5.Values.Text = "Công việc";
+            this.kryptonLabel4.Location = new System.Drawing.Point(3, 417);
+            this.kryptonLabel4.Name = "kryptonLabel4";
+            this.kryptonLabel4.Size = new System.Drawing.Size(109, 19);
+            this.kryptonLabel4.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.kryptonLabel4.TabIndex = 130;
+            this.kryptonLabel4.Values.Text = "(*) Trường bắt buộc";
             // 
             // AddNewBargeDairy
             // 
@@ -350,6 +361,7 @@
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel2;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox ipTask;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel5;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel4;
     }
 }
 

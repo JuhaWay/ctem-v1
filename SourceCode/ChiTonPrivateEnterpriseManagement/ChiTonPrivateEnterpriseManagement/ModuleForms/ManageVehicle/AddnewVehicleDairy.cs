@@ -42,7 +42,12 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
         {
             cbDriver.Items.AddRange(_employeeBUS.LoadAllEmployee().ToArray());
             cbDriver.DisplayMember = "Username";
-            cbVehicle.Items.AddRange(_vehicleBUS.LoadAllVehicles().ToArray());
+            VehicleDTO dto = new VehicleDTO();
+            dto.Name = "";
+            dto.Number = "";
+            dto.ManagerID = Global.CurrentUser.employeeID;
+            dto.Category = VehicleDTO.CATEGORY_VEHICLE;
+            cbVehicle.Items.AddRange(_vehicleBUS.searchVehicle(dto).ToArray());
             cbVehicle.DisplayMember = "Number";
             Global.SetLayoutPanelNewForm(pnMain);
 
@@ -132,7 +137,9 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
             list.Add(dtoTemp);
             dgvRoadMap.DataSource = null;
             dgvRoadMap.DataSource = list;
-           
+            ipKm.Text = "";
+            ipFrom.Text = "";
+            ipTo.Text = "";
         }
 
         private void btnDelete_Click(object sender, EventArgs e)

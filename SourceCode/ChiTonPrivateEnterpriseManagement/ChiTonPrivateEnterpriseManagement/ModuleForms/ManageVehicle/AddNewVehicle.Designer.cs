@@ -107,14 +107,14 @@
             // cbCategory
             // 
             this.cbCategory.DropDownWidth = 141;
-            this.cbCategory.Location = new System.Drawing.Point(99, 90);
+            this.cbCategory.Location = new System.Drawing.Point(99, 34);
             this.cbCategory.Name = "cbCategory";
             this.cbCategory.Size = new System.Drawing.Size(141, 22);
             this.cbCategory.TabIndex = 3;
             // 
             // kryptonLabel3
             // 
-            this.kryptonLabel3.Location = new System.Drawing.Point(8, 90);
+            this.kryptonLabel3.Location = new System.Drawing.Point(8, 37);
             this.kryptonLabel3.Name = "kryptonLabel3";
             this.kryptonLabel3.Size = new System.Drawing.Size(75, 19);
             this.kryptonLabel3.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -223,14 +223,14 @@
             // 
             // ipNumber
             // 
-            this.ipNumber.Location = new System.Drawing.Point(99, 59);
+            this.ipNumber.Location = new System.Drawing.Point(98, 90);
             this.ipNumber.Name = "ipNumber";
             this.ipNumber.Size = new System.Drawing.Size(141, 22);
             this.ipNumber.TabIndex = 2;
             // 
             // lbNumber
             // 
-            this.lbNumber.Location = new System.Drawing.Point(24, 59);
+            this.lbNumber.Location = new System.Drawing.Point(24, 84);
             this.lbNumber.Name = "lbNumber";
             this.lbNumber.Size = new System.Drawing.Size(58, 19);
             this.lbNumber.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -239,19 +239,19 @@
             // 
             // ipName
             // 
-            this.ipName.Location = new System.Drawing.Point(99, 31);
+            this.ipName.Location = new System.Drawing.Point(99, 62);
             this.ipName.Name = "ipName";
             this.ipName.Size = new System.Drawing.Size(141, 22);
             this.ipName.TabIndex = 1;
             // 
             // lbName
             // 
-            this.lbName.Location = new System.Drawing.Point(27, 34);
+            this.lbName.Location = new System.Drawing.Point(30, 59);
             this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(56, 19);
+            this.lbName.Size = new System.Drawing.Size(45, 19);
             this.lbName.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.lbName.TabIndex = 0;
-            this.lbName.Values.Text = "Loại xe(*)";
+            this.lbName.Values.Text = "Loại (*)";
             // 
             // AddNewVehicle
             // 
