@@ -74,6 +74,12 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
         }
         private bool validate()
         {
+            if (cbCategory.SelectedIndex < 0)
+            {
+                KryptonMessageBox.Show("Vui Lòng chọn chức năng", Constants.CONFIRM, MessageBoxButtons.OK,
+                               MessageBoxIcon.Warning);
+                return false;
+            }
             if (ipName.Text.Trim().Equals(""))
             {
                 KryptonMessageBox.Show("Vui Lòng điền tên", Constants.CONFIRM, MessageBoxButtons.OK,
@@ -87,12 +93,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
                 return false;
             }
 
-            if (cbCategory.SelectedIndex < 0)
-            {
-                KryptonMessageBox.Show("Vui Lòng chọn chức năng", Constants.CONFIRM, MessageBoxButtons.OK,
-                               MessageBoxIcon.Warning);
-                return false;
-            }
+            
             if (cbManager.SelectedIndex<0)
             {
                 KryptonMessageBox.Show("Vui Lòng chọn quản lí", Constants.CONFIRM, MessageBoxButtons.OK,

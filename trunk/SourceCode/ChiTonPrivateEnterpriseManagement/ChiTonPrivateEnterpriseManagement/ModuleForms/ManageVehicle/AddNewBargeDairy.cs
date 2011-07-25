@@ -97,6 +97,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
             VehicleDTO dto = new VehicleDTO();
             dto.Name = "";
             dto.Number = "";
+            dto.ManagerID = Global.CurrentUser.employeeID;
             dto.Category = VehicleDTO.CATEGORY_BARGE;
             cbVehicle.Items.AddRange(_vehicleBUS.searchVehicle(dto).ToArray());
             cbVehicle.DisplayMember = "Number";

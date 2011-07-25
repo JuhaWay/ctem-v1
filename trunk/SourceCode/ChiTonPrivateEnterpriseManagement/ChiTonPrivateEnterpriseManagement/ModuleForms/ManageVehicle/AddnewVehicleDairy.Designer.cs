@@ -175,12 +175,12 @@
             // 
             // lbPaid
             // 
-            this.lbPaid.Location = new System.Drawing.Point(36, 334);
+            this.lbPaid.Location = new System.Drawing.Point(43, 328);
             this.lbPaid.Name = "lbPaid";
-            this.lbPaid.Size = new System.Drawing.Size(78, 19);
+            this.lbPaid.Size = new System.Drawing.Size(67, 19);
             this.lbPaid.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.lbPaid.TabIndex = 79;
-            this.lbPaid.Values.Text = "Thanh toán(*)";
+            this.lbPaid.Values.Text = "Thanh toán";
             // 
             // ipTotalCost
             // 
@@ -238,10 +238,10 @@
             // 
             this.lbDay.Location = new System.Drawing.Point(36, 290);
             this.lbDay.Name = "lbDay";
-            this.lbDay.Size = new System.Drawing.Size(83, 19);
+            this.lbDay.Size = new System.Drawing.Size(81, 19);
             this.lbDay.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.lbDay.TabIndex = 73;
-            this.lbDay.Values.Text = "Ngày xuất bến";
+            this.lbDay.Values.Text = "Ngày ứng tiền";
             // 
             // btClose
             // 

@@ -74,6 +74,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
             seachDto.DriverID = (cbSearchDriver.SelectedItem as EmployerDTO).employeeID; ;
             seachDto.FromDate = dtFromdate.Value;
             seachDto.ToDate = dtTodate.Value;
+            seachDto.ManagerID = Global.CurrentUser.employeeID;
             seachDto.Category = cbSearchCategory.Text;
             List<VehicleDairyDTO> list = _vehicleDairyBUS.searchVehicleDairy(seachDto);
             dgvVehicleDairy.DataSource = list;
@@ -92,6 +93,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
             seachDto.FromDate = dtFromdate.Value;
             seachDto.ToDate = dtTodate.Value;
             seachDto.Category = cbSearchCategory.Text;
+            seachDto.ManagerID = Global.CurrentUser.employeeID;
             List<VehicleDairyDTO> list = _vehicleDairyBUS.searchVehicleDairy(seachDto);
             dgvVehicleDairy.DataSource = list;
         }

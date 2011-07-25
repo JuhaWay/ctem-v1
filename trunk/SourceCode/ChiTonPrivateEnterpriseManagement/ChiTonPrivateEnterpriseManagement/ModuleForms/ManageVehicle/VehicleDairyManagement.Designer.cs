@@ -60,6 +60,11 @@
             this.slcMain = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
             this.gbxLeftBot = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.dgvVehicleDairy = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.VehicleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DriverName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isPaid = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.vehicleDairyDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.kryptonPanel5 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.pnlSearch = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
@@ -84,11 +89,6 @@
             this.btEdit = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.btnDelete = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.btnHideShowSearch = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.VehicleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DriverName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.isPaid = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel4)).BeginInit();
@@ -343,6 +343,44 @@
             this.dgvVehicleDairy.TabIndex = 11;
             this.dgvVehicleDairy.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvVehicleDairy_MouseClick);
             // 
+            // VehicleName
+            // 
+            this.VehicleName.DataPropertyName = "VehicleNumber";
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.VehicleName.DefaultCellStyle = dataGridViewCellStyle1;
+            this.VehicleName.HeaderText = "Biển số xe";
+            this.VehicleName.Name = "VehicleName";
+            this.VehicleName.Width = 300;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Category";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Chức  năng";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Width = 300;
+            // 
+            // DriverName
+            // 
+            this.DriverName.DataPropertyName = "DriverName";
+            this.DriverName.HeaderText = "Tài xế";
+            this.DriverName.Name = "DriverName";
+            this.DriverName.Width = 200;
+            // 
+            // Date
+            // 
+            this.Date.DataPropertyName = "DateFormated";
+            this.Date.HeaderText = "Ngày ứng tiền";
+            this.Date.Name = "Date";
+            this.Date.Width = 200;
+            // 
+            // isPaid
+            // 
+            this.isPaid.DataPropertyName = "isPaid";
+            this.isPaid.HeaderText = "Đã thanh toán";
+            this.isPaid.Name = "isPaid";
+            this.isPaid.Visible = false;
+            this.isPaid.Width = 200;
+            // 
             // vehicleDairyDTOBindingSource
             // 
             this.vehicleDairyDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.VehicleDairyDTO);
@@ -590,44 +628,6 @@
             this.btnHideShowSearch.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
             this.btnHideShowSearch.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.ArrowUp;
             this.btnHideShowSearch.UniqueName = "7CD50F96676F43E7C0B240BAD639EFD5";
-            // 
-            // VehicleName
-            // 
-            this.VehicleName.DataPropertyName = "VehicleNumber";
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.VehicleName.DefaultCellStyle = dataGridViewCellStyle1;
-            this.VehicleName.HeaderText = "Biển số xe";
-            this.VehicleName.Name = "VehicleName";
-            this.VehicleName.Width = 300;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Category";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Chức  năng";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Width = 300;
-            // 
-            // DriverName
-            // 
-            this.DriverName.DataPropertyName = "DriverName";
-            this.DriverName.HeaderText = "Tài xế";
-            this.DriverName.Name = "DriverName";
-            this.DriverName.Width = 200;
-            // 
-            // Date
-            // 
-            this.Date.DataPropertyName = "DateFormated";
-            this.Date.HeaderText = "Ngày xuất bến";
-            this.Date.Name = "Date";
-            this.Date.Width = 200;
-            // 
-            // isPaid
-            // 
-            this.isPaid.DataPropertyName = "isPaid";
-            this.isPaid.HeaderText = "Đã thanh toán";
-            this.isPaid.Name = "isPaid";
-            this.isPaid.Visible = false;
-            this.isPaid.Width = 200;
             // 
             // VehicleDairyManagement
             // 

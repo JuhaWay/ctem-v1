@@ -199,16 +199,16 @@
             // 
             this.cbHouse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.cbHouse.DropDownWidth = 141;
-            this.cbHouse.Location = new System.Drawing.Point(475, 48);
+            this.cbHouse.Location = new System.Drawing.Point(475, 23);
             this.cbHouse.Name = "cbHouse";
             this.cbHouse.Size = new System.Drawing.Size(248, 22);
-            this.cbHouse.TabIndex = 9;
+            this.cbHouse.TabIndex = 7;
             this.cbHouse.Text = "chọn...";
             // 
             // lbHouse
             // 
             this.lbHouse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.lbHouse.Location = new System.Drawing.Point(388, 51);
+            this.lbHouse.Location = new System.Drawing.Point(388, 26);
             this.lbHouse.Name = "lbHouse";
             this.lbHouse.Size = new System.Drawing.Size(69, 19);
             this.lbHouse.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -219,16 +219,16 @@
             // 
             this.cbManager.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.cbManager.DropDownWidth = 141;
-            this.cbManager.Location = new System.Drawing.Point(475, 20);
+            this.cbManager.Location = new System.Drawing.Point(475, 51);
             this.cbManager.Name = "cbManager";
             this.cbManager.Size = new System.Drawing.Size(248, 22);
-            this.cbManager.TabIndex = 7;
+            this.cbManager.TabIndex = 9;
             this.cbManager.Text = "chọn...";
             // 
             // kryptonLabel4
             // 
             this.kryptonLabel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.kryptonLabel4.Location = new System.Drawing.Point(396, 23);
+            this.kryptonLabel4.Location = new System.Drawing.Point(396, 54);
             this.kryptonLabel4.Name = "kryptonLabel4";
             this.kryptonLabel4.Size = new System.Drawing.Size(60, 19);
             this.kryptonLabel4.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -244,6 +244,7 @@
             this.cbCons.Size = new System.Drawing.Size(215, 22);
             this.cbCons.TabIndex = 10;
             this.cbCons.Text = "Chọn...";
+            this.cbCons.SelectedIndexChanged += new System.EventHandler(this.cbCons_SelectedIndexChanged);
             // 
             // lbCons
             // 
@@ -284,12 +285,12 @@
             // lbName
             // 
             this.lbName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.lbName.Location = new System.Drawing.Point(74, 26);
+            this.lbName.Location = new System.Drawing.Point(86, 26);
             this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(54, 19);
+            this.lbName.Size = new System.Drawing.Size(42, 19);
             this.lbName.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.lbName.TabIndex = 14;
-            this.lbName.Values.Text = "Tên xe(*)";
+            this.lbName.Values.Text = "Loại(*)";
             // 
             // dgvVehicle
             // 
@@ -319,7 +320,7 @@
             // Name
             // 
             this.Name.DataPropertyName = "Name";
-            this.Name.HeaderText = "Loại  xe";
+            this.Name.HeaderText = "Loại";
             this.Name.Name = "Name";
             this.Name.Width = 200;
             // 
@@ -389,10 +390,10 @@
             this.kryptonLabel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.kryptonLabel2.Location = new System.Drawing.Point(144, 3);
             this.kryptonLabel2.Name = "kryptonLabel2";
-            this.kryptonLabel2.Size = new System.Drawing.Size(45, 19);
+            this.kryptonLabel2.Size = new System.Drawing.Size(31, 19);
             this.kryptonLabel2.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.kryptonLabel2.TabIndex = 9;
-            this.kryptonLabel2.Values.Text = "Loại xe";
+            this.kryptonLabel2.Values.Text = "Loại";
             // 
             // ipSearchNumber
             // 
