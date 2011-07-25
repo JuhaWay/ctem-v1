@@ -32,10 +32,15 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             gbxSearch.Height = 68;
             Global.SetLayoutForm(this, Constants.CHILD_FORM);
             Global.SetLayoutHeaderGroup(hdDebt, Constants.CHILD_FORM);
+            Global.SetLayoutHeaderGroup(hdEdit, Constants.CHILD_FORM);
+            Global.SetLayoutSplipContainer(slcMain, 2);
             Global.SetDaulftDatagridview(dgvWks);
             Global.SetLayoutGroupBoxSearch(gbxSearch);
             Global.SetLayoutPanelChildForm(pnlSearch);
             Global.SetLayoutButton(btnSearch);
+            Global.SetLayoutSplipContainerInChildForm(kryptonSplitContainer1);
+            Global.SetLayoutGroupBoxChildForm(gbxEdit1);
+            Global.SetLayoutGroupBoxChildForm(kryptonGroupBox1);
         }
         // tạo mới bảng lương
         public void addMenu_Click(object sender, System.EventArgs e)
@@ -48,7 +53,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
         // load dử liệu của form
         private void WorkerSalaryManagement_Load(object sender, EventArgs e)
         {
-           
             cbManager.DataSource=_employeeBUS.LoadAllEmployee();
             cbManager.DisplayMember = "Username";
             cbCons.DataSource = _constructionBus.LoadAllConstructions();
@@ -92,6 +96,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             _dtoTemp.ToDate = dtTodate.Value.Date;
             _dtoTemp.ManagerID = (cbManager.SelectedItem as EmployerDTO).employeeID;
             _dtoTemp.OthersCost = Global.ConvertMoneyToLong(ipOthersCost.Text, Global.SEP);
+            _dtoTemp.Reason = txtReason.Text;
             _dtoTemp.TotalCost = _dtoTemp.TotalSalary + _dtoTemp.OthersCost;
             _workerSalaryBUS.UpdateWks(_dtoTemp);
             MessageBox.Show("cập nhật thành công !");
@@ -125,7 +130,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
                dtFromdate.Value = _dtoTemp.FromDate;
                dtTodate.Value = _dtoTemp.ToDate;
                ipOthersCost.Text = _dtoTemp.OthersCostFormated;
-
+               txtReason.Text = _dtoTemp.Reason;
            }
            else
            {
@@ -208,12 +213,38 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
 
         private void ipOthersCost_Leave(object sender, EventArgs e)
         {
-            ipOthersCost.Text = Global.ConvertLongToMoney(Global.ConvertMoneyToLong(ipOthersCost.Text, Global.SEP), Global.SEP);
+            Global.SetTextBoxMoneyLeave(ipOthersCost);
         }
 
         private void ipOthersCost_MouseLeave(object sender, EventArgs e)
         {
             ipOthersCost.Text = Global.ConvertLongToMoney(Global.ConvertMoneyToLong(ipOthersCost.Text, Global.SEP), Global.SEP);
+        }
+
+        private void btnHideShowSearch_Click(object sender, EventArgs e)
+        {
+            if (gbxSearch.Visible)
+            {
+                btnHideShowSearch.Type = PaletteButtonSpecStyle.ArrowDown;
+                Global.DownUpControl(this, pnlSearch, 62, 2, 4, false);
+                gbxSearch.Visible = false;
+            }
+            else
+            {
+                btnHideShowSearch.Type = PaletteButtonSpecStyle.ArrowUp;
+                gbxSearch.Visible = true;
+                Global.DownUpControl(this, pnlSearch, 62, 2, 4, true);
+            }
+        }
+
+        private void dgvWks_DoubleClick(object sender, EventArgs e)
+        {
+            btViewEst_Click(null, null);
+        }
+
+        private void ipOthersCost_Enter(object sender, EventArgs e)
+        {
+            Global.SetTextBoxNumberEnter(ipOthersCost);
         }
 
     }

@@ -56,6 +56,8 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         Fullname = Convert.ToString(reader["FullName"]),
                         ManDate = Convert.ToDouble(reader["ManDate"]),
                         Salary = Convert.ToInt64(reader["Salary"]),
+                        Allowance = reader["Salary"] != DBNull.Value ? Convert.ToInt64(reader["Allowance"]) : 0,
+                        Reason = Convert.ToString(reader["Reason"]),
                         TotalSalary = Convert.ToInt64(reader["TotalSalary"]),
                         Position = Convert.ToString(reader["Position"]),
                         CreatedBy =Convert.ToString(reader["CreatedBy"]),
@@ -74,6 +76,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                     }
                     dto.CreatedDateFormated = dto.CreatedDate.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
                     dto.SalaryFormated = Global.Global.ConvertLongToMoney(dto.Salary, Global.Global.SEP);
+                    dto.AllowanceFomated = Global.Global.ConvertLongToMoney(dto.Allowance, Constants.SPLIP_MONEY);
                     dto.TotalSalaryFormated = Global.Global.ConvertLongToMoney(dto.TotalSalary, Global.Global.SEP); 
                     listcons.Add(dto);
                 }
@@ -151,6 +154,8 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         Fullname = Convert.ToString(reader["FullName"]),
                         ManDate = Convert.ToDouble(reader["ManDate"]),
                         Salary = Convert.ToInt64(reader["Salary"]),
+                        Allowance = reader["Salary"] != DBNull.Value ? Convert.ToInt64(reader["Allowance"]) : 0,
+                        Reason = Convert.ToString(reader["Reason"]),
                         TotalSalary = Convert.ToInt64(reader["TotalSalary"]),
                         Position = Convert.ToString(reader["Position"]),
                         CreatedBy = Convert.ToString(reader["CreatedBy"]),
@@ -169,6 +174,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                     }
                     dto.CreatedDateFormated = dto.CreatedDate.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
                     dto.SalaryFormated = Global.Global.ConvertLongToMoney(dto.Salary, Global.Global.SEP);
+                    dto.AllowanceFomated = Global.Global.ConvertLongToMoney(dto.Allowance, Constants.SPLIP_MONEY);
                     dto.TotalSalaryFormated = Global.Global.ConvertLongToMoney(dto.TotalSalary, Global.Global.SEP);
                    return dto;
                 }
@@ -198,6 +204,8 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.Parameters.Add(new SqlParameter("@fullName", dto.Fullname));
                 cmd.Parameters.Add(new SqlParameter("@ManDate", dto.ManDate));
                 cmd.Parameters.Add(new SqlParameter("@salary", dto.Salary));
+                cmd.Parameters.Add(new SqlParameter("@allowance", dto.Allowance));
+                cmd.Parameters.Add(new SqlParameter("@reason", dto.Reason));
                 cmd.Parameters.Add(new SqlParameter("@totalSalary", dto.TotalSalary));
                 cmd.Parameters.Add(new SqlParameter("@position", dto.Position));
                 cmd.Parameters.Add(new SqlParameter("@createdBy", Global.Global.CurrentUser.Username));
@@ -261,6 +269,8 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.Parameters.Add(new SqlParameter("@FullName", dto.Fullname));
                 cmd.Parameters.Add(new SqlParameter("@ManDate", dto.ManDate));
                 cmd.Parameters.Add(new SqlParameter("@Salary", dto.Salary));
+                cmd.Parameters.Add(new SqlParameter("@allowance", dto.Allowance));
+                cmd.Parameters.Add(new SqlParameter("@reason", dto.Reason));
                 cmd.Parameters.Add(new SqlParameter("@TotalSalary", dto.TotalSalary));
                 cmd.Parameters.Add(new SqlParameter("@Position", dto.Position));
                 cmd.Parameters.Add(new SqlParameter("@UpdatedBy", Global.Global.CurrentUser.Username));

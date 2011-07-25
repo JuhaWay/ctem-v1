@@ -136,9 +136,12 @@
     <Compile Include="Classes\DTO\ConstructionDTO.cs" />
     <Compile Include="Classes\DTO\CompareDebtDTO.cs" />
     <Compile Include="Classes\DTO\DayWorkingDTO.cs" />
+    <Compile Include="Classes\DTO\DisbursementDTO.cs" />
     <Compile Include="Classes\DTO\EmployeeAdvanceDTO.cs" />
     <Compile Include="Classes\DTO\DebtDTO.cs" />
     <Compile Include="Classes\DTO\LedgerDTO.cs" />
+    <Compile Include="Classes\DTO\PayDTO.cs" />
+    <Compile Include="Classes\DTO\ProgressHrtDTO.cs" />
     <Compile Include="Classes\DTO\RoadMapDTO.cs" />
     <Compile Include="Classes\DTO\StockOutDetailDTO.cs" />
     <Compile Include="Classes\DTO\StockOutDTO.cs" />
@@ -196,6 +199,18 @@
     </Compile>
     <Compile Include="ModuleForms\CommonForm.Designer.cs">
       <DependentUpon>CommonForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleForms\ManageConstruction\Disbursement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForms\ManageConstruction\Disbursement.Designer.cs">
+      <DependentUpon>Disbursement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleForms\ManageConstruction\ProgressConManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForms\ManageConstruction\ProgressConManagement.Designer.cs">
+      <DependentUpon>ProgressConManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="ModuleForms\ManageDebt\FinalAccountDebt.cs">
       <SubType>Form</SubType>
@@ -473,6 +488,12 @@
     <Compile Include="ModuleForms\ManageWorker\AddNewWS.Designer.cs">
       <DependentUpon>AddNewWS.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModuleForms\ManageWorker\DayWorkingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForms\ManageWorker\DayWorkingForm.Designer.cs">
+      <DependentUpon>DayWorkingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModuleForms\ManageWorker\WorkerList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -504,6 +525,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ModuleForms\CommonForm.resx">
       <DependentUpon>CommonForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\ManageConstruction\Disbursement.resx">
+      <DependentUpon>Disbursement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\ManageConstruction\ProgressConManagement.resx">
+      <DependentUpon>ProgressConManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModuleForms\ManageDebt\FinalAccountDebt.resx">
       <DependentUpon>FinalAccountDebt.cs</DependentUpon>
@@ -666,6 +693,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ModuleForms\ManageWorker\AddNewWS.resx">
       <DependentUpon>AddNewWS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\ManageWorker\DayWorkingForm.resx">
+      <DependentUpon>DayWorkingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModuleForms\ManageWorker\WorkerList.resx">
       <DependentUpon>WorkerList.cs</DependentUpon>

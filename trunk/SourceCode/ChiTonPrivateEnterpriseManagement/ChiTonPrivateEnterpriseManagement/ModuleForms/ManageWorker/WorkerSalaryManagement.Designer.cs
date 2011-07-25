@@ -48,6 +48,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             this.fromDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OthersCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Reason = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalSalaryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Task = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -71,22 +72,25 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             this.btViewList = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.btnHideShowSearch = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.gbcRightBot = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
+            this.kryptonSplitContainer1 = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
             this.gbxEdit1 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
+            this.txtReason = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.kryptonLabel5 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.ipTask = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.kryptonLabel4 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.cbManager = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
-            this.kryptonLabel3 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.ipOthersCost = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.dtTodate = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
             this.lbName = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.ipName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.cbCons = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
-            this.lbTodate = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.lbCons = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.dtFromdate = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
+            this.kryptonGroupBox1 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
+            this.ipTask = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.kryptonLabel4 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.kryptonLabel3 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.lbFromDate = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.dtFromdate = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
+            this.cbManager = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.lbTodate = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.dtTodate = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
             this.hdEdit = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
             this.btnSave = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -136,11 +140,18 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             ((System.ComponentModel.ISupportInitialize)(this.gbcRightBot)).BeginInit();
             this.gbcRightBot.Panel.SuspendLayout();
             this.gbcRightBot.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonSplitContainer1)).BeginInit();
+            this.kryptonSplitContainer1.Panel1.SuspendLayout();
+            this.kryptonSplitContainer1.Panel2.SuspendLayout();
+            this.kryptonSplitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gbxEdit1)).BeginInit();
             this.gbxEdit1.Panel.SuspendLayout();
             this.gbxEdit1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cbManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbCons)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).BeginInit();
+            this.kryptonGroupBox1.Panel.SuspendLayout();
+            this.kryptonGroupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbManager)).BeginInit();
             this.cmsDGV.SuspendLayout();
             this.cmsEdit.SuspendLayout();
             this.cmsGen.SuspendLayout();
@@ -204,6 +215,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             this.fromDateDataGridViewTextBoxColumn,
             this.toDateDataGridViewTextBoxColumn,
             this.OthersCost,
+            this.Reason,
             this.TotalCost,
             this.totalSalaryDataGridViewTextBoxColumn,
             this.Task,
@@ -220,6 +232,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             this.dgvWks.StateNormal.Background.Color1 = System.Drawing.Color.White;
             this.dgvWks.TabIndex = 0;
             this.dgvWks.SelectionChanged += new System.EventHandler(this.dgvWks_SelectionChanged);
+            this.dgvWks.DoubleClick += new System.EventHandler(this.dgvWks_DoubleClick);
             // 
             // constructionNameDataGridViewTextBoxColumn
             // 
@@ -280,6 +293,13 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             this.OthersCost.DataPropertyName = "OthersCostFormated";
             this.OthersCost.HeaderText = "Chi phí khác";
             this.OthersCost.Name = "OthersCost";
+            // 
+            // Reason
+            // 
+            this.Reason.DataPropertyName = "Reason";
+            this.Reason.HeaderText = "Lý do";
+            this.Reason.Name = "Reason";
+            this.Reason.Width = 150;
             // 
             // TotalCost
             // 
@@ -366,15 +386,15 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             this.kryptonDateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.kryptonDateTimePicker1.CustomFormat = "MM/yyyy";
             this.kryptonDateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.kryptonDateTimePicker1.Location = new System.Drawing.Point(322, 18);
+            this.kryptonDateTimePicker1.Location = new System.Drawing.Point(619, 14);
             this.kryptonDateTimePicker1.Name = "kryptonDateTimePicker1";
-            this.kryptonDateTimePicker1.Size = new System.Drawing.Size(142, 20);
+            this.kryptonDateTimePicker1.Size = new System.Drawing.Size(109, 20);
             this.kryptonDateTimePicker1.TabIndex = 8;
             // 
             // kryptonLabel1
             // 
             this.kryptonLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.kryptonLabel1.Location = new System.Drawing.Point(267, 19);
+            this.kryptonLabel1.Location = new System.Drawing.Point(564, 15);
             this.kryptonLabel1.Name = "kryptonLabel1";
             this.kryptonLabel1.Size = new System.Drawing.Size(49, 19);
             this.kryptonLabel1.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -384,18 +404,18 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             // 
             // cbSearchCons
             // 
-            this.cbSearchCons.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbSearchCons.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.cbSearchCons.DropDownWidth = 172;
-            this.cbSearchCons.Location = new System.Drawing.Point(554, 16);
+            this.cbSearchCons.Location = new System.Drawing.Point(417, 12);
             this.cbSearchCons.Name = "cbSearchCons";
-            this.cbSearchCons.Size = new System.Drawing.Size(172, 22);
+            this.cbSearchCons.Size = new System.Drawing.Size(129, 22);
             this.cbSearchCons.TabIndex = 2;
             this.cbSearchCons.Text = "chọn...";
             // 
             // lbSearchCons
             // 
-            this.lbSearchCons.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbSearchCons.Location = new System.Drawing.Point(475, 19);
+            this.lbSearchCons.Location = new System.Drawing.Point(338, 15);
             this.lbSearchCons.Name = "lbSearchCons";
             this.lbSearchCons.Size = new System.Drawing.Size(73, 19);
             this.lbSearchCons.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -405,16 +425,14 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             // 
             // ipSearchName
             // 
-            this.ipSearchName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.ipSearchName.Location = new System.Drawing.Point(145, 16);
+            this.ipSearchName.Location = new System.Drawing.Point(150, 12);
             this.ipSearchName.Name = "ipSearchName";
-            this.ipSearchName.Size = new System.Drawing.Size(116, 22);
+            this.ipSearchName.Size = new System.Drawing.Size(182, 22);
             this.ipSearchName.TabIndex = 1;
             // 
             // lbSearchName
             // 
-            this.lbSearchName.Location = new System.Drawing.Point(3, 19);
+            this.lbSearchName.Location = new System.Drawing.Point(8, 15);
             this.lbSearchName.Name = "lbSearchName";
             this.lbSearchName.Size = new System.Drawing.Size(136, 19);
             this.lbSearchName.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -425,7 +443,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             // btnSearch
             // 
             this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSearch.Location = new System.Drawing.Point(734, 3);
+            this.btnSearch.Location = new System.Drawing.Point(734, 4);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.OverrideDefault.Back.Color1 = System.Drawing.Color.NavajoWhite;
             this.btnSearch.OverrideDefault.Back.Color2 = System.Drawing.Color.White;
@@ -497,6 +515,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             this.btnHideShowSearch.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
             this.btnHideShowSearch.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.ArrowUp;
             this.btnHideShowSearch.UniqueName = "7CD50F96676F43E7C0B240BAD639EFD5";
+            this.btnHideShowSearch.Click += new System.EventHandler(this.btnHideShowSearch_Click);
             // 
             // gbcRightBot
             // 
@@ -506,37 +525,48 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             // 
             // gbcRightBot.Panel
             // 
-            this.gbcRightBot.Panel.Controls.Add(this.gbxEdit1);
+            this.gbcRightBot.Panel.Controls.Add(this.kryptonSplitContainer1);
             this.gbcRightBot.Panel.Controls.Add(this.hdEdit);
             this.gbcRightBot.Size = new System.Drawing.Size(924, 199);
             this.gbcRightBot.TabIndex = 1;
             this.gbcRightBot.Values.Heading = "";
             // 
+            // kryptonSplitContainer1
+            // 
+            this.kryptonSplitContainer1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.kryptonSplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.kryptonSplitContainer1.Location = new System.Drawing.Point(0, 29);
+            this.kryptonSplitContainer1.Name = "kryptonSplitContainer1";
+            // 
+            // kryptonSplitContainer1.Panel1
+            // 
+            this.kryptonSplitContainer1.Panel1.Controls.Add(this.gbxEdit1);
+            // 
+            // kryptonSplitContainer1.Panel2
+            // 
+            this.kryptonSplitContainer1.Panel2.Controls.Add(this.kryptonGroupBox1);
+            this.kryptonSplitContainer1.Size = new System.Drawing.Size(920, 164);
+            this.kryptonSplitContainer1.SplitterDistance = 467;
+            this.kryptonSplitContainer1.TabIndex = 7;
+            // 
             // gbxEdit1
             // 
-            this.gbxEdit1.CaptionOverlap = 0D;
+            this.gbxEdit1.CaptionOverlap = 1D;
             this.gbxEdit1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbxEdit1.Location = new System.Drawing.Point(0, 29);
+            this.gbxEdit1.Location = new System.Drawing.Point(0, 0);
             this.gbxEdit1.Name = "gbxEdit1";
             // 
             // gbxEdit1.Panel
             // 
+            this.gbxEdit1.Panel.Controls.Add(this.txtReason);
             this.gbxEdit1.Panel.Controls.Add(this.kryptonLabel5);
-            this.gbxEdit1.Panel.Controls.Add(this.ipTask);
-            this.gbxEdit1.Panel.Controls.Add(this.kryptonLabel4);
-            this.gbxEdit1.Panel.Controls.Add(this.cbManager);
-            this.gbxEdit1.Panel.Controls.Add(this.kryptonLabel3);
             this.gbxEdit1.Panel.Controls.Add(this.ipOthersCost);
             this.gbxEdit1.Panel.Controls.Add(this.kryptonLabel2);
-            this.gbxEdit1.Panel.Controls.Add(this.dtTodate);
             this.gbxEdit1.Panel.Controls.Add(this.lbName);
             this.gbxEdit1.Panel.Controls.Add(this.ipName);
             this.gbxEdit1.Panel.Controls.Add(this.cbCons);
-            this.gbxEdit1.Panel.Controls.Add(this.lbTodate);
             this.gbxEdit1.Panel.Controls.Add(this.lbCons);
-            this.gbxEdit1.Panel.Controls.Add(this.dtFromdate);
-            this.gbxEdit1.Panel.Controls.Add(this.lbFromDate);
-            this.gbxEdit1.Size = new System.Drawing.Size(920, 164);
+            this.gbxEdit1.Size = new System.Drawing.Size(467, 164);
             this.gbxEdit1.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(92)))), ((int)(((byte)(144)))));
             this.gbxEdit1.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
             this.gbxEdit1.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -544,68 +574,41 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             this.gbxEdit1.TabIndex = 6;
             this.gbxEdit1.Values.Heading = "";
             // 
+            // txtReason
+            // 
+            this.txtReason.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtReason.Location = new System.Drawing.Point(111, 89);
+            this.txtReason.Multiline = true;
+            this.txtReason.Name = "txtReason";
+            this.txtReason.Size = new System.Drawing.Size(316, 61);
+            this.txtReason.TabIndex = 24;
+            // 
             // kryptonLabel5
             // 
-            this.kryptonLabel5.Location = new System.Drawing.Point(3, 136);
+            this.kryptonLabel5.Location = new System.Drawing.Point(58, 92);
             this.kryptonLabel5.Name = "kryptonLabel5";
-            this.kryptonLabel5.Size = new System.Drawing.Size(106, 19);
+            this.kryptonLabel5.Size = new System.Drawing.Size(38, 16);
             this.kryptonLabel5.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.kryptonLabel5.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kryptonLabel5.TabIndex = 23;
-            this.kryptonLabel5.Values.Text = "(*)Trương bắt buộc";
-            // 
-            // ipTask
-            // 
-            this.ipTask.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.ipTask.Location = new System.Drawing.Point(266, 114);
-            this.ipTask.Name = "ipTask";
-            this.ipTask.Size = new System.Drawing.Size(177, 22);
-            this.ipTask.TabIndex = 22;
-            // 
-            // kryptonLabel4
-            // 
-            this.kryptonLabel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.kryptonLabel4.Location = new System.Drawing.Point(184, 114);
-            this.kryptonLabel4.Name = "kryptonLabel4";
-            this.kryptonLabel4.Size = new System.Drawing.Size(60, 16);
-            this.kryptonLabel4.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.kryptonLabel4.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonLabel4.TabIndex = 21;
-            this.kryptonLabel4.Values.Text = "Công việc";
-            // 
-            // cbManager
-            // 
-            this.cbManager.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.cbManager.DropDownWidth = 177;
-            this.cbManager.Location = new System.Drawing.Point(566, 84);
-            this.cbManager.Name = "cbManager";
-            this.cbManager.Size = new System.Drawing.Size(177, 22);
-            this.cbManager.TabIndex = 20;
-            this.cbManager.Text = "chọn...";
-            // 
-            // kryptonLabel3
-            // 
-            this.kryptonLabel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.kryptonLabel3.Location = new System.Drawing.Point(482, 84);
-            this.kryptonLabel3.Name = "kryptonLabel3";
-            this.kryptonLabel3.Size = new System.Drawing.Size(60, 19);
-            this.kryptonLabel3.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.kryptonLabel3.TabIndex = 19;
-            this.kryptonLabel3.Values.Text = "Quản lý(*)";
+            this.kryptonLabel5.Values.Text = "Lý do";
             // 
             // ipOthersCost
             // 
-            this.ipOthersCost.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.ipOthersCost.Location = new System.Drawing.Point(266, 87);
+            this.ipOthersCost.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.ipOthersCost.Location = new System.Drawing.Point(111, 61);
             this.ipOthersCost.Name = "ipOthersCost";
-            this.ipOthersCost.Size = new System.Drawing.Size(177, 22);
+            this.ipOthersCost.Size = new System.Drawing.Size(316, 22);
             this.ipOthersCost.TabIndex = 18;
+            this.ipOthersCost.Enter += new System.EventHandler(this.ipOthersCost_Enter);
             this.ipOthersCost.Leave += new System.EventHandler(this.ipOthersCost_Leave);
             this.ipOthersCost.MouseLeave += new System.EventHandler(this.ipOthersCost_MouseLeave);
             // 
             // kryptonLabel2
             // 
-            this.kryptonLabel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.kryptonLabel2.Location = new System.Drawing.Point(172, 87);
+            this.kryptonLabel2.Location = new System.Drawing.Point(29, 70);
             this.kryptonLabel2.Name = "kryptonLabel2";
             this.kryptonLabel2.Size = new System.Drawing.Size(72, 16);
             this.kryptonLabel2.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -613,20 +616,9 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             this.kryptonLabel2.TabIndex = 17;
             this.kryptonLabel2.Values.Text = "Chi phí khác";
             // 
-            // dtTodate
-            // 
-            this.dtTodate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.dtTodate.CustomFormat = "dd/MM/yyyy";
-            this.dtTodate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtTodate.Location = new System.Drawing.Point(566, 58);
-            this.dtTodate.Name = "dtTodate";
-            this.dtTodate.Size = new System.Drawing.Size(177, 20);
-            this.dtTodate.TabIndex = 7;
-            // 
             // lbName
             // 
-            this.lbName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.lbName.Location = new System.Drawing.Point(213, 34);
+            this.lbName.Location = new System.Drawing.Point(58, 8);
             this.lbName.Name = "lbName";
             this.lbName.Size = new System.Drawing.Size(45, 16);
             this.lbName.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -636,37 +628,27 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             // 
             // ipName
             // 
-            this.ipName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.ipName.Location = new System.Drawing.Point(266, 31);
+            this.ipName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.ipName.Location = new System.Drawing.Point(111, 5);
             this.ipName.Name = "ipName";
-            this.ipName.Size = new System.Drawing.Size(177, 22);
+            this.ipName.Size = new System.Drawing.Size(316, 22);
             this.ipName.TabIndex = 4;
             // 
             // cbCons
             // 
-            this.cbCons.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.cbCons.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.cbCons.DropDownWidth = 177;
-            this.cbCons.Location = new System.Drawing.Point(267, 59);
+            this.cbCons.Location = new System.Drawing.Point(112, 33);
             this.cbCons.Name = "cbCons";
-            this.cbCons.Size = new System.Drawing.Size(177, 22);
+            this.cbCons.Size = new System.Drawing.Size(316, 22);
             this.cbCons.TabIndex = 6;
             this.cbCons.Text = "chọn...";
             // 
-            // lbTodate
-            // 
-            this.lbTodate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.lbTodate.Location = new System.Drawing.Point(483, 59);
-            this.lbTodate.Name = "lbTodate";
-            this.lbTodate.Size = new System.Drawing.Size(59, 16);
-            this.lbTodate.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.lbTodate.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTodate.TabIndex = 16;
-            this.lbTodate.Values.Text = "Đến ngày";
-            // 
             // lbCons
             // 
-            this.lbCons.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.lbCons.Location = new System.Drawing.Point(183, 59);
+            this.lbCons.Location = new System.Drawing.Point(31, 39);
             this.lbCons.Name = "lbCons";
             this.lbCons.Size = new System.Drawing.Size(74, 16);
             this.lbCons.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -674,26 +656,108 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             this.lbCons.TabIndex = 12;
             this.lbCons.Values.Text = "Công trình(*)";
             // 
-            // dtFromdate
+            // kryptonGroupBox1
             // 
-            this.dtFromdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.dtFromdate.CustomFormat = "dd/MM/yyyy";
-            this.dtFromdate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtFromdate.Location = new System.Drawing.Point(565, 34);
-            this.dtFromdate.Name = "dtFromdate";
-            this.dtFromdate.Size = new System.Drawing.Size(177, 20);
-            this.dtFromdate.TabIndex = 5;
+            this.kryptonGroupBox1.CaptionOverlap = 1D;
+            this.kryptonGroupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.kryptonGroupBox1.Location = new System.Drawing.Point(0, 0);
+            this.kryptonGroupBox1.Name = "kryptonGroupBox1";
+            // 
+            // kryptonGroupBox1.Panel
+            // 
+            this.kryptonGroupBox1.Panel.Controls.Add(this.ipTask);
+            this.kryptonGroupBox1.Panel.Controls.Add(this.kryptonLabel4);
+            this.kryptonGroupBox1.Panel.Controls.Add(this.kryptonLabel3);
+            this.kryptonGroupBox1.Panel.Controls.Add(this.lbFromDate);
+            this.kryptonGroupBox1.Panel.Controls.Add(this.dtFromdate);
+            this.kryptonGroupBox1.Panel.Controls.Add(this.cbManager);
+            this.kryptonGroupBox1.Panel.Controls.Add(this.lbTodate);
+            this.kryptonGroupBox1.Panel.Controls.Add(this.dtTodate);
+            this.kryptonGroupBox1.Size = new System.Drawing.Size(448, 164);
+            this.kryptonGroupBox1.TabIndex = 0;
+            this.kryptonGroupBox1.Values.Heading = "";
+            // 
+            // ipTask
+            // 
+            this.ipTask.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.ipTask.Location = new System.Drawing.Point(101, 89);
+            this.ipTask.Multiline = true;
+            this.ipTask.Name = "ipTask";
+            this.ipTask.Size = new System.Drawing.Size(302, 61);
+            this.ipTask.TabIndex = 22;
+            // 
+            // kryptonLabel4
+            // 
+            this.kryptonLabel4.Location = new System.Drawing.Point(36, 92);
+            this.kryptonLabel4.Name = "kryptonLabel4";
+            this.kryptonLabel4.Size = new System.Drawing.Size(60, 16);
+            this.kryptonLabel4.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.kryptonLabel4.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonLabel4.TabIndex = 21;
+            this.kryptonLabel4.Values.Text = "Công việc";
+            // 
+            // kryptonLabel3
+            // 
+            this.kryptonLabel3.Location = new System.Drawing.Point(35, 61);
+            this.kryptonLabel3.Name = "kryptonLabel3";
+            this.kryptonLabel3.Size = new System.Drawing.Size(60, 19);
+            this.kryptonLabel3.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.kryptonLabel3.TabIndex = 19;
+            this.kryptonLabel3.Values.Text = "Quản lý(*)";
             // 
             // lbFromDate
             // 
-            this.lbFromDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.lbFromDate.Location = new System.Drawing.Point(490, 34);
+            this.lbFromDate.Location = new System.Drawing.Point(43, 11);
             this.lbFromDate.Name = "lbFromDate";
             this.lbFromDate.Size = new System.Drawing.Size(51, 16);
             this.lbFromDate.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.lbFromDate.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbFromDate.TabIndex = 14;
             this.lbFromDate.Values.Text = "Từ ngày";
+            // 
+            // dtFromdate
+            // 
+            this.dtFromdate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtFromdate.CustomFormat = "dd/MM/yyyy";
+            this.dtFromdate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtFromdate.Location = new System.Drawing.Point(100, 11);
+            this.dtFromdate.Name = "dtFromdate";
+            this.dtFromdate.Size = new System.Drawing.Size(302, 20);
+            this.dtFromdate.TabIndex = 5;
+            // 
+            // cbManager
+            // 
+            this.cbManager.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbManager.DropDownWidth = 177;
+            this.cbManager.Location = new System.Drawing.Point(101, 61);
+            this.cbManager.Name = "cbManager";
+            this.cbManager.Size = new System.Drawing.Size(302, 22);
+            this.cbManager.TabIndex = 20;
+            this.cbManager.Text = "chọn...";
+            // 
+            // lbTodate
+            // 
+            this.lbTodate.Location = new System.Drawing.Point(36, 36);
+            this.lbTodate.Name = "lbTodate";
+            this.lbTodate.Size = new System.Drawing.Size(59, 16);
+            this.lbTodate.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.lbTodate.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTodate.TabIndex = 16;
+            this.lbTodate.Values.Text = "Đến ngày";
+            // 
+            // dtTodate
+            // 
+            this.dtTodate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtTodate.CustomFormat = "dd/MM/yyyy";
+            this.dtTodate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtTodate.Location = new System.Drawing.Point(101, 35);
+            this.dtTodate.Name = "dtTodate";
+            this.dtTodate.Size = new System.Drawing.Size(302, 20);
+            this.dtTodate.TabIndex = 7;
             // 
             // hdEdit
             // 
@@ -907,12 +971,20 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             this.gbcRightBot.Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gbcRightBot)).EndInit();
             this.gbcRightBot.ResumeLayout(false);
+            this.kryptonSplitContainer1.Panel1.ResumeLayout(false);
+            this.kryptonSplitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonSplitContainer1)).EndInit();
+            this.kryptonSplitContainer1.ResumeLayout(false);
             this.gbxEdit1.Panel.ResumeLayout(false);
             this.gbxEdit1.Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gbxEdit1)).EndInit();
             this.gbxEdit1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.cbManager)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbCons)).EndInit();
+            this.kryptonGroupBox1.Panel.ResumeLayout(false);
+            this.kryptonGroupBox1.Panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).EndInit();
+            this.kryptonGroupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cbManager)).EndInit();
             this.cmsDGV.ResumeLayout(false);
             this.cmsEdit.ResumeLayout(false);
             this.cmsGen.ResumeLayout(false);
@@ -989,6 +1061,9 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel3;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox ipTask;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel4;
+        private ComponentFactory.Krypton.Toolkit.KryptonSplitContainer kryptonSplitContainer1;
+        private ComponentFactory.Krypton.Toolkit.KryptonGroupBox kryptonGroupBox1;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtReason;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel5;
         private DataGridViewTextBoxColumn constructionNameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn WorkersSalaryID;
@@ -998,6 +1073,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
         private DataGridViewTextBoxColumn fromDateDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn toDateDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn OthersCost;
+        private DataGridViewTextBoxColumn Reason;
         private DataGridViewTextBoxColumn TotalCost;
         private DataGridViewTextBoxColumn totalSalaryDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn Task;
