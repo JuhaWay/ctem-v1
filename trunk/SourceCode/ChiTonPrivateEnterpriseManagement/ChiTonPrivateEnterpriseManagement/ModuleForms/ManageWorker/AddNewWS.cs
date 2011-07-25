@@ -42,6 +42,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             dto.FromDate  = dtFromdate.Value.Date;
             dto.ToDate =dtTodate.Value.Date;
             dto.TotalSalary = 0;
+            dto.Task = ipTask.Text;
             _workerSalaryBUS.CreateWks(dto);
             MessageBox.Show("Tạo tổng kết thành công !");
             this.Close();

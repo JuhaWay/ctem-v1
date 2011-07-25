@@ -153,9 +153,9 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
                 if (Global.ValidateDoubleNumber(s))
                 {
                     double num = Convert.ToDouble(s);
-                    if (num != 1 && num != 0.5)
+                    if (num<0 ||num>1.5)
                     {
-                        KryptonMessageBox.Show("Chỉ cho phép nhập 1 hoặc 0.5", Constants.CONFIRM, MessageBoxButtons.OK,
+                        KryptonMessageBox.Show("Chỉ cho phép nhập từ 0 đến 1.5", Constants.CONFIRM, MessageBoxButtons.OK,
                                    MessageBoxIcon.Warning);
                         dgvWD.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = 0;
                         
@@ -179,6 +179,11 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
                
             }
 
+        }
+
+        private void btClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
         
     }
