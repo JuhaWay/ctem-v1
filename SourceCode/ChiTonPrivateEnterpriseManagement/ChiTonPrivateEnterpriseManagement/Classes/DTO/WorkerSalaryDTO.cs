@@ -23,7 +23,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
         public string CreatedBy { get; set; }
         public string UpdatedBy { get; set; }
         public bool isChecked { get; set; }
-
+        public string Task { get; set; }
 
         public string FromDateFormated { get; set; }
         public string ToDateFormated { get; set; }
