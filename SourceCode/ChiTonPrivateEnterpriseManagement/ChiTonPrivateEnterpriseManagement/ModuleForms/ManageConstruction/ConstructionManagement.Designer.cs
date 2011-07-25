@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConstructionManagement));
             this.kryptonPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.dgvCons = new AdvancedDataGridView.TreeGridView();
@@ -77,6 +77,7 @@
             this.btDelete = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.btEdit = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.btViewEst = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.btUpdateOp = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.btnHideShowSearch = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.cmsMain = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -137,10 +138,10 @@
             this.dgvCons.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCons.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvCons.ImageList = null;
-            this.dgvCons.Location = new System.Drawing.Point(0, 100);
+            this.dgvCons.Location = new System.Drawing.Point(0, 94);
             this.dgvCons.Name = "dgvCons";
             this.dgvCons.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCons.Size = new System.Drawing.Size(792, 466);
+            this.dgvCons.Size = new System.Drawing.Size(792, 472);
             this.dgvCons.StateCommon.Background.Color1 = System.Drawing.Color.White;
             this.dgvCons.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
             this.dgvCons.TabIndex = 0;
@@ -158,8 +159,8 @@
             // ConstructionName
             // 
             this.ConstructionName.DataPropertyName = "ConstructionName";
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ConstructionName.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConstructionName.DefaultCellStyle = dataGridViewCellStyle13;
             this.ConstructionName.DefaultNodeImage = null;
             this.ConstructionName.HeaderText = "Tên công trình";
             this.ConstructionName.Name = "ConstructionName";
@@ -189,9 +190,9 @@
             // 
             // ProgressRate
             // 
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.GreenYellow;
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.ProgressRate.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.GreenYellow;
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.ProgressRate.DefaultCellStyle = dataGridViewCellStyle14;
             this.ProgressRate.HeaderText = "Tiến độ(%)";
             this.ProgressRate.Name = "ProgressRate";
             this.ProgressRate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -199,9 +200,9 @@
             // TotalEstimateCost
             // 
             this.TotalEstimateCost.DataPropertyName = "TotalEstimateCost";
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.GreenYellow;
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Red;
-            this.TotalEstimateCost.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.GreenYellow;
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Red;
+            this.TotalEstimateCost.DefaultCellStyle = dataGridViewCellStyle15;
             this.TotalEstimateCost.HeaderText = "Tổng dự toán(VND)";
             this.TotalEstimateCost.Name = "TotalEstimateCost";
             this.TotalEstimateCost.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -209,9 +210,9 @@
             // 
             // TotalRealCost
             // 
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.GreenYellow;
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Red;
-            this.TotalRealCost.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.GreenYellow;
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.Red;
+            this.TotalRealCost.DefaultCellStyle = dataGridViewCellStyle16;
             this.TotalRealCost.HeaderText = "Tổng giải ngân(VND)";
             this.TotalRealCost.Name = "TotalRealCost";
             this.TotalRealCost.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -242,8 +243,8 @@
             // CommencementDate
             // 
             this.CommencementDate.DataPropertyName = "CommencementDate";
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.Yellow;
-            this.CommencementDate.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.Yellow;
+            this.CommencementDate.DefaultCellStyle = dataGridViewCellStyle17;
             this.CommencementDate.HeaderText = "Ngày khởi công";
             this.CommencementDate.Name = "CommencementDate";
             this.CommencementDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -252,9 +253,9 @@
             // CompletionDate
             // 
             this.CompletionDate.DataPropertyName = "CompletionDate";
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.Yellow;
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Red;
-            this.CompletionDate.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.Yellow;
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.Red;
+            this.CompletionDate.DefaultCellStyle = dataGridViewCellStyle18;
             this.CompletionDate.HeaderText = "Hạn hoàn thành";
             this.CompletionDate.Name = "CompletionDate";
             this.CompletionDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -305,7 +306,7 @@
             // 
             this.pnlSearch.Controls.Add(this.gbxSearch);
             this.pnlSearch.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlSearch.Location = new System.Drawing.Point(0, 29);
+            this.pnlSearch.Location = new System.Drawing.Point(0, 23);
             this.pnlSearch.Name = "pnlSearch";
             this.pnlSearch.Padding = new System.Windows.Forms.Padding(30, 0, 30, 5);
             this.pnlSearch.Size = new System.Drawing.Size(792, 71);
@@ -476,15 +477,16 @@
             this.btAdd,
             this.btAddchild,
             this.btAddSubs,
+            this.btUpdateOp,
             this.btDelete,
             this.btEdit,
             this.btViewEst,
             this.btnHideShowSearch});
             this.hdDebt.Dock = System.Windows.Forms.DockStyle.Top;
-            this.hdDebt.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.DockActive;
+            this.hdDebt.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.Form;
             this.hdDebt.Location = new System.Drawing.Point(0, 0);
             this.hdDebt.Name = "hdDebt";
-            this.hdDebt.Size = new System.Drawing.Size(792, 29);
+            this.hdDebt.Size = new System.Drawing.Size(792, 23);
             this.hdDebt.TabIndex = 10;
             this.hdDebt.Values.Description = "";
             this.hdDebt.Values.Heading = "Danh Sách Công Trình";
@@ -540,6 +542,14 @@
             this.btViewEst.UniqueName = "BC9DE0D0E3444571EFA8454D9CC796EA";
             this.btViewEst.Visible = false;
             this.btViewEst.Click += new System.EventHandler(this.btViewEstimate_Click);
+            // 
+            // btUpdateOp
+            // 
+            this.btUpdateOp.Enabled = ComponentFactory.Krypton.Toolkit.ButtonEnabled.False;
+            this.btUpdateOp.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.application_x_desktop;
+            this.btUpdateOp.Text = "Cập nhật hoat động công trình phụ";
+            this.btUpdateOp.UniqueName = "CAF3EB3B3BF04CCE38AF39469707B0F4";
+            this.btUpdateOp.Click += new System.EventHandler(this.btUpdateOp_Click);
             // 
             // btnHideShowSearch
             // 
@@ -696,6 +706,7 @@
         private System.Windows.Forms.ToolStripMenuItem lưuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem SearchToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem HideSearchToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btUpdateOp;
     }
 }
 

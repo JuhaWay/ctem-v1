@@ -130,6 +130,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
                 return;
             }
             string sParentId = dgvCons.SelectedRows[0].Cells["ParentId"].Value.ToString();
+            string type = dgvCons.SelectedRows[0].Cells["Type"].Value.ToString();
             long ParentId = Convert.ToInt64(sParentId);
 
             
@@ -144,6 +145,15 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
 
                 btAddchild.Enabled = ButtonEnabled.False;
                 btAddSubs.Enabled = ButtonEnabled.False;
+            }
+
+            if (ParentId != 0 && !type.Trim().Equals(ConstructionDTO.MAIN))
+            {
+                btUpdateOp.Enabled = ButtonEnabled.True;
+            }
+            else
+            {
+                btUpdateOp.Enabled = ButtonEnabled.False;
             }
 
 
@@ -302,6 +312,18 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
                 gbxSearch.Visible = false;
                 dgvCons.Focus();
             }
+        }
+
+        private void btUpdateOp_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in dgvCons.SelectedRows)
+            {
+                string sConstructionID = row.Cells["ConstructionID"].Value.ToString();
+                long ConstructionID = Convert.ToInt64(sConstructionID);
+                ProgressConManagement form = new ProgressConManagement(ConstructionID);
+                form.ShowDialog();
+            }
+            search();
         }
        
     }
