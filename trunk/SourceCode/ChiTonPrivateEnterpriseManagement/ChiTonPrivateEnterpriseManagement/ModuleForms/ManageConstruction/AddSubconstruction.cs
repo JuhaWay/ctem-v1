@@ -21,6 +21,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
 
         private ConstructionDTO _constructionDTO = new ConstructionDTO();
         private ConstructionDTO _tempDTO = new ConstructionDTO();
+        private List<PayDTO> _pays = new List<PayDTO>();
         private bool update = false;
         // for create new
         public AddSubconstruction(long parentId,bool edit=false)
@@ -49,6 +50,10 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
             ipProgressRate.Text = _tempDTO.ProgressRate.ToString();
             ipRealCost.Text = _tempDTO.TotalRealCost.ToString();
             ipEst.Text = _tempDTO.TotalEstimateCost.ToString();
+            _pays = _constructionBus.LoadAllDisbursementProgress(constructionId, 0);
+            dgvPaid.DataSource = null;
+            dgvPaid.DataSource  = _pays;
+
          
         }
         //load nha thau phu
@@ -105,7 +110,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
                 long id = _constructionBus.CreateConstruction(_constructionDTO);
                 _constructionBus.UpdateConstructionTotal((long)_constructionDTO.ParentID);
 
-                //-------------------------------------------------------------------------------------
+                //tạo dự toán
                 EstimateDTO est = new EstimateDTO();
                 est.ConstructionID = id;
                 est.Type = 1;
@@ -113,8 +118,13 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
                 est.TotalCostReal = _constructionDTO.TotalRealCost;
                 est.EstimateName = "Dự toán cho : " + ipConstructionName.Text;
                 _estimateBUS.creatEstimate(est);
-                
-                MessageBox.Show("Tạo công trình thành công !");
+                //tạo tiến độ giải ngân
+                foreach (PayDTO item in _pays)
+                {
+                    item.ConstructionID = id;
+                    item.Type = 0;
+                    _constructionBus.CreateDisbursementProgress(item);
+                }
                 this.Close();
 
                
@@ -144,6 +154,16 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
                 item.TotalCostEstimate = _constructionDTO.TotalEstimateCost;
                 item.TotalCostReal = _constructionDTO.TotalRealCost;
                 _estimateBUS.UpdateNameForSub(item);
+
+
+                //tạo tiến độ giải ngân
+                foreach (PayDTO temp in _pays)
+                {
+                    temp.ConstructionID = _constructionDTO.ConstructionID;
+                    temp.Type = 0;
+                    temp.Number = Global.ConvertMoneyToLong(temp.NumberFormated, Global.SEP);
+                    _constructionBus.CreateDisbursementProgress(temp);
+                }
                 if (test)
                     MessageBox.Show("Sửa công trình thành công !");
                 this.Close();
@@ -277,6 +297,68 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
                                        MessageBoxIcon.Warning);
                 dtEndDate.Focus();
             }
+        }
+
+        private void btSaveRoad_Click(object sender, EventArgs e)
+        {
+            if (!validateForm()) return;
+            PayDTO dto = new PayDTO();
+            dto.State = ipState.Text;
+            dto.Rate = Convert.ToInt32(ipRate.Text);
+            dto.Start = dtStart.Value.Date;
+            dto.End = dtEnd.Value.Date;
+            dto.StartFormated = dto.Start.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
+            dto.EndFormated = dto.End.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
+            dto.Number = Global.ConvertMoneyToLong(ipPaid.Text, Global.SEP);
+            dto.NumberFormated = ipPaid.Text;
+            dto.Note = ipNote.Text;
+            _pays.Add(dto);
+            dgvPaid.DataSource = null;
+            dgvPaid.DataSource = _pays;
+        }
+
+        private bool validateForm()
+        {
+            if (ipState.Text.Equals(""))
+            {
+                KryptonMessageBox.Show("Vui lòng điền giai đoạn", Constants.CONFIRM, MessageBoxButtons.OK,
+                          MessageBoxIcon.Warning);
+                return false;
+            }
+            else if (!Global.ValidateIntNumber(ipRate.Text))
+            {
+                KryptonMessageBox.Show("Sai thông tin tỷ lệ", Constants.CONFIRM, MessageBoxButtons.OK,
+                          MessageBoxIcon.Warning);
+                return false;
+            }
+            else if (!Global.ValidateIntNumber(ipRate.Text) || Convert.ToInt32(ipRate.Text) > 100)
+            {
+                    KryptonMessageBox.Show("Sai thông tin tỷ lệ", Constants.CONFIRM, MessageBoxButtons.OK,
+                              MessageBoxIcon.Warning);
+                    return false;
+            }
+            return true;
+
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in dgvPaid.SelectedRows)
+            {
+                _pays.Remove(row.DataBoundItem as PayDTO);
+            }
+            dgvPaid.DataSource = null;
+            dgvPaid.DataSource = _pays;
+        }
+
+        private void ipPaid_Leave(object sender, EventArgs e)
+        {
+            ipPaid.Text = Global.ConvertLongToMoney(Global.ConvertMoneyToLong(ipPaid.Text, Global.SEP), Global.SEP);
+        }
+
+        private void ipPaid_MouseLeave(object sender, EventArgs e)
+        {
+            ipPaid.Text = Global.ConvertLongToMoney(Global.ConvertMoneyToLong(ipPaid.Text, Global.SEP), Global.SEP);
         }
     }
 }
