@@ -30,12 +30,9 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
 
         public AddnewVehicleDairy(long ID)
         {
-          
             InitializeComponent();
             CenterToParent();
             _ID = ID;
-
-
         }
 
         private void AddnewVehicleDairy_Load(object sender, EventArgs e)
@@ -49,12 +46,20 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
             dto.Category = VehicleDTO.CATEGORY_VEHICLE;
             cbVehicle.Items.AddRange(_vehicleBUS.searchVehicle(dto).ToArray());
             cbVehicle.DisplayMember = "Number";
+            Global.SetLayoutForm(this, Constants.DIALOG_FORM);
             Global.SetLayoutPanelNewForm(pnMain);
-
+            Global.SetLayoutSplipContainer(kryptonSplitContainer1, 2);
+            Global.SetLayoutGroupBoxButton(kryptonGroupBox1);
+            Global.SetLayoutGroupBoxButton(kryptonGroupBox2);
+            Global.SetLayoutGroupBoxButton(kryptonGroupBox3);
+            Global.SetLayoutButton(btSave);
+            Global.SetLayoutButton(btClose);
+            Global.SetDaulftDatagridview(dgvRoadMap);
+            Global.SetLayoutHeaderGroup(hdDebt, Constants.CHILD_FORM);
+            Global.SetLayoutPanelNewForm(pnLeft);
+            Global.SetLayoutPanelNewForm(kryptonPanel1);
             if(_ID>0)
                 loadUpdateForm();
-
-           
         }
 
         public void loadUpdateForm(){

@@ -92,6 +92,12 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
 
         private void AddNewBargeDairy_Load(object sender, EventArgs e)
         {
+            Global.SetLayoutForm(this, Constants.DIALOG_FORM);
+            Global.SetLayoutPanelNewForm(kryptonPanel);
+            Global.SetLayoutGroupBoxButton(kryptonGroupBox1);
+            Global.SetLayoutGroupBoxButton(kryptonGroupBox2);
+            Global.SetLayoutButton(btSave);
+            Global.SetLayoutButton(btClose);
             cbDriver.Items.AddRange(_employeeBUS.LoadAllEmployee().ToArray());
             cbDriver.DisplayMember = "Username";
             VehicleDTO dto = new VehicleDTO();

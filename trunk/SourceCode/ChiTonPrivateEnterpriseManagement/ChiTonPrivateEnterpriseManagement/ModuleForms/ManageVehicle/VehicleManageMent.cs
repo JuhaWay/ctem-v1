@@ -79,10 +79,14 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
             gbxSearch.Height = 68;
             Global.SetLayoutForm(this, Constants.CHILD_FORM);
             Global.SetLayoutHeaderGroup(hdDebt, Constants.CHILD_FORM);
+            Global.SetLayoutHeaderGroup(hdEdit, Constants.CHILD_FORM);
             Global.SetDaulftDatagridview(dgvVehicle);
             Global.SetLayoutGroupBoxSearch(gbxSearch);
             Global.SetLayoutPanelChildForm(pnlSearch);
             Global.SetLayoutButton(btnSearch);
+            Global.SetLayoutSplipContainerInChildForm(kryptonSplitContainer1);
+            Global.SetLayoutGroupBoxButton(kryptonGroupBox1);
+            Global.SetLayoutGroupBoxButton(gbxEdit1);            
         }
         private void btSearch_Click(object sender, EventArgs e)
         {
@@ -228,14 +232,14 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
             if (gbxSearch.Visible)
             {
                 btnHideShowSearch.Type = PaletteButtonSpecStyle.ArrowDown;
-                Global.DownUpControl(this, pnlSearch, 62, 2, 4, false);
+                Global.DownUpControl(this, pnlSearch, 72, 2, 4, false);
                 gbxSearch.Visible = false;
             }
             else
             {
                 btnHideShowSearch.Type = PaletteButtonSpecStyle.ArrowUp;
                 gbxSearch.Visible = true;
-                Global.DownUpControl(this, pnlSearch, 62, 2, 4, true);
+                Global.DownUpControl(this, pnlSearch, 72, 2, 4, true);
             }
         }
 
@@ -256,6 +260,5 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
             else
                 cbHouse.Enabled = true;
         }
-
     }
 }
