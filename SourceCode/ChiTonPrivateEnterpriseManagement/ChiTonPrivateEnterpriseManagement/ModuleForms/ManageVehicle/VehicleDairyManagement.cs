@@ -158,6 +158,27 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
             form.ShowDialog();
             initData();
         }
+
+        private void dgvVehicleDairy_DoubleClick(object sender, EventArgs e)
+        {
+            btEdit_Click(null, null);
+        }
+
+        private void btnHideShowSearch_Click(object sender, EventArgs e)
+        {
+            if (gbxSearch.Visible)
+            {
+                btnHideShowSearch.Type = PaletteButtonSpecStyle.ArrowDown;
+                Global.DownUpControl(this, pnlSearch, 72, 2, 4, false);
+                gbxSearch.Visible = false;
+            }
+            else
+            {
+                btnHideShowSearch.Type = PaletteButtonSpecStyle.ArrowUp;
+                gbxSearch.Visible = true;
+                Global.DownUpControl(this, pnlSearch, 72, 2, 4, true);
+            }
+        }
         
 
     }

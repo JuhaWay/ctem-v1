@@ -116,13 +116,18 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
         }
         private void AddNewVehicle_Load(object sender, EventArgs e)
         {
+            Global.SetLayoutForm(this, Constants.DIALOG_FORM);
             Global.SetLayoutPanelNewForm(pnMain);
+            Global.SetLayoutGroupBoxButton(kryptonGroupBox1);
+            Global.SetLayoutGroupBoxButton(kryptonGroupBox2);
+            Global.SetLayoutButton(btSave);
+            Global.SetLayoutButton(btClose);
             loadData();
         }
 
         private void btClose_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void cbCons_SelectedIndexChanged(object sender, EventArgs e)
