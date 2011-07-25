@@ -64,5 +64,42 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
         {
             return _constructionDao.LoadConstructionReportByName(consName);
         }
+        public bool CreateDisbursementProgress(PayDTO dto)
+        {
+            return _constructionDao.CreateDisbursementProgress(dto);
+        }
+        public List<PayDTO> LoadAllDisbursementProgress(long id, int type)
+        {
+            return _constructionDao.LoadAllDisbursementProgress(id, type);
+        }
+        public List<ProgressHrtDTO> LoadAllProgressHtr(long id)
+        {
+            return _constructionDao.LoadAllProgressHtr(id);
+        }
+        public bool CreateProgressHrt(ProgressHrtDTO dto)
+        {
+            return _constructionDao.CreateProgressHrt(dto);
+        }
+        public PayDTO LoadAllDisbursementProgress(long id)
+        {
+            return _constructionDao.LoadAllDisbursementProgress(id);
+        }
+        public List<DisbursementDTO> LoadAllDisbursement(long id,long conID)
+        {
+            return _constructionDao.LoadAllDisbursement(id, conID);
+        }
+        public bool CreateDisbursement(DisbursementDTO dto)
+        {
+            return _constructionDao.CreateDisbursement(dto);
+        }
+        public bool UpdateDisbursement(DisbursementDTO dto)
+        {
+            return _constructionDao.UpdateDisbursement(dto);
+        }
+        internal bool DeleteDisbursement(long id, long conID)
+        {
+            return _constructionDao.DeleteDisbursement(id, conID);
+        }
     }
+
 }
