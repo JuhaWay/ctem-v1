@@ -126,6 +126,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         TotalSalary = Convert.ToInt64(reader["TotalSalary"]),
                         CreateDate = Convert.ToDateTime(reader["CreateDate"]),
                         OthersCost = Convert.ToInt64(reader["OthersCost"]),
+                        Reason = Convert.ToString(reader["Reason"]),
                         TotalCost = Convert.ToInt64(reader["TotalCost"]),
                         ManagerID = Convert.ToInt64(reader["ManagerID"]),
                         ManagerName = Convert.ToString(reader["Username"]),
@@ -176,7 +177,8 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.Parameters.Add(new SqlParameter("@ManagerID", dto.ManagerID));
                 cmd.Parameters.Add(new SqlParameter("@OthersCost", dto.OthersCost));
                 cmd.Parameters.Add(new SqlParameter("@TotalCost", dto.TotalCost));
-                cmd.Parameters.Add(new SqlParameter("@name", dto.Name));
+                cmd.Parameters.Add(new SqlParameter("@name", dto.Name));                
+                cmd.Parameters.Add(new SqlParameter("@reason", dto.Reason));
                 cmd.Parameters.Add(new SqlParameter("@Task", dto.Task));
                 cmd.Parameters.Add(new SqlParameter("@fromDate", dto.FromDate));
                 cmd.Parameters.Add(new SqlParameter("@toDate", dto.ToDate));
@@ -217,6 +219,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.Parameters.Add(new SqlParameter("@updatedBy", Global.Global.CurrentUser.Username));
                 cmd.Parameters.Add(new SqlParameter("@ManagerID", dto.ManagerID));
                 cmd.Parameters.Add(new SqlParameter("@OthersCost", dto.OthersCost));
+                cmd.Parameters.Add(new SqlParameter("@reason", dto.Reason));
                 cmd.Parameters.Add(new SqlParameter("@TotalCost", dto.TotalCost));
                 cmd.ExecuteNonQuery();
                 return true;

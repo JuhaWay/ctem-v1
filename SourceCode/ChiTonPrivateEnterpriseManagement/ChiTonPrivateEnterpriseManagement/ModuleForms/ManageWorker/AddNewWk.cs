@@ -43,7 +43,14 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
         }
         private void AddNewWk_Load(object sender, EventArgs e)
         {
+            Global.SetLayoutForm(this, Constants.DIALOG_FORM);
             Global.SetLayoutPanelNewForm(pnMain);
+            Global.SetLayoutButton(btSave);
+            Global.SetLayoutButton(btClose);
+            Global.SetLayoutGroupBoxButton(kryptonGroupBox1);
+            Global.SetLayoutGroupBoxButton(kryptonGroupBox2);
+            Global.SetDaulftDatagridview(dgvWD);
+            dgvWD.ReadOnly = false;
             if (_WkID == 0)
             {
                 list = getDates(_fromDate, _toDate);
@@ -95,8 +102,10 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
                 dto.Fullname = ipName.Text;
                 dto.Position = ipPosition.Text;
                 dto.Salary = Global.ConvertMoneyToLong(ipSalary.Text, Global.SEP);
+                dto.Allowance = Global.ConvertMoneyToLong(txtAllowance.Text, Constants.SPLIP_MONEY);
+                dto.Reason = txtReason.Text;
                 dto.ManDate = manDate;
-                dto.TotalSalary = (long)(dto.ManDate * dto.Salary);
+                dto.TotalSalary = (long)(dto.ManDate * dto.Salary + dto.Allowance);
                 long ID = _workerBUS.CreateWks(dto);
                 foreach (DayWorkingDTO item in list)
                 {
@@ -110,8 +119,10 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
                 dtoTemp.Fullname = ipName.Text;
                 dtoTemp.Position = ipPosition.Text;
                 dtoTemp.Salary = Global.ConvertMoneyToLong(ipSalary.Text, Global.SEP);
+                dtoTemp.Allowance = Global.ConvertMoneyToLong(txtAllowance.Text, Constants.SPLIP_MONEY);
+                dtoTemp.Reason = txtReason.Text;
                 dtoTemp.ManDate = manDate;
-                dtoTemp.TotalSalary = (long)(dtoTemp.ManDate * dtoTemp.Salary);
+                dtoTemp.TotalSalary = (long)(dtoTemp.ManDate * dtoTemp.Salary + dtoTemp.Allowance);
                 _workerBUS.updateWks(dtoTemp);
                 foreach (DayWorkingDTO item in list)
                 {
@@ -148,17 +159,15 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
         {
             if (e.ColumnIndex == 1)
             {
-
                 string s = dgvWD.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
                 if (Global.ValidateDoubleNumber(s))
                 {
                     double num = Convert.ToDouble(s);
-                    if (num<0 ||num>1.5)
+                    if (num < 0 ||num > 2)
                     {
-                        KryptonMessageBox.Show("Chỉ cho phép nhập từ 0 đến 1.5", Constants.CONFIRM, MessageBoxButtons.OK,
+                        KryptonMessageBox.Show("Chỉ cho phép nhập từ 0 đến 2", Constants.CONFIRM, MessageBoxButtons.OK,
                                    MessageBoxIcon.Warning);
                         dgvWD.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = 0;
-                        
                     }
                 }
                 else
@@ -175,15 +184,24 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
                 }
 
                 lbManDate.Text = manDate.ToString();
-
-               
             }
-
         }
 
         private void btClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtAllowance_Enter(object sender, EventArgs e)
+        {
+            var textBox = sender as KryptonTextBox;
+            Global.SetTextBoxNumberEnter(textBox);
+        }
+
+        private void txtAllowance_Leave(object sender, EventArgs e)
+        {
+            var textBox = sender as KryptonTextBox;
+            Global.SetTextBoxMoneyLeave(textBox);
         }
         
     }

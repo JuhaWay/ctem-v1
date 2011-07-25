@@ -17,6 +17,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
         public DateTime ToDate { get; set; }
         public long TotalSalary { get; set; }
         public long OthersCost { get; set; }
+        public string Reason { get; set; }
         public long TotalCost { get; set; }
         public DateTime CreateDate { get; set; }
         public DateTime LastUpdate { get; set; }

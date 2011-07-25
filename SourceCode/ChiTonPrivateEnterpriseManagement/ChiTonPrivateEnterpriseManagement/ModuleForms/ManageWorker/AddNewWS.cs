@@ -25,6 +25,12 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
 
         private void AddNewWS_Load(object sender, EventArgs e)
         {
+            Global.SetLayoutForm(this, Constants.DIALOG_FORM);
+            Global.SetLayoutButton(btSave);
+            Global.SetLayoutButton(btClose);
+            Global.SetLayoutGroupBoxButton(kryptonGroupBox1);
+            Global.SetLayoutGroupBoxButton(kryptonGroupBox2);
+            Global.SetLayoutPanelNewForm(pnMain);
             cbManager.Items.AddRange(_employeeBUS.LoadAllEmployee().ToArray());
             cbManager.DisplayMember = "Username";
             cbCons.Items.AddRange(_constructionBus.LoadAllConstructions().ToArray());
@@ -41,6 +47,8 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             dto.Name = ipName.Text;
             dto.FromDate  = dtFromdate.Value.Date;
             dto.ToDate =dtTodate.Value.Date;
+            dto.OthersCost = Global.ConvertMoneyToLong(txtOtherCost.Text, Constants.SPLIP_MONEY);
+            dto.Reason = txtReason.Text;
             dto.TotalSalary = 0;
             dto.Task = ipTask.Text;
             _workerSalaryBUS.CreateWks(dto);
@@ -68,6 +76,16 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
         private void btClose_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void txtOtherCost_Enter(object sender, EventArgs e)
+        {
+            Global.SetTextBoxNumberEnter(txtOtherCost);
+        }
+
+        private void txtOtherCost_Leave(object sender, EventArgs e)
+        {
+            Global.SetTextBoxMoneyLeave(txtOtherCost);
         }
     }
 }

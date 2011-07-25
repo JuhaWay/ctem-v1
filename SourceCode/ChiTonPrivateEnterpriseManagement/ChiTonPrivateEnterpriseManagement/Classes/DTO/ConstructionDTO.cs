@@ -104,6 +104,5 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
             return base.GetHashCode();
         }
 
-    }
-   
+    }   
 }

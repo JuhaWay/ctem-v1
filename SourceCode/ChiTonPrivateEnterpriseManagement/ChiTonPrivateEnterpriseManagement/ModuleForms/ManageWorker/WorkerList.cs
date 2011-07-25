@@ -34,6 +34,10 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
 
         private void WorkerList_Load(object sender, EventArgs e)
         {
+            Global.SetLayoutForm(this, Constants.DIALOG_FORM);
+            Global.SetLayoutHeaderGroup(kryptonHeader1, Constants.CHILD_FORM);
+            Global.SetDaulftDatagridview(dgvWorker);
+            Global.SetLayoutPanelChildForm(kryptonPanel4);
             refresh();
         }
         public void refresh()
@@ -114,6 +118,11 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
                 refresh();
                 _workerSalaryBUS.UpdateTotalSalary(_workSalaryID, _ConstructionID);
             }
+        }
+
+        private void dgvWorker_DoubleClick(object sender, EventArgs e)
+        {
+            btEdit_Click(null, null);
         }
     }
 }
