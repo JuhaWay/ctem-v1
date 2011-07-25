@@ -88,6 +88,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             _dtoTemp.ConstructionID = (cbCons.SelectedItem as ConstructionDTO).ConstructionID;
             _dtoTemp.Name = ipName.Text;
             _dtoTemp.FromDate = dtFromdate.Value.Date;
+            _dtoTemp.Task = ipTask.Text;
             _dtoTemp.ToDate = dtTodate.Value.Date;
             _dtoTemp.ManagerID = (cbManager.SelectedItem as EmployerDTO).employeeID;
             _dtoTemp.OthersCost = Global.ConvertMoneyToLong(ipOthersCost.Text, Global.SEP);

@@ -102,7 +102,8 @@
             this.dgvWD.StateCommon.Background.Color1 = System.Drawing.Color.White;
             this.dgvWD.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
             this.dgvWD.TabIndex = 23;
-            this.dgvWD.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvWD_CellEndEdit);           // 
+            this.dgvWD.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvWD_CellEndEdit);
+            // 
             // dateDataGridViewTextBoxColumn
             // 
             this.dateDataGridViewTextBoxColumn.DataPropertyName = "DateFormated";
@@ -180,6 +181,7 @@
             this.btClose.Size = new System.Drawing.Size(43, 25);
             this.btClose.TabIndex = 6;
             this.btClose.Values.Text = "Đóng";
+            this.btClose.Click += new System.EventHandler(this.btClose_Click);
             // 
             // btSave
             // 
