@@ -79,7 +79,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
             panel.ShowDialog();
             search();
         }
-        // tạo công trình con thuoc doanh nghiệp
+        // tạo công trình con
         private void btAddChild_Click(object sender, EventArgs e)
         {
 
@@ -102,12 +102,12 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
                 string type = row.Cells["Type"].Value.ToString();
                 string sConstructionID = row.Cells["ConstructionID"].Value.ToString();
                 long ConstructionID = Convert.ToInt64(sConstructionID);
-                if (ParentId == 0 || type.Trim().Equals(ConstructionDTO.MAIN))
+                if (ParentId == 0)
                 {
-                    AddConstruction editForm = new AddConstruction(ConstructionID,true, 1);
+                    AddConstruction editForm = new AddConstruction(ConstructionID,true,0);
                     editForm.ShowDialog();
                 }
-                else if (ParentId != 0 && type.Trim().Equals(ConstructionDTO.MAIN))
+                else if (type.Trim().Equals(ConstructionDTO.MAIN_CONS) || type.Trim().Equals(ConstructionDTO.MAIN_IRI))
                 {
                     AddConstruction editForm = new AddConstruction(ConstructionID,true, 0);
                     editForm.ShowDialog();
@@ -147,7 +147,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
                 btAddSubs.Enabled = ButtonEnabled.False;
             }
 
-            if (ParentId != 0 && !type.Trim().Equals(ConstructionDTO.MAIN))
+            if (ParentId != 0)
             {
                 btUpdateOp.Enabled = ButtonEnabled.True;
             }
@@ -259,11 +259,11 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
                     if (children.Count>0) 
                         dto.ProgressRate = dto.ProgressRate / children.Count;
                     TreeGridNode node = dgvCons.Nodes.Add(dto.ConstructionID, dto.ConstructionName, dto.type, dto.SubcontractorName, dto.Status, dto.ProgressRate, dto.TotalEstimateCostFormated, dto.TotalRealCostFormated,dto.ManagerName, dto.Description, dto.ConstructionAddress,
-                        dto.CommencementDateFormated, dto.CompletionDateFormated, dto.ParentID, dto.CreatedBy, dto.CreateDateFormated, dto.UpdatedBy, dto.LastUpdatedFormated, dto.HasEstimate);                  
+                        dto.CommencementDateFormated, dto.CompletionDateFormated, dto.ParentID, dto.CreatedBy, dto.CreateDateFormated, dto.UpdatedBy, dto.LastUpdatedFormated, dto.HasEstimate,dto.EstimateID);                  
                     foreach (ConstructionDTO child in children)
                     {
                         node.Nodes.Add(child.ConstructionID, child.ConstructionName, child.type, child.SubcontractorName, child.Status, child.ProgressRate, child.TotalEstimateCostFormated, child.TotalRealCostFormated, child.ManagerName, child.Description, child.ConstructionAddress,
-                        child.CommencementDateFormated, child.CompletionDateFormated, child.ParentID, child.CreatedBy, child.CreateDateFormated, child.UpdatedBy, child.LastUpdatedFormated, child.HasEstimate);
+                        child.CommencementDateFormated, child.CompletionDateFormated, child.ParentID, child.CreatedBy, child.CreateDateFormated, child.UpdatedBy, child.LastUpdatedFormated, child.HasEstimate,child.EstimateID);
                     }
                     node.Expand();
 
@@ -320,8 +320,16 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
             {
                 string sConstructionID = row.Cells["ConstructionID"].Value.ToString();
                 long ConstructionID = Convert.ToInt64(sConstructionID);
-                ProgressConManagement form = new ProgressConManagement(ConstructionID);
-                form.ShowDialog();
+                string sEstimateID = row.Cells["EstimatedID"].Value.ToString();
+                long EstimateID = Convert.ToInt64(sEstimateID);
+                string type = row.Cells["Type"].Value.ToString();
+                if(type.Trim().Equals(ConstructionDTO.SUB)){
+                     ProgressConManagement form = new ProgressConManagement(ConstructionID);
+                     form.ShowDialog();
+                }else  if(type.Trim().Equals(ConstructionDTO.MAIN_IRI)){
+                     ProgressIriManagement form = new ProgressIriManagement(EstimateID);
+                     form.ShowDialog();
+                }
             }
             search();
         }
