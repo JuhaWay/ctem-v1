@@ -45,25 +45,31 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
         private void btSave_Click(object sender, EventArgs e)
         {
             if (!validate()) return;
-            dtoTemp.TotalCost = Global.ConvertMoneyToLong(ipNumber.Text, Global.SEP);
-            if (!ipWeight.Text.Trim().Equals(""))
-                dtoTemp.Weight = Convert.ToDouble(ipWeight.Text);
-            else dtoTemp.Weight = 0;
-            if (!ipLength.Text.Trim().Equals(""))
-                 dtoTemp.Length = Convert.ToDouble(ipLength.Text);
-            else dtoTemp.Length = 0;
-            if (!ipHoles.Text.Trim().Equals(""))
-                dtoTemp.Containers = Convert.ToInt64(ipHoles.Text);
-            else dtoTemp.Containers = 0;
-            dtoTemp.Note = ipNote.Text;
-            if (dtoTemp.EstimateIriDetailID != 0)
-                _estimateDetailBUS.UpdateEstimateDetailIri(dtoTemp);
-            else
+            if (KryptonMessageBox.Show("Bạn có muốn lưu thông tin", Constants.CONFIRM, MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                dtoTemp.EstimateID = _estimateID;
-                _estimateDetailBUS.CreateEstimateDetailIri(dtoTemp);
+                dtoTemp.TotalCost = Global.ConvertMoneyToLong(ipNumber.Text, Global.SEP);
+                if (!ipWeight.Text.Trim().Equals(""))
+                    dtoTemp.Weight = Convert.ToDouble(ipWeight.Text);
+                else dtoTemp.Weight = 0;
+                if (!ipLength.Text.Trim().Equals(""))
+                    dtoTemp.Length = Convert.ToDouble(ipLength.Text);
+                else dtoTemp.Length = 0;
+                if (!ipHoles.Text.Trim().Equals(""))
+                    dtoTemp.Containers = Convert.ToInt64(ipHoles.Text);
+                else dtoTemp.Containers = 0;
+                dtoTemp.Note = ipNote.Text;
+                dtoTemp.Date = DateTime.Today ;
+                dtoTemp.Reporter = "";
+                if (dtoTemp.EstimateIriDetailID != 0)
+                    _estimateDetailBUS.UpdateEstimateDetailIri(dtoTemp);
+                else
+                {
+                    dtoTemp.EstimateID = _estimateID;
+                    _estimateDetailBUS.CreateEstimateDetailIri(dtoTemp);
+                }
+                this.Close();
             }
-            this.Close();
         }
 
         public bool validate()
