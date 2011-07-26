@@ -29,15 +29,45 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConstructionManagement));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.kryptonPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.dgvCons = new AdvancedDataGridView.TreeGridView();
+            this.pnlSearch = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.gbxSearch = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
+            this.cbManager = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.dtTodate = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
+            this.lbTodate = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.lbSearchName = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.btnSearch = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.dtFromdate = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
+            this.ipName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.lbFromdate = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.cbStatus = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.lbStatus = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.hdDebt = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
+            this.btAdd = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.btAddchild = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.btAddSubs = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.btUpdateOp = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.btDelete = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.btEdit = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.btViewEst = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.btnHideShowSearch = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.cmsMain = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.thêmHạngMụcThầuPhụToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sửaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lưuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.HideSearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ConstructionID = new AdvancedDataGridView.TreeGridColumn();
             this.ConstructionName = new AdvancedDataGridView.TreeGridColumn();
             this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,36 +87,7 @@
             this.UpdatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastUpdated = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HasEstimate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pnlSearch = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.gbxSearch = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
-            this.cbManager = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
-            this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.dtTodate = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
-            this.lbTodate = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.lbSearchName = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.btnSearch = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.dtFromdate = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
-            this.ipName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.lbFromdate = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.cbStatus = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
-            this.lbStatus = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.hdDebt = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
-            this.btAdd = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.btAddchild = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.btAddSubs = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.btDelete = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.btEdit = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.btViewEst = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.btUpdateOp = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.btnHideShowSearch = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.cmsMain = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.thêmHạngMụcThầuPhụToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sửaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lưuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.SearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.HideSearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.EstimatedID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCons)).BeginInit();
@@ -134,7 +135,8 @@
             this.CreatedDate,
             this.UpdatedBy,
             this.LastUpdated,
-            this.HasEstimate});
+            this.HasEstimate,
+            this.EstimatedID});
             this.dgvCons.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCons.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvCons.ImageList = null;
@@ -146,161 +148,6 @@
             this.dgvCons.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
             this.dgvCons.TabIndex = 0;
             this.dgvCons.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvCons_CellMouseClick);
-            // 
-            // ConstructionID
-            // 
-            this.ConstructionID.DataPropertyName = "ConstructionID";
-            this.ConstructionID.DefaultNodeImage = null;
-            this.ConstructionID.HeaderText = "ConstructionID";
-            this.ConstructionID.Name = "ConstructionID";
-            this.ConstructionID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ConstructionID.Visible = false;
-            // 
-            // ConstructionName
-            // 
-            this.ConstructionName.DataPropertyName = "ConstructionName";
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ConstructionName.DefaultCellStyle = dataGridViewCellStyle13;
-            this.ConstructionName.DefaultNodeImage = null;
-            this.ConstructionName.HeaderText = "Tên công trình";
-            this.ConstructionName.Name = "ConstructionName";
-            this.ConstructionName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ConstructionName.Width = 250;
-            // 
-            // Type
-            // 
-            this.Type.HeaderText = "Loại";
-            this.Type.Name = "Type";
-            this.Type.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Type.Width = 150;
-            // 
-            // SubcontractorName
-            // 
-            this.SubcontractorName.DataPropertyName = "SubcontractorName";
-            this.SubcontractorName.HeaderText = "Nhà thầu phụ";
-            this.SubcontractorName.Name = "SubcontractorName";
-            this.SubcontractorName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.SubcontractorName.Width = 150;
-            // 
-            // Status
-            // 
-            this.Status.HeaderText = "Tình trạng";
-            this.Status.Name = "Status";
-            this.Status.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // ProgressRate
-            // 
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.GreenYellow;
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.ProgressRate.DefaultCellStyle = dataGridViewCellStyle14;
-            this.ProgressRate.HeaderText = "Tiến độ(%)";
-            this.ProgressRate.Name = "ProgressRate";
-            this.ProgressRate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // TotalEstimateCost
-            // 
-            this.TotalEstimateCost.DataPropertyName = "TotalEstimateCost";
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.GreenYellow;
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Red;
-            this.TotalEstimateCost.DefaultCellStyle = dataGridViewCellStyle15;
-            this.TotalEstimateCost.HeaderText = "Tổng dự toán(VND)";
-            this.TotalEstimateCost.Name = "TotalEstimateCost";
-            this.TotalEstimateCost.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.TotalEstimateCost.Width = 150;
-            // 
-            // TotalRealCost
-            // 
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.GreenYellow;
-            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.Red;
-            this.TotalRealCost.DefaultCellStyle = dataGridViewCellStyle16;
-            this.TotalRealCost.HeaderText = "Tổng giải ngân(VND)";
-            this.TotalRealCost.Name = "TotalRealCost";
-            this.TotalRealCost.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.TotalRealCost.Width = 150;
-            // 
-            // ManagerName
-            // 
-            this.ManagerName.HeaderText = "Người quản lý";
-            this.ManagerName.Name = "ManagerName";
-            this.ManagerName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Description
-            // 
-            this.Description.DataPropertyName = "Description";
-            this.Description.HeaderText = "Mô tả";
-            this.Description.Name = "Description";
-            this.Description.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Description.Width = 150;
-            // 
-            // ConstructionAddress
-            // 
-            this.ConstructionAddress.DataPropertyName = "ConstructionAddress";
-            this.ConstructionAddress.HeaderText = "Địa chỉ";
-            this.ConstructionAddress.Name = "ConstructionAddress";
-            this.ConstructionAddress.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ConstructionAddress.Width = 150;
-            // 
-            // CommencementDate
-            // 
-            this.CommencementDate.DataPropertyName = "CommencementDate";
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.Yellow;
-            this.CommencementDate.DefaultCellStyle = dataGridViewCellStyle17;
-            this.CommencementDate.HeaderText = "Ngày khởi công";
-            this.CommencementDate.Name = "CommencementDate";
-            this.CommencementDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.CommencementDate.Width = 150;
-            // 
-            // CompletionDate
-            // 
-            this.CompletionDate.DataPropertyName = "CompletionDate";
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.Yellow;
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.Red;
-            this.CompletionDate.DefaultCellStyle = dataGridViewCellStyle18;
-            this.CompletionDate.HeaderText = "Hạn hoàn thành";
-            this.CompletionDate.Name = "CompletionDate";
-            this.CompletionDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.CompletionDate.Width = 150;
-            // 
-            // ParentId
-            // 
-            this.ParentId.DataPropertyName = "ParentID";
-            this.ParentId.HeaderText = "ParentId";
-            this.ParentId.Name = "ParentId";
-            this.ParentId.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ParentId.Visible = false;
-            // 
-            // CreatedBy
-            // 
-            this.CreatedBy.HeaderText = "Tạo bởi";
-            this.CreatedBy.Name = "CreatedBy";
-            this.CreatedBy.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // CreatedDate
-            // 
-            this.CreatedDate.HeaderText = "Ngày tạo";
-            this.CreatedDate.Name = "CreatedDate";
-            this.CreatedDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.CreatedDate.Width = 150;
-            // 
-            // UpdatedBy
-            // 
-            this.UpdatedBy.HeaderText = "Cập nhật gần nhất";
-            this.UpdatedBy.Name = "UpdatedBy";
-            this.UpdatedBy.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // LastUpdated
-            // 
-            this.LastUpdated.HeaderText = "Ngày cập nhật";
-            this.LastUpdated.Name = "LastUpdated";
-            this.LastUpdated.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.LastUpdated.Width = 150;
-            // 
-            // HasEstimate
-            // 
-            this.HasEstimate.HeaderText = "HasEstimate";
-            this.HasEstimate.Name = "HasEstimate";
-            this.HasEstimate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.HasEstimate.Visible = false;
             // 
             // pnlSearch
             // 
@@ -518,6 +365,14 @@
             this.btAddSubs.UniqueName = "3CF0D129E3EF4572FE9B4651DEAEBA47";
             this.btAddSubs.Click += new System.EventHandler(this.btAddSubConstractor_Click);
             // 
+            // btUpdateOp
+            // 
+            this.btUpdateOp.Enabled = ComponentFactory.Krypton.Toolkit.ButtonEnabled.False;
+            this.btUpdateOp.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.application_x_desktop;
+            this.btUpdateOp.Text = "Cập nhật hoat động công trình phụ";
+            this.btUpdateOp.UniqueName = "CAF3EB3B3BF04CCE38AF39469707B0F4";
+            this.btUpdateOp.Click += new System.EventHandler(this.btUpdateOp_Click);
+            // 
             // btDelete
             // 
             this.btDelete.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.delete1;
@@ -542,14 +397,6 @@
             this.btViewEst.UniqueName = "BC9DE0D0E3444571EFA8454D9CC796EA";
             this.btViewEst.Visible = false;
             this.btViewEst.Click += new System.EventHandler(this.btViewEstimate_Click);
-            // 
-            // btUpdateOp
-            // 
-            this.btUpdateOp.Enabled = ComponentFactory.Krypton.Toolkit.ButtonEnabled.False;
-            this.btUpdateOp.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.application_x_desktop;
-            this.btUpdateOp.Text = "Cập nhật hoat động công trình phụ";
-            this.btUpdateOp.UniqueName = "CAF3EB3B3BF04CCE38AF39469707B0F4";
-            this.btUpdateOp.Click += new System.EventHandler(this.btUpdateOp_Click);
             // 
             // btnHideShowSearch
             // 
@@ -619,6 +466,168 @@
             this.HideSearchToolStripMenuItem.Text = "Ẩn Tìm Kiếm";
             this.HideSearchToolStripMenuItem.Click += new System.EventHandler(this.HideSearchToolStripMenuItem_Click);
             // 
+            // ConstructionID
+            // 
+            this.ConstructionID.DataPropertyName = "ConstructionID";
+            this.ConstructionID.DefaultNodeImage = null;
+            this.ConstructionID.HeaderText = "ConstructionID";
+            this.ConstructionID.Name = "ConstructionID";
+            this.ConstructionID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ConstructionID.Visible = false;
+            // 
+            // ConstructionName
+            // 
+            this.ConstructionName.DataPropertyName = "ConstructionName";
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConstructionName.DefaultCellStyle = dataGridViewCellStyle1;
+            this.ConstructionName.DefaultNodeImage = null;
+            this.ConstructionName.HeaderText = "Tên công trình";
+            this.ConstructionName.Name = "ConstructionName";
+            this.ConstructionName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ConstructionName.Width = 250;
+            // 
+            // Type
+            // 
+            this.Type.HeaderText = "Loại";
+            this.Type.Name = "Type";
+            this.Type.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Type.Width = 150;
+            // 
+            // SubcontractorName
+            // 
+            this.SubcontractorName.DataPropertyName = "SubcontractorName";
+            this.SubcontractorName.HeaderText = "Nhà thầu phụ";
+            this.SubcontractorName.Name = "SubcontractorName";
+            this.SubcontractorName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.SubcontractorName.Width = 150;
+            // 
+            // Status
+            // 
+            this.Status.HeaderText = "Tình trạng";
+            this.Status.Name = "Status";
+            this.Status.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // ProgressRate
+            // 
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.GreenYellow;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.ProgressRate.DefaultCellStyle = dataGridViewCellStyle2;
+            this.ProgressRate.HeaderText = "Tiến độ(%)";
+            this.ProgressRate.Name = "ProgressRate";
+            this.ProgressRate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // TotalEstimateCost
+            // 
+            this.TotalEstimateCost.DataPropertyName = "TotalEstimateCost";
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.GreenYellow;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Red;
+            this.TotalEstimateCost.DefaultCellStyle = dataGridViewCellStyle3;
+            this.TotalEstimateCost.HeaderText = "Tổng dự toán(VND)";
+            this.TotalEstimateCost.Name = "TotalEstimateCost";
+            this.TotalEstimateCost.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.TotalEstimateCost.Width = 150;
+            // 
+            // TotalRealCost
+            // 
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.GreenYellow;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Red;
+            this.TotalRealCost.DefaultCellStyle = dataGridViewCellStyle4;
+            this.TotalRealCost.HeaderText = "Tổng giải ngân(VND)";
+            this.TotalRealCost.Name = "TotalRealCost";
+            this.TotalRealCost.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.TotalRealCost.Width = 150;
+            // 
+            // ManagerName
+            // 
+            this.ManagerName.HeaderText = "Người quản lý";
+            this.ManagerName.Name = "ManagerName";
+            this.ManagerName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Description
+            // 
+            this.Description.DataPropertyName = "Description";
+            this.Description.HeaderText = "Mô tả";
+            this.Description.Name = "Description";
+            this.Description.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Description.Width = 150;
+            // 
+            // ConstructionAddress
+            // 
+            this.ConstructionAddress.DataPropertyName = "ConstructionAddress";
+            this.ConstructionAddress.HeaderText = "Địa chỉ";
+            this.ConstructionAddress.Name = "ConstructionAddress";
+            this.ConstructionAddress.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ConstructionAddress.Width = 150;
+            // 
+            // CommencementDate
+            // 
+            this.CommencementDate.DataPropertyName = "CommencementDate";
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Yellow;
+            this.CommencementDate.DefaultCellStyle = dataGridViewCellStyle5;
+            this.CommencementDate.HeaderText = "Ngày khởi công";
+            this.CommencementDate.Name = "CommencementDate";
+            this.CommencementDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.CommencementDate.Width = 150;
+            // 
+            // CompletionDate
+            // 
+            this.CompletionDate.DataPropertyName = "CompletionDate";
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Yellow;
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Red;
+            this.CompletionDate.DefaultCellStyle = dataGridViewCellStyle6;
+            this.CompletionDate.HeaderText = "Hạn hoàn thành";
+            this.CompletionDate.Name = "CompletionDate";
+            this.CompletionDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.CompletionDate.Width = 150;
+            // 
+            // ParentId
+            // 
+            this.ParentId.DataPropertyName = "ParentID";
+            this.ParentId.HeaderText = "ParentId";
+            this.ParentId.Name = "ParentId";
+            this.ParentId.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ParentId.Visible = false;
+            // 
+            // CreatedBy
+            // 
+            this.CreatedBy.HeaderText = "Tạo bởi";
+            this.CreatedBy.Name = "CreatedBy";
+            this.CreatedBy.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // CreatedDate
+            // 
+            this.CreatedDate.HeaderText = "Ngày tạo";
+            this.CreatedDate.Name = "CreatedDate";
+            this.CreatedDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.CreatedDate.Width = 150;
+            // 
+            // UpdatedBy
+            // 
+            this.UpdatedBy.HeaderText = "Cập nhật gần nhất";
+            this.UpdatedBy.Name = "UpdatedBy";
+            this.UpdatedBy.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // LastUpdated
+            // 
+            this.LastUpdated.HeaderText = "Ngày cập nhật";
+            this.LastUpdated.Name = "LastUpdated";
+            this.LastUpdated.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.LastUpdated.Width = 150;
+            // 
+            // HasEstimate
+            // 
+            this.HasEstimate.HeaderText = "HasEstimate";
+            this.HasEstimate.Name = "HasEstimate";
+            this.HasEstimate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.HasEstimate.Visible = false;
+            // 
+            // EstimatedID
+            // 
+            this.EstimatedID.HeaderText = "EstimatedID";
+            this.EstimatedID.Name = "EstimatedID";
+            this.EstimatedID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.EstimatedID.Visible = false;
+            // 
             // ConstructionManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -678,6 +687,16 @@
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btAddSubs;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btEdit;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btViewEst;
+        private ComponentFactory.Krypton.Toolkit.KryptonComboBox cbManager;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel1;
+        private System.Windows.Forms.ContextMenuStrip cmsMain;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem thêmHạngMụcThầuPhụToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sửaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem lưuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem SearchToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem HideSearchToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btUpdateOp;
         private AdvancedDataGridView.TreeGridColumn ConstructionID;
         private AdvancedDataGridView.TreeGridColumn ConstructionName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Type;
@@ -697,16 +716,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn UpdatedBy;
         private System.Windows.Forms.DataGridViewTextBoxColumn LastUpdated;
         private System.Windows.Forms.DataGridViewTextBoxColumn HasEstimate;
-        private ComponentFactory.Krypton.Toolkit.KryptonComboBox cbManager;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel1;
-        private System.Windows.Forms.ContextMenuStrip cmsMain;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
-        private System.Windows.Forms.ToolStripMenuItem thêmHạngMụcThầuPhụToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sửaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem lưuToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem SearchToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem HideSearchToolStripMenuItem;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btUpdateOp;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EstimatedID;
     }
 }
 
