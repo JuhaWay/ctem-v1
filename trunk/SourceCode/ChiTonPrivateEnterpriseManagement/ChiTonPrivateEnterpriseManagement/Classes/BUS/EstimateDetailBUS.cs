@@ -34,5 +34,22 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
         {
             return _estimateDetailDAO.check(mID, eID);
         }
+        public EstimateIriDetailDTO LoadOneEstimateIriDetailByEst(long estimateId, int Type)
+        {
+            return _estimateDetailDAO.LoadOneEstimateIriDetailByEst(estimateId, Type);
+        }
+
+        public List<EstimateIriDetailDTO> LoadAllEstimateIriDetailsByEst(long estimateId, int Type)
+        {
+            return _estimateDetailDAO.LoadAllEstimateIriDetailsByEst(estimateId, Type);
+        }
+        public bool UpdateEstimateDetailIri(EstimateIriDetailDTO dto)
+        {
+            return _estimateDetailDAO.UpdateEstimateDetailIri(dto);
+        }
+        public bool CreateEstimateDetailIri(EstimateIriDetailDTO dto)
+        {
+            return _estimateDetailDAO.CreateEstimateDetailIri(dto);
+        }
     }
 }
