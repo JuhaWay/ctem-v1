@@ -51,5 +51,9 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
         {
             return _estimateDetailDAO.CreateEstimateDetailIri(dto);
         }
+        public bool DeleteEstimateDetailIri(long ID)
+        {
+            return _estimateDetailDAO.DeleteEstimateDetailIri(ID);
+        }
     }
 }
