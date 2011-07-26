@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 /// <summary>
 /// Entity for table Construction
@@ -8,8 +9,9 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
 {
     public class ConstructionDTO
     {
-        public  const string MAIN = "Thuộc Doanh nghiệp";
-        public  const string SUB = "Nhà thầu phụ";
+        public  const string MAIN_CONS = "Công trình xây dựng";
+        public  const string SUB = "Công trình phụ";
+        public const  string MAIN_IRI = "Công trình Thủy lợi";
 
         public long ConstructionID { get; set; }
         public long WarehouseID { get; set; }
@@ -20,7 +22,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
         public string ConstructionAddress { get; set; }
         public long ManagerID { get; set; }
         public string ManagerName { get; set; }
-
+        public long EstimateID { get; set; } 
 
        
         public string Status { get; set; }
@@ -52,7 +54,15 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
         
         public string TotalEstimateCostFormated { get; set; }
         public string TotalRealCostFormated { get; set; }
-        
+
+        public static List<string> getType()
+        {
+            List<string> list = new List<string>();
+            list.Add(MAIN_CONS);
+            list.Add(MAIN_IRI);
+            return list;
+        }
+
 
         public ConstructionDTO()
         {

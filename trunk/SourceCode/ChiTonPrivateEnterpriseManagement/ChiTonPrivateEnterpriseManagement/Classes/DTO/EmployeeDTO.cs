@@ -35,9 +35,9 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
             IsActive = true;
         }
 
-        public EmployerDTO(string userName,long id)
+        public EmployerDTO(string Display, long id)
         {
-            Username = userName;
+            this.Display = Display;
             employeeID = id;
         }
         public override bool Equals(object obj)
