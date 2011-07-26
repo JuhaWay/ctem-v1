@@ -308,7 +308,6 @@
             this.ipState.Name = "ipState";
             this.ipState.Size = new System.Drawing.Size(123, 22);
             this.ipState.TabIndex = 86;
-            this.ipState.Text = "Toàn bộ công trình";
             // 
             // kryptonLabel3
             // 
