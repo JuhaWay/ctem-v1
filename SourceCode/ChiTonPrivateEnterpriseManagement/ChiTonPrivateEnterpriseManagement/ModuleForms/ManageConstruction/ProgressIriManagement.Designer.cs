@@ -36,15 +36,6 @@
             this.btSaveRoad = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.btnDelete = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.dgv = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.weightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lengthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.containersDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Progress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Reporter = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.noteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btEdit = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewButtonColumn();
-            this.estimateIriDetailDTOBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.dtEDate = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
             this.ipEnote = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.ipEreporter = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
@@ -85,20 +76,29 @@
             this.kryptonLabel3 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.estimateIriDetailDTOBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.estimateIriDetailDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Button = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewButtonColumn();
+            this.weightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lengthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.containersDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Progress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Reporter = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewDateTimePickerColumn();
+            this.noteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox3)).BeginInit();
             this.kryptonGroupBox3.Panel.SuspendLayout();
             this.kryptonGroupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.estimateIriDetailDTOBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox2)).BeginInit();
             this.kryptonGroupBox2.Panel.SuspendLayout();
             this.kryptonGroupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).BeginInit();
             this.kryptonGroupBox1.Panel.SuspendLayout();
             this.kryptonGroupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.estimateIriDetailDTOBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.estimateIriDetailDTOBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -168,19 +168,20 @@
             this.btnDelete.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
             this.btnDelete.Text = "Xóa";
             this.btnDelete.UniqueName = "46715A2AEC0143074F81325F50887305";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // dgv
             // 
             this.dgv.AutoGenerateColumns = false;
             this.dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Button,
             this.weightDataGridViewTextBoxColumn,
             this.lengthDataGridViewTextBoxColumn,
             this.containersDataGridViewTextBoxColumn,
             this.Progress,
             this.Reporter,
             this.Date,
-            this.noteDataGridViewTextBoxColumn,
-            this.btEdit});
+            this.noteDataGridViewTextBoxColumn});
             this.dgv.DataSource = this.estimateIriDetailDTOBindingSource1;
             this.dgv.Location = new System.Drawing.Point(3, 128);
             this.dgv.Name = "dgv";
@@ -189,57 +190,8 @@
             this.dgv.StateCommon.Background.Color1 = System.Drawing.Color.White;
             this.dgv.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
             this.dgv.TabIndex = 52;
-            // 
-            // weightDataGridViewTextBoxColumn
-            // 
-            this.weightDataGridViewTextBoxColumn.DataPropertyName = "Weight";
-            this.weightDataGridViewTextBoxColumn.HeaderText = "Weight";
-            this.weightDataGridViewTextBoxColumn.Name = "weightDataGridViewTextBoxColumn";
-            // 
-            // lengthDataGridViewTextBoxColumn
-            // 
-            this.lengthDataGridViewTextBoxColumn.DataPropertyName = "Length";
-            this.lengthDataGridViewTextBoxColumn.HeaderText = "Length";
-            this.lengthDataGridViewTextBoxColumn.Name = "lengthDataGridViewTextBoxColumn";
-            // 
-            // containersDataGridViewTextBoxColumn
-            // 
-            this.containersDataGridViewTextBoxColumn.DataPropertyName = "Containers";
-            this.containersDataGridViewTextBoxColumn.HeaderText = "Containers";
-            this.containersDataGridViewTextBoxColumn.Name = "containersDataGridViewTextBoxColumn";
-            // 
-            // Progress
-            // 
-            this.Progress.DataPropertyName = "Progress";
-            this.Progress.HeaderText = "Progress";
-            this.Progress.Name = "Progress";
-            // 
-            // Reporter
-            // 
-            this.Reporter.DataPropertyName = "Reporter";
-            this.Reporter.HeaderText = "Reporter";
-            this.Reporter.Name = "Reporter";
-            // 
-            // Date
-            // 
-            this.Date.DataPropertyName = "Date";
-            this.Date.HeaderText = "Date";
-            this.Date.Name = "Date";
-            // 
-            // noteDataGridViewTextBoxColumn
-            // 
-            this.noteDataGridViewTextBoxColumn.DataPropertyName = "Note";
-            this.noteDataGridViewTextBoxColumn.HeaderText = "Note";
-            this.noteDataGridViewTextBoxColumn.Name = "noteDataGridViewTextBoxColumn";
-            // 
-            // btEdit
-            // 
-            this.btEdit.HeaderText = "Lưu thay đổi";
-            this.btEdit.Name = "btEdit";
-            // 
-            // estimateIriDetailDTOBindingSource1
-            // 
-            this.estimateIriDetailDTOBindingSource1.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.EstimateIriDetailDTO);
+            this.dgv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellContentClick);
+            this.dgv.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dgv_CellValidating);
             // 
             // dtEDate
             // 
@@ -650,9 +602,71 @@
             this.kryptonLabel1.TabIndex = 8;
             this.kryptonLabel1.Values.Text = "Khối lượng(m3)";
             // 
+            // estimateIriDetailDTOBindingSource1
+            // 
+            this.estimateIriDetailDTOBindingSource1.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.EstimateIriDetailDTO);
+            // 
             // estimateIriDetailDTOBindingSource
             // 
             this.estimateIriDetailDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.EstimateIriDetailDTO);
+            // 
+            // Button
+            // 
+            this.Button.FillWeight = 50F;
+            this.Button.HeaderText = "Lưu";
+            this.Button.Name = "Button";
+            this.Button.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Button.ToolTipText = "Lưu";
+            this.Button.Width = 50;
+            // 
+            // weightDataGridViewTextBoxColumn
+            // 
+            this.weightDataGridViewTextBoxColumn.DataPropertyName = "Weight";
+            this.weightDataGridViewTextBoxColumn.HeaderText = "Khối lượng(m3)";
+            this.weightDataGridViewTextBoxColumn.Name = "weightDataGridViewTextBoxColumn";
+            // 
+            // lengthDataGridViewTextBoxColumn
+            // 
+            this.lengthDataGridViewTextBoxColumn.DataPropertyName = "Length";
+            this.lengthDataGridViewTextBoxColumn.HeaderText = "Chiều dài(m)";
+            this.lengthDataGridViewTextBoxColumn.Name = "lengthDataGridViewTextBoxColumn";
+            // 
+            // containersDataGridViewTextBoxColumn
+            // 
+            this.containersDataGridViewTextBoxColumn.DataPropertyName = "Containers";
+            this.containersDataGridViewTextBoxColumn.HeaderText = "Số bể";
+            this.containersDataGridViewTextBoxColumn.Name = "containersDataGridViewTextBoxColumn";
+            // 
+            // Progress
+            // 
+            this.Progress.DataPropertyName = "Progress";
+            this.Progress.HeaderText = "Tiến độ(%)";
+            this.Progress.Name = "Progress";
+            // 
+            // Reporter
+            // 
+            this.Reporter.DataPropertyName = "Reporter";
+            this.Reporter.HeaderText = "Người báo cáo";
+            this.Reporter.Name = "Reporter";
+            // 
+            // Date
+            // 
+            this.Date.Checked = false;
+            this.Date.CustomFormat = "dd/MM/yyyy";
+            this.Date.DataPropertyName = "Date";
+            this.Date.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.Date.HeaderText = "Ngày báo cáo";
+            this.Date.Name = "Date";
+            this.Date.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Date.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Date.Width = 100;
+            // 
+            // noteDataGridViewTextBoxColumn
+            // 
+            this.noteDataGridViewTextBoxColumn.DataPropertyName = "Note";
+            this.noteDataGridViewTextBoxColumn.HeaderText = "Ghi chú";
+            this.noteDataGridViewTextBoxColumn.Name = "noteDataGridViewTextBoxColumn";
+            this.noteDataGridViewTextBoxColumn.Width = 200;
             // 
             // ProgressIriManagement
             // 
@@ -673,7 +687,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox3)).EndInit();
             this.kryptonGroupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.estimateIriDetailDTOBindingSource1)).EndInit();
             this.kryptonGroupBox2.Panel.ResumeLayout(false);
             this.kryptonGroupBox2.Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox2)).EndInit();
@@ -682,6 +695,7 @@
             this.kryptonGroupBox1.Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).EndInit();
             this.kryptonGroupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.estimateIriDetailDTOBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.estimateIriDetailDTOBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -738,14 +752,14 @@
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnDelete;
         private System.Windows.Forms.BindingSource estimateIriDetailDTOBindingSource;
         private System.Windows.Forms.BindingSource estimateIriDetailDTOBindingSource1;
+        private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewButtonColumn Button;
         private System.Windows.Forms.DataGridViewTextBoxColumn weightDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lengthDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn containersDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Progress;
         private System.Windows.Forms.DataGridViewTextBoxColumn Reporter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Date;
+        private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewDateTimePickerColumn Date;
         private System.Windows.Forms.DataGridViewTextBoxColumn noteDataGridViewTextBoxColumn;
-        private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewButtonColumn btEdit;
     }
 }
 

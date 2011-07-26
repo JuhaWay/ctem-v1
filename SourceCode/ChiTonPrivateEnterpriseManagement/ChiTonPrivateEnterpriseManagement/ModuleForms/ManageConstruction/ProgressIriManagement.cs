@@ -15,6 +15,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
     public partial class ProgressIriManagement : ComponentFactory.Krypton.Toolkit.KryptonForm
     {
         private EstimateDetailBUS _estimateDetailBUS = new EstimateDetailBUS();
+        EstimateIriDetailDTO temp = new EstimateIriDetailDTO();
         private long _estimateID = 0;
         public ProgressIriManagement(long estimateID)
         {
@@ -28,7 +29,9 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
         {
             loadEstimate();
             loadReal();
+            setButtonValue();
         }
+
 
         public void loadEstimate()
         {
@@ -37,6 +40,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
             lbEstWeight.Text = dtoTemp.Weight.ToString();
             lbEstLength.Text = dtoTemp.Length.ToString();
             lbEstContainers.Text = dtoTemp.Containers.ToString();
+            temp = dtoTemp;
         }
         public void loadReal()
         {
@@ -56,31 +60,57 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
             lbRealLengh.Text = dtoTemp.Length.ToString();
             lbRealContainer.Text = dtoTemp.Containers.ToString();
             lbCurrentProgress.Text = dtoTemp.Progress.ToString();
+
+            long pw = (long)((dtoTemp.Weight * 100 )/temp.Weight );
+            long pl =(long) ((dtoTemp.Length* 100 )/ temp.Length);
+            long pc = (long)((dtoTemp.Containers * 100 )/ temp.Containers);
+
+            pWeight.Text = pw.ToString();
+            pLength.Text = pl.ToString();
+            pContainer.Text = pc.ToString();
         }
 
+        public void setButtonValue()
+        {
+            
+        }
         private void btSaveRoad_Click(object sender, EventArgs e)
         {
             if(!validate())return;
-            EstimateIriDetailDTO Entity = new EstimateIriDetailDTO();
-            if (!ipEWeight.Text.Trim().Equals(""))
+            if (KryptonMessageBox.Show("Bạn có muốn cập nhật tiến độ", Constants.CONFIRM, MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                EstimateIriDetailDTO Entity = new EstimateIriDetailDTO();
+                if (!ipEWeight.Text.Trim().Equals(""))
                 Entity.Weight = Convert.ToDouble(ipEWeight.Text);
-            else Entity.Weight = 0;
-            if (!ipELength.Text.Trim().Equals(""))
+                if (!ipELength.Text.Trim().Equals(""))
                 Entity.Length = Convert.ToDouble(ipELength.Text);
-            else Entity.Length = 0;
-            if (!ipEcontainer.Text.Trim().Equals(""))
+                if (!ipEcontainer.Text.Trim().Equals(""))
                 Entity.Containers = Convert.ToInt64(ipEcontainer.Text);
-            else Entity.Containers = 0;
-            Entity.Note = ipEnote.Text;
-            Entity.Progress = Convert.ToInt32(ipEProgress.Text);
-            Entity.Date = dtEDate.Value.Date;
-            Entity.EstimateID = _estimateID;
-            Entity.Reporter = ipEreporter.Text;
-            Entity.Type = EstimateIriDetailDTO.TYPE_REAL;
-            _estimateDetailBUS.CreateEstimateDetailIri(Entity);
-            loadReal();
+                if (!ipEProgress.Text.Trim().Equals(""))
+                Entity.Progress = Convert.ToInt32(ipEProgress.Text);
+                Entity.Note = ipEnote.Text;
+                Entity.Date = dtEDate.Value.Date;
+                Entity.EstimateID = _estimateID;
+                Entity.Reporter = ipEreporter.Text;
+                Entity.Type = EstimateIriDetailDTO.TYPE_REAL;
+                _estimateDetailBUS.CreateEstimateDetailIri(Entity);
+                reSet();
+                loadReal();
+            }
 
         }
+
+        public void reSet()
+        {
+            ipEWeight.Text = "";
+            ipELength.Text = "";
+            ipEcontainer.Text = "";
+            ipEProgress.Text = "";
+            ipEnote.Text = "";
+            ipEreporter.Text = "";
+        }
+
         public bool validate()
         {
             if (!ipEWeight.Text.Trim().Equals("") && !Global.ValidateDoubleNumber(ipEWeight.Text))
@@ -109,6 +139,76 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
             }
 
             return true;
+        }
+
+        private void dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.ColumnIndex==0){
+                if (KryptonMessageBox.Show("Bạn có lưu thay đổi", Constants.CONFIRM, MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    EstimateIriDetailDTO Entity = dgv.Rows[e.RowIndex].DataBoundItem as EstimateIriDetailDTO;
+                    _estimateDetailBUS.UpdateEstimateDetailIri(Entity);
+                    loadReal();
+                }
+            }
+        }
+
+        private void dgv_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+
+            string s = e.FormattedValue.ToString();
+            if (e.ColumnIndex == 1)
+            {
+                
+                if (!Global.ValidateDoubleNumber(s))
+                {
+                    KryptonMessageBox.Show("Sai thông tin khối lượng", Constants.CONFIRM, MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
+                   e.Cancel=true;
+                }
+            }
+            if (e.ColumnIndex == 2)
+            {
+                if ( !Global.ValidateDoubleNumber(s))
+                {
+                    KryptonMessageBox.Show("Sai thông tin chiều dài", Constants.CONFIRM, MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
+                    e.Cancel = true;
+                }
+            }
+            if (e.ColumnIndex == 3)
+            {
+                if (!Global.ValidateLongNumber(s))
+                {
+                    KryptonMessageBox.Show("Sai thông tin số bể", Constants.CONFIRM, MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
+                    e.Cancel = true;
+                }
+            }
+            if (e.ColumnIndex == 4)
+            {
+                if (!Global.ValidateInputNumber(s))
+                {
+                    KryptonMessageBox.Show("Sai thông tin tiến độ", Constants.CONFIRM, MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
+                    e.Cancel = true;
+                }
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (KryptonMessageBox.Show("Bạn có xóa không", Constants.CONFIRM, MessageBoxButtons.YesNo,
+                           MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                foreach (DataGridViewRow row in dgv.SelectedRows)
+                {
+                    long ID = (row.DataBoundItem as EstimateIriDetailDTO).EstimateIriDetailID;
+                    _estimateDetailBUS.DeleteEstimateDetailIri(ID);
+                }
+                loadReal();
+            }
         }
     }
 }
