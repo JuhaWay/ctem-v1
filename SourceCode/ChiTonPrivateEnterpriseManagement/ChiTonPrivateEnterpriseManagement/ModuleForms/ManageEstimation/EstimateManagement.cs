@@ -102,20 +102,22 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
         //xem du toan chi tiet
         private void btViewDetail_Click(object sender, EventArgs e)
         {
-            DataGridViewRow row = dgvEstimate.SelectedRows[0];
-            string strRightID = row.Cells["EstimateID"].Value.ToString();
-            long EstimateID = Convert.ToInt64(strRightID);
-            if (EstimateID != 0)
-            {
-                estDetailForm editForm = new estDetailForm(EstimateID);
-                editForm.ShowDialog();
-                loadData();
-            }
-            else
-            {
-                KryptonMessageBox.Show("Chọn 1 Bảng Dự Toán Trước Khi Bạn Muốn Xem Chi Tiết", Constants.ALERT_ERROR,
-                                       MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                dgvEstimate.Focus();
+            foreach(DataGridViewRow row in dgvEstimate.SelectedRows){
+                string strRightID = row.Cells["EstimateID"].Value.ToString();
+                string ConsType = row.Cells["ConsType"].Value.ToString();
+                long EstimateID = Convert.ToInt64(strRightID);
+                if (ConsType.Equals(ConstructionDTO.MAIN_CONS))
+                {
+                    estDetailForm editForm = new estDetailForm(EstimateID);
+                    editForm.ShowDialog();
+                    loadData();
+                }
+                else
+                {
+                    EstimateIriDetail editForm = new EstimateIriDetail(EstimateID);
+                    editForm.ShowDialog();
+                    loadData();
+                }
             }
             
         }
@@ -150,9 +152,9 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
             {
                 if (!item.ParentName.Equals(flag))
                 {
-                     node = dgvEstimate.Nodes.Add(item.ParentName, "", "", "", "", "", "",0);
+                     node = dgvEstimate.Nodes.Add(item.ParentName,"", "", "", "", "", "", "",0);
                  }
-                 node.Nodes.Add(item.ConstructionName,item.EstimateName,item.TotalCostEstimateFormated,
+                 node.Nodes.Add(item.ConstructionName,item.ConsType,item.EstimateName,item.TotalCostEstimateFormated,
                      item.CreatedBy,item.UpdatedBy,item.CreatedDateFormated,item.UpdatedDateFormated,item.EstimateID);
                  flag = item.ParentName;
                  node.Expand();
