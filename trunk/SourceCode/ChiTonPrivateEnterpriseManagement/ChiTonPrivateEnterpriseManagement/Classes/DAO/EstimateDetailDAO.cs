@@ -324,6 +324,34 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                     Connection.Close();
             }
         }
+
+        public bool DeleteEstimateDetailIri(long ID)
+        {
+            var cmd = new SqlCommand("[dbo].[EstimateIriDetail_DeleteByEstimateIriDetailID]", Connection) { CommandType = CommandType.StoredProcedure };
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@EstimateIriDetailID", ID));
+
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message);
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null)
+                    Connection.Close();
+            }
+        }
+
+
         public EstimateIriDetailDTO LoadOneEstimateIriDetailByEst(long estimateId,int Type)
         {
             var cmd = new SqlCommand("[dbo].[EstimateIriDetail_Get]", Connection);
