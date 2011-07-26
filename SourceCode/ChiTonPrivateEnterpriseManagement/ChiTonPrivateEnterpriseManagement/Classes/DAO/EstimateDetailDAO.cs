@@ -199,6 +199,8 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             }
         }
 
+      
+
         public bool UpdateEstimateDetail(EstimateDetailDTO dto)
         {
             var cmd = new SqlCommand("[dbo].[EstimateDetail_update]", Connection) { CommandType = CommandType.StoredProcedure };
@@ -256,6 +258,157 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                     Connection.Close();
             }
         }
+        public bool CreateEstimateDetailIri(EstimateIriDetailDTO dto)
+        {
+            var cmd = new SqlCommand("[dbo].[EstimateIriDetail_Create]", Connection) { CommandType = CommandType.StoredProcedure };
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@EstimateID", dto.EstimateID));
+                cmd.Parameters.Add(new SqlParameter("@TotalCost", dto.TotalCost));
+                cmd.Parameters.Add(new SqlParameter("@Weight", dto.Weight));
+                cmd.Parameters.Add(new SqlParameter("@Length", dto.Length));
+                cmd.Parameters.Add(new SqlParameter("@Containers", dto.Containers));
+                cmd.Parameters.Add(new SqlParameter("@Note", dto.Note));
+                cmd.Parameters.Add(new SqlParameter("@Progress", dto.Progress));
+                cmd.Parameters.Add(new SqlParameter("@Reporter", dto.Reporter));
+                cmd.Parameters.Add(new SqlParameter("@Date", dto.Date));
+                cmd.Parameters.Add(new SqlParameter("@Type", dto.Type));
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message);
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null)
+                    Connection.Close();
+            }
+        }
 
+        public bool UpdateEstimateDetailIri(EstimateIriDetailDTO dto)
+        {
+            var cmd = new SqlCommand("[dbo].[EstimateIriDetail_Update]", Connection) { CommandType = CommandType.StoredProcedure };
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@EstimateIriDetailID", dto.EstimateIriDetailID));
+                cmd.Parameters.Add(new SqlParameter("@TotalCost", dto.TotalCost));
+                cmd.Parameters.Add(new SqlParameter("@Weight", dto.Weight));
+                cmd.Parameters.Add(new SqlParameter("@Length", dto.Length));
+                cmd.Parameters.Add(new SqlParameter("@Containers", dto.Containers));
+                cmd.Parameters.Add(new SqlParameter("@Note", dto.Note));
+                cmd.Parameters.Add(new SqlParameter("@Progress", dto.Progress));
+                cmd.Parameters.Add(new SqlParameter("@Reporter", dto.Reporter));
+                cmd.Parameters.Add(new SqlParameter("@Date", dto.Date));
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message);
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null)
+                    Connection.Close();
+            }
+        }
+        public EstimateIriDetailDTO LoadOneEstimateIriDetailByEst(long estimateId,int Type)
+        {
+            var cmd = new SqlCommand("[dbo].[EstimateIriDetail_Get]", Connection);
+
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@estimateID", estimateId));
+            cmd.Parameters.Add(new SqlParameter("@type", Type));
+            try
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    EstimateIriDetailDTO edDto = new EstimateIriDetailDTO
+                    {
+                        EstimateIriDetailID = Convert.ToInt64(reader["EstimateIriDetailID"]),
+                        EstimateID = Convert.ToInt64(reader["EstimateID"]),
+                        Weight = Convert.ToDouble(reader["Weight"]),
+                        Length = Convert.ToDouble(reader["Length"]),
+                        Containers = Convert.ToInt64(reader["Containers"]),
+                        Note = Convert.ToString(reader["Note"]),
+                        TotalCost = Convert.ToInt64(reader["TotalCost"])
+                    };
+                    return edDto;
+                }
+                return null;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message, "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                if (Transaction == null) Connection.Close();
+            }
+        }
+
+        public List<EstimateIriDetailDTO> LoadAllEstimateIriDetailsByEst(long estimateId, int Type)
+        {
+            var cmd = new SqlCommand("[dbo].[EstimateIriDetail_Get]", Connection);
+
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@estimateID", estimateId));
+            cmd.Parameters.Add(new SqlParameter("@type", Type));
+            try
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                List<EstimateIriDetailDTO> list = new List<EstimateIriDetailDTO>();
+                while (reader.Read())
+                {
+                    EstimateIriDetailDTO edDto = new EstimateIriDetailDTO
+                    {
+                        EstimateIriDetailID = Convert.ToInt64(reader["EstimateIriDetailID"]),
+                        EstimateID = Convert.ToInt64(reader["EstimateID"]),
+                        Weight = Convert.ToDouble(reader["Weight"]),
+                        Length = Convert.ToDouble(reader["Length"]),
+                        Containers = Convert.ToInt64(reader["Containers"]),
+                        Note = Convert.ToString(reader["Note"]),
+                        TotalCost = Convert.ToInt64(reader["TotalCost"]),
+                        Date = Convert.ToDateTime(reader["Date"]),
+                        Reporter = Convert.ToString(reader["Reporter"]),
+                        Progress = Convert.ToInt32(reader["Progress"])
+                    };
+                    list.Add(edDto); ;
+
+                }
+                return list;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message, "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                if (Transaction == null) Connection.Close();
+            }
+        }
     }
 }
