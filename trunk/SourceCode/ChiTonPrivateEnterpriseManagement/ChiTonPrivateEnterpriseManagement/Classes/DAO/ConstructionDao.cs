@@ -144,14 +144,23 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         ManagerID = Convert.ToInt64(reader["ManagerID"]),
                         CreatedBy =  Convert.ToString(reader["CreatedBy"]),
                         CreatedDate = Convert.ToDateTime(reader["CreatedDate"]),
-                        UpdatedBy = Convert.ToString(reader["UpdatedBy"])
+                        UpdatedBy = Convert.ToString(reader["UpdatedBy"]),
+                        
                         
                     };
-
+                    try
+                    {
+                        consDto.EstimateID = Convert.ToInt64(reader["EstimateID"]);
+                    }
+                    catch (Exception e)
+                    {
+                         consDto.EstimateID=0;
+                    }
                     try
                     {
                         consDto.LastUpdated = Convert.ToDateTime(reader["LastUpdated"]);
                         consDto.LastUpdatedFormated = consDto.LastUpdated.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
+                        
                     }
                     catch (Exception e)
                     {
@@ -315,7 +324,8 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         Convert.ToInt64(reader["ManagerID"]) : 0,
                         CreatedBy = Convert.ToString(reader["CreatedBy"]),
                         CreatedDate = Convert.ToDateTime(reader["CreatedDate"]),
-                        UpdatedBy = Convert.ToString(reader["UpdatedBy"])
+                        UpdatedBy = Convert.ToString(reader["UpdatedBy"]),
+                        EstimateID = Convert.ToInt64(reader["EstimateID"]),
                     };
 
                     try
@@ -406,6 +416,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.Parameters.Add(new SqlParameter("@commencementDate", dto.CommencementDate));
                 cmd.Parameters.Add(new SqlParameter("@completionDate", dto.CompletionDate));
                 cmd.Parameters.Add(new SqlParameter("@status", dto.Status));
+                cmd.Parameters.Add(new SqlParameter("@type", dto.type));
                 cmd.Parameters.Add(new SqlParameter("@managerID", dto.ManagerID));
                 cmd.Parameters.Add(new SqlParameter("@hasEstimate", dto.HasEstimate));
                 cmd.Parameters.Add(new SqlParameter("@progressRate", dto.ProgressRate));

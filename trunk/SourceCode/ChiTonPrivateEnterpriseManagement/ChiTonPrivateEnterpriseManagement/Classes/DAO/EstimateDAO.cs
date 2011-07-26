@@ -127,7 +127,8 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         CreatedBy =  Convert.ToString(reader["CreatedBy"]),
                         ParentName = Convert.ToString(reader["ParentName"]),
                         CreatedDate = Convert.ToDateTime(reader["CreatedDate"]),
-                        UpdatedBy = Convert.ToString(reader["UpdatedBy"])
+                        UpdatedBy = Convert.ToString(reader["UpdatedBy"]),
+                        ConsType = Convert.ToString(reader["ConsType"])
                        
                     };
                     try{
