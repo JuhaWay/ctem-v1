@@ -28,8 +28,9 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
         // load form
         private void ConstructionManagement_Load(object sender, EventArgs e)
         {
-            SetLayout();         
-            dtFromdate.Value = new DateTime(dtTodate.Value.Year, dtTodate.Value.Month - 5, dtTodate.Value.Day);
+            SetLayout();
+            dtTodate.Value = dtTodate.Value.AddYears(1);
+            dtFromdate.Value = new DateTime(dtTodate.Value.Year-4, dtTodate.Value.Month, dtTodate.Value.Day);
             cbManager.Items.Add(new EmployerDTO("Tất cả",0));
             cbManager.Items.AddRange(_employeeBUS.LoadAllEmployee().ToArray());
             cbManager.DisplayMember = Constants.EMPLOYEE_DISPLAYMEMBER;
