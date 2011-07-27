@@ -541,6 +541,11 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
 
         public static long GetDataCombobox(KryptonComboBox cbbControl, string obj)
         {
+            if (obj.Equals(Constants.CONSTRUCTION))
+            {
+                var consObj = (ConstructionDTO)cbbControl.SelectedItem;
+                return consObj.ConstructionID;
+            }
             if (obj.Equals(Constants.EMPLOYEE))
             {
                 var empObj = (EmployerDTO) cbbControl.SelectedItem;

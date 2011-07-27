@@ -333,7 +333,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
                 }
             }
             search();
-        }
-       
+        }       
     }
 }

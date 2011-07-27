@@ -26,6 +26,12 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
 
         private void EstimateIriDetail_Load(object sender, EventArgs e)
         {
+            Global.SetLayoutForm(this, Constants.DIALOG_FORM);
+            Global.SetLayoutGroupBoxButton(kryptonGroupBox1);
+            Global.SetLayoutGroupBoxButton(kryptonGroupBox2);
+            Global.SetLayoutPanelNewForm(kryptonPanel);
+            Global.SetLayoutButton(btSave);
+            Global.SetLayoutButton(btClose);
             LoadForm();
         }
 

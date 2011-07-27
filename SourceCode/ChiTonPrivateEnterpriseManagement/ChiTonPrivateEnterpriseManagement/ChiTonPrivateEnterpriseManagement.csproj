@@ -139,6 +139,7 @@
     <Compile Include="Classes\DTO\DisbursementDTO.cs" />
     <Compile Include="Classes\DTO\EmployeeAdvanceDTO.cs" />
     <Compile Include="Classes\DTO\DebtDTO.cs" />
+    <Compile Include="Classes\DTO\EstimateIriDetailDTO.cs" />
     <Compile Include="Classes\DTO\LedgerDTO.cs" />
     <Compile Include="Classes\DTO\PayDTO.cs" />
     <Compile Include="Classes\DTO\ProgressHrtDTO.cs" />
@@ -212,6 +213,12 @@
     <Compile Include="ModuleForms\ManageConstruction\ProgressConManagement.Designer.cs">
       <DependentUpon>ProgressConManagement.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModuleForms\ManageConstruction\ProgressIriManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForms\ManageConstruction\ProgressIriManagement.Designer.cs">
+      <DependentUpon>ProgressIriManagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModuleForms\ManageDebt\FinalAccountDebt.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -241,6 +248,12 @@
     </Compile>
     <Compile Include="ModuleForms\ManageEmployee\ResetPassword.Designer.cs">
       <DependentUpon>ResetPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleForms\ManageEstimation\EstimateIriDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForms\ManageEstimation\EstimateIriDetail.Designer.cs">
+      <DependentUpon>EstimateIriDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="ModuleForms\ManageLedger\AddnewLedger.cs">
       <SubType>Form</SubType>
@@ -532,6 +545,9 @@
     <EmbeddedResource Include="ModuleForms\ManageConstruction\ProgressConManagement.resx">
       <DependentUpon>ProgressConManagement.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\ManageConstruction\ProgressIriManagement.resx">
+      <DependentUpon>ProgressIriManagement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ModuleForms\ManageDebt\FinalAccountDebt.resx">
       <DependentUpon>FinalAccountDebt.cs</DependentUpon>
     </EmbeddedResource>
@@ -550,6 +566,9 @@
     <EmbeddedResource Include="ModuleForms\ManageEmployee\ResetPassword.resx">
       <DependentUpon>ResetPassword.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\ManageEstimation\EstimateIriDetail.resx">
+      <DependentUpon>EstimateIriDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModuleForms\ManageLedger\AddnewLedger.resx">
       <DependentUpon>AddnewLedger.cs</DependentUpon>

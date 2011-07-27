@@ -124,9 +124,9 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             }
         }
 
-        public List<MaterialDTO> LoadAllMaterialsEstimate()
+        public List<EstimateDetailDTO> LoadAllMaterialsEstimate(long consId)
         {
-            var cmd = new SqlCommand("[dbo].[Material_GetAll]", Connection);
+            var cmd = new SqlCommand("[dbo].[Material_GetMaterialEst]", Connection);
 
             if (Transaction != null)
             {
@@ -135,19 +135,28 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             cmd.CommandType = CommandType.StoredProcedure;
             try
             {
+                cmd.Parameters.Add(new SqlParameter("@ConsId", consId));
                 SqlDataReader reader = cmd.ExecuteReader();
-                List<MaterialDTO> listcons = new List<MaterialDTO>();
+                List<EstimateDetailDTO> listcons = new List<EstimateDetailDTO>();
                 while (reader.Read())
                 {
-                    MaterialDTO consDto = new MaterialDTO
+                    EstimateDetailDTO consDto = new EstimateDetailDTO
                     {
-                        MaterialID = Convert.ToInt64(reader["MaterialID"]),
+                        EstimateDetailID = reader["EstimateDetailID"] != DBNull.Value ? Convert.ToInt64(reader["EstimateDetailID"]) : 0,
+                        No = Convert.ToString(reader["No"]),
+                        EstimateID = reader["EstimateID"] != DBNull.Value ? Convert.ToInt64(reader["EstimateID"]) : 0,
+                        MaterialID = reader["MaterialID"] != DBNull.Value ? Convert.ToInt64(reader["MaterialID"]) : 0,
+                        MaterialParentId = reader["MaterialParentID"] != DBNull.Value ? Convert.ToInt64(reader["MaterialParentID"]) : 0,
                         MaterialName = Convert.ToString(reader["MaterialName"]),
-                        MaterialParentID = Convert.ToInt64(reader["MaterialParentID"]),
-                        EstimateCalUnit = Convert.ToString(reader["EstimateCalUnit"]),
-                        RealCalUnit = Convert.ToString(reader["RealCalUnit"]),
-                        Ratio = Convert.ToInt64(reader["Ratio"]),
-
+                        QuantityEstimate = reader["QuantityEstimate"] != DBNull.Value ? Convert.ToDouble(reader["QuantityEstimate"]) : 0,
+                        UnitCostEstimate = reader["UnitCostEstimate"] != DBNull.Value ? Convert.ToDouble(reader["UnitCostEstimate"]) : 0,
+                        TotalCostEstimate = reader["TotalCostEstimate"] != DBNull.Value ? Convert.ToDouble(reader["TotalCostEstimate"]) : 0,
+                        QuantityReal = reader["QuantityReal"] != DBNull.Value ? Convert.ToDouble(reader["QuantityReal"]) : 0,
+                        UnitCostReal = reader["UnitCostReal"] != DBNull.Value ? Convert.ToInt64(reader["UnitCostReal"]) : 0,
+                        TotalCostReal = reader["TotalCostReal"] != DBNull.Value ? Convert.ToInt64(reader["TotalCostReal"]) : 0,
+                        Note = Convert.ToString(reader["Note"]),
+                        Status = Convert.ToString(reader["Status"]),
+                        Name = Convert.ToString(reader["Name"]),
                     };
                     listcons.Add(consDto);
                 }
