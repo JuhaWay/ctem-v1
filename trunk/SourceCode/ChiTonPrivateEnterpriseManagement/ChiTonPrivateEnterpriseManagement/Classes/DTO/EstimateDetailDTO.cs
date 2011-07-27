@@ -6,6 +6,15 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
 {
     public class EstimateDetailDTO
     {
+
+        public static string TYPE_MATERIAL = "Vật liệu";
+        public static string TYPE_WORKER = "Công nhân";
+        public static string TYPE_MACHINE = "Máy Thi Công";
+        public static string TYPE_VEHICLE = "Phương tiện";
+        public static string TYPE_GENERAL = "Tổng quát";
+
+
+
         public long EstimateDetailID { get; set; }
         public string No { get; set; }
         public long EstimateID { get; set; }
@@ -23,11 +32,24 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
         public string Note { get; set; }
         public string Status { get; set; }
         public string Name { get; set; }
+        public string Type { get; set; }
 
 
         public string UnitCostEstimateFormated { get; set; }
         public string TotalCostEstimateFormated { get; set; }
 
+
+
+        public static List<String> getTypes()
+        {
+            List<String> list = new List<string>();
+            list.Add(TYPE_MATERIAL);
+            list.Add(TYPE_WORKER);
+            list.Add(TYPE_MACHINE);
+            list.Add(TYPE_VEHICLE);
+            list.Add(TYPE_GENERAL);
+            return list;
+        }
 
     }
 }
