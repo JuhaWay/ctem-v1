@@ -29,5 +29,18 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
         public long TotalCostReal { get; set; }
         public string TotalCostEstimateFormated { get; set; }
         public string TotalCostRealFormated { get; set; }
+
+
+        public long MaterialCostEstimate { get; set; }
+        public long WorkerCostEstimate { get; set; }
+        public long VehicleCostEstimate { get; set; }
+        public long MachineCostEstimate { get; set; }
+        public long GeneralCostEstimate { get; set; }
+
+        public string MaterialCostEstimateFormated { get; set; }
+        public string WorkerCostEstimateFormated { get; set; }
+        public string VehicleCostEstimateFormated { get; set; }
+        public string MachineCostEstimateFormated { get; set; }
+        public string GeneralCostEstimateFormated { get; set; }
     }
 }
