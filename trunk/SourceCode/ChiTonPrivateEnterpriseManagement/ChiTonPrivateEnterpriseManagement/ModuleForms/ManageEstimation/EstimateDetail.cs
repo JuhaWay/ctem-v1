@@ -39,9 +39,12 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
         // load form
         private void EstimateDetail_Load(object sender, EventArgs e)
         {
+            
             cbSearchMaterial.Items.Add(new MaterialDTO("Tất cả",0));
             cbSearchMaterial.Items.AddRange(_materialBUS.LoadAllMaterials().ToArray());
             cbSearchMaterial.DisplayMember = "MaterialName";
+
+            cbType.Items.AddRange(EstimateDetailDTO.getTypes().ToArray());
             cbMaterial.Items.AddRange(_materialBUS.LoadAllMaterials().ToArray());
             cbMaterial.DisplayMember = "MaterialName";            
             SetLayout();
@@ -123,6 +126,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
                     MessageBox.Show("Vật liệu này đã tồn tại !");
                     return;
                 }
+                dtoTemp.Type = cbType.Text;
                 _estimateDetailBUS.UpdateEstimateDetail(dtoTemp);
                 MessageBox.Show("Cập nhật thành công!");
                 resetDataSource(_estimateId, _materialId);
@@ -169,6 +173,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
                     MessageBox.Show("Vật liệu này đã tồn tại !");
                     return;
                 }
+                entity.Type = cbType.Text;
                 _estimateDetailBUS.CreateEstimateDetail(entity);
                 resetDataSource(_estimateId, _materialId);
                 btnNew_Click(null, null);
@@ -261,7 +266,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
         }
         public void setDisplay()
         {
-            if (cbType.SelectedIndex == 1)
+            if (cbType.SelectedIndex >= 1)
             {
                 cbMaterial.Enabled = false;
                 ipQuantity.Enabled = false;

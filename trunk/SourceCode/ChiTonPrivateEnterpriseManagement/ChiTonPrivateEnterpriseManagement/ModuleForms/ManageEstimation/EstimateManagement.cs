@@ -150,9 +150,11 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
             {
                 if (!item.ParentName.Equals(flag))
                 {
-                     node = dgvEstimate.Nodes.Add(item.ParentName,"", "", "", "", "", "", "",0);
+                    node = dgvEstimate.Nodes.Add(item.ParentName, "", "", "", "", "", "", "", "", "", "", "", "", 0);
                  }
                  node.Nodes.Add(item.ConstructionName,item.ConsType,item.EstimateName,item.TotalCostEstimateFormated,
+                     item.MaterialCostEstimateFormated,item.WorkerCostEstimateFormated,item.VehicleCostEstimateFormated,
+                     item.MachineCostEstimateFormated,item.GeneralCostEstimateFormated,
                      item.CreatedBy,item.UpdatedBy,item.CreatedDateFormated,item.UpdatedDateFormated,item.EstimateID);
                  flag = item.ParentName;
                  node.Expand();
