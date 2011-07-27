@@ -26,6 +26,15 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
         }
         private void ProgressConManagement_Load(object sender, EventArgs e)
         {
+            Global.SetLayoutForm(this, Constants.DIALOG_FORM);
+            Global.SetLayoutHeaderGroup(hdDebt, Constants.CHILD_FORM);
+            Global.SetLayoutHeaderGroup(kryptonHeader1, Constants.CHILD_FORM);
+            Global.SetLayoutHeaderGroup(kryptonHeader2, Constants.CHILD_FORM);
+            Global.SetLayoutSplipContainerInChildForm(kryptonSplitContainer1);
+            Global.SetLayoutGroupBoxButton(kryptonGroupBox1);
+            Global.SetLayoutGroupBoxButton(kryptonGroupBox2);
+            Global.SetLayoutGroupBoxButton(kryptonGroupBox3);
+            Global.SetDaulftDatagridview(kryptonDataGridView2);
             loadHtrs();
             loadleftForm();
         }

@@ -37,12 +37,26 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
             dto.Taker = ipTakers.Text;
             _list.Add(dto);
             dgvDisbur.DataSource = null;
-            dgvDisbur.DataSource = _list; 
+            dgvDisbur.DataSource = _list;
+            _constructionBus.DeleteDisbursement(_DisbursementProgressID, _constructionID);
+            foreach (DisbursementDTO dtoinlist in _list)
+            {
+                dtoinlist.DisbursementProgressID = _DisbursementProgressID;
+                dtoinlist.ConstructionID = _constructionID;
+                dtoinlist.Number = Global.ConvertMoneyToLong(dtoinlist.NumberFormated, Global.SEP);
+                dtoinlist.OthersCost = Global.ConvertMoneyToLong(dtoinlist.OthersCostFormated, Global.SEP);
+                _constructionBus.CreateDisbursement(dtoinlist);
+            }  
         }
 
         private void Disbursement_Load(object sender, EventArgs e)
         {
             loadData();
+            Global.SetLayoutForm(this, Constants.DIALOG_FORM);
+            Global.SetLayoutHeaderGroup(hdDebt, Constants.CHILD_FORM);
+            Global.SetLayoutPanelNewForm(ipTaker);
+            Global.SetLayoutGroupBoxButton(kryptonGroupBox1);
+            Global.SetDaulftDatagridview(dgvDisbur);
         }
 
 
@@ -60,22 +74,17 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
             }
             dgvDisbur.DataSource = null;
             dgvDisbur.DataSource = _list;
-        }
-
-       
-        private void btSaveRoad_Click(object sender, EventArgs e)
-        {
-            _constructionBus.DeleteDisbursement(_DisbursementProgressID,_constructionID);
-            foreach(DisbursementDTO dto in _list){
+            _constructionBus.DeleteDisbursement(_DisbursementProgressID, _constructionID);
+            foreach (DisbursementDTO dto in _list)
+            {
                 dto.DisbursementProgressID = _DisbursementProgressID;
                 dto.ConstructionID = _constructionID;
                 dto.Number = Global.ConvertMoneyToLong(dto.NumberFormated, Global.SEP);
                 dto.OthersCost = Global.ConvertMoneyToLong(dto.OthersCostFormated, Global.SEP);
-                 _constructionBus.CreateDisbursement(dto);
-
+                _constructionBus.CreateDisbursement(dto);
             }
-            this.Close();
         }
+
         private void ipNumber_Leave(object sender, EventArgs e)
         {
             ipNumber.Text = Global.ConvertLongToMoney(Global.ConvertMoneyToLong(ipNumber.Text, Global.SEP), Global.SEP);

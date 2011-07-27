@@ -35,6 +35,8 @@
             this.btCancel = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btSave = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryptonGroupBox1 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
+            this.cbType = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.kryptonLabel3 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.lbState = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.cbManager = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
@@ -53,8 +55,6 @@
             this.dtEndDate = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
             this.lbDes = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.cbStatus = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
-            this.kryptonLabel3 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.cbType = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pnMain)).BeginInit();
             this.pnMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox2)).BeginInit();
@@ -63,9 +63,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).BeginInit();
             this.kryptonGroupBox1.Panel.SuspendLayout();
             this.kryptonGroupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbType)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbStatus)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbType)).BeginInit();
             this.SuspendLayout();
             // 
             // pnMain
@@ -75,12 +75,12 @@
             this.pnMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnMain.Location = new System.Drawing.Point(0, 0);
             this.pnMain.Name = "pnMain";
-            this.pnMain.Size = new System.Drawing.Size(458, 508);
+            this.pnMain.Size = new System.Drawing.Size(458, 524);
             this.pnMain.TabIndex = 0;
             // 
             // kryptonGroupBox2
             // 
-            this.kryptonGroupBox2.Location = new System.Drawing.Point(12, 428);
+            this.kryptonGroupBox2.Location = new System.Drawing.Point(12, 442);
             this.kryptonGroupBox2.Name = "kryptonGroupBox2";
             // 
             // kryptonGroupBox2.Panel
@@ -96,7 +96,7 @@
             this.btCancel.Location = new System.Drawing.Point(264, 20);
             this.btCancel.Name = "btCancel";
             this.btCancel.Size = new System.Drawing.Size(89, 25);
-            this.btCancel.TabIndex = 10;
+            this.btCancel.TabIndex = 1;
             this.btCancel.Values.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.close_box_red;
             this.btCancel.Values.Text = "Đóng";
             this.btCancel.Click += new System.EventHandler(this.btCancel_Click);
@@ -106,7 +106,7 @@
             this.btSave.Location = new System.Drawing.Point(94, 20);
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(94, 25);
-            this.btSave.TabIndex = 9;
+            this.btSave.TabIndex = 0;
             this.btSave.Values.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.save_edit;
             this.btSave.Values.Text = "Lưu";
             this.btSave.Click += new System.EventHandler(this.btSave_Click);
@@ -137,9 +137,28 @@
             this.kryptonGroupBox1.Panel.Controls.Add(this.dtEndDate);
             this.kryptonGroupBox1.Panel.Controls.Add(this.lbDes);
             this.kryptonGroupBox1.Panel.Controls.Add(this.cbStatus);
-            this.kryptonGroupBox1.Size = new System.Drawing.Size(434, 408);
+            this.kryptonGroupBox1.Size = new System.Drawing.Size(434, 424);
             this.kryptonGroupBox1.TabIndex = 37;
             this.kryptonGroupBox1.Values.Heading = "";
+            // 
+            // cbType
+            // 
+            this.cbType.DropDownWidth = 286;
+            this.cbType.Location = new System.Drawing.Point(108, 51);
+            this.cbType.Name = "cbType";
+            this.cbType.Size = new System.Drawing.Size(282, 22);
+            this.cbType.TabIndex = 1;
+            this.cbType.Text = "chọn";
+            // 
+            // kryptonLabel3
+            // 
+            this.kryptonLabel3.Location = new System.Drawing.Point(4, 58);
+            this.kryptonLabel3.Name = "kryptonLabel3";
+            this.kryptonLabel3.Size = new System.Drawing.Size(99, 16);
+            this.kryptonLabel3.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.kryptonLabel3.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonLabel3.TabIndex = 36;
+            this.kryptonLabel3.Values.Text = "Loại công trình (*)";
             // 
             // lbState
             // 
@@ -153,7 +172,7 @@
             // 
             // kryptonLabel1
             // 
-            this.kryptonLabel1.Location = new System.Drawing.Point(12, 370);
+            this.kryptonLabel1.Location = new System.Drawing.Point(12, 384);
             this.kryptonLabel1.Name = "kryptonLabel1";
             this.kryptonLabel1.Size = new System.Drawing.Size(107, 19);
             this.kryptonLabel1.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -194,7 +213,7 @@
             this.ipConstructionName.Location = new System.Drawing.Point(107, 24);
             this.ipConstructionName.Name = "ipConstructionName";
             this.ipConstructionName.Size = new System.Drawing.Size(283, 22);
-            this.ipConstructionName.TabIndex = 1;
+            this.ipConstructionName.TabIndex = 0;
             // 
             // lbAddress
             // 
@@ -312,30 +331,11 @@
             this.cbStatus.Text = "chọn...";
             this.cbStatus.SelectedIndexChanged += new System.EventHandler(this.cbStatus_SelectedIndexChanged);
             // 
-            // kryptonLabel3
-            // 
-            this.kryptonLabel3.Location = new System.Drawing.Point(4, 58);
-            this.kryptonLabel3.Name = "kryptonLabel3";
-            this.kryptonLabel3.Size = new System.Drawing.Size(99, 16);
-            this.kryptonLabel3.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.kryptonLabel3.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonLabel3.TabIndex = 36;
-            this.kryptonLabel3.Values.Text = "Loại công trình (*)";
-            // 
-            // cbType
-            // 
-            this.cbType.DropDownWidth = 286;
-            this.cbType.Location = new System.Drawing.Point(108, 51);
-            this.cbType.Name = "cbType";
-            this.cbType.Size = new System.Drawing.Size(282, 22);
-            this.cbType.TabIndex = 37;
-            this.cbType.Text = "chọn";
-            // 
             // AddConstruction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(458, 508);
+            this.ClientSize = new System.Drawing.Size(458, 524);
             this.Controls.Add(this.pnMain);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -353,9 +353,9 @@
             this.kryptonGroupBox1.Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).EndInit();
             this.kryptonGroupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cbType)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbManager)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbStatus)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbType)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -72,8 +72,12 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
         private void AddConstruction_Load(object sender, EventArgs e)
         {
             Global.SetLayoutForm(this, Constants.DIALOG_FORM);
+            Global.SetLayoutSplipContainerInChildForm(kryptonSplitContainer1);
             Global.SetLayoutGroupBoxNewForm(kryptonGroupBox1);
             Global.SetLayoutGroupBoxNewForm(kryptonGroupBox2);
+            Global.SetLayoutGroupBoxNewForm(kryptonGroupBox3);
+            Global.SetLayoutHeaderGroup(hdDebt, Constants.CHILD_FORM);
+            Global.SetDaulftDatagridview(dgvPaid);
             Global.SetLayoutButton(btSave);
             Global.SetLayoutButton(btCancel);
             CenterToParent();

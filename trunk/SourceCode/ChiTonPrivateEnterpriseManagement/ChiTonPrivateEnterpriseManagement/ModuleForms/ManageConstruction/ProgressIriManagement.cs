@@ -27,24 +27,46 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
 
         private void ProgressIriManagement_Load(object sender, EventArgs e)
         {
+            Global.SetLayoutForm(this, Constants.DIALOG_FORM);
+            Global.SetLayoutPanelNewForm(kryptonPanel);
+            Global.SetLayoutSplipContainerInChildForm(kryptonSplitContainer1);
+            Global.SetLayoutGroupBoxChildForm(kryptonGroupBox1);
+            Global.SetLayoutGroupBoxChildForm(kryptonGroupBox2);
+            Global.SetLayoutGroupBoxButton(kryptonGroupBox3);
+            Global.SetLayoutGroupBoxButton(kryptonGroupBox4);
+            Global.SetLayoutGroupBoxButton(kryptonGroupBox5);
+            Global.SetLayoutHeaderGroup(hdDebt, Constants.CHILD_FORM);
+            Global.SetDaulftDatagridview(dgv);
             loadEstimate();
             loadReal();
             setButtonValue();
         }
 
-
         public void loadEstimate()
         {
             EstimateIriDetailDTO dtoTemp = _estimateDetailBUS.LoadOneEstimateIriDetailByEst(_estimateID, EstimateIriDetailDTO.TYPE_EST);
-            lbEstTotal.Text = Global.ConvertLongToMoney(dtoTemp.TotalCost, Global.SEP);
-            lbEstWeight.Text = dtoTemp.Weight.ToString();
-            lbEstLength.Text = dtoTemp.Length.ToString();
-            lbEstContainers.Text = dtoTemp.Containers.ToString();
-            temp = dtoTemp;
+            if (dtoTemp == null)
+            {
+                KryptonMessageBox.Show("Bạn Chưa Tạo Dự Toán Cho Công Trình Này", Constants.ALERT_ERROR,
+                                       MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                temp = null;
+            }
+            else
+            {
+                lbEstTotal.Text = Global.ConvertLongToMoney(dtoTemp.TotalCost, Global.SEP);
+                lbEstWeight.Text = dtoTemp.Weight.ToString();
+                lbEstLength.Text = dtoTemp.Length.ToString();
+                lbEstContainers.Text = dtoTemp.Containers.ToString();
+                temp = dtoTemp;
+            }
         }
         public void loadReal()
         {
-            List<EstimateIriDetailDTO> dtoTemps = _estimateDetailBUS.LoadAllEstimateIriDetailsByEst(_estimateID, EstimateIriDetailDTO.TYPE_REAL);
+            if (temp == null)
+            {
+                return;
+            }
+            List<EstimateIriDetailDTO> dtoTemps = _estimateDetailBUS.LoadAllEstimateIriDetailsByEst(_estimateID, EstimateIriDetailDTO.TYPE_REAL);            
             dgv.DataSource = dtoTemps;
             EstimateIriDetailDTO dtoTemp = new EstimateIriDetailDTO();
             foreach (EstimateIriDetailDTO item in dtoTemps)
@@ -60,14 +82,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
             lbRealLengh.Text = dtoTemp.Length.ToString();
             lbRealContainer.Text = dtoTemp.Containers.ToString();
             lbCurrentProgress.Text = dtoTemp.Progress.ToString();
-
-            long pw = (long)((dtoTemp.Weight * 100 )/temp.Weight );
-            long pl =(long) ((dtoTemp.Length* 100 )/ temp.Length);
-            long pc = (long)((dtoTemp.Containers * 100 )/ temp.Containers);
-
-            pWeight.Text = pw.ToString();
-            pLength.Text = pl.ToString();
-            pContainer.Text = pc.ToString();
         }
 
         public void setButtonValue()

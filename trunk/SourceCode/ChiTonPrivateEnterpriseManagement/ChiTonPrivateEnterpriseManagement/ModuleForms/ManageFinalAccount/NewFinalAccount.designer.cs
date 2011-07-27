@@ -86,6 +86,7 @@
             this.kryptonLabel15 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel16 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.hdDetailInfo = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
+            this.btnEdit = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.btnAdd = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.btnDelete = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.btnDeleteAll = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
@@ -154,8 +155,8 @@
             this.slcMain.Panel2.Controls.Add(this.dgvAccDetail);
             this.slcMain.Panel2.Controls.Add(this.pnlNewItem);
             this.slcMain.Panel2.Controls.Add(this.hdDetailInfo);
-            this.slcMain.Size = new System.Drawing.Size(784, 467);
-            this.slcMain.SplitterDistance = 366;
+            this.slcMain.Size = new System.Drawing.Size(792, 566);
+            this.slcMain.SplitterDistance = 374;
             this.slcMain.TabIndex = 15;
             // 
             // slcFinalAccInfo
@@ -175,8 +176,8 @@
             // 
             this.slcFinalAccInfo.Panel2.Controls.Add(this.gbxEdit2);
             this.slcFinalAccInfo.Panel2.StateCommon.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(57)))), ((int)(((byte)(85)))));
-            this.slcFinalAccInfo.Size = new System.Drawing.Size(366, 438);
-            this.slcFinalAccInfo.SplitterDistance = 249;
+            this.slcFinalAccInfo.Size = new System.Drawing.Size(374, 537);
+            this.slcFinalAccInfo.SplitterDistance = 305;
             this.slcFinalAccInfo.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(57)))), ((int)(((byte)(85)))));
             this.slcFinalAccInfo.TabIndex = 7;
             // 
@@ -204,7 +205,7 @@
             this.gbxEdit1.Panel.Controls.Add(this.kryptonLabel3);
             this.gbxEdit1.Panel.Controls.Add(this.kryptonLabel2);
             this.gbxEdit1.Panel.Controls.Add(this.kryptonLabel1);
-            this.gbxEdit1.Size = new System.Drawing.Size(361, 244);
+            this.gbxEdit1.Size = new System.Drawing.Size(369, 300);
             this.gbxEdit1.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(92)))), ((int)(((byte)(144)))));
             this.gbxEdit1.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
             this.gbxEdit1.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -219,7 +220,7 @@
             this.cbbMainWarehouse.DropDownWidth = 214;
             this.cbbMainWarehouse.Location = new System.Drawing.Point(126, 107);
             this.cbbMainWarehouse.Name = "cbbMainWarehouse";
-            this.cbbMainWarehouse.Size = new System.Drawing.Size(203, 22);
+            this.cbbMainWarehouse.Size = new System.Drawing.Size(211, 22);
             this.cbbMainWarehouse.TabIndex = 31;
             // 
             // kryptonLabel12
@@ -239,7 +240,7 @@
             this.dtpDateAccount.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpDateAccount.Location = new System.Drawing.Point(126, 179);
             this.dtpDateAccount.Name = "dtpDateAccount";
-            this.dtpDateAccount.Size = new System.Drawing.Size(203, 20);
+            this.dtpDateAccount.Size = new System.Drawing.Size(211, 20);
             this.dtpDateAccount.TabIndex = 29;
             // 
             // cbbDebt
@@ -249,7 +250,7 @@
             this.cbbDebt.DropDownWidth = 214;
             this.cbbDebt.Location = new System.Drawing.Point(126, 155);
             this.cbbDebt.Name = "cbbDebt";
-            this.cbbDebt.Size = new System.Drawing.Size(203, 22);
+            this.cbbDebt.Size = new System.Drawing.Size(211, 22);
             this.cbbDebt.TabIndex = 28;
             // 
             // cbbConstruction
@@ -259,7 +260,7 @@
             this.cbbConstruction.DropDownWidth = 214;
             this.cbbConstruction.Location = new System.Drawing.Point(126, 131);
             this.cbbConstruction.Name = "cbbConstruction";
-            this.cbbConstruction.Size = new System.Drawing.Size(203, 22);
+            this.cbbConstruction.Size = new System.Drawing.Size(211, 22);
             this.cbbConstruction.TabIndex = 27;
             // 
             // cbbToPlace
@@ -269,7 +270,7 @@
             this.cbbToPlace.DropDownWidth = 214;
             this.cbbToPlace.Location = new System.Drawing.Point(126, 82);
             this.cbbToPlace.Name = "cbbToPlace";
-            this.cbbToPlace.Size = new System.Drawing.Size(203, 22);
+            this.cbbToPlace.Size = new System.Drawing.Size(211, 22);
             this.cbbToPlace.TabIndex = 26;
             this.cbbToPlace.SelectedIndexChanged += new System.EventHandler(this.cbbToPlace_SelectedIndexChanged);
             // 
@@ -279,7 +280,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPersonAccount.Location = new System.Drawing.Point(126, 58);
             this.txtPersonAccount.Name = "txtPersonAccount";
-            this.txtPersonAccount.Size = new System.Drawing.Size(203, 22);
+            this.txtPersonAccount.Size = new System.Drawing.Size(211, 22);
             this.txtPersonAccount.TabIndex = 25;
             // 
             // txtNameFinalAccount
@@ -288,7 +289,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNameFinalAccount.Location = new System.Drawing.Point(126, 34);
             this.txtNameFinalAccount.Name = "txtNameFinalAccount";
-            this.txtNameFinalAccount.Size = new System.Drawing.Size(203, 22);
+            this.txtNameFinalAccount.Size = new System.Drawing.Size(211, 22);
             this.txtNameFinalAccount.TabIndex = 24;
             // 
             // txtNo
@@ -297,7 +298,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNo.Location = new System.Drawing.Point(126, 10);
             this.txtNo.Name = "txtNo";
-            this.txtNo.Size = new System.Drawing.Size(203, 22);
+            this.txtNo.Size = new System.Drawing.Size(211, 22);
             this.txtNo.TabIndex = 23;
             // 
             // kryptonLabel7
@@ -379,7 +380,7 @@
             this.gbxEdit2.Panel.Controls.Add(this.txtTransportationCost);
             this.gbxEdit2.Panel.Controls.Add(this.kryptonLabel8);
             this.gbxEdit2.Panel.Controls.Add(this.kryptonLabel9);
-            this.gbxEdit2.Size = new System.Drawing.Size(366, 184);
+            this.gbxEdit2.Size = new System.Drawing.Size(374, 227);
             this.gbxEdit2.TabIndex = 5;
             this.gbxEdit2.Values.Heading = "Thông Tin Thêm";
             // 
@@ -390,7 +391,7 @@
             this.txtNote.Location = new System.Drawing.Point(131, 77);
             this.txtNote.Multiline = true;
             this.txtNote.Name = "txtNote";
-            this.txtNote.Size = new System.Drawing.Size(203, 68);
+            this.txtNote.Size = new System.Drawing.Size(211, 68);
             this.txtNote.TabIndex = 23;
             // 
             // kryptonLabel11
@@ -418,7 +419,7 @@
             this.cbbStatus.DropDownWidth = 214;
             this.cbbStatus.Location = new System.Drawing.Point(131, 52);
             this.cbbStatus.Name = "cbbStatus";
-            this.cbbStatus.Size = new System.Drawing.Size(203, 22);
+            this.cbbStatus.Size = new System.Drawing.Size(211, 22);
             this.cbbStatus.TabIndex = 21;
             // 
             // txtTotalCost
@@ -429,7 +430,7 @@
             this.txtTotalCost.Location = new System.Drawing.Point(131, 29);
             this.txtTotalCost.Name = "txtTotalCost";
             this.txtTotalCost.ReadOnly = true;
-            this.txtTotalCost.Size = new System.Drawing.Size(203, 22);
+            this.txtTotalCost.Size = new System.Drawing.Size(211, 22);
             this.txtTotalCost.TabIndex = 20;
             this.txtTotalCost.Enter += new System.EventHandler(this.txtTransportationCost_Enter);
             this.txtTotalCost.Leave += new System.EventHandler(this.txtTransportationCost_Leave);
@@ -441,7 +442,7 @@
             this.txtTransportationCost.ContextMenuStrip = this.cmsGenerate;
             this.txtTransportationCost.Location = new System.Drawing.Point(131, 5);
             this.txtTransportationCost.Name = "txtTransportationCost";
-            this.txtTransportationCost.Size = new System.Drawing.Size(203, 22);
+            this.txtTransportationCost.Size = new System.Drawing.Size(211, 22);
             this.txtTransportationCost.TabIndex = 19;
             this.txtTransportationCost.Enter += new System.EventHandler(this.txtTransportationCost_Enter);
             this.txtTransportationCost.Leave += new System.EventHandler(this.txtTransportationCost_Leave);
@@ -474,7 +475,7 @@
             this.hdMainInfo.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.DockActive;
             this.hdMainInfo.Location = new System.Drawing.Point(0, 0);
             this.hdMainInfo.Name = "hdMainInfo";
-            this.hdMainInfo.Size = new System.Drawing.Size(366, 29);
+            this.hdMainInfo.Size = new System.Drawing.Size(374, 29);
             this.hdMainInfo.TabIndex = 8;
             this.hdMainInfo.Values.Description = "";
             this.hdMainInfo.Values.Heading = "Thông Tin Chi Tiết";
@@ -520,7 +521,7 @@
             this.dgvAccDetail.Location = new System.Drawing.Point(0, 208);
             this.dgvAccDetail.Name = "dgvAccDetail";
             this.dgvAccDetail.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAccDetail.Size = new System.Drawing.Size(413, 259);
+            this.dgvAccDetail.Size = new System.Drawing.Size(413, 358);
             this.dgvAccDetail.TabIndex = 12;
             this.dgvAccDetail.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAccDetail_RowEnter);
             // 
@@ -706,6 +707,7 @@
             // hdDetailInfo
             // 
             this.hdDetailInfo.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
+            this.btnEdit,
             this.btnAdd,
             this.btnDelete,
             this.btnDeleteAll,
@@ -720,9 +722,16 @@
             this.hdDetailInfo.Values.Heading = "Danh Nhà Cung Cấp";
             this.hdDetailInfo.Values.Image = null;
             // 
+            // btnEdit
+            // 
+            this.btnEdit.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.Edit;
+            this.btnEdit.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
+            this.btnEdit.Text = "Sửa";
+            this.btnEdit.UniqueName = "A68DB30FFBBE469ED4BD96ED3C9589A2";
+            // 
             // btnAdd
             // 
-            this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
+            this.btnAdd.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.save_edit;
             this.btnAdd.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
             this.btnAdd.Text = "Thêm";
             this.btnAdd.UniqueName = "6E177DC1660348E375BDCE591BF21FCB";
@@ -754,7 +763,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 467);
+            this.ClientSize = new System.Drawing.Size(792, 566);
             this.Controls.Add(this.slcMain);
             this.Name = "NewFinalAccount";
             this.ShowIcon = false;
@@ -860,6 +869,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn UnitCostFormated;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalCostFormated;
         private System.Windows.Forms.DataGridViewTextBoxColumn Note;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnEdit;
     }
 }
 

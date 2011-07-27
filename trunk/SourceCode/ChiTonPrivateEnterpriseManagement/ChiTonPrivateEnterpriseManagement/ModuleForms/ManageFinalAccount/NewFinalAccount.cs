@@ -20,10 +20,10 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
         bool isEdit;
         long _id;
         private List<FinalAccountDetailDTO> listFinalAccountDetail = new List<FinalAccountDetailDTO>();
-        private List<ConstructionDTO> listConstructionHaveWarehouse;
+        private List<EstimateDTO> listEstimate;
         private List<DebtDTO> listDebt;
         private List<WarehouseDTO> listMainWarehouse;
-        private List<MaterialDTO> listMaterialInEstimate;
+        private List<EstimateDetailDTO> listMaterialInEstimate;
         private List<MaterialDTO> listMaterial;
         private long EstimateID;
         ConstructionBus constructionBUS = new ConstructionBus();
@@ -32,7 +32,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
         MaterialBUS materialBUS = new MaterialBUS();
         FinalAccountBUS finalaccountBUS = new FinalAccountBUS();
         EstimateBUS estimateBus = new EstimateBUS();
-        private CheckBox _ckBox;
+        EstimateDetailBUS estimateDetailBus = new EstimateDetailBUS();
 
         public NewFinalAccount()
         {
@@ -136,26 +136,97 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
 
         private void btnAddItem_Click(object sender, EventArgs e)
         {
-            if (CheckExistItem())
+            var material = (MaterialDTO)cbbMaterial.SelectedItem;
+            var finalaccountitem = new FinalAccountDetailDTO();
+            finalaccountitem.FinalAccountID = Convert.ToInt64(txtNo.Text);
+            finalaccountitem.MaterialID = material.MaterialID;
+            finalaccountitem.MaterialName = material.MaterialName;
+            finalaccountitem.RealCalUnit = material.RealCalUnit;
+            finalaccountitem.Quantity = Convert.ToDouble(txtQuantity.Text);
+            finalaccountitem.QuantityEst = finalaccountitem.Quantity * material.Ratio;
+            finalaccountitem.UnitCost = Global.ConvertMoneyToLong(txtUnitCost.Text, Constants.SPLIP_MONEY);
+            finalaccountitem.UnitCostFormated = txtUnitCost.Text;
+            finalaccountitem.TotalCost = Global.ConvertMoneyToLong(txtTotalCostItem.Text, Constants.SPLIP_MONEY);
+            finalaccountitem.TotalCostFormated = txtTotalCostItem.Text;
+            finalaccountitem.Note = txtNoteItem.Text;
+
+            if (txtNo.Text.Trim().Equals(Constants.EMPTY_TEXT) || txtNo.Text.Trim().Equals(Constants.ZERO_NUMBER))
+            {
+                KryptonMessageBox.Show("Nhập Mã Số Phiếu Mua Hàng Trước Khi Nhập Chi Tiết", Constants.CONFIRM,
+                                       MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtNo.Focus();
+            }            
+            else if (CheckExistItem())
             {
                 KryptonMessageBox.Show(Constants.ERROR_EXIST_ITEM, Constants.CONFIRM);
                 RefreshDisplayData();
+                cbbMaterial.Focus();
             }
             else
             {
-                var material = (MaterialDTO)cbbMaterial.SelectedItem;
-                var finalaccountitem = new FinalAccountDetailDTO();
-                finalaccountitem.FinalAccountID = Convert.ToInt64(txtNo.Text);
-                finalaccountitem.MaterialID = material.MaterialID;
-                finalaccountitem.MaterialName = material.MaterialName;
-                finalaccountitem.RealCalUnit = material.RealCalUnit;
-                finalaccountitem.Quantity = Convert.ToDouble(txtQuantity.Text);
-                finalaccountitem.QuantityEst = finalaccountitem.Quantity * material.Ratio;
-                finalaccountitem.UnitCost = Global.ConvertMoneyToLong(txtUnitCost.Text, Constants.SPLIP_MONEY);
-                finalaccountitem.UnitCostFormated = txtUnitCost.Text;
-                finalaccountitem.TotalCost = Global.ConvertMoneyToLong(txtTotalCostItem.Text, Constants.SPLIP_MONEY);
-                finalaccountitem.TotalCostFormated = txtTotalCostItem.Text;
-                finalaccountitem.Note = txtNoteItem.Text;
+                bool isExistEst = false;
+                if (cbbConstruction.Enabled)
+                {
+                    long consId = Global.GetDataCombobox(cbbConstruction, Constants.CONSTRUCTION);
+                    var selectMaterial = (MaterialDTO)cbbMaterial.SelectedItem;
+                    EstimateDetailDTO currEstDetail;
+                    listEstimate = estimateBus.LoadEstimateByConstruction(consId);
+                    EstimateID = listEstimate[0].EstimateID;
+                    listMaterialInEstimate = materialBUS.LoadALlMaterialsEstimate(consId);
+                    for (int i = 0; i < listMaterialInEstimate.Count; i++)
+                    {
+                        currEstDetail = listMaterialInEstimate[i];
+                        if (selectMaterial.MaterialID == currEstDetail.MaterialID || selectMaterial.MaterialID == currEstDetail.MaterialParentId)
+                        {
+                            isExistEst = true;
+                            i = listMaterialInEstimate.Count;
+                        }
+                    }
+
+                    if (!isExistEst)
+                    {
+                        if (KryptonMessageBox.Show(" Loại Vật Liệu Này Không Có Trong Dự Toán.\n Bạn Có Chắc Chắn Đã Giải Trình Với Nhà Đầu Tư Để Tăng Dự Toán", Constants.CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {                            
+                            EstimateDetailDTO estimateDetailDTO = new EstimateDetailDTO();
+                            estimateDetailDTO.EstimateID = EstimateID;
+                            estimateDetailDTO.MaterialID = finalaccountitem.MaterialID;
+                            estimateDetailDTO.QuantityEstimate = finalaccountitem.QuantityEst;
+                            estimateDetailDTO.QuantityReal = finalaccountitem.Quantity;
+                            estimateDetailDTO.TotalCostEstimate = finalaccountitem.TotalCost;
+                            estimateDetailDTO.TotalCostReal = finalaccountitem.TotalCost;
+                            estimateDetailDTO.UnitCostEstimate = (long)(estimateDetailDTO.TotalCostEstimate /
+                                                                estimateDetailDTO.QuantityEstimate);
+                            estimateDetailDTO.UnitCostReal = finalaccountitem.UnitCost;
+                            estimateDetailDTO.Note = "Chi Phí Phát Sinh";
+                            estimateDetailBus.CreateEstimateDetail(estimateDetailDTO);
+                            finalaccountBUS.CreateFinalAccountDetail(finalaccountitem);
+                        }
+                        else
+                        {
+                            EstimateDetailDTO estimateDetailDTO = new EstimateDetailDTO();
+                            estimateDetailDTO.EstimateID = EstimateID;
+                            estimateDetailDTO.MaterialID = finalaccountitem.MaterialID;
+                            estimateDetailDTO.QuantityEstimate = 0;
+                            estimateDetailDTO.QuantityReal = finalaccountitem.Quantity;
+                            estimateDetailDTO.TotalCostEstimate = 0;
+                            estimateDetailDTO.TotalCostReal = finalaccountitem.TotalCost;
+                            estimateDetailDTO.UnitCostEstimate = 0;
+                            estimateDetailDTO.UnitCostReal = finalaccountitem.UnitCost;
+                            estimateDetailDTO.Note = "Chi Phí Phát Sinh";
+                            estimateDetailBus.CreateEstimateDetail(estimateDetailDTO);
+                            finalaccountBUS.CreateFinalAccountDetail(finalaccountitem);
+                        }
+                    }
+                    else
+                    {
+                        
+                    }
+                }
+
+                
+
+                
+
                 listFinalAccountDetail.Add(finalaccountitem);
                 RefreshDisplayData();
                 long totalCostCurr = Global.ConvertMoneyToLong(txtTotalCost.Text, Constants.SPLIP_MONEY);
@@ -417,43 +488,29 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
 
         private void cbbMaterial_Leave(object sender, EventArgs e)
         {
-            bool isExist = false;
-            bool isExistEst = false;
+            bool isExist = false;            
             string nameMaterial = cbbMaterial.Text;
             for (int i = 0; i < listMaterial.Count; i++)
             {
                 MaterialDTO materialDTO = listMaterial[i];
-                if (materialDTO.MaterialName.Equals(nameMaterial))
+                if (materialDTO.MaterialName.ToUpper().Equals(nameMaterial.ToUpper()))
                 {
                     isExist = true;
+                    cbbMaterial.SelectedItem = materialDTO;
                     i = listMaterial.Count;
                 }
             }
             if (!isExist)
             {
-                if(KryptonMessageBox.Show(Constants.NOT_EXIST_MATERIAL, Constants.CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (KryptonMessageBox.Show(Constants.NOT_EXIST_MATERIAL, Constants.CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     AddNewMaterial newMaterial = new AddNewMaterial(nameMaterial);
                     newMaterial.ShowDialog();
                     listMaterial = materialBUS.LoadAllMaterials();
-                    Global.SetDataCombobox(cbbMaterial, "Material");
+                    Global.SetDataCombobox(cbbMaterial, Constants.MATERIAL);
                     cbbMaterial.SelectedIndex = listMaterial.Count - 1;
                 }
             }
-            if (cbbConstruction.Enabled)
-            {
-                MaterialDTO selectMaterial = (MaterialDTO)cbbMaterial.SelectedItem;
-                listMaterialInEstimate = materialBUS.LoadALlMaterialsEstimate();
-                for (int i = 0; i < listMaterialInEstimate.Count; i++)
-                {
-                    MaterialDTO materialDTO = listMaterial[i];
-                    if (materialDTO.Equals(selectMaterial))
-                    {
-                        isExistEst = true;
-                        i = listMaterialInEstimate.Count;
-                    }
-                }
-            }            
         }
 
         private void dgvAccDetail_RowEnter(object sender, DataGridViewCellEventArgs e)

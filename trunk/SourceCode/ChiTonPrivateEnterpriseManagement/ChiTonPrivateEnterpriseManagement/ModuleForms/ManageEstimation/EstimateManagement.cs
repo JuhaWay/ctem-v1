@@ -81,12 +81,10 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
         }
         public void loadData()
         {
-                EstimateDTO dto = new EstimateDTO();
-                dto.ManagerID = _ManagerID;
-                dto.EstimateName ="";
-                search(dto);
-          
-         
+            EstimateDTO dto = new EstimateDTO();
+            dto.ManagerID = _ManagerID;
+            dto.EstimateName ="";
+            search(dto);
         }
        
         // lưu thông tin dự toán
