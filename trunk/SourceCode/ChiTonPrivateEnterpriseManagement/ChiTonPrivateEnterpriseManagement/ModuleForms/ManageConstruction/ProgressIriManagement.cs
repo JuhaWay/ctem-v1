@@ -37,6 +37,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
             Global.SetLayoutGroupBoxButton(kryptonGroupBox5);
             Global.SetLayoutHeaderGroup(hdDebt, Constants.CHILD_FORM);
             Global.SetDaulftDatagridview(dgv);
+            dgv.ReadOnly = false;
             loadEstimate();
             loadReal();
             setButtonValue();
