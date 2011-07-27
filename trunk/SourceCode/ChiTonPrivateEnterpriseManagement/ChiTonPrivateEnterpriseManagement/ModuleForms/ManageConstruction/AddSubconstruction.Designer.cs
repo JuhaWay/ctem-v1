@@ -62,6 +62,13 @@
             this.btCancel = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btSave = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.dgvPaid = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.stateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.startDataGridViewTextBoxColumn = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewDateTimePickerColumn();
+            this.etartDataGridViewTextBoxColumn = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewDateTimePickerColumn();
+            this.numberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.noteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.payDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.kryptonGroupBox3 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.ipNote = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.kryptonLabel8 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
@@ -80,13 +87,6 @@
             this.hdDebt = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
             this.btSaveRoad = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.btnDelete = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.stateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.startDataGridViewTextBoxColumn = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewDateTimePickerColumn();
-            this.etartDataGridViewTextBoxColumn = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewDateTimePickerColumn();
-            this.numberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.noteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.payDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pnMain)).BeginInit();
             this.pnMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonSplitContainer1)).BeginInit();
@@ -102,10 +102,10 @@
             this.kryptonGroupBox2.Panel.SuspendLayout();
             this.kryptonGroupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPaid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.payDTOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox3)).BeginInit();
             this.kryptonGroupBox3.Panel.SuspendLayout();
             this.kryptonGroupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.payDTOBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // pnMain
@@ -458,6 +458,58 @@
             this.dgvPaid.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
             this.dgvPaid.TabIndex = 98;
             // 
+            // stateDataGridViewTextBoxColumn
+            // 
+            this.stateDataGridViewTextBoxColumn.DataPropertyName = "State";
+            this.stateDataGridViewTextBoxColumn.HeaderText = "Giai đoạn";
+            this.stateDataGridViewTextBoxColumn.Name = "stateDataGridViewTextBoxColumn";
+            // 
+            // rateDataGridViewTextBoxColumn
+            // 
+            this.rateDataGridViewTextBoxColumn.DataPropertyName = "Rate";
+            this.rateDataGridViewTextBoxColumn.HeaderText = "Tỷ lệ";
+            this.rateDataGridViewTextBoxColumn.Name = "rateDataGridViewTextBoxColumn";
+            // 
+            // startDataGridViewTextBoxColumn
+            // 
+            this.startDataGridViewTextBoxColumn.Checked = false;
+            this.startDataGridViewTextBoxColumn.CustomFormat = "dd/MM/yyyy";
+            this.startDataGridViewTextBoxColumn.DataPropertyName = "Start";
+            this.startDataGridViewTextBoxColumn.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.startDataGridViewTextBoxColumn.HeaderText = "Bắt đầu";
+            this.startDataGridViewTextBoxColumn.Name = "startDataGridViewTextBoxColumn";
+            this.startDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.startDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.startDataGridViewTextBoxColumn.Width = 100;
+            // 
+            // etartDataGridViewTextBoxColumn
+            // 
+            this.etartDataGridViewTextBoxColumn.Checked = false;
+            this.etartDataGridViewTextBoxColumn.CustomFormat = "dd/MM/yyyy";
+            this.etartDataGridViewTextBoxColumn.DataPropertyName = "End";
+            this.etartDataGridViewTextBoxColumn.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.etartDataGridViewTextBoxColumn.HeaderText = "Kết thúc";
+            this.etartDataGridViewTextBoxColumn.Name = "etartDataGridViewTextBoxColumn";
+            this.etartDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.etartDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.etartDataGridViewTextBoxColumn.Width = 100;
+            // 
+            // numberDataGridViewTextBoxColumn
+            // 
+            this.numberDataGridViewTextBoxColumn.DataPropertyName = "NumberFormated";
+            this.numberDataGridViewTextBoxColumn.HeaderText = "Số tiền(VND)";
+            this.numberDataGridViewTextBoxColumn.Name = "numberDataGridViewTextBoxColumn";
+            // 
+            // noteDataGridViewTextBoxColumn
+            // 
+            this.noteDataGridViewTextBoxColumn.DataPropertyName = "Note";
+            this.noteDataGridViewTextBoxColumn.HeaderText = "Ghi chú";
+            this.noteDataGridViewTextBoxColumn.Name = "noteDataGridViewTextBoxColumn";
+            // 
+            // payDTOBindingSource
+            // 
+            this.payDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.PayDTO);
+            // 
             // kryptonGroupBox3
             // 
             this.kryptonGroupBox3.Location = new System.Drawing.Point(13, 38);
@@ -636,58 +688,6 @@
             this.btnDelete.UniqueName = "46715A2AEC0143074F81325F50887305";
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // stateDataGridViewTextBoxColumn
-            // 
-            this.stateDataGridViewTextBoxColumn.DataPropertyName = "State";
-            this.stateDataGridViewTextBoxColumn.HeaderText = "Giai đoạn";
-            this.stateDataGridViewTextBoxColumn.Name = "stateDataGridViewTextBoxColumn";
-            // 
-            // rateDataGridViewTextBoxColumn
-            // 
-            this.rateDataGridViewTextBoxColumn.DataPropertyName = "Rate";
-            this.rateDataGridViewTextBoxColumn.HeaderText = "Tỷ lệ";
-            this.rateDataGridViewTextBoxColumn.Name = "rateDataGridViewTextBoxColumn";
-            // 
-            // startDataGridViewTextBoxColumn
-            // 
-            this.startDataGridViewTextBoxColumn.Checked = false;
-            this.startDataGridViewTextBoxColumn.CustomFormat = "dd/MM/yyyy";
-            this.startDataGridViewTextBoxColumn.DataPropertyName = "Start";
-            this.startDataGridViewTextBoxColumn.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.startDataGridViewTextBoxColumn.HeaderText = "Bắt đầu";
-            this.startDataGridViewTextBoxColumn.Name = "startDataGridViewTextBoxColumn";
-            this.startDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.startDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.startDataGridViewTextBoxColumn.Width = 100;
-            // 
-            // etartDataGridViewTextBoxColumn
-            // 
-            this.etartDataGridViewTextBoxColumn.Checked = false;
-            this.etartDataGridViewTextBoxColumn.CustomFormat = "dd/MM/yyyy";
-            this.etartDataGridViewTextBoxColumn.DataPropertyName = "End";
-            this.etartDataGridViewTextBoxColumn.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.etartDataGridViewTextBoxColumn.HeaderText = "Kết thúc";
-            this.etartDataGridViewTextBoxColumn.Name = "etartDataGridViewTextBoxColumn";
-            this.etartDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.etartDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.etartDataGridViewTextBoxColumn.Width = 100;
-            // 
-            // numberDataGridViewTextBoxColumn
-            // 
-            this.numberDataGridViewTextBoxColumn.DataPropertyName = "NumberFormated";
-            this.numberDataGridViewTextBoxColumn.HeaderText = "Số tiền(VND)";
-            this.numberDataGridViewTextBoxColumn.Name = "numberDataGridViewTextBoxColumn";
-            // 
-            // noteDataGridViewTextBoxColumn
-            // 
-            this.noteDataGridViewTextBoxColumn.DataPropertyName = "Note";
-            this.noteDataGridViewTextBoxColumn.HeaderText = "Ghi chú";
-            this.noteDataGridViewTextBoxColumn.Name = "noteDataGridViewTextBoxColumn";
-            // 
-            // payDTOBindingSource
-            // 
-            this.payDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.PayDTO);
-            // 
             // AddSubconstruction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -718,11 +718,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox2)).EndInit();
             this.kryptonGroupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPaid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.payDTOBindingSource)).EndInit();
             this.kryptonGroupBox3.Panel.ResumeLayout(false);
             this.kryptonGroupBox3.Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox3)).EndInit();
             this.kryptonGroupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.payDTOBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
