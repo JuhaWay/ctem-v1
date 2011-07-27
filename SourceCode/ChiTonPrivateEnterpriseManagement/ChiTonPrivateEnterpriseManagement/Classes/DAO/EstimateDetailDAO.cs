@@ -142,6 +142,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         MaterialName = Convert.ToString(reader["MaterialName"]),
                         EstimateID = Convert.ToInt64(reader["EstimateID"]),
                         Name = Convert.ToString(reader["Name"]),
+                        Type = Convert.ToString(reader["Type"]),
                         MaterialID = reader["MaterialID"]!=DBNull.Value?Convert.ToInt64(reader["MaterialID"]):0,
                         QuantityEstimate = Convert.ToDouble(reader["QuantityEstimate"]),
                         MaterialEstCal = Convert.ToString(reader["EstimateCalUnit"]),
@@ -184,6 +185,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.Parameters.Add(new SqlParameter("@unitCostEstimate", dto.UnitCostEstimate));
                 cmd.Parameters.Add(new SqlParameter("@totalCostEstimate", dto.TotalCostEstimate));
                 cmd.Parameters.Add(new SqlParameter("@name", dto.Name));
+                cmd.Parameters.Add(new SqlParameter("@type", dto.Type));
                 cmd.ExecuteNonQuery();
                 return true;
             }
@@ -220,6 +222,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.Parameters.Add(new SqlParameter("@unitCostEstimate", dto.UnitCostEstimate));
                 cmd.Parameters.Add(new SqlParameter("@totalCostEstimate", dto.TotalCostEstimate));
                 cmd.Parameters.Add(new SqlParameter("@name", dto.Name));
+                cmd.Parameters.Add(new SqlParameter("@type", dto.Type));
                 cmd.ExecuteNonQuery();
                 return true;
             }
