@@ -128,7 +128,12 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         ParentName = Convert.ToString(reader["ParentName"]),
                         CreatedDate = Convert.ToDateTime(reader["CreatedDate"]),
                         UpdatedBy = Convert.ToString(reader["UpdatedBy"]),
-                        ConsType = Convert.ToString(reader["ConsType"])
+                        ConsType = Convert.ToString(reader["ConsType"]),
+                        MaterialCostEstimate = Convert.ToInt64(reader["MaterialCostEstimate"]),
+                        WorkerCostEstimate = Convert.ToInt64(reader["WorkerCostEstimate"]),
+                        VehicleCostEstimate = Convert.ToInt64(reader["VehicleCostEstimate"]),
+                        MachineCostEstimate = Convert.ToInt64(reader["MachineCostEstimate"]),
+                        GeneralCostEstimate = Convert.ToInt64(reader["GeneralCostEstimate"]),
                        
                     };
                     try{
@@ -140,6 +145,12 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                     }
                     consDto.CreatedDateFormated = consDto.CreatedDate.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
                     consDto.TotalCostEstimateFormated = Global.Global.ConvertLongToMoney(consDto.TotalCostEstimate,Constants.SPLIP_MONEY);
+                    consDto.MaterialCostEstimateFormated = Global.Global.ConvertLongToMoney(consDto.MaterialCostEstimate, Constants.SPLIP_MONEY);
+                    consDto.WorkerCostEstimateFormated = Global.Global.ConvertLongToMoney(consDto.WorkerCostEstimate, Constants.SPLIP_MONEY);
+                    consDto.VehicleCostEstimateFormated = Global.Global.ConvertLongToMoney(consDto.VehicleCostEstimate, Constants.SPLIP_MONEY);
+                    consDto.MachineCostEstimateFormated = Global.Global.ConvertLongToMoney(consDto.MachineCostEstimate, Constants.SPLIP_MONEY);
+                    consDto.GeneralCostEstimateFormated = Global.Global.ConvertLongToMoney(consDto.GeneralCostEstimate, Constants.SPLIP_MONEY);
+                    
                     listcons.Add(consDto);
                 }
                 return listcons;
