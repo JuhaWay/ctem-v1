@@ -60,21 +60,11 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
             PayDTO dto = new PayDTO();
             if (cbState.SelectedIndex <= 0)
             {
-                foreach (PayDTO item in cbState.Items)
-                {
-                    if (item.DisbursementProgressID > 0)
-                    {
-                        dto.Number += item.Number;
-                        if (dto.Start.Date > item.Start.Date)
-                            dto.Start = item.Start.Date;
-                        if (dto.End.Date < item.End.Date)
-                            dto.End = item.End.Date;
-                    }
-                }
-                lbNumber.Text = Global.ConvertLongToMoney(dto.Number, Global.SEP);
+                ConstructionDTO con = _constructionBus.LoadConstructionById(_constructionID);
+                lbNumber.Text = con.TotalEstimateCostFormated;
                 lbRate.Text = "100";
-                lbFrom.Text = dto.Start.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
-                lbEnd.Text = dto.End.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
+                lbFrom.Text = con.CommencementDateFormated;
+                lbEnd.Text = con.CompletionDateFormated;
             }
             else
             {

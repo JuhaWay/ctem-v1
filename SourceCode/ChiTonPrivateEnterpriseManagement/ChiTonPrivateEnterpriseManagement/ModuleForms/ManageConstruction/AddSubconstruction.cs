@@ -50,9 +50,10 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
             ipProgressRate.Text = _tempDTO.ProgressRate.ToString();
             ipRealCost.Text = _tempDTO.TotalRealCost.ToString();
             ipEst.Text = _tempDTO.TotalEstimateCost.ToString();
-            _pays = _constructionBus.LoadAllDisbursementProgress(constructionId, 0);
+            _pays = _constructionBus.LoadAllDisbursementProgress(constructionId,0);
             dgvPaid.DataSource = null;
-            dgvPaid.DataSource  = _pays;
+            if (_pays!= null && _pays.Count>0)
+                   dgvPaid.DataSource  = _pays;
 
          
         }
@@ -78,6 +79,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
             Global.SetLayoutGroupBoxNewForm(kryptonGroupBox3);
             Global.SetLayoutHeaderGroup(hdDebt, Constants.CHILD_FORM);
             Global.SetDaulftDatagridview(dgvPaid);
+            dgvPaid.ReadOnly = false;
             Global.SetLayoutButton(btSave);
             Global.SetLayoutButton(btCancel);
             CenterToParent();
