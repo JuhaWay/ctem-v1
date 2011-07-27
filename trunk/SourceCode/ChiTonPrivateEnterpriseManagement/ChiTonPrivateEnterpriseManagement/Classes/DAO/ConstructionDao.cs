@@ -267,6 +267,30 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         LastUpdated = reader["LastUpdated"] != DBNull.Value ? Convert.ToDateTime(reader["LastUpdated"]) : new DateTime()
 
                     };
+                    try
+                    {
+                        consDto.EstimateID = Convert.ToInt64(reader["EstimateID"]);
+                    }
+                    catch (Exception e)
+                    {
+                        consDto.EstimateID = 0;
+                    }
+                    try
+                    {
+                        consDto.LastUpdated = Convert.ToDateTime(reader["LastUpdated"]);
+                        consDto.LastUpdatedFormated = consDto.LastUpdated.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
+
+                    }
+                    catch (Exception e)
+                    {
+                        consDto.LastUpdatedFormated = "";
+                    }
+
+                    consDto.CreateDateFormated = consDto.CreatedDate.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
+                    consDto.CommencementDateFormated = consDto.CommencementDate.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
+                    consDto.CompletionDateFormated = consDto.CompletionDate.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
+                    consDto.TotalEstimateCostFormated = Global.Global.ConvertLongToMoney(consDto.TotalEstimateCost, Constants.SPLIP_MONEY);
+                    consDto.TotalRealCostFormated = Global.Global.ConvertLongToMoney(consDto.TotalRealCost, Constants.SPLIP_MONEY);
                     return consDto;
                 }
                 return null;
