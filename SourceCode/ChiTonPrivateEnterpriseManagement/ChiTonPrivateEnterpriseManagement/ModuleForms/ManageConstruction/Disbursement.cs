@@ -57,6 +57,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
             Global.SetLayoutPanelNewForm(ipTaker);
             Global.SetLayoutGroupBoxButton(kryptonGroupBox1);
             Global.SetDaulftDatagridview(dgvDisbur);
+            dgvDisbur.ReadOnly = false;
         }
 
 
