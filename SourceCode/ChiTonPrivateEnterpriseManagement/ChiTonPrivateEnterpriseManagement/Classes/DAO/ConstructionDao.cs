@@ -137,7 +137,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         HasEstimate = Convert.ToBoolean(reader["HasEstimate"]),
                         ParentID = Convert.ToInt64(reader["ParentID"]),
                         TotalEstimateCost = reader["TotalCostEstimate"] != DBNull.Value ? 
-                        Convert.ToInt64(reader["TotalCostEstimate"]) : 0,
+                        Convert.ToDouble(reader["TotalCostEstimate"]) : 0,
                         TotalRealCost = reader["TotalCostReal"] != DBNull.Value ? 
                         Convert.ToInt64(reader["TotalCostReal"]) : 0,
                         ManagerName = Convert.ToString(reader["Username"]),
@@ -170,7 +170,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                     consDto.CreateDateFormated = consDto.CreatedDate.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
                     consDto.CommencementDateFormated = consDto.CommencementDate.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
                     consDto.CompletionDateFormated = consDto.CompletionDate.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
-                    consDto.TotalEstimateCostFormated = Global.Global.ConvertLongToMoney(consDto.TotalEstimateCost,Constants.SPLIP_MONEY);
+                    consDto.TotalEstimateCostFormated = Global.Global.ConvertDoubleToMoney(consDto.TotalEstimateCost,Constants.SPLIP_MONEY);
                     consDto.TotalRealCostFormated = Global.Global.ConvertLongToMoney(consDto.TotalRealCost, Constants.SPLIP_MONEY);
                     listcons.Add(consDto);
                 }
@@ -259,7 +259,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         ParentID = Convert.ToInt64(reader["ParentID"]),
                         ManagerName = Convert.ToString(reader["Username"]),
                         ManagerID = Convert.ToInt64(reader["ManagerID"]),
-                        TotalEstimateCost = reader["TotalCostEstimate"] != DBNull.Value ? Convert.ToInt64(reader["TotalCostEstimate"]) : 0,
+                        TotalEstimateCost = reader["TotalCostEstimate"] != DBNull.Value ? Convert.ToDouble(reader["TotalCostEstimate"]) : 0,
                         TotalRealCost = reader["TotalCostReal"] != DBNull.Value ? Convert.ToInt64(reader["TotalCostReal"]) : 0,
                         CreatedBy = reader["CreatedBy"] != DBNull.Value ? Convert.ToString(reader["CreatedBy"]) : "",
                         CreatedDate = reader["CreatedDate"] != DBNull.Value ? Convert.ToDateTime(reader["CreatedDate"]) : new DateTime(),
@@ -289,7 +289,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                     consDto.CreateDateFormated = consDto.CreatedDate.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
                     consDto.CommencementDateFormated = consDto.CommencementDate.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
                     consDto.CompletionDateFormated = consDto.CompletionDate.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
-                    consDto.TotalEstimateCostFormated = Global.Global.ConvertLongToMoney(consDto.TotalEstimateCost, Constants.SPLIP_MONEY);
+                    consDto.TotalEstimateCostFormated = Global.Global.ConvertDoubleToMoney(consDto.TotalEstimateCost, Constants.SPLIP_MONEY);
                     consDto.TotalRealCostFormated = Global.Global.ConvertLongToMoney(consDto.TotalRealCost, Constants.SPLIP_MONEY);
                     return consDto;
                 }
@@ -339,7 +339,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         HasEstimate = Convert.ToBoolean(reader["HasEstimate"]),
                         ParentID = Convert.ToInt64(reader["ParentID"]),
                         TotalEstimateCost = reader["TotalCostEstimate"] != DBNull.Value ?
-                        Convert.ToInt64(reader["TotalCostEstimate"]) : 0,
+                        Convert.ToDouble(reader["TotalCostEstimate"]) : 0,
                         TotalRealCost = reader["TotalCostReal"] != DBNull.Value ?
                         Convert.ToInt64(reader["TotalCostReal"]) : 0,
                         ManagerName = reader["Username"] != DBNull.Value ?
@@ -365,7 +365,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                     consDto.CreateDateFormated = consDto.CreatedDate.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
                     consDto.CommencementDateFormated = consDto.CommencementDate.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
                     consDto.CompletionDateFormated = consDto.CompletionDate.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
-                    consDto.TotalEstimateCostFormated = Global.Global.ConvertLongToMoney(consDto.TotalEstimateCost, Constants.SPLIP_MONEY);
+                    consDto.TotalEstimateCostFormated = Global.Global.ConvertDoubleToMoney(consDto.TotalEstimateCost, Constants.SPLIP_MONEY);
                     consDto.TotalRealCostFormated = Global.Global.ConvertLongToMoney(consDto.TotalRealCost, Constants.SPLIP_MONEY);
                     listcons.Add(consDto);
                 }
