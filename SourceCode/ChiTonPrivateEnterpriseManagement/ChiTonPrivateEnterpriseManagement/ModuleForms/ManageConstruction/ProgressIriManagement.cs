@@ -159,6 +159,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
         private void dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if(e.ColumnIndex==0){
+                if (dgv.Rows.Count <= 0) return;
                 if (KryptonMessageBox.Show("Bạn có lưu thay đổi", Constants.CONFIRM, MessageBoxButtons.YesNo,
                             MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
