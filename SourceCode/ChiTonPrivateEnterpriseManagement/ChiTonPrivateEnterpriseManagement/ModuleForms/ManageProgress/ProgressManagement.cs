@@ -195,7 +195,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageProgress
                 Global.DrawChart(chartProgress, progessobj, "", SeriesChartType.Pie);
 
                 //Set Data Disbursement
-                txtTotalCostEst.Text = Global.ConvertLongToMoney(currentCons.TotalEstimateCost, Constants.SPLIP_MONEY) + " (VND)";
+                txtTotalCostEst.Text = Global.ConvertDoubleToMoney(currentCons.TotalEstimateCost, Constants.SPLIP_MONEY) + " (VND)";
                 txtTotalCostAct.Text = Global.ConvertLongToMoney(currentCons.TotalRealCost, Constants.SPLIP_MONEY) + " (VND)";
                 txtTotalMaterialCost.Text = Global.ConvertLongToMoney(currentCons.TotalMaterialCost, Constants.SPLIP_MONEY) + " (VND)";
                 txtTotalWorkerCost.Text = Global.ConvertLongToMoney(currentCons.TotalWorkerCost, Constants.SPLIP_MONEY) + " (VND)";
