@@ -46,7 +46,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
         public string CompletionDateFormated { get; set; }
 
         public long TotalRealCost { get; set; }
-        public long TotalEstimateCost { get; set; }
+        public double TotalEstimateCost { get; set; }
         public long TotalMaterialCost { get; set; }
         public long TotalWorkerCost { get; set; }
         public long TotalMachineCost { get; set; }
