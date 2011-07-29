@@ -255,7 +255,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
                         dto.TotalRealCost += item.TotalRealCost;
                         dto.ProgressRate += item.ProgressRate;
                     }
-                    dto.TotalEstimateCostFormated = Global.ConvertLongToMoney(dto.TotalEstimateCost,Constants.SPLIP_MONEY);
+                    dto.TotalEstimateCostFormated = Global.ConvertDoubleToMoney(dto.TotalEstimateCost,Constants.SPLIP_MONEY);
                     dto.TotalRealCostFormated = Global.ConvertLongToMoney(dto.TotalRealCost, Constants.SPLIP_MONEY);
                     if (children.Count>0) 
                         dto.ProgressRate = dto.ProgressRate / children.Count;
