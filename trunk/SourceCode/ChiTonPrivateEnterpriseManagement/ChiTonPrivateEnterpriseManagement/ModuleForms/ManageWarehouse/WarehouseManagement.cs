@@ -97,6 +97,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWarehouse
         {
             NewWarehouse newWarehouseForm = new NewWarehouse();
             newWarehouseForm.ShowDialog();
+            RefreshData();
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
@@ -233,11 +234,12 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWarehouse
                 bool success = _warehouseBus.UpdateWarehouse(warehouse);
                 if (success)
                 {
-                    KryptonMessageBox.Show(Constants.UPDATE_SUCCESS, Constants.CONFIRM);
+                    KryptonMessageBox.Show(Constants.UPDATE_SUCCESS, Constants.CONFIRM, MessageBoxButtons.OK,
+                                           MessageBoxIcon.Information);
                 }
                 else
                 {
-                    KryptonMessageBox.Show(Constants.ERROR, Constants.CONFIRM);
+                    KryptonMessageBox.Show(Constants.ERROR, Constants.CONFIRM, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 txtWarehouseName.Focus();
                 RefreshData();

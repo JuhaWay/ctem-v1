@@ -48,14 +48,14 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             }
             try
             {
-                cmd.Parameters.Add(new SqlParameter("@FinalAccountID", finalAccount.FinalAccountID));
-                cmd.Parameters.Add(new SqlParameter("@FinalAccountName", finalAccount.FinalAccountName));
+                cmd.Parameters.Add(new SqlParameter("@FinalAccountID", finalAccount.FinalAccountID));                
                 cmd.Parameters.Add(new SqlParameter("@ConstructionID", finalAccount.ConstructionID));                
                 cmd.Parameters.Add(new SqlParameter("@DateAccount", finalAccount.DateAccount));
                 cmd.Parameters.Add(new SqlParameter("@DebtID", finalAccount.DebtID));
                 cmd.Parameters.Add(new SqlParameter("@TransportationCost", finalAccount.TransportationCost));
                 cmd.Parameters.Add(new SqlParameter("@TotalCost", finalAccount.TotalCost));
                 cmd.Parameters.Add(new SqlParameter("@PersonAccount", finalAccount.PersonAccount));
+                cmd.Parameters.Add(new SqlParameter("@WarehouseID", finalAccount.WarehouseID));
                 cmd.Parameters.Add(new SqlParameter("@IsPay", finalAccount.IsPay));
                 cmd.Parameters.Add(new SqlParameter("@Note", finalAccount.Note));
                 cmd.Parameters.Add(new SqlParameter("@CreatedBy", Global.Global.CurrentUser.Username));
@@ -102,7 +102,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             }
         }
 
-        public List<FinalAccountDTO> GetFinalAccount(long id, string name, string consName, string debtName, DateTime fromdate, DateTime todate)
+        public List<FinalAccountDTO> GetFinalAccount(long id, string consName, string debtName, DateTime fromdate, DateTime todate)
         {
             var cmd = new SqlCommand("[dbo].[FinalAccount_GetFinalAccount]", Connection);
             if (Transaction != null)
@@ -111,8 +111,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             }
             try
             {
-                cmd.Parameters.Add(new SqlParameter("@Id", id));
-                cmd.Parameters.Add(new SqlParameter("@Name", name));
+                cmd.Parameters.Add(new SqlParameter("@Id", id));                
                 cmd.Parameters.Add(new SqlParameter("@ConsName", consName));
                 cmd.Parameters.Add(new SqlParameter("@DebtName", debtName));
                 cmd.Parameters.Add(new SqlParameter("@FromDate", fromdate));
@@ -124,8 +123,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 {
                     var finalAccount = new FinalAccountDTO
                     {
-                        FinalAccountID = Convert.ToInt64(reader["FinalAccountID"]),
-                        FinalAccountName = Convert.ToString(reader["FinalAccountName"]),
+                        FinalAccountID = Convert.ToInt64(reader["FinalAccountID"]),                        
                         ConstructionID = Convert.ToInt64(reader["ConstructionID"]),
                         ConstructionName = Convert.ToString(reader["ConstructionName"]),
                         DateAccount = DateTime.Parse(Convert.ToString(reader["DateAccount"])),
@@ -134,6 +132,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         TransportationCost = Convert.ToInt64(reader["TransportationCost"]),
                         TotalCost = Convert.ToInt64(reader["TotalCost"]),
                         PersonAccount = Convert.ToString(reader["PersonAccount"]),
+                        WarehouseID = reader["WarehouseID"] != DBNull.Value ? Convert.ToInt64(reader["WarehouseID"]) : 0,
                         Note = Convert.ToString(reader["Note"]),
                         CreatedDate = DateTime.Parse(Convert.ToString(reader["CreatedDate"])),
                         LastUpdated = DateTime.Parse(Convert.ToString(reader["LastUpdate"])),
@@ -226,15 +225,13 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             }
             try
             {
-                cmd.Parameters.Add(new SqlParameter("@FinalAccountID", finalAccount.FinalAccountID));
-                cmd.Parameters.Add(new SqlParameter("@FinalAccountName", finalAccount.FinalAccountName));
+                cmd.Parameters.Add(new SqlParameter("@FinalAccountID", finalAccount.FinalAccountID));                
                 cmd.Parameters.Add(new SqlParameter("@ConstructionID", finalAccount.ConstructionID));
                 cmd.Parameters.Add(new SqlParameter("@DateAccount", finalAccount.DateAccount));
                 cmd.Parameters.Add(new SqlParameter("@DebtID", finalAccount.DebtID));
                 cmd.Parameters.Add(new SqlParameter("@TransportationCost", finalAccount.TransportationCost));
                 cmd.Parameters.Add(new SqlParameter("@TotalCost", finalAccount.TotalCost));
-                cmd.Parameters.Add(new SqlParameter("@PersonAccount", finalAccount.PersonAccount));
-                cmd.Parameters.Add(new SqlParameter("@CreatedBy", finalAccount.CreatedBy));
+                cmd.Parameters.Add(new SqlParameter("@PersonAccount", finalAccount.PersonAccount));                
                 cmd.Parameters.Add(new SqlParameter("@IsPay", finalAccount.IsPay));
                 cmd.Parameters.Add(new SqlParameter("@Note", finalAccount.Note));
                 cmd.Parameters.Add(new SqlParameter("@CreatedBy", Global.Global.CurrentUser.Username));
@@ -269,7 +266,13 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 {
                     var finalAccount = new FinalAccountDetailDTO
                     {
-                        FinalAccountDetailID = Convert.ToInt64(reader["FinalAccountDetailID"])
+                        FinalAccountDetailID = Convert.ToInt64(reader["FinalAccountDetailID"]),
+                        FinalAccountID = Convert.ToInt64(reader["FinalAccountID"]),
+                        MaterialID = Convert.ToInt64(reader["MaterialID"]),                        
+                        Note = Convert.ToString(reader["Note"]),
+                        Quantity = Convert.ToDouble(reader["Quantity"]),                        
+                        TotalCost = Convert.ToInt64(reader["TotalCost"]),
+                        UnitCost = Convert.ToInt64(reader["UnitCost"])
                     };
                     return finalAccount;
                 }
@@ -341,7 +344,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         Quantity = Convert.ToDouble(reader["Quantity"]),
                         RealCalUnit = Convert.ToString(reader["RealCalUnit"]),
                         TotalCost = Convert.ToInt64(reader["TotalCost"]),
-                        UnitCost = Convert.ToInt64(reader["UnitCost"]),
+                        UnitCost = Convert.ToInt64(reader["UnitCost"])
                     };
                     finalAccount.TotalCostFormated = Global.Global.ConvertLongToMoney(finalAccount.TotalCost, Constants.SPLIP_MONEY);
                     finalAccount.UnitCostFormated = Global.Global.ConvertLongToMoney(finalAccount.UnitCost, Constants.SPLIP_MONEY);

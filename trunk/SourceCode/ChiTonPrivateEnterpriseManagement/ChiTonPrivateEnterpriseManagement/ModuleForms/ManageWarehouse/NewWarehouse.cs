@@ -58,7 +58,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWarehouse
                 bool success = warehouseBUS.CreateWarehouse(warehouse);
                 if (success)
                 {
-                    if (KryptonMessageBox.Show(Constants.UPDATE_SUCCESS, Constants.CONFIRM, MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    if (KryptonMessageBox.Show(Constants.CREATE_SUCCESS, Constants.CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                     {
                         ClearLayout();
                         txtWarehouseName.Focus();

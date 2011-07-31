@@ -25,9 +25,9 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
             return finalAccountDAO.CreateFinalAccountDetail(finalaccountdetail);
         }
 
-        public List<FinalAccountDTO> GetFinalAccount(long id, string name, string consName, string debtName, DateTime fromdate, DateTime todate)
+        public List<FinalAccountDTO> GetFinalAccount(long id, string consName, string debtName, DateTime fromdate, DateTime todate)
         {
-            return finalAccountDAO.GetFinalAccount(id, name, consName, debtName, fromdate, todate);
+            return finalAccountDAO.GetFinalAccount(id, consName, debtName, fromdate, todate);
         }
 
         public bool DeleteFinalAccount(long id)
@@ -62,8 +62,8 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
 
         public List<FinalAccountDTO> GetFinalAccountById(long id, DateTime from, DateTime to)
         {
-            return finalAccountDAO.GetFinalAccount(id, Constants.EMPTY_TEXT, Constants.EMPTY_TEXT, Constants.EMPTY_TEXT, from, to);
-        }
+            return finalAccountDAO.GetFinalAccount(id, Constants.EMPTY_TEXT, Constants.EMPTY_TEXT, from, to);
+        }        
     }
 }
     

@@ -57,7 +57,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWarehouse
                     i = cbbNameSearch.Items.Count;
                 }
             }
-            Global.SetDataCombobox(cbbNameSearch, Constants.WAREHOUSE_SEARCH);            
             LoadData();
         }
 

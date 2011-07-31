@@ -68,6 +68,8 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         HasEstimate = Convert.ToBoolean(reader["HasEstimate"]),
                         ProgressRate = Convert.ToInt64(reader["ProgressRate"]),
                         ParentID = Convert.ToInt64(reader["ParentID"]),
+                        type = Convert.ToString(reader["Type"]),
+                        WarehouseID = reader["WarehouseID"] != DBNull.Value ? Convert.ToInt64(reader["WarehouseID"]) : 0
                     };
                     listcons.Add(consDto);
                 }

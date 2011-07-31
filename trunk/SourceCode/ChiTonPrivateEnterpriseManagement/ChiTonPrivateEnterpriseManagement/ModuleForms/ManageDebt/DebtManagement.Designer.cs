@@ -470,7 +470,7 @@
             this.hdDebt.Size = new System.Drawing.Size(821, 29);
             this.hdDebt.TabIndex = 0;
             this.hdDebt.Values.Description = "";
-            this.hdDebt.Values.Heading = "Danh Nhà Cung Cấp";
+            this.hdDebt.Values.Heading = "Danh Sách Nhà Cung Cấp";
             this.hdDebt.Values.Image = null;
             // 
             // btnRefresh
@@ -701,12 +701,12 @@
             // 
             // kryptonLabel1
             // 
-            this.kryptonLabel1.Location = new System.Drawing.Point(12, 41);
+            this.kryptonLabel1.Location = new System.Drawing.Point(0, 42);
             this.kryptonLabel1.Name = "kryptonLabel1";
-            this.kryptonLabel1.Size = new System.Drawing.Size(92, 19);
+            this.kryptonLabel1.Size = new System.Drawing.Size(104, 19);
             this.kryptonLabel1.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.kryptonLabel1.TabIndex = 36;
-            this.kryptonLabel1.Values.Text = "Tên Khách Hàng";
+            this.kryptonLabel1.Values.Text = "Tên Nhà Cung Cấp";
             // 
             // gbxEdit2
             // 
@@ -896,7 +896,6 @@
             this.Name = "DebtManagement";
             this.ShowIcon = false;
             this.Text = "Quản Lý Nhà Cung Cấp";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.DebtManagement_Load);
             this.slcMain.Panel1.ResumeLayout(false);
             this.slcMain.Panel2.ResumeLayout(false);

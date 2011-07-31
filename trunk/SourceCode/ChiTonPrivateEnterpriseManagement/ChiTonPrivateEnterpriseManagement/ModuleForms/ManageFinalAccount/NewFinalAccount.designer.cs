@@ -43,14 +43,12 @@
             this.cbbConstruction = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.cbbToPlace = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.txtPersonAccount = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.txtNameFinalAccount = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.txtNo = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.kryptonLabel7 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel6 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel5 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel4 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel3 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.gbxEdit2 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.txtNote = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
@@ -58,7 +56,9 @@
             this.kryptonLabel10 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.cbbStatus = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.txtTotalCost = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.buttonSpecAny2 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.txtTransportationCost = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.buttonSpecAny1 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.kryptonLabel8 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel9 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.hdMainInfo = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
@@ -66,6 +66,7 @@
             this.btnClear = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.btnClose = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.dgvAccDetail = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.MaterialID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaterialName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RealCalUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -79,8 +80,11 @@
             this.kryptonLabel17 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.cbbMaterial = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.txtUnitCost = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.buttonSpecAny4 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.txtQuantity = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.buttonSpecAny3 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.txtTotalCostItem = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.buttonSpecAny5 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.kryptonLabel13 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel14 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel15 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
@@ -88,8 +92,6 @@
             this.hdDetailInfo = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
             this.btnEdit = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.btnAdd = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.btnDelete = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.btnDeleteAll = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.btnHideShowSearch = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.cmsGenerate.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.slcMain)).BeginInit();
@@ -155,12 +157,13 @@
             this.slcMain.Panel2.Controls.Add(this.dgvAccDetail);
             this.slcMain.Panel2.Controls.Add(this.pnlNewItem);
             this.slcMain.Panel2.Controls.Add(this.hdDetailInfo);
-            this.slcMain.Size = new System.Drawing.Size(792, 566);
-            this.slcMain.SplitterDistance = 374;
+            this.slcMain.Size = new System.Drawing.Size(823, 566);
+            this.slcMain.SplitterDistance = 383;
             this.slcMain.TabIndex = 15;
             // 
             // slcFinalAccInfo
             // 
+            this.slcFinalAccInfo.Cursor = System.Windows.Forms.Cursors.Default;
             this.slcFinalAccInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.slcFinalAccInfo.Location = new System.Drawing.Point(0, 29);
             this.slcFinalAccInfo.Name = "slcFinalAccInfo";
@@ -176,7 +179,7 @@
             // 
             this.slcFinalAccInfo.Panel2.Controls.Add(this.gbxEdit2);
             this.slcFinalAccInfo.Panel2.StateCommon.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(57)))), ((int)(((byte)(85)))));
-            this.slcFinalAccInfo.Size = new System.Drawing.Size(374, 537);
+            this.slcFinalAccInfo.Size = new System.Drawing.Size(383, 537);
             this.slcFinalAccInfo.SplitterDistance = 305;
             this.slcFinalAccInfo.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(57)))), ((int)(((byte)(85)))));
             this.slcFinalAccInfo.TabIndex = 7;
@@ -196,16 +199,14 @@
             this.gbxEdit1.Panel.Controls.Add(this.cbbConstruction);
             this.gbxEdit1.Panel.Controls.Add(this.cbbToPlace);
             this.gbxEdit1.Panel.Controls.Add(this.txtPersonAccount);
-            this.gbxEdit1.Panel.Controls.Add(this.txtNameFinalAccount);
             this.gbxEdit1.Panel.Controls.Add(this.txtNo);
             this.gbxEdit1.Panel.Controls.Add(this.kryptonLabel7);
             this.gbxEdit1.Panel.Controls.Add(this.kryptonLabel6);
             this.gbxEdit1.Panel.Controls.Add(this.kryptonLabel5);
             this.gbxEdit1.Panel.Controls.Add(this.kryptonLabel4);
             this.gbxEdit1.Panel.Controls.Add(this.kryptonLabel3);
-            this.gbxEdit1.Panel.Controls.Add(this.kryptonLabel2);
             this.gbxEdit1.Panel.Controls.Add(this.kryptonLabel1);
-            this.gbxEdit1.Size = new System.Drawing.Size(369, 300);
+            this.gbxEdit1.Size = new System.Drawing.Size(378, 300);
             this.gbxEdit1.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(92)))), ((int)(((byte)(144)))));
             this.gbxEdit1.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
             this.gbxEdit1.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -218,14 +219,14 @@
             this.cbbMainWarehouse.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.cbbMainWarehouse.DropDownWidth = 214;
-            this.cbbMainWarehouse.Location = new System.Drawing.Point(126, 107);
+            this.cbbMainWarehouse.Location = new System.Drawing.Point(123, 122);
             this.cbbMainWarehouse.Name = "cbbMainWarehouse";
-            this.cbbMainWarehouse.Size = new System.Drawing.Size(211, 22);
-            this.cbbMainWarehouse.TabIndex = 31;
+            this.cbbMainWarehouse.Size = new System.Drawing.Size(220, 22);
+            this.cbbMainWarehouse.TabIndex = 3;
             // 
             // kryptonLabel12
             // 
-            this.kryptonLabel12.Location = new System.Drawing.Point(53, 107);
+            this.kryptonLabel12.Location = new System.Drawing.Point(46, 125);
             this.kryptonLabel12.Name = "kryptonLabel12";
             this.kryptonLabel12.Size = new System.Drawing.Size(62, 19);
             this.kryptonLabel12.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -238,72 +239,63 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpDateAccount.CalendarTodayDate = new System.DateTime(2011, 6, 12, 0, 0, 0, 0);
             this.dtpDateAccount.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDateAccount.Location = new System.Drawing.Point(126, 179);
+            this.dtpDateAccount.Location = new System.Drawing.Point(123, 206);
             this.dtpDateAccount.Name = "dtpDateAccount";
-            this.dtpDateAccount.Size = new System.Drawing.Size(211, 20);
-            this.dtpDateAccount.TabIndex = 29;
+            this.dtpDateAccount.Size = new System.Drawing.Size(220, 20);
+            this.dtpDateAccount.TabIndex = 6;
             // 
             // cbbDebt
             // 
             this.cbbDebt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.cbbDebt.DropDownWidth = 214;
-            this.cbbDebt.Location = new System.Drawing.Point(126, 155);
+            this.cbbDebt.Location = new System.Drawing.Point(123, 178);
             this.cbbDebt.Name = "cbbDebt";
-            this.cbbDebt.Size = new System.Drawing.Size(211, 22);
-            this.cbbDebt.TabIndex = 28;
+            this.cbbDebt.Size = new System.Drawing.Size(220, 22);
+            this.cbbDebt.TabIndex = 5;
             // 
             // cbbConstruction
             // 
             this.cbbConstruction.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.cbbConstruction.DropDownWidth = 214;
-            this.cbbConstruction.Location = new System.Drawing.Point(126, 131);
+            this.cbbConstruction.Location = new System.Drawing.Point(123, 150);
             this.cbbConstruction.Name = "cbbConstruction";
-            this.cbbConstruction.Size = new System.Drawing.Size(211, 22);
-            this.cbbConstruction.TabIndex = 27;
+            this.cbbConstruction.Size = new System.Drawing.Size(220, 22);
+            this.cbbConstruction.TabIndex = 4;
             // 
             // cbbToPlace
             // 
             this.cbbToPlace.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.cbbToPlace.DropDownWidth = 214;
-            this.cbbToPlace.Location = new System.Drawing.Point(126, 82);
+            this.cbbToPlace.Location = new System.Drawing.Point(123, 94);
             this.cbbToPlace.Name = "cbbToPlace";
-            this.cbbToPlace.Size = new System.Drawing.Size(211, 22);
-            this.cbbToPlace.TabIndex = 26;
+            this.cbbToPlace.Size = new System.Drawing.Size(220, 22);
+            this.cbbToPlace.TabIndex = 2;
             this.cbbToPlace.SelectedIndexChanged += new System.EventHandler(this.cbbToPlace_SelectedIndexChanged);
             // 
             // txtPersonAccount
             // 
             this.txtPersonAccount.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPersonAccount.Location = new System.Drawing.Point(126, 58);
+            this.txtPersonAccount.Location = new System.Drawing.Point(123, 66);
             this.txtPersonAccount.Name = "txtPersonAccount";
-            this.txtPersonAccount.Size = new System.Drawing.Size(211, 22);
-            this.txtPersonAccount.TabIndex = 25;
-            // 
-            // txtNameFinalAccount
-            // 
-            this.txtNameFinalAccount.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNameFinalAccount.Location = new System.Drawing.Point(126, 34);
-            this.txtNameFinalAccount.Name = "txtNameFinalAccount";
-            this.txtNameFinalAccount.Size = new System.Drawing.Size(211, 22);
-            this.txtNameFinalAccount.TabIndex = 24;
+            this.txtPersonAccount.Size = new System.Drawing.Size(220, 22);
+            this.txtPersonAccount.TabIndex = 1;
             // 
             // txtNo
             // 
             this.txtNo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNo.Location = new System.Drawing.Point(126, 10);
+            this.txtNo.Location = new System.Drawing.Point(123, 38);
             this.txtNo.Name = "txtNo";
-            this.txtNo.Size = new System.Drawing.Size(211, 22);
-            this.txtNo.TabIndex = 23;
+            this.txtNo.Size = new System.Drawing.Size(220, 22);
+            this.txtNo.TabIndex = 0;
             // 
             // kryptonLabel7
             // 
-            this.kryptonLabel7.Location = new System.Drawing.Point(51, 82);
+            this.kryptonLabel7.Location = new System.Drawing.Point(44, 97);
             this.kryptonLabel7.Name = "kryptonLabel7";
             this.kryptonLabel7.Size = new System.Drawing.Size(64, 19);
             this.kryptonLabel7.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -312,7 +304,7 @@
             // 
             // kryptonLabel6
             // 
-            this.kryptonLabel6.Location = new System.Drawing.Point(44, 155);
+            this.kryptonLabel6.Location = new System.Drawing.Point(37, 181);
             this.kryptonLabel6.Name = "kryptonLabel6";
             this.kryptonLabel6.Size = new System.Drawing.Size(71, 19);
             this.kryptonLabel6.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -321,7 +313,7 @@
             // 
             // kryptonLabel5
             // 
-            this.kryptonLabel5.Location = new System.Drawing.Point(22, 179);
+            this.kryptonLabel5.Location = new System.Drawing.Point(19, 208);
             this.kryptonLabel5.Name = "kryptonLabel5";
             this.kryptonLabel5.Size = new System.Drawing.Size(90, 19);
             this.kryptonLabel5.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -330,7 +322,7 @@
             // 
             // kryptonLabel4
             // 
-            this.kryptonLabel4.Location = new System.Drawing.Point(17, 58);
+            this.kryptonLabel4.Location = new System.Drawing.Point(13, 69);
             this.kryptonLabel4.Name = "kryptonLabel4";
             this.kryptonLabel4.Size = new System.Drawing.Size(95, 19);
             this.kryptonLabel4.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -339,25 +331,16 @@
             // 
             // kryptonLabel3
             // 
-            this.kryptonLabel3.Location = new System.Drawing.Point(49, 131);
+            this.kryptonLabel3.Location = new System.Drawing.Point(43, 155);
             this.kryptonLabel3.Name = "kryptonLabel3";
             this.kryptonLabel3.Size = new System.Drawing.Size(65, 19);
             this.kryptonLabel3.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.kryptonLabel3.TabIndex = 18;
             this.kryptonLabel3.Values.Text = "Công Trình";
             // 
-            // kryptonLabel2
-            // 
-            this.kryptonLabel2.Location = new System.Drawing.Point(90, 33);
-            this.kryptonLabel2.Name = "kryptonLabel2";
-            this.kryptonLabel2.Size = new System.Drawing.Size(28, 19);
-            this.kryptonLabel2.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.kryptonLabel2.TabIndex = 17;
-            this.kryptonLabel2.Values.Text = "Tên";
-            // 
             // kryptonLabel1
             // 
-            this.kryptonLabel1.Location = new System.Drawing.Point(75, 9);
+            this.kryptonLabel1.Location = new System.Drawing.Point(66, 41);
             this.kryptonLabel1.Name = "kryptonLabel1";
             this.kryptonLabel1.Size = new System.Drawing.Size(42, 19);
             this.kryptonLabel1.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -380,23 +363,23 @@
             this.gbxEdit2.Panel.Controls.Add(this.txtTransportationCost);
             this.gbxEdit2.Panel.Controls.Add(this.kryptonLabel8);
             this.gbxEdit2.Panel.Controls.Add(this.kryptonLabel9);
-            this.gbxEdit2.Size = new System.Drawing.Size(374, 227);
+            this.gbxEdit2.Size = new System.Drawing.Size(383, 227);
             this.gbxEdit2.TabIndex = 5;
-            this.gbxEdit2.Values.Heading = "Thông Tin Thêm";
+            this.gbxEdit2.Values.Heading = "Thông Tin Chi Phí";
             // 
             // txtNote
             // 
             this.txtNote.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNote.Location = new System.Drawing.Point(131, 77);
+            this.txtNote.Location = new System.Drawing.Point(131, 93);
             this.txtNote.Multiline = true;
             this.txtNote.Name = "txtNote";
-            this.txtNote.Size = new System.Drawing.Size(211, 68);
-            this.txtNote.TabIndex = 23;
+            this.txtNote.Size = new System.Drawing.Size(220, 101);
+            this.txtNote.TabIndex = 3;
             // 
             // kryptonLabel11
             // 
-            this.kryptonLabel11.Location = new System.Drawing.Point(71, 77);
+            this.kryptonLabel11.Location = new System.Drawing.Point(70, 93);
             this.kryptonLabel11.Name = "kryptonLabel11";
             this.kryptonLabel11.Size = new System.Drawing.Size(50, 19);
             this.kryptonLabel11.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -405,7 +388,7 @@
             // 
             // kryptonLabel10
             // 
-            this.kryptonLabel10.Location = new System.Drawing.Point(8, 5);
+            this.kryptonLabel10.Location = new System.Drawing.Point(12, 12);
             this.kryptonLabel10.Name = "kryptonLabel10";
             this.kryptonLabel10.Size = new System.Drawing.Size(108, 19);
             this.kryptonLabel10.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -417,39 +400,53 @@
             this.cbbStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.cbbStatus.DropDownWidth = 214;
-            this.cbbStatus.Location = new System.Drawing.Point(131, 52);
+            this.cbbStatus.Location = new System.Drawing.Point(131, 65);
             this.cbbStatus.Name = "cbbStatus";
-            this.cbbStatus.Size = new System.Drawing.Size(211, 22);
-            this.cbbStatus.TabIndex = 21;
+            this.cbbStatus.Size = new System.Drawing.Size(220, 22);
+            this.cbbStatus.TabIndex = 2;
             // 
             // txtTotalCost
             // 
             this.txtTotalCost.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTotalCost.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
+            this.buttonSpecAny2});
             this.txtTotalCost.ContextMenuStrip = this.cmsGenerate;
-            this.txtTotalCost.Location = new System.Drawing.Point(131, 29);
+            this.txtTotalCost.Location = new System.Drawing.Point(131, 37);
             this.txtTotalCost.Name = "txtTotalCost";
             this.txtTotalCost.ReadOnly = true;
-            this.txtTotalCost.Size = new System.Drawing.Size(211, 22);
-            this.txtTotalCost.TabIndex = 20;
+            this.txtTotalCost.Size = new System.Drawing.Size(220, 25);
+            this.txtTotalCost.TabIndex = 1;
             this.txtTotalCost.Enter += new System.EventHandler(this.txtTransportationCost_Enter);
             this.txtTotalCost.Leave += new System.EventHandler(this.txtTransportationCost_Leave);
+            // 
+            // buttonSpecAny2
+            // 
+            this.buttonSpecAny2.Text = "(VND)";
+            this.buttonSpecAny2.UniqueName = "309A9822F86A459D9E8C74CBDD0B4058";
             // 
             // txtTransportationCost
             // 
             this.txtTransportationCost.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTransportationCost.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
+            this.buttonSpecAny1});
             this.txtTransportationCost.ContextMenuStrip = this.cmsGenerate;
-            this.txtTransportationCost.Location = new System.Drawing.Point(131, 5);
+            this.txtTransportationCost.Location = new System.Drawing.Point(131, 9);
             this.txtTransportationCost.Name = "txtTransportationCost";
-            this.txtTransportationCost.Size = new System.Drawing.Size(211, 22);
-            this.txtTransportationCost.TabIndex = 19;
+            this.txtTransportationCost.Size = new System.Drawing.Size(220, 25);
+            this.txtTransportationCost.TabIndex = 0;
             this.txtTransportationCost.Enter += new System.EventHandler(this.txtTransportationCost_Enter);
             this.txtTransportationCost.Leave += new System.EventHandler(this.txtTransportationCost_Leave);
             // 
+            // buttonSpecAny1
+            // 
+            this.buttonSpecAny1.Text = "(VND)";
+            this.buttonSpecAny1.UniqueName = "690A5259C1AC4A9C5D817F33942750C0";
+            // 
             // kryptonLabel8
             // 
-            this.kryptonLabel8.Location = new System.Drawing.Point(56, 53);
+            this.kryptonLabel8.Location = new System.Drawing.Point(57, 68);
             this.kryptonLabel8.Name = "kryptonLabel8";
             this.kryptonLabel8.Size = new System.Drawing.Size(63, 19);
             this.kryptonLabel8.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -458,7 +455,7 @@
             // 
             // kryptonLabel9
             // 
-            this.kryptonLabel9.Location = new System.Drawing.Point(43, 29);
+            this.kryptonLabel9.Location = new System.Drawing.Point(44, 40);
             this.kryptonLabel9.Name = "kryptonLabel9";
             this.kryptonLabel9.Size = new System.Drawing.Size(76, 19);
             this.kryptonLabel9.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -475,10 +472,10 @@
             this.hdMainInfo.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.DockActive;
             this.hdMainInfo.Location = new System.Drawing.Point(0, 0);
             this.hdMainInfo.Name = "hdMainInfo";
-            this.hdMainInfo.Size = new System.Drawing.Size(374, 29);
+            this.hdMainInfo.Size = new System.Drawing.Size(383, 29);
             this.hdMainInfo.TabIndex = 8;
             this.hdMainInfo.Values.Description = "";
-            this.hdMainInfo.Values.Heading = "Thông Tin Chi Tiết";
+            this.hdMainInfo.Values.Heading = "Thông Tin Phiếu Mua Hàng";
             this.hdMainInfo.Values.Image = null;
             // 
             // btnSave
@@ -510,6 +507,7 @@
             // 
             this.dgvAccDetail.AutoGenerateColumns = false;
             this.dgvAccDetail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MaterialID,
             this.MaterialName,
             this.Quantity,
             this.RealCalUnit,
@@ -518,12 +516,19 @@
             this.Note});
             this.dgvAccDetail.DataSource = this.finalAccountDetailDTOBindingSource;
             this.dgvAccDetail.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvAccDetail.Location = new System.Drawing.Point(0, 208);
+            this.dgvAccDetail.Location = new System.Drawing.Point(0, 238);
             this.dgvAccDetail.Name = "dgvAccDetail";
             this.dgvAccDetail.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAccDetail.Size = new System.Drawing.Size(413, 358);
+            this.dgvAccDetail.Size = new System.Drawing.Size(435, 328);
             this.dgvAccDetail.TabIndex = 12;
             this.dgvAccDetail.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAccDetail_RowEnter);
+            // 
+            // MaterialID
+            // 
+            this.MaterialID.DataPropertyName = "MaterialID";
+            this.MaterialID.HeaderText = "MaterialID";
+            this.MaterialID.Name = "MaterialID";
+            this.MaterialID.Visible = false;
             // 
             // MaterialName
             // 
@@ -572,7 +577,7 @@
             this.pnlNewItem.Location = new System.Drawing.Point(0, 29);
             this.pnlNewItem.Name = "pnlNewItem";
             this.pnlNewItem.Padding = new System.Windows.Forms.Padding(10, 0, 10, 5);
-            this.pnlNewItem.Size = new System.Drawing.Size(413, 179);
+            this.pnlNewItem.Size = new System.Drawing.Size(435, 209);
             this.pnlNewItem.TabIndex = 11;
             // 
             // gbxNewItem
@@ -594,7 +599,7 @@
             this.gbxNewItem.Panel.Controls.Add(this.kryptonLabel14);
             this.gbxNewItem.Panel.Controls.Add(this.kryptonLabel15);
             this.gbxNewItem.Panel.Controls.Add(this.kryptonLabel16);
-            this.gbxNewItem.Size = new System.Drawing.Size(393, 174);
+            this.gbxNewItem.Size = new System.Drawing.Size(415, 204);
             this.gbxNewItem.TabIndex = 8;
             this.gbxNewItem.Values.Heading = "";
             // 
@@ -602,16 +607,16 @@
             // 
             this.txtNoteItem.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNoteItem.Location = new System.Drawing.Point(107, 99);
+            this.txtNoteItem.Location = new System.Drawing.Point(106, 130);
             this.txtNoteItem.Multiline = true;
             this.txtNoteItem.Name = "txtNoteItem";
-            this.txtNoteItem.Size = new System.Drawing.Size(250, 63);
-            this.txtNoteItem.TabIndex = 25;
+            this.txtNoteItem.Size = new System.Drawing.Size(272, 57);
+            this.txtNoteItem.TabIndex = 4;
             this.txtNoteItem.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTotalCostItem_KeyDown);
             // 
             // kryptonLabel17
             // 
-            this.kryptonLabel17.Location = new System.Drawing.Point(47, 99);
+            this.kryptonLabel17.Location = new System.Drawing.Point(50, 130);
             this.kryptonLabel17.Name = "kryptonLabel17";
             this.kryptonLabel17.Size = new System.Drawing.Size(50, 19);
             this.kryptonLabel17.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -625,52 +630,73 @@
             this.cbbMaterial.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbbMaterial.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbbMaterial.DropDownWidth = 214;
-            this.cbbMaterial.Location = new System.Drawing.Point(107, 2);
+            this.cbbMaterial.Location = new System.Drawing.Point(105, 9);
             this.cbbMaterial.Name = "cbbMaterial";
-            this.cbbMaterial.Size = new System.Drawing.Size(250, 22);
-            this.cbbMaterial.TabIndex = 23;
+            this.cbbMaterial.Size = new System.Drawing.Size(272, 22);
+            this.cbbMaterial.TabIndex = 0;
             this.cbbMaterial.Leave += new System.EventHandler(this.cbbMaterial_Leave);
             // 
             // txtUnitCost
             // 
             this.txtUnitCost.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtUnitCost.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
+            this.buttonSpecAny4});
             this.txtUnitCost.ContextMenuStrip = this.cmsGenerate;
-            this.txtUnitCost.Location = new System.Drawing.Point(107, 50);
+            this.txtUnitCost.Location = new System.Drawing.Point(107, 68);
             this.txtUnitCost.Name = "txtUnitCost";
-            this.txtUnitCost.Size = new System.Drawing.Size(249, 22);
-            this.txtUnitCost.TabIndex = 22;
+            this.txtUnitCost.Size = new System.Drawing.Size(271, 25);
+            this.txtUnitCost.TabIndex = 2;
             this.txtUnitCost.Enter += new System.EventHandler(this.txtTransportationCost_Enter);
             this.txtUnitCost.Leave += new System.EventHandler(this.txtTransportationCost_Leave);
+            // 
+            // buttonSpecAny4
+            // 
+            this.buttonSpecAny4.Text = "(VND)";
+            this.buttonSpecAny4.UniqueName = "E8BBC5AE95EA4F58678FC6BB2621F2AB";
             // 
             // txtQuantity
             // 
             this.txtQuantity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtQuantity.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
+            this.buttonSpecAny3});
             this.txtQuantity.ContextMenuStrip = this.cmsGenerate;
-            this.txtQuantity.Location = new System.Drawing.Point(107, 26);
+            this.txtQuantity.Location = new System.Drawing.Point(107, 37);
             this.txtQuantity.Name = "txtQuantity";
-            this.txtQuantity.Size = new System.Drawing.Size(249, 22);
-            this.txtQuantity.TabIndex = 21;
+            this.txtQuantity.Size = new System.Drawing.Size(271, 25);
+            this.txtQuantity.TabIndex = 1;
             this.txtQuantity.Enter += new System.EventHandler(this.txtTransportationCost_Enter);
             this.txtQuantity.Leave += new System.EventHandler(this.txtQuantity_Leave);
+            // 
+            // buttonSpecAny3
+            // 
+            this.buttonSpecAny3.Text = "(Đơn Vị)";
+            this.buttonSpecAny3.UniqueName = "3F6EA71EBADE43B2C59090B1A42C0E4D";
             // 
             // txtTotalCostItem
             // 
             this.txtTotalCostItem.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTotalCostItem.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
+            this.buttonSpecAny5});
             this.txtTotalCostItem.ContextMenuStrip = this.cmsGenerate;
-            this.txtTotalCostItem.Location = new System.Drawing.Point(107, 74);
+            this.txtTotalCostItem.Location = new System.Drawing.Point(106, 99);
             this.txtTotalCostItem.Name = "txtTotalCostItem";
-            this.txtTotalCostItem.Size = new System.Drawing.Size(249, 22);
-            this.txtTotalCostItem.TabIndex = 20;
+            this.txtTotalCostItem.Size = new System.Drawing.Size(271, 25);
+            this.txtTotalCostItem.TabIndex = 3;
             this.txtTotalCostItem.Enter += new System.EventHandler(this.txtTotalCostItem_Enter);
             this.txtTotalCostItem.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTotalCostItem_KeyDown);
             this.txtTotalCostItem.Leave += new System.EventHandler(this.txtTransportationCost_Leave);
             // 
+            // buttonSpecAny5
+            // 
+            this.buttonSpecAny5.Text = "(VND)";
+            this.buttonSpecAny5.UniqueName = "E3FA8598DB554B5814A4A8C765730028";
+            // 
             // kryptonLabel13
             // 
-            this.kryptonLabel13.Location = new System.Drawing.Point(32, 75);
+            this.kryptonLabel13.Location = new System.Drawing.Point(35, 105);
             this.kryptonLabel13.Name = "kryptonLabel13";
             this.kryptonLabel13.Size = new System.Drawing.Size(65, 19);
             this.kryptonLabel13.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -679,7 +705,7 @@
             // 
             // kryptonLabel14
             // 
-            this.kryptonLabel14.Location = new System.Drawing.Point(46, 50);
+            this.kryptonLabel14.Location = new System.Drawing.Point(49, 74);
             this.kryptonLabel14.Name = "kryptonLabel14";
             this.kryptonLabel14.Size = new System.Drawing.Size(51, 19);
             this.kryptonLabel14.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -688,7 +714,7 @@
             // 
             // kryptonLabel15
             // 
-            this.kryptonLabel15.Location = new System.Drawing.Point(39, 27);
+            this.kryptonLabel15.Location = new System.Drawing.Point(42, 43);
             this.kryptonLabel15.Name = "kryptonLabel15";
             this.kryptonLabel15.Size = new System.Drawing.Size(58, 19);
             this.kryptonLabel15.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -697,7 +723,7 @@
             // 
             // kryptonLabel16
             // 
-            this.kryptonLabel16.Location = new System.Drawing.Point(29, 3);
+            this.kryptonLabel16.Location = new System.Drawing.Point(34, 12);
             this.kryptonLabel16.Name = "kryptonLabel16";
             this.kryptonLabel16.Size = new System.Drawing.Size(66, 19);
             this.kryptonLabel16.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -709,61 +735,46 @@
             this.hdDetailInfo.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
             this.btnEdit,
             this.btnAdd,
-            this.btnDelete,
-            this.btnDeleteAll,
             this.btnHideShowSearch});
             this.hdDetailInfo.Dock = System.Windows.Forms.DockStyle.Top;
             this.hdDetailInfo.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.DockActive;
             this.hdDetailInfo.Location = new System.Drawing.Point(0, 0);
             this.hdDetailInfo.Name = "hdDetailInfo";
-            this.hdDetailInfo.Size = new System.Drawing.Size(413, 29);
+            this.hdDetailInfo.Size = new System.Drawing.Size(435, 29);
             this.hdDetailInfo.TabIndex = 13;
             this.hdDetailInfo.Values.Description = "";
-            this.hdDetailInfo.Values.Heading = "Danh Nhà Cung Cấp";
+            this.hdDetailInfo.Values.Heading = "Thông Tin Mặt Hàng";
             this.hdDetailInfo.Values.Image = null;
+            this.hdDetailInfo.Paint += new System.Windows.Forms.PaintEventHandler(this.hdDetailInfo_Paint);
             // 
             // btnEdit
             // 
-            this.btnEdit.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.Edit;
+            this.btnEdit.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.reload;
             this.btnEdit.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
-            this.btnEdit.Text = "Sửa";
+            this.btnEdit.Text = "Làm Mới";
             this.btnEdit.UniqueName = "A68DB30FFBBE469ED4BD96ED3C9589A2";
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnAdd
             // 
             this.btnAdd.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.save_edit;
             this.btnAdd.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
-            this.btnAdd.Text = "Thêm";
+            this.btnAdd.Text = "Lưu";
             this.btnAdd.UniqueName = "6E177DC1660348E375BDCE591BF21FCB";
             this.btnAdd.Click += new System.EventHandler(this.btnAddItem_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.delete1;
-            this.btnDelete.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
-            this.btnDelete.Text = "Xóa";
-            this.btnDelete.UniqueName = "46715A2AEC0143074F81325F50887305";
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnDeleteAll
-            // 
-            this.btnDeleteAll.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.cancel;
-            this.btnDeleteAll.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
-            this.btnDeleteAll.Text = "Xóa Tất Cả";
-            this.btnDeleteAll.UniqueName = "CD7065CA8BA743FB00B53BCE567E60B8";
-            this.btnDeleteAll.Click += new System.EventHandler(this.btnDeleteAll_Click);
             // 
             // btnHideShowSearch
             // 
             this.btnHideShowSearch.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
             this.btnHideShowSearch.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.ArrowUp;
             this.btnHideShowSearch.UniqueName = "7CD50F96676F43E7C0B240BAD639EFD5";
+            this.btnHideShowSearch.Click += new System.EventHandler(this.btnHideShowSearch_Click);
             // 
             // NewFinalAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(792, 566);
+            this.ClientSize = new System.Drawing.Size(823, 566);
             this.Controls.Add(this.slcMain);
             this.Name = "NewFinalAccount";
             this.ShowIcon = false;
@@ -823,14 +834,12 @@
         private ComponentFactory.Krypton.Toolkit.KryptonComboBox cbbConstruction;
         private ComponentFactory.Krypton.Toolkit.KryptonComboBox cbbToPlace;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtPersonAccount;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtNameFinalAccount;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtNo;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel7;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel6;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel5;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel4;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel3;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel2;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel1;
         private ComponentFactory.Krypton.Toolkit.KryptonGroupBox gbxEdit2;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtNote;
@@ -860,16 +869,20 @@
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel16;
         private ComponentFactory.Krypton.Toolkit.KryptonHeader hdDetailInfo;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnAdd;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnDelete;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnDeleteAll;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnHideShowSearch;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnEdit;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny2;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny1;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny4;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny3;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaterialID;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaterialName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn RealCalUnit;
         private System.Windows.Forms.DataGridViewTextBoxColumn UnitCostFormated;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalCostFormated;
         private System.Windows.Forms.DataGridViewTextBoxColumn Note;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnEdit;
     }
 }
 

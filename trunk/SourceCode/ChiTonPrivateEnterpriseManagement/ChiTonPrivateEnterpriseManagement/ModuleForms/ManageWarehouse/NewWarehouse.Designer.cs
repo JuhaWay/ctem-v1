@@ -78,7 +78,7 @@
             this.cbbStatus.Location = new System.Drawing.Point(117, 76);
             this.cbbStatus.Name = "cbbStatus";
             this.cbbStatus.Size = new System.Drawing.Size(308, 22);
-            this.cbbStatus.TabIndex = 28;
+            this.cbbStatus.TabIndex = 1;
             // 
             // cbbConstruction
             // 
@@ -86,7 +86,7 @@
             this.cbbConstruction.Location = new System.Drawing.Point(112, 61);
             this.cbbConstruction.Name = "cbbConstruction";
             this.cbbConstruction.Size = new System.Drawing.Size(302, 22);
-            this.cbbConstruction.TabIndex = 27;
+            this.cbbConstruction.TabIndex = 2;
             // 
             // cbbType
             // 
@@ -94,7 +94,7 @@
             this.cbbType.Location = new System.Drawing.Point(112, 36);
             this.cbbType.Name = "cbbType";
             this.cbbType.Size = new System.Drawing.Size(302, 22);
-            this.cbbType.TabIndex = 26;
+            this.cbbType.TabIndex = 1;
             this.cbbType.SelectedIndexChanged += new System.EventHandler(this.cbbType_SelectedIndexChanged);
             // 
             // txtDescription
@@ -103,7 +103,7 @@
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(308, 71);
-            this.txtDescription.TabIndex = 25;
+            this.txtDescription.TabIndex = 2;
             // 
             // txtAddress
             // 
@@ -111,14 +111,14 @@
             this.txtAddress.Multiline = true;
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(302, 63);
-            this.txtAddress.TabIndex = 24;
+            this.txtAddress.TabIndex = 0;
             // 
             // txtNameManager
             // 
             this.txtNameManager.Location = new System.Drawing.Point(112, 86);
             this.txtNameManager.Name = "txtNameManager";
             this.txtNameManager.Size = new System.Drawing.Size(302, 22);
-            this.txtNameManager.TabIndex = 23;
+            this.txtNameManager.TabIndex = 3;
             this.txtNameManager.TextChanged += new System.EventHandler(this.txtNameManager_TextChanged);
             // 
             // txtWarehouseName
@@ -126,7 +126,7 @@
             this.txtWarehouseName.Location = new System.Drawing.Point(112, 12);
             this.txtWarehouseName.Name = "txtWarehouseName";
             this.txtWarehouseName.Size = new System.Drawing.Size(302, 22);
-            this.txtWarehouseName.TabIndex = 22;
+            this.txtWarehouseName.TabIndex = 0;
             this.txtWarehouseName.TextChanged += new System.EventHandler(this.txtWarehouseName_TextChanged);
             // 
             // kryptonLabel7
@@ -134,6 +134,7 @@
             this.kryptonLabel7.Location = new System.Drawing.Point(57, 100);
             this.kryptonLabel7.Name = "kryptonLabel7";
             this.kryptonLabel7.Size = new System.Drawing.Size(50, 19);
+            this.kryptonLabel7.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.kryptonLabel7.TabIndex = 21;
             this.kryptonLabel7.Values.Text = "Ghi Chú";
             // 
@@ -142,6 +143,7 @@
             this.kryptonLabel6.Location = new System.Drawing.Point(46, 76);
             this.kryptonLabel6.Name = "kryptonLabel6";
             this.kryptonLabel6.Size = new System.Drawing.Size(63, 19);
+            this.kryptonLabel6.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.kryptonLabel6.TabIndex = 20;
             this.kryptonLabel6.Values.Text = "Tình Trạng";
             // 
@@ -150,22 +152,25 @@
             this.kryptonLabel5.Location = new System.Drawing.Point(62, 7);
             this.kryptonLabel5.Name = "kryptonLabel5";
             this.kryptonLabel5.Size = new System.Drawing.Size(46, 19);
+            this.kryptonLabel5.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.kryptonLabel5.TabIndex = 19;
             this.kryptonLabel5.Values.Text = "Địa Chỉ";
             // 
             // kryptonLabel4
             // 
-            this.kryptonLabel4.Location = new System.Drawing.Point(14, 85);
+            this.kryptonLabel4.Location = new System.Drawing.Point(48, 89);
             this.kryptonLabel4.Name = "kryptonLabel4";
-            this.kryptonLabel4.Size = new System.Drawing.Size(85, 19);
+            this.kryptonLabel4.Size = new System.Drawing.Size(52, 19);
+            this.kryptonLabel4.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.kryptonLabel4.TabIndex = 18;
-            this.kryptonLabel4.Values.Text = "Ngoài Quản Lý";
+            this.kryptonLabel4.Values.Text = "Thủ Kho";
             // 
             // kryptonLabel3
             // 
             this.kryptonLabel3.Location = new System.Drawing.Point(35, 61);
             this.kryptonLabel3.Name = "kryptonLabel3";
             this.kryptonLabel3.Size = new System.Drawing.Size(65, 19);
+            this.kryptonLabel3.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.kryptonLabel3.TabIndex = 17;
             this.kryptonLabel3.Values.Text = "Công Trình";
             // 
@@ -174,6 +179,7 @@
             this.kryptonLabel2.Location = new System.Drawing.Point(73, 37);
             this.kryptonLabel2.Name = "kryptonLabel2";
             this.kryptonLabel2.Size = new System.Drawing.Size(31, 19);
+            this.kryptonLabel2.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.kryptonLabel2.TabIndex = 16;
             this.kryptonLabel2.Values.Text = "Loại";
             // 
@@ -182,6 +188,7 @@
             this.kryptonLabel1.Location = new System.Drawing.Point(51, 13);
             this.kryptonLabel1.Name = "kryptonLabel1";
             this.kryptonLabel1.Size = new System.Drawing.Size(51, 19);
+            this.kryptonLabel1.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.kryptonLabel1.TabIndex = 15;
             this.kryptonLabel1.Values.Text = "Tên Kho";
             // 

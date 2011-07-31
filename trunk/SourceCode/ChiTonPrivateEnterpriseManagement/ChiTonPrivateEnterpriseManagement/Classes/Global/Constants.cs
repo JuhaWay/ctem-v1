@@ -136,7 +136,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
 
         public const string CONFIRM_DELETEALL = "Bạn có chắc chắn muốn xóa tất cả?";
 
-        public const string UPDATE_SUCCESS = "Đã lưu đổi thành công";
+        public const string UPDATE_SUCCESS = "Đã lưu sự thay đổi thành công";
 
         public const string ANNOUNCE = "Thông báo";
 
