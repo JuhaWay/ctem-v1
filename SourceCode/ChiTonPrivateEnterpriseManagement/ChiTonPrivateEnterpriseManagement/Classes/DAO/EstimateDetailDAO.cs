@@ -65,7 +65,10 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         MaterialID = Convert.ToInt64(reader["MaterialID"]),
                         QuantityEstimate = Convert.ToInt32(reader["QuantityEstimate"]), 
                         UnitCostEstimate = Convert.ToDouble(reader["UnitCostEstimate"]),
-                        TotalCostEstimate = Convert.ToDouble(reader["TotalCostEstimate"])
+                        TotalCostEstimate = Convert.ToDouble(reader["TotalCostEstimate"]),
+                        QuantityReal = reader["QuantityReal"] != DBNull.Value ? Convert.ToInt64(reader["QuantityReal"]) : 0,
+                        UnitCostReal = reader["UnitCostReal"] != DBNull.Value ? Convert.ToInt64(reader["UnitCostReal"]) : 0,
+                        TotalCostReal = reader["TotalCostReal"] != DBNull.Value ? Convert.ToInt64(reader["TotalCostReal"]) : 0,
                     };
                     listcons.Add(edDto);
                 }
@@ -147,10 +150,13 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         QuantityEstimate = Convert.ToDouble(reader["QuantityEstimate"]),
                         MaterialEstCal = Convert.ToString(reader["EstimateCalUnit"]),
                         UnitCostEstimate = Convert.ToDouble(reader["UnitCostEstimate"]),
-                        TotalCostEstimate = Convert.ToDouble(reader["TotalCostEstimate"])
+                        TotalCostEstimate = Convert.ToDouble(reader["TotalCostEstimate"]),
+                        QuantityReal = reader["QuantityReal"] != DBNull.Value ? Convert.ToInt64(reader["QuantityReal"]) : 0,
+                        UnitCostReal = reader["UnitCostReal"] != DBNull.Value ? Convert.ToInt64(reader["UnitCostReal"]) : 0,
+                        TotalCostReal = reader["TotalCostReal"] != DBNull.Value ? Convert.ToInt64(reader["TotalCostReal"]) : 0
                     };
                     edDto.UnitCostEstimateFormated = Global.Global.ConvertDoubleToMoney(edDto.UnitCostEstimate,Constants.SPLIP_MONEY);
-                    edDto.TotalCostEstimateFormated = Global.Global.ConvertDoubleToMoney(edDto.TotalCostEstimate, Constants.SPLIP_MONEY);
+                    edDto.TotalCostEstimateFormated = Global.Global.ConvertDoubleToMoney(edDto.TotalCostEstimate, Constants.SPLIP_MONEY);                   
                     listcons.Add(edDto);
                 }
                 return listcons;
@@ -184,6 +190,9 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.Parameters.Add(new SqlParameter("@quantityEstimate", dto.QuantityEstimate));
                 cmd.Parameters.Add(new SqlParameter("@unitCostEstimate", dto.UnitCostEstimate));
                 cmd.Parameters.Add(new SqlParameter("@totalCostEstimate", dto.TotalCostEstimate));
+                cmd.Parameters.Add(new SqlParameter("@quantityReal", dto.QuantityReal));
+                cmd.Parameters.Add(new SqlParameter("@unitCostReal", dto.UnitCostReal));
+                cmd.Parameters.Add(new SqlParameter("@totalCostReal", dto.TotalCostReal));
                 cmd.Parameters.Add(new SqlParameter("@name", dto.Name));
                 cmd.Parameters.Add(new SqlParameter("@type", dto.Type));
                 cmd.ExecuteNonQuery();
@@ -221,6 +230,9 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.Parameters.Add(new SqlParameter("@quantityEstimate", dto.QuantityEstimate));
                 cmd.Parameters.Add(new SqlParameter("@unitCostEstimate", dto.UnitCostEstimate));
                 cmd.Parameters.Add(new SqlParameter("@totalCostEstimate", dto.TotalCostEstimate));
+                cmd.Parameters.Add(new SqlParameter("@quantityReal", dto.QuantityReal));
+                cmd.Parameters.Add(new SqlParameter("@unitCostReal", dto.UnitCostReal));
+                cmd.Parameters.Add(new SqlParameter("@totalCostReal", dto.TotalCostReal));
                 cmd.Parameters.Add(new SqlParameter("@name", dto.Name));
                 cmd.Parameters.Add(new SqlParameter("@type", dto.Type));
                 cmd.ExecuteNonQuery();

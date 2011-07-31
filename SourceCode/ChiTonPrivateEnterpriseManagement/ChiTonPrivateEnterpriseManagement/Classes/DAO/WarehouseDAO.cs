@@ -318,7 +318,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.Parameters.Add(new SqlParameter("@MaterialName", materialname));
                 SqlDataReader reader = cmd.ExecuteReader();
                 List<WarehouseMaterialDTO> listItem = new List<WarehouseMaterialDTO>();
-                if (reader.Read())
+                while (reader.Read())
                 {
                     var warehousematerial = new WarehouseMaterialDTO
                     {

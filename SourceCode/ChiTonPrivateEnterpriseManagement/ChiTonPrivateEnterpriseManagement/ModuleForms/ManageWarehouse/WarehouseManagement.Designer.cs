@@ -169,7 +169,7 @@
             // ManagerName
             // 
             this.ManagerName.DataPropertyName = "ManagerName";
-            this.ManagerName.HeaderText = "Người Quản Lý";
+            this.ManagerName.HeaderText = "Thủ Kho";
             this.ManagerName.Name = "ManagerName";
             this.ManagerName.Width = 150;
             // 
@@ -381,11 +381,12 @@
             this.hdWH.Size = new System.Drawing.Size(780, 29);
             this.hdWH.TabIndex = 0;
             this.hdWH.Values.Description = "";
-            this.hdWH.Values.Heading = "Danh Nhà Cung Cấp";
+            this.hdWH.Values.Heading = "Danh Sách Kho";
             this.hdWH.Values.Image = null;
             // 
             // btnDetail
             // 
+            this.btnDetail.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.application_view_detail;
             this.btnDetail.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
             this.btnDetail.Text = "Chi Tiết";
             this.btnDetail.UniqueName = "54E679D3AFF941084E833AD33285FDD1";
@@ -497,6 +498,7 @@
             this.kryptonLabel12.Location = new System.Drawing.Point(51, 13);
             this.kryptonLabel12.Name = "kryptonLabel12";
             this.kryptonLabel12.Size = new System.Drawing.Size(42, 19);
+            this.kryptonLabel12.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.kryptonLabel12.TabIndex = 36;
             this.kryptonLabel12.Values.Text = "Mã Số";
             // 
@@ -512,6 +514,7 @@
             this.kryptonLabel4.Location = new System.Drawing.Point(4, 110);
             this.kryptonLabel4.Name = "kryptonLabel4";
             this.kryptonLabel4.Size = new System.Drawing.Size(85, 19);
+            this.kryptonLabel4.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.kryptonLabel4.TabIndex = 31;
             this.kryptonLabel4.Values.Text = "Ngoài Quản Lý";
             // 
@@ -520,6 +523,7 @@
             this.kryptonLabel1.Location = new System.Drawing.Point(41, 37);
             this.kryptonLabel1.Name = "kryptonLabel1";
             this.kryptonLabel1.Size = new System.Drawing.Size(51, 19);
+            this.kryptonLabel1.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.kryptonLabel1.TabIndex = 28;
             this.kryptonLabel1.Values.Text = "Tên Kho";
             // 
@@ -536,6 +540,7 @@
             this.kryptonLabel2.Location = new System.Drawing.Point(63, 61);
             this.kryptonLabel2.Name = "kryptonLabel2";
             this.kryptonLabel2.Size = new System.Drawing.Size(31, 19);
+            this.kryptonLabel2.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.kryptonLabel2.TabIndex = 29;
             this.kryptonLabel2.Values.Text = "Loại";
             // 
@@ -553,6 +558,7 @@
             this.kryptonLabel3.Location = new System.Drawing.Point(25, 85);
             this.kryptonLabel3.Name = "kryptonLabel3";
             this.kryptonLabel3.Size = new System.Drawing.Size(65, 19);
+            this.kryptonLabel3.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.kryptonLabel3.TabIndex = 30;
             this.kryptonLabel3.Values.Text = "Công Trình";
             // 
@@ -593,6 +599,7 @@
             this.kryptonLabel7.Location = new System.Drawing.Point(24, 84);
             this.kryptonLabel7.Name = "kryptonLabel7";
             this.kryptonLabel7.Size = new System.Drawing.Size(50, 19);
+            this.kryptonLabel7.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.kryptonLabel7.TabIndex = 31;
             this.kryptonLabel7.Values.Text = "Ghi Chú";
             // 
@@ -609,6 +616,7 @@
             this.kryptonLabel5.Location = new System.Drawing.Point(29, 13);
             this.kryptonLabel5.Name = "kryptonLabel5";
             this.kryptonLabel5.Size = new System.Drawing.Size(46, 19);
+            this.kryptonLabel5.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.kryptonLabel5.TabIndex = 29;
             this.kryptonLabel5.Values.Text = "Địa Chỉ";
             // 
@@ -625,6 +633,7 @@
             this.kryptonLabel6.Location = new System.Drawing.Point(9, 58);
             this.kryptonLabel6.Name = "kryptonLabel6";
             this.kryptonLabel6.Size = new System.Drawing.Size(63, 19);
+            this.kryptonLabel6.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.kryptonLabel6.TabIndex = 30;
             this.kryptonLabel6.Values.Text = "Tình Trạng";
             // 
@@ -814,6 +823,7 @@
         private System.Windows.Forms.ToolStripMenuItem lưuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem SearchToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem HideSearchToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnDetail;
         private System.Windows.Forms.DataGridViewTextBoxColumn WarehouseID;
         private System.Windows.Forms.DataGridViewTextBoxColumn WarehouseName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ManagerName;
@@ -822,7 +832,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Address;
         private System.Windows.Forms.DataGridViewTextBoxColumn IsActive;
         private System.Windows.Forms.DataGridViewTextBoxColumn Description;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnDetail;
     }
 }
 

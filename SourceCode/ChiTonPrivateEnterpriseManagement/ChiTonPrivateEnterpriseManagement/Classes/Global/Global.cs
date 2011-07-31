@@ -368,18 +368,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
                 {
                     cbbControl.Items.Add(cons.ConstructionName);
                 }
-            }
-            if (obj.Equals(Constants.ACCOUNT_SEARCH))
-            {
-                var accountBus = new FinalAccountBUS();
-                var listacc = accountBus.GetFinalAccount(0, Constants.EMPTY_TEXT, Constants.EMPTY_TEXT, Constants.EMPTY_TEXT, DateTime.Parse("1/1/1753 12:00:00 AM"), DateTime.Parse("12/31/9998 12:00:00 AM"));
-                cbbControl.Items.Clear();
-                cbbControl.Items.Add(Constants.ALL);
-                foreach (FinalAccountDTO acc in listacc)
-                {
-                    cbbControl.Items.Add(acc.FinalAccountName);
-                }
-            }
+            }            
             if (obj.Equals(Constants.USER))
             {
                 var employeeBus = new EmployeeBUS();

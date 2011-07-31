@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -51,8 +51,21 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
                     Note = note
                 };
                 bool success = _debtBus.Create(compareDebtDto);
-                KryptonMessageBox.Show(success ? Constants.CREATE_SUCCESS : Constants.ERROR, Constants.ANNOUNCE);
-                ClearLayout();
+                if (success)
+                {
+                    if (KryptonMessageBox.Show(Constants.CREATE_SUCCESS, Constants.CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        ClearLayout();
+                    }
+                    else
+                    {
+                        Close();
+                    }
+                }
+                else
+                {
+                    KryptonMessageBox.Show(Constants.ERROR, Constants.CONFIRM, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             else
             {

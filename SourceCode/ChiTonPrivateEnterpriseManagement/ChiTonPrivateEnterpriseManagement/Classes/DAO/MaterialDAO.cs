@@ -157,6 +157,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         Note = Convert.ToString(reader["Note"]),
                         Status = Convert.ToString(reader["Status"]),
                         Name = Convert.ToString(reader["Name"]),
+                        Type = Convert.ToString(reader["Type"])
                     };
                     listcons.Add(consDto);
                 }

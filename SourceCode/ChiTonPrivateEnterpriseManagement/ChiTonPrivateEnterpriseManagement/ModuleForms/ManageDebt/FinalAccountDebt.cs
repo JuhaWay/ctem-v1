@@ -78,7 +78,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
             if (debtName.Equals(Constants.ALL)) { debtName = Constants.EMPTY_TEXT; }
             DateTime fromdate = dtpSearchFrom.Value;
             DateTime todate = dtpSearchTo.Value.AddDays(1);
-            ListFinalAccount = FinalAcc.GetFinalAccount(0, Constants.EMPTY_TEXT, Constants.EMPTY_TEXT, debtName, fromdate, todate);
+            ListFinalAccount = FinalAcc.GetFinalAccount(0, Constants.EMPTY_TEXT, debtName, fromdate, todate);
             dgvAccount.DataSource = ListFinalAccount;
         }
 

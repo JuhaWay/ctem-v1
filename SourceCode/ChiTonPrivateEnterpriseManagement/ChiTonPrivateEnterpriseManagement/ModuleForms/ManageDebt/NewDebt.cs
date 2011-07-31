@@ -48,8 +48,21 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
                     debt.IsActive = 0;
                 }
                 bool success = debtBUS.AddDebt(debt);
-                KryptonMessageBox.Show(success ? Constants.CREATE_SUCCESS : Constants.ERROR, Constants.CONFIRM);
-                ClearLayout();
+                if (success)
+                {
+                    if (KryptonMessageBox.Show(Constants.CREATE_SUCCESS, Constants.CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        ClearLayout();
+                    }
+                    else
+                    {
+                        Close();
+                    }
+                }
+                else
+                {
+                    KryptonMessageBox.Show(Constants.ERROR, Constants.CONFIRM, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             else
             {

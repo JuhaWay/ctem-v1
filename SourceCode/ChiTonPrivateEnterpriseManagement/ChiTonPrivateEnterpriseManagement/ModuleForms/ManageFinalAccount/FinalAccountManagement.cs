@@ -37,8 +37,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
             Global.SetLayoutHeaderGroup(hdDebt, Constants.CHILD_FORM);
             Global.SetDaulftDatagridview(dgvAccount);
             Global.SetLayoutGroupBoxSearch(gbxSearch);
-            Global.SetLayoutPanelChildForm(pnlSearch);
-            Global.SetDataCombobox(cbbNameSearch, Constants.ACCOUNT_SEARCH);
+            Global.SetLayoutPanelChildForm(pnlSearch);            
             Global.SetDataCombobox(cbbCons, Constants.CONSTRUCTION_SEARCH);
             Global.SetDataCombobox(cbbDebt, Constants.DEBT_SEARCH);
             Global.SetLayoutButton(btnSearch);
@@ -46,8 +45,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
 
         private void RefreshData()
         {
-            txtId.Text = Constants.ZERO_NUMBER;
-            if (cbbNameSearch.Items.Count > 0) { cbbNameSearch.SelectedIndex = 0; }
+            txtId.Text = Constants.ZERO_NUMBER;            
             if (cbbCons.Items.Count > 0) { cbbCons.SelectedIndex = 0; }
             if (cbbDebt.Items.Count > 0) { cbbDebt.SelectedIndex = 0; }
             dtpSearchTo.Value = DateTime.Today;
@@ -57,16 +55,14 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
 
         private void LoadData()
         {
-            long id = Convert.ToInt64(txtId.Text);
-            string name = cbbNameSearch.Text;
+            long id = Convert.ToInt64(txtId.Text);            
             string consName = cbbCons.Text;
-            string debtName = cbbDebt.Text;
-            if (name.Equals("Tất Cả")) { name = Constants.EMPTY_TEXT; }
+            string debtName = cbbDebt.Text;            
             if (consName.Equals("Tất Cả")) { consName = Constants.EMPTY_TEXT; }
             if (debtName.Equals("Tất Cả")) { debtName = Constants.EMPTY_TEXT; }
             DateTime fromdate = dtpSearchFrom.Value;
             DateTime todate = dtpSearchTo.Value.AddDays(1);
-            ListFinalAccount = FinalAcc.GetFinalAccount(id, name, consName, debtName, fromdate, todate);
+            ListFinalAccount = FinalAcc.GetFinalAccount(id, consName, debtName, fromdate, todate);
             dgvAccount.DataSource = ListFinalAccount;
         }
 
@@ -84,8 +80,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
 
         private void btnLoadAll_Click(object sender, EventArgs e)
         {
-            txtId.Text = Constants.ZERO_NUMBER;
-            if (cbbNameSearch.Items.Count > 0) { cbbNameSearch.SelectedIndex = 0; }
+            txtId.Text = Constants.ZERO_NUMBER;            
             if (cbbCons.Items.Count > 0) { cbbCons.SelectedIndex = 0; }
             if (cbbDebt.Items.Count > 0) { cbbDebt.SelectedIndex = 0; }
             dtpSearchFrom.Value = dtpSearchFrom.MinDate;
@@ -95,27 +90,33 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            bool success = false;
-            if (KryptonMessageBox.Show(Constants.CONFIRM_DELETE, Constants.CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-            {
-                foreach (DataGridViewRow row in dgvAccount.SelectedRows)
-                {
-                    long id = Convert.ToInt64(row.Cells["FinalAccountID"].Value.ToString());
-                    success = FinalAcc.DeleteFinalAccount(id);
-                }
-                KryptonMessageBox.Show(success ? Constants.DELETE_SUCESS : Constants.ERROR);
-                RefreshData();
-            }
+            KryptonMessageBox.Show(
+                " Chức Năng Này Hiện Tại Ảnh Hưởng Đến Nhiều Chức Năng.\n Chúc Tôi Sẽ Nâng Cấp Chức Năng Này Cho Phiên Bản Sau",
+                Constants.CONFIRM, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //bool success = false;
+            //if (KryptonMessageBox.Show(Constants.CONFIRM_DELETE, Constants.CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            //{
+            //    foreach (DataGridViewRow row in dgvAccount.SelectedRows)
+            //    {
+            //        long id = Convert.ToInt64(row.Cells["FinalAccountID"].Value.ToString());
+            //        success = FinalAcc.DeleteFinalAccount(id);
+            //    }
+            //    KryptonMessageBox.Show(success ? Constants.DELETE_SUCESS : Constants.ERROR);
+            //    RefreshData();
+            //}
         }
 
         private void btnDeleteAll_Click(object sender, EventArgs e)
         {
-            if (KryptonMessageBox.Show(Constants.CONFIRM_DELETEALL, Constants.CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-            {
-                bool success = FinalAcc.DeleteAll();
-                KryptonMessageBox.Show(success ? Constants.DELETE_SUCESS : Constants.ERROR);
-            }
-            RefreshData();
+            KryptonMessageBox.Show(
+                " Chức Năng Này Hiện Tại Ảnh Hưởng Đến Nhiều Chức Năng.\n Chúc Tôi Sẽ Nâng Cấp Chức Năng Này Cho Phiên Bản Sau",
+                Constants.CONFIRM, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //if (KryptonMessageBox.Show(Constants.CONFIRM_DELETEALL, Constants.CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            //{
+            //    bool success = FinalAcc.DeleteAll();
+            //    KryptonMessageBox.Show(success ? Constants.DELETE_SUCESS : Constants.ERROR);
+            //}
+            //RefreshData();
         }
 
         private void btnHideShowSearch_Click(object sender, EventArgs e)
@@ -147,7 +148,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
                 gbxSearch.Visible = true;
                 Global.DownUpControl(this, pnlSearch, 62, 2, 4, true);
             }
-            cbbNameSearch.Focus();
+            txtId.Focus();
         }
 
         private void HideSearchToolStripMenuItem_Click(object sender, EventArgs e)

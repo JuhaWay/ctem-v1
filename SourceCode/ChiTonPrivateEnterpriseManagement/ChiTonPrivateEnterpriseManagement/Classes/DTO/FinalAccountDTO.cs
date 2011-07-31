@@ -8,8 +8,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
 {
     public class FinalAccountDTO
     {
-        public long FinalAccountID { get; set; }
-        public string FinalAccountName { get; set; }
+        public long FinalAccountID { get; set; }        
         public long ConstructionID { get; set; }
         public long WarehouseID { get; set; }
         public string ConstructionName { get; set; }
