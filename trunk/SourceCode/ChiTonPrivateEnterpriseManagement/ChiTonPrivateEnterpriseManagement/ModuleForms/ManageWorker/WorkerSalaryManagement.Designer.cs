@@ -59,7 +59,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             this.workerSalaryDTOBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.pnlSearch = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.gbxSearch = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
-            this.kryptonDateTimePicker1 = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
+            this.dtMonth = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
             this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.cbSearchCons = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.lbSearchCons = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
@@ -370,7 +370,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             // 
             // gbxSearch.Panel
             // 
-            this.gbxSearch.Panel.Controls.Add(this.kryptonDateTimePicker1);
+            this.gbxSearch.Panel.Controls.Add(this.dtMonth);
             this.gbxSearch.Panel.Controls.Add(this.kryptonLabel1);
             this.gbxSearch.Panel.Controls.Add(this.cbSearchCons);
             this.gbxSearch.Panel.Controls.Add(this.lbSearchCons);
@@ -381,15 +381,15 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             this.gbxSearch.TabIndex = 0;
             this.gbxSearch.Values.Heading = "";
             // 
-            // kryptonDateTimePicker1
+            // dtMonth
             // 
-            this.kryptonDateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.kryptonDateTimePicker1.CustomFormat = "MM/yyyy";
-            this.kryptonDateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.kryptonDateTimePicker1.Location = new System.Drawing.Point(619, 14);
-            this.kryptonDateTimePicker1.Name = "kryptonDateTimePicker1";
-            this.kryptonDateTimePicker1.Size = new System.Drawing.Size(109, 20);
-            this.kryptonDateTimePicker1.TabIndex = 8;
+            this.dtMonth.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtMonth.CustomFormat = "MM/yyyy";
+            this.dtMonth.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtMonth.Location = new System.Drawing.Point(619, 14);
+            this.dtMonth.Name = "dtMonth";
+            this.dtMonth.Size = new System.Drawing.Size(109, 20);
+            this.dtMonth.TabIndex = 8;
             // 
             // kryptonLabel1
             // 
@@ -1053,7 +1053,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox ipSearchName;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel lbSearchName;
         private ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker dtTodate;
-        private ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker kryptonDateTimePicker1;
+        private ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker dtMonth;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel1;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox ipOthersCost;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel2;

@@ -66,6 +66,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
         public void refresh(){
             WorkerSalaryDTO dto = new WorkerSalaryDTO();
             dto.Name = ipSearchName.Text;
+            dto.month = dtMonth.Value.Date;
             if (cbSearchCons.SelectedIndex > -1)
                 dto.ConstructionID = (cbSearchCons.SelectedItem as ConstructionDTO).ConstructionID;
             List<WorkerSalaryDTO> list = _workerSalaryBUS.search(dto);
