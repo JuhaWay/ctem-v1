@@ -333,6 +333,11 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
                 }
             }
             search();
+        }
+
+        private void ipName_TextChanged(object sender, EventArgs e)
+        {
+            search();
         }       
     }
 }
