@@ -245,6 +245,7 @@
             this.ipSearchName.Name = "ipSearchName";
             this.ipSearchName.Size = new System.Drawing.Size(195, 22);
             this.ipSearchName.TabIndex = 0;
+            this.ipSearchName.TextChanged += new System.EventHandler(this.ipSearchName_TextChanged);
             // 
             // kryptonLabel8
             // 
