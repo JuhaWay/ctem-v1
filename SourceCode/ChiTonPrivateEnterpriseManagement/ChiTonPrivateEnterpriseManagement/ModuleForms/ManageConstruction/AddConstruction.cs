@@ -26,6 +26,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
         private const int TYPE_CHILD = 1;
         private int type = TYPE_PARENT;
         private long _parentID;
+        private long _constructionID;
         private bool _update;
         // tạo với type là  cha
         public AddConstruction() {
@@ -43,13 +44,28 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
             InitializeComponent();            
             _update = update;
             type = _type;
+            _constructionID = ID;
+        }
+         // load form
+        private void AddConstruction_Load(object sender, EventArgs e)
+        {
+            loadRefs();
+            CenterToParent();
+            Global.SetLayoutPanelNewForm(pnMain);
+            Global.SetLayoutForm(this, Constants.DIALOG_FORM);
+            Global.SetLayoutGroupBoxNewForm(kryptonGroupBox2);
+            Global.SetLayoutGroupBoxNewForm(kryptonGroupBox1);
+            Global.SetLayoutButton(btSave);
+            Global.SetLayoutButton(btCancel);
+
+
             // kiểm tra xem là update hay tạo mới
             if (_update)
-                loadUpdateForm(ID);
+                loadUpdateForm(_constructionID);
             else
             {
                 // trường hợp tạo con 
-                _parentID = ID;
+                _parentID = _constructionID;
                 this.ipProgressRate.Enabled = true;
             }
         }
@@ -76,6 +92,8 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
             cbStatus.SelectedItem = _constructionDTO.Status;
             ipProgressRate.Text = _constructionDTO.ProgressRate.ToString();
             cbType.Text = _constructionDTO.type;
+            dtStartDate.Value = _constructionDTO.CommencementDate;
+            dtEndDate.Value = _constructionDTO.CompletionDate;
             foreach (EmployerDTO item in cbManager.Items)
             {
                 if (_constructionDTO.ManagerID.Equals(item.employeeID))
@@ -84,18 +102,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
         }
 
 
-        // load form
-        private void AddConstruction_Load(object sender, EventArgs e)
-        {
-            loadRefs();
-            CenterToParent();
-            Global.SetLayoutPanelNewForm(pnMain);
-            Global.SetLayoutForm(this, Constants.DIALOG_FORM);
-            Global.SetLayoutGroupBoxNewForm(kryptonGroupBox2);
-            Global.SetLayoutGroupBoxNewForm(kryptonGroupBox1);
-            Global.SetLayoutButton(btSave);
-            Global.SetLayoutButton(btCancel);
-        }
+       
         // load nhà thau phụ
         private void loadRefs()
         {   cbType.Items.AddRange(ConstructionDTO.getType().ToArray());         
@@ -225,6 +232,12 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
             else if (cbStatus.SelectedIndex<0)
             {
                 KryptonMessageBox.Show("vui lòng chọn tình trạng", Constants.CONFIRM, MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return false;
+            }
+            else if (dtEndDate.Value<dtStartDate.Value)
+            {
+                KryptonMessageBox.Show("Ngày khởi công không được vượt quá ngày hoàn thành", Constants.CONFIRM, MessageBoxButtons.OK,
                                 MessageBoxIcon.Warning);
                 return false;
             }
