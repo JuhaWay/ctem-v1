@@ -175,5 +175,10 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageSubconstractor
                 ipPhone.Focus();
             }
         }
+
+        private void ipSearchName_TextChanged(object sender, EventArgs e)
+        {
+            refresh();
+        }
     }
 }
