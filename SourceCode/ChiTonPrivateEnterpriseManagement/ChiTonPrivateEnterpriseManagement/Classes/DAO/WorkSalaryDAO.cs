@@ -109,6 +109,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.Parameters.Add(new SqlParameter("@name","%"+ param.Name+"%"));
             else
                 cmd.Parameters.Add(new SqlParameter("@name", DBNull.Value));
+            cmd.Parameters.Add(new SqlParameter("@month", param.month));
             try
             {
                 SqlDataReader reader = cmd.ExecuteReader();

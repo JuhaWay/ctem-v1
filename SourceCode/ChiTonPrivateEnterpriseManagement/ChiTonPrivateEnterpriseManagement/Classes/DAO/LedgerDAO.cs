@@ -96,7 +96,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             else
                 cmd.Parameters.Add(new SqlParameter("@Type", DBNull.Value));
             if (param.Person.Trim().Equals("") == false)
-                cmd.Parameters.Add(new SqlParameter("@Person", param.Person.Trim()));
+                cmd.Parameters.Add(new SqlParameter("@Person", "%" + param.Person.Trim() + "%"));
             else
                 cmd.Parameters.Add(new SqlParameter("@Person", DBNull.Value));
             if (param.Kind.Trim().Equals("") == false && param.Kind.Trim().Equals("Tất cả") == false)
