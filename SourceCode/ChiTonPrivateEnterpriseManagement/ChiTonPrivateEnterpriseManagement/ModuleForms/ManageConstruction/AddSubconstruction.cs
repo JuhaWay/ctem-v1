@@ -20,13 +20,12 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
         private EstimateBUS _estimateBUS = new EstimateBUS();
 
         private ConstructionDTO _constructionDTO = new ConstructionDTO();
-        private ConstructionDTO _tempDTO = new ConstructionDTO();
         private List<PayDTO> _pays = new List<PayDTO>();
         private bool update = false;
         // for create new
         public AddSubconstruction(long parentId,bool edit=false)
         {
-            _tempDTO.ParentID = parentId;
+            _constructionDTO.ParentID = parentId;
             CenterToParent();
             InitializeComponent();
             loadSubcons();
@@ -38,24 +37,24 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
             InitializeComponent();
             loadSubcons();
             update = true;
-            _tempDTO = _constructionBus.LoadConstructionById(constructionId);
+            _constructionDTO = _constructionBus.LoadConstructionById(constructionId);
             foreach(SubcontractorDTO item in cbSubconName.Items){
-                if (item.SubcontractorID.Equals(_tempDTO.SubconstractorID))
+                if (item.SubcontractorID.Equals(_constructionDTO.SubconstractorID))
                     cbSubconName.SelectedItem = item;
             }
-            ipConstructionName.Text = _tempDTO.ConstructionName;
-            ipDes.Text = _tempDTO.ConstructionAddress;
-            ipAddress.Text = _tempDTO.ConstructionAddress;
-            cbStatus.SelectedItem = _tempDTO.Status;
-            ipProgressRate.Text = _tempDTO.ProgressRate.ToString();
-            ipRealCost.Text = _tempDTO.TotalRealCost.ToString();
-            ipEst.Text = _tempDTO.TotalEstimateCost.ToString();
+            ipConstructionName.Text = _constructionDTO.ConstructionName;
+            ipDes.Text = _constructionDTO.ConstructionAddress;
+            ipAddress.Text = _constructionDTO.ConstructionAddress;
+            cbStatus.SelectedItem = _constructionDTO.Status;
+            ipProgressRate.Text = _constructionDTO.ProgressRate.ToString();
+            ipRealCost.Text = _constructionDTO.TotalRealCost.ToString();
+            ipEst.Text = _constructionDTO.TotalEstimateCost.ToString();
             _pays = _constructionBus.LoadAllDisbursementProgress(constructionId,0);
             dgvPaid.DataSource = null;
             if (_pays!= null && _pays.Count>0)
                    dgvPaid.DataSource  = _pays;
-            dtStartDate.Value = _tempDTO.CommencementDate;
-            dtEndDate.Value = _tempDTO.CompletionDate;
+            dtStartDate.Value = _constructionDTO.CommencementDate;
+            dtEndDate.Value = _constructionDTO.CompletionDate;
          
         }
         //load nha thau phu
@@ -88,7 +87,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
             cbSubconName.Items.AddRange(subCons.ToArray());
             foreach (SubcontractorDTO dto in subCons)
             {
-                if (_tempDTO.SubconstractorID.Equals(dto.SubcontractorID))
+                if (_constructionDTO.SubconstractorID.Equals(dto.SubcontractorID))
                     cbSubconName.SelectedItem = dto;
             }
 
@@ -107,7 +106,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
                 _constructionDTO.ConstructionAddress = ipAddress.Text;
                 _constructionDTO.Description = ipDes.Text;
                 _constructionDTO.Status = cbStatus.Text;
-                _constructionDTO.ParentID = _tempDTO.ParentID;
                 _constructionDTO.SubconstractorID = (cbSubconName.SelectedItem as SubcontractorDTO).SubcontractorID;
                 _constructionDTO.type = ConstructionDTO.SUB; 
                 if (Global.ValidateIntNumber(ipProgressRate.Text))
@@ -138,7 +136,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
             }
             else
             {
-                _constructionDTO.ConstructionID = _tempDTO.ConstructionID;
                 _constructionDTO.CommencementDate = dtStartDate.Value.Date;
                 _constructionDTO.CompletionDate = dtEndDate.Value.Date;
                 _constructionDTO.ConstructionName = ipConstructionName.Text;
@@ -146,7 +143,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
                 _constructionDTO.Description = ipDes.Text;
                 _constructionDTO.TotalEstimateCost = 0;
                 _constructionDTO.Status = cbStatus.Text;
-                _constructionDTO.ParentID = _tempDTO.ParentID;
                 _constructionDTO.SubconstractorID = (cbSubconName.SelectedItem as SubcontractorDTO).SubcontractorID;
                 if (Global.ValidateIntNumber(ipProgressRate.Text))
                     _constructionDTO.ProgressRate = Convert.ToInt64(ipProgressRate.Text);
