@@ -341,13 +341,43 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
             }
             else if (!Global.ValidateIntNumber(ipRate.Text) || Convert.ToInt32(ipRate.Text) > 100)
             {
-                    KryptonMessageBox.Show("Sai thông tin tỷ lệ", Constants.CONFIRM, MessageBoxButtons.OK,
+                KryptonMessageBox.Show("Sai thông tin tỷ lệ", Constants.CONFIRM, MessageBoxButtons.OK,
+                          MessageBoxIcon.Warning);
+                return false;
+            }
+            else
+            {
+                int rate = Convert.ToInt32(ipRate.Text);
+                long estimate = Global.ConvertMoneyToLong(ipPaid.Text, Global.SEP);
+                foreach (PayDTO temp in _pays)
+                {
+                    rate += temp.Rate;
+                    estimate += temp.Number;
+                }
+                if (rate>100)
+                {
+                    KryptonMessageBox.Show("Tổng tỷ lệ không thể vượt quá 100%", Constants.CONFIRM, MessageBoxButtons.OK,
                               MessageBoxIcon.Warning);
                     return false;
+                }
+                long total = Global.ConvertMoneyToLong(ipEst.Text, Global.SEP);
+                if (estimate > total)
+                {
+                    KryptonMessageBox.Show("Tổng số tiền không thể vượt quá tiền khoáng", Constants.CONFIRM, MessageBoxButtons.OK,
+                              MessageBoxIcon.Warning);
+                    return false;
+                }
             }
            
             return true;
 
+        }
+
+
+        public bool isCorrectData()
+        {
+
+            return true;
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
