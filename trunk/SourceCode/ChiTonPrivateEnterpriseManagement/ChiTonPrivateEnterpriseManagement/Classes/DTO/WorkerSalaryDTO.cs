@@ -34,5 +34,8 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
         public string LastUpdateFormated { get; set; }
         public string OthersCostFormated { get; set; }
         public string TotalCostFormated { get; set; }
+
+
+        public DateTime month { get; set; }
     }
 }
