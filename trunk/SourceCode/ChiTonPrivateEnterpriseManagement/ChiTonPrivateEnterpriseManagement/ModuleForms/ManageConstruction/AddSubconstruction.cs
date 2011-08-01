@@ -54,7 +54,8 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
             dgvPaid.DataSource = null;
             if (_pays!= null && _pays.Count>0)
                    dgvPaid.DataSource  = _pays;
-
+            dtStartDate.Value = _tempDTO.CommencementDate;
+            dtEndDate.Value = _tempDTO.CompletionDate;
          
         }
         //load nha thau phu
@@ -224,7 +225,12 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
                            MessageBoxIcon.Warning);
                 return false;
             }
-            
+             else if (dtEndDate.Value < dtStartDate.Value)
+             {
+                 KryptonMessageBox.Show("Ngày khởi công không được vượt quá ngày hoàn thành", Constants.CONFIRM, MessageBoxButtons.OK,
+                                 MessageBoxIcon.Warning);
+                 return false;
+             }
 
             return true;
         }
@@ -343,6 +349,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
                               MessageBoxIcon.Warning);
                     return false;
             }
+           
             return true;
 
         }
