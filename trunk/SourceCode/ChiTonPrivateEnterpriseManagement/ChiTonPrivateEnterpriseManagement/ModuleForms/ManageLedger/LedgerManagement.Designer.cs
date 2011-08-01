@@ -47,15 +47,6 @@
             this.ipName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.lbName = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.dgvLedger = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.LedgerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Kind = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Person = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Reason = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Method = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ledgerDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.kryptonLabel3 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
@@ -105,6 +96,15 @@
             this.kryptonContextMenuItems3 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
             this.kryptonContextMenuItems2 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
             this.kryptonContextMenuItems1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
+            this.LedgerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Kind = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Person = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Reason = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Method = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbMethod)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbType)).BeginInit();
@@ -150,7 +150,7 @@
             this.dtDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.dtDate.CustomFormat = "dd/MM/yyyy";
             this.dtDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtDate.Location = new System.Drawing.Point(241, 125);
+            this.dtDate.Location = new System.Drawing.Point(240, 87);
             this.dtDate.Name = "dtDate";
             this.dtDate.Size = new System.Drawing.Size(175, 20);
             this.dtDate.TabIndex = 13;
@@ -158,7 +158,7 @@
             // lbDate
             // 
             this.lbDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.lbDate.Location = new System.Drawing.Point(184, 126);
+            this.lbDate.Location = new System.Drawing.Point(183, 88);
             this.lbDate.Name = "lbDate";
             this.lbDate.Size = new System.Drawing.Size(38, 16);
             this.lbDate.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -193,15 +193,16 @@
             // ipReason
             // 
             this.ipReason.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.ipReason.Location = new System.Drawing.Point(241, 88);
+            this.ipReason.Location = new System.Drawing.Point(240, 124);
+            this.ipReason.Multiline = true;
             this.ipReason.Name = "ipReason";
-            this.ipReason.Size = new System.Drawing.Size(175, 22);
+            this.ipReason.Size = new System.Drawing.Size(175, 84);
             this.ipReason.TabIndex = 11;
             // 
             // lbReason
             // 
             this.lbReason.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.lbReason.Location = new System.Drawing.Point(184, 88);
+            this.lbReason.Location = new System.Drawing.Point(183, 124);
             this.lbReason.Name = "lbReason";
             this.lbReason.Size = new System.Drawing.Size(39, 16);
             this.lbReason.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -285,13 +286,13 @@
             // lbName
             // 
             this.lbName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.lbName.Location = new System.Drawing.Point(193, 12);
+            this.lbName.Location = new System.Drawing.Point(165, 15);
             this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(43, 16);
+            this.lbName.Size = new System.Drawing.Size(71, 16);
             this.lbName.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.lbName.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbName.TabIndex = 16;
-            this.lbName.Values.Text = "Tên(*)";
+            this.lbName.Values.Text = "Mã phiếu(*)";
             // 
             // dgvLedger
             // 
@@ -311,77 +312,13 @@
             this.dgvLedger.Location = new System.Drawing.Point(0, 116);
             this.dgvLedger.Name = "dgvLedger";
             this.dgvLedger.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLedger.Size = new System.Drawing.Size(762, 450);
+            this.dgvLedger.Size = new System.Drawing.Size(762, 394);
             this.dgvLedger.StateCommon.Background.Color1 = System.Drawing.Color.White;
             this.dgvLedger.StateCommon.Background.Color2 = System.Drawing.Color.White;
             this.dgvLedger.StateCommon.Background.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.GlassCenter;
             this.dgvLedger.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
             this.dgvLedger.TabIndex = 6;
             this.dgvLedger.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvLedger_MouseClick);
-            // 
-            // LedgerID
-            // 
-            this.LedgerID.DataPropertyName = "LedgerID";
-            this.LedgerID.HeaderText = "LedgerID";
-            this.LedgerID.Name = "LedgerID";
-            this.LedgerID.Visible = false;
-            // 
-            // Name
-            // 
-            this.Name.DataPropertyName = "Name";
-            this.Name.HeaderText = "Tên";
-            this.Name.Name = "Name";
-            this.Name.Width = 200;
-            // 
-            // Type
-            // 
-            this.Type.DataPropertyName = "Type";
-            this.Type.HeaderText = "Loại";
-            this.Type.Name = "Type";
-            this.Type.Width = 150;
-            // 
-            // Kind
-            // 
-            this.Kind.DataPropertyName = "Kind";
-            this.Kind.HeaderText = "Loại chi";
-            this.Kind.Name = "Kind";
-            // 
-            // Number
-            // 
-            this.Number.DataPropertyName = "NumberFormated";
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Red;
-            this.Number.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Number.HeaderText = "Số tiền";
-            this.Number.Name = "Number";
-            this.Number.Width = 200;
-            // 
-            // Person
-            // 
-            this.Person.DataPropertyName = "Person";
-            this.Person.HeaderText = "chi cho ai";
-            this.Person.Name = "Person";
-            this.Person.Width = 150;
-            // 
-            // Reason
-            // 
-            this.Reason.DataPropertyName = "Reason";
-            this.Reason.HeaderText = "lí do";
-            this.Reason.Name = "Reason";
-            this.Reason.Width = 200;
-            // 
-            // Method
-            // 
-            this.Method.DataPropertyName = "Method";
-            this.Method.HeaderText = "cách thức";
-            this.Method.Name = "Method";
-            // 
-            // Date
-            // 
-            this.Date.DataPropertyName = "DateFormated";
-            this.Date.HeaderText = "Ngày chi";
-            this.Date.Name = "Date";
-            this.Date.Width = 150;
             // 
             // ledgerDTOBindingSource
             // 
@@ -467,7 +404,7 @@
             // 
             this.slcMain.Panel2.Controls.Add(this.gbcRightBot);
             this.slcMain.Size = new System.Drawing.Size(766, 778);
-            this.slcMain.SplitterDistance = 572;
+            this.slcMain.SplitterDistance = 516;
             this.slcMain.TabIndex = 14;
             // 
             // gbxLeftBot
@@ -481,7 +418,7 @@
             this.gbxLeftBot.Panel.Controls.Add(this.dgvLedger);
             this.gbxLeftBot.Panel.Controls.Add(this.pnlSearch);
             this.gbxLeftBot.Panel.Controls.Add(this.hdDebt);
-            this.gbxLeftBot.Size = new System.Drawing.Size(766, 572);
+            this.gbxLeftBot.Size = new System.Drawing.Size(766, 516);
             this.gbxLeftBot.TabIndex = 0;
             this.gbxLeftBot.Values.Heading = "";
             // 
@@ -587,7 +524,7 @@
             this.hdDebt.Size = new System.Drawing.Size(762, 29);
             this.hdDebt.TabIndex = 0;
             this.hdDebt.Values.Description = "";
-            this.hdDebt.Values.Heading = "Danh Nhà Cung Cấp";
+            this.hdDebt.Values.Heading = "";
             this.hdDebt.Values.Image = null;
             // 
             // btnAdd
@@ -622,7 +559,7 @@
             // 
             this.gbcRightBot.Panel.Controls.Add(this.gbxEdit1);
             this.gbcRightBot.Panel.Controls.Add(this.hdEdit);
-            this.gbcRightBot.Size = new System.Drawing.Size(766, 201);
+            this.gbcRightBot.Size = new System.Drawing.Size(766, 257);
             this.gbcRightBot.TabIndex = 1;
             this.gbcRightBot.Values.Heading = "";
             // 
@@ -652,7 +589,7 @@
             this.gbxEdit1.Panel.Controls.Add(this.lbPerson);
             this.gbxEdit1.Panel.Controls.Add(this.ipReason);
             this.gbxEdit1.Panel.Controls.Add(this.lbType);
-            this.gbxEdit1.Size = new System.Drawing.Size(762, 166);
+            this.gbxEdit1.Size = new System.Drawing.Size(762, 222);
             this.gbxEdit1.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(92)))), ((int)(((byte)(144)))));
             this.gbxEdit1.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
             this.gbxEdit1.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -872,6 +809,70 @@
             // 
             this.kryptonContextMenuItem1.Text = "Menu Item";
             // 
+            // LedgerID
+            // 
+            this.LedgerID.DataPropertyName = "LedgerID";
+            this.LedgerID.HeaderText = "LedgerID";
+            this.LedgerID.Name = "LedgerID";
+            this.LedgerID.Visible = false;
+            // 
+            // Name
+            // 
+            this.Name.DataPropertyName = "Name";
+            this.Name.HeaderText = "Mã phiếu";
+            this.Name.Name = "Name";
+            this.Name.Width = 200;
+            // 
+            // Type
+            // 
+            this.Type.DataPropertyName = "Type";
+            this.Type.HeaderText = "Loại";
+            this.Type.Name = "Type";
+            this.Type.Width = 150;
+            // 
+            // Kind
+            // 
+            this.Kind.DataPropertyName = "Kind";
+            this.Kind.HeaderText = "Loại chi";
+            this.Kind.Name = "Kind";
+            // 
+            // Number
+            // 
+            this.Number.DataPropertyName = "NumberFormated";
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Red;
+            this.Number.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Number.HeaderText = "Số tiền";
+            this.Number.Name = "Number";
+            this.Number.Width = 200;
+            // 
+            // Person
+            // 
+            this.Person.DataPropertyName = "Person";
+            this.Person.HeaderText = "chi cho ai";
+            this.Person.Name = "Person";
+            this.Person.Width = 150;
+            // 
+            // Reason
+            // 
+            this.Reason.DataPropertyName = "Reason";
+            this.Reason.HeaderText = "lí do";
+            this.Reason.Name = "Reason";
+            this.Reason.Width = 200;
+            // 
+            // Method
+            // 
+            this.Method.DataPropertyName = "Method";
+            this.Method.HeaderText = "cách thức";
+            this.Method.Name = "Method";
+            // 
+            // Date
+            // 
+            this.Date.DataPropertyName = "DateFormated";
+            this.Date.HeaderText = "Ngày chi";
+            this.Date.Name = "Date";
+            this.Date.Width = 150;
+            // 
             // LedgerManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -882,7 +883,6 @@
             this.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.DockActive;
             this.ShowIcon = false;
             this.Text = "Sổ cái";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.LedgerManagement_Load);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbMethod)).EndInit();
@@ -986,6 +986,10 @@
         private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems kryptonContextMenuItems2;
         private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems kryptonContextMenuItems1;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel4;
+        private ComponentFactory.Krypton.Toolkit.KryptonComboBox cbChiType;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel lbChiType;
+        private ComponentFactory.Krypton.Toolkit.KryptonComboBox cbSearchChiType;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel lbSearchChiType;
         private System.Windows.Forms.DataGridViewTextBoxColumn LedgerID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Name;
         private System.Windows.Forms.DataGridViewTextBoxColumn Type;
@@ -995,10 +999,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Reason;
         private System.Windows.Forms.DataGridViewTextBoxColumn Method;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
-        private ComponentFactory.Krypton.Toolkit.KryptonComboBox cbChiType;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel lbChiType;
-        private ComponentFactory.Krypton.Toolkit.KryptonComboBox cbSearchChiType;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel lbSearchChiType;
     }
 }
 
