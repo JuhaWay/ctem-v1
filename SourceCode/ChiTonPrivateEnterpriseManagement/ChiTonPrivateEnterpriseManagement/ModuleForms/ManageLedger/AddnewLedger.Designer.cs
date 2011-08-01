@@ -141,14 +141,14 @@
             // 
             this.dtDate.CustomFormat = "dd/MM/yyyy";
             this.dtDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtDate.Location = new System.Drawing.Point(133, 253);
+            this.dtDate.Location = new System.Drawing.Point(133, 206);
             this.dtDate.Name = "dtDate";
             this.dtDate.Size = new System.Drawing.Size(175, 20);
             this.dtDate.TabIndex = 8;
             // 
             // lbDate
             // 
-            this.lbDate.Location = new System.Drawing.Point(81, 253);
+            this.lbDate.Location = new System.Drawing.Point(81, 206);
             this.lbDate.Name = "lbDate";
             this.lbDate.Size = new System.Drawing.Size(38, 16);
             this.lbDate.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -162,7 +162,7 @@
             this.cbMethod.Items.AddRange(new object[] {
             "Tiền mặt",
             "Chuyển khoảng"});
-            this.cbMethod.Location = new System.Drawing.Point(133, 215);
+            this.cbMethod.Location = new System.Drawing.Point(133, 178);
             this.cbMethod.Name = "cbMethod";
             this.cbMethod.Size = new System.Drawing.Size(175, 22);
             this.cbMethod.TabIndex = 7;
@@ -170,7 +170,7 @@
             // 
             // lbMethod
             // 
-            this.lbMethod.Location = new System.Drawing.Point(56, 215);
+            this.lbMethod.Location = new System.Drawing.Point(56, 178);
             this.lbMethod.Name = "lbMethod";
             this.lbMethod.Size = new System.Drawing.Size(73, 16);
             this.lbMethod.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -180,14 +180,15 @@
             // 
             // ipReason
             // 
-            this.ipReason.Location = new System.Drawing.Point(133, 181);
+            this.ipReason.Location = new System.Drawing.Point(133, 232);
+            this.ipReason.Multiline = true;
             this.ipReason.Name = "ipReason";
-            this.ipReason.Size = new System.Drawing.Size(175, 22);
+            this.ipReason.Size = new System.Drawing.Size(175, 46);
             this.ipReason.TabIndex = 6;
             // 
             // lbReason
             // 
-            this.lbReason.Location = new System.Drawing.Point(84, 184);
+            this.lbReason.Location = new System.Drawing.Point(86, 232);
             this.lbReason.Name = "lbReason";
             this.lbReason.Size = new System.Drawing.Size(39, 16);
             this.lbReason.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -263,13 +264,13 @@
             // 
             // lbName
             // 
-            this.lbName.Location = new System.Drawing.Point(86, 36);
+            this.lbName.Location = new System.Drawing.Point(57, 42);
             this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(43, 16);
+            this.lbName.Size = new System.Drawing.Size(71, 16);
             this.lbName.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.lbName.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbName.TabIndex = 0;
-            this.lbName.Values.Text = "Tên(*)";
+            this.lbName.Values.Text = "Mã phiếu(*)";
             // 
             // AddnewLedger
             // 
@@ -301,8 +302,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonLabel lbDate;
         private ComponentFactory.Krypton.Toolkit.KryptonComboBox cbMethod;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel lbMethod;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox ipReason;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel lbReason;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox ipPerson;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel lbPerson;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox ipNumber;
@@ -314,6 +313,8 @@
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel4;
         private ComponentFactory.Krypton.Toolkit.KryptonComboBox cbChiType;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel lbChiType;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox ipReason;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel lbReason;
     }
 }
 

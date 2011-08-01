@@ -112,7 +112,8 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageLedger
 
         private void btDelete_Click(object sender, EventArgs e)
         {
-            if (KryptonMessageBox.Show("Xóa thông tin ?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (KryptonMessageBox.Show(Constants.CONFIRM_DELETE, Constants.CONFIRM, MessageBoxButtons.YesNo,
+                               MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 foreach (DataGridViewRow row in dgvLedger.SelectedRows)
                 {
