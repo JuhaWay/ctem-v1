@@ -444,6 +444,7 @@
             this.ipName.Name = "ipName";
             this.ipName.Size = new System.Drawing.Size(92, 22);
             this.ipName.TabIndex = 0;
+            this.ipName.TextChanged += new System.EventHandler(this.ipName_TextChanged);
             // 
             // lbFromdate
             // 
