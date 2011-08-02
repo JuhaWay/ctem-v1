@@ -122,18 +122,24 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         ConstructionID = Convert.ToInt64(reader["ConstructionID"]),
                         EstimateID = Convert.ToInt64(reader["EstimateID"]),
                         EstimateName = Convert.ToString(reader["EstimateName"]),
-                        TotalCostEstimate = Convert.ToDouble(reader["TotalCostEstimate"]),
                         TotalCostReal = Convert.ToInt64(reader["TotalCostReal"]),
                         CreatedBy =  Convert.ToString(reader["CreatedBy"]),
                         ParentName = Convert.ToString(reader["ParentName"]),
                         CreatedDate = Convert.ToDateTime(reader["CreatedDate"]),
                         UpdatedBy = Convert.ToString(reader["UpdatedBy"]),
                         ConsType = Convert.ToString(reader["ConsType"]),
-                        MaterialCostEstimate = Convert.ToDouble(reader["MaterialCostEstimate"]),
-                        WorkerCostEstimate = Convert.ToDouble(reader["WorkerCostEstimate"]),
-                        VehicleCostEstimate = Convert.ToDouble(reader["VehicleCostEstimate"]),
-                        MachineCostEstimate = Convert.ToDouble(reader["MachineCostEstimate"]),
-                        GeneralCostEstimate = Convert.ToDouble(reader["GeneralCostEstimate"]),
+                        TotalCostEstimate =reader["TotalCostEstimate"]==DBNull.Value?0:
+                        Convert.ToDouble(reader["TotalCostEstimate"]),
+                        MaterialCostEstimate = reader["MaterialCostEstimate"]==DBNull.Value?0:
+                        Convert.ToDouble(reader["MaterialCostEstimate"]),
+                        WorkerCostEstimate =reader["WorkerCostEstimate"]==DBNull.Value?0:
+                        Convert.ToDouble(reader["WorkerCostEstimate"]),
+                        VehicleCostEstimate = reader["VehicleCostEstimate"]==DBNull.Value?0:
+                        Convert.ToDouble(reader["VehicleCostEstimate"]),
+                        MachineCostEstimate =reader["MachineCostEstimate"]==DBNull.Value?0:
+                        Convert.ToDouble(reader["MachineCostEstimate"]),
+                        GeneralCostEstimate =reader["GeneralCostEstimate"]==DBNull.Value?0:
+                        Convert.ToDouble(reader["GeneralCostEstimate"]),
                        
                     };
                     try{
