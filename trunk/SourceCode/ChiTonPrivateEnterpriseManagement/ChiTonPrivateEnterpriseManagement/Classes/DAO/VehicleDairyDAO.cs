@@ -82,8 +82,6 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         ConstructionID = Convert.ToInt64(reader["ConstructionID"]),
                         RoadMap = Convert.ToString(reader["RoadMap"]),
                         DriverID = Convert.ToInt64(reader["DriverID"]),
-                        FualCost = Convert.ToInt64(reader["FualCost"]),
-                        DamagedCost = Convert.ToInt64(reader["DamagedCost"]),
                         ConstructionName = Convert.ToString(reader["ConstructionName"]),
                         VehicleName = Convert.ToString(reader["Name"]),
                         DriverName = Convert.ToString(reader["Username"]),
@@ -91,14 +89,12 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         Date = Convert.ToDateTime(reader["Date"]),
                         isPaid = Convert.ToBoolean(reader["isPaid"]),
                         Category = Convert.ToString(reader["Category"]),
-                        Reason = Convert.ToString(reader["Reason"]),
                         Task = Convert.ToString(reader["Task"]),
                         Totalcost = Convert.ToInt64(reader["TotalCost"])
 
 
                     };
-                    dto.FualCostFormated = Global.Global.ConvertLongToMoney(dto.FualCost, Global.Global.SEP);
-                    dto.DamagedCostFormated = Global.Global.ConvertLongToMoney(dto.DamagedCost, Global.Global.SEP);
+                  
                     dto.DateFormated = dto.Date.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
                     dto.TotalcostFormated = Global.Global.ConvertLongToMoney(dto.Totalcost, Global.Global.SEP);
                     listcons.Add(dto);
@@ -140,8 +136,6 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         ConstructionID = Convert.ToInt64(reader["ConstructionID"]),
                         RoadMap = Convert.ToString(reader["RoadMap"]),
                         DriverID = Convert.ToInt64(reader["DriverID"]),
-                        FualCost = Convert.ToInt64(reader["FualCost"]),
-                        DamagedCost = Convert.ToInt64(reader["DamagedCost"]),
                         ConstructionName = Convert.ToString(reader["ConstructionName"]),
                         VehicleName = Convert.ToString(reader["Name"]),
                         DriverName = Convert.ToString(reader["Username"]),
@@ -149,14 +143,12 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         Date = Convert.ToDateTime(reader["Date"]),
                         isPaid = Convert.ToBoolean(reader["isPaid"]),
                         Category = Convert.ToString(reader["Category"]),
-                        Reason = Convert.ToString(reader["Reason"]),
                         Task = Convert.ToString(reader["Task"]),
                         Totalcost = Convert.ToInt64(reader["TotalCost"])
 
 
                     };
-                    dto.FualCostFormated = Global.Global.ConvertLongToMoney(dto.FualCost, Global.Global.SEP);
-                    dto.DamagedCostFormated = Global.Global.ConvertLongToMoney(dto.DamagedCost, Global.Global.SEP);
+              
                     dto.DateFormated = dto.Date.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
                     dto.TotalcostFormated = Global.Global.ConvertLongToMoney(dto.Totalcost, Global.Global.SEP);
                     return dto;
@@ -186,11 +178,8 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.Parameters.Add(new SqlParameter("@VehicleID", dto.VehicleID));
                 cmd.Parameters.Add(new SqlParameter("@ConstructionID", dto.ConstructionID));
                 cmd.Parameters.Add(new SqlParameter("@DriverID", dto.DriverID));
-                cmd.Parameters.Add(new SqlParameter("@FualCost", dto.FualCost));
-                cmd.Parameters.Add(new SqlParameter("@DamagedCost", dto.DamagedCost));
                 cmd.Parameters.Add(new SqlParameter("@Date", dto.Date));
                 cmd.Parameters.Add(new SqlParameter("@isPaid", dto.isPaid));
-                cmd.Parameters.Add(new SqlParameter("@Reason", dto.Reason));
                 cmd.Parameters.Add(new SqlParameter("@TotalCost", dto.Totalcost));
                 cmd.Parameters.Add(new SqlParameter("@Task", dto.Task));
 
@@ -224,11 +213,8 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.Parameters.Add(new SqlParameter("@VehicleID", dto.VehicleID));
                 cmd.Parameters.Add(new SqlParameter("@ConstructionID", dto.ConstructionID));
                 cmd.Parameters.Add(new SqlParameter("@DriverID", dto.DriverID));
-                cmd.Parameters.Add(new SqlParameter("@FualCost", dto.FualCost));
-                cmd.Parameters.Add(new SqlParameter("@DamagedCost", dto.DamagedCost));
                 cmd.Parameters.Add(new SqlParameter("@Date", dto.Date));
                 cmd.Parameters.Add(new SqlParameter("@isPaid", dto.isPaid));
-                cmd.Parameters.Add(new SqlParameter("@Reason", dto.Reason));
                 cmd.Parameters.Add(new SqlParameter("@TotalCost", dto.Totalcost));
                 cmd.Parameters.Add(new SqlParameter("@Task", dto.Task));
 
@@ -401,6 +387,140 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             {
                 if (Transaction == null)
                     Connection.Close();
+            }
+        }
+        //--------------------------------------------------------------------------------------
+        public long CreateVehicleDairyCost(VehicleDairyCostDTO dto)
+        {
+            var cmd = new SqlCommand("[dbo].[VehicleDairyCost_Create]", Connection) { CommandType = CommandType.StoredProcedure };
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@VehicleID", dto.VehicleID));
+                cmd.Parameters.Add(new SqlParameter("@VehicleDairyID", dto.VehicleDairyID));
+                cmd.Parameters.Add(new SqlParameter("@Quantity", dto.Quantity));
+                cmd.Parameters.Add(new SqlParameter("@Price", dto.Price));
+                cmd.Parameters.Add(new SqlParameter("@TotalCost", dto.TotalCost));
+                cmd.Parameters.Add(new SqlParameter("@Unit", dto.Unit));
+                cmd.Parameters.Add(new SqlParameter("@Name", dto.Name));
+                cmd.Parameters.Add(new SqlParameter("@Type", dto.Type));
+                cmd.Parameters.Add(new SqlParameter("@Date", dto.Date));
+                cmd.Parameters.Add(new SqlParameter("@Taker", dto.Taker));
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                    return Convert.ToInt64(reader[0]);
+                return 0;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message);
+                return 0;
+            }
+            finally
+            {
+                if (Transaction == null)
+                    Connection.Close();
+            }
+        }
+        public bool deleteVehicleDairyCost(long ID)
+        {
+            var cmd = new SqlCommand("[dbo].[VehicleDairyCost_Delete]", Connection) { CommandType = CommandType.StoredProcedure };
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@VehicleDairyID", ID));
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message);
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null)
+                    Connection.Close();
+            }
+        }
+
+        public List<VehicleDairyCostDTO> searchVehicleDairyCost(VehicleDairyCostDTO param)
+        {
+            var cmd = new SqlCommand("[dbo].[VehicleDairyCost_search]", Connection);
+
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+
+
+            cmd.CommandType = CommandType.StoredProcedure;
+            if (param.VehicleID > 0)
+                cmd.Parameters.Add(new SqlParameter("@VehicleID", param.VehicleID));
+            else
+                cmd.Parameters.Add(new SqlParameter("@VehicleID", DBNull.Value));
+            if (param.VehicleDairyID > 0)
+                cmd.Parameters.Add(new SqlParameter("@VehicleDairyID", param.VehicleDairyID));
+            else
+                cmd.Parameters.Add(new SqlParameter("@VehicleDairyID", DBNull.Value));
+            //-------------------------------------------------------------------------------------
+            if (param.FromDate != null)
+                cmd.Parameters.Add(new SqlParameter("@FromDate", param.FromDate));
+            else
+                cmd.Parameters.Add(new SqlParameter("@FromDate", DBNull.Value));
+            if (param.ToDate != null)
+                cmd.Parameters.Add(new SqlParameter("@ToDate", param.ToDate));
+            else
+                cmd.Parameters.Add(new SqlParameter("@ToDate", DBNull.Value));
+            //-------------------------------------------------------------------------------------
+            if (!param.Type.Trim().Equals("") && !param.Type.Trim().Equals("Tất cả"))
+                cmd.Parameters.Add(new SqlParameter("@Type", param.Type.Trim()));
+            else
+                cmd.Parameters.Add(new SqlParameter("@Type", DBNull.Value));
+            try
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                List<VehicleDairyCostDTO> listcons = new List<VehicleDairyCostDTO>();
+                while (reader.Read())
+                {
+                    VehicleDairyCostDTO dto = new VehicleDairyCostDTO
+                    {
+                        VehicleDairyCostID = Convert.ToInt64(reader["VehicleDairyCostID"]),
+                        VehicleDairyID = Convert.ToInt64(reader["VehicleDairyID"]),
+                        VehicleID = Convert.ToInt64(reader["VehicleID"]),
+                        Quantity = Convert.ToDouble(reader["Quantity"]),
+                        Price = Convert.ToDouble(reader["Price"]),
+                        TotalCost = Convert.ToDouble(reader["TotalCost"]),
+                        Unit = Convert.ToString(reader["Unit"]),
+                        Taker = Convert.ToString(reader["Taker"]),
+                        Name = Convert.ToString(reader["Name"]),
+                        Date = Convert.ToDateTime(reader["Date"]),
+                        Type = Convert.ToString(reader["Type"])
+
+
+                    };
+                    dto.PriceFormated = Global.Global.ConvertDoubleToMoney(dto.Price, Global.Global.SEP);
+                    dto.TotalCostFormated = Global.Global.ConvertDoubleToMoney(dto.TotalCost, Global.Global.SEP);
+                    listcons.Add(dto);
+
+                }
+                return listcons;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message, "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                if (Transaction == null) Connection.Close();
             }
         }
     }
