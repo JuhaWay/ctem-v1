@@ -260,5 +260,15 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
             else
                 cbHouse.Enabled = true;
         }
+
+        private void btViewCost_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in dgvVehicle.SelectedRows)
+            {
+                long id = (row.DataBoundItem as VehicleDTO).VehicleID;
+                VehicleCostManagement form = new VehicleCostManagement(id);
+                form.ShowDialog();
+            }
+        }
     }
 }

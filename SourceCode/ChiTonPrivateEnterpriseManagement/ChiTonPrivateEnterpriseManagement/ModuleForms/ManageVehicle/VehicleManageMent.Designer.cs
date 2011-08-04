@@ -45,15 +45,8 @@
             this.ipName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.lbName = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.dgvVehicle = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.NameVM = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ConstructionName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WarehouseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ManagerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vehicleDTOBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.kryptonLabel3 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.ipSearchNumber = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
@@ -73,7 +66,6 @@
             this.HideSearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kryptonContextMenuCheckBox1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox();
             this.kryptonContextMenuHeading1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuHeading();
-            this.btnSave = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.hdEdit = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
             this.kryptonContextMenuItem1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
             this.kryptonContextMenuItems1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
@@ -94,8 +86,6 @@
             this.kryptonLabel8 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.btnSearch = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.hdDebt = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
-            this.btnAdd = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.btnDelete = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.btnHideShowSearch = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.slcMain = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
             this.gbcRightBot = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
@@ -107,6 +97,16 @@
             this.dtDate = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
             this.kryptonLabel5 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel6 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.NameVM = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ConstructionName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WarehouseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ManagerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vehicleDTOBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
+            this.btnAdd = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.btnDelete = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.btnSave = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.vehicleDTOBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.vehicleDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.vehicleDTOBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
@@ -114,6 +114,7 @@
             this.warehouseDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.debtDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.finalAccountDetailDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btViewCost = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).BeginInit();
@@ -122,7 +123,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.cbManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbCons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVehicle)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vehicleDTOBindingSource3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbSearchCons)).BeginInit();
             this.cmsGen.SuspendLayout();
             this.cmsMain.SuspendLayout();
@@ -155,6 +155,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).BeginInit();
             this.kryptonGroupBox1.Panel.SuspendLayout();
             this.kryptonGroupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.vehicleDTOBindingSource3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vehicleDTOBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vehicleDTOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vehicleDTOBindingSource1)).BeginInit();
@@ -326,63 +327,17 @@
             this.dgvVehicle.TabIndex = 5;
             this.dgvVehicle.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvVehicle_MouseClick);
             // 
-            // NameVM
-            // 
-            this.NameVM.DataPropertyName = "Name";
-            this.NameVM.HeaderText = "Loại";
-            this.NameVM.Name = "NameVM";
-            this.NameVM.Width = 200;
-            // 
-            // ConstructionName
-            // 
-            this.ConstructionName.DataPropertyName = "ConstructionName";
-            this.ConstructionName.HeaderText = "Công trường";
-            this.ConstructionName.Name = "ConstructionName";
-            this.ConstructionName.Width = 150;
-            // 
-            // WarehouseName
-            // 
-            this.WarehouseName.DataPropertyName = "WarehouseName";
-            this.WarehouseName.HeaderText = "Kho chứa";
-            this.WarehouseName.Name = "WarehouseName";
-            this.WarehouseName.Width = 150;
-            // 
-            // ManagerName
-            // 
-            this.ManagerName.DataPropertyName = "ManagerName";
-            this.ManagerName.HeaderText = "Người quản lý";
-            this.ManagerName.Name = "ManagerName";
-            this.ManagerName.Width = 150;
-            // 
-            // Number
-            // 
-            this.Number.DataPropertyName = "Number";
-            this.Number.HeaderText = "Biến số xe";
-            this.Number.Name = "Number";
-            this.Number.Width = 150;
-            // 
             // Category
             // 
             this.Category.DataPropertyName = "Category";
             this.Category.HeaderText = "Chức năng";
             this.Category.Name = "Category";
             // 
-            // Status
-            // 
-            this.Status.DataPropertyName = "Status";
-            this.Status.HeaderText = "Tình trạng xe";
-            this.Status.Name = "Status";
-            this.Status.Width = 150;
-            // 
             // Date
             // 
             this.Date.DataPropertyName = "DateFormated";
             this.Date.HeaderText = "Ngày mua";
             this.Date.Name = "Date";
-            // 
-            // vehicleDTOBindingSource3
-            // 
-            this.vehicleDTOBindingSource3.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.VehicleDTO);
             // 
             // kryptonLabel3
             // 
@@ -525,15 +480,6 @@
             // kryptonContextMenuHeading1
             // 
             this.kryptonContextMenuHeading1.ExtraText = "";
-            // 
-            // btnSave
-            // 
-            this.btnSave.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.save_edit;
-            this.btnSave.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
-            this.btnSave.Text = "Lưu";
-            this.btnSave.ToolTipTitle = "Lưu";
-            this.btnSave.UniqueName = "6549634A1C68497476A2DADA48F6958C";
-            this.btnSave.Click += new System.EventHandler(this.btSave_Click);
             // 
             // hdEdit
             // 
@@ -718,6 +664,7 @@
             // hdDebt
             // 
             this.hdDebt.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
+            this.btViewCost,
             this.btnAdd,
             this.btnDelete,
             this.btnHideShowSearch});
@@ -730,22 +677,6 @@
             this.hdDebt.Values.Description = "";
             this.hdDebt.Values.Heading = "Quản lý phương tiện";
             this.hdDebt.Values.Image = null;
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.add;
-            this.btnAdd.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
-            this.btnAdd.Text = "Thêm";
-            this.btnAdd.UniqueName = "6E177DC1660348E375BDCE591BF21FCB";
-            this.btnAdd.Click += new System.EventHandler(this.btAddNew_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.delete1;
-            this.btnDelete.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
-            this.btnDelete.Text = "Xóa";
-            this.btnDelete.UniqueName = "46715A2AEC0143074F81325F50887305";
-            this.btnDelete.Click += new System.EventHandler(this.btDelete_Click);
             // 
             // btnHideShowSearch
             // 
@@ -901,6 +832,77 @@
             this.kryptonLabel6.TabIndex = 31;
             this.kryptonLabel6.Values.Text = "Ngày mua(*)";
             // 
+            // NameVM
+            // 
+            this.NameVM.DataPropertyName = "Name";
+            this.NameVM.HeaderText = "Loại";
+            this.NameVM.Name = "NameVM";
+            this.NameVM.Width = 200;
+            // 
+            // ConstructionName
+            // 
+            this.ConstructionName.DataPropertyName = "ConstructionName";
+            this.ConstructionName.HeaderText = "Công trường";
+            this.ConstructionName.Name = "ConstructionName";
+            this.ConstructionName.Width = 150;
+            // 
+            // WarehouseName
+            // 
+            this.WarehouseName.DataPropertyName = "WarehouseName";
+            this.WarehouseName.HeaderText = "Kho chứa";
+            this.WarehouseName.Name = "WarehouseName";
+            this.WarehouseName.Width = 150;
+            // 
+            // ManagerName
+            // 
+            this.ManagerName.DataPropertyName = "ManagerName";
+            this.ManagerName.HeaderText = "Người quản lý";
+            this.ManagerName.Name = "ManagerName";
+            this.ManagerName.Width = 150;
+            // 
+            // Number
+            // 
+            this.Number.DataPropertyName = "Number";
+            this.Number.HeaderText = "Biến số xe";
+            this.Number.Name = "Number";
+            this.Number.Width = 150;
+            // 
+            // Status
+            // 
+            this.Status.DataPropertyName = "Status";
+            this.Status.HeaderText = "Tình trạng xe";
+            this.Status.Name = "Status";
+            this.Status.Width = 150;
+            // 
+            // vehicleDTOBindingSource3
+            // 
+            this.vehicleDTOBindingSource3.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.VehicleDTO);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.add;
+            this.btnAdd.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
+            this.btnAdd.Text = "Thêm";
+            this.btnAdd.UniqueName = "6E177DC1660348E375BDCE591BF21FCB";
+            this.btnAdd.Click += new System.EventHandler(this.btAddNew_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.delete1;
+            this.btnDelete.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
+            this.btnDelete.Text = "Xóa";
+            this.btnDelete.UniqueName = "46715A2AEC0143074F81325F50887305";
+            this.btnDelete.Click += new System.EventHandler(this.btDelete_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.save_edit;
+            this.btnSave.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
+            this.btnSave.Text = "Lưu";
+            this.btnSave.ToolTipTitle = "Lưu";
+            this.btnSave.UniqueName = "6549634A1C68497476A2DADA48F6958C";
+            this.btnSave.Click += new System.EventHandler(this.btSave_Click);
+            // 
             // vehicleDTOBindingSource2
             // 
             this.vehicleDTOBindingSource2.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.VehicleDTO);
@@ -929,6 +931,13 @@
             // 
             this.finalAccountDetailDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.FinalAccountDetailDTO);
             // 
+            // btViewCost
+            // 
+            this.btViewCost.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.application_x_desktop;
+            this.btViewCost.Text = "Chi phí hoạt động";
+            this.btViewCost.UniqueName = "08BC3A51D4F0409C2EBD3B48D7DB94E5";
+            this.btViewCost.Click += new System.EventHandler(this.btViewCost_Click);
+            // 
             // VehicleManageMent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -948,7 +957,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.cbManager)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbCons)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVehicle)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vehicleDTOBindingSource3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbSearchCons)).EndInit();
             this.cmsGen.ResumeLayout(false);
             this.cmsMain.ResumeLayout(false);
@@ -986,6 +994,7 @@
             this.kryptonGroupBox1.Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).EndInit();
             this.kryptonGroupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.vehicleDTOBindingSource3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vehicleDTOBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vehicleDTOBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vehicleDTOBindingSource1)).EndInit();
@@ -1084,6 +1093,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Category;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btViewCost;
     }
 }
 
