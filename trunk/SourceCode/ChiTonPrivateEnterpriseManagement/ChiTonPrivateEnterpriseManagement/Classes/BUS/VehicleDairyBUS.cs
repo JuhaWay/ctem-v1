@@ -45,5 +45,17 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
         {
             return _vehicleDairyDAO.getByID(ID);
         }
+        public List<VehicleDairyCostDTO> searchVehicleDairyCost(VehicleDairyCostDTO param)
+        {
+            return _vehicleDairyDAO.searchVehicleDairyCost(param);
+        }
+        public bool deleteVehicleDairyCost(long ID)
+        {
+             return _vehicleDairyDAO.deleteVehicleDairyCost(ID);
+        }
+        public long CreateVehicleDairyCost(VehicleDairyCostDTO dto)
+        {
+             return _vehicleDairyDAO.CreateVehicleDairyCost(dto);
+        }
     }
 }
