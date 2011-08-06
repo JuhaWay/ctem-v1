@@ -126,7 +126,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.Parameters.Add(new SqlParameter("@Number", "%" + param.Number + "%"));
             else
                 cmd.Parameters.Add(new SqlParameter("@Number", DBNull.Value));
-            if (!param.Category.Equals(""))
+            if (!param.Category.Equals("") && !param.Category.Equals("Tất cả"))
                 cmd.Parameters.Add(new SqlParameter("@Category", "%" + param.Category + "%"));
             else
                 cmd.Parameters.Add(new SqlParameter("@Category", DBNull.Value));
