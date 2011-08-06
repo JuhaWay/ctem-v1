@@ -37,7 +37,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
 
             cbSearchDriver.Items.Add(new EmployerDTO("Tất cả", 0));
             cbSearchDriver.Items.AddRange(_employeeBUS.LoadAllEmployee().ToArray());
-            cbSearchDriver.DisplayMember = "Username";
+            cbSearchDriver.DisplayMember = "Display";
             cbSearchVehicle.Items.Add(new VehicleDTO("Tất cả", 0));
             cbSearchVehicle.Items.AddRange(_vehicleBUS.LoadAllVehicles().ToArray());
             cbSearchVehicle.DisplayMember = "Number";

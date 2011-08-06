@@ -518,10 +518,10 @@
             // 
             this.kryptonLabel4.Location = new System.Drawing.Point(19, 103);
             this.kryptonLabel4.Name = "kryptonLabel4";
-            this.kryptonLabel4.Size = new System.Drawing.Size(75, 19);
+            this.kryptonLabel4.Size = new System.Drawing.Size(63, 19);
             this.kryptonLabel4.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.kryptonLabel4.TabIndex = 104;
-            this.kryptonLabel4.Values.Text = "Công trình(*)";
+            this.kryptonLabel4.Values.Text = "Công trình";
             // 
             // kryptonComboBox1
             // 

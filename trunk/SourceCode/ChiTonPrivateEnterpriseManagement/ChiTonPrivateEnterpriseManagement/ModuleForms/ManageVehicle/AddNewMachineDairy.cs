@@ -59,6 +59,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
             dto.Category = VehicleDTO.CATEGORY_MACHINE;
             cbVehicle.Items.AddRange(_vehicleBUS.searchVehicle(dto).ToArray());
             cbVehicle.DisplayMember = "Number";
+            cbCons.Items.Add(new ConstructionDTO("",0));
             cbCons.Items.AddRange(_constructionBus.LoadAllConstructions().ToArray());
             cbCons.DisplayMember = "ConstructionName";
             cbTypeCost.Items.AddRange(VehicleDairyCostDTO.getTypeCost().ToArray());
@@ -153,6 +154,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
                 dto.Date = dtDay.Value.Date;
                 dto.isPaid = cbPaid.Checked;
                 dto.Totalcost = dto.FualCost + dto.DamagedCost;
+                if (cbCons.SelectedIndex>-1)
                 dto.ConstructionID = (cbCons.SelectedItem as ConstructionDTO).ConstructionID;
                 dto.Task = ipTask.Text.Trim();
                 dto.Totalcost = (long)Global.ConvertMoneyToDouble(ipSumCost.Text, Global.SEP); 
@@ -175,6 +177,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
                 _vehicleDairyDTO.Date = dtDay.Value.Date;
                 _vehicleDairyDTO.isPaid = cbPaid.Checked;
                 _vehicleDairyDTO.Totalcost = _vehicleDairyDTO.FualCost + _vehicleDairyDTO.DamagedCost;
+                 if (cbCons.SelectedIndex > -1)
                 _vehicleDairyDTO.ConstructionID = (cbCons.SelectedItem as ConstructionDTO).ConstructionID;
                 _vehicleDairyDTO.Totalcost = (long)Global.ConvertMoneyToDouble(ipSumCost.Text, Global.SEP); 
                 _vehicleDairyDTO.Task = ipTask.Text.Trim();
@@ -204,12 +207,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
             if (cbDriver.SelectedIndex < 0)
             {
                 KryptonMessageBox.Show("Vui Lòng chọn tài xế", Constants.CONFIRM, MessageBoxButtons.OK,
-                                MessageBoxIcon.Warning);
-                return false;
-            }
-            if (cbCons.SelectedIndex < 0)
-            {
-                KryptonMessageBox.Show("Vui Lòng chọn công trình", Constants.CONFIRM, MessageBoxButtons.OK,
                                 MessageBoxIcon.Warning);
                 return false;
             }
