@@ -45,7 +45,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
            
             SetLayout();
 
-            cbCategory.Items.AddRange(VehicleDTO.getCategory().ToArray());
+
             cbSearchCategory.Items.AddRange(VehicleDTO.getCategory().ToArray());
             disableEdition();
             loadData();
@@ -53,7 +53,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
 
         private void disableEdition()
         {
-            cbCategory.DropDownStyle = ComboBoxStyle.DropDownList;
             cbCons.DropDownStyle = ComboBoxStyle.DropDownList;
             cbManager.DropDownStyle = ComboBoxStyle.DropDownList;
             cbHouse.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -140,7 +139,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
                     cbHouse.SelectedItem = item;
             }
             cbStatus.Text = dtoTemp.Status;
-            cbCategory.Text = dtoTemp.Category;
             dtDate.Value = dtoTemp.Date;
            
         }
@@ -165,7 +163,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
             else
                 dtoTemp.WarehouseID = 0;
             dtoTemp.Status = cbStatus.Text;
-            dtoTemp.Category = cbCategory.Text.Trim();
             dtoTemp.Date = dtDate.Value.Date;
             _vehicleBUS.UpdateVehicle(dtoTemp);
             KryptonMessageBox.Show("Cập nhật thành công", Constants.CONFIRM, MessageBoxButtons.OK,
@@ -197,12 +194,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
             if (ipNumber.Text.Trim().Equals(""))
             {
                 KryptonMessageBox.Show("Vui Lòng điền biển số", Constants.CONFIRM, MessageBoxButtons.OK,
-                               MessageBoxIcon.Warning);
-                return false;
-            }
-            if (cbCategory.SelectedIndex < 0)
-            {
-                KryptonMessageBox.Show("Vui Lòng chọn chức năng", Constants.CONFIRM, MessageBoxButtons.OK,
                                MessageBoxIcon.Warning);
                 return false;
             }

@@ -78,8 +78,9 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
                     cbDriver.SelectedItem = dto;
             }
             ipFualCost.Text = _vehicleDairyDTO.FualCostFormated;
-            cbPaid.Checked = _vehicleDairyDTO.isPaid;
+            cbPaid.Checked = _vehicleDairyDTO.isPaid.Value;
             dtDay.Value = _vehicleDairyDTO.Date;
+            ipTaker.Text = _vehicleDairyDTO.Taker;
             ipTask.Text = _vehicleDairyDTO.Task;
             firstloadCosts();
 
@@ -123,11 +124,24 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
 
             _costs.Add(entity);
             reloadCosts();
+            reset();
+        }
+        public void reset()
+        {
+            cbTypeCost.SelectedIndex = -1;
+            ipQuantity.Text = "";
+            ipPrice.Text = "";
+            ipName.Text = "";
+            ipUnit.Text = "";
         }
         public void reloadCosts()
         {
-            dgvCost.DataSource = null;
-            dgvCost.DataSource = _costs;
+            
+            if (_costs != null && _costs.Count > 0)
+            {
+                dgvCost.DataSource = null;
+                dgvCost.DataSource = _costs;
+            }
             double total = 0;
             foreach (VehicleDairyCostDTO item in _costs)
             {
@@ -150,6 +164,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
                 dto.Totalcost = (long)Global.ConvertMoneyToDouble(ipSumCost.Text, Global.SEP);
                 dto.Date = dtDay.Value.Date;
                 dto.isPaid = cbPaid.Checked;
+                dto.Taker = ipTaker.Text;
                 dto.Task = ipTask.Text;
                 dto.Totalcost = dto.FualCost + dto.DamagedCost;
                 long ID = _vehicleDairyBUS.CreateVehicleDairy(dto);
@@ -172,6 +187,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
                 _vehicleDairyDTO.Date = dtDay.Value.Date;
                 _vehicleDairyDTO.isPaid = cbPaid.Checked;
                 _vehicleDairyDTO.Task = ipTask.Text;
+                _vehicleDairyDTO.Taker = ipTaker.Text;
                 _vehicleDairyDTO.Totalcost = (long)Global.ConvertMoneyToDouble(ipSumCost.Text, Global.SEP);
                 _vehicleDairyBUS.UpdateVehicleDairy(_vehicleDairyDTO);
                 _vehicleDairyBUS.deleteVehicleDairyCost(_ID);
@@ -228,7 +244,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
         private void dgvCost_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
             if (dgvCost.Rows.Count == 0) return;
-            if (e.ColumnIndex == 0)
+            if (e.ColumnIndex == 1)
             {
                 if (!Global.ValidateDoubleNumber(e.FormattedValue.ToString()))
                 {
@@ -252,24 +268,34 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
         private void dgvCost_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvCost.Rows.Count == 0) return;
-            if (e.ColumnIndex == 0 || e.ColumnIndex == 1)
+            if (e.ColumnIndex == 1 || e.ColumnIndex == 3)
             {
                 double total = 0;
-                string sprice = dgvCost.Rows[e.RowIndex].Cells[1].Value.ToString();
+                string sprice = dgvCost.Rows[e.RowIndex].Cells[3].Value.ToString();
                 double price = Global.ConvertMoneyToDouble(sprice, Global.SEP);
-                double quantity = (double)dgvCost.Rows[e.RowIndex].Cells[0].Value;
+                double quantity = (double)dgvCost.Rows[e.RowIndex].Cells[1].Value;
                 total = price * quantity;
-                dgvCost.Rows[e.RowIndex].Cells[2].Value = total;
+                dgvCost.Rows[e.RowIndex].Cells[4].Value = total;
 
 
                 double totalCost = 0;
                 foreach (VehicleDairyCostDTO item in _costs)
                 {
-                    item.TotalCost = Global.ConvertMoneyToDouble(item.PriceFormated, Global.SEP);
+                    item.TotalCost = Global.ConvertMoneyToDouble(item.TotalCostFormated, Global.SEP);
                     totalCost += item.TotalCost;
                 }
                 ipSumCost.Text = Global.ConvertDoubleToMoney(totalCost, Global.SEP);
             }
+        }
+
+        private void btDeleteCost_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in dgvCost.SelectedRows)
+            {
+                _costs.Remove(row.DataBoundItem as VehicleDairyCostDTO);
+
+            }
+            reloadCosts();
         }
     }
 }
