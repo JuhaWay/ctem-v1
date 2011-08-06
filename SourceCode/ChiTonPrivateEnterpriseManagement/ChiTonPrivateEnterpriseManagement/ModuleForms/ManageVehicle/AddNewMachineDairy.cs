@@ -252,5 +252,28 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
         {
             ipPrice.Text = Global.ConvertLongToMoney(Global.ConvertMoneyToLong(ipPrice.Text, Global.SEP), Global.SEP);
         }
+
+        private void dgvCost_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvCost.Rows.Count == 0) return;
+            if (e.ColumnIndex == 0 || e.ColumnIndex == 1)
+            {
+                double total = 0;
+                string sprice = dgvCost.Rows[e.RowIndex].Cells[1].Value.ToString();
+                double price = Global.ConvertMoneyToDouble(sprice, Global.SEP);
+                double quantity = (double)dgvCost.Rows[e.RowIndex].Cells[0].Value;
+                total = price * quantity;
+                dgvCost.Rows[e.RowIndex].Cells[2].Value = total;
+
+
+                double totalCost = 0;
+                foreach (VehicleDairyCostDTO item in _costs)
+                {
+                    item.TotalCost = Global.ConvertMoneyToDouble(item.PriceFormated, Global.SEP);
+                    totalCost += item.TotalCost;
+                }
+                ipSumCost.Text = Global.ConvertDoubleToMoney(totalCost, Global.SEP);
+            }
+        }
     }
 }
