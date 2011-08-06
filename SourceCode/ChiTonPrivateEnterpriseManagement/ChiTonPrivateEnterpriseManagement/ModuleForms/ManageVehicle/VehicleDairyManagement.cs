@@ -69,13 +69,19 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
             if (cbSearchCons.SelectedIndex>-1)
             seachDto.ConstructionID = (cbSearchCons.SelectedItem as ConstructionDTO).ConstructionID;
             if (cbSearchVehicle.SelectedIndex > -1)
-            seachDto.VehicleID = (cbSearchVehicle.SelectedItem as VehicleDTO).VehicleID; ;
+            seachDto.VehicleID = (cbSearchVehicle.SelectedItem as VehicleDTO).VehicleID;
             if (cbSearchDriver.SelectedIndex > -1)
-            seachDto.DriverID = (cbSearchDriver.SelectedItem as EmployerDTO).employeeID; ;
+            seachDto.DriverID = (cbSearchDriver.SelectedItem as EmployerDTO).employeeID;
+            if (cbIsPaid.SelectedIndex == 1)
+                seachDto.isPaid = true;
+            else if (cbIsPaid.SelectedIndex == 2)
+                seachDto.isPaid = false;
+            else seachDto.isPaid = null;
             seachDto.FromDate = dtFromdate.Value;
             seachDto.ToDate = dtTodate.Value;
             seachDto.ManagerID = Global.CurrentUser.employeeID;
             seachDto.Category = cbSearchCategory.Text;
+
             List<VehicleDairyDTO> list = _vehicleDairyBUS.searchVehicleDairy(seachDto);
             dgvVehicleDairy.DataSource = list;
         }
@@ -94,6 +100,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
             seachDto.ToDate = dtTodate.Value;
             seachDto.Category = cbSearchCategory.Text;
             seachDto.ManagerID = Global.CurrentUser.employeeID;
+            seachDto.isPaid = null;
             List<VehicleDairyDTO> list = _vehicleDairyBUS.searchVehicleDairy(seachDto);
             dgvVehicleDairy.DataSource = list;
         }

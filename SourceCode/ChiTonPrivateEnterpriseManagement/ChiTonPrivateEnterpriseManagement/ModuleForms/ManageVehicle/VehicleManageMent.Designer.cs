@@ -45,8 +45,15 @@
             this.ipName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.lbName = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.dgvVehicle = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.NameVM = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ConstructionName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WarehouseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ManagerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vehicleDTOBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.kryptonLabel3 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.ipSearchNumber = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
@@ -95,19 +102,10 @@
             this.gbcRightBot = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.kryptonSplitContainer1 = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
             this.gbxEdit1 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
-            this.cbCategory = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
-            this.kryptonLabel7 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonGroupBox1 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.dtDate = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
             this.kryptonLabel5 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel6 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.NameVM = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ConstructionName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WarehouseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ManagerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vehicleDTOBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.vehicleDTOBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.vehicleDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.vehicleDTOBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
@@ -123,6 +121,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cbManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbCons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVehicle)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vehicleDTOBindingSource3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbSearchCons)).BeginInit();
             this.cmsGen.SuspendLayout();
             this.cmsMain.SuspendLayout();
@@ -151,11 +150,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.gbxEdit1)).BeginInit();
             this.gbxEdit1.Panel.SuspendLayout();
             this.gbxEdit1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cbCategory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).BeginInit();
             this.kryptonGroupBox1.Panel.SuspendLayout();
             this.kryptonGroupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.vehicleDTOBindingSource3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vehicleDTOBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vehicleDTOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vehicleDTOBindingSource1)).BeginInit();
@@ -249,7 +246,7 @@
             // 
             this.cbCons.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.cbCons.DropDownWidth = 141;
-            this.cbCons.Location = new System.Drawing.Point(98, 116);
+            this.cbCons.Location = new System.Drawing.Point(98, 87);
             this.cbCons.Name = "cbCons";
             this.cbCons.Size = new System.Drawing.Size(253, 22);
             this.cbCons.TabIndex = 10;
@@ -259,7 +256,7 @@
             // lbCons
             // 
             this.lbCons.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.lbCons.Location = new System.Drawing.Point(28, 119);
+            this.lbCons.Location = new System.Drawing.Point(28, 90);
             this.lbCons.Name = "lbCons";
             this.lbCons.Size = new System.Drawing.Size(63, 19);
             this.lbCons.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -327,17 +324,63 @@
             this.dgvVehicle.TabIndex = 5;
             this.dgvVehicle.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvVehicle_MouseClick);
             // 
+            // NameVM
+            // 
+            this.NameVM.DataPropertyName = "Name";
+            this.NameVM.HeaderText = "Loại";
+            this.NameVM.Name = "NameVM";
+            this.NameVM.Width = 200;
+            // 
+            // ConstructionName
+            // 
+            this.ConstructionName.DataPropertyName = "ConstructionName";
+            this.ConstructionName.HeaderText = "Công trường";
+            this.ConstructionName.Name = "ConstructionName";
+            this.ConstructionName.Width = 150;
+            // 
+            // WarehouseName
+            // 
+            this.WarehouseName.DataPropertyName = "WarehouseName";
+            this.WarehouseName.HeaderText = "Kho chứa";
+            this.WarehouseName.Name = "WarehouseName";
+            this.WarehouseName.Width = 150;
+            // 
+            // ManagerName
+            // 
+            this.ManagerName.DataPropertyName = "ManagerName";
+            this.ManagerName.HeaderText = "Người quản lý";
+            this.ManagerName.Name = "ManagerName";
+            this.ManagerName.Width = 150;
+            // 
+            // Number
+            // 
+            this.Number.DataPropertyName = "Number";
+            this.Number.HeaderText = "Biến số xe";
+            this.Number.Name = "Number";
+            this.Number.Width = 150;
+            // 
             // Category
             // 
             this.Category.DataPropertyName = "Category";
             this.Category.HeaderText = "Chức năng";
             this.Category.Name = "Category";
             // 
+            // Status
+            // 
+            this.Status.DataPropertyName = "Status";
+            this.Status.HeaderText = "Tình trạng xe";
+            this.Status.Name = "Status";
+            this.Status.Width = 150;
+            // 
             // Date
             // 
             this.Date.DataPropertyName = "DateFormated";
             this.Date.HeaderText = "Ngày mua";
             this.Date.Name = "Date";
+            // 
+            // vehicleDTOBindingSource3
+            // 
+            this.vehicleDTOBindingSource3.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.VehicleDTO);
             // 
             // kryptonLabel3
             // 
@@ -778,8 +821,6 @@
             // 
             // gbxEdit1.Panel
             // 
-            this.gbxEdit1.Panel.Controls.Add(this.cbCategory);
-            this.gbxEdit1.Panel.Controls.Add(this.kryptonLabel7);
             this.gbxEdit1.Panel.Controls.Add(this.lbName);
             this.gbxEdit1.Panel.Controls.Add(this.ipName);
             this.gbxEdit1.Panel.Controls.Add(this.ipNumber);
@@ -793,25 +834,6 @@
             this.gbxEdit1.StateCommon.Content.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
             this.gbxEdit1.TabIndex = 6;
             this.gbxEdit1.Values.Heading = "";
-            // 
-            // cbCategory
-            // 
-            this.cbCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.cbCategory.DropDownWidth = 141;
-            this.cbCategory.Location = new System.Drawing.Point(98, 87);
-            this.cbCategory.Name = "cbCategory";
-            this.cbCategory.Size = new System.Drawing.Size(253, 22);
-            this.cbCategory.TabIndex = 29;
-            // 
-            // kryptonLabel7
-            // 
-            this.kryptonLabel7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.kryptonLabel7.Location = new System.Drawing.Point(16, 90);
-            this.kryptonLabel7.Name = "kryptonLabel7";
-            this.kryptonLabel7.Size = new System.Drawing.Size(75, 19);
-            this.kryptonLabel7.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.kryptonLabel7.TabIndex = 30;
-            this.kryptonLabel7.Values.Text = "Chức năng(*)";
             // 
             // kryptonGroupBox1
             // 
@@ -864,52 +886,6 @@
             this.kryptonLabel6.TabIndex = 31;
             this.kryptonLabel6.Values.Text = "Ngày mua(*)";
             // 
-            // NameVM
-            // 
-            this.NameVM.DataPropertyName = "Name";
-            this.NameVM.HeaderText = "Loại";
-            this.NameVM.Name = "NameVM";
-            this.NameVM.Width = 200;
-            // 
-            // ConstructionName
-            // 
-            this.ConstructionName.DataPropertyName = "ConstructionName";
-            this.ConstructionName.HeaderText = "Công trường";
-            this.ConstructionName.Name = "ConstructionName";
-            this.ConstructionName.Width = 150;
-            // 
-            // WarehouseName
-            // 
-            this.WarehouseName.DataPropertyName = "WarehouseName";
-            this.WarehouseName.HeaderText = "Kho chứa";
-            this.WarehouseName.Name = "WarehouseName";
-            this.WarehouseName.Width = 150;
-            // 
-            // ManagerName
-            // 
-            this.ManagerName.DataPropertyName = "ManagerName";
-            this.ManagerName.HeaderText = "Người quản lý";
-            this.ManagerName.Name = "ManagerName";
-            this.ManagerName.Width = 150;
-            // 
-            // Number
-            // 
-            this.Number.DataPropertyName = "Number";
-            this.Number.HeaderText = "Biến số xe";
-            this.Number.Name = "Number";
-            this.Number.Width = 150;
-            // 
-            // Status
-            // 
-            this.Status.DataPropertyName = "Status";
-            this.Status.HeaderText = "Tình trạng xe";
-            this.Status.Name = "Status";
-            this.Status.Width = 150;
-            // 
-            // vehicleDTOBindingSource3
-            // 
-            this.vehicleDTOBindingSource3.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.VehicleDTO);
-            // 
             // vehicleDTOBindingSource2
             // 
             this.vehicleDTOBindingSource2.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.VehicleDTO);
@@ -958,6 +934,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cbManager)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbCons)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVehicle)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vehicleDTOBindingSource3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbSearchCons)).EndInit();
             this.cmsGen.ResumeLayout(false);
             this.cmsMain.ResumeLayout(false);
@@ -990,12 +967,10 @@
             this.gbxEdit1.Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gbxEdit1)).EndInit();
             this.gbxEdit1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.cbCategory)).EndInit();
             this.kryptonGroupBox1.Panel.ResumeLayout(false);
             this.kryptonGroupBox1.Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).EndInit();
             this.kryptonGroupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.vehicleDTOBindingSource3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vehicleDTOBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vehicleDTOBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vehicleDTOBindingSource1)).EndInit();
@@ -1080,8 +1055,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel5;
         private ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker dtDate;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel6;
-        private ComponentFactory.Krypton.Toolkit.KryptonComboBox cbCategory;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel7;
         private ComponentFactory.Krypton.Toolkit.KryptonComboBox cbSearchCategory;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel8;
         private ComponentFactory.Krypton.Toolkit.KryptonSplitContainer kryptonSplitContainer1;

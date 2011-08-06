@@ -84,8 +84,9 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
                 if (dto.ConstructionID == _vehicleDairyDTO.ConstructionID)
                     cbCons.SelectedItem = dto;
             }
-            cbPaid.Checked = _vehicleDairyDTO.isPaid;
+            cbPaid.Checked = _vehicleDairyDTO.isPaid.Value;
             dtDay.Value = _vehicleDairyDTO.Date;
+            ipTaker.Text = _vehicleDairyDTO.Taker;
             ipTask.Text = _vehicleDairyDTO.Task;
             firstloadCosts();
 
@@ -102,8 +103,11 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
         }
         public void reloadCosts()
         {
-            dgvCost.DataSource = null;
-            dgvCost.DataSource = _costs;
+            if (_costs != null && _costs.Count > 0)
+            {
+                dgvCost.DataSource = null;
+                dgvCost.DataSource = _costs;
+            }
             double total = 0;
             foreach (VehicleDairyCostDTO item in _costs)
             {
@@ -142,6 +146,15 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
             entity.TotalCostFormated = Global.ConvertDoubleToMoney(entity.TotalCost, Global.SEP);
             _costs.Add(entity);
             reloadCosts();
+            reset();
+        }
+        public void reset()
+        {
+            cbTypeCost.SelectedIndex = -1;
+            ipQuantity.Text = "";
+            ipPrice.Text = "";
+            ipName.Text = "";
+            ipUnit.Text = "";
         }
         private void btSave_Click(object sender, EventArgs e)
         {
@@ -153,6 +166,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
                 dto.VehicleID = (cbVehicle.SelectedItem as VehicleDTO).VehicleID;
                 dto.Date = dtDay.Value.Date;
                 dto.isPaid = cbPaid.Checked;
+                dto.Taker = ipTaker.Text;
                 dto.Totalcost = dto.FualCost + dto.DamagedCost;
                 if (cbCons.SelectedIndex>-1)
                 dto.ConstructionID = (cbCons.SelectedItem as ConstructionDTO).ConstructionID;
@@ -176,6 +190,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
                 _vehicleDairyDTO.VehicleID = (cbVehicle.SelectedItem as VehicleDTO).VehicleID;
                 _vehicleDairyDTO.Date = dtDay.Value.Date;
                 _vehicleDairyDTO.isPaid = cbPaid.Checked;
+                _vehicleDairyDTO.Taker = ipTaker.Text;
                 _vehicleDairyDTO.Totalcost = _vehicleDairyDTO.FualCost + _vehicleDairyDTO.DamagedCost;
                  if (cbCons.SelectedIndex > -1)
                 _vehicleDairyDTO.ConstructionID = (cbCons.SelectedItem as ConstructionDTO).ConstructionID;
@@ -229,7 +244,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
         private void dgvCost_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
             if (dgvCost.Rows.Count == 0) return;
-            if (e.ColumnIndex == 0)
+            if (e.ColumnIndex == 1)
             {
                 if (!Global.ValidateDoubleNumber(e.FormattedValue.ToString()))
                 {
@@ -253,24 +268,34 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
         private void dgvCost_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvCost.Rows.Count == 0) return;
-            if (e.ColumnIndex == 0 || e.ColumnIndex == 1)
+            if (e.ColumnIndex == 1 || e.ColumnIndex == 3)
             {
                 double total = 0;
-                string sprice = dgvCost.Rows[e.RowIndex].Cells[1].Value.ToString();
+                string sprice = dgvCost.Rows[e.RowIndex].Cells[3].Value.ToString();
                 double price = Global.ConvertMoneyToDouble(sprice, Global.SEP);
-                double quantity = (double)dgvCost.Rows[e.RowIndex].Cells[0].Value;
+                double quantity = (double)dgvCost.Rows[e.RowIndex].Cells[1].Value;
                 total = price * quantity;
-                dgvCost.Rows[e.RowIndex].Cells[2].Value = total;
+                dgvCost.Rows[e.RowIndex].Cells[4].Value = total;
 
 
                 double totalCost = 0;
                 foreach (VehicleDairyCostDTO item in _costs)
                 {
-                    item.TotalCost = Global.ConvertMoneyToDouble(item.PriceFormated, Global.SEP);
+                    item.TotalCost = Global.ConvertMoneyToDouble(item.TotalCostFormated, Global.SEP);
                     totalCost += item.TotalCost;
                 }
                 ipSumCost.Text = Global.ConvertDoubleToMoney(totalCost, Global.SEP);
             }
+        }
+
+        private void btDeleteCost_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in dgvCost.SelectedRows)
+            {
+                _costs.Remove(row.DataBoundItem as VehicleDairyCostDTO);
+
+            }
+            reloadCosts();
         }
     }
 }
