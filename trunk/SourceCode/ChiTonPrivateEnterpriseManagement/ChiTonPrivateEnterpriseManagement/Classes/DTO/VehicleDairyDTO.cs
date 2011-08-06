@@ -20,7 +20,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
         public DateTime Date { get; set; }
         public DateTime FromDate { get; set; }
         public DateTime ToDate { get; set; }
-        public bool isPaid { get; set; }
+        public bool ?isPaid { get; set; }
         public long DriverID { get; set; }
         public string Category { get; set; }
         public string Reason { get; set; }
@@ -31,6 +31,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
         public string TotalcostFormated { get; set; }
         public string Task { get; set; }
         public long ManagerID { get; set; }
+        public string Taker { get; set; }
 
 
     }
