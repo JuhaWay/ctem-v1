@@ -55,6 +55,10 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.Parameters.Add(new SqlParameter("@DriverID", param.DriverID));
             else
                 cmd.Parameters.Add(new SqlParameter("@DriverID", DBNull.Value));
+            if (param.isPaid!=null)
+                cmd.Parameters.Add(new SqlParameter("@isPaid", param.isPaid));
+            else
+                cmd.Parameters.Add(new SqlParameter("@isPaid", DBNull.Value));
             //-------------------------------------------------------------------------------------
             if (param.FromDate!=null)
                 cmd.Parameters.Add(new SqlParameter("@FromDate",param.FromDate));
@@ -87,6 +91,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         DriverName = Convert.ToString(reader["Username"]),
                         VehicleNumber = Convert.ToString(reader["Number"]),
                         Date = Convert.ToDateTime(reader["Date"]),
+                        Taker = Convert.ToString(reader["Taker"]),
                         isPaid = Convert.ToBoolean(reader["isPaid"]),
                         Category = Convert.ToString(reader["Category"]),
                         Task = Convert.ToString(reader["Task"]),
@@ -144,12 +149,17 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         isPaid = Convert.ToBoolean(reader["isPaid"]),
                         Category = Convert.ToString(reader["Category"]),
                         Task = Convert.ToString(reader["Task"]),
-                        Totalcost = Convert.ToInt64(reader["TotalCost"])
+                        FualCost = reader["FualCost"]==DBNull.Value?0:
+                        Convert.ToInt64(reader["FualCost"]),
+                        Taker = Convert.ToString(reader["Taker"]),
+                        Totalcost = reader["TotalCost"]==null?0:
+                        Convert.ToInt64(reader["TotalCost"])
 
 
                     };
               
                     dto.DateFormated = dto.Date.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
+                    dto.FualCostFormated = Global.Global.ConvertLongToMoney(dto.FualCost, Global.Global.SEP);
                     dto.TotalcostFormated = Global.Global.ConvertLongToMoney(dto.Totalcost, Global.Global.SEP);
                     return dto;
 
@@ -182,6 +192,8 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.Parameters.Add(new SqlParameter("@isPaid", dto.isPaid));
                 cmd.Parameters.Add(new SqlParameter("@TotalCost", dto.Totalcost));
                 cmd.Parameters.Add(new SqlParameter("@Task", dto.Task));
+                cmd.Parameters.Add(new SqlParameter("@FualCost", dto.FualCost));
+                cmd.Parameters.Add(new SqlParameter("@Taker", dto.Taker));
 
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.Read())
@@ -217,6 +229,9 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.Parameters.Add(new SqlParameter("@isPaid", dto.isPaid));
                 cmd.Parameters.Add(new SqlParameter("@TotalCost", dto.Totalcost));
                 cmd.Parameters.Add(new SqlParameter("@Task", dto.Task));
+                cmd.Parameters.Add(new SqlParameter("@FualCost", dto.FualCost));
+                cmd.Parameters.Add(new SqlParameter("@Taker", dto.Taker));
+                
 
 
                 cmd.ExecuteNonQuery();
@@ -316,6 +331,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.Parameters.Add(new SqlParameter("@From", dto.From));
                 cmd.Parameters.Add(new SqlParameter("@To", dto.To));
                 cmd.Parameters.Add(new SqlParameter("@Km", dto.Km));
+                cmd.Parameters.Add(new SqlParameter("@Date", dto.Date));
 
 
 
@@ -347,6 +363,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.Parameters.Add(new SqlParameter("@From", dto.From));
                 cmd.Parameters.Add(new SqlParameter("@To", dto.To));
                 cmd.Parameters.Add(new SqlParameter("@Km", dto.Km));
+                cmd.Parameters.Add(new SqlParameter("@Date", dto.Date));
 
 
 

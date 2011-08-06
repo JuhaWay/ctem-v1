@@ -224,7 +224,6 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.Parameters.Add(new SqlParameter("@Name", dto.Name));
                 cmd.Parameters.Add(new SqlParameter("@Number", dto.Number));
                 cmd.Parameters.Add(new SqlParameter("@Status", dto.Status));
-                cmd.Parameters.Add(new SqlParameter("@Category", dto.Category));
                 cmd.Parameters.Add(new SqlParameter("@Date", dto.Date));
 
                 cmd.ExecuteNonQuery();
