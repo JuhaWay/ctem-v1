@@ -232,6 +232,8 @@
             this.ipQuantity.Name = "ipQuantity";
             this.ipQuantity.Size = new System.Drawing.Size(145, 22);
             this.ipQuantity.TabIndex = 90;
+            this.ipQuantity.Leave += new System.EventHandler(this.ipQuantity_Leave);
+            this.ipQuantity.MouseLeave += new System.EventHandler(this.ipQuantity_MouseLeave);
             // 
             // kryptonLabel8
             // 
@@ -429,7 +431,7 @@
             // 
             this.ipTaker.Location = new System.Drawing.Point(107, 128);
             this.ipTaker.Name = "ipTaker";
-            this.ipTaker.Size = new System.Drawing.Size(129, 22);
+            this.ipTaker.Size = new System.Drawing.Size(252, 22);
             this.ipTaker.TabIndex = 94;
             // 
             // cbCons
@@ -528,24 +530,28 @@
             this.typeDataGridViewTextBoxColumn.DataPropertyName = "Type";
             this.typeDataGridViewTextBoxColumn.HeaderText = "Loại";
             this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
+            this.typeDataGridViewTextBoxColumn.Width = 200;
             // 
             // quantityDataGridViewTextBoxColumn
             // 
             this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
             this.quantityDataGridViewTextBoxColumn.HeaderText = "Số lượng";
             this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
+            this.quantityDataGridViewTextBoxColumn.Width = 200;
             // 
             // unitDataGridViewTextBoxColumn
             // 
             this.unitDataGridViewTextBoxColumn.DataPropertyName = "Unit";
             this.unitDataGridViewTextBoxColumn.HeaderText = "Đơn vị";
             this.unitDataGridViewTextBoxColumn.Name = "unitDataGridViewTextBoxColumn";
+            this.unitDataGridViewTextBoxColumn.Width = 200;
             // 
             // priceDataGridViewTextBoxColumn
             // 
             this.priceDataGridViewTextBoxColumn.DataPropertyName = "PriceFormated";
             this.priceDataGridViewTextBoxColumn.HeaderText = "Gía";
             this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            this.priceDataGridViewTextBoxColumn.Width = 200;
             // 
             // totalCostDataGridViewTextBoxColumn
             // 
@@ -553,12 +559,14 @@
             this.totalCostDataGridViewTextBoxColumn.HeaderText = "Tổng(VND)";
             this.totalCostDataGridViewTextBoxColumn.Name = "totalCostDataGridViewTextBoxColumn";
             this.totalCostDataGridViewTextBoxColumn.ReadOnly = true;
+            this.totalCostDataGridViewTextBoxColumn.Width = 200;
             // 
             // nameDataGridViewTextBoxColumn
             // 
             this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
             this.nameDataGridViewTextBoxColumn.HeaderText = "Chi tiết";
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.Width = 300;
             // 
             // dateDataGridViewTextBoxColumn
             // 
@@ -570,7 +578,7 @@
             this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
             this.dateDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dateDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dateDataGridViewTextBoxColumn.Width = 100;
+            this.dateDataGridViewTextBoxColumn.Width = 200;
             // 
             // AddNewMachineDairy
             // 

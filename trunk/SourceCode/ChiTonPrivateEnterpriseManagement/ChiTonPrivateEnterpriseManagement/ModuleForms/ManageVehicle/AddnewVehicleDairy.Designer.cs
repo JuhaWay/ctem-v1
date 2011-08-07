@@ -36,6 +36,13 @@
             this.gbCost = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.ipSumCost = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.dgvCost = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalCostDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateDataGridViewTextBoxColumn = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewDateTimePickerColumn();
             this.vehicleDairyCostDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ipName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.kryptonLabel12 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
@@ -89,13 +96,6 @@
             this.ipKm = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.ipFrom = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.ipTo = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalCostDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateDataGridViewTextBoxColumn = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewDateTimePickerColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pnMain)).BeginInit();
             this.pnMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonSplitContainer1)).BeginInit();
@@ -137,7 +137,7 @@
             this.pnMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnMain.Location = new System.Drawing.Point(0, 0);
             this.pnMain.Name = "pnMain";
-            this.pnMain.Size = new System.Drawing.Size(809, 567);
+            this.pnMain.Size = new System.Drawing.Size(928, 567);
             this.pnMain.TabIndex = 0;
             // 
             // kryptonSplitContainer1
@@ -154,8 +154,8 @@
             // kryptonSplitContainer1.Panel2
             // 
             this.kryptonSplitContainer1.Panel2.Controls.Add(this.kryptonPanel1);
-            this.kryptonSplitContainer1.Size = new System.Drawing.Size(809, 567);
-            this.kryptonSplitContainer1.SplitterDistance = 427;
+            this.kryptonSplitContainer1.Size = new System.Drawing.Size(928, 567);
+            this.kryptonSplitContainer1.SplitterDistance = 454;
             this.kryptonSplitContainer1.TabIndex = 0;
             // 
             // pnLeft
@@ -167,7 +167,7 @@
             this.pnLeft.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnLeft.Location = new System.Drawing.Point(0, 0);
             this.pnLeft.Name = "pnLeft";
-            this.pnLeft.Size = new System.Drawing.Size(427, 567);
+            this.pnLeft.Size = new System.Drawing.Size(454, 567);
             this.pnLeft.StateCommon.Color1 = System.Drawing.SystemColors.HotTrack;
             this.pnLeft.TabIndex = 0;
             // 
@@ -193,7 +193,7 @@
             this.gbCost.Panel.Controls.Add(this.cbTypeCost);
             this.gbCost.Panel.Controls.Add(this.kryptonLabel3);
             this.gbCost.Panel.Controls.Add(this.hdCost);
-            this.gbCost.Size = new System.Drawing.Size(407, 395);
+            this.gbCost.Size = new System.Drawing.Size(438, 395);
             this.gbCost.TabIndex = 85;
             this.gbCost.Values.Heading = "";
             // 
@@ -228,16 +228,73 @@
             this.dgvCost.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCost_CellEndEdit);
             this.dgvCost.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dgvCost_CellValidating);
             // 
+            // typeDataGridViewTextBoxColumn
+            // 
+            this.typeDataGridViewTextBoxColumn.DataPropertyName = "Type";
+            this.typeDataGridViewTextBoxColumn.HeaderText = "Loại";
+            this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
+            this.typeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.typeDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // quantityDataGridViewTextBoxColumn
+            // 
+            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
+            this.quantityDataGridViewTextBoxColumn.HeaderText = "Số lượng";
+            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
+            this.quantityDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // unitDataGridViewTextBoxColumn
+            // 
+            this.unitDataGridViewTextBoxColumn.DataPropertyName = "Unit";
+            this.unitDataGridViewTextBoxColumn.HeaderText = "Đơn vị";
+            this.unitDataGridViewTextBoxColumn.Name = "unitDataGridViewTextBoxColumn";
+            this.unitDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // priceDataGridViewTextBoxColumn
+            // 
+            this.priceDataGridViewTextBoxColumn.DataPropertyName = "PriceFormated";
+            this.priceDataGridViewTextBoxColumn.HeaderText = "Gía(VND)";
+            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            this.priceDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // totalCostDataGridViewTextBoxColumn
+            // 
+            this.totalCostDataGridViewTextBoxColumn.DataPropertyName = "TotalCostFormated";
+            this.totalCostDataGridViewTextBoxColumn.HeaderText = "Tổng(VND)";
+            this.totalCostDataGridViewTextBoxColumn.Name = "totalCostDataGridViewTextBoxColumn";
+            this.totalCostDataGridViewTextBoxColumn.ReadOnly = true;
+            this.totalCostDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Chi tiết";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.Width = 300;
+            // 
+            // dateDataGridViewTextBoxColumn
+            // 
+            this.dateDataGridViewTextBoxColumn.CalendarTodayDate = new System.DateTime(2011, 8, 9, 0, 0, 0, 0);
+            this.dateDataGridViewTextBoxColumn.Checked = false;
+            this.dateDataGridViewTextBoxColumn.CustomFormat = "dd/MM/yyyy";
+            this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
+            this.dateDataGridViewTextBoxColumn.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateDataGridViewTextBoxColumn.HeaderText = "Ngày";
+            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
+            this.dateDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dateDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dateDataGridViewTextBoxColumn.Width = 200;
+            // 
             // vehicleDairyCostDTOBindingSource
             // 
             this.vehicleDairyCostDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.VehicleDairyCostDTO);
             // 
             // ipName
             // 
-            this.ipName.Location = new System.Drawing.Point(72, 104);
+            this.ipName.Location = new System.Drawing.Point(72, 107);
             this.ipName.Multiline = true;
             this.ipName.Name = "ipName";
-            this.ipName.Size = new System.Drawing.Size(328, 46);
+            this.ipName.Size = new System.Drawing.Size(347, 46);
             this.ipName.TabIndex = 98;
             // 
             // kryptonLabel12
@@ -258,7 +315,7 @@
             this.dtDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtDate.Location = new System.Drawing.Point(72, 84);
             this.dtDate.Name = "dtDate";
-            this.dtDate.Size = new System.Drawing.Size(129, 20);
+            this.dtDate.Size = new System.Drawing.Size(136, 20);
             this.dtDate.TabIndex = 96;
             // 
             // kryptonLabel11
@@ -274,14 +331,14 @@
             // 
             // ipUnit
             // 
-            this.ipUnit.Location = new System.Drawing.Point(255, 56);
+            this.ipUnit.Location = new System.Drawing.Point(275, 56);
             this.ipUnit.Name = "ipUnit";
             this.ipUnit.Size = new System.Drawing.Size(145, 22);
             this.ipUnit.TabIndex = 92;
             // 
             // kryptonLabel9
             // 
-            this.kryptonLabel9.Location = new System.Drawing.Point(199, 59);
+            this.kryptonLabel9.Location = new System.Drawing.Point(219, 59);
             this.kryptonLabel9.Name = "kryptonLabel9";
             this.kryptonLabel9.Size = new System.Drawing.Size(43, 19);
             this.kryptonLabel9.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -292,14 +349,16 @@
             // 
             // ipQuantity
             // 
-            this.ipQuantity.Location = new System.Drawing.Point(255, 32);
+            this.ipQuantity.Location = new System.Drawing.Point(275, 32);
             this.ipQuantity.Name = "ipQuantity";
             this.ipQuantity.Size = new System.Drawing.Size(145, 22);
             this.ipQuantity.TabIndex = 90;
+            this.ipQuantity.Leave += new System.EventHandler(this.ipQuantity_Leave);
+            this.ipQuantity.MouseLeave += new System.EventHandler(this.ipQuantity_MouseLeave);
             // 
             // kryptonLabel8
             // 
-            this.kryptonLabel8.Location = new System.Drawing.Point(199, 35);
+            this.kryptonLabel8.Location = new System.Drawing.Point(214, 35);
             this.kryptonLabel8.Name = "kryptonLabel8";
             this.kryptonLabel8.Size = new System.Drawing.Size(55, 19);
             this.kryptonLabel8.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -312,7 +371,7 @@
             // 
             this.ipPrice.Location = new System.Drawing.Point(72, 59);
             this.ipPrice.Name = "ipPrice";
-            this.ipPrice.Size = new System.Drawing.Size(129, 22);
+            this.ipPrice.Size = new System.Drawing.Size(136, 22);
             this.ipPrice.TabIndex = 88;
             this.ipPrice.Leave += new System.EventHandler(this.ipPrice_Leave);
             this.ipPrice.MouseLeave += new System.EventHandler(this.ipPrice_MouseLeave);
@@ -332,7 +391,7 @@
             this.cbTypeCost.DropDownWidth = 129;
             this.cbTypeCost.Location = new System.Drawing.Point(72, 31);
             this.cbTypeCost.Name = "cbTypeCost";
-            this.cbTypeCost.Size = new System.Drawing.Size(129, 22);
+            this.cbTypeCost.Size = new System.Drawing.Size(136, 22);
             this.cbTypeCost.TabIndex = 86;
             // 
             // kryptonLabel3
@@ -354,7 +413,7 @@
             this.hdCost.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.DockActive;
             this.hdCost.Location = new System.Drawing.Point(0, 0);
             this.hdCost.Name = "hdCost";
-            this.hdCost.Size = new System.Drawing.Size(403, 29);
+            this.hdCost.Size = new System.Drawing.Size(434, 29);
             this.hdCost.TabIndex = 84;
             this.hdCost.Values.Description = "";
             this.hdCost.Values.Heading = "Chi phí hoạt động";
@@ -430,13 +489,13 @@
             this.kryptonGroupBox1.Panel.Controls.Add(this.kryptonLabel1);
             this.kryptonGroupBox1.Panel.Controls.Add(this.cbVehicle);
             this.kryptonGroupBox1.Panel.Controls.Add(this.cbDriver);
-            this.kryptonGroupBox1.Size = new System.Drawing.Size(407, 98);
+            this.kryptonGroupBox1.Size = new System.Drawing.Size(438, 98);
             this.kryptonGroupBox1.TabIndex = 83;
             this.kryptonGroupBox1.Values.Heading = "";
             // 
             // lbDriver
             // 
-            this.lbDriver.Location = new System.Drawing.Point(72, 59);
+            this.lbDriver.Location = new System.Drawing.Point(12, 56);
             this.lbDriver.Name = "lbDriver";
             this.lbDriver.Size = new System.Drawing.Size(50, 19);
             this.lbDriver.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -447,15 +506,15 @@
             // 
             this.kryptonComboBox1.DropDownWidth = 204;
             this.kryptonComboBox1.Enabled = false;
-            this.kryptonComboBox1.Location = new System.Drawing.Point(129, 3);
+            this.kryptonComboBox1.Location = new System.Drawing.Point(82, 3);
             this.kryptonComboBox1.Name = "kryptonComboBox1";
-            this.kryptonComboBox1.Size = new System.Drawing.Size(235, 22);
+            this.kryptonComboBox1.Size = new System.Drawing.Size(337, 22);
             this.kryptonComboBox1.TabIndex = 82;
             this.kryptonComboBox1.Text = "Phương tiện";
             // 
             // kryptonLabel2
             // 
-            this.kryptonLabel2.Location = new System.Drawing.Point(50, 31);
+            this.kryptonLabel2.Location = new System.Drawing.Point(10, 28);
             this.kryptonLabel2.Name = "kryptonLabel2";
             this.kryptonLabel2.Size = new System.Drawing.Size(72, 19);
             this.kryptonLabel2.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -465,7 +524,7 @@
             // 
             // kryptonLabel1
             // 
-            this.kryptonLabel1.Location = new System.Drawing.Point(58, 3);
+            this.kryptonLabel1.Location = new System.Drawing.Point(12, 2);
             this.kryptonLabel1.Name = "kryptonLabel1";
             this.kryptonLabel1.Size = new System.Drawing.Size(64, 19);
             this.kryptonLabel1.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -476,18 +535,18 @@
             // cbVehicle
             // 
             this.cbVehicle.DropDownWidth = 121;
-            this.cbVehicle.Location = new System.Drawing.Point(128, 28);
+            this.cbVehicle.Location = new System.Drawing.Point(82, 28);
             this.cbVehicle.Name = "cbVehicle";
-            this.cbVehicle.Size = new System.Drawing.Size(235, 22);
+            this.cbVehicle.Size = new System.Drawing.Size(337, 22);
             this.cbVehicle.TabIndex = 1;
             this.cbVehicle.Text = "chọn...";
             // 
             // cbDriver
             // 
             this.cbDriver.DropDownWidth = 121;
-            this.cbDriver.Location = new System.Drawing.Point(128, 56);
+            this.cbDriver.Location = new System.Drawing.Point(82, 56);
             this.cbDriver.Name = "cbDriver";
-            this.cbDriver.Size = new System.Drawing.Size(235, 22);
+            this.cbDriver.Size = new System.Drawing.Size(337, 22);
             this.cbDriver.TabIndex = 2;
             this.cbDriver.Text = "chọn...";
             // 
@@ -498,13 +557,13 @@
             this.kryptonPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonPanel1.Location = new System.Drawing.Point(0, 0);
             this.kryptonPanel1.Name = "kryptonPanel1";
-            this.kryptonPanel1.Size = new System.Drawing.Size(377, 567);
+            this.kryptonPanel1.Size = new System.Drawing.Size(469, 567);
             this.kryptonPanel1.StateCommon.Color1 = System.Drawing.SystemColors.HotTrack;
             this.kryptonPanel1.TabIndex = 0;
             // 
             // gbright
             // 
-            this.gbright.Location = new System.Drawing.Point(3, 2);
+            this.gbright.Location = new System.Drawing.Point(5, 2);
             this.gbright.Name = "gbright";
             // 
             // gbright.Panel
@@ -515,7 +574,7 @@
             this.gbright.Panel.Controls.Add(this.kryptonLabel10);
             this.gbright.Panel.Controls.Add(this.ipTaker);
             this.gbright.Panel.Controls.Add(this.lbPaid);
-            this.gbright.Size = new System.Drawing.Size(371, 99);
+            this.gbright.Size = new System.Drawing.Size(463, 99);
             this.gbright.TabIndex = 87;
             this.gbright.Values.Heading = "";
             // 
@@ -526,7 +585,7 @@
             this.dtDay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtDay.Location = new System.Drawing.Point(104, 2);
             this.dtDay.Name = "dtDay";
-            this.dtDay.Size = new System.Drawing.Size(235, 20);
+            this.dtDay.Size = new System.Drawing.Size(331, 20);
             this.dtDay.TabIndex = 7;
             // 
             // lbDay
@@ -561,7 +620,7 @@
             // 
             this.ipTaker.Location = new System.Drawing.Point(104, 28);
             this.ipTaker.Name = "ipTaker";
-            this.ipTaker.Size = new System.Drawing.Size(234, 22);
+            this.ipTaker.Size = new System.Drawing.Size(330, 22);
             this.ipTaker.TabIndex = 94;
             // 
             // lbPaid
@@ -575,7 +634,7 @@
             // 
             // kryptonGroupBox3
             // 
-            this.kryptonGroupBox3.Location = new System.Drawing.Point(3, 111);
+            this.kryptonGroupBox3.Location = new System.Drawing.Point(5, 111);
             this.kryptonGroupBox3.Name = "kryptonGroupBox3";
             // 
             // kryptonGroupBox3.Panel
@@ -590,7 +649,7 @@
             this.kryptonGroupBox3.Panel.Controls.Add(this.ipKm);
             this.kryptonGroupBox3.Panel.Controls.Add(this.ipFrom);
             this.kryptonGroupBox3.Panel.Controls.Add(this.ipTo);
-            this.kryptonGroupBox3.Size = new System.Drawing.Size(371, 391);
+            this.kryptonGroupBox3.Size = new System.Drawing.Size(463, 391);
             this.kryptonGroupBox3.TabIndex = 86;
             this.kryptonGroupBox3.Values.Heading = "";
             // 
@@ -599,14 +658,14 @@
             this.dtRmDate.CalendarTodayDate = new System.DateTime(2011, 8, 9, 0, 0, 0, 0);
             this.dtRmDate.CustomFormat = "dd/MM/yyyy";
             this.dtRmDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtRmDate.Location = new System.Drawing.Point(77, 119);
+            this.dtRmDate.Location = new System.Drawing.Point(104, 119);
             this.dtRmDate.Name = "dtRmDate";
-            this.dtRmDate.Size = new System.Drawing.Size(209, 20);
+            this.dtRmDate.Size = new System.Drawing.Size(330, 20);
             this.dtRmDate.TabIndex = 97;
             // 
             // kryptonLabel13
             // 
-            this.kryptonLabel13.Location = new System.Drawing.Point(25, 120);
+            this.kryptonLabel13.Location = new System.Drawing.Point(38, 119);
             this.kryptonLabel13.Name = "kryptonLabel13";
             this.kryptonLabel13.Size = new System.Drawing.Size(37, 19);
             this.kryptonLabel13.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -617,7 +676,7 @@
             // 
             // kryptonLabel5
             // 
-            this.kryptonLabel5.Location = new System.Drawing.Point(17, 66);
+            this.kryptonLabel5.Location = new System.Drawing.Point(38, 66);
             this.kryptonLabel5.Name = "kryptonLabel5";
             this.kryptonLabel5.Size = new System.Drawing.Size(45, 19);
             this.kryptonLabel5.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -639,7 +698,7 @@
             this.dgvRoadMap.Location = new System.Drawing.Point(0, 152);
             this.dgvRoadMap.Name = "dgvRoadMap";
             this.dgvRoadMap.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvRoadMap.Size = new System.Drawing.Size(367, 233);
+            this.dgvRoadMap.Size = new System.Drawing.Size(459, 233);
             this.dgvRoadMap.StateCommon.Background.Color1 = System.Drawing.Color.White;
             this.dgvRoadMap.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
             this.dgvRoadMap.TabIndex = 85;
@@ -683,7 +742,7 @@
             // 
             // kryptonLabel4
             // 
-            this.kryptonLabel4.Location = new System.Drawing.Point(25, 38);
+            this.kryptonLabel4.Location = new System.Drawing.Point(46, 38);
             this.kryptonLabel4.Name = "kryptonLabel4";
             this.kryptonLabel4.Size = new System.Drawing.Size(37, 19);
             this.kryptonLabel4.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -700,7 +759,7 @@
             this.hdDebt.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.DockActive;
             this.hdDebt.Location = new System.Drawing.Point(0, 0);
             this.hdDebt.Name = "hdDebt";
-            this.hdDebt.Size = new System.Drawing.Size(367, 29);
+            this.hdDebt.Size = new System.Drawing.Size(459, 29);
             this.hdDebt.TabIndex = 83;
             this.hdDebt.Values.Description = "";
             this.hdDebt.Values.Heading = "Lộ trình";
@@ -723,7 +782,7 @@
             // 
             // kryptonLabel6
             // 
-            this.kryptonLabel6.Location = new System.Drawing.Point(24, 94);
+            this.kryptonLabel6.Location = new System.Drawing.Point(45, 95);
             this.kryptonLabel6.Name = "kryptonLabel6";
             this.kryptonLabel6.Size = new System.Drawing.Size(38, 19);
             this.kryptonLabel6.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -733,81 +792,30 @@
             // 
             // ipKm
             // 
-            this.ipKm.Location = new System.Drawing.Point(77, 91);
+            this.ipKm.Location = new System.Drawing.Point(104, 91);
             this.ipKm.Name = "ipKm";
-            this.ipKm.Size = new System.Drawing.Size(209, 22);
+            this.ipKm.Size = new System.Drawing.Size(330, 22);
             this.ipKm.TabIndex = 11;
             // 
             // ipFrom
             // 
-            this.ipFrom.Location = new System.Drawing.Point(77, 35);
+            this.ipFrom.Location = new System.Drawing.Point(104, 35);
             this.ipFrom.Name = "ipFrom";
-            this.ipFrom.Size = new System.Drawing.Size(209, 22);
+            this.ipFrom.Size = new System.Drawing.Size(330, 22);
             this.ipFrom.TabIndex = 9;
             // 
             // ipTo
             // 
-            this.ipTo.Location = new System.Drawing.Point(77, 63);
+            this.ipTo.Location = new System.Drawing.Point(104, 63);
             this.ipTo.Name = "ipTo";
-            this.ipTo.Size = new System.Drawing.Size(209, 22);
+            this.ipTo.Size = new System.Drawing.Size(330, 22);
             this.ipTo.TabIndex = 10;
-            // 
-            // typeDataGridViewTextBoxColumn
-            // 
-            this.typeDataGridViewTextBoxColumn.DataPropertyName = "Type";
-            this.typeDataGridViewTextBoxColumn.HeaderText = "Loại";
-            this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
-            this.typeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // quantityDataGridViewTextBoxColumn
-            // 
-            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
-            this.quantityDataGridViewTextBoxColumn.HeaderText = "Số lượng";
-            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
-            // 
-            // unitDataGridViewTextBoxColumn
-            // 
-            this.unitDataGridViewTextBoxColumn.DataPropertyName = "Unit";
-            this.unitDataGridViewTextBoxColumn.HeaderText = "Đơn vị";
-            this.unitDataGridViewTextBoxColumn.Name = "unitDataGridViewTextBoxColumn";
-            // 
-            // priceDataGridViewTextBoxColumn
-            // 
-            this.priceDataGridViewTextBoxColumn.DataPropertyName = "PriceFormated";
-            this.priceDataGridViewTextBoxColumn.HeaderText = "Gía(VND)";
-            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
-            // 
-            // totalCostDataGridViewTextBoxColumn
-            // 
-            this.totalCostDataGridViewTextBoxColumn.DataPropertyName = "TotalCostFormated";
-            this.totalCostDataGridViewTextBoxColumn.HeaderText = "Tổng(VND)";
-            this.totalCostDataGridViewTextBoxColumn.Name = "totalCostDataGridViewTextBoxColumn";
-            this.totalCostDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Chi tiết";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            // 
-            // dateDataGridViewTextBoxColumn
-            // 
-            this.dateDataGridViewTextBoxColumn.CalendarTodayDate = new System.DateTime(2011, 8, 9, 0, 0, 0, 0);
-            this.dateDataGridViewTextBoxColumn.Checked = false;
-            this.dateDataGridViewTextBoxColumn.CustomFormat = "dd/MM/yyyy";
-            this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
-            this.dateDataGridViewTextBoxColumn.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateDataGridViewTextBoxColumn.HeaderText = "Ngày";
-            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
-            this.dateDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dateDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dateDataGridViewTextBoxColumn.Width = 100;
             // 
             // AddnewVehicleDairy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(809, 567);
+            this.ClientSize = new System.Drawing.Size(928, 567);
             this.Controls.Add(this.pnMain);
             this.Name = "AddnewVehicleDairy";
             this.ShowIcon = false;
