@@ -371,7 +371,15 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
                 ipSumCost.Text = Global.ConvertDoubleToMoney(totalCost, Global.SEP);
             }
         }
+        private void ipQuantity_Leave(object sender, EventArgs e)
+        {
+            ipQuantity.Text = Global.ConvertDoubleToMoney(Global.ConvertMoneyToDouble(ipQuantity.Text, Global.SEP), Global.SEP);
+        }
 
+        private void ipQuantity_MouseLeave(object sender, EventArgs e)
+        {
+            ipQuantity.Text = Global.ConvertDoubleToMoney(Global.ConvertMoneyToDouble(ipQuantity.Text, Global.SEP), Global.SEP);
+        }
        
     }
 } 

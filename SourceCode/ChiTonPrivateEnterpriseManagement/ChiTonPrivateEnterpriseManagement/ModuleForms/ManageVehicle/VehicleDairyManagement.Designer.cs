@@ -58,9 +58,14 @@
             this.dgvVehicleDairy = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.VehicleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DriverName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isPaid = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.vehicleDairyDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pnlSearch = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.gbxSearch = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
+            this.cbIsPaid = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.lbIspaid = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.cbSearchCategory = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.kryptonLabel3 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.lbFromDate = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
@@ -81,27 +86,22 @@
             this.btEdit = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.btnDelete = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.btnHideShowSearch = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.cbIsPaid = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
-            this.lbIspaid = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.DriverName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vehicleDairyDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cmsDGV.SuspendLayout();
             this.cmsEdit.SuspendLayout();
             this.cmsGen.SuspendLayout();
             this.cmsMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVehicleDairy)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vehicleDairyDTOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlSearch)).BeginInit();
             this.pnlSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gbxSearch)).BeginInit();
             this.gbxSearch.Panel.SuspendLayout();
             this.gbxSearch.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbIsPaid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbSearchCategory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbSearchCons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbSearchVehicle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbSearchDriver)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbIsPaid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vehicleDairyDTOBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // cmsDGV
@@ -295,6 +295,20 @@
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.Width = 300;
             // 
+            // DriverName
+            // 
+            this.DriverName.DataPropertyName = "DriverName";
+            this.DriverName.HeaderText = "Tài xế";
+            this.DriverName.Name = "DriverName";
+            this.DriverName.Width = 200;
+            // 
+            // Date
+            // 
+            this.Date.DataPropertyName = "DateFormated";
+            this.Date.HeaderText = "Ngày ứng tiền";
+            this.Date.Name = "Date";
+            this.Date.Width = 200;
+            // 
             // isPaid
             // 
             this.isPaid.DataPropertyName = "isPaid";
@@ -302,6 +316,10 @@
             this.isPaid.Name = "isPaid";
             this.isPaid.Visible = false;
             this.isPaid.Width = 200;
+            // 
+            // vehicleDairyDTOBindingSource
+            // 
+            this.vehicleDairyDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.VehicleDairyDTO);
             // 
             // pnlSearch
             // 
@@ -340,6 +358,29 @@
             this.gbxSearch.Size = new System.Drawing.Size(785, 64);
             this.gbxSearch.TabIndex = 0;
             this.gbxSearch.Values.Heading = "";
+            // 
+            // cbIsPaid
+            // 
+            this.cbIsPaid.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.cbIsPaid.DropDownWidth = 139;
+            this.cbIsPaid.Items.AddRange(new object[] {
+            "Tất cả",
+            "Đã thanh toán",
+            "Chưa thanh toán"});
+            this.cbIsPaid.Location = new System.Drawing.Point(570, 31);
+            this.cbIsPaid.Name = "cbIsPaid";
+            this.cbIsPaid.Size = new System.Drawing.Size(98, 22);
+            this.cbIsPaid.TabIndex = 19;
+            // 
+            // lbIspaid
+            // 
+            this.lbIspaid.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.lbIspaid.Location = new System.Drawing.Point(570, 9);
+            this.lbIspaid.Name = "lbIspaid";
+            this.lbIspaid.Size = new System.Drawing.Size(67, 19);
+            this.lbIspaid.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.lbIspaid.TabIndex = 18;
+            this.lbIspaid.Values.Text = "Thanh toán";
             // 
             // cbSearchCategory
             // 
@@ -385,7 +426,7 @@
             // btnSearch
             // 
             this.btnSearch.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnSearch.Location = new System.Drawing.Point(586, 35);
+            this.btnSearch.Location = new System.Drawing.Point(690, 31);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.OverrideDefault.Back.Color1 = System.Drawing.Color.NavajoWhite;
             this.btnSearch.OverrideDefault.Back.Color2 = System.Drawing.Color.White;
@@ -555,47 +596,6 @@
             this.btnHideShowSearch.UniqueName = "7CD50F96676F43E7C0B240BAD639EFD5";
             this.btnHideShowSearch.Click += new System.EventHandler(this.btnHideShowSearch_Click);
             // 
-            // cbIsPaid
-            // 
-            this.cbIsPaid.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.cbIsPaid.DropDownWidth = 139;
-            this.cbIsPaid.Items.AddRange(new object[] {
-            "Tất cả",
-            "Đã thanh toán",
-            "Chưa thanh toán"});
-            this.cbIsPaid.Location = new System.Drawing.Point(650, 7);
-            this.cbIsPaid.Name = "cbIsPaid";
-            this.cbIsPaid.Size = new System.Drawing.Size(98, 22);
-            this.cbIsPaid.TabIndex = 19;
-            // 
-            // lbIspaid
-            // 
-            this.lbIspaid.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.lbIspaid.Location = new System.Drawing.Point(577, 9);
-            this.lbIspaid.Name = "lbIspaid";
-            this.lbIspaid.Size = new System.Drawing.Size(67, 19);
-            this.lbIspaid.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.lbIspaid.TabIndex = 18;
-            this.lbIspaid.Values.Text = "Thanh toán";
-            // 
-            // DriverName
-            // 
-            this.DriverName.DataPropertyName = "DriverName";
-            this.DriverName.HeaderText = "Tài xế";
-            this.DriverName.Name = "DriverName";
-            this.DriverName.Width = 200;
-            // 
-            // Date
-            // 
-            this.Date.DataPropertyName = "DateFormated";
-            this.Date.HeaderText = "Ngày ứng tiền";
-            this.Date.Name = "Date";
-            this.Date.Width = 200;
-            // 
-            // vehicleDairyDTOBindingSource
-            // 
-            this.vehicleDairyDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.VehicleDairyDTO);
-            // 
             // VehicleDairyManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -613,18 +613,18 @@
             this.cmsGen.ResumeLayout(false);
             this.cmsMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvVehicleDairy)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vehicleDairyDTOBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlSearch)).EndInit();
             this.pnlSearch.ResumeLayout(false);
             this.gbxSearch.Panel.ResumeLayout(false);
             this.gbxSearch.Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gbxSearch)).EndInit();
             this.gbxSearch.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cbIsPaid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbSearchCategory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbSearchCons)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbSearchVehicle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbSearchDriver)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbIsPaid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vehicleDairyDTOBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
