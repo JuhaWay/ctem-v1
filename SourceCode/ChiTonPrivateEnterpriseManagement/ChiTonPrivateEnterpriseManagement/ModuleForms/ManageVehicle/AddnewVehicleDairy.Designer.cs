@@ -221,7 +221,7 @@
             this.dgvCost.Location = new System.Drawing.Point(2, 156);
             this.dgvCost.Name = "dgvCost";
             this.dgvCost.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCost.Size = new System.Drawing.Size(401, 235);
+            this.dgvCost.Size = new System.Drawing.Size(429, 235);
             this.dgvCost.StateCommon.Background.Color1 = System.Drawing.Color.White;
             this.dgvCost.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
             this.dgvCost.TabIndex = 99;
@@ -294,7 +294,7 @@
             this.ipName.Location = new System.Drawing.Point(72, 107);
             this.ipName.Multiline = true;
             this.ipName.Name = "ipName";
-            this.ipName.Size = new System.Drawing.Size(347, 46);
+            this.ipName.Size = new System.Drawing.Size(359, 46);
             this.ipName.TabIndex = 98;
             // 
             // kryptonLabel12
@@ -333,7 +333,7 @@
             // 
             this.ipUnit.Location = new System.Drawing.Point(275, 56);
             this.ipUnit.Name = "ipUnit";
-            this.ipUnit.Size = new System.Drawing.Size(145, 22);
+            this.ipUnit.Size = new System.Drawing.Size(156, 22);
             this.ipUnit.TabIndex = 92;
             // 
             // kryptonLabel9
@@ -351,14 +351,14 @@
             // 
             this.ipQuantity.Location = new System.Drawing.Point(275, 32);
             this.ipQuantity.Name = "ipQuantity";
-            this.ipQuantity.Size = new System.Drawing.Size(145, 22);
+            this.ipQuantity.Size = new System.Drawing.Size(156, 22);
             this.ipQuantity.TabIndex = 90;
             this.ipQuantity.Leave += new System.EventHandler(this.ipQuantity_Leave);
             this.ipQuantity.MouseLeave += new System.EventHandler(this.ipQuantity_MouseLeave);
             // 
             // kryptonLabel8
             // 
-            this.kryptonLabel8.Location = new System.Drawing.Point(214, 35);
+            this.kryptonLabel8.Location = new System.Drawing.Point(219, 35);
             this.kryptonLabel8.Name = "kryptonLabel8";
             this.kryptonLabel8.Size = new System.Drawing.Size(55, 19);
             this.kryptonLabel8.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -495,7 +495,7 @@
             // 
             // lbDriver
             // 
-            this.lbDriver.Location = new System.Drawing.Point(12, 56);
+            this.lbDriver.Location = new System.Drawing.Point(3, 56);
             this.lbDriver.Name = "lbDriver";
             this.lbDriver.Size = new System.Drawing.Size(50, 19);
             this.lbDriver.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -508,13 +508,13 @@
             this.kryptonComboBox1.Enabled = false;
             this.kryptonComboBox1.Location = new System.Drawing.Point(82, 3);
             this.kryptonComboBox1.Name = "kryptonComboBox1";
-            this.kryptonComboBox1.Size = new System.Drawing.Size(337, 22);
+            this.kryptonComboBox1.Size = new System.Drawing.Size(349, 22);
             this.kryptonComboBox1.TabIndex = 82;
             this.kryptonComboBox1.Text = "Phương tiện";
             // 
             // kryptonLabel2
             // 
-            this.kryptonLabel2.Location = new System.Drawing.Point(10, 28);
+            this.kryptonLabel2.Location = new System.Drawing.Point(4, 28);
             this.kryptonLabel2.Name = "kryptonLabel2";
             this.kryptonLabel2.Size = new System.Drawing.Size(72, 19);
             this.kryptonLabel2.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -524,7 +524,7 @@
             // 
             // kryptonLabel1
             // 
-            this.kryptonLabel1.Location = new System.Drawing.Point(12, 2);
+            this.kryptonLabel1.Location = new System.Drawing.Point(3, 2);
             this.kryptonLabel1.Name = "kryptonLabel1";
             this.kryptonLabel1.Size = new System.Drawing.Size(64, 19);
             this.kryptonLabel1.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -537,7 +537,7 @@
             this.cbVehicle.DropDownWidth = 121;
             this.cbVehicle.Location = new System.Drawing.Point(82, 28);
             this.cbVehicle.Name = "cbVehicle";
-            this.cbVehicle.Size = new System.Drawing.Size(337, 22);
+            this.cbVehicle.Size = new System.Drawing.Size(349, 22);
             this.cbVehicle.TabIndex = 1;
             this.cbVehicle.Text = "chọn...";
             // 
@@ -546,7 +546,7 @@
             this.cbDriver.DropDownWidth = 121;
             this.cbDriver.Location = new System.Drawing.Point(82, 56);
             this.cbDriver.Name = "cbDriver";
-            this.cbDriver.Size = new System.Drawing.Size(337, 22);
+            this.cbDriver.Size = new System.Drawing.Size(349, 22);
             this.cbDriver.TabIndex = 2;
             this.cbDriver.Text = "chọn...";
             // 

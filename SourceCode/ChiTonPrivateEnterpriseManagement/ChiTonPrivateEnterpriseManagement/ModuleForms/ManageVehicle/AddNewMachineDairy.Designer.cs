@@ -34,6 +34,13 @@
             this.gbCost = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.ipSumCost = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.dgvCost = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalCostDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateDataGridViewTextBoxColumn = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewDateTimePickerColumn();
             this.vehicleDairyCostDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ipName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.kryptonLabel12 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
@@ -71,13 +78,6 @@
             this.lbPaid = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.lbDay = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.dtDay = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
-            this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalCostDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateDataGridViewTextBoxColumn = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewDateTimePickerColumn();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gbCost)).BeginInit();
@@ -112,7 +112,8 @@
             // 
             // gbCost
             // 
-            this.gbCost.Location = new System.Drawing.Point(396, 12);
+            this.gbCost.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gbCost.Location = new System.Drawing.Point(0, 153);
             this.gbCost.Name = "gbCost";
             // 
             // gbCost.Panel
@@ -132,7 +133,7 @@
             this.gbCost.Panel.Controls.Add(this.cbTypeCost);
             this.gbCost.Panel.Controls.Add(this.kryptonLabel13);
             this.gbCost.Panel.Controls.Add(this.hdCost);
-            this.gbCost.Size = new System.Drawing.Size(407, 430);
+            this.gbCost.Size = new System.Drawing.Size(803, 366);
             this.gbCost.TabIndex = 134;
             this.gbCost.Values.Heading = "";
             // 
@@ -157,373 +158,16 @@
             this.nameDataGridViewTextBoxColumn,
             this.dateDataGridViewTextBoxColumn});
             this.dgvCost.DataSource = this.vehicleDairyCostDTOBindingSource;
-            this.dgvCost.Location = new System.Drawing.Point(2, 156);
+            this.dgvCost.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvCost.Location = new System.Drawing.Point(0, 109);
             this.dgvCost.Name = "dgvCost";
             this.dgvCost.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCost.Size = new System.Drawing.Size(401, 260);
+            this.dgvCost.Size = new System.Drawing.Size(799, 251);
             this.dgvCost.StateCommon.Background.Color1 = System.Drawing.Color.White;
             this.dgvCost.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
             this.dgvCost.TabIndex = 99;
             this.dgvCost.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCost_CellEndEdit);
             this.dgvCost.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dgvCost_CellValidating);
-            // 
-            // vehicleDairyCostDTOBindingSource
-            // 
-            this.vehicleDairyCostDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.VehicleDairyCostDTO);
-            // 
-            // ipName
-            // 
-            this.ipName.Location = new System.Drawing.Point(72, 104);
-            this.ipName.Multiline = true;
-            this.ipName.Name = "ipName";
-            this.ipName.Size = new System.Drawing.Size(328, 46);
-            this.ipName.TabIndex = 98;
-            // 
-            // kryptonLabel12
-            // 
-            this.kryptonLabel12.Location = new System.Drawing.Point(12, 107);
-            this.kryptonLabel12.Name = "kryptonLabel12";
-            this.kryptonLabel12.Size = new System.Drawing.Size(46, 19);
-            this.kryptonLabel12.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.kryptonLabel12.StateCommon.ShortText.Prefix = ComponentFactory.Krypton.Toolkit.PaletteTextHotkeyPrefix.Show;
-            this.kryptonLabel12.TabIndex = 97;
-            this.kryptonLabel12.Values.Text = "Chi tiết";
-            // 
-            // dtDate
-            // 
-            this.dtDate.CalendarTodayDate = new System.DateTime(2011, 8, 9, 0, 0, 0, 0);
-            this.dtDate.CustomFormat = "dd/MM/yyyy";
-            this.dtDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtDate.Location = new System.Drawing.Point(72, 78);
-            this.dtDate.Name = "dtDate";
-            this.dtDate.Size = new System.Drawing.Size(129, 20);
-            this.dtDate.TabIndex = 96;
-            // 
-            // kryptonLabel11
-            // 
-            this.kryptonLabel11.Location = new System.Drawing.Point(24, 85);
-            this.kryptonLabel11.Name = "kryptonLabel11";
-            this.kryptonLabel11.Size = new System.Drawing.Size(37, 19);
-            this.kryptonLabel11.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.kryptonLabel11.StateCommon.ShortText.Prefix = ComponentFactory.Krypton.Toolkit.PaletteTextHotkeyPrefix.Show;
-            this.kryptonLabel11.TabIndex = 95;
-            this.kryptonLabel11.Values.Text = "Ngày";
-            // 
-            // ipUnit
-            // 
-            this.ipUnit.Location = new System.Drawing.Point(255, 56);
-            this.ipUnit.Name = "ipUnit";
-            this.ipUnit.Size = new System.Drawing.Size(145, 22);
-            this.ipUnit.TabIndex = 92;
-            // 
-            // kryptonLabel9
-            // 
-            this.kryptonLabel9.Location = new System.Drawing.Point(199, 59);
-            this.kryptonLabel9.Name = "kryptonLabel9";
-            this.kryptonLabel9.Size = new System.Drawing.Size(43, 19);
-            this.kryptonLabel9.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.kryptonLabel9.StateCommon.ShortText.Prefix = ComponentFactory.Krypton.Toolkit.PaletteTextHotkeyPrefix.Show;
-            this.kryptonLabel9.TabIndex = 91;
-            this.kryptonLabel9.Values.Text = "Đơn vị";
-            // 
-            // ipQuantity
-            // 
-            this.ipQuantity.Location = new System.Drawing.Point(255, 32);
-            this.ipQuantity.Name = "ipQuantity";
-            this.ipQuantity.Size = new System.Drawing.Size(145, 22);
-            this.ipQuantity.TabIndex = 90;
-            this.ipQuantity.Leave += new System.EventHandler(this.ipQuantity_Leave);
-            this.ipQuantity.MouseLeave += new System.EventHandler(this.ipQuantity_MouseLeave);
-            // 
-            // kryptonLabel8
-            // 
-            this.kryptonLabel8.Location = new System.Drawing.Point(199, 35);
-            this.kryptonLabel8.Name = "kryptonLabel8";
-            this.kryptonLabel8.Size = new System.Drawing.Size(55, 19);
-            this.kryptonLabel8.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.kryptonLabel8.StateCommon.ShortText.Prefix = ComponentFactory.Krypton.Toolkit.PaletteTextHotkeyPrefix.Show;
-            this.kryptonLabel8.TabIndex = 89;
-            this.kryptonLabel8.Values.Text = "Số lượng";
-            // 
-            // ipPrice
-            // 
-            this.ipPrice.Location = new System.Drawing.Point(72, 56);
-            this.ipPrice.Name = "ipPrice";
-            this.ipPrice.Size = new System.Drawing.Size(129, 22);
-            this.ipPrice.TabIndex = 88;
-            this.ipPrice.Leave += new System.EventHandler(this.ipPrice_Leave);
-            this.ipPrice.MouseLeave += new System.EventHandler(this.ipPrice_MouseLeave);
-            // 
-            // kryptonLabel7
-            // 
-            this.kryptonLabel7.Location = new System.Drawing.Point(10, 59);
-            this.kryptonLabel7.Name = "kryptonLabel7";
-            this.kryptonLabel7.Size = new System.Drawing.Size(57, 19);
-            this.kryptonLabel7.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.kryptonLabel7.StateCommon.ShortText.Prefix = ComponentFactory.Krypton.Toolkit.PaletteTextHotkeyPrefix.Show;
-            this.kryptonLabel7.TabIndex = 87;
-            this.kryptonLabel7.Values.Text = "Gía(VND)";
-            // 
-            // cbTypeCost
-            // 
-            this.cbTypeCost.DropDownWidth = 129;
-            this.cbTypeCost.Location = new System.Drawing.Point(72, 32);
-            this.cbTypeCost.Name = "cbTypeCost";
-            this.cbTypeCost.Size = new System.Drawing.Size(129, 22);
-            this.cbTypeCost.TabIndex = 86;
-            // 
-            // kryptonLabel13
-            // 
-            this.kryptonLabel13.Location = new System.Drawing.Point(3, 35);
-            this.kryptonLabel13.Name = "kryptonLabel13";
-            this.kryptonLabel13.Size = new System.Drawing.Size(67, 19);
-            this.kryptonLabel13.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.kryptonLabel13.StateCommon.ShortText.Prefix = ComponentFactory.Krypton.Toolkit.PaletteTextHotkeyPrefix.Show;
-            this.kryptonLabel13.TabIndex = 85;
-            this.kryptonLabel13.Values.Text = "Loại chi phí";
-            // 
-            // hdCost
-            // 
-            this.hdCost.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
-            this.btSaveCost,
-            this.btDeleteCost});
-            this.hdCost.Dock = System.Windows.Forms.DockStyle.Top;
-            this.hdCost.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.DockActive;
-            this.hdCost.Location = new System.Drawing.Point(0, 0);
-            this.hdCost.Name = "hdCost";
-            this.hdCost.Size = new System.Drawing.Size(403, 29);
-            this.hdCost.TabIndex = 84;
-            this.hdCost.Values.Description = "";
-            this.hdCost.Values.Heading = "Chi phí hoạt động";
-            this.hdCost.Values.Image = null;
-            // 
-            // btSaveCost
-            // 
-            this.btSaveCost.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.save_edit;
-            this.btSaveCost.Text = "Thêm";
-            this.btSaveCost.UniqueName = "B7AB72DEA1804627E69660B7DB96E79F";
-            this.btSaveCost.Click += new System.EventHandler(this.btSaveCost_Click);
-            // 
-            // btDeleteCost
-            // 
-            this.btDeleteCost.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.delete1;
-            this.btDeleteCost.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
-            this.btDeleteCost.Text = "Xóa";
-            this.btDeleteCost.UniqueName = "46715A2AEC0143074F81325F50887305";
-            this.btDeleteCost.Click += new System.EventHandler(this.btDeleteCost_Click);
-            // 
-            // kryptonGroupBox2
-            // 
-            this.kryptonGroupBox2.Location = new System.Drawing.Point(3, 448);
-            this.kryptonGroupBox2.Name = "kryptonGroupBox2";
-            // 
-            // kryptonGroupBox2.Panel
-            // 
-            this.kryptonGroupBox2.Panel.Controls.Add(this.btSave);
-            this.kryptonGroupBox2.Panel.Controls.Add(this.btClose);
-            this.kryptonGroupBox2.Size = new System.Drawing.Size(797, 93);
-            this.kryptonGroupBox2.TabIndex = 133;
-            this.kryptonGroupBox2.Values.Heading = "";
-            // 
-            // btSave
-            // 
-            this.btSave.Location = new System.Drawing.Point(236, 36);
-            this.btSave.Name = "btSave";
-            this.btSave.Size = new System.Drawing.Size(98, 25);
-            this.btSave.TabIndex = 11;
-            this.btSave.Values.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.save_edit;
-            this.btSave.Values.Text = "Lưu";
-            this.btSave.Click += new System.EventHandler(this.btSave_Click);
-            // 
-            // btClose
-            // 
-            this.btClose.Location = new System.Drawing.Point(409, 36);
-            this.btClose.Name = "btClose";
-            this.btClose.Size = new System.Drawing.Size(93, 25);
-            this.btClose.TabIndex = 12;
-            this.btClose.Values.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.close_box_red;
-            this.btClose.Values.Text = "Đóng";
-            this.btClose.Click += new System.EventHandler(this.btClose_Click);
-            // 
-            // kryptonGroupBox1
-            // 
-            this.kryptonGroupBox1.Location = new System.Drawing.Point(3, 12);
-            this.kryptonGroupBox1.Name = "kryptonGroupBox1";
-            // 
-            // kryptonGroupBox1.Panel
-            // 
-            this.kryptonGroupBox1.Panel.Controls.Add(this.kryptonLabel6);
-            this.kryptonGroupBox1.Panel.Controls.Add(this.kryptonLabel2);
-            this.kryptonGroupBox1.Panel.Controls.Add(this.ipTask);
-            this.kryptonGroupBox1.Panel.Controls.Add(this.lbDriver);
-            this.kryptonGroupBox1.Panel.Controls.Add(this.kryptonLabel5);
-            this.kryptonGroupBox1.Panel.Controls.Add(this.cbVehicle);
-            this.kryptonGroupBox1.Panel.Controls.Add(this.ipTaker);
-            this.kryptonGroupBox1.Panel.Controls.Add(this.cbCons);
-            this.kryptonGroupBox1.Panel.Controls.Add(this.kryptonLabel10);
-            this.kryptonGroupBox1.Panel.Controls.Add(this.cbDriver);
-            this.kryptonGroupBox1.Panel.Controls.Add(this.kryptonLabel4);
-            this.kryptonGroupBox1.Panel.Controls.Add(this.kryptonComboBox1);
-            this.kryptonGroupBox1.Panel.Controls.Add(this.kryptonLabel1);
-            this.kryptonGroupBox1.Panel.Controls.Add(this.cbPaid);
-            this.kryptonGroupBox1.Panel.Controls.Add(this.lbPaid);
-            this.kryptonGroupBox1.Panel.Controls.Add(this.lbDay);
-            this.kryptonGroupBox1.Panel.Controls.Add(this.dtDay);
-            this.kryptonGroupBox1.Size = new System.Drawing.Size(391, 430);
-            this.kryptonGroupBox1.TabIndex = 132;
-            this.kryptonGroupBox1.Values.Heading = "";
-            // 
-            // kryptonLabel6
-            // 
-            this.kryptonLabel6.Location = new System.Drawing.Point(257, 390);
-            this.kryptonLabel6.Name = "kryptonLabel6";
-            this.kryptonLabel6.Size = new System.Drawing.Size(109, 19);
-            this.kryptonLabel6.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.kryptonLabel6.TabIndex = 131;
-            this.kryptonLabel6.Values.Text = "(*) Trường bắt buộc";
-            // 
-            // kryptonLabel2
-            // 
-            this.kryptonLabel2.Location = new System.Drawing.Point(22, 47);
-            this.kryptonLabel2.Name = "kryptonLabel2";
-            this.kryptonLabel2.Size = new System.Drawing.Size(72, 19);
-            this.kryptonLabel2.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.kryptonLabel2.StateCommon.ShortText.Prefix = ComponentFactory.Krypton.Toolkit.PaletteTextHotkeyPrefix.Show;
-            this.kryptonLabel2.TabIndex = 90;
-            this.kryptonLabel2.Values.Text = "Biển số xe(*)";
-            // 
-            // ipTask
-            // 
-            this.ipTask.Location = new System.Drawing.Point(106, 201);
-            this.ipTask.Multiline = true;
-            this.ipTask.Name = "ipTask";
-            this.ipTask.Size = new System.Drawing.Size(253, 164);
-            this.ipTask.TabIndex = 10;
-            // 
-            // lbDriver
-            // 
-            this.lbDriver.Location = new System.Drawing.Point(44, 75);
-            this.lbDriver.Name = "lbDriver";
-            this.lbDriver.Size = new System.Drawing.Size(50, 19);
-            this.lbDriver.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.lbDriver.TabIndex = 91;
-            this.lbDriver.Values.Text = "Tài xế(*)";
-            // 
-            // kryptonLabel5
-            // 
-            this.kryptonLabel5.Location = new System.Drawing.Point(41, 201);
-            this.kryptonLabel5.Name = "kryptonLabel5";
-            this.kryptonLabel5.Size = new System.Drawing.Size(59, 19);
-            this.kryptonLabel5.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.kryptonLabel5.TabIndex = 106;
-            this.kryptonLabel5.Values.Text = "Công việc";
-            // 
-            // cbVehicle
-            // 
-            this.cbVehicle.DropDownWidth = 121;
-            this.cbVehicle.Location = new System.Drawing.Point(107, 44);
-            this.cbVehicle.Name = "cbVehicle";
-            this.cbVehicle.Size = new System.Drawing.Size(253, 22);
-            this.cbVehicle.TabIndex = 1;
-            this.cbVehicle.Text = "chọn...";
-            // 
-            // ipTaker
-            // 
-            this.ipTaker.Location = new System.Drawing.Point(107, 128);
-            this.ipTaker.Name = "ipTaker";
-            this.ipTaker.Size = new System.Drawing.Size(252, 22);
-            this.ipTaker.TabIndex = 94;
-            // 
-            // cbCons
-            // 
-            this.cbCons.DropDownWidth = 203;
-            this.cbCons.Location = new System.Drawing.Point(107, 100);
-            this.cbCons.Name = "cbCons";
-            this.cbCons.Size = new System.Drawing.Size(252, 22);
-            this.cbCons.TabIndex = 3;
-            // 
-            // kryptonLabel10
-            // 
-            this.kryptonLabel10.Location = new System.Drawing.Point(32, 131);
-            this.kryptonLabel10.Name = "kryptonLabel10";
-            this.kryptonLabel10.Size = new System.Drawing.Size(70, 19);
-            this.kryptonLabel10.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.kryptonLabel10.StateCommon.ShortText.Prefix = ComponentFactory.Krypton.Toolkit.PaletteTextHotkeyPrefix.Show;
-            this.kryptonLabel10.TabIndex = 93;
-            this.kryptonLabel10.Values.Text = "Người nhận";
-            // 
-            // cbDriver
-            // 
-            this.cbDriver.DropDownWidth = 121;
-            this.cbDriver.Location = new System.Drawing.Point(107, 72);
-            this.cbDriver.Name = "cbDriver";
-            this.cbDriver.Size = new System.Drawing.Size(253, 22);
-            this.cbDriver.TabIndex = 2;
-            this.cbDriver.Text = "chọn...";
-            // 
-            // kryptonLabel4
-            // 
-            this.kryptonLabel4.Location = new System.Drawing.Point(19, 103);
-            this.kryptonLabel4.Name = "kryptonLabel4";
-            this.kryptonLabel4.Size = new System.Drawing.Size(63, 19);
-            this.kryptonLabel4.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.kryptonLabel4.TabIndex = 104;
-            this.kryptonLabel4.Values.Text = "Công trình";
-            // 
-            // kryptonComboBox1
-            // 
-            this.kryptonComboBox1.DropDownWidth = 204;
-            this.kryptonComboBox1.Enabled = false;
-            this.kryptonComboBox1.Location = new System.Drawing.Point(107, 16);
-            this.kryptonComboBox1.Name = "kryptonComboBox1";
-            this.kryptonComboBox1.Size = new System.Drawing.Size(253, 22);
-            this.kryptonComboBox1.TabIndex = 103;
-            this.kryptonComboBox1.Text = "Máy cơ";
-            // 
-            // kryptonLabel1
-            // 
-            this.kryptonLabel1.Location = new System.Drawing.Point(30, 22);
-            this.kryptonLabel1.Name = "kryptonLabel1";
-            this.kryptonLabel1.Size = new System.Drawing.Size(64, 19);
-            this.kryptonLabel1.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.kryptonLabel1.StateCommon.ShortText.Prefix = ComponentFactory.Krypton.Toolkit.PaletteTextHotkeyPrefix.Show;
-            this.kryptonLabel1.TabIndex = 102;
-            this.kryptonLabel1.Values.Text = "Chức năng";
-            // 
-            // cbPaid
-            // 
-            this.cbPaid.Location = new System.Drawing.Point(107, 182);
-            this.cbPaid.Name = "cbPaid";
-            this.cbPaid.Size = new System.Drawing.Size(19, 13);
-            this.cbPaid.TabIndex = 9;
-            this.cbPaid.Values.Text = "";
-            // 
-            // lbPaid
-            // 
-            this.lbPaid.Location = new System.Drawing.Point(32, 176);
-            this.lbPaid.Name = "lbPaid";
-            this.lbPaid.Size = new System.Drawing.Size(67, 19);
-            this.lbPaid.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.lbPaid.TabIndex = 100;
-            this.lbPaid.Values.Text = "Thanh toán";
-            // 
-            // lbDay
-            // 
-            this.lbDay.Location = new System.Drawing.Point(19, 157);
-            this.lbDay.Name = "lbDay";
-            this.lbDay.Size = new System.Drawing.Size(81, 19);
-            this.lbDay.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.lbDay.TabIndex = 95;
-            this.lbDay.Values.Text = "Ngày ứng tiền";
-            // 
-            // dtDay
-            // 
-            this.dtDay.CustomFormat = "dd/MM/yyyy";
-            this.dtDay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtDay.Location = new System.Drawing.Point(107, 156);
-            this.dtDay.Name = "dtDay";
-            this.dtDay.Size = new System.Drawing.Size(253, 20);
-            this.dtDay.TabIndex = 8;
             // 
             // typeDataGridViewTextBoxColumn
             // 
@@ -579,6 +223,366 @@
             this.dateDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dateDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dateDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // vehicleDairyCostDTOBindingSource
+            // 
+            this.vehicleDairyCostDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.VehicleDairyCostDTO);
+            // 
+            // ipName
+            // 
+            this.ipName.Location = new System.Drawing.Point(552, 32);
+            this.ipName.Multiline = true;
+            this.ipName.Name = "ipName";
+            this.ipName.Size = new System.Drawing.Size(225, 46);
+            this.ipName.TabIndex = 98;
+            // 
+            // kryptonLabel12
+            // 
+            this.kryptonLabel12.Location = new System.Drawing.Point(500, 35);
+            this.kryptonLabel12.Name = "kryptonLabel12";
+            this.kryptonLabel12.Size = new System.Drawing.Size(46, 19);
+            this.kryptonLabel12.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.kryptonLabel12.StateCommon.ShortText.Prefix = ComponentFactory.Krypton.Toolkit.PaletteTextHotkeyPrefix.Show;
+            this.kryptonLabel12.TabIndex = 97;
+            this.kryptonLabel12.Values.Text = "Chi tiết";
+            // 
+            // dtDate
+            // 
+            this.dtDate.CalendarTodayDate = new System.DateTime(2011, 8, 9, 0, 0, 0, 0);
+            this.dtDate.CustomFormat = "dd/MM/yyyy";
+            this.dtDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtDate.Location = new System.Drawing.Point(72, 83);
+            this.dtDate.Name = "dtDate";
+            this.dtDate.Size = new System.Drawing.Size(164, 20);
+            this.dtDate.TabIndex = 96;
+            // 
+            // kryptonLabel11
+            // 
+            this.kryptonLabel11.Location = new System.Drawing.Point(22, 84);
+            this.kryptonLabel11.Name = "kryptonLabel11";
+            this.kryptonLabel11.Size = new System.Drawing.Size(37, 19);
+            this.kryptonLabel11.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.kryptonLabel11.StateCommon.ShortText.Prefix = ComponentFactory.Krypton.Toolkit.PaletteTextHotkeyPrefix.Show;
+            this.kryptonLabel11.TabIndex = 95;
+            this.kryptonLabel11.Values.Text = "Ngày";
+            // 
+            // ipUnit
+            // 
+            this.ipUnit.Location = new System.Drawing.Point(303, 56);
+            this.ipUnit.Name = "ipUnit";
+            this.ipUnit.Size = new System.Drawing.Size(167, 22);
+            this.ipUnit.TabIndex = 92;
+            // 
+            // kryptonLabel9
+            // 
+            this.kryptonLabel9.Location = new System.Drawing.Point(254, 56);
+            this.kryptonLabel9.Name = "kryptonLabel9";
+            this.kryptonLabel9.Size = new System.Drawing.Size(43, 19);
+            this.kryptonLabel9.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.kryptonLabel9.StateCommon.ShortText.Prefix = ComponentFactory.Krypton.Toolkit.PaletteTextHotkeyPrefix.Show;
+            this.kryptonLabel9.TabIndex = 91;
+            this.kryptonLabel9.Values.Text = "Đơn vị";
+            // 
+            // ipQuantity
+            // 
+            this.ipQuantity.Location = new System.Drawing.Point(303, 32);
+            this.ipQuantity.Name = "ipQuantity";
+            this.ipQuantity.Size = new System.Drawing.Size(167, 22);
+            this.ipQuantity.TabIndex = 90;
+            this.ipQuantity.Leave += new System.EventHandler(this.ipQuantity_Leave);
+            this.ipQuantity.MouseLeave += new System.EventHandler(this.ipQuantity_MouseLeave);
+            // 
+            // kryptonLabel8
+            // 
+            this.kryptonLabel8.Location = new System.Drawing.Point(242, 35);
+            this.kryptonLabel8.Name = "kryptonLabel8";
+            this.kryptonLabel8.Size = new System.Drawing.Size(55, 19);
+            this.kryptonLabel8.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.kryptonLabel8.StateCommon.ShortText.Prefix = ComponentFactory.Krypton.Toolkit.PaletteTextHotkeyPrefix.Show;
+            this.kryptonLabel8.TabIndex = 89;
+            this.kryptonLabel8.Values.Text = "Số lượng";
+            // 
+            // ipPrice
+            // 
+            this.ipPrice.Location = new System.Drawing.Point(72, 56);
+            this.ipPrice.Name = "ipPrice";
+            this.ipPrice.Size = new System.Drawing.Size(164, 22);
+            this.ipPrice.TabIndex = 88;
+            this.ipPrice.Leave += new System.EventHandler(this.ipPrice_Leave);
+            this.ipPrice.MouseLeave += new System.EventHandler(this.ipPrice_MouseLeave);
+            // 
+            // kryptonLabel7
+            // 
+            this.kryptonLabel7.Location = new System.Drawing.Point(10, 59);
+            this.kryptonLabel7.Name = "kryptonLabel7";
+            this.kryptonLabel7.Size = new System.Drawing.Size(57, 19);
+            this.kryptonLabel7.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.kryptonLabel7.StateCommon.ShortText.Prefix = ComponentFactory.Krypton.Toolkit.PaletteTextHotkeyPrefix.Show;
+            this.kryptonLabel7.TabIndex = 87;
+            this.kryptonLabel7.Values.Text = "Gía(VND)";
+            // 
+            // cbTypeCost
+            // 
+            this.cbTypeCost.DropDownWidth = 129;
+            this.cbTypeCost.Location = new System.Drawing.Point(72, 32);
+            this.cbTypeCost.Name = "cbTypeCost";
+            this.cbTypeCost.Size = new System.Drawing.Size(164, 22);
+            this.cbTypeCost.TabIndex = 86;
+            // 
+            // kryptonLabel13
+            // 
+            this.kryptonLabel13.Location = new System.Drawing.Point(3, 35);
+            this.kryptonLabel13.Name = "kryptonLabel13";
+            this.kryptonLabel13.Size = new System.Drawing.Size(67, 19);
+            this.kryptonLabel13.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.kryptonLabel13.StateCommon.ShortText.Prefix = ComponentFactory.Krypton.Toolkit.PaletteTextHotkeyPrefix.Show;
+            this.kryptonLabel13.TabIndex = 85;
+            this.kryptonLabel13.Values.Text = "Loại chi phí";
+            // 
+            // hdCost
+            // 
+            this.hdCost.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
+            this.btSaveCost,
+            this.btDeleteCost});
+            this.hdCost.Dock = System.Windows.Forms.DockStyle.Top;
+            this.hdCost.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.DockActive;
+            this.hdCost.Location = new System.Drawing.Point(0, 0);
+            this.hdCost.Name = "hdCost";
+            this.hdCost.Size = new System.Drawing.Size(799, 29);
+            this.hdCost.TabIndex = 84;
+            this.hdCost.Values.Description = "";
+            this.hdCost.Values.Heading = "Chi phí hoạt động";
+            this.hdCost.Values.Image = null;
+            // 
+            // btSaveCost
+            // 
+            this.btSaveCost.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.save_edit;
+            this.btSaveCost.Text = "Thêm";
+            this.btSaveCost.UniqueName = "B7AB72DEA1804627E69660B7DB96E79F";
+            this.btSaveCost.Click += new System.EventHandler(this.btSaveCost_Click);
+            // 
+            // btDeleteCost
+            // 
+            this.btDeleteCost.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.delete1;
+            this.btDeleteCost.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
+            this.btDeleteCost.Text = "Xóa";
+            this.btDeleteCost.UniqueName = "46715A2AEC0143074F81325F50887305";
+            this.btDeleteCost.Click += new System.EventHandler(this.btDeleteCost_Click);
+            // 
+            // kryptonGroupBox2
+            // 
+            this.kryptonGroupBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.kryptonGroupBox2.Location = new System.Drawing.Point(0, 518);
+            this.kryptonGroupBox2.Name = "kryptonGroupBox2";
+            // 
+            // kryptonGroupBox2.Panel
+            // 
+            this.kryptonGroupBox2.Panel.Controls.Add(this.btSave);
+            this.kryptonGroupBox2.Panel.Controls.Add(this.btClose);
+            this.kryptonGroupBox2.Size = new System.Drawing.Size(803, 35);
+            this.kryptonGroupBox2.TabIndex = 133;
+            this.kryptonGroupBox2.Values.Heading = "";
+            // 
+            // btSave
+            // 
+            this.btSave.Location = new System.Drawing.Point(240, 3);
+            this.btSave.Name = "btSave";
+            this.btSave.Size = new System.Drawing.Size(98, 25);
+            this.btSave.TabIndex = 11;
+            this.btSave.Values.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.save_edit;
+            this.btSave.Values.Text = "Lưu";
+            this.btSave.Click += new System.EventHandler(this.btSave_Click);
+            // 
+            // btClose
+            // 
+            this.btClose.Location = new System.Drawing.Point(413, 3);
+            this.btClose.Name = "btClose";
+            this.btClose.Size = new System.Drawing.Size(93, 25);
+            this.btClose.TabIndex = 12;
+            this.btClose.Values.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.close_box_red;
+            this.btClose.Values.Text = "Đóng";
+            this.btClose.Click += new System.EventHandler(this.btClose_Click);
+            // 
+            // kryptonGroupBox1
+            // 
+            this.kryptonGroupBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.kryptonGroupBox1.Location = new System.Drawing.Point(0, 0);
+            this.kryptonGroupBox1.Name = "kryptonGroupBox1";
+            // 
+            // kryptonGroupBox1.Panel
+            // 
+            this.kryptonGroupBox1.Panel.Controls.Add(this.kryptonLabel6);
+            this.kryptonGroupBox1.Panel.Controls.Add(this.kryptonLabel2);
+            this.kryptonGroupBox1.Panel.Controls.Add(this.ipTask);
+            this.kryptonGroupBox1.Panel.Controls.Add(this.lbDriver);
+            this.kryptonGroupBox1.Panel.Controls.Add(this.kryptonLabel5);
+            this.kryptonGroupBox1.Panel.Controls.Add(this.cbVehicle);
+            this.kryptonGroupBox1.Panel.Controls.Add(this.ipTaker);
+            this.kryptonGroupBox1.Panel.Controls.Add(this.cbCons);
+            this.kryptonGroupBox1.Panel.Controls.Add(this.kryptonLabel10);
+            this.kryptonGroupBox1.Panel.Controls.Add(this.cbDriver);
+            this.kryptonGroupBox1.Panel.Controls.Add(this.kryptonLabel4);
+            this.kryptonGroupBox1.Panel.Controls.Add(this.kryptonComboBox1);
+            this.kryptonGroupBox1.Panel.Controls.Add(this.kryptonLabel1);
+            this.kryptonGroupBox1.Panel.Controls.Add(this.cbPaid);
+            this.kryptonGroupBox1.Panel.Controls.Add(this.lbPaid);
+            this.kryptonGroupBox1.Panel.Controls.Add(this.lbDay);
+            this.kryptonGroupBox1.Panel.Controls.Add(this.dtDay);
+            this.kryptonGroupBox1.Size = new System.Drawing.Size(803, 153);
+            this.kryptonGroupBox1.TabIndex = 132;
+            this.kryptonGroupBox1.Values.Heading = "";
+            // 
+            // kryptonLabel6
+            // 
+            this.kryptonLabel6.Location = new System.Drawing.Point(257, 390);
+            this.kryptonLabel6.Name = "kryptonLabel6";
+            this.kryptonLabel6.Size = new System.Drawing.Size(109, 19);
+            this.kryptonLabel6.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.kryptonLabel6.TabIndex = 131;
+            this.kryptonLabel6.Values.Text = "(*) Trường bắt buộc";
+            // 
+            // kryptonLabel2
+            // 
+            this.kryptonLabel2.Location = new System.Drawing.Point(24, 38);
+            this.kryptonLabel2.Name = "kryptonLabel2";
+            this.kryptonLabel2.Size = new System.Drawing.Size(72, 19);
+            this.kryptonLabel2.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.kryptonLabel2.StateCommon.ShortText.Prefix = ComponentFactory.Krypton.Toolkit.PaletteTextHotkeyPrefix.Show;
+            this.kryptonLabel2.TabIndex = 90;
+            this.kryptonLabel2.Values.Text = "Biển số xe(*)";
+            // 
+            // ipTask
+            // 
+            this.ipTask.Location = new System.Drawing.Point(462, 54);
+            this.ipTask.Multiline = true;
+            this.ipTask.Name = "ipTask";
+            this.ipTask.Size = new System.Drawing.Size(253, 87);
+            this.ipTask.TabIndex = 10;
+            // 
+            // lbDriver
+            // 
+            this.lbDriver.Location = new System.Drawing.Point(46, 66);
+            this.lbDriver.Name = "lbDriver";
+            this.lbDriver.Size = new System.Drawing.Size(50, 19);
+            this.lbDriver.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.lbDriver.TabIndex = 91;
+            this.lbDriver.Values.Text = "Tài xế(*)";
+            // 
+            // kryptonLabel5
+            // 
+            this.kryptonLabel5.Location = new System.Drawing.Point(397, 54);
+            this.kryptonLabel5.Name = "kryptonLabel5";
+            this.kryptonLabel5.Size = new System.Drawing.Size(59, 19);
+            this.kryptonLabel5.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.kryptonLabel5.TabIndex = 106;
+            this.kryptonLabel5.Values.Text = "Công việc";
+            // 
+            // cbVehicle
+            // 
+            this.cbVehicle.DropDownWidth = 121;
+            this.cbVehicle.Location = new System.Drawing.Point(109, 35);
+            this.cbVehicle.Name = "cbVehicle";
+            this.cbVehicle.Size = new System.Drawing.Size(253, 22);
+            this.cbVehicle.TabIndex = 1;
+            this.cbVehicle.Text = "chọn...";
+            // 
+            // ipTaker
+            // 
+            this.ipTaker.Location = new System.Drawing.Point(109, 119);
+            this.ipTaker.Name = "ipTaker";
+            this.ipTaker.Size = new System.Drawing.Size(252, 22);
+            this.ipTaker.TabIndex = 94;
+            // 
+            // cbCons
+            // 
+            this.cbCons.DropDownWidth = 203;
+            this.cbCons.Location = new System.Drawing.Point(109, 91);
+            this.cbCons.Name = "cbCons";
+            this.cbCons.Size = new System.Drawing.Size(252, 22);
+            this.cbCons.TabIndex = 3;
+            // 
+            // kryptonLabel10
+            // 
+            this.kryptonLabel10.Location = new System.Drawing.Point(34, 122);
+            this.kryptonLabel10.Name = "kryptonLabel10";
+            this.kryptonLabel10.Size = new System.Drawing.Size(70, 19);
+            this.kryptonLabel10.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.kryptonLabel10.StateCommon.ShortText.Prefix = ComponentFactory.Krypton.Toolkit.PaletteTextHotkeyPrefix.Show;
+            this.kryptonLabel10.TabIndex = 93;
+            this.kryptonLabel10.Values.Text = "Người nhận";
+            // 
+            // cbDriver
+            // 
+            this.cbDriver.DropDownWidth = 121;
+            this.cbDriver.Location = new System.Drawing.Point(109, 63);
+            this.cbDriver.Name = "cbDriver";
+            this.cbDriver.Size = new System.Drawing.Size(253, 22);
+            this.cbDriver.TabIndex = 2;
+            this.cbDriver.Text = "chọn...";
+            // 
+            // kryptonLabel4
+            // 
+            this.kryptonLabel4.Location = new System.Drawing.Point(21, 94);
+            this.kryptonLabel4.Name = "kryptonLabel4";
+            this.kryptonLabel4.Size = new System.Drawing.Size(63, 19);
+            this.kryptonLabel4.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.kryptonLabel4.TabIndex = 104;
+            this.kryptonLabel4.Values.Text = "Công trình";
+            // 
+            // kryptonComboBox1
+            // 
+            this.kryptonComboBox1.DropDownWidth = 204;
+            this.kryptonComboBox1.Enabled = false;
+            this.kryptonComboBox1.Location = new System.Drawing.Point(109, 7);
+            this.kryptonComboBox1.Name = "kryptonComboBox1";
+            this.kryptonComboBox1.Size = new System.Drawing.Size(253, 22);
+            this.kryptonComboBox1.TabIndex = 103;
+            this.kryptonComboBox1.Text = "Máy cơ";
+            // 
+            // kryptonLabel1
+            // 
+            this.kryptonLabel1.Location = new System.Drawing.Point(32, 13);
+            this.kryptonLabel1.Name = "kryptonLabel1";
+            this.kryptonLabel1.Size = new System.Drawing.Size(64, 19);
+            this.kryptonLabel1.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.kryptonLabel1.StateCommon.ShortText.Prefix = ComponentFactory.Krypton.Toolkit.PaletteTextHotkeyPrefix.Show;
+            this.kryptonLabel1.TabIndex = 102;
+            this.kryptonLabel1.Values.Text = "Chức năng";
+            // 
+            // cbPaid
+            // 
+            this.cbPaid.Location = new System.Drawing.Point(463, 35);
+            this.cbPaid.Name = "cbPaid";
+            this.cbPaid.Size = new System.Drawing.Size(19, 13);
+            this.cbPaid.TabIndex = 9;
+            this.cbPaid.Values.Text = "";
+            // 
+            // lbPaid
+            // 
+            this.lbPaid.Location = new System.Drawing.Point(388, 29);
+            this.lbPaid.Name = "lbPaid";
+            this.lbPaid.Size = new System.Drawing.Size(67, 19);
+            this.lbPaid.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.lbPaid.TabIndex = 100;
+            this.lbPaid.Values.Text = "Thanh toán";
+            // 
+            // lbDay
+            // 
+            this.lbDay.Location = new System.Drawing.Point(375, 10);
+            this.lbDay.Name = "lbDay";
+            this.lbDay.Size = new System.Drawing.Size(81, 19);
+            this.lbDay.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.lbDay.TabIndex = 95;
+            this.lbDay.Values.Text = "Ngày ứng tiền";
+            // 
+            // dtDay
+            // 
+            this.dtDay.CustomFormat = "dd/MM/yyyy";
+            this.dtDay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtDay.Location = new System.Drawing.Point(463, 9);
+            this.dtDay.Name = "dtDay";
+            this.dtDay.Size = new System.Drawing.Size(253, 20);
+            this.dtDay.TabIndex = 8;
             // 
             // AddNewMachineDairy
             // 
