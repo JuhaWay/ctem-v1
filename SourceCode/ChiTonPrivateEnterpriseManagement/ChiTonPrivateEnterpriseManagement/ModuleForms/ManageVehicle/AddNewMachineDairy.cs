@@ -103,11 +103,10 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
         }
         public void reloadCosts()
         {
-            if (_costs != null && _costs.Count > 0)
-            {
-                dgvCost.DataSource = null;
-                dgvCost.DataSource = _costs;
-            }
+            if (_costs == null)
+                _costs = new List<VehicleDairyCostDTO>();
+            dgvCost.DataSource = null;
+            dgvCost.DataSource = _costs;
             double total = 0;
             foreach (VehicleDairyCostDTO item in _costs)
             {

@@ -751,6 +751,7 @@
             this.btnDelete.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
             this.btnDelete.Text = "Xóa";
             this.btnDelete.UniqueName = "46715A2AEC0143074F81325F50887305";
+            this.btnDelete.Visible = false;
             this.btnDelete.Click += new System.EventHandler(this.btDelete_Click);
             // 
             // btnHideShowSearch
