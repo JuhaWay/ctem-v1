@@ -248,5 +248,10 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             Global.SetTextBoxNumberEnter(ipOthersCost);
         }
 
+        private void ipSearchName_TextChanged(object sender, EventArgs e)
+        {
+            refresh();
+        }
+
     }
 }
