@@ -35,6 +35,11 @@
             this.btSave = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btClose = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryptonGroupBox1 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
+            this.kryptonLabel3 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.txtReason = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.txtAllowance = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.buttonSpecAny2 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.lbPosition = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.lbManDate = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.lbName = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
@@ -42,15 +47,10 @@
             this.ipName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.ipPosition = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.ipSalary = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.buttonSpecAny3 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.lbSalary = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.dgvWD = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.txtAllowance = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.buttonSpecAny1 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny2 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny3 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.kryptonLabel3 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.txtReason = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dayWorkingDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -95,7 +95,7 @@
             this.btSave.Location = new System.Drawing.Point(65, 31);
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(95, 25);
-            this.btSave.TabIndex = 5;
+            this.btSave.TabIndex = 7;
             this.btSave.Values.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.save_edit;
             this.btSave.Values.Text = "Lưu";
             this.btSave.Click += new System.EventHandler(this.btSave_Click);
@@ -105,7 +105,7 @@
             this.btClose.Location = new System.Drawing.Point(201, 31);
             this.btClose.Name = "btClose";
             this.btClose.Size = new System.Drawing.Size(82, 25);
-            this.btClose.TabIndex = 6;
+            this.btClose.TabIndex = 8;
             this.btClose.Values.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.close_box_red;
             this.btClose.Values.Text = "Đóng";
             this.btClose.Click += new System.EventHandler(this.btClose_Click);
@@ -132,6 +132,49 @@
             this.kryptonGroupBox1.Size = new System.Drawing.Size(336, 221);
             this.kryptonGroupBox1.TabIndex = 26;
             this.kryptonGroupBox1.Values.Heading = "";
+            // 
+            // kryptonLabel3
+            // 
+            this.kryptonLabel3.Location = new System.Drawing.Point(76, 121);
+            this.kryptonLabel3.Name = "kryptonLabel3";
+            this.kryptonLabel3.Size = new System.Drawing.Size(39, 19);
+            this.kryptonLabel3.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.kryptonLabel3.TabIndex = 29;
+            this.kryptonLabel3.Values.Text = "Lý Do";
+            // 
+            // txtReason
+            // 
+            this.txtReason.Location = new System.Drawing.Point(121, 118);
+            this.txtReason.Name = "txtReason";
+            this.txtReason.Size = new System.Drawing.Size(181, 22);
+            this.txtReason.TabIndex = 4;
+            // 
+            // txtAllowance
+            // 
+            this.txtAllowance.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
+            this.buttonSpecAny2});
+            this.txtAllowance.Location = new System.Drawing.Point(121, 87);
+            this.txtAllowance.Name = "txtAllowance";
+            this.txtAllowance.Size = new System.Drawing.Size(181, 25);
+            this.txtAllowance.StateCommon.Content.Color1 = System.Drawing.Color.Lime;
+            this.txtAllowance.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAllowance.TabIndex = 3;
+            this.txtAllowance.Enter += new System.EventHandler(this.txtAllowance_Enter);
+            this.txtAllowance.Leave += new System.EventHandler(this.txtAllowance_Leave);
+            // 
+            // buttonSpecAny2
+            // 
+            this.buttonSpecAny2.Text = "(VND)";
+            this.buttonSpecAny2.UniqueName = "5EDF42E2F47047F9AEB52E9FCA289405";
+            // 
+            // kryptonLabel2
+            // 
+            this.kryptonLabel2.Location = new System.Drawing.Point(63, 93);
+            this.kryptonLabel2.Name = "kryptonLabel2";
+            this.kryptonLabel2.Size = new System.Drawing.Size(52, 19);
+            this.kryptonLabel2.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.kryptonLabel2.TabIndex = 27;
+            this.kryptonLabel2.Values.Text = "Phụ Cấp";
             // 
             // lbPosition
             // 
@@ -193,10 +236,15 @@
             this.ipSalary.Size = new System.Drawing.Size(181, 25);
             this.ipSalary.StateCommon.Content.Color1 = System.Drawing.Color.Lime;
             this.ipSalary.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ipSalary.TabIndex = 4;
+            this.ipSalary.TabIndex = 5;
             this.ipSalary.Enter += new System.EventHandler(this.txtAllowance_Enter);
             this.ipSalary.Leave += new System.EventHandler(this.txtAllowance_Leave);
             this.ipSalary.MouseLeave += new System.EventHandler(this.ipSalary_MouseLeave);
+            // 
+            // buttonSpecAny3
+            // 
+            this.buttonSpecAny3.Text = "(VND)";
+            this.buttonSpecAny3.UniqueName = "13CFB6B778FF491A1C91887E25208A45";
             // 
             // lbSalary
             // 
@@ -221,61 +269,13 @@
             this.dgvWD.Size = new System.Drawing.Size(336, 194);
             this.dgvWD.StateCommon.Background.Color1 = System.Drawing.Color.White;
             this.dgvWD.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
-            this.dgvWD.TabIndex = 23;
+            this.dgvWD.TabIndex = 6;
             this.dgvWD.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvWD_CellEndEdit);
-            // 
-            // txtAllowance
-            // 
-            this.txtAllowance.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
-            this.buttonSpecAny2});
-            this.txtAllowance.Location = new System.Drawing.Point(121, 87);
-            this.txtAllowance.Name = "txtAllowance";
-            this.txtAllowance.Size = new System.Drawing.Size(181, 25);
-            this.txtAllowance.StateCommon.Content.Color1 = System.Drawing.Color.Lime;
-            this.txtAllowance.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAllowance.TabIndex = 26;
-            this.txtAllowance.Enter += new System.EventHandler(this.txtAllowance_Enter);
-            this.txtAllowance.Leave += new System.EventHandler(this.txtAllowance_Leave);
-            // 
-            // kryptonLabel2
-            // 
-            this.kryptonLabel2.Location = new System.Drawing.Point(63, 93);
-            this.kryptonLabel2.Name = "kryptonLabel2";
-            this.kryptonLabel2.Size = new System.Drawing.Size(52, 19);
-            this.kryptonLabel2.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.kryptonLabel2.TabIndex = 27;
-            this.kryptonLabel2.Values.Text = "Phụ Cấp";
             // 
             // buttonSpecAny1
             // 
             this.buttonSpecAny1.Text = "(VND)";
             this.buttonSpecAny1.UniqueName = "BABE62BEE2554F5F5AB079E3272683F3";
-            // 
-            // buttonSpecAny2
-            // 
-            this.buttonSpecAny2.Text = "(VND)";
-            this.buttonSpecAny2.UniqueName = "5EDF42E2F47047F9AEB52E9FCA289405";
-            // 
-            // buttonSpecAny3
-            // 
-            this.buttonSpecAny3.Text = "(VND)";
-            this.buttonSpecAny3.UniqueName = "13CFB6B778FF491A1C91887E25208A45";
-            // 
-            // kryptonLabel3
-            // 
-            this.kryptonLabel3.Location = new System.Drawing.Point(76, 121);
-            this.kryptonLabel3.Name = "kryptonLabel3";
-            this.kryptonLabel3.Size = new System.Drawing.Size(39, 19);
-            this.kryptonLabel3.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.kryptonLabel3.TabIndex = 29;
-            this.kryptonLabel3.Values.Text = "Lý Do";
-            // 
-            // txtReason
-            // 
-            this.txtReason.Location = new System.Drawing.Point(121, 118);
-            this.txtReason.Name = "txtReason";
-            this.txtReason.Size = new System.Drawing.Size(181, 22);
-            this.txtReason.TabIndex = 28;
             // 
             // dateDataGridViewTextBoxColumn
             // 
