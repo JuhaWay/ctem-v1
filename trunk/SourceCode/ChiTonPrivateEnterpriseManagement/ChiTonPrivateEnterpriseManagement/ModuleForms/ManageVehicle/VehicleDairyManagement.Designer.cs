@@ -267,10 +267,10 @@
             this.isPaid});
             this.dgvVehicleDairy.DataSource = this.vehicleDairyDTOBindingSource;
             this.dgvVehicleDairy.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvVehicleDairy.Location = new System.Drawing.Point(0, 98);
+            this.dgvVehicleDairy.Location = new System.Drawing.Point(0, 101);
             this.dgvVehicleDairy.Name = "dgvVehicleDairy";
             this.dgvVehicleDairy.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvVehicleDairy.Size = new System.Drawing.Size(785, 513);
+            this.dgvVehicleDairy.Size = new System.Drawing.Size(897, 510);
             this.dgvVehicleDairy.StateCommon.Background.Color1 = System.Drawing.Color.White;
             this.dgvVehicleDairy.StateCommon.Background.Color2 = System.Drawing.Color.White;
             this.dgvVehicleDairy.StateCommon.Background.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.ExpertSquareHighlight;
@@ -328,7 +328,7 @@
             this.pnlSearch.Location = new System.Drawing.Point(0, 29);
             this.pnlSearch.Name = "pnlSearch";
             this.pnlSearch.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.pnlSearch.Size = new System.Drawing.Size(785, 69);
+            this.pnlSearch.Size = new System.Drawing.Size(897, 72);
             this.pnlSearch.TabIndex = 1;
             // 
             // gbxSearch
@@ -355,27 +355,25 @@
             this.gbxSearch.Panel.Controls.Add(this.lbDriver);
             this.gbxSearch.Panel.Controls.Add(this.cbSearchVehicle);
             this.gbxSearch.Panel.Controls.Add(this.cbSearchDriver);
-            this.gbxSearch.Size = new System.Drawing.Size(785, 64);
+            this.gbxSearch.Size = new System.Drawing.Size(897, 67);
             this.gbxSearch.TabIndex = 0;
             this.gbxSearch.Values.Heading = "";
             // 
             // cbIsPaid
             // 
-            this.cbIsPaid.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.cbIsPaid.DropDownWidth = 139;
             this.cbIsPaid.Items.AddRange(new object[] {
             "Tất cả",
             "Đã thanh toán",
             "Chưa thanh toán"});
-            this.cbIsPaid.Location = new System.Drawing.Point(570, 31);
+            this.cbIsPaid.Location = new System.Drawing.Point(680, 6);
             this.cbIsPaid.Name = "cbIsPaid";
-            this.cbIsPaid.Size = new System.Drawing.Size(98, 22);
+            this.cbIsPaid.Size = new System.Drawing.Size(122, 22);
             this.cbIsPaid.TabIndex = 19;
             // 
             // lbIspaid
             // 
-            this.lbIspaid.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.lbIspaid.Location = new System.Drawing.Point(570, 9);
+            this.lbIspaid.Location = new System.Drawing.Point(607, 10);
             this.lbIspaid.Name = "lbIspaid";
             this.lbIspaid.Size = new System.Drawing.Size(67, 19);
             this.lbIspaid.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -384,19 +382,17 @@
             // 
             // cbSearchCategory
             // 
-            this.cbSearchCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.cbSearchCategory.DropDownWidth = 139;
             this.cbSearchCategory.Items.AddRange(new object[] {
             "Tất cả"});
-            this.cbSearchCategory.Location = new System.Drawing.Point(427, 31);
+            this.cbSearchCategory.Location = new System.Drawing.Point(464, 31);
             this.cbSearchCategory.Name = "cbSearchCategory";
             this.cbSearchCategory.Size = new System.Drawing.Size(137, 22);
             this.cbSearchCategory.TabIndex = 17;
             // 
             // kryptonLabel3
             // 
-            this.kryptonLabel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.kryptonLabel3.Location = new System.Drawing.Point(357, 34);
+            this.kryptonLabel3.Location = new System.Drawing.Point(394, 34);
             this.kryptonLabel3.Name = "kryptonLabel3";
             this.kryptonLabel3.Size = new System.Drawing.Size(64, 19);
             this.kryptonLabel3.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -405,8 +401,7 @@
             // 
             // lbFromDate
             // 
-            this.lbFromDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.lbFromDate.Location = new System.Drawing.Point(3, 35);
+            this.lbFromDate.Location = new System.Drawing.Point(40, 35);
             this.lbFromDate.Name = "lbFromDate";
             this.lbFromDate.Size = new System.Drawing.Size(50, 19);
             this.lbFromDate.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -415,18 +410,16 @@
             // 
             // dtFromdate
             // 
-            this.dtFromdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.dtFromdate.CustomFormat = "dd/MM/yyyy";
             this.dtFromdate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtFromdate.Location = new System.Drawing.Point(63, 34);
+            this.dtFromdate.Location = new System.Drawing.Point(100, 34);
             this.dtFromdate.Name = "dtFromdate";
             this.dtFromdate.Size = new System.Drawing.Size(109, 20);
             this.dtFromdate.TabIndex = 4;
             // 
             // btnSearch
             // 
-            this.btnSearch.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnSearch.Location = new System.Drawing.Point(690, 31);
+            this.btnSearch.Location = new System.Drawing.Point(821, 6);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.OverrideDefault.Back.Color1 = System.Drawing.Color.NavajoWhite;
             this.btnSearch.OverrideDefault.Back.Color2 = System.Drawing.Color.White;
@@ -436,7 +429,7 @@
                         | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
                         | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.btnSearch.OverrideDefault.Border.Rounding = 3;
-            this.btnSearch.Size = new System.Drawing.Size(58, 22);
+            this.btnSearch.Size = new System.Drawing.Size(62, 44);
             this.btnSearch.StateCommon.Back.Color1 = System.Drawing.Color.Khaki;
             this.btnSearch.StateCommon.Back.Color2 = System.Drawing.Color.White;
             this.btnSearch.StateCommon.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.GlassSimpleFull;
@@ -455,18 +448,16 @@
             // 
             // dtTodate
             // 
-            this.dtTodate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.dtTodate.CustomFormat = "dd/MM/yyyy";
             this.dtTodate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtTodate.Location = new System.Drawing.Point(236, 34);
+            this.dtTodate.Location = new System.Drawing.Point(273, 34);
             this.dtTodate.Name = "dtTodate";
             this.dtTodate.Size = new System.Drawing.Size(116, 20);
             this.dtTodate.TabIndex = 5;
             // 
             // kryptonLabel2
             // 
-            this.kryptonLabel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.kryptonLabel2.Location = new System.Drawing.Point(3, 10);
+            this.kryptonLabel2.Location = new System.Drawing.Point(40, 10);
             this.kryptonLabel2.Name = "kryptonLabel2";
             this.kryptonLabel2.Size = new System.Drawing.Size(61, 19);
             this.kryptonLabel2.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -475,8 +466,7 @@
             // 
             // lbTodate
             // 
-            this.lbTodate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.lbTodate.Location = new System.Drawing.Point(172, 34);
+            this.lbTodate.Location = new System.Drawing.Point(209, 34);
             this.lbTodate.Name = "lbTodate";
             this.lbTodate.Size = new System.Drawing.Size(58, 19);
             this.lbTodate.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -485,8 +475,7 @@
             // 
             // kryptonLabel1
             // 
-            this.kryptonLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.kryptonLabel1.Location = new System.Drawing.Point(358, 9);
+            this.kryptonLabel1.Location = new System.Drawing.Point(395, 9);
             this.kryptonLabel1.Name = "kryptonLabel1";
             this.kryptonLabel1.Size = new System.Drawing.Size(63, 19);
             this.kryptonLabel1.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -495,9 +484,8 @@
             // 
             // cbSearchCons
             // 
-            this.cbSearchCons.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.cbSearchCons.DropDownWidth = 139;
-            this.cbSearchCons.Location = new System.Drawing.Point(427, 6);
+            this.cbSearchCons.Location = new System.Drawing.Point(464, 6);
             this.cbSearchCons.Name = "cbSearchCons";
             this.cbSearchCons.Size = new System.Drawing.Size(137, 22);
             this.cbSearchCons.TabIndex = 3;
@@ -505,8 +493,7 @@
             // 
             // lbDriver
             // 
-            this.lbDriver.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.lbDriver.Location = new System.Drawing.Point(178, 9);
+            this.lbDriver.Location = new System.Drawing.Point(215, 9);
             this.lbDriver.Name = "lbDriver";
             this.lbDriver.Size = new System.Drawing.Size(39, 19);
             this.lbDriver.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -515,9 +502,8 @@
             // 
             // cbSearchVehicle
             // 
-            this.cbSearchVehicle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.cbSearchVehicle.DropDownWidth = 121;
-            this.cbSearchVehicle.Location = new System.Drawing.Point(63, 6);
+            this.cbSearchVehicle.Location = new System.Drawing.Point(100, 6);
             this.cbSearchVehicle.Name = "cbSearchVehicle";
             this.cbSearchVehicle.Size = new System.Drawing.Size(109, 22);
             this.cbSearchVehicle.TabIndex = 1;
@@ -525,9 +511,8 @@
             // 
             // cbSearchDriver
             // 
-            this.cbSearchDriver.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.cbSearchDriver.DropDownWidth = 121;
-            this.cbSearchDriver.Location = new System.Drawing.Point(236, 6);
+            this.cbSearchDriver.Location = new System.Drawing.Point(273, 6);
             this.cbSearchDriver.Name = "cbSearchDriver";
             this.cbSearchDriver.Size = new System.Drawing.Size(116, 22);
             this.cbSearchDriver.TabIndex = 2;
@@ -546,7 +531,7 @@
             this.hdDebt.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.DockActive;
             this.hdDebt.Location = new System.Drawing.Point(0, 0);
             this.hdDebt.Name = "hdDebt";
-            this.hdDebt.Size = new System.Drawing.Size(785, 29);
+            this.hdDebt.Size = new System.Drawing.Size(897, 29);
             this.hdDebt.TabIndex = 0;
             this.hdDebt.Values.Description = "";
             this.hdDebt.Values.Heading = "Quản lý tình hình phương tiện";
@@ -600,7 +585,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(785, 611);
+            this.ClientSize = new System.Drawing.Size(897, 611);
             this.Controls.Add(this.dgvVehicleDairy);
             this.Controls.Add(this.pnlSearch);
             this.Controls.Add(this.hdDebt);

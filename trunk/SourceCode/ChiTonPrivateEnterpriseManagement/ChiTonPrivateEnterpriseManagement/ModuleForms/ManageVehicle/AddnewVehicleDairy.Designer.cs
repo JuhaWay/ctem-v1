@@ -36,13 +36,6 @@
             this.gbCost = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.ipSumCost = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.dgvCost = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalCostDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateDataGridViewTextBoxColumn = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewDateTimePickerColumn();
             this.vehicleDairyCostDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ipName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.kryptonLabel12 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
@@ -83,10 +76,6 @@
             this.kryptonLabel13 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel5 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.dgvRoadMap = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.fromDataGridViewTextBoxColumn = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
-            this.toDataGridViewTextBoxColumn = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
-            this.kmDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Date = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewDateTimePickerColumn();
             this.roadMapDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.kryptonLabel4 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.hdDebt = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
@@ -96,6 +85,17 @@
             this.ipKm = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.ipFrom = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.ipTo = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalCostDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateDataGridViewTextBoxColumn = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewDateTimePickerColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fromDataGridViewTextBoxColumn = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
+            this.toDataGridViewTextBoxColumn = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
+            this.kmDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewDateTimePickerColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pnMain)).BeginInit();
             this.pnMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonSplitContainer1)).BeginInit();
@@ -215,8 +215,8 @@
             this.unitDataGridViewTextBoxColumn,
             this.priceDataGridViewTextBoxColumn,
             this.totalCostDataGridViewTextBoxColumn,
-            this.nameDataGridViewTextBoxColumn,
-            this.dateDataGridViewTextBoxColumn});
+            this.dateDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn});
             this.dgvCost.DataSource = this.vehicleDairyCostDTOBindingSource;
             this.dgvCost.Location = new System.Drawing.Point(2, 156);
             this.dgvCost.Name = "dgvCost";
@@ -227,63 +227,6 @@
             this.dgvCost.TabIndex = 99;
             this.dgvCost.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCost_CellEndEdit);
             this.dgvCost.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dgvCost_CellValidating);
-            // 
-            // typeDataGridViewTextBoxColumn
-            // 
-            this.typeDataGridViewTextBoxColumn.DataPropertyName = "Type";
-            this.typeDataGridViewTextBoxColumn.HeaderText = "Loại";
-            this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
-            this.typeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.typeDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // quantityDataGridViewTextBoxColumn
-            // 
-            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
-            this.quantityDataGridViewTextBoxColumn.HeaderText = "Số lượng";
-            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
-            this.quantityDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // unitDataGridViewTextBoxColumn
-            // 
-            this.unitDataGridViewTextBoxColumn.DataPropertyName = "Unit";
-            this.unitDataGridViewTextBoxColumn.HeaderText = "Đơn vị";
-            this.unitDataGridViewTextBoxColumn.Name = "unitDataGridViewTextBoxColumn";
-            this.unitDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // priceDataGridViewTextBoxColumn
-            // 
-            this.priceDataGridViewTextBoxColumn.DataPropertyName = "PriceFormated";
-            this.priceDataGridViewTextBoxColumn.HeaderText = "Gía(VND)";
-            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
-            this.priceDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // totalCostDataGridViewTextBoxColumn
-            // 
-            this.totalCostDataGridViewTextBoxColumn.DataPropertyName = "TotalCostFormated";
-            this.totalCostDataGridViewTextBoxColumn.HeaderText = "Tổng(VND)";
-            this.totalCostDataGridViewTextBoxColumn.Name = "totalCostDataGridViewTextBoxColumn";
-            this.totalCostDataGridViewTextBoxColumn.ReadOnly = true;
-            this.totalCostDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Chi tiết";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.Width = 300;
-            // 
-            // dateDataGridViewTextBoxColumn
-            // 
-            this.dateDataGridViewTextBoxColumn.CalendarTodayDate = new System.DateTime(2011, 8, 9, 0, 0, 0, 0);
-            this.dateDataGridViewTextBoxColumn.Checked = false;
-            this.dateDataGridViewTextBoxColumn.CustomFormat = "dd/MM/yyyy";
-            this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
-            this.dateDataGridViewTextBoxColumn.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateDataGridViewTextBoxColumn.HeaderText = "Ngày";
-            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
-            this.dateDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dateDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dateDataGridViewTextBoxColumn.Width = 200;
             // 
             // vehicleDairyCostDTOBindingSource
             // 
@@ -704,38 +647,6 @@
             this.dgvRoadMap.TabIndex = 85;
             this.dgvRoadMap.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dgvRoadMap_CellValidating);
             // 
-            // fromDataGridViewTextBoxColumn
-            // 
-            this.fromDataGridViewTextBoxColumn.DataPropertyName = "From";
-            this.fromDataGridViewTextBoxColumn.HeaderText = "Từ";
-            this.fromDataGridViewTextBoxColumn.Name = "fromDataGridViewTextBoxColumn";
-            this.fromDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.fromDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // toDataGridViewTextBoxColumn
-            // 
-            this.toDataGridViewTextBoxColumn.DataPropertyName = "To";
-            this.toDataGridViewTextBoxColumn.HeaderText = "Đến";
-            this.toDataGridViewTextBoxColumn.Name = "toDataGridViewTextBoxColumn";
-            this.toDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.toDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // kmDataGridViewTextBoxColumn
-            // 
-            this.kmDataGridViewTextBoxColumn.DataPropertyName = "Km";
-            this.kmDataGridViewTextBoxColumn.HeaderText = "Số Km";
-            this.kmDataGridViewTextBoxColumn.Name = "kmDataGridViewTextBoxColumn";
-            // 
-            // Date
-            // 
-            this.Date.Checked = false;
-            this.Date.CustomFormat = "dd/MM/yyyy";
-            this.Date.DataPropertyName = "Date";
-            this.Date.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.Date.HeaderText = "Date";
-            this.Date.Name = "Date";
-            this.Date.Width = 100;
-            // 
             // roadMapDTOBindingSource
             // 
             this.roadMapDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.RoadMapDTO);
@@ -810,6 +721,91 @@
             this.ipTo.Name = "ipTo";
             this.ipTo.Size = new System.Drawing.Size(330, 22);
             this.ipTo.TabIndex = 10;
+            // 
+            // typeDataGridViewTextBoxColumn
+            // 
+            this.typeDataGridViewTextBoxColumn.DataPropertyName = "Type";
+            this.typeDataGridViewTextBoxColumn.HeaderText = "Loại";
+            this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
+            this.typeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // quantityDataGridViewTextBoxColumn
+            // 
+            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
+            this.quantityDataGridViewTextBoxColumn.HeaderText = "Số lượng";
+            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
+            // 
+            // unitDataGridViewTextBoxColumn
+            // 
+            this.unitDataGridViewTextBoxColumn.DataPropertyName = "Unit";
+            this.unitDataGridViewTextBoxColumn.HeaderText = "Đơn vị";
+            this.unitDataGridViewTextBoxColumn.Name = "unitDataGridViewTextBoxColumn";
+            this.unitDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // priceDataGridViewTextBoxColumn
+            // 
+            this.priceDataGridViewTextBoxColumn.DataPropertyName = "PriceFormated";
+            this.priceDataGridViewTextBoxColumn.HeaderText = "Gía(VND)";
+            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            // 
+            // totalCostDataGridViewTextBoxColumn
+            // 
+            this.totalCostDataGridViewTextBoxColumn.DataPropertyName = "TotalCostFormated";
+            this.totalCostDataGridViewTextBoxColumn.HeaderText = "Tổng(VND)";
+            this.totalCostDataGridViewTextBoxColumn.Name = "totalCostDataGridViewTextBoxColumn";
+            this.totalCostDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dateDataGridViewTextBoxColumn
+            // 
+            this.dateDataGridViewTextBoxColumn.CalendarTodayDate = new System.DateTime(2011, 8, 9, 0, 0, 0, 0);
+            this.dateDataGridViewTextBoxColumn.Checked = false;
+            this.dateDataGridViewTextBoxColumn.CustomFormat = "dd/MM/yyyy";
+            this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
+            this.dateDataGridViewTextBoxColumn.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateDataGridViewTextBoxColumn.HeaderText = "Ngày";
+            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
+            this.dateDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dateDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dateDataGridViewTextBoxColumn.Width = 100;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Chi tiết";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.Width = 300;
+            // 
+            // fromDataGridViewTextBoxColumn
+            // 
+            this.fromDataGridViewTextBoxColumn.DataPropertyName = "From";
+            this.fromDataGridViewTextBoxColumn.HeaderText = "Từ";
+            this.fromDataGridViewTextBoxColumn.Name = "fromDataGridViewTextBoxColumn";
+            this.fromDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.fromDataGridViewTextBoxColumn.Width = 120;
+            // 
+            // toDataGridViewTextBoxColumn
+            // 
+            this.toDataGridViewTextBoxColumn.DataPropertyName = "To";
+            this.toDataGridViewTextBoxColumn.HeaderText = "Đến";
+            this.toDataGridViewTextBoxColumn.Name = "toDataGridViewTextBoxColumn";
+            this.toDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.toDataGridViewTextBoxColumn.Width = 120;
+            // 
+            // kmDataGridViewTextBoxColumn
+            // 
+            this.kmDataGridViewTextBoxColumn.DataPropertyName = "Km";
+            this.kmDataGridViewTextBoxColumn.HeaderText = "Số Km";
+            this.kmDataGridViewTextBoxColumn.Name = "kmDataGridViewTextBoxColumn";
+            // 
+            // Date
+            // 
+            this.Date.Checked = false;
+            this.Date.CustomFormat = "dd/MM/yyyy";
+            this.Date.DataPropertyName = "Date";
+            this.Date.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.Date.HeaderText = "Date";
+            this.Date.Name = "Date";
+            this.Date.Width = 100;
             // 
             // AddnewVehicleDairy
             // 
@@ -921,17 +917,17 @@
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox ipSumCost;
         private ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker dtRmDate;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel13;
-        private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn fromDataGridViewTextBoxColumn;
-        private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn toDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn kmDataGridViewTextBoxColumn;
-        private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewDateTimePickerColumn Date;
         private System.Windows.Forms.DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn unitDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalCostDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewDateTimePickerColumn dateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn fromDataGridViewTextBoxColumn;
+        private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn toDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kmDataGridViewTextBoxColumn;
+        private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewDateTimePickerColumn Date;
     }
 }
 
