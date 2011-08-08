@@ -96,7 +96,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
 
                 foreach (DataGridViewRow row in dgvWorker.SelectedRows)
                 {
-                    long ID = (row.DataBoundItem as WorkerTempDTO).WorkerID;
+                    long ID = (dgvWorker.SelectedRows[0].DataBoundItem as WorkerTempDTO).WorkerID;
                     _workerBUS.delete(ID);
                 }
 

@@ -50,10 +50,10 @@
             this.buttonSpecAny3 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.lbSalary = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.dgvWD = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.buttonSpecAny1 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dayWorkingDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.buttonSpecAny1 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             ((System.ComponentModel.ISupportInitialize)(this.pnMain)).BeginInit();
             this.pnMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox2)).BeginInit();
@@ -271,11 +271,7 @@
             this.dgvWD.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
             this.dgvWD.TabIndex = 6;
             this.dgvWD.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvWD_CellEndEdit);
-            // 
-            // buttonSpecAny1
-            // 
-            this.buttonSpecAny1.Text = "(VND)";
-            this.buttonSpecAny1.UniqueName = "BABE62BEE2554F5F5AB079E3272683F3";
+            this.dgvWD.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dgvWD_CellValidating);
             // 
             // dateDataGridViewTextBoxColumn
             // 
@@ -294,6 +290,11 @@
             // dayWorkingDTOBindingSource
             // 
             this.dayWorkingDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.DayWorkingDTO);
+            // 
+            // buttonSpecAny1
+            // 
+            this.buttonSpecAny1.Text = "(VND)";
+            this.buttonSpecAny1.UniqueName = "BABE62BEE2554F5F5AB079E3272683F3";
             // 
             // AddNewWk
             // 
