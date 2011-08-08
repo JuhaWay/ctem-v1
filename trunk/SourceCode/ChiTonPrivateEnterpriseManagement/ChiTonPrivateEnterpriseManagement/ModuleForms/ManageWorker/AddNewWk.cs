@@ -161,24 +161,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
         {
             if (e.ColumnIndex == 1)
             {
-                string s = dgvWD.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
-                if (Global.ValidateDoubleNumber(s))
-                {
-                    double num = Convert.ToDouble(s);
-                    if (num < 0 ||num > 2)
-                    {
-                        KryptonMessageBox.Show("Chỉ cho phép nhập từ 0 đến 2", Constants.CONFIRM, MessageBoxButtons.OK,
-                                   MessageBoxIcon.Warning);
-                        dgvWD.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = 0;
-                    }
-                }
-                else
-                {
-                    KryptonMessageBox.Show("Nhập sai thông tin Km", Constants.CONFIRM, MessageBoxButtons.OK,
-                                   MessageBoxIcon.Warning);
-                    dgvWD.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = 0;
-                }
-
                 manDate = 0;
                 foreach (DayWorkingDTO item in list)
                 {
@@ -204,6 +186,31 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
         {
             var textBox = sender as KryptonTextBox;
             Global.SetTextBoxMoneyLeave(textBox);
+        }
+
+        private void dgvWD_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            if (e.ColumnIndex == 1)
+            {
+                string s = e.FormattedValue.ToString();
+                if (Global.ValidateDoubleNumber(s))
+                {
+                    double num = Convert.ToDouble(s);
+                    if (num < 0 || num > 2)
+                    {
+                        KryptonMessageBox.Show("Chỉ cho phép nhập từ 0 đến 2", Constants.CONFIRM, MessageBoxButtons.OK,
+                                   MessageBoxIcon.Warning);
+                        e.Cancel = true;
+                    }
+                }
+                else
+                {
+                    KryptonMessageBox.Show("Nhập sai thông tin Km", Constants.CONFIRM, MessageBoxButtons.OK,
+                                   MessageBoxIcon.Warning);
+                    e.Cancel = true;
+                }
+
+            }
         }
         
     }
