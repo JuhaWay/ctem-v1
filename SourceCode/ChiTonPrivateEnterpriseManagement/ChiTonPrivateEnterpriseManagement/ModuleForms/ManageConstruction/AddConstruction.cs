@@ -61,7 +61,10 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageConstruction
 
             // kiểm tra xem là update hay tạo mới
             if (_update)
+            {
+                cbType.Enabled = false;
                 loadUpdateForm(_constructionID);
+            }
             else
             {
                 // trường hợp tạo con 
