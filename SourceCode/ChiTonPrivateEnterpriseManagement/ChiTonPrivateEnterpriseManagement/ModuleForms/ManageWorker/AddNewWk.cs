@@ -72,6 +72,8 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             ipPosition.Text = dtoTemp.Position;
             ipSalary.Text = dtoTemp.SalaryFormated;
             lbManDate.Text = dtoTemp.ManDate.ToString();
+            txtAllowance.Text = dtoTemp.AllowanceFomated;
+            txtReason.Text = dtoTemp.Reason;
             manDate = dtoTemp.ManDate;
         }
 

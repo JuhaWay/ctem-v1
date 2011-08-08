@@ -90,18 +90,14 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
         }
         private void kryptonButton1_Click(object sender, EventArgs e)
         {
-            if (KryptonMessageBox.Show("Xóa công nhân ?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (KryptonMessageBox.Show(Constants.CONFIRM_DELETE, Constants.CONFIRM, MessageBoxButtons.YesNo,
+                              MessageBoxIcon.Warning) == DialogResult.Yes)
             {
 
-                foreach (DataGridViewRow row in dgvWorker.Rows)
+                foreach (DataGridViewRow row in dgvWorker.SelectedRows)
                 {
-                    DataGridViewCell c = dgvWorker.Rows[row.Index].Cells[0];
-                    if (c.AccessibilityObject.Value.Equals("True"))
-                    {
-                        string strRightID = row.Cells["workerID"].Value.ToString();
-                        long ConstructionID = Convert.ToInt64(strRightID);
-                        _workerBUS.delete(ConstructionID);
-                    }
+                    long ID = (row.DataBoundItem as WorkerTempDTO).WorkerID;
+                    _workerBUS.delete(ID);
                 }
 
                 refresh();

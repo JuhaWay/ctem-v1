@@ -52,7 +52,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             dto.TotalSalary = 0;
             dto.Task = ipTask.Text;
             _workerSalaryBUS.CreateWks(dto);
-            MessageBox.Show("Tạo tổng kết thành công !");
+            MessageBox.Show("Tạo bảng lương thành công !");
             this.Close();
         }
         private bool validate(){
