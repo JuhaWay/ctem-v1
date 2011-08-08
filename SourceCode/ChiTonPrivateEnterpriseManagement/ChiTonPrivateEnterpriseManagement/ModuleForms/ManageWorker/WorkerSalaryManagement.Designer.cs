@@ -722,6 +722,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             this.dtFromdate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.dtFromdate.CustomFormat = "dd/MM/yyyy";
+            this.dtFromdate.Enabled = false;
             this.dtFromdate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtFromdate.Location = new System.Drawing.Point(100, 11);
             this.dtFromdate.Name = "dtFromdate";
@@ -754,6 +755,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             this.dtTodate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.dtTodate.CustomFormat = "dd/MM/yyyy";
+            this.dtTodate.Enabled = false;
             this.dtTodate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtTodate.Location = new System.Drawing.Point(101, 35);
             this.dtTodate.Name = "dtTodate";
