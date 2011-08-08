@@ -429,6 +429,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             this.ipSearchName.Name = "ipSearchName";
             this.ipSearchName.Size = new System.Drawing.Size(182, 22);
             this.ipSearchName.TabIndex = 1;
+            this.ipSearchName.TextChanged += new System.EventHandler(this.ipSearchName_TextChanged);
             // 
             // lbSearchName
             // 
