@@ -34,7 +34,6 @@
             this.gbCost = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.ipSumCost = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.dgvCost = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.vehicleDairyCostDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ipName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.kryptonLabel12 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.dtDate = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
@@ -78,13 +77,13 @@
             this.totalCostDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateDataGridViewTextBoxColumn = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewDateTimePickerColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vehicleDairyCostDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gbCost)).BeginInit();
             this.gbCost.Panel.SuspendLayout();
             this.gbCost.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCost)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vehicleDairyCostDTOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbTypeCost)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox2)).BeginInit();
             this.kryptonGroupBox2.Panel.SuspendLayout();
@@ -96,6 +95,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cbCons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbDriver)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonComboBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vehicleDairyCostDTOBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // kryptonPanel
@@ -169,10 +169,6 @@
             this.dgvCost.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCost_CellEndEdit);
             this.dgvCost.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dgvCost_CellValidating);
             // 
-            // vehicleDairyCostDTOBindingSource
-            // 
-            this.vehicleDairyCostDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.VehicleDairyCostDTO);
-            // 
             // ipName
             // 
             this.ipName.Location = new System.Drawing.Point(552, 32);
@@ -183,17 +179,16 @@
             // 
             // kryptonLabel12
             // 
-            this.kryptonLabel12.Location = new System.Drawing.Point(500, 35);
+            this.kryptonLabel12.Location = new System.Drawing.Point(479, 35);
             this.kryptonLabel12.Name = "kryptonLabel12";
-            this.kryptonLabel12.Size = new System.Drawing.Size(46, 19);
+            this.kryptonLabel12.Size = new System.Drawing.Size(67, 19);
             this.kryptonLabel12.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.kryptonLabel12.StateCommon.ShortText.Prefix = ComponentFactory.Krypton.Toolkit.PaletteTextHotkeyPrefix.Show;
             this.kryptonLabel12.TabIndex = 97;
-            this.kryptonLabel12.Values.Text = "Chi tiết";
+            this.kryptonLabel12.Values.Text = "Tên Chi tiết";
             // 
             // dtDate
             // 
-            this.dtDate.CalendarTodayDate = new System.DateTime(2011, 8, 9, 0, 0, 0, 0);
             this.dtDate.CustomFormat = "dd/MM/yyyy";
             this.dtDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtDate.Location = new System.Drawing.Point(72, 83);
@@ -580,6 +575,10 @@
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
             this.nameDataGridViewTextBoxColumn.Width = 300;
             // 
+            // vehicleDairyCostDTOBindingSource
+            // 
+            this.vehicleDairyCostDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.VehicleDairyCostDTO);
+            // 
             // AddNewMachineDairy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -597,7 +596,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gbCost)).EndInit();
             this.gbCost.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCost)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vehicleDairyCostDTOBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbTypeCost)).EndInit();
             this.kryptonGroupBox2.Panel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox2)).EndInit();
@@ -610,6 +608,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cbCons)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbDriver)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonComboBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vehicleDairyCostDTOBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
