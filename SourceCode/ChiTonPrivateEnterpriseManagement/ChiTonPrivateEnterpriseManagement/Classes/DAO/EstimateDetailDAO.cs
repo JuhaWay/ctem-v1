@@ -117,6 +117,37 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             }
         }
 
+
+        public double getTotal(long cID, string type)
+        {
+            var cmd = new SqlCommand("[dbo].[EstimateDetail_GetByType]", Connection);
+
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@ConstructionID", cID));
+            cmd.Parameters.Add(new SqlParameter("@Type", type));
+            try
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    return reader[0]==DBNull.Value?0: Convert.ToDouble(reader[0]);
+                }
+                return 0;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message, "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return 0;
+            }
+            finally
+            {
+                if (Transaction == null) Connection.Close();
+            }
+        }
         public List<EstimateDetailDTO> search(long estimateId,long materialId)
         {
             var cmd = new SqlCommand("[dbo].[EstimateDetail_search]", Connection);

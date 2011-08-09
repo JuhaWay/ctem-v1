@@ -36,5 +36,9 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
         {
             return _workerDAO.LoadWorkerByID(id);
         }
+        public long sumTotal(long ID)
+        {
+            return _workerDAO.sumTotal(ID);
+        }
     }
 }
