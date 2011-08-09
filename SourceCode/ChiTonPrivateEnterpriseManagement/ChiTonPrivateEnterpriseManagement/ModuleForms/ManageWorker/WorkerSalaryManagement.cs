@@ -16,6 +16,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
     {
         private WorkerSalaryBUS _workerSalaryBUS = new WorkerSalaryBUS();
         private ConstructionBus _constructionBus = new ConstructionBus();
+        private EstimateDetailBUS _estimateDetailBUS = new EstimateDetailBUS();
         private EmployeeBUS _employeeBUS = new EmployeeBUS();
 
         private WorkerSalaryDTO _dtoTemp = new WorkerSalaryDTO();
@@ -99,9 +100,27 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             _dtoTemp.OthersCost = Global.ConvertMoneyToLong(ipOthersCost.Text, Global.SEP);
             _dtoTemp.Reason = txtReason.Text;
             _dtoTemp.TotalCost = _dtoTemp.TotalSalary + _dtoTemp.OthersCost;
-            _workerSalaryBUS.UpdateWks(_dtoTemp);
-            MessageBox.Show("cập nhật thành công !");
-            refresh();
+            long conID = _workerSalaryBUS.getConID(_dtoTemp.WorkersSalaryID);
+            double totalEst = _estimateDetailBUS.getTotal(conID, EstimateDetailDTO.TYPE_WORKER);
+            if (_dtoTemp.TotalCost > totalEst)
+            {
+                if (KryptonMessageBox.Show("Tổng chi phí bảng lương đã vượt dự toán công nhân, dự toán công nhân hiện tại là :" +
+                        totalEst + " bạn có muốn tiếp tục lưu",
+                        Constants.CONFIRM, MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    _workerSalaryBUS.UpdateWks(_dtoTemp);
+                    MessageBox.Show("cập nhật thành công !");
+                    refresh();
+                }
+            }
+            else
+            {
+                _workerSalaryBUS.UpdateWks(_dtoTemp);
+                MessageBox.Show("cập nhật thành công !");
+                refresh();
+            }
+            
         }
         // thay đổi lựa chọn
         private void dgvWks_SelectionChanged(object sender, EventArgs e)
@@ -167,7 +186,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
                 long id = item.WorkersSalaryID;
                 DateTime fromDate = item.FromDate;
                  DateTime toDate = item.ToDate;
-                 WorkerList editForm = new WorkerList(id, _ConstructionID, fromDate, toDate);
+                 WorkerList editForm = new WorkerList(id, _ConstructionID, fromDate, toDate, item.OthersCost);
                 editForm.ShowDialog();
             }
             refresh();
