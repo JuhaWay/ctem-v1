@@ -190,7 +190,35 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 if (Transaction == null) Connection.Close();
             }
         }
+        public long sumTotal(long ID)
+        {
+            var cmd = new SqlCommand("[dbo].[Worker_SumTotal]", Connection);
 
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@workersSalaryID", ID));
+            try
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    return reader[0] == DBNull.Value ? 0 : Convert.ToInt64(reader[0]);
+                }
+                return 0;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message, "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return 0;
+            }
+            finally
+            {
+                if (Transaction == null) Connection.Close();
+            }
+        }
         public long CreateWks(WorkerTempDTO dto)
         {
             var cmd = new SqlCommand("[dbo].[Worker_Create]", Connection) { CommandType = CommandType.StoredProcedure };

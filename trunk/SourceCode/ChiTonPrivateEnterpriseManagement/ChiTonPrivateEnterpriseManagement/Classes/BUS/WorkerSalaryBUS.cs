@@ -32,5 +32,9 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
         {
             return _workSalaryDAO.search(param);
         }
+        public long getConID(long ID)
+        {
+            return _workSalaryDAO.getConID(ID);
+        }
     }
 }
