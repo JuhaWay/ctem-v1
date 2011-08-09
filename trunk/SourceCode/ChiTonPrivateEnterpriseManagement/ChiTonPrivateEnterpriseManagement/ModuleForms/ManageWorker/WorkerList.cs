@@ -21,13 +21,15 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
         private long _ConstructionID;
         private DateTime _fromDate;
         private DateTime _toDate;
+        private long _othersCost;
         private List<DayWorkingDTO> _list = new List<DayWorkingDTO>();
-        public WorkerList(long id, long ConstructionID, DateTime fromDate, DateTime toDate)
+        public WorkerList(long id, long ConstructionID, DateTime fromDate, DateTime toDate,long othersCost)
         {
             _fromDate = fromDate;
             _toDate = toDate;
             _ConstructionID = ConstructionID;
-            _workSalaryID = id;         
+            _workSalaryID = id;
+            _othersCost = othersCost;
             InitializeComponent();
             CenterToScreen();
         }
@@ -83,7 +85,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
         }
         private void addNew()
         {
-            AddNewWk add = new AddNewWk(_workSalaryID,_fromDate,_toDate);
+            AddNewWk add = new AddNewWk(_workSalaryID,_fromDate,_toDate,_othersCost);
             add.ShowDialog();
             refresh();
             _workerSalaryBUS.UpdateTotalSalary(_workSalaryID, _ConstructionID);
@@ -109,7 +111,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             foreach (DataGridViewRow row in dgvWorker.SelectedRows)
             {
                 WorkerTempDTO item = row.DataBoundItem as WorkerTempDTO;
-                AddNewWk add = new AddNewWk(_workSalaryID,item.WorkerID, _fromDate, _toDate);
+                AddNewWk add = new AddNewWk(_workSalaryID, item.WorkerID, _fromDate, _toDate, _othersCost);
                 add.ShowDialog();
                 refresh();
                 _workerSalaryBUS.UpdateTotalSalary(_workSalaryID, _ConstructionID);

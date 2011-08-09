@@ -14,29 +14,33 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
     public partial class AddNewWk : ComponentFactory.Krypton.Toolkit.KryptonForm
     {
         private WorkerBUS _workerBUS = new WorkerBUS();
-
+        private WorkerSalaryBUS _workerSalaryBUS = new WorkerSalaryBUS();
+        private EstimateDetailBUS _estimateDetailBUS = new EstimateDetailBUS();
         private long _WksID;
         private long _WkID;
         private DateTime _fromDate;
         private DateTime _toDate;
+        private long _ohtersCost;
         WorkerTempDTO dtoTemp = new WorkerTempDTO();
         private List<DayWorkingDTO> list = new List<DayWorkingDTO>();
         private Double manDate = 0;
-        public AddNewWk(long id,DateTime fromDate,DateTime toDate)
+        public AddNewWk(long id,DateTime fromDate,DateTime toDate,long otherCost)
         {
             _WksID = id;
             _fromDate = fromDate;
-            _toDate = toDate;      
+            _toDate = toDate;
+            _ohtersCost = otherCost;
             InitializeComponent();
             CenterToParent();
         }
 
-        public AddNewWk(long id,long WkID, DateTime fromDate, DateTime toDate)
+        public AddNewWk(long id, long WkID, DateTime fromDate, DateTime toDate, long otherCost)
         {
             _WksID = id;
             _WkID = WkID;
             _fromDate = fromDate;
             _toDate = toDate;
+            _ohtersCost = otherCost;
             InitializeComponent();
             CenterToParent();
             
@@ -108,12 +112,36 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
                 dto.Reason = txtReason.Text;
                 dto.ManDate = manDate;
                 dto.TotalSalary = (long)(dto.ManDate * dto.Salary + dto.Allowance);
-                long ID = _workerBUS.CreateWks(dto);
-                foreach (DayWorkingDTO item in list)
+                long conID = _workerSalaryBUS.getConID(_WksID);
+                double totalEst = _estimateDetailBUS.getTotal(conID, EstimateDetailDTO.TYPE_WORKER);
+                long sum = _workerBUS.sumTotal(_WksID);
+                if ((dto.TotalSalary + sum+_ohtersCost) > totalEst)
                 {
-                    item.WorkerID = ID;
-                    _workerBUS.CreateDayWorking(item);
+                    if (KryptonMessageBox.Show("Tổng chi phí bảng lương đã vượt dự toán công nhân, dự toán công nhân hiện tại là :" +
+                        totalEst + " bạn có muốn tiếp tục lưu",
+                        Constants.CONFIRM, MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning) == DialogResult.Yes)
+                    {
+                        long ID = _workerBUS.CreateWks(dto);
+                        foreach (DayWorkingDTO item in list)
+                        {
+                            item.WorkerID = ID;
+                            _workerBUS.CreateDayWorking(item);
+                        }
+                        this.Close();
+                    }
                 }
+                else
+                {
+                    long ID = _workerBUS.CreateWks(dto);
+                    foreach (DayWorkingDTO item in list)
+                    {
+                        item.WorkerID = ID;
+                        _workerBUS.CreateDayWorking(item);
+                    }
+                    this.Close();
+                }
+
             }
             else
             {
@@ -125,14 +153,38 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
                 dtoTemp.Reason = txtReason.Text;
                 dtoTemp.ManDate = manDate;
                 dtoTemp.TotalSalary = (long)(dtoTemp.ManDate * dtoTemp.Salary + dtoTemp.Allowance);
-                _workerBUS.updateWks(dtoTemp);
-                foreach (DayWorkingDTO item in list)
+                long conID = _workerSalaryBUS.getConID(dtoTemp.WorkersSalaryID);
+                double totalEst = _estimateDetailBUS.getTotal(conID, EstimateDetailDTO.TYPE_WORKER);
+                long sum = _workerBUS.sumTotal(dtoTemp.WorkersSalaryID);
+                if ((dtoTemp.TotalSalary + sum + _ohtersCost) > totalEst)
                 {
-                    item.WorkerID = _WkID;
-                    _workerBUS.CreateDayWorking(item);
+                    if (KryptonMessageBox.Show("Tổng chi phí bảng lương đã vượt dự toán công nhân, dự toán công nhân hiện tại là :" +
+                        totalEst + " bạn có muốn tiếp tục lưu",
+                        Constants.CONFIRM, MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning) == DialogResult.Yes)
+                    {
+                        _workerBUS.updateWks(dtoTemp);
+                        foreach (DayWorkingDTO item in list)
+                        {
+                            item.WorkerID = _WkID;
+                            _workerBUS.CreateDayWorking(item);
+                        }
+                        this.Close();
+                    }
+                }
+                else
+                {
+                   
+                    _workerBUS.updateWks(dtoTemp);
+                    foreach (DayWorkingDTO item in list)
+                    {
+                        item.WorkerID = _WkID;
+                        _workerBUS.CreateDayWorking(item);
+                    }
+                    this.Close();
                 }
             }
-            this.Close();
+           
 
         }
         private Boolean validate()

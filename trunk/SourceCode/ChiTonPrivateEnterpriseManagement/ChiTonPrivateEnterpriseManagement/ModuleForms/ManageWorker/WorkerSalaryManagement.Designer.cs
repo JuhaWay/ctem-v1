@@ -40,22 +40,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             this.slcMain = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
             this.gbxLeftBot = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.dgvWks = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.constructionNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WorkersSalaryID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.constructionIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ManagerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fromDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.toDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OthersCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Reason = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalSalaryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Task = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.createDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastUpdateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.createdByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.updatedByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.workerSalaryDTOBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.pnlSearch = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.gbxSearch = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
@@ -120,6 +104,22 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             this.kryptonContextMenuItems2 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
             this.kryptonContextMenuItems1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
             this.workerSalaryDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.constructionNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WorkersSalaryID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.constructionIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ManagerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fromDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.toDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalSalaryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OthersCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Reason = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Task = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.createDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastUpdateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.createdByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.updatedByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.slcMain)).BeginInit();
@@ -214,10 +214,10 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             this.nameDataGridViewTextBoxColumn,
             this.fromDateDataGridViewTextBoxColumn,
             this.toDateDataGridViewTextBoxColumn,
-            this.OthersCost,
-            this.Reason,
             this.TotalCost,
             this.totalSalaryDataGridViewTextBoxColumn,
+            this.OthersCost,
+            this.Reason,
             this.Task,
             this.createDateDataGridViewTextBoxColumn,
             this.lastUpdateDataGridViewTextBoxColumn,
@@ -233,119 +233,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             this.dgvWks.TabIndex = 0;
             this.dgvWks.SelectionChanged += new System.EventHandler(this.dgvWks_SelectionChanged);
             this.dgvWks.DoubleClick += new System.EventHandler(this.dgvWks_DoubleClick);
-            // 
-            // constructionNameDataGridViewTextBoxColumn
-            // 
-            this.constructionNameDataGridViewTextBoxColumn.DataPropertyName = "ConstructionName";
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Lime;
-            this.constructionNameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
-            this.constructionNameDataGridViewTextBoxColumn.HeaderText = "Công trình";
-            this.constructionNameDataGridViewTextBoxColumn.Name = "constructionNameDataGridViewTextBoxColumn";
-            this.constructionNameDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // WorkersSalaryID
-            // 
-            this.WorkersSalaryID.DataPropertyName = "WorkersSalaryID";
-            this.WorkersSalaryID.HeaderText = "WorkersSalaryID";
-            this.WorkersSalaryID.Name = "WorkersSalaryID";
-            this.WorkersSalaryID.Visible = false;
-            // 
-            // constructionIDDataGridViewTextBoxColumn
-            // 
-            this.constructionIDDataGridViewTextBoxColumn.DataPropertyName = "ConstructionID";
-            this.constructionIDDataGridViewTextBoxColumn.HeaderText = "ConstructionID";
-            this.constructionIDDataGridViewTextBoxColumn.Name = "constructionIDDataGridViewTextBoxColumn";
-            this.constructionIDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // ManagerName
-            // 
-            this.ManagerName.DataPropertyName = "ManagerName";
-            this.ManagerName.HeaderText = "Quản lý";
-            this.ManagerName.Name = "ManagerName";
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Lime;
-            this.nameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Tên Bảng Công Nhật";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // fromDateDataGridViewTextBoxColumn
-            // 
-            this.fromDateDataGridViewTextBoxColumn.DataPropertyName = "FromDateFormated";
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Yellow;
-            this.fromDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
-            this.fromDateDataGridViewTextBoxColumn.HeaderText = "Từ ngày";
-            this.fromDateDataGridViewTextBoxColumn.Name = "fromDateDataGridViewTextBoxColumn";
-            // 
-            // toDateDataGridViewTextBoxColumn
-            // 
-            this.toDateDataGridViewTextBoxColumn.DataPropertyName = "ToDateFormated";
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Yellow;
-            this.toDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
-            this.toDateDataGridViewTextBoxColumn.HeaderText = "Tới ngày";
-            this.toDateDataGridViewTextBoxColumn.Name = "toDateDataGridViewTextBoxColumn";
-            // 
-            // OthersCost
-            // 
-            this.OthersCost.DataPropertyName = "OthersCostFormated";
-            this.OthersCost.HeaderText = "Chi phí khác";
-            this.OthersCost.Name = "OthersCost";
-            // 
-            // Reason
-            // 
-            this.Reason.DataPropertyName = "Reason";
-            this.Reason.HeaderText = "Lý do";
-            this.Reason.Name = "Reason";
-            this.Reason.Width = 150;
-            // 
-            // TotalCost
-            // 
-            this.TotalCost.DataPropertyName = "TotalCostFormated";
-            this.TotalCost.HeaderText = "Tổng chi phí";
-            this.TotalCost.Name = "TotalCost";
-            // 
-            // totalSalaryDataGridViewTextBoxColumn
-            // 
-            this.totalSalaryDataGridViewTextBoxColumn.DataPropertyName = "TotalSalaryFormated";
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Yellow;
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Red;
-            this.totalSalaryDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
-            this.totalSalaryDataGridViewTextBoxColumn.HeaderText = "Tổng số tiền";
-            this.totalSalaryDataGridViewTextBoxColumn.Name = "totalSalaryDataGridViewTextBoxColumn";
-            // 
-            // Task
-            // 
-            this.Task.DataPropertyName = "Task";
-            this.Task.HeaderText = "Công việc";
-            this.Task.Name = "Task";
-            // 
-            // createDateDataGridViewTextBoxColumn
-            // 
-            this.createDateDataGridViewTextBoxColumn.DataPropertyName = "CreateDateFormated";
-            this.createDateDataGridViewTextBoxColumn.HeaderText = "Ngày tạo";
-            this.createDateDataGridViewTextBoxColumn.Name = "createDateDataGridViewTextBoxColumn";
-            // 
-            // lastUpdateDataGridViewTextBoxColumn
-            // 
-            this.lastUpdateDataGridViewTextBoxColumn.DataPropertyName = "LastUpdateFormated";
-            this.lastUpdateDataGridViewTextBoxColumn.HeaderText = "Ngày cập nhật";
-            this.lastUpdateDataGridViewTextBoxColumn.Name = "lastUpdateDataGridViewTextBoxColumn";
-            this.lastUpdateDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // createdByDataGridViewTextBoxColumn
-            // 
-            this.createdByDataGridViewTextBoxColumn.DataPropertyName = "CreatedBy";
-            this.createdByDataGridViewTextBoxColumn.HeaderText = "Tạo bởi";
-            this.createdByDataGridViewTextBoxColumn.Name = "createdByDataGridViewTextBoxColumn";
-            // 
-            // updatedByDataGridViewTextBoxColumn
-            // 
-            this.updatedByDataGridViewTextBoxColumn.DataPropertyName = "UpdatedBy";
-            this.updatedByDataGridViewTextBoxColumn.HeaderText = "Cập nhật bởi";
-            this.updatedByDataGridViewTextBoxColumn.Name = "updatedByDataGridViewTextBoxColumn";
             // 
             // workerSalaryDTOBindingSource1
             // 
@@ -941,6 +828,119 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
             // 
             this.workerSalaryDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.WorkerSalaryDTO);
             // 
+            // constructionNameDataGridViewTextBoxColumn
+            // 
+            this.constructionNameDataGridViewTextBoxColumn.DataPropertyName = "ConstructionName";
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Lime;
+            this.constructionNameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            this.constructionNameDataGridViewTextBoxColumn.HeaderText = "Công trình";
+            this.constructionNameDataGridViewTextBoxColumn.Name = "constructionNameDataGridViewTextBoxColumn";
+            this.constructionNameDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // WorkersSalaryID
+            // 
+            this.WorkersSalaryID.DataPropertyName = "WorkersSalaryID";
+            this.WorkersSalaryID.HeaderText = "WorkersSalaryID";
+            this.WorkersSalaryID.Name = "WorkersSalaryID";
+            this.WorkersSalaryID.Visible = false;
+            // 
+            // constructionIDDataGridViewTextBoxColumn
+            // 
+            this.constructionIDDataGridViewTextBoxColumn.DataPropertyName = "ConstructionID";
+            this.constructionIDDataGridViewTextBoxColumn.HeaderText = "ConstructionID";
+            this.constructionIDDataGridViewTextBoxColumn.Name = "constructionIDDataGridViewTextBoxColumn";
+            this.constructionIDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // ManagerName
+            // 
+            this.ManagerName.DataPropertyName = "ManagerName";
+            this.ManagerName.HeaderText = "Quản lý";
+            this.ManagerName.Name = "ManagerName";
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Lime;
+            this.nameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Tên Bảng Công Nhật";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // fromDateDataGridViewTextBoxColumn
+            // 
+            this.fromDateDataGridViewTextBoxColumn.DataPropertyName = "FromDateFormated";
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Yellow;
+            this.fromDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.fromDateDataGridViewTextBoxColumn.HeaderText = "Từ ngày";
+            this.fromDateDataGridViewTextBoxColumn.Name = "fromDateDataGridViewTextBoxColumn";
+            // 
+            // toDateDataGridViewTextBoxColumn
+            // 
+            this.toDateDataGridViewTextBoxColumn.DataPropertyName = "ToDateFormated";
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Yellow;
+            this.toDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            this.toDateDataGridViewTextBoxColumn.HeaderText = "Tới ngày";
+            this.toDateDataGridViewTextBoxColumn.Name = "toDateDataGridViewTextBoxColumn";
+            // 
+            // TotalCost
+            // 
+            this.TotalCost.DataPropertyName = "TotalCostFormated";
+            this.TotalCost.HeaderText = "Tổng chi phí";
+            this.TotalCost.Name = "TotalCost";
+            // 
+            // totalSalaryDataGridViewTextBoxColumn
+            // 
+            this.totalSalaryDataGridViewTextBoxColumn.DataPropertyName = "TotalSalaryFormated";
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Yellow;
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Red;
+            this.totalSalaryDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
+            this.totalSalaryDataGridViewTextBoxColumn.HeaderText = "Tổng tiền lương";
+            this.totalSalaryDataGridViewTextBoxColumn.Name = "totalSalaryDataGridViewTextBoxColumn";
+            // 
+            // OthersCost
+            // 
+            this.OthersCost.DataPropertyName = "OthersCostFormated";
+            this.OthersCost.HeaderText = "Chi phí khác";
+            this.OthersCost.Name = "OthersCost";
+            // 
+            // Reason
+            // 
+            this.Reason.DataPropertyName = "Reason";
+            this.Reason.HeaderText = "Lý do";
+            this.Reason.Name = "Reason";
+            this.Reason.Width = 150;
+            // 
+            // Task
+            // 
+            this.Task.DataPropertyName = "Task";
+            this.Task.HeaderText = "Công việc";
+            this.Task.Name = "Task";
+            // 
+            // createDateDataGridViewTextBoxColumn
+            // 
+            this.createDateDataGridViewTextBoxColumn.DataPropertyName = "CreateDateFormated";
+            this.createDateDataGridViewTextBoxColumn.HeaderText = "Ngày tạo";
+            this.createDateDataGridViewTextBoxColumn.Name = "createDateDataGridViewTextBoxColumn";
+            // 
+            // lastUpdateDataGridViewTextBoxColumn
+            // 
+            this.lastUpdateDataGridViewTextBoxColumn.DataPropertyName = "LastUpdateFormated";
+            this.lastUpdateDataGridViewTextBoxColumn.HeaderText = "Ngày cập nhật";
+            this.lastUpdateDataGridViewTextBoxColumn.Name = "lastUpdateDataGridViewTextBoxColumn";
+            this.lastUpdateDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // createdByDataGridViewTextBoxColumn
+            // 
+            this.createdByDataGridViewTextBoxColumn.DataPropertyName = "CreatedBy";
+            this.createdByDataGridViewTextBoxColumn.HeaderText = "Tạo bởi";
+            this.createdByDataGridViewTextBoxColumn.Name = "createdByDataGridViewTextBoxColumn";
+            // 
+            // updatedByDataGridViewTextBoxColumn
+            // 
+            this.updatedByDataGridViewTextBoxColumn.DataPropertyName = "UpdatedBy";
+            this.updatedByDataGridViewTextBoxColumn.HeaderText = "Cập nhật bởi";
+            this.updatedByDataGridViewTextBoxColumn.Name = "updatedByDataGridViewTextBoxColumn";
+            // 
             // WorkerSalaryManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1075,10 +1075,10 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWorker
         private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn fromDateDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn toDateDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn OthersCost;
-        private DataGridViewTextBoxColumn Reason;
         private DataGridViewTextBoxColumn TotalCost;
         private DataGridViewTextBoxColumn totalSalaryDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn OthersCost;
+        private DataGridViewTextBoxColumn Reason;
         private DataGridViewTextBoxColumn Task;
         private DataGridViewTextBoxColumn createDateDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn lastUpdateDataGridViewTextBoxColumn;

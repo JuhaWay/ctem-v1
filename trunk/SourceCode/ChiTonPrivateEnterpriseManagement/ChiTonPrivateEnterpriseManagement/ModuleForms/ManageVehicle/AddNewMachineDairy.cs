@@ -17,6 +17,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
         private EmployeeBUS _employeeBUS = new EmployeeBUS();
         private ConstructionBus _constructionBus = new ConstructionBus();
         private VehicleBUS _vehicleBUS = new VehicleBUS();
+        private EstimateDetailBUS _estimateDetailBUS = new EstimateDetailBUS();
         private List<RoadMapDTO> list = new List<RoadMapDTO>();
         private RoadMapDTO dtoTemp = new RoadMapDTO();
         private VehicleDairyDTO _vehicleDairyDTO = new VehicleDairyDTO();
@@ -170,16 +171,43 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
                 if (cbCons.SelectedIndex>-1)
                 dto.ConstructionID = (cbCons.SelectedItem as ConstructionDTO).ConstructionID;
                 dto.Task = ipTask.Text.Trim();
-                dto.Totalcost = (long)Global.ConvertMoneyToDouble(ipSumCost.Text, Global.SEP); 
-                long ID = _vehicleDairyBUS.CreateVehicleDairy(dto);
-                foreach (VehicleDairyCostDTO item in _costs)
+                dto.Totalcost = (long)Global.ConvertMoneyToDouble(ipSumCost.Text, Global.SEP);
+                double totalEst = _estimateDetailBUS.getTotal(dto.ConstructionID,EstimateDetailDTO.TYPE_MACHINE);
+                if (dto.ConstructionID>0 && dto.Totalcost > totalEst)
                 {
-                    item.VehicleID = dto.VehicleID;
-                    item.VehicleDairyID = ID;
-                    item.TotalCost = (long)Global.ConvertMoneyToDouble(item.TotalCostFormated, Global.SEP);
-                    item.Price = Global.ConvertMoneyToDouble(item.PriceFormated, Global.SEP); 
-                    _vehicleDairyBUS.CreateVehicleDairyCost(item);
+                    if (KryptonMessageBox.Show("Tổng chi phí máy cơ đã vượt dự toán máy cơ, dự toán máy hiện tại là :" +
+                        totalEst + " bạn có muốn tiếp tục lưu",
+                        Constants.CONFIRM, MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning) == DialogResult.Yes)
+                    {
+                        long ID = _vehicleDairyBUS.CreateVehicleDairy(dto);
+                        foreach (VehicleDairyCostDTO item in _costs)
+                        {
+                            item.VehicleID = dto.VehicleID;
+                            item.VehicleDairyID = ID;
+                            item.TotalCost = (long)Global.ConvertMoneyToDouble(item.TotalCostFormated, Global.SEP);
+                            item.Price = Global.ConvertMoneyToDouble(item.PriceFormated, Global.SEP);
+                            _vehicleDairyBUS.CreateVehicleDairyCost(item);
+                        }
+                        this.Close();
+                    }
+
+
                 }
+                else
+                {
+                    long ID = _vehicleDairyBUS.CreateVehicleDairy(dto);
+                    foreach (VehicleDairyCostDTO item in _costs)
+                    {
+                        item.VehicleID = dto.VehicleID;
+                        item.VehicleDairyID = ID;
+                        item.TotalCost = (long)Global.ConvertMoneyToDouble(item.TotalCostFormated, Global.SEP);
+                        item.Price = Global.ConvertMoneyToDouble(item.PriceFormated, Global.SEP);
+                        _vehicleDairyBUS.CreateVehicleDairyCost(item);
+                    }
+                    this.Close();
+                }
+               
 
             }
             else
@@ -195,18 +223,43 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
                 _vehicleDairyDTO.ConstructionID = (cbCons.SelectedItem as ConstructionDTO).ConstructionID;
                 _vehicleDairyDTO.Totalcost = (long)Global.ConvertMoneyToDouble(ipSumCost.Text, Global.SEP); 
                 _vehicleDairyDTO.Task = ipTask.Text.Trim();
-                _vehicleDairyBUS.UpdateVehicleDairy(_vehicleDairyDTO);
-                _vehicleDairyBUS.deleteVehicleDairyCost(_ID);
-                foreach (VehicleDairyCostDTO item in _costs)
+                double totalEst = _estimateDetailBUS.getTotal(_vehicleDairyDTO.ConstructionID, EstimateDetailDTO.TYPE_MACHINE);
+                if (_vehicleDairyDTO.ConstructionID > 0 && _vehicleDairyDTO.Totalcost > totalEst)
                 {
-                    item.VehicleID = _vehicleDairyDTO.VehicleID;
-                    item.VehicleDairyID = _ID;
-                    item.TotalCost = (long)Global.ConvertMoneyToDouble(item.TotalCostFormated, Global.SEP);
-                    item.Price = Global.ConvertMoneyToDouble(item.PriceFormated, Global.SEP); 
-                    _vehicleDairyBUS.CreateVehicleDairyCost(item);
+                    if (KryptonMessageBox.Show("Tổng chi phí máy cơ đã vượt dự toán máy cơ, dự toán máy hiện tại là :" +
+                        totalEst + " bạn có muốn tiếp tục lưu",
+                        Constants.CONFIRM, MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning) == DialogResult.Yes)
+                    {
+                        _vehicleDairyBUS.UpdateVehicleDairy(_vehicleDairyDTO);
+                        _vehicleDairyBUS.deleteVehicleDairyCost(_ID);
+                        foreach (VehicleDairyCostDTO item in _costs)
+                        {
+                            item.VehicleID = _vehicleDairyDTO.VehicleID;
+                            item.VehicleDairyID = _ID;
+                            item.TotalCost = (long)Global.ConvertMoneyToDouble(item.TotalCostFormated, Global.SEP);
+                            item.Price = Global.ConvertMoneyToDouble(item.PriceFormated, Global.SEP);
+                            _vehicleDairyBUS.CreateVehicleDairyCost(item);
+                        }
+                        this.Close();
+                    }
+                }
+                else
+                {
+                    _vehicleDairyBUS.UpdateVehicleDairy(_vehicleDairyDTO);
+                    _vehicleDairyBUS.deleteVehicleDairyCost(_ID);
+                    foreach (VehicleDairyCostDTO item in _costs)
+                    {
+                        item.VehicleID = _vehicleDairyDTO.VehicleID;
+                        item.VehicleDairyID = _ID;
+                        item.TotalCost = (long)Global.ConvertMoneyToDouble(item.TotalCostFormated, Global.SEP);
+                        item.Price = Global.ConvertMoneyToDouble(item.PriceFormated, Global.SEP);
+                        _vehicleDairyBUS.CreateVehicleDairyCost(item);
+                    }
+                    this.Close();
                 }
             }
-            this.Close();
+           
         }
 
         private bool validateForm()
