@@ -156,12 +156,14 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         Status = Convert.ToString(reader["Status"]),
                         Name = Convert.ToString(reader["Name"]),
                         Number = Convert.ToString(reader["Number"]),
-                        Date = Convert.ToDateTime(reader["Date"]),
+                        Date = reader["Date"]==DBNull.Value?DateTime.MinValue.Date:
+                        Convert.ToDateTime(reader["Date"]),
                         Category = Convert.ToString(reader["Category"])
 
 
                     };
-                    dto.DateFormated = dto.Date.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
+                    dto.DateFormated =dto.Date==DateTime.MinValue.Date?"":
+                        dto.Date.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
                     listcons.Add(dto);
                 }
                 return listcons;
@@ -192,8 +194,10 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.Parameters.Add(new SqlParameter("@Number", dto.Number));
                 cmd.Parameters.Add(new SqlParameter("@Status", dto.Status));
                 cmd.Parameters.Add(new SqlParameter("@Category", dto.Category));
-                cmd.Parameters.Add(new SqlParameter("@Date", dto.Date));
-
+                if (dto.Date!=DateTime.MinValue.Date)
+                    cmd.Parameters.Add(new SqlParameter("@Date", dto.Date));
+                else
+                    cmd.Parameters.Add(new SqlParameter("@Date", DBNull.Value));
                 cmd.ExecuteNonQuery();
                 return true;
             }
@@ -224,7 +228,10 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.Parameters.Add(new SqlParameter("@Name", dto.Name));
                 cmd.Parameters.Add(new SqlParameter("@Number", dto.Number));
                 cmd.Parameters.Add(new SqlParameter("@Status", dto.Status));
-                cmd.Parameters.Add(new SqlParameter("@Date", dto.Date));
+                if (dto.Date != DateTime.MinValue.Date)
+                    cmd.Parameters.Add(new SqlParameter("@Date", dto.Date));
+                else
+                    cmd.Parameters.Add(new SqlParameter("@Date", DBNull.Value));
 
                 cmd.ExecuteNonQuery();
                 return true;
