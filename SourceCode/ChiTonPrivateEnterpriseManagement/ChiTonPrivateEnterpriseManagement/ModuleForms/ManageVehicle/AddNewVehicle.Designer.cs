@@ -155,6 +155,7 @@
             this.dtDate.Name = "dtDate";
             this.dtDate.Size = new System.Drawing.Size(230, 20);
             this.dtDate.TabIndex = 17;
+            this.dtDate.ValueNullable = new System.DateTime(2011, 8, 16, 0, 0, 0, 0);
             // 
             // kryptonLabel2
             // 

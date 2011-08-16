@@ -68,7 +68,10 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
                 dto.WarehouseID = 0;
             dto.Status = cbStatus.Text;
             dto.Category = cbCategory.Text.Trim();
-            dto.Date = dtDate.Value.Date;
+            if (dtDate.Checked)
+                dto.Date = dtDate.Value.Date;
+            else
+                dto.Date =DateTime.MinValue.Date;
             _vehicleBUS.CreateVehicle(dto);
             this.Close();
         }
@@ -116,6 +119,9 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
         }
         private void AddNewVehicle_Load(object sender, EventArgs e)
         {
+            dtDate.ShowCheckBox = true;
+           // dtDate.Value = null;
+
             Global.SetLayoutForm(this, Constants.DIALOG_FORM);
             Global.SetLayoutPanelNewForm(pnMain);
             Global.SetLayoutGroupBoxButton(kryptonGroupBox1);
