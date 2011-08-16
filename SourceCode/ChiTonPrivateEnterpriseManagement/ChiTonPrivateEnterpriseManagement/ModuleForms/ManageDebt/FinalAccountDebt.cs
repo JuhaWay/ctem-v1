@@ -12,56 +12,73 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
 {
-    public partial class FinalAccountDebt : ComponentFactory.Krypton.Toolkit.KryptonForm
+    public partial class FinalAccountDebt : KryptonForm
     {
+        private bool _isNew;
         private List<FinalAccountDTO> ListFinalAccount;
-        private string _debtName;
+        private List<FinalAccountDTO> ListDebtAccount = new List<FinalAccountDTO>(); 
+        private long totalDebt = 0;
+        private long _id = 0;
         private readonly FinalAccountBUS FinalAcc = new FinalAccountBUS();
 
-        public FinalAccountDebt(string debtname)
+        public FinalAccountDebt()
         {
+            _isNew = true;
             InitializeComponent();
-            _debtName = debtname;
+        }
+
+        public FinalAccountDebt(long id)
+        {
+            _isNew = false;
+            _id = id;
+            InitializeComponent();
         }
 
         private void FinalAccountManagement_Load(object sender, EventArgs e)
-        {
+        {            
             SetLayout();
             InitData();
         }
 
         private void InitData()
         {
-            for (int i = 0; i < cbbDebtSearch.Items.Count; i++)
+            if (_isNew)
             {
-                string name = cbbDebtSearch.Items[i].ToString();
-                if (name.Equals(_debtName))
+                if (cbbDebtSearch.Items.Count >= 0)
                 {
-                    cbbDebtSearch.SelectedIndex = i;
-                    i = cbbDebtSearch.Items.Count;
+                    cbbDebtSearch.SelectedIndex = 0;
                 }
+                dtpSearchTo.Value = DateTime.Today;
+                dtpSearchFrom.Value = DateTime.Today.AddMonths(-1);
+                LoadData();
             }
-            dtpSearchTo.Value = dtpSearchTo.MaxDate;
-            dtpSearchFrom.Value = dtpSearchFrom.MinDate;
-            LoadData();
+            else
+            {                
+                DateTime fromdate = dtpSearchFrom.MinDate;
+                DateTime todate = dtpSearchTo.MaxDate;
+                 ListFinalAccount = FinalAcc.GetFinalAccount(0, Constants.EMPTY_TEXT, fromdate, todate, 1, _id);
+                dgvAccount.DataSource = ListFinalAccount;                               
+            }
         }
 
         private void SetLayout()
         {
             CenterToParent();
             dgvAccount.Focus();
-            pnlSearch.Height = 82;
-            gbxSearch.Height = 78;
+            pnlSearch.Height = 62;
+            gbxSearch.Height = 58;
             Global.SetLayoutForm(this, Constants.DIALOG_FORM);
             Global.SetLayoutHeaderGroup(hdDebt, Constants.CHILD_FORM);
             Global.SetDaulftDatagridview(dgvAccount);
             Global.SetLayoutGroupBoxSearch(gbxSearch);
             Global.SetLayoutPanelChildForm(pnlSearch);
-            Global.SetDataCombobox(cbbDebtSearch, Constants.DEBT_SEARCH);
+            Global.SetDataCombobox(cbbDebtSearch, Constants.DEBT);
             Global.SetLayoutButton(btnSearch);
             Global.SetDaulftDatagridview(dgvAccount);
-            Global.SetLayoutGroupBoxChildForm(gbxEdit1);
-            Global.SetDataCombobox(cbbStatus, Constants.IS_PAY);
+            if (!_isNew)
+            {
+                btnUnableEdit.Enabled = ButtonEnabled.False;
+            }
         }
 
         private void RefreshData()
@@ -74,12 +91,11 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
 
         private void LoadData()
         {
-            string debtName = cbbDebtSearch.Text;
-            if (debtName.Equals(Constants.ALL)) { debtName = Constants.EMPTY_TEXT; }
+            string debtName = cbbDebtSearch.Text;            
             DateTime fromdate = dtpSearchFrom.Value;
             DateTime todate = dtpSearchTo.Value.AddDays(1);
-            ListFinalAccount = FinalAcc.GetFinalAccount(0, Constants.EMPTY_TEXT, debtName, fromdate, todate);
-            dgvAccount.DataSource = ListFinalAccount;
+            ListFinalAccount = FinalAcc.GetFinalAccount(0, debtName, fromdate, todate, 0, 0);
+            dgvAccount.DataSource = ListFinalAccount;                               
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
@@ -92,14 +108,14 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
             if (gbxSearch.Visible)
             {
                 btnHideShowSearch.Type = PaletteButtonSpecStyle.ArrowDown;
-                Global.DownUpControl(this, pnlSearch, 82, 2, 4, false);
+                Global.DownUpControl(this, pnlSearch, 62, 2, 4, false);
                 gbxSearch.Visible = false;
             }
             else
             {
                 btnHideShowSearch.Type = PaletteButtonSpecStyle.ArrowUp;
                 gbxSearch.Visible = true;
-                Global.DownUpControl(this, pnlSearch, 82, 2, 4, true);
+                Global.DownUpControl(this, pnlSearch, 62, 2, 4, true);
             }
         }
 
@@ -135,72 +151,58 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
             {
                 btnSearch_Click(null, null);
             }
-        }
-
-        private void dgvAccount_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex != -1)
-            {
-                txtNo.Text = dgvAccount.SelectedRows[0].Cells["FinalAccountID"].Value.ToString();
-                txtNameFinalAccount.Text = dgvAccount.SelectedRows[0].Cells["FinalAccountName"].Value.ToString();
-                txtTotalCost.Text = dgvAccount.SelectedRows[0].Cells["TotalCostFormated"].Value.ToString();
-                int ispay = Convert.ToInt32(dgvAccount.SelectedRows[0].Cells["IsPay"].Value.ToString());
-                if (ispay == 0)
-                {
-                    cbbStatus.SelectedIndex = 1;
-                }
-                else
-                {
-                    cbbStatus.SelectedIndex = 0;
-                }
-            }
-        }
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            long id = Convert.ToInt64(dgvAccount.SelectedRows[0].Cells["FinalAccountID"].Value.ToString());
-            int ispay;
-            if (cbbStatus.Text.Equals(Constants.PAY))
-            {
-                ispay = 1;
-            }
-            else
-            {
-                ispay = 0;
-            }
-            long TotalCost = Global.ConvertMoneyToLong(txtTotalCost.Text, Constants.SPLIP_MONEY);
-            for (int i = 0; i < ListFinalAccount.Count; i++)
-            {
-                FinalAccountDTO item = ListFinalAccount[i];
-                if (item.FinalAccountID == id)
-                {
-                    ListFinalAccount[i].IsPay = ispay;
-                    ListFinalAccount[i].TotalCost = TotalCost;
-                    ListFinalAccount[i].TotalCostFormated = Global.ConvertLongToMoney(TotalCost, Constants.SPLIP_MONEY);                    
-                }
-                RefreshLayout();
-                i = ListFinalAccount.Count;
-            }
-        }
-
-        private void RefreshLayout()
-        {
-            dgvAccount.DataSource = null;
-            dgvAccount.DataSource = ListFinalAccount;
-        }
+        }   
 
         private void btnUnableEdit_Click(object sender, EventArgs e)
         {
-            string name = cbbDebtSearch.Text;
-            long totalCost = 0;
-            foreach (FinalAccountDTO acc in ListFinalAccount)
+            foreach (FinalAccountDTO finalAccountDTO in ListDebtAccount)
             {
-                totalCost += acc.TotalCost;
-                FinalAccountBUS faccBus = new FinalAccountBUS();
-                faccBus.UpdateFinalAccount(acc);
+                if (finalAccountDTO.ComparationDebtID != 0)
+                {
+                    KryptonMessageBox.Show("Các phiếu mua hàng đã từng được đọ sổ ở các lần trước", Constants.CONFIRM, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
             }
-            NewCompareDebt newcompDebt = new NewCompareDebt(name, dtpSearchFrom.Value, dtpSearchTo.Value, totalCost);
-            newcompDebt.ShowDialog();
+            string name = cbbDebtSearch.Text;                      
+            using (NewCompareDebt newcompDebt = new NewCompareDebt(name, dtpSearchFrom.Value, dtpSearchTo.Value, totalDebt, ListDebtAccount))
+            {
+                newcompDebt.ShowDialog();
+            }
+            Close();
+        }
+
+        private void dgvAccount_CellClick(object sender, DataGridViewCellEventArgs e)
+        {            
+            if (e.ColumnIndex == 4)
+            {                
+                if (dgvAccount[e.ColumnIndex, e.RowIndex].Value.ToString().Equals("0"))
+                {                    
+                    FinalAccountDTO finalAccountDTO = dgvAccount.Rows[e.RowIndex].DataBoundItem as FinalAccountDTO;
+                    if (finalAccountDTO != null)
+                    {
+                        if (finalAccountDTO.TotalCost <= 0)
+                        {
+                            KryptonMessageBox.Show("Phiếu Mua Hàng Này Chưa Nhập Giá Nên Không Thể Thanh Toán.",
+                                                   Constants.ALERT_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        else
+                        {
+                            dgvAccount[e.ColumnIndex, e.RowIndex].Value = 1;
+                            ListDebtAccount.Add(finalAccountDTO);
+                            totalDebt += finalAccountDTO.TotalCost;
+                            hdEdit.Values.Heading = String.Format("Tổng Số Nợ: {0} (VND)", Global.ConvertLongToMoney(totalDebt, Constants.SPLIP_MONEY));
+                        }                        
+                    }
+                }
+                else
+                {
+                    dgvAccount[e.ColumnIndex, e.RowIndex].Value = 0;
+                    FinalAccountDTO finalAccountDTO = dgvAccount.Rows[e.RowIndex].DataBoundItem as FinalAccountDTO;
+                    ListDebtAccount.Remove(finalAccountDTO);
+                    totalDebt -= finalAccountDTO.TotalCost;
+                    hdEdit.Values.Heading = String.Format("Tổng Số Nợ: {0} (VND)", Global.ConvertLongToMoney(totalDebt, Constants.SPLIP_MONEY));                     
+                }
+            }
         }
     }
 }

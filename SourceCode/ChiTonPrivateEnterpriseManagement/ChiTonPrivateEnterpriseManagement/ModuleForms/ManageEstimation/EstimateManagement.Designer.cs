@@ -53,6 +53,20 @@
             this.slcMain = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
             this.gbxLeftBot = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.dgvEstimate = new AdvancedDataGridView.TreeGridView();
+            this.ConstructionName = new AdvancedDataGridView.TreeGridColumn();
+            this.ConsType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NameEst = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaterialCostEstimate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WorkerCostEstimate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VehicleCostEstimate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MachineCostEstimate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GeneralCostEstimate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CreatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UpdatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CreatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UpdatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EstimateID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlSearch = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.gbxSearch = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.btnSearch = new ComponentFactory.Krypton.Toolkit.KryptonButton();
@@ -84,20 +98,6 @@
             this.kryptonContextMenuItems2 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
             this.kryptonContextMenuItems1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
             this.estimateDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ConstructionName = new AdvancedDataGridView.TreeGridColumn();
-            this.ConsType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NameEst = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaterialCostEstimate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WorkerCostEstimate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VehicleCostEstimate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MachineCostEstimate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GeneralCostEstimate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CreatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UpdatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CreatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UpdatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EstimateID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.slcEdit)).BeginInit();
             this.slcEdit.Panel1.SuspendLayout();
             this.slcEdit.Panel2.SuspendLayout();
@@ -399,6 +399,106 @@
             this.dgvEstimate.DoubleClick += new System.EventHandler(this.dgvEstimate_DoubleClick);
             this.dgvEstimate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvEstimate_KeyDown);
             // 
+            // ConstructionName
+            // 
+            this.ConstructionName.DefaultNodeImage = null;
+            this.ConstructionName.HeaderText = "Công trình";
+            this.ConstructionName.Name = "ConstructionName";
+            this.ConstructionName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ConstructionName.Width = 200;
+            // 
+            // ConsType
+            // 
+            this.ConsType.DataPropertyName = "ConsType";
+            this.ConsType.HeaderText = "Loại công trình";
+            this.ConsType.Name = "ConsType";
+            this.ConsType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // NameEst
+            // 
+            this.NameEst.HeaderText = "Tên";
+            this.NameEst.Name = "NameEst";
+            this.NameEst.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.NameEst.Width = 300;
+            // 
+            // Total
+            // 
+            this.Total.HeaderText = "Tổng dự toán(VND)";
+            this.Total.Name = "Total";
+            this.Total.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Total.Width = 200;
+            // 
+            // MaterialCostEstimate
+            // 
+            this.MaterialCostEstimate.DataPropertyName = "MaterialCostEstimateFormated";
+            this.MaterialCostEstimate.HeaderText = "Dự toán vật liệu(VND)";
+            this.MaterialCostEstimate.Name = "MaterialCostEstimate";
+            this.MaterialCostEstimate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.MaterialCostEstimate.Width = 150;
+            // 
+            // WorkerCostEstimate
+            // 
+            this.WorkerCostEstimate.DataPropertyName = "WorkerCostEstimateFormated";
+            this.WorkerCostEstimate.HeaderText = "Dự toán công nhân(VND)";
+            this.WorkerCostEstimate.Name = "WorkerCostEstimate";
+            this.WorkerCostEstimate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.WorkerCostEstimate.Width = 150;
+            // 
+            // VehicleCostEstimate
+            // 
+            this.VehicleCostEstimate.DataPropertyName = "VehicleCostEstimateFormated";
+            this.VehicleCostEstimate.HeaderText = "Dự toán phương tiện(VND)";
+            this.VehicleCostEstimate.Name = "VehicleCostEstimate";
+            this.VehicleCostEstimate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.VehicleCostEstimate.Width = 150;
+            // 
+            // MachineCostEstimate
+            // 
+            this.MachineCostEstimate.DataPropertyName = "MachineCostEstimateFormated";
+            this.MachineCostEstimate.HeaderText = "Dự toán máy thi công(VND)";
+            this.MachineCostEstimate.Name = "MachineCostEstimate";
+            this.MachineCostEstimate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.MachineCostEstimate.Width = 150;
+            // 
+            // GeneralCostEstimate
+            // 
+            this.GeneralCostEstimate.DataPropertyName = "GeneralCostEstimateFormated";
+            this.GeneralCostEstimate.HeaderText = "Dự toán tổng quát(VND)";
+            this.GeneralCostEstimate.Name = "GeneralCostEstimate";
+            this.GeneralCostEstimate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.GeneralCostEstimate.Width = 150;
+            // 
+            // CreatedBy
+            // 
+            this.CreatedBy.HeaderText = "Tạo bởi";
+            this.CreatedBy.Name = "CreatedBy";
+            this.CreatedBy.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // UpdatedBy
+            // 
+            this.UpdatedBy.HeaderText = "Cập nhật bởi";
+            this.UpdatedBy.Name = "UpdatedBy";
+            this.UpdatedBy.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // CreatedDate
+            // 
+            this.CreatedDate.HeaderText = "Ngày tạo";
+            this.CreatedDate.Name = "CreatedDate";
+            this.CreatedDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // UpdatedDate
+            // 
+            this.UpdatedDate.HeaderText = "Ngày cập nhật";
+            this.UpdatedDate.Name = "UpdatedDate";
+            this.UpdatedDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // EstimateID
+            // 
+            this.EstimateID.HeaderText = "EstimateID";
+            this.EstimateID.Name = "EstimateID";
+            this.EstimateID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.EstimateID.Visible = false;
+            // 
             // pnlSearch
             // 
             this.pnlSearch.Controls.Add(this.gbxSearch);
@@ -671,106 +771,6 @@
             // estimateDTOBindingSource
             // 
             this.estimateDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.EstimateDTO);
-            // 
-            // ConstructionName
-            // 
-            this.ConstructionName.DefaultNodeImage = null;
-            this.ConstructionName.HeaderText = "Công trình";
-            this.ConstructionName.Name = "ConstructionName";
-            this.ConstructionName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ConstructionName.Width = 200;
-            // 
-            // ConsType
-            // 
-            this.ConsType.DataPropertyName = "ConsType";
-            this.ConsType.HeaderText = "Loại công trình";
-            this.ConsType.Name = "ConsType";
-            this.ConsType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // NameEst
-            // 
-            this.NameEst.HeaderText = "Tên";
-            this.NameEst.Name = "NameEst";
-            this.NameEst.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.NameEst.Width = 300;
-            // 
-            // Total
-            // 
-            this.Total.HeaderText = "Tổng dự toán(VND)";
-            this.Total.Name = "Total";
-            this.Total.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Total.Width = 200;
-            // 
-            // MaterialCostEstimate
-            // 
-            this.MaterialCostEstimate.DataPropertyName = "MaterialCostEstimateFormated";
-            this.MaterialCostEstimate.HeaderText = "Dự toán vật liệu(VND)";
-            this.MaterialCostEstimate.Name = "MaterialCostEstimate";
-            this.MaterialCostEstimate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.MaterialCostEstimate.Width = 150;
-            // 
-            // WorkerCostEstimate
-            // 
-            this.WorkerCostEstimate.DataPropertyName = "WorkerCostEstimateFormated";
-            this.WorkerCostEstimate.HeaderText = "Dự toán công nhân(VND)";
-            this.WorkerCostEstimate.Name = "WorkerCostEstimate";
-            this.WorkerCostEstimate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.WorkerCostEstimate.Width = 150;
-            // 
-            // VehicleCostEstimate
-            // 
-            this.VehicleCostEstimate.DataPropertyName = "VehicleCostEstimateFormated";
-            this.VehicleCostEstimate.HeaderText = "Dự toán phương tiện(VND)";
-            this.VehicleCostEstimate.Name = "VehicleCostEstimate";
-            this.VehicleCostEstimate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.VehicleCostEstimate.Width = 150;
-            // 
-            // MachineCostEstimate
-            // 
-            this.MachineCostEstimate.DataPropertyName = "MachineCostEstimateFormated";
-            this.MachineCostEstimate.HeaderText = "Dự toán máy thi công(VND)";
-            this.MachineCostEstimate.Name = "MachineCostEstimate";
-            this.MachineCostEstimate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.MachineCostEstimate.Width = 150;
-            // 
-            // GeneralCostEstimate
-            // 
-            this.GeneralCostEstimate.DataPropertyName = "GeneralCostEstimateFormated";
-            this.GeneralCostEstimate.HeaderText = "Dự toán tổng quát(VND)";
-            this.GeneralCostEstimate.Name = "GeneralCostEstimate";
-            this.GeneralCostEstimate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.GeneralCostEstimate.Width = 150;
-            // 
-            // CreatedBy
-            // 
-            this.CreatedBy.HeaderText = "Tạo bởi";
-            this.CreatedBy.Name = "CreatedBy";
-            this.CreatedBy.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // UpdatedBy
-            // 
-            this.UpdatedBy.HeaderText = "Cập nhật bởi";
-            this.UpdatedBy.Name = "UpdatedBy";
-            this.UpdatedBy.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // CreatedDate
-            // 
-            this.CreatedDate.HeaderText = "Ngày tạo";
-            this.CreatedDate.Name = "CreatedDate";
-            this.CreatedDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // UpdatedDate
-            // 
-            this.UpdatedDate.HeaderText = "Ngày cập nhật";
-            this.UpdatedDate.Name = "UpdatedDate";
-            this.UpdatedDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // EstimateID
-            // 
-            this.EstimateID.HeaderText = "EstimateID";
-            this.EstimateID.Name = "EstimateID";
-            this.EstimateID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.EstimateID.Visible = false;
             // 
             // EstimateManagement
             // 

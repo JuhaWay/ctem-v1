@@ -102,7 +102,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             }
         }
 
-        public List<FinalAccountDTO> GetFinalAccount(long id, string consName, string debtName, DateTime fromdate, DateTime todate)
+        public List<FinalAccountDTO> GetFinalAccount(long warehouseid, string debtName, DateTime fromdate, DateTime todate, int ispay, long compareid)
         {
             var cmd = new SqlCommand("[dbo].[FinalAccount_GetFinalAccount]", Connection);
             if (Transaction != null)
@@ -111,11 +111,18 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             }
             try
             {
-                cmd.Parameters.Add(new SqlParameter("@Id", id));                
-                cmd.Parameters.Add(new SqlParameter("@ConsName", consName));
+                cmd.Parameters.Add(warehouseid == 0
+                                       ? new SqlParameter("@WarehouseID", DBNull.Value)
+                                       : new SqlParameter("@WarehouseID", warehouseid));
                 cmd.Parameters.Add(new SqlParameter("@DebtName", debtName));
                 cmd.Parameters.Add(new SqlParameter("@FromDate", fromdate));
                 cmd.Parameters.Add(new SqlParameter("@ToDate", todate.AddDays(1)));
+                cmd.Parameters.Add(ispay == -1
+                                       ? new SqlParameter("@IsPay", DBNull.Value)
+                                       : new SqlParameter("@IsPay", ispay));
+                cmd.Parameters.Add(compareid == -1
+                                       ? new SqlParameter("@CompareID", DBNull.Value)
+                                       : new SqlParameter("@CompareID", compareid));
                 cmd.CommandType = CommandType.StoredProcedure;
                 SqlDataReader reader = cmd.ExecuteReader();
                 var listFinalAccount = new List<FinalAccountDTO>();
@@ -123,7 +130,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 {
                     var finalAccount = new FinalAccountDTO
                     {
-                        FinalAccountID = Convert.ToInt64(reader["FinalAccountID"]),                        
+                        FinalAccountID = Convert.ToString(reader["FinalAccountID"]),                        
                         ConstructionID = Convert.ToInt64(reader["ConstructionID"]),
                         ConstructionName = Convert.ToString(reader["ConstructionName"]),
                         DateAccount = DateTime.Parse(Convert.ToString(reader["DateAccount"])),
@@ -132,6 +139,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         TransportationCost = Convert.ToInt64(reader["TransportationCost"]),
                         TotalCost = Convert.ToInt64(reader["TotalCost"]),
                         PersonAccount = Convert.ToString(reader["PersonAccount"]),
+                        ComparationDebtID = reader["ComparationDebtID"] != DBNull.Value ? Convert.ToInt64(reader["ComparationDebtID"]) : 0,
                         WarehouseID = reader["WarehouseID"] != DBNull.Value ? Convert.ToInt64(reader["WarehouseID"]) : 0,
                         Note = Convert.ToString(reader["Note"]),
                         CreatedDate = DateTime.Parse(Convert.ToString(reader["CreatedDate"])),
@@ -146,8 +154,72 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         finalAccount.TransportationCostFormated =
                             Global.Global.ConvertLongToMoney(finalAccount.TransportationCost, Constants.SPLIP_MONEY);
                         finalAccount.TotalCostFormated = Global.Global.ConvertLongToMoney(finalAccount.TotalCost, Constants.SPLIP_MONEY);
-                        var ispay = Convert.ToBoolean(reader["IsPay"]);
-                        finalAccount.IsPay = ispay ? 1 : 0;
+                        var Ispay = Convert.ToBoolean(reader["IsPay"]);
+                        finalAccount.IsPay = Ispay ? 1 : 0;
+                        finalAccount.ComparationDebtID = Convert.ToInt64(reader["ComparationDebtID"]);
+                        finalAccount.WarehouseID = Convert.ToInt64(reader["WarehouseID"]);
+                    }
+                    catch (Exception)
+                    {
+                    }
+                    listFinalAccount.Add(finalAccount);
+                }
+                return listFinalAccount;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message, "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                if (Transaction == null) Connection.Close();
+            }
+        }
+
+        public List<FinalAccountDTO> GetFinalAccountById(string id)
+        {
+            var cmd = new SqlCommand("[dbo].[FinalAccount_GetFinalAccountById]", Connection);
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@id", id));                
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataReader reader = cmd.ExecuteReader();
+                var listFinalAccount = new List<FinalAccountDTO>();
+                while (reader.Read())
+                {
+                    var finalAccount = new FinalAccountDTO
+                    {
+                        FinalAccountID = Convert.ToString(reader["FinalAccountID"]),
+                        ConstructionID = Convert.ToInt64(reader["ConstructionID"]),
+                        ConstructionName = Convert.ToString(reader["ConstructionName"]),
+                        DateAccount = DateTime.Parse(Convert.ToString(reader["DateAccount"])),
+                        DebtID = Convert.ToInt64(reader["DebtID"]),
+                        DebtName = Convert.ToString(reader["DebtName"]),
+                        TransportationCost = Convert.ToInt64(reader["TransportationCost"]),
+                        TotalCost = Convert.ToInt64(reader["TotalCost"]),
+                        PersonAccount = Convert.ToString(reader["PersonAccount"]),
+                        ComparationDebtID = reader["ComparationDebtID"] != DBNull.Value ? Convert.ToInt64(reader["ComparationDebtID"]) : 0,
+                        WarehouseID = reader["WarehouseID"] != DBNull.Value ? Convert.ToInt64(reader["WarehouseID"]) : 0,
+                        Note = Convert.ToString(reader["Note"]),
+                        CreatedDate = DateTime.Parse(Convert.ToString(reader["CreatedDate"])),
+                        LastUpdated = DateTime.Parse(Convert.ToString(reader["LastUpdate"])),
+                        CreatedBy = Convert.ToString(reader["CreatedBy"]),
+                        UpdatedBy = Convert.ToString(reader["UpdatedBy"])
+                    };
+                    try
+                    {
+                        finalAccount.DateAccountFormated =
+                            finalAccount.DateAccount.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
+                        finalAccount.TransportationCostFormated =
+                            Global.Global.ConvertLongToMoney(finalAccount.TransportationCost, Constants.SPLIP_MONEY);
+                        finalAccount.TotalCostFormated = Global.Global.ConvertLongToMoney(finalAccount.TotalCost, Constants.SPLIP_MONEY);
+                        var Ispay = Convert.ToBoolean(reader["IsPay"]);
+                        finalAccount.IsPay = Ispay ? 1 : 0;
                         finalAccount.ComparationDebtID = Convert.ToInt64(reader["ComparationDebtID"]);
                         finalAccount.WarehouseID = Convert.ToInt64(reader["WarehouseID"]);
                     }
@@ -231,7 +303,8 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.Parameters.Add(new SqlParameter("@DebtID", finalAccount.DebtID));
                 cmd.Parameters.Add(new SqlParameter("@TransportationCost", finalAccount.TransportationCost));
                 cmd.Parameters.Add(new SqlParameter("@TotalCost", finalAccount.TotalCost));
-                cmd.Parameters.Add(new SqlParameter("@PersonAccount", finalAccount.PersonAccount));                
+                cmd.Parameters.Add(new SqlParameter("@PersonAccount", finalAccount.PersonAccount));
+                cmd.Parameters.Add(new SqlParameter("@ComparationDebtID", finalAccount.ComparationDebtID));
                 cmd.Parameters.Add(new SqlParameter("@IsPay", finalAccount.IsPay));
                 cmd.Parameters.Add(new SqlParameter("@Note", finalAccount.Note));
                 cmd.Parameters.Add(new SqlParameter("@CreatedBy", Global.Global.CurrentUser.Username));
@@ -249,7 +322,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             }
         }
 
-        public FinalAccountDetailDTO FindAccountItem(long accId, long materialId)
+        public FinalAccountDetailDTO FindAccountItem(string accId, long materialId)
         {
             var cmd = new SqlCommand("[dbo].[FinalAccount_GetFinalAccountItem]", Connection);
             if (Transaction != null)
@@ -267,7 +340,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                     var finalAccount = new FinalAccountDetailDTO
                     {
                         FinalAccountDetailID = Convert.ToInt64(reader["FinalAccountDetailID"]),
-                        FinalAccountID = Convert.ToInt64(reader["FinalAccountID"]),
+                        FinalAccountID = Convert.ToString(reader["FinalAccountID"]),
                         MaterialID = Convert.ToInt64(reader["MaterialID"]),                        
                         Note = Convert.ToString(reader["Note"]),
                         Quantity = Convert.ToDouble(reader["Quantity"]),                        
@@ -319,7 +392,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             }
         }
 
-        public List<FinalAccountDetailDTO> GetFinalAccountDetail(long id)
+        public List<FinalAccountDetailDTO> GetFinalAccountDetail(string id)
         {
             var cmd = new SqlCommand("[dbo].[FinalAccount_GetFinalAccountDetial]", Connection);
             if (Transaction != null)
@@ -337,7 +410,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                     var finalAccount = new FinalAccountDetailDTO
                     {
                         FinalAccountDetailID = Convert.ToInt64(reader["FinalAccountDetailID"]),
-                        FinalAccountID = Convert.ToInt64(reader["FinalAccountID"]),
+                        FinalAccountID = Convert.ToString(reader["FinalAccountID"]),
                         MaterialID = Convert.ToInt64(reader["MaterialID"]),
                         MaterialName = Convert.ToString(reader["MaterialName"]),
                         Note = Convert.ToString(reader["Note"]),

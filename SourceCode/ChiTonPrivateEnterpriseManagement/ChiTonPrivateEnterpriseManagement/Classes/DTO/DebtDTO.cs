@@ -14,7 +14,11 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
         public string Address { get; set; }
         public string PhoneNumber { get; set; }
         public long TotalOwe { get; set; }
+        public long OldOwe { get; set; }
+        public long NewestOwe { get; set; }
         public string TotalOweFomated { get; set; }
+        public string OldOweFormated { get; set; }
+        public string NewestOweFormated { get; set; }
         public int IsActive { get; set; }
         public string Note { get; set; }
         public DateTime? CreatedDate { get; set; }

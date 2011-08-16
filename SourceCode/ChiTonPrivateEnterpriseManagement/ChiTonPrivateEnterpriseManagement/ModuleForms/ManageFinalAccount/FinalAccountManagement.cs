@@ -40,14 +40,17 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
             Global.SetLayoutPanelChildForm(pnlSearch);            
             Global.SetDataCombobox(cbbCons, Constants.CONSTRUCTION_SEARCH);
             Global.SetDataCombobox(cbbDebt, Constants.DEBT_SEARCH);
+            Global.SetDataCombobox(cbbWarehouse, Constants.MAIN_WAREHOUSE_SEARCH);
+            Global.SetDataCombobox(cbbStatus, Constants.IS_PAY);
             Global.SetLayoutButton(btnSearch);
         }
 
         private void RefreshData()
-        {
-            txtId.Text = Constants.ZERO_NUMBER;            
+        {            
             if (cbbCons.Items.Count > 0) { cbbCons.SelectedIndex = 0; }
             if (cbbDebt.Items.Count > 0) { cbbDebt.SelectedIndex = 0; }
+            if (cbbWarehouse.Items.Count > 0) { cbbWarehouse.SelectedIndex = 0; }
+            if (cbbStatus.Items.Count > 0) { cbbStatus.SelectedIndex = 0; }
             dtpSearchTo.Value = DateTime.Today;
             dtpSearchFrom.Value = Global.GetFirstDateInMonth();
             LoadData();
@@ -55,14 +58,31 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
 
         private void LoadData()
         {
-            long id = Convert.ToInt64(txtId.Text);            
-            string consName = cbbCons.Text;
-            string debtName = cbbDebt.Text;            
-            if (consName.Equals("Tất Cả")) { consName = Constants.EMPTY_TEXT; }
+            long whid = 0;
+            int status = -1;
+            ConstructionDTO constructionDTO = cbbCons.SelectedItem as ConstructionDTO;
+            WarehouseDTO warehouseDTO = cbbWarehouse.SelectedItem as WarehouseDTO;
+            if (cbbWarehouse.Enabled)
+            {
+                whid = warehouseDTO.WarehouseID;
+            }
+            else
+            {
+                whid = constructionDTO.WarehouseID;
+            }
+            string debtName = cbbDebt.Text;
             if (debtName.Equals("Tất Cả")) { debtName = Constants.EMPTY_TEXT; }
+            if (cbbStatus.Text.Equals(Constants.PAY))
+            {
+                status = 1;
+            }
+            else if (cbbStatus.Text.Equals(Constants.NOTPAY))
+            {
+                status = 0;
+            }            
             DateTime fromdate = dtpSearchFrom.Value;
             DateTime todate = dtpSearchTo.Value.AddDays(1);
-            ListFinalAccount = FinalAcc.GetFinalAccount(id, consName, debtName, fromdate, todate);
+            ListFinalAccount = FinalAcc.GetFinalAccount(whid, debtName, fromdate, todate, status, -1);
             dgvAccount.DataSource = ListFinalAccount;
         }
 
@@ -79,10 +99,11 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
         }
 
         private void btnLoadAll_Click(object sender, EventArgs e)
-        {
-            txtId.Text = Constants.ZERO_NUMBER;            
+        {            
             if (cbbCons.Items.Count > 0) { cbbCons.SelectedIndex = 0; }
             if (cbbDebt.Items.Count > 0) { cbbDebt.SelectedIndex = 0; }
+            if (cbbWarehouse.Items.Count > 0) { cbbWarehouse.SelectedIndex = 0; }
+            if (cbbStatus.Items.Count > 0) { cbbStatus.SelectedIndex = 0; }
             dtpSearchFrom.Value = dtpSearchFrom.MinDate;
             dtpSearchTo.Value = dtpSearchTo.MaxDate;
             LoadData();
@@ -148,7 +169,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
                 gbxSearch.Visible = true;
                 Global.DownUpControl(this, pnlSearch, 62, 2, 4, true);
             }
-            txtId.Focus();
+            cbbWarehouse.Focus();
         }
 
         private void HideSearchToolStripMenuItem_Click(object sender, EventArgs e)
@@ -163,10 +184,19 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
 
         private void btnDetail_Click(object sender, EventArgs e)
         {
-            long id = Convert.ToInt64(dgvAccount.SelectedRows[0].Cells["FinalAccountID"].Value.ToString());
-            var newFinalAccountForm = new NewFinalAccount(id);
-            newFinalAccountForm.ShowDialog();
-            RefreshData();
+            try
+            {
+                string id = Convert.ToString(dgvAccount.SelectedRows[0].Cells["FinalAccountID"].Value.ToString());
+                var newFinalAccountForm = new NewFinalAccount(id);
+                newFinalAccountForm.ShowDialog();
+                RefreshData();
+            }
+            catch (Exception)
+            {
+                KryptonMessageBox.Show("Hiện Không Có Giữ Liệu Để Xem", Constants.ALERT_ERROR, MessageBoxButtons.OK,
+                                       MessageBoxIcon.Warning);
+            }
+            
         }
 
         private void txtId_KeyDown(object sender, KeyEventArgs e)
@@ -177,14 +207,28 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
             }
         }
 
-        private void txtId_Enter(object sender, EventArgs e)
+        private void cbbWarehouse_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Global.SetTextBoxNumberEnter(txtId);
+            if (cbbWarehouse.SelectedIndex == 0)
+            {
+                cbbCons.Enabled = true;
+            }
+            else
+            {
+                cbbCons.Enabled = false;
+            }
         }
 
-        private void txtId_Leave(object sender, EventArgs e)
+        private void cbbCons_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Global.SetTextBoxNumberLeave(txtId);
+            if (cbbCons.SelectedIndex == 0)
+            {
+                cbbWarehouse.Enabled = true;
+            }
+            else
+            {
+                cbbWarehouse.Enabled = false;
+            }
         }
     }
 }

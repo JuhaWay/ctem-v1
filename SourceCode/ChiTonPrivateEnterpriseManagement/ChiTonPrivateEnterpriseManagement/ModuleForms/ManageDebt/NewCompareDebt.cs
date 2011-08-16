@@ -1,40 +1,42 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using ChiTonPrivateEnterpriseManagement.Classes.BUS;
 using ChiTonPrivateEnterpriseManagement.Classes.DTO;
 using ChiTonPrivateEnterpriseManagement.Classes.Global;
-using ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
 {
-    public partial class NewCompareDebt : ComponentFactory.Krypton.Toolkit.KryptonForm
+    public partial class NewCompareDebt : KryptonForm
     {
         private readonly DebtBUS _debtBus = new DebtBUS();
         private string _debtname;
         private DateTime _from;
         private DateTime _to;
         private long _totalCost;
-        public NewCompareDebt(string debtName, DateTime from, DateTime to, long totalCost)
+        private List<FinalAccountDTO> _listDebtAccount;
+
+        public NewCompareDebt()
+        {
+            InitializeComponent();
+        }
+
+        public NewCompareDebt(string debtName, DateTime from, DateTime to, long totalCost, List<FinalAccountDTO> listDebtAccount)
         {
             InitializeComponent();
             _debtname = debtName;
             _from = from;
             _to = to;
             _totalCost = totalCost;
+            _listDebtAccount = listDebtAccount;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (ValidateInput())
             {
-                long debtId = Global.GetDataCombobox(cbbDebt, Constants.DEBT);
-                string representationDebtName = txtRepresentationDebtName.Text;
+                long debtId = Global.GetDataCombobox(cbbDebt, Constants.DEBT);                
                 var compareDate = dtpDateCompare.Value;
                 var fromDate = dtpFromDate.Value;
                 var toDate = dtpToDate.Value;
@@ -43,24 +45,26 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
                 var compareDebtDto = new CompareDebtDTO()
                 {
                     DebtID = debtId,
-                    RepresentationDebtName = representationDebtName,
                     DateCompare = compareDate,
                     FromDate = fromDate,
                     ToDate = toDate,
                     TotalOwe = totalOwe,
+                    TotalPayed = 0,
                     Note = note
                 };
-                bool success = _debtBus.Create(compareDebtDto);
-                if (success)
+                long id = _debtBus.Create(compareDebtDto);
+                if (id != 0)
                 {
-                    if (KryptonMessageBox.Show(Constants.CREATE_SUCCESS, Constants.CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    KryptonMessageBox.Show("Đã Tạo Mới Thành Công", Constants.CONFIRM, MessageBoxButtons.OK,
+                                           MessageBoxIcon.Question);
+                    FinalAccountBUS finalAccountBus = new FinalAccountBUS();
+                    foreach (FinalAccountDTO accountDTO in _listDebtAccount)
                     {
-                        ClearLayout();
+                        accountDTO.ComparationDebtID = id;
+                        accountDTO.IsPay = 1;
+                        finalAccountBus.UpdateFinalAccount(accountDTO);
                     }
-                    else
-                    {
-                        Close();
-                    }
+                    Close();
                 }
                 else
                 {
@@ -72,7 +76,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
                 string errors = "";
                 foreach (string error in Global.ListError)
                 {
-                    errors += ("* " + error + "\n");
+                    errors += (String.Format("* {0}\n", error));
                 }
                 KryptonMessageBox.Show(errors, Constants.ALERT_ERROR);
                 dtpDateCompare.Focus();
@@ -81,7 +85,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
 
         private bool ValidateInput()
         {
-            Global.SetTextBoxNumberLeave(txtTotalOwe);
+            Global.SetTextBoxMoneyLeave(txtTotalOwe);
             Global.ListError.Clear();
             if (!Global.ValidateDateFromTo(dtpFromDate.Value, dtpToDate.Value) || !Global.ValidateDateFromTo(dtpToDate.Value, dtpDateCompare.Value))
             {
@@ -142,16 +146,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
             }
         }
 
-        private void txtToalOwe_Enter(object sender, EventArgs e)
-        {
-            Global.SetTextBoxNumberEnter(txtTotalOwe);
-        }
-
-        private void txtToalOwe_Leave(object sender, EventArgs e)
-        {
-            Global.SetTextBoxNumberLeave(txtTotalOwe);
-        }
-
         private void btnClose_Click(object sender, EventArgs e)
         {
             Close();
@@ -163,8 +157,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
         }
         private void ClearLayout()
         {
-            Global.SetTextBoxNumberLeave(txtTotalOwe);
-            txtRepresentationDebtName.Text = Constants.EMPTY_TEXT;
+            Global.SetTextBoxNumberLeave(txtTotalOwe);            
             txtNote.Text = Constants.EMPTY_TEXT;
             dtpDateCompare.Value = DateTime.Today;
             dtpFromDate.Value = Global.GetFirstDateInMonth();

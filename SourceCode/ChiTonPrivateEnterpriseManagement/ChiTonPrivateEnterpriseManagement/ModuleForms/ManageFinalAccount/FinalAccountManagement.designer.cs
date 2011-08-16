@@ -43,28 +43,6 @@
             this.SearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.HideSearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dgvAccount = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.pnlSearch = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.gbxSearch = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
-            this.cbbDebt = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
-            this.kryptonLabel3 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.cbbCons = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
-            this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.txtId = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.dtpSearchFrom = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
-            this.kryptonLabel8 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.dtpSearchTo = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
-            this.btnSearch = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.kryptonLabel10 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.hdDebt = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
-            this.btnDetail = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.btnRefresh = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.btnLoadAll = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.btnAdd = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.btnDelete = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.btnDeleteAll = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.btnHideShowSearch = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.finalAccountDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.FinalAccountID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ConstructionName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DateAccountFormated = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -78,9 +56,34 @@
             this.CreatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UpdatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastUpdated = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.finalAccountDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pnlSearch = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.gbxSearch = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
+            this.cbbDebt = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.kryptonLabel3 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.cbbCons = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.dtpSearchFrom = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
+            this.kryptonLabel8 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.dtpSearchTo = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
+            this.btnSearch = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.kryptonLabel10 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.hdDebt = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
+            this.btnDetail = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.btnRefresh = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.btnLoadAll = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.btnAdd = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.btnDelete = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.btnDeleteAll = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.btnHideShowSearch = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.cbbWarehouse = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.cbbStatus = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.kryptonLabel4 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.cmsDGV.SuspendLayout();
             this.cmsMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAccount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.finalAccountDTOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlSearch)).BeginInit();
             this.pnlSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gbxSearch)).BeginInit();
@@ -88,7 +91,8 @@
             this.gbxSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbbDebt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbbCons)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.finalAccountDTOBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbbWarehouse)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbbStatus)).BeginInit();
             this.SuspendLayout();
             // 
             // cmsDGV
@@ -211,6 +215,90 @@
             this.dgvAccount.Size = new System.Drawing.Size(784, 417);
             this.dgvAccount.TabIndex = 25;
             // 
+            // FinalAccountID
+            // 
+            this.FinalAccountID.DataPropertyName = "FinalAccountID";
+            this.FinalAccountID.HeaderText = "Mã Số";
+            this.FinalAccountID.Name = "FinalAccountID";
+            // 
+            // ConstructionName
+            // 
+            this.ConstructionName.DataPropertyName = "ConstructionName";
+            this.ConstructionName.HeaderText = "Công Trình";
+            this.ConstructionName.Name = "ConstructionName";
+            // 
+            // DateAccountFormated
+            // 
+            this.DateAccountFormated.DataPropertyName = "DateAccountFormated";
+            this.DateAccountFormated.HeaderText = "Ngày";
+            this.DateAccountFormated.Name = "DateAccountFormated";
+            // 
+            // DebtName
+            // 
+            this.DebtName.DataPropertyName = "DebtName";
+            this.DebtName.HeaderText = "Khách Hàng";
+            this.DebtName.Name = "DebtName";
+            // 
+            // TransportationCostFormated
+            // 
+            this.TransportationCostFormated.DataPropertyName = "TransportationCostFormated";
+            this.TransportationCostFormated.HeaderText = "Tiền Vận Chuyễn";
+            this.TransportationCostFormated.Name = "TransportationCostFormated";
+            // 
+            // TotalCostFormated
+            // 
+            this.TotalCostFormated.DataPropertyName = "TotalCostFormated";
+            this.TotalCostFormated.HeaderText = "Tổng Số Tiền";
+            this.TotalCostFormated.Name = "TotalCostFormated";
+            // 
+            // personAccountDataGridViewTextBoxColumn
+            // 
+            this.personAccountDataGridViewTextBoxColumn.DataPropertyName = "PersonAccount";
+            this.personAccountDataGridViewTextBoxColumn.HeaderText = "Chịu Trách Nhiệm";
+            this.personAccountDataGridViewTextBoxColumn.Name = "personAccountDataGridViewTextBoxColumn";
+            // 
+            // IsPay
+            // 
+            this.IsPay.DataPropertyName = "IsPay";
+            this.IsPay.HeaderText = "Đã Thanh Toán";
+            this.IsPay.Name = "IsPay";
+            this.IsPay.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.IsPay.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // Note
+            // 
+            this.Note.DataPropertyName = "Note";
+            this.Note.HeaderText = "Ghi Chú";
+            this.Note.Name = "Note";
+            // 
+            // CreatedBy
+            // 
+            this.CreatedBy.DataPropertyName = "CreatedBy";
+            this.CreatedBy.HeaderText = "Người Tạo";
+            this.CreatedBy.Name = "CreatedBy";
+            // 
+            // CreatedDate
+            // 
+            this.CreatedDate.DataPropertyName = "CreatedDate";
+            this.CreatedDate.HeaderText = "Ngày Tạo";
+            this.CreatedDate.Name = "CreatedDate";
+            // 
+            // UpdatedBy
+            // 
+            this.UpdatedBy.DataPropertyName = "UpdatedBy";
+            this.UpdatedBy.HeaderText = "Người Sửa";
+            this.UpdatedBy.Name = "UpdatedBy";
+            // 
+            // LastUpdated
+            // 
+            this.LastUpdated.DataPropertyName = "LastUpdated";
+            this.LastUpdated.HeaderText = "Ngày Sửa";
+            this.LastUpdated.Name = "LastUpdated";
+            // 
+            // finalAccountDTOBindingSource
+            // 
+            this.finalAccountDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.FinalAccountDTO);
+            // 
             // pnlSearch
             // 
             this.pnlSearch.Controls.Add(this.gbxSearch);
@@ -230,12 +318,14 @@
             // 
             // gbxSearch.Panel
             // 
+            this.gbxSearch.Panel.Controls.Add(this.cbbStatus);
+            this.gbxSearch.Panel.Controls.Add(this.kryptonLabel4);
+            this.gbxSearch.Panel.Controls.Add(this.cbbWarehouse);
+            this.gbxSearch.Panel.Controls.Add(this.kryptonLabel1);
             this.gbxSearch.Panel.Controls.Add(this.cbbDebt);
             this.gbxSearch.Panel.Controls.Add(this.kryptonLabel3);
             this.gbxSearch.Panel.Controls.Add(this.cbbCons);
             this.gbxSearch.Panel.Controls.Add(this.kryptonLabel2);
-            this.gbxSearch.Panel.Controls.Add(this.txtId);
-            this.gbxSearch.Panel.Controls.Add(this.kryptonLabel1);
             this.gbxSearch.Panel.Controls.Add(this.dtpSearchFrom);
             this.gbxSearch.Panel.Controls.Add(this.kryptonLabel8);
             this.gbxSearch.Panel.Controls.Add(this.dtpSearchTo);
@@ -252,15 +342,15 @@
             this.cbbDebt.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cbbDebt.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbbDebt.DropDownWidth = 218;
-            this.cbbDebt.Location = new System.Drawing.Point(299, 34);
+            this.cbbDebt.Location = new System.Drawing.Point(332, 34);
             this.cbbDebt.Name = "cbbDebt";
-            this.cbbDebt.Size = new System.Drawing.Size(158, 22);
+            this.cbbDebt.Size = new System.Drawing.Size(125, 22);
             this.cbbDebt.TabIndex = 14;
             this.cbbDebt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtId_KeyDown);
             // 
             // kryptonLabel3
             // 
-            this.kryptonLabel3.Location = new System.Drawing.Point(214, 34);
+            this.kryptonLabel3.Location = new System.Drawing.Point(255, 37);
             this.kryptonLabel3.Name = "kryptonLabel3";
             this.kryptonLabel3.Size = new System.Drawing.Size(71, 19);
             this.kryptonLabel3.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -274,39 +364,21 @@
             this.cbbCons.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cbbCons.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbbCons.DropDownWidth = 218;
-            this.cbbCons.Location = new System.Drawing.Point(299, 11);
+            this.cbbCons.Location = new System.Drawing.Point(332, 11);
             this.cbbCons.Name = "cbbCons";
-            this.cbbCons.Size = new System.Drawing.Size(158, 22);
+            this.cbbCons.Size = new System.Drawing.Size(125, 22);
             this.cbbCons.TabIndex = 12;
+            this.cbbCons.SelectedIndexChanged += new System.EventHandler(this.cbbCons_SelectedIndexChanged);
             this.cbbCons.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtId_KeyDown);
             // 
             // kryptonLabel2
             // 
-            this.kryptonLabel2.Location = new System.Drawing.Point(222, 11);
+            this.kryptonLabel2.Location = new System.Drawing.Point(258, 14);
             this.kryptonLabel2.Name = "kryptonLabel2";
             this.kryptonLabel2.Size = new System.Drawing.Size(65, 19);
             this.kryptonLabel2.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.kryptonLabel2.TabIndex = 13;
             this.kryptonLabel2.Values.Text = "Công Trình";
-            // 
-            // txtId
-            // 
-            this.txtId.Location = new System.Drawing.Point(55, 21);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(153, 22);
-            this.txtId.TabIndex = 11;
-            this.txtId.Enter += new System.EventHandler(this.txtId_Enter);
-            this.txtId.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtId_KeyDown);
-            this.txtId.Leave += new System.EventHandler(this.txtId_Leave);
-            // 
-            // kryptonLabel1
-            // 
-            this.kryptonLabel1.Location = new System.Drawing.Point(23, 24);
-            this.kryptonLabel1.Name = "kryptonLabel1";
-            this.kryptonLabel1.Size = new System.Drawing.Size(26, 19);
-            this.kryptonLabel1.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.kryptonLabel1.TabIndex = 10;
-            this.kryptonLabel1.Values.Text = "Mã";
             // 
             // dtpSearchFrom
             // 
@@ -457,89 +529,44 @@
             this.btnHideShowSearch.UniqueName = "7CD50F96676F43E7C0B240BAD639EFD5";
             this.btnHideShowSearch.Click += new System.EventHandler(this.btnHideShowSearch_Click);
             // 
-            // finalAccountDTOBindingSource
+            // cbbWarehouse
             // 
-            this.finalAccountDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.FinalAccountDTO);
+            this.cbbWarehouse.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cbbWarehouse.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbbWarehouse.DropDownWidth = 218;
+            this.cbbWarehouse.Location = new System.Drawing.Point(80, 11);
+            this.cbbWarehouse.Name = "cbbWarehouse";
+            this.cbbWarehouse.Size = new System.Drawing.Size(172, 22);
+            this.cbbWarehouse.TabIndex = 16;
+            this.cbbWarehouse.SelectedIndexChanged += new System.EventHandler(this.cbbWarehouse_SelectedIndexChanged);
             // 
-            // FinalAccountID
+            // kryptonLabel1
             // 
-            this.FinalAccountID.DataPropertyName = "FinalAccountID";
-            this.FinalAccountID.HeaderText = "Mã Số";
-            this.FinalAccountID.Name = "FinalAccountID";
+            this.kryptonLabel1.Location = new System.Drawing.Point(12, 14);
+            this.kryptonLabel1.Name = "kryptonLabel1";
+            this.kryptonLabel1.Size = new System.Drawing.Size(62, 19);
+            this.kryptonLabel1.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.kryptonLabel1.TabIndex = 17;
+            this.kryptonLabel1.Values.Text = "Kho Chính";
             // 
-            // ConstructionName
+            // cbbStatus
             // 
-            this.ConstructionName.DataPropertyName = "ConstructionName";
-            this.ConstructionName.HeaderText = "Công Trình";
-            this.ConstructionName.Name = "ConstructionName";
+            this.cbbStatus.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cbbStatus.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbbStatus.DropDownWidth = 218;
+            this.cbbStatus.Location = new System.Drawing.Point(80, 34);
+            this.cbbStatus.Name = "cbbStatus";
+            this.cbbStatus.Size = new System.Drawing.Size(172, 22);
+            this.cbbStatus.TabIndex = 18;
             // 
-            // DateAccountFormated
+            // kryptonLabel4
             // 
-            this.DateAccountFormated.DataPropertyName = "DateAccountFormated";
-            this.DateAccountFormated.HeaderText = "Ngày";
-            this.DateAccountFormated.Name = "DateAccountFormated";
-            // 
-            // DebtName
-            // 
-            this.DebtName.DataPropertyName = "DebtName";
-            this.DebtName.HeaderText = "Khách Hàng";
-            this.DebtName.Name = "DebtName";
-            // 
-            // TransportationCostFormated
-            // 
-            this.TransportationCostFormated.DataPropertyName = "TransportationCostFormated";
-            this.TransportationCostFormated.HeaderText = "Tiền Vận Chuyễn";
-            this.TransportationCostFormated.Name = "TransportationCostFormated";
-            // 
-            // TotalCostFormated
-            // 
-            this.TotalCostFormated.DataPropertyName = "TotalCostFormated";
-            this.TotalCostFormated.HeaderText = "Tổng Số Tiền";
-            this.TotalCostFormated.Name = "TotalCostFormated";
-            // 
-            // personAccountDataGridViewTextBoxColumn
-            // 
-            this.personAccountDataGridViewTextBoxColumn.DataPropertyName = "PersonAccount";
-            this.personAccountDataGridViewTextBoxColumn.HeaderText = "Chịu Trách Nhiệm";
-            this.personAccountDataGridViewTextBoxColumn.Name = "personAccountDataGridViewTextBoxColumn";
-            // 
-            // IsPay
-            // 
-            this.IsPay.DataPropertyName = "IsPay";
-            this.IsPay.HeaderText = "Đã Thanh Toán";
-            this.IsPay.Name = "IsPay";
-            this.IsPay.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.IsPay.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // Note
-            // 
-            this.Note.DataPropertyName = "Note";
-            this.Note.HeaderText = "Ghi Chú";
-            this.Note.Name = "Note";
-            // 
-            // CreatedBy
-            // 
-            this.CreatedBy.DataPropertyName = "CreatedBy";
-            this.CreatedBy.HeaderText = "Người Tạo";
-            this.CreatedBy.Name = "CreatedBy";
-            // 
-            // CreatedDate
-            // 
-            this.CreatedDate.DataPropertyName = "CreatedDate";
-            this.CreatedDate.HeaderText = "Ngày Tạo";
-            this.CreatedDate.Name = "CreatedDate";
-            // 
-            // UpdatedBy
-            // 
-            this.UpdatedBy.DataPropertyName = "UpdatedBy";
-            this.UpdatedBy.HeaderText = "Người Sửa";
-            this.UpdatedBy.Name = "UpdatedBy";
-            // 
-            // LastUpdated
-            // 
-            this.LastUpdated.DataPropertyName = "LastUpdated";
-            this.LastUpdated.HeaderText = "Ngày Sửa";
-            this.LastUpdated.Name = "LastUpdated";
+            this.kryptonLabel4.Location = new System.Drawing.Point(11, 37);
+            this.kryptonLabel4.Name = "kryptonLabel4";
+            this.kryptonLabel4.Size = new System.Drawing.Size(63, 19);
+            this.kryptonLabel4.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.kryptonLabel4.TabIndex = 19;
+            this.kryptonLabel4.Values.Text = "Tính Trạng";
             // 
             // FinalAccountManagement
             // 
@@ -557,6 +584,7 @@
             this.cmsDGV.ResumeLayout(false);
             this.cmsMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAccount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.finalAccountDTOBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlSearch)).EndInit();
             this.pnlSearch.ResumeLayout(false);
             this.gbxSearch.Panel.ResumeLayout(false);
@@ -565,7 +593,8 @@
             this.gbxSearch.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cbbDebt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbbCons)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.finalAccountDTOBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbbWarehouse)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbbStatus)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -593,8 +622,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel3;
         private ComponentFactory.Krypton.Toolkit.KryptonComboBox cbbCons;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel2;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtId;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel1;
         private ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker dtpSearchFrom;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel8;
         private ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker dtpSearchTo;
@@ -621,6 +648,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CreatedDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn UpdatedBy;
         private System.Windows.Forms.DataGridViewTextBoxColumn LastUpdated;
+        private ComponentFactory.Krypton.Toolkit.KryptonComboBox cbbWarehouse;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel1;
+        private ComponentFactory.Krypton.Toolkit.KryptonComboBox cbbStatus;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel4;
     }
 }
 

@@ -11,6 +11,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
         public long MaterialID { get; set; }
         public string MaterialName { get; set; }
         public double Quantity { get; set; }
+        public double Ratio { get; set; }
         public string UnitCal { get; set; }
         public long AveragePrice { get; set; }
         public long TotalCost { get; set; }

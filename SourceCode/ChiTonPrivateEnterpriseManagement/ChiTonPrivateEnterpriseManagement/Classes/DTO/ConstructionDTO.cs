@@ -77,6 +77,13 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
 
         }
 
+        public ConstructionDTO(string name, long id, long warehouseid)
+        {
+            ConstructionID = id;
+            ConstructionName = name;
+            WarehouseID = warehouseid;
+        }
+
         public ConstructionDTO(string name,long id)
         {
             ConstructionID = id;

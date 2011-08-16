@@ -20,7 +20,13 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
 
         public WarehouseDTO()
         {
-            Description = "";
+            WarehouseID = 0;
+            ConstructionID = 0;
+        }
+        public WarehouseDTO(long id, string name)
+        {
+            WarehouseID = id;
+            WarehouseName = name;
         }
 
         public override bool Equals(object obj)

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,36 +12,39 @@ using ChiTonPrivateEnterpriseManagement.Classes.BUS;
 
 namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWarehouse
 {
-    public partial class NewStockOut : ComponentFactory.Krypton.Toolkit.KryptonForm
+    public partial class NewStockOut : KryptonForm
     {
-        bool _isNew;
-        bool _isEdit;
+        bool _isNew;        
+        private List<EstimateDTO> listEstimate;
+        private List<EstimateDetailDTO> listMaterialInEstimate;
+        readonly EstimateBUS estimateBus = new EstimateBUS();
+        readonly MaterialBUS materialBUS = new MaterialBUS();
+        EstimateDetailBUS estimateDetailBus = new EstimateDetailBUS();
         private readonly WarehouseBUS _warehouseBus = new WarehouseBUS();
-        private List<StockOutDetailDTO> _listDetail;
+        private readonly ConstructionBus _constructionBus = new ConstructionBus();
+        private List<StockOutDetailDTO> _listDetail = new List<StockOutDetailDTO>();
         public NewStockOut()
         {
             InitializeComponent();
-            _isNew = true;
-            _isEdit = false;
+            _isNew = true;            
         }
 
         private void NewStockOut_Load(object sender, EventArgs e)
         {
             SetData();
             SetLauout();
-            if (_isEdit)
+            if (!_isNew)
             {
                 setInnitLayout();
-            }
+            }            
         }
 
         private void SetData()
         {
             Global.SetDataCombobox(cbbDriver, Constants.DRIVER);
             Global.SetDataCombobox(cbbmaterial, Constants.MATERIAL);
-            Global.SetDataCombobox(cbbStockOutFrom, Constants.CONSTRUCTION_WAREHOUSE);
-            Global.SetDataCombobox(cbbStockOutTo, Constants.CONSTRUCTION_WAREHOUSE);
-            Global.SetDataCombobox(cbbTypyWarehouse, Constants.WAREHOUSE_TYPE);
+            Global.SetDataCombobox(cbbStockOutFrom, Constants.MAIN_WAREHOUSE);
+            Global.SetDataCombobox(cbbStockOutTo, Constants.CONSTRUCTION_WAREHOUSE);            
             Global.SetDataCombobox(cbbVehicle, Constants.VERHICLE);
         }
 
@@ -127,8 +130,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWarehouse
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            cbbVehicle.SelectedIndex = 0;
-            cbbTypyWarehouse.SelectedIndex = 0;
+            cbbVehicle.SelectedIndex = 0;            
             cbbStockOutTo.SelectedIndex = 0;
             cbbStockOutFrom.SelectedIndex = 0;
             cbbmaterial.SelectedIndex = 0;
@@ -146,21 +148,194 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWarehouse
                 KryptonMessageBox.Show(Constants.ERROR_EXIST_ITEM, Constants.CONFIRM);
                 RefreshDisplayData();
             }
+            else if (_isNew)
+            {
+                KryptonMessageBox.Show("Bạn Phải Tạo Phiếu Xuất Kho Trước Khi Nhập Vật Liệu Cần Xuất", Constants.CONFIRM,
+                                       MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtNo.Focus();
+                return;
+            }
             else
             {
                 var warehousefrom = cbbStockOutFrom.SelectedItem as WarehouseDTO;
                 var warehouseto = cbbStockOutTo.SelectedItem as WarehouseDTO;
-                var material = (MaterialDTO)cbbmaterial.SelectedItem;
+                var material = (WarehouseMaterialDTO)cbbmaterial.SelectedItem;
                 var stockOutDetailDTO = new StockOutDetailDTO();
+                stockOutDetailDTO.StockOutId = txtNo.Text;
                 stockOutDetailDTO.WarehouseFromId = warehousefrom.WarehouseID;
                 stockOutDetailDTO.WarehouseToId = warehouseto.WarehouseID;
                 stockOutDetailDTO.MaterialId = material.MaterialID;
                 stockOutDetailDTO.MaterialName = material.MaterialName;
-                stockOutDetailDTO.MaterialUnitCall = material.RealCalUnit;
+                stockOutDetailDTO.MaterialUnitCall = material.UnitCal;
+                stockOutDetailDTO.Price = Global.ConvertMoneyToLong(txtUnitCost.Text, Constants.SPLIP_MONEY);
+                stockOutDetailDTO.TotalCost = Global.ConvertMoneyToLong(txtTotalCostItem.Text, Constants.SPLIP_MONEY);
                 stockOutDetailDTO.Note = txtNoteDetail.Text;
-                if (cbbTypyWarehouse.Text.Equals(Constants.CONSTRUCTION_WAREHOUSE))
+
+                var itemfinded = _warehouseBus.FindStockOutItem(stockOutDetailDTO.StockOutId, stockOutDetailDTO.MaterialId);
+                ConstructionDTO consDTO = _constructionBus.LoadConstructionById(warehouseto.ConstructionID);
+                if (!consDTO.type.Equals(ConstructionDTO.SUB))
                 {
-                    stockOutDetailDTO.WarehouseToId = 0;
+                    bool isExistEst = false;
+                    string typeCons = consDTO.type;
+                    long constructionId = consDTO.ConstructionID;
+                    long warehouseId = consDTO.WarehouseID;
+                    //var materialWh = _warehouseBus.FindMateriral(warehouseId, stockOutDetailDTO.MaterialId);
+                    var selectMaterial = (MaterialDTO) cbbmaterial.SelectedItem;
+                    var currEstDetail = new EstimateDetailDTO();
+                    listEstimate = estimateBus.LoadEstimateByConstruction(constructionId);
+                    long EstimateID = listEstimate[0].EstimateID;
+                    listMaterialInEstimate = materialBUS.LoadALlMaterialsEstimate(constructionId);
+                    for (int i = 0; i < listMaterialInEstimate.Count; i++)
+                    {
+                        currEstDetail = listMaterialInEstimate[i];
+                        if (selectMaterial.MaterialID == currEstDetail.MaterialID ||
+                            selectMaterial.MaterialID == currEstDetail.MaterialParentId)
+                        {
+                            isExistEst = true;
+                            i = listMaterialInEstimate.Count;
+                        }
+                    }
+
+                    if (itemfinded == null)
+                    {
+                        if (!isExistEst && typeCons.Equals("Công trình xây dựng"))
+                        {
+                            DialogResult result = KryptonMessageBox.Show(
+                                " Loại Vật Liệu Này Không Có Trong Dự Toán.\n Bạn Có Chắc Chắn Đã Giải Trình Với Nhà Đầu Tư Để Tăng Dự Toán",
+                                Constants.CONFIRM, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                            if (result == DialogResult.Yes)
+                            {
+                                var estimateDetailDTO = new EstimateDetailDTO();
+                                estimateDetailDTO.No = Constants.EMPTY_TEXT;
+                                estimateDetailDTO.Name = Constants.EMPTY_TEXT;
+                                estimateDetailDTO.EstimateID = EstimateID;
+                                estimateDetailDTO.MaterialID = stockOutDetailDTO.MaterialId;
+                                estimateDetailDTO.QuantityEstimate = stockOutDetailDTO.Quantity*material.Ratio;
+                                estimateDetailDTO.QuantityReal = (long) (stockOutDetailDTO.Quantity*material.Ratio);
+                                estimateDetailDTO.TotalCostEstimate = stockOutDetailDTO.TotalCost;
+                                estimateDetailDTO.TotalCostReal = stockOutDetailDTO.TotalCost;
+                                estimateDetailDTO.UnitCostEstimate = (long) (estimateDetailDTO.TotalCostEstimate/
+                                                                             estimateDetailDTO.QuantityEstimate);
+                                estimateDetailDTO.UnitCostReal = (long) estimateDetailDTO.UnitCostEstimate;
+                                estimateDetailDTO.Type = EstimateDetailDTO.TYPE_GENERAL;
+                                estimateDetailBus.CreateEstimateDetail(estimateDetailDTO);
+                                _warehouseBus.CreateStockOutDetail(stockOutDetailDTO);
+                            }
+                            else if (result == DialogResult.No)
+                            {
+                                var estimateDetailDTO = new EstimateDetailDTO();
+                                estimateDetailDTO.EstimateID = EstimateID;
+                                estimateDetailDTO.No = Constants.EMPTY_TEXT;
+                                estimateDetailDTO.Name = Constants.EMPTY_TEXT;
+                                estimateDetailDTO.MaterialID = stockOutDetailDTO.MaterialId;
+                                estimateDetailDTO.QuantityEstimate = 0;
+                                estimateDetailDTO.QuantityReal = stockOutDetailDTO.Quantity*material.Ratio;
+                                estimateDetailDTO.TotalCostEstimate = 0;
+                                estimateDetailDTO.TotalCostReal = stockOutDetailDTO.TotalCost;
+                                estimateDetailDTO.UnitCostEstimate = 0;
+                                estimateDetailDTO.UnitCostReal =
+                                    (long) (stockOutDetailDTO.TotalCost/stockOutDetailDTO.Quantity);
+                                estimateDetailDTO.Type = EstimateDetailDTO.TYPE_GENERAL;
+                                estimateDetailBus.CreateEstimateDetail(estimateDetailDTO);
+                                _warehouseBus.CreateStockOutDetail(stockOutDetailDTO);
+                            }
+                            else
+                            {
+                                RefreshDisplayData();
+                                return;
+                            }
+                        }
+
+                        else if (!isExistEst && typeCons.Equals("Công trình Thủy lợi"))
+                        {
+                            EstimateDetailDTO estimateDetailDTO = new EstimateDetailDTO();
+                            estimateDetailDTO.EstimateID = EstimateID;
+                            estimateDetailDTO.MaterialID = stockOutDetailDTO.MaterialId;
+                            estimateDetailDTO.QuantityEstimate = 0;
+                            estimateDetailDTO.QuantityReal = stockOutDetailDTO.Quantity;
+                            estimateDetailDTO.TotalCostEstimate = 0;
+                            estimateDetailDTO.TotalCostReal = stockOutDetailDTO.TotalCost;
+                            estimateDetailDTO.UnitCostEstimate = 0;
+                            estimateDetailDTO.UnitCostReal = stockOutDetailDTO.Price;
+                            estimateDetailDTO.Type = EstimateDetailDTO.TYPE_GENERAL;
+                            estimateDetailBus.CreateEstimateDetail(estimateDetailDTO);
+                            _warehouseBus.CreateStockOutDetail(stockOutDetailDTO);
+                        }
+
+                            // Exits In Estimate
+                        else if (isExistEst)
+                        {
+                            currEstDetail.QuantityReal += stockOutDetailDTO.Quantity*material.Ratio;
+                            currEstDetail.TotalCostReal += stockOutDetailDTO.TotalCost;
+                            currEstDetail.UnitCostReal = (long) (currEstDetail.TotalCostReal/currEstDetail.QuantityReal);
+                            if (currEstDetail.QuantityReal > (currEstDetail.QuantityEstimate*0.8) &&
+                                currEstDetail.QuantityReal < currEstDetail.QuantityEstimate)
+                            {
+                                if (KryptonMessageBox.Show(
+                                    " Nếu Chuyển Hàng Này Đến Sẽ Vượt Quá 80% Dự Toán.\n Bạn Chắc Chắn Mún Chuyển Đến?",
+                                    Constants.CONFIRM,
+                                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                                {
+                                    estimateDetailBus.UpdateEstimateDetail(currEstDetail);
+                                    _warehouseBus.CreateStockOutDetail(stockOutDetailDTO);
+                                }
+                                else
+                                {
+                                    RefreshDisplayData();
+                                }
+                            }
+                            else if (currEstDetail.QuantityReal > currEstDetail.QuantityEstimate)
+                            {
+                                if (KryptonMessageBox.Show(
+                                    " Nếu Chuyển Mặt Hàng Này Đến Sẽ Vượt Quá 100% Dự Toán.\n Bạn Chắc Chắn Đã Giải Trình Với Chủ Đầu Tư?",
+                                    Constants.CONFIRM,
+                                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                                {
+                                    estimateDetailBus.UpdateEstimateDetail(currEstDetail);
+                                    _warehouseBus.CreateStockOutDetail(stockOutDetailDTO);
+                                }
+                                else
+                                {
+                                    RefreshDisplayData();
+                                }
+                            }
+                            else
+                            {
+                                estimateDetailBus.UpdateEstimateDetail(currEstDetail);
+                                _warehouseBus.CreateStockOutDetail(stockOutDetailDTO);
+                            }
+                        }
+                    }
+                    if (itemfinded != null)
+                    {
+                        //materialWh.Quantity = materialWh.Quantity - itemfinded.Quantity + finalaccountitem.Quantity;
+                        //warehouseBUS.UpdateWarehouseItem(materialWh);
+                        //finalaccountitem.FinalAccountDetailID = itemfinded.FinalAccountDetailID;
+                        //finalaccountBUS.UpdateFinalAccountDetail(finalaccountitem);
+                        //currEstDetail.QuantityReal = (long)(currEstDetail.QuantityReal - (itemfinded.Quantity * material.Ratio) +
+                        //                              finalaccountitem.QuantityEst);
+                        //currEstDetail.TotalCostReal = currEstDetail.TotalCostReal - itemfinded.TotalCost +
+                        //                             finalaccountitem.TotalCost;
+                        //currEstDetail.UnitCostReal = (long) (currEstDetail.TotalCostReal/currEstDetail.QuantityReal);
+                        //if (currEstDetail.Type.Equals("Chi Phí Phát Sinh"))
+                        //{
+                        //    currEstDetail.QuantityEstimate = (long)(currEstDetail.QuantityEstimate - itemfinded.QuantityEst +
+                        //                              finalaccountitem.QuantityEst);
+                        //    currEstDetail.TotalCostEstimate = currEstDetail.TotalCostEstimate - itemfinded.TotalCost +
+                        //                                 finalaccountitem.TotalCost;
+                        //    currEstDetail.UnitCostEstimate = currEstDetail.TotalCostEstimate / currEstDetail.QuantityEstimate;
+                        //}
+                        //estimateDetailBus.UpdateEstimateDetail(currEstDetail);
+                        //for (int i = 0; i < listFinalAccountDetail.Count; i++)
+                        //{
+                        //    if (listFinalAccountDetail[i].MaterialID == material.MaterialID)
+                        //    {
+                        //        long totalCostCurr = Global.ConvertMoneyToLong(txtTotalCost.Text, Constants.SPLIP_MONEY);
+                        //        long totalCost = totalCostCurr - listFinalAccountDetail[i].TotalCost + finalaccountitem.TotalCost;
+                        //        txtTotalCost.Text = Global.ConvertLongToMoney(totalCost, Constants.SPLIP_MONEY);
+                        //    }
+                        //}
+                    }
                 }
                 _listDetail.Add(stockOutDetailDTO);
                 RefreshDisplayData();
@@ -220,6 +395,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWarehouse
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            string stockNo = txtNo.Text;
             var datestock = dtpStockOutDate.Value;
             string stockFrom = cbbStockOutFrom.Text;
             string stockTo = cbbStockOutTo.Text;
@@ -227,20 +403,10 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWarehouse
             long transConst = Global.ConvertMoneyToLong(txtTransportationCost.Text, Constants.SPLIP_MONEY);
             string note = txtNote.Text;
             var vehicle = cbbVehicle.SelectedItem as VehicleDTO;
-            long vehicleId = 0;
-            if (vehicle != null)
-            {
-                vehicleId = vehicle.VehicleID;
-            }
-            if (cbbTypyWarehouse.Text.Equals(Constants.CONSTRUCTION_WAREHOUSE))
-            {
-                stockTo = "C�ng Tr�nh";
-                driver = Constants.EMPTY_TEXT;
-                transConst = 0;
-                vehicleId = 0;
-            }
+            long vehicleId = vehicle != null ? vehicle.VehicleID : 0;
             var stockout = new StockOutDTO
                                         {
+                                            StockOutId = stockNo,
                                             DateStockOut = datestock,
                                             Note = note,
                                             StockOutFrom = stockFrom,
@@ -248,12 +414,45 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWarehouse
                                             DriverName = driver,
                                             NoVehicle = vehicleId,
                                             TransportationCost = transConst
-                                        };
-            _warehouseBus.CreateStockOut(stockout);
-            foreach (StockOutDetailDTO stockOutDetailDTO in _listDetail)
+                                        };            
+            if (_isNew)
             {
-                _warehouseBus.CreateStockOutDetail(stockOutDetailDTO);
+                bool success = _warehouseBus.CreateStockOut(stockout);
+                if (success)
+                {
+                    KryptonMessageBox.Show(
+                        " Tạo Phiếu Xuất Kho Thành Công.\n Bây Giờ bạn Có thể Thêm Các Vật Tư Cho Lần Xuất Hàng Này",
+                        Constants.CONFIRM, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    cbbmaterial.Focus();
+                    _isNew = false;
+                }
+                else
+                {
+                    KryptonMessageBox.Show(
+                        "Phiếu Mua Hàng Này Đã Tồn Tại. Nhập Phiếu Mua Hàng Khác Và Lưu Lại",
+                        Constants.ALERT_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtNo.Focus();
+                }
             }
+            else
+            {
+                bool success = _warehouseBus.UpdateStockOut(stockout);
+                if (success)
+                {
+                    KryptonMessageBox.Show(
+                        "Đã Lưu Thành Công", Constants.CONFIRM, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    cbbmaterial.Focus();
+                    _isNew = false;
+                }
+                else
+                {
+                    KryptonMessageBox.Show(
+                        "Lưu Không Thành Công",
+                        Constants.ALERT_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtNo.Focus();
+                }
+            }
+            
         }
 
         private void cbbStockOutFrom_SelectedIndexChanged(object sender, EventArgs e)
@@ -267,19 +466,12 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageWarehouse
             cbbmaterial.ValueMember = Constants.MATERIAL_VALUEMEMBER;
         }
 
-        private void cbbTypyWarehouse_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbbmaterial_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbbTypyWarehouse.Text.Equals(Constants.MAIN_WAREHOUSE))
-            {
-                cbbStockOutTo.Enabled = true;
-                Global.SetDataCombobox(cbbStockOutFrom, Constants.MAIN_WAREHOUSE);
-                Global.SetDataCombobox(cbbStockOutFrom, Constants.WAREHOUSE);
-            }
-            else
-            {
-                cbbStockOutTo.Enabled = false;
-                Global.SetDataCombobox(cbbStockOutFrom, Constants.CONSTRUCTION_WAREHOUSE);
-            }
-        }            
+            WarehouseMaterialDTO item = cbbmaterial.SelectedItem as WarehouseMaterialDTO;
+            txtUnitCost.Text = item.AveragePriceFormated;
+            txtTotalCostItem.Text = item.TotalCostFormated;
+            UnitCal.Text = item.UnitCal;
+        }
     }
 }

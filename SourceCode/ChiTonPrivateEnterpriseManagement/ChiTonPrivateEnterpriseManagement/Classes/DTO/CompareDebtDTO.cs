@@ -11,18 +11,19 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
     {
         public long ComparationDebtID { get; set; }
         public long DebtID { get; set; }
-        public String DebtName { get; set; }
-        public string RepresentationDebtName { get; set; }
+        public String DebtName { get; set; }        
         public DateTime DateCompare { get; set; }
         public DateTime FromDate { get; set; }
         public DateTime ToDate { get; set; }
         public long TotalOwe { get; set; }
+        public long TotalPayed { get; set; }
         public string Note { get; set; }
         public DateTime? CreatedDate { get; set; }
         public DateTime? LastUpdated { get; set; }
         public string CreatedBy { get; set; }
         public string UpdatedBy { get; set; }
         public string TotalOweFormat { get; set; }
+        public string TotalPayedFormat { get; set; }
         public string DateCompareFormated { get; set; }
         public string FromDateFormated { get; set; }
         public string ToDateFormated { get; set; }
