@@ -56,11 +56,8 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
             dtpFromDate.Enabled = Edit;
             dtpDateCompare.Enabled = Edit;
             txtTotalOwe.ReadOnly = !Edit;
-            txtRepresentationDebtName.ReadOnly = !Edit;
-            txtNote.ReadOnly = !Edit;
-            btnSave.Enabled = Edit ? ButtonEnabled.True : ButtonEnabled.False;
+            txtNote.ReadOnly = !Edit;            
             cmsEdit.Items[2].Enabled = Edit;
-
         }
 
         private void RefreshData()
@@ -87,12 +84,9 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            string debtname = dgvComDebt.SelectedRows[0].Cells["DebtName"].Value.ToString();
-            var DebtAcc = new FinalAccountDebt(debtname);
+            var DebtAcc = new FinalAccountDebt();
             DebtAcc.ShowDialog();
-            //var compareDebt = new NewCompareDebt();
-            //compareDebt.ShowDialog();
-            //RefreshData();
+            RefreshData();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -158,8 +152,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
             if (ValidateInput())
             {
                 long compareDebtId = Convert.ToInt64(txtId.Text);
-                long debtId = Global.GetDataCombobox(cbbDebt, Constants.DEBT);
-                string representationDebtName = txtRepresentationDebtName.Text;
+                long debtId = Global.GetDataCombobox(cbbDebt, Constants.DEBT);                
                 var compareDate = dtpDateCompare.Value;
                 var fromDate = dtpFromDate.Value;
                 var toDate = dtpToDate.Value;
@@ -168,8 +161,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
                 var compareDebtDto = new CompareDebtDTO()
                 {
                     ComparationDebtID = compareDebtId,
-                    DebtID = debtId,
-                    RepresentationDebtName = representationDebtName,
+                    DebtID = debtId,                    
                     DateCompare = compareDate,
                     FromDate = fromDate,
                     ToDate = toDate,
@@ -202,37 +194,19 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
             }
             return true;
         }
-
-        private void dgvComDebt_CellEnter(object sender, DataGridViewCellEventArgs e)
+       
+        private void FillDataEdit(long id, string debtName, DateTime dayComp, DateTime dayFrom, DateTime dayTo, string totalDebt, string totalPayed, string note)
         {
-            btnDelete.Enabled = ButtonEnabled.False;
-            cmsDGV.Items[3].Enabled = false;
-        }
-
-        private void dgvComDebt_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            btnDelete.Enabled = ButtonEnabled.True;
-            cmsDGV.Items[3].Enabled = true;
-            DataGridViewRow r = dgvComDebt.Rows[e.RowIndex];
-            long id = Convert.ToInt64(r.Cells["ComparationDebtID"].Value.ToString());
-            string debtName = Convert.ToString(r.Cells["DebtName"].Value.ToString());
-            string preName = Convert.ToString(r.Cells["RepresentationDebtName"].Value.ToString());
-            var dayComp = DateTime.ParseExact(Convert.ToString(r.Cells["DateCompare"].Value) + " 00:00:00", Constants.DATETIME_FORMAT_SHORTDATE_SHORTTIME, null);
-            var dayFrom = DateTime.ParseExact(Convert.ToString(r.Cells["FromDate"].Value) + " 00:00:00", Constants.DATETIME_FORMAT_SHORTDATE_SHORTTIME, null);
-            var dayTo = DateTime.ParseExact(Convert.ToString(r.Cells["ToDate"].Value) + " 00:00:00", Constants.DATETIME_FORMAT_SHORTDATE_SHORTTIME, null);
-            string totalDebt = r.Cells["TotalOweFormat"].Value.ToString();
-            string note = Convert.ToString(r.Cells["Note"].Value.ToString());
-            FillDataEdit(id, debtName, preName, dayComp, dayFrom, dayTo, totalDebt, note);
-        }
-
-        private void FillDataEdit(long id, string debtName, string preName, DateTime dayComp, DateTime dayFrom, DateTime dayTo, string totalDebt, string note)
-        {
-            txtId.Text = id.ToString();
-            txtRepresentationDebtName.Text = preName;
+            txtId.Text = id.ToString();            
             dtpDateCompare.Value = dayComp;
             dtpFromDate.Value = dayFrom;
             dtpToDate.Value = dayTo;
             txtTotalOwe.Text = totalDebt;
+            txtPayed.Text = totalPayed;
+            long totalowe = Global.ConvertMoneyToLong(totalDebt, Constants.SPLIP_MONEY);
+            long totalpay = Global.ConvertMoneyToLong(totalPayed, Constants.SPLIP_MONEY);
+            long totalnotpay = totalowe - totalpay;
+            txtNotPayed.Text = Global.ConvertLongToMoney(totalnotpay, Constants.SPLIP_MONEY);
             txtNote.Text = note;
             foreach (DebtDTO debt in cbbDebt.Items)
             {
@@ -318,6 +292,51 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
         private void txtTotalOwe_Leave(object sender, EventArgs e)
         {
             txtTotalOwe.Text = Constants.ZERO_NUMBER;
+        }
+
+        private void btnDetail_Click(object sender, EventArgs e)
+        {
+            long id = Convert.ToInt64(txtId.Text);
+            long _totalCost = Global.ConvertMoneyToLong(txtTotalOwe.Text, Constants.SPLIP_MONEY);
+            CompareDetailForm detailForm = new CompareDetailForm(id, _totalCost);
+            detailForm.ShowDialog();
+            txtPayed.Text = Global.ConvertLongToMoney(detailForm.totalPayed, Constants.SPLIP_MONEY);            
+            long notpayed = _totalCost - detailForm.totalPayed;
+            txtNotPayed.Text = Global.ConvertLongToMoney(notpayed, Constants.SPLIP_MONEY);
+            RefreshData();
+        }
+
+        private void dgvComDebt_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                btnDelete.Enabled = ButtonEnabled.True;
+                cmsDGV.Items[3].Enabled = true;
+                DataGridViewRow r = dgvComDebt.Rows[e.RowIndex];
+                long id = Convert.ToInt64(r.Cells["ComparationDebtID"].Value.ToString());
+                string debtName = Convert.ToString(r.Cells["DebtName"].Value.ToString());                
+                var dayComp = DateTime.ParseExact(Convert.ToString(r.Cells["DateCompare"].Value) + " 00:00:00", Constants.DATETIME_FORMAT_SHORTDATE_SHORTTIME, null);
+                var dayFrom = DateTime.ParseExact(Convert.ToString(r.Cells["FromDate"].Value) + " 00:00:00", Constants.DATETIME_FORMAT_SHORTDATE_SHORTTIME, null);
+                var dayTo = DateTime.ParseExact(Convert.ToString(r.Cells["ToDate"].Value) + " 00:00:00", Constants.DATETIME_FORMAT_SHORTDATE_SHORTTIME, null);
+                string totalDebt = r.Cells["TotalOweFormat"].Value.ToString();
+                string totalPayed = r.Cells["TotalPayedFormat"].Value.ToString();
+                string note = Convert.ToString(r.Cells["Note"].Value.ToString());
+                FillDataEdit(id, debtName, dayComp, dayFrom, dayTo, totalDebt, totalPayed, note);
+            }            
+        }
+
+        private void btnDebtDetail_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                long id = Convert.ToInt64(dgvComDebt.SelectedRows[0].Cells["ComparationDebtID"].Value.ToString());
+                FinalAccountDebt finalAccountDebt = new FinalAccountDebt(id);
+                finalAccountDebt.ShowDialog();
+            }
+            catch (Exception)
+            {                
+            }
+            
         }
     }
 }

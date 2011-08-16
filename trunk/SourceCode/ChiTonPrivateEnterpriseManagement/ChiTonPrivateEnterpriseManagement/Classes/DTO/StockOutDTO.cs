@@ -6,7 +6,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
 {
     class StockOutDTO
     {
-        public long StockOutId { get; set; }
+        public string StockOutId { get; set; }
         public DateTime DateStockOut { get; set; }
         public string StockOutFrom { get; set; }
         public long WareHourseIdFrom { get; set; }

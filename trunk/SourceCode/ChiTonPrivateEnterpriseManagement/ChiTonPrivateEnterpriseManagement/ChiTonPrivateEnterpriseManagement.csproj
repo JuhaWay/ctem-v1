@@ -133,6 +133,7 @@
     <Compile Include="Classes\DAO\WarehouseDAO.cs" />
     <Compile Include="Classes\DAO\WorkerDAO.cs" />
     <Compile Include="Classes\DAO\WorkSalaryDAO.cs" />
+    <Compile Include="Classes\DTO\CompareDebtDetailDTO.cs" />
     <Compile Include="Classes\DTO\ConstructionDTO.cs" />
     <Compile Include="Classes\DTO\CompareDebtDTO.cs" />
     <Compile Include="Classes\DTO\DayWorkingDTO.cs" />
@@ -146,6 +147,7 @@
     <Compile Include="Classes\DTO\RoadMapDTO.cs" />
     <Compile Include="Classes\DTO\StockOutDetailDTO.cs" />
     <Compile Include="Classes\DTO\StockOutDTO.cs" />
+    <Compile Include="Classes\DTO\VehicleDairyCostDTO.cs" />
     <Compile Include="Classes\DTO\VehicleDairyDTO.cs" />
     <Compile Include="Classes\DTO\VehicleDTO.cs" />
     <Compile Include="Classes\DTO\WarehouseDTO.cs" />
@@ -218,6 +220,12 @@
     </Compile>
     <Compile Include="ModuleForms\ManageConstruction\ProgressIriManagement.Designer.cs">
       <DependentUpon>ProgressIriManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleForms\ManageDebt\CompareDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForms\ManageDebt\CompareDetailForm.Designer.cs">
+      <DependentUpon>CompareDetailForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ModuleForms\ManageDebt\FinalAccountDebt.cs">
       <SubType>Form</SubType>
@@ -447,6 +455,12 @@
     <Compile Include="ModuleForms\ManageVehicle\AddnewVehicleDairy.Designer.cs">
       <DependentUpon>AddnewVehicleDairy.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModuleForms\ManageVehicle\VehicleCostManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForms\ManageVehicle\VehicleCostManagement.Designer.cs">
+      <DependentUpon>VehicleCostManagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModuleForms\ManageVehicle\VehicleDairyManagement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -547,6 +561,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ModuleForms\ManageConstruction\ProgressIriManagement.resx">
       <DependentUpon>ProgressIriManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\ManageDebt\CompareDetailForm.resx">
+      <DependentUpon>CompareDetailForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModuleForms\ManageDebt\FinalAccountDebt.resx">
       <DependentUpon>FinalAccountDebt.cs</DependentUpon>
@@ -681,6 +698,9 @@
     <EmbeddedResource Include="ModuleForms\ManageVehicle\AddnewVehicleDairy.resx">
       <DependentUpon>AddnewVehicleDairy.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ModuleForms\ManageVehicle\VehicleCostManagement.resx">
+      <DependentUpon>VehicleCostManagement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ModuleForms\ManageVehicle\VehicleDairyManagement.resx">
       <DependentUpon>VehicleDairyManagement.cs</DependentUpon>
     </EmbeddedResource>
@@ -732,6 +752,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.CompareDebtDetailDTO.datasource" />
     <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.CompareDebtDTO.datasource" />
     <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.DebtDTO.datasource" />
     <None Include="Properties\DataSources\ChiTonPrivateEnterpriseManagement.Classes.DTO.EmployeeAdvanceDTO.datasource" />

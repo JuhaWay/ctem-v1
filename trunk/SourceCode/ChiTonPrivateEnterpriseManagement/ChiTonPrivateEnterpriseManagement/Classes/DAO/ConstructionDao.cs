@@ -258,6 +258,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         ProgressRate = Convert.ToInt64(reader["ProgressRate"]),
                         CompletionDate = Convert.ToDateTime(reader["CompletionDate"]),
                         HasEstimate = Convert.ToBoolean(reader["HasEstimate"]),
+                        WarehouseID = Convert.ToInt64(reader["WarehouseID"]),
                         ParentID = Convert.ToInt64(reader["ParentID"]),
                         ManagerName = Convert.ToString(reader["Username"]),
                         ManagerID = Convert.ToInt64(reader["ManagerID"]),

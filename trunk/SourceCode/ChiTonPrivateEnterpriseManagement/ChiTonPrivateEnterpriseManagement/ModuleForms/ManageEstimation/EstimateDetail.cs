@@ -178,7 +178,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageEstimation
                 resetDataSource(_estimateId, _materialId);
                 btnNew_Click(null, null);
                 cbType.Focus();
-                }
+            }
             _estimateBUS.UpdateEstimate(_estimateId);
         }
 

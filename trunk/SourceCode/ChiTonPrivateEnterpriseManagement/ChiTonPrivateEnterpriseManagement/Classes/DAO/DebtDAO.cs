@@ -173,6 +173,8 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         Address = Convert.ToString(reader["Address"]),
                         PhoneNumber = Convert.ToString(reader["PhoneNumber"]),
                         TotalOwe = Convert.ToInt64(reader["TotalOwe"]),
+                        OldOwe = reader["OldOwe"] != DBNull.Value ? Convert.ToInt64(reader["OldOwe"]) : 0,
+                        NewestOwe = reader["NewestOwe"] != DBNull.Value ? Convert.ToInt64(reader["NewestOwe"]) : 0,
                         Note = Convert.ToString(reader["Note"]),
                         CreatedBy = Convert.ToString(reader["CreatedBy"]),
                         CreatedDate = Convert.ToDateTime(reader["CreatedDate"]),
@@ -180,6 +182,8 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         LastUpdated = Convert.ToDateTime(reader["UpdatedDate"])
                     };
                     debt.TotalOweFomated = Global.Global.ConvertLongToMoney(debt.TotalOwe, Constants.SPLIP_MONEY);
+                    debt.OldOweFormated = Global.Global.ConvertLongToMoney(debt.OldOwe, Constants.SPLIP_MONEY);
+                    debt.NewestOweFormated = Global.Global.ConvertLongToMoney(debt.NewestOwe, Constants.SPLIP_MONEY);
                     if (Convert.ToBoolean(reader["IsActive"]))
                     {
                         debt.IsActive = 1;
@@ -223,11 +227,11 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 {                    
                     var debt = new CompareDebtDTO
                     {
-                        ComparationDebtID = Convert.ToInt64(reader["ComparationDebtID"]),
-                        RepresentationDebtName = Convert.ToString(reader["RepresentationDebtName"]),
+                        ComparationDebtID = Convert.ToInt64(reader["ComparationDebtID"]),                        
                         DebtID = Convert.ToInt64(reader["DebtID"]),
                         DebtName = Convert.ToString(reader["DebtName"]),
-                        TotalOwe = Convert.ToInt64(reader["TotalOwe"]),                        
+                        TotalOwe = Convert.ToInt64(reader["TotalOwe"]),
+                        TotalPayed = Convert.ToInt64(reader["TotalPayed"]),
                         DateCompare = Convert.ToDateTime(reader["DateCompare"]),
                         FromDate = Convert.ToDateTime(reader["FromDate"]),
                         ToDate = Convert.ToDateTime(reader["ToDate"]),
@@ -238,6 +242,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         LastUpdated = Convert.ToDateTime(reader["LastUpdated"])
                     };
                     debt.TotalOweFormat = Global.Global.ConvertLongToMoney(debt.TotalOwe, Constants.SPLIP_MONEY);
+                    debt.TotalPayedFormat = Global.Global.ConvertLongToMoney(debt.TotalPayed, Constants.SPLIP_MONEY);
                     debt.DateCompareFormated = debt.DateCompare.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
                     debt.FromDateFormated = debt.FromDate.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
                     debt.ToDateFormated = debt.ToDate.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
@@ -256,7 +261,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             }
         }
 
-        public bool CreateCompareDebt(CompareDebtDTO CompareDebt)
+        public long CreateCompareDebt(CompareDebtDTO CompareDebt)
         {
             var cmd = new SqlCommand("[dbo].[Debt_CreateCompare]", Connection)
                           {CommandType = CommandType.StoredProcedure};
@@ -267,19 +272,21 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             try
             {
                 cmd.Parameters.Add(new SqlParameter("@DebtID", CompareDebt.DebtID));
-                cmd.Parameters.Add(new SqlParameter("@RepresentationDebtName", CompareDebt.RepresentationDebtName));
                 cmd.Parameters.Add(new SqlParameter("@DateCompare", CompareDebt.DateCompare));
                 cmd.Parameters.Add(new SqlParameter("@FromDate", CompareDebt.FromDate));
                 cmd.Parameters.Add(new SqlParameter("@ToDate", CompareDebt.ToDate));
                 cmd.Parameters.Add(new SqlParameter("@TotalOwe", CompareDebt.TotalOwe));
+                cmd.Parameters.Add(new SqlParameter("@TotalPayed", CompareDebt.TotalPayed));
                 cmd.Parameters.Add(new SqlParameter("@Note", CompareDebt.Note));
-                cmd.Parameters.Add(new SqlParameter("@CreatedBy", Global.Global.CurrentUser.Username));
-                cmd.ExecuteNonQuery();
-                return true;
+                cmd.Parameters.Add(new SqlParameter("@CreatedBy", Global.Global.CurrentUser.Username));                
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                    return Convert.ToInt64(reader[0]);
+                return 0;
             }
             catch
             {
-                return false;
+                return 0;
             }
             finally
             {
@@ -321,12 +328,12 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             try
             {
                 cmd.Parameters.Add(new SqlParameter("@CompareDebtId", compareDebtDto.ComparationDebtID));
-                cmd.Parameters.Add(new SqlParameter("@DebtID", compareDebtDto.DebtID));
-                cmd.Parameters.Add(new SqlParameter("@RepresentationDebtName", compareDebtDto.RepresentationDebtName));
+                cmd.Parameters.Add(new SqlParameter("@DebtID", compareDebtDto.DebtID));               
                 cmd.Parameters.Add(new SqlParameter("@DateCompare", compareDebtDto.DateCompare));
                 cmd.Parameters.Add(new SqlParameter("@FromDate", compareDebtDto.FromDate));
                 cmd.Parameters.Add(new SqlParameter("@ToDate", compareDebtDto.ToDate));
                 cmd.Parameters.Add(new SqlParameter("@TotalOwe", compareDebtDto.TotalOwe));
+                cmd.Parameters.Add(new SqlParameter("@TotalPayed", compareDebtDto.TotalPayed));
                 cmd.Parameters.Add(new SqlParameter("@Note", compareDebtDto.Note));
                 cmd.Parameters.Add(new SqlParameter("@UpdatedBy", Global.Global.CurrentUser.Username));
                 cmd.ExecuteNonQuery();
@@ -364,6 +371,157 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             {
                 if (Transaction == null)
                     Connection.Close();
+            }
+        }
+
+        public bool CreateCompareDebtDetail(CompareDebtDetailDTO CompareDebtDetail)
+        {
+            var cmd = new SqlCommand("[dbo].[Debt_CreateCompareDetail]", Connection) { CommandType = CommandType.StoredProcedure };
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {                  
+                cmd.Parameters.Add(new SqlParameter("@ComparationDebtID", CompareDebtDetail.ComparationDebtID));
+                cmd.Parameters.Add(new SqlParameter("@RepresentationDebtName", CompareDebtDetail.RepresentationDebtName));
+                cmd.Parameters.Add(new SqlParameter("@DatePay", CompareDebtDetail.DatePay));
+                cmd.Parameters.Add(new SqlParameter("@Payed", CompareDebtDetail.Payed));
+                cmd.Parameters.Add(new SqlParameter("@Note", CompareDebtDetail.Note));
+                cmd.Parameters.Add(new SqlParameter("@CreatedBy", Global.Global.CurrentUser.Username));
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null)
+                    Connection.Close();
+            }
+        }
+
+        public bool DeleteAllCompareDetail()
+        {
+            var cmd = new SqlCommand("[dbo].[Debt_DeleteAllCompareDetail]", Connection) { CommandType = CommandType.StoredProcedure };
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException sql)
+            {
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null)
+                    Connection.Close();
+            }
+        }
+
+        public bool UpdateCompareDetail(CompareDebtDetailDTO CompareDebtDetail)
+        {
+            var cmd = new SqlCommand("[dbo].[Debt_UpdateCompareDetail]", Connection) { CommandType = CommandType.StoredProcedure };
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@DetailID", CompareDebtDetail.DetailID));
+                cmd.Parameters.Add(new SqlParameter("@ComparationDebtID", CompareDebtDetail.ComparationDebtID));
+                cmd.Parameters.Add(new SqlParameter("@RepresentationDebtName", CompareDebtDetail.RepresentationDebtName));
+                cmd.Parameters.Add(new SqlParameter("@Payed", CompareDebtDetail.Payed));
+                cmd.Parameters.Add(new SqlParameter("@Note", CompareDebtDetail.Note));
+                cmd.Parameters.Add(new SqlParameter("@UpdatedBy", Global.Global.CurrentUser.Username));
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null)
+                    Connection.Close();
+            }
+        }
+
+        public bool DeleteCompareDetail(long id)
+        {
+            var cmd = new SqlCommand("[dbo].[Debt_DeleteCompareDetail]", Connection) { CommandType = CommandType.StoredProcedure };
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@Id", id));
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException sql)
+            {
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null)
+                    Connection.Close();
+            }
+        }
+        
+        public List<CompareDebtDetailDTO> GetCompareDebtDetail(long _id)
+        {
+            var cmd = new SqlCommand("[dbo].[Debt_GetCompareDetail]", Connection);
+
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@Id", _id));
+                SqlDataReader reader = cmd.ExecuteReader();
+                var listComDebts = new List<CompareDebtDetailDTO>();
+                while (reader.Read())
+                {
+                    var debt = new CompareDebtDetailDTO
+                    {
+                        DetailID = Convert.ToInt64(reader["DetailID"]),
+                        ComparationDebtID = Convert.ToInt64(reader["ComparationDebtID"]),
+                        RepresentationDebtName = Convert.ToString(reader["RepresentationDebtName"]),
+                        DatePay = Convert.ToDateTime(reader["DatePay"]),
+                        Payed = Convert.ToInt64(reader["Payed"]),
+                        Note = Convert.ToString(reader["Note"]),
+                        CreatedBy = Convert.ToString(reader["CreatedBy"]),
+                        UpdatedBy = Convert.ToString(reader["UpdatedBy"]),
+                        CreatedDate = Convert.ToDateTime(reader["CreatedDate"]),
+                        UpdatedDate = Convert.ToDateTime(reader["UpdatedDate"])
+                    };
+                    debt.PayedFormat = Global.Global.ConvertLongToMoney(debt.Payed, Constants.SPLIP_MONEY);
+                    debt.DatePayFormat = debt.DatePay.ToString(Constants.DATETIME_FORMAT_SHORTDATE);                    
+                    listComDebts.Add(debt);
+                }
+                return listComDebts;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message, "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                if (Transaction == null) Connection.Close();
             }
         }
     }

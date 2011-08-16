@@ -213,5 +213,11 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
         public const string ERROR_DATE = "Ngày Vừa Chọn Không Hợp Lệ";
 
         public const string INPUT_NUMBER_ONLY = "Chỉ Được Nhập Số";
+
+        public const string MAIN_WAREHOUSE_SEARCH = "Main Warehourse Search";
+
+        public const string VEHICLE_VALUEMEMBER = "VehicleID";
+
+        public const string VEHICLE_DISPLAYMEMBER = "Number";
     }
 }

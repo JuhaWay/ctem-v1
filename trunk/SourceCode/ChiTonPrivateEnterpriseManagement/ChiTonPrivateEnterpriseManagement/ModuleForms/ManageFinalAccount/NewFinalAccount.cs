@@ -18,7 +18,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
     {
         bool _isNew;
         private bool _isNewItem;
-        long _id;
+        string _id;
         private List<FinalAccountDetailDTO> listFinalAccountDetail = new List<FinalAccountDetailDTO>();
         private List<EstimateDTO> listEstimate;
         private List<EstimateDetailDTO> listMaterialInEstimate;
@@ -37,7 +37,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
             _isNew = true;            
         }
 
-        public NewFinalAccount(long id)
+        public NewFinalAccount(string id)
         {
             InitializeComponent();            
             _isNew = false;
@@ -56,13 +56,14 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
 
         private void setInnitLayout()
         {
-            List<FinalAccountDTO> listaccount = finalaccountBUS.GetFinalAccountById(_id, dtpDateAccount.MinDate, dtpDateAccount.MaxDate);
+            List<FinalAccountDTO> listaccount = finalaccountBUS.GetFinalAccountById(_id);
             currenAccount = listaccount[0];
             listFinalAccountDetail = finalaccountBUS.GetFinalAccountDetailByFAId(_id);
             RefreshDisplayData();
-            txtNo.Text = currenAccount.FinalAccountID.ToString();            
+            txtNo.Text = currenAccount.FinalAccountID;            
             txtNote.Text = currenAccount.Note;
             txtPersonAccount.Text = currenAccount.PersonAccount;
+            dtpDateAccount.Value = currenAccount.DateAccount;
             txtTotalCost.Text = currenAccount.TotalCostFormated;
             txtTransportationCost.Text = currenAccount.TransportationCostFormated;
             if (currenAccount.ConstructionID == 0)
@@ -109,11 +110,12 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
                     i = cbbDebt.Items.Count;
                 }
             }
+            EnableControl();
         }
 
         private void RefreshDisplayData()
         {
-            List<FinalAccountDTO> listaccount = finalaccountBUS.GetFinalAccountById(_id, dtpDateAccount.MinDate, dtpDateAccount.MaxDate);
+            List<FinalAccountDTO> listaccount = finalaccountBUS.GetFinalAccountById(_id);
             currenAccount = listaccount[0];
             listFinalAccountDetail = finalaccountBUS.GetFinalAccountDetailByFAId(_id);
             dgvAccDetail.DataSource = null;
@@ -177,7 +179,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
             long transCost = Global.ConvertMoneyToLong(txtTransportationCost.Text, Constants.SPLIP_MONEY);
             var material = (MaterialDTO)cbbMaterial.SelectedItem;
             var finalaccountitem = new FinalAccountDetailDTO();
-            finalaccountitem.FinalAccountID = Convert.ToInt64(txtNo.Text);
+            finalaccountitem.FinalAccountID = txtNo.Text;
             finalaccountitem.MaterialID = material.MaterialID;
             finalaccountitem.MaterialName = material.MaterialName;
             finalaccountitem.RealCalUnit = material.RealCalUnit;
@@ -212,7 +214,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
                 var itemfinded = finalaccountBUS.FindAccountItem(finalaccountitem.FinalAccountID, finalaccountitem.MaterialID);
 
                 // To Main Warehouse
-                if (cbbMainWarehouse.Enabled)
+                if (cbbToPlace.Text.Equals(Constants.MAIN_WAREHOUSE))
                 {
                     var warehouse = (WarehouseDTO)cbbMainWarehouse.SelectedItem;                    
                     warehouseId = warehouse.WarehouseID;
@@ -290,6 +292,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
                             }
                         }
                         finalaccountBUS.CreateFinalAccountDetail(finalaccountitem);
+                        _id = finalaccountitem.FinalAccountID;
                         long totalCostCurr = Global.ConvertMoneyToLong(txtTotalCost.Text, Constants.SPLIP_MONEY);
                         long totalCost = totalCostCurr + finalaccountitem.TotalCost;
                         txtTotalCost.Text = Global.ConvertLongToMoney(totalCost, Constants.SPLIP_MONEY);
@@ -343,8 +346,9 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
                                 estimateDetailDTO.UnitCostEstimate = (long)(estimateDetailDTO.TotalCostEstimate /
                                                                     estimateDetailDTO.QuantityEstimate);
                                 estimateDetailDTO.UnitCostReal = (long) estimateDetailDTO.UnitCostEstimate;
-                                estimateDetailDTO.Type = "Chi Phí Phát Sinh";
+                                estimateDetailDTO.Type = EstimateDetailDTO.TYPE_GENERAL;
                                 estimateDetailBus.CreateEstimateDetail(estimateDetailDTO);
+                                _id = finalaccountitem.FinalAccountID;
                                 finalaccountBUS.CreateFinalAccountDetail(finalaccountitem);
                                 long totalCostCurr = Global.ConvertMoneyToLong(txtTotalCost.Text, Constants.SPLIP_MONEY);
                                 long totalCost = totalCostCurr + finalaccountitem.TotalCost;
@@ -382,8 +386,9 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
                                 estimateDetailDTO.TotalCostReal = finalaccountitem.TotalCost;
                                 estimateDetailDTO.UnitCostEstimate = 0;
                                 estimateDetailDTO.UnitCostReal = (long) (finalaccountitem.TotalCost/finalaccountitem.QuantityEst);
-                                estimateDetailDTO.Type = "Chi Phí Phát Sinh";
+                                estimateDetailDTO.Type = EstimateDetailDTO.TYPE_GENERAL;
                                 estimateDetailBus.CreateEstimateDetail(estimateDetailDTO);
+                                _id = finalaccountitem.FinalAccountID;
                                 finalaccountBUS.CreateFinalAccountDetail(finalaccountitem);
                                 long totalCostCurr = Global.ConvertMoneyToLong(txtTotalCost.Text, Constants.SPLIP_MONEY);
                                 long totalCost = totalCostCurr + finalaccountitem.TotalCost;
@@ -429,9 +434,10 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
                             estimateDetailDTO.TotalCostReal = finalaccountitem.TotalCost;
                             estimateDetailDTO.UnitCostEstimate = 0;
                             estimateDetailDTO.UnitCostReal = finalaccountitem.UnitCost;
-                            estimateDetailDTO.Type = "Chi Phí Phát Sinh";
+                            estimateDetailDTO.Type = EstimateDetailDTO.TYPE_GENERAL;
                             estimateDetailBus.CreateEstimateDetail(estimateDetailDTO);
                             finalaccountBUS.CreateFinalAccountDetail(finalaccountitem);
+                            _id = finalaccountitem.FinalAccountID;
                             long totalCostCurr = Global.ConvertMoneyToLong(txtTotalCost.Text, Constants.SPLIP_MONEY);
                             long totalCost = totalCostCurr + finalaccountitem.TotalCost;
                             txtTotalCost.Text = Global.ConvertLongToMoney(totalCost, Constants.SPLIP_MONEY);
@@ -450,6 +456,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
                                 {                                    
                                     estimateDetailBus.UpdateEstimateDetail(currEstDetail);
                                     finalaccountBUS.CreateFinalAccountDetail(finalaccountitem);
+                                    _id = finalaccountitem.FinalAccountID;
                                     long totalCostCurr = Global.ConvertMoneyToLong(txtTotalCost.Text, Constants.SPLIP_MONEY);
                                     long totalCost = totalCostCurr + finalaccountitem.TotalCost;
                                     txtTotalCost.Text = Global.ConvertLongToMoney(totalCost, Constants.SPLIP_MONEY);
@@ -485,6 +492,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
                                 {                                    
                                     estimateDetailBus.UpdateEstimateDetail(currEstDetail);
                                     finalaccountBUS.CreateFinalAccountDetail(finalaccountitem);
+                                    _id = finalaccountitem.FinalAccountID;
                                     long totalCostCurr = Global.ConvertMoneyToLong(txtTotalCost.Text, Constants.SPLIP_MONEY);
                                     long totalCost = totalCostCurr + finalaccountitem.TotalCost;
                                     txtTotalCost.Text = Global.ConvertLongToMoney(totalCost, Constants.SPLIP_MONEY);
@@ -517,6 +525,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
                             {                                
                                 estimateDetailBus.UpdateEstimateDetail(currEstDetail);
                                 finalaccountBUS.CreateFinalAccountDetail(finalaccountitem);
+                                _id = finalaccountitem.FinalAccountID;
                                 long totalCostCurr = Global.ConvertMoneyToLong(txtTotalCost.Text, Constants.SPLIP_MONEY);
                                 long totalCost = totalCostCurr + finalaccountitem.TotalCost;
                                 txtTotalCost.Text = Global.ConvertLongToMoney(totalCost, Constants.SPLIP_MONEY);
@@ -598,12 +607,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
         
         private bool ValidateInput()
         {
-            if (!Global.ValidateIntNumber(txtNo.Text))
-            {
-                KryptonMessageBox.Show("Chưa Nhập Mã Phiếu Mua Hàng", Constants.ALERT_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtNo.Focus();
-                return false;
-            }
             if (txtPersonAccount.Text.Equals(Constants.EMPTY_TEXT))
             {
                 KryptonMessageBox.Show("Chưa Nhập Người Thực Hiện", Constants.ALERT_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -619,10 +622,10 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
             {
                 return;
             }
-            long finalAccountId = Convert.ToInt32(txtNo.Text);
+            string finalAccountId = txtNo.Text;
             string accountPerson = txtPersonAccount.Text;
             long debtId = Global.GetDataCombobox(cbbDebt, Constants.DEBT);
-            DateTime dateaccount = DateTime.Parse(dtpDateAccount.Text);
+            DateTime dateaccount = dtpDateAccount.Value;
             long transportationCost = Global.ConvertMoneyToLong(txtTransportationCost.Text, Constants.SPLIP_MONEY);
             long totalCost = Global.ConvertMoneyToLong(txtTotalCost.Text, Constants.SPLIP_MONEY);
             string note = txtNote.Text;
@@ -637,7 +640,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
             }
             long constructionId;
             long warehouseId;
-            if (cbbConstruction.Enabled)
+            if (!cbbToPlace.Text.Equals(Constants.MAIN_WAREHOUSE))
             {
                 var construction = (ConstructionDTO) cbbConstruction.SelectedItem;
                 constructionId = construction.ConstructionID;
@@ -647,7 +650,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
             {
                 var warehouse = (WarehouseDTO) cbbMainWarehouse.SelectedItem;
                 constructionId = 0;
-                warehouseId = warehouse.WarehouseID;                
+                warehouseId = warehouse.WarehouseID;
             }
             var finalAccount = new FinalAccountDTO()
                                                {
@@ -656,7 +659,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
                                                    DateAccount = dateaccount,
                                                    DebtID = debtId,
                                                    TransportationCost = transportationCost,
-                                                   TotalCost = totalCost,
+                                                   TotalCost = totalCost,                                                   
                                                    IsPay = ispay,
                                                    WarehouseID = warehouseId,
                                                    PersonAccount = accountPerson,
@@ -664,6 +667,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
                                                };
             if (_isNew)
             {
+                finalAccount.ComparationDebtID = 0;
                 bool success = finalaccountBUS.CreateFinalAccount(finalAccount);
                 if (success)
                 {
@@ -671,6 +675,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
                         " Bạn Đã Tạo Phiếu Mua Hàng Thành Công.\n Bây Giờ Bạn Có Thể Nhập Các Mặt Hàng Cần Mua",
                         Constants.CONFIRM, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     _isNew = false;
+                    EnableControl();
                 }
                 else
                 {
@@ -683,6 +688,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
             }
             else
             {
+                finalAccount.ComparationDebtID = 0;
                 bool success = finalaccountBUS.UpdateFinalAccount(finalAccount);
                 if (success)
                 {
@@ -744,9 +750,10 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
         {
             bool isExist = false;            
             string nameMaterial = cbbMaterial.Text;
+            MaterialDTO materialDTO;
             for (int i = 0; i < listMaterial.Count; i++)
             {
-                MaterialDTO materialDTO = listMaterial[i];
+                materialDTO = listMaterial[i];
                 if (materialDTO.MaterialName.ToUpper().Equals(nameMaterial.ToUpper()))
                 {
                     isExist = true;
@@ -765,6 +772,8 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
                     cbbMaterial.SelectedIndex = listMaterial.Count - 1;
                 }
             }
+            materialDTO = cbbMaterial.SelectedItem as MaterialDTO;
+            unitcal.Text = materialDTO.RealCalUnit;
         }
 
         private void dgvAccDetail_RowEnter(object sender, DataGridViewCellEventArgs e)
@@ -866,11 +875,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
             RefreshDisplayData();
         }
 
-        private void hdDetailInfo_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void btnHideShowSearch_Click(object sender, EventArgs e)
         {
             if (gbxNewItem.Visible)
@@ -885,6 +889,34 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageFinalAccount
                 gbxNewItem.Visible = true;
                 Global.DownUpControl(this, pnlNewItem, 210, 2, 8, true);
             }
-        }        
+        }
+
+        private void cbbMaterial_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            unitcal.Text = ((MaterialDTO) cbbMaterial.SelectedItem).RealCalUnit;
+        }
+
+        private void EnableControl()
+        {            
+            txtNo.ReadOnly = true;
+            cbbDebt.Enabled = false;
+            cbbDebt.Enabled = false;
+            cbbToPlace.Enabled = false;
+            cbbConstruction.Enabled = false;
+            cbbMainWarehouse.Enabled = false;
+            dtpDateAccount.Enabled = false;
+        }
+
+        private void txtPersonAccount_TextChanged(object sender, EventArgs e)
+        {
+            if (txtPersonAccount.Text.Equals(Constants.EMPTY_TEXT))
+            {
+                Global.TextBoxRequireInput(txtPersonAccount);
+            }
+            else
+            {
+                Global.TextBoxRequireInputed(txtPersonAccount);
+            }
+        }
     }
 }

@@ -120,50 +120,7 @@
   <metadata name="kryptonManager.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <metadata name="TotalPayedFormat.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="cmsDGV.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>345, 19</value>
-  </metadata>
-  <metadata name="compareDebtDTOBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>433, 17</value>
-  </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnAdd.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAhJJREFUOE+VUt9L
-        U2EYPqd/pqlp/iDBhWxnSiZzam7OsJB+EIFYN0VK4MSSM/RoQzdCQYVuvBBLRQis2aYEQaJ1V7g5peVx
-        KjmPzuvH9/26ks7F6YOHA4fv+fE+7ydLJufijemYLF9wSrIsMeS/3/iP6UbF7P4//2xNb6F9ODqH/JsL
-        sETmSzbfrCDfGtyC5+UmvBEdBa3vrQvk+edJwIC7JwH7k59w9adRcHvRugDH1T4a8PQmcfXZBlzaDi61
-        Rc0FuDCemWOzM5PzKa4WNVDfl0Ll8ySqX+kovPMJhXfjKLrHWEbRfcbKlGRrmoG2mCUcYYBiszOTtaVj
-        NAa34Qik0DJxgKF4DkPLp+dw+cFnSDYvNU7kVirMHdhAHcVm5wYiu7o34SSBavUXfMM6fCO7aI5k4B/d
-        R8ubLIoffiEB3zsMkEAdtV1BhdlpZntXAuWdSZQ9TeBKVwoVvWlUqjtw9u9CGczAFdqH8voQxe1fIeU1
-        zwoBb1iHM5hG+Ys0Sgm14T3YA9uC7Ij8QdVYFtfGDVyfPEYtoWbCQEnHGgn452JcHO+ZV8Vtc2Fq9ARu
-        7bdwrhqluO2rglDyaB2lj78RvjO2TB8Xt61Gc/BQ+w6Kzc7CzerhVQWXcqgP6VC0jIjNzlb5Eu+ZBRrC
-        GSihPTEzx7YuQI9EZYHxQ9F2DY3AM/+HwEqMHwnvmVfF85NAzEzgDLZkkLSuXH6iAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <metadata name="cmsEdit.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>662, 17</value>
-  </metadata>
-  <metadata name="cbbDebt.Locked" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="dtpToDate.Locked" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="dtpFromDate.Locked" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="dtpDateCompare.Locked" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="cmsGen.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>250, 19</value>
-  </metadata>
-  <metadata name="cmsMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>158, 14</value>
+  <metadata name="compareDebtDetailDTOBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>149, 17</value>
   </metadata>
 </root>

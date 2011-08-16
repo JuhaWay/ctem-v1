@@ -25,9 +25,9 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
             return finalAccountDAO.CreateFinalAccountDetail(finalaccountdetail);
         }
 
-        public List<FinalAccountDTO> GetFinalAccount(long id, string consName, string debtName, DateTime fromdate, DateTime todate)
-        {
-            return finalAccountDAO.GetFinalAccount(id, consName, debtName, fromdate, todate);
+        public List<FinalAccountDTO> GetFinalAccount(long warehouseid, string debtName, DateTime fromdate, DateTime todate, int ispay, long compareid)
+       {
+            return finalAccountDAO.GetFinalAccount(warehouseid, debtName, fromdate, todate, ispay, compareid);
         }
 
         public bool DeleteFinalAccount(long id)
@@ -45,7 +45,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
             return finalAccountDAO.UpdateFinalAccount(finalAccount);
         }
 
-        public FinalAccountDetailDTO FindAccountItem(long accId, long materialId)
+        public FinalAccountDetailDTO FindAccountItem(string accId, long materialId)
         {
             return finalAccountDAO.FindAccountItem(accId, materialId);
         }
@@ -55,15 +55,15 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
             return finalAccountDAO.UpdateFinalAccountDetail(item);
         }
 
-        public List<FinalAccountDetailDTO> GetFinalAccountDetailByFAId(long id)
+        public List<FinalAccountDetailDTO> GetFinalAccountDetailByFAId(string id)
         {
             return finalAccountDAO.GetFinalAccountDetail(id);
         }
 
-        public List<FinalAccountDTO> GetFinalAccountById(long id, DateTime from, DateTime to)
+        public List<FinalAccountDTO> GetFinalAccountById(string id)
         {
-            return finalAccountDAO.GetFinalAccount(id, Constants.EMPTY_TEXT, Constants.EMPTY_TEXT, from, to);
-        }        
+            return finalAccountDAO.GetFinalAccountById(id);
+        }
     }
 }
     

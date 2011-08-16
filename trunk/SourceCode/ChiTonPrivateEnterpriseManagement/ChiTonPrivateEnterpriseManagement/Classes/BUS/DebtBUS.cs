@@ -45,7 +45,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
             return _debtDao.GetCompareDebt(name, fromdate, todate);            
         }
 
-        public bool Create(CompareDebtDTO compareDebtDto)
+        public long Create(CompareDebtDTO compareDebtDto)
         {
             return _debtDao.CreateCompareDebt(compareDebtDto);
         }
@@ -63,6 +63,26 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.BUS
         public bool DeleteDebtCompare(long id)
         {
             return _debtDao.DeleteCompare(id);
+        }
+
+        public List<CompareDebtDetailDTO> GetCompareDebtDetail(long _id)
+        {
+            return _debtDao.GetCompareDebtDetail(_id);
+        }
+
+        public bool CreateCompareDetail(CompareDebtDetailDTO detailDTO)
+        {
+            return _debtDao.CreateCompareDebtDetail(detailDTO);
+        }
+
+        public bool UpdateCompareDetail(CompareDebtDetailDTO detailDTO)
+        {
+            return _debtDao.UpdateCompareDetail(detailDTO);
+        }
+
+        public bool DeleteDebtCompareDetail(long id)
+        {
+            return _debtDao.DeleteCompareDetail(id);
         }
     }
 }

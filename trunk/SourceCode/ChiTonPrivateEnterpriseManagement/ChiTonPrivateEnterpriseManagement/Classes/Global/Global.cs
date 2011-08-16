@@ -333,6 +333,13 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
 
         public static void SetDataCombobox(KryptonComboBox cbbControl, string obj)
         {
+            if (obj.Equals(Constants.VERHICLE))
+            {
+                var verhiclebus = new VehicleBUS();
+                cbbControl.DataSource = verhiclebus.LoadAllVehicles();
+                cbbControl.ValueMember = Constants.VEHICLE_VALUEMEMBER;
+                cbbControl.DisplayMember = Constants.VEHICLE_DISPLAYMEMBER;
+            }
             if (obj.Equals(Constants.DRIVER))
             {
                 var employeeBus = new EmployeeBUS();
@@ -359,15 +366,15 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
                 cbbControl.DisplayMember = Constants.CONSTRUCTION_DISPLAYMEMBER;
             }
             if (obj.Equals(Constants.CONSTRUCTION_SEARCH))
-            {
+            {                
                 var constructionBus = new ConstructionBus();
                 var listCons = constructionBus.LoadAllConstructions();
                 cbbControl.Items.Clear();
-                cbbControl.Items.Add(Constants.ALL);
-                foreach (ConstructionDTO cons in listCons)
-                {
-                    cbbControl.Items.Add(cons.ConstructionName);
-                }
+                ConstructionDTO constr = new ConstructionDTO("Tất Cả", 0, 0);
+                cbbControl.Items.Add(constr);
+                cbbControl.Items.AddRange(listCons.ToArray());
+                cbbControl.ValueMember = Constants.CONSTRUCTION_VALUEMEMBER;
+                cbbControl.DisplayMember = Constants.CONSTRUCTION_DISPLAYMEMBER;
             }            
             if (obj.Equals(Constants.USER))
             {
@@ -453,9 +460,21 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
             }
 
             if (obj.Equals(Constants.MAIN_WAREHOUSE))
-            {
+            {                
                 var warehouseBus = new WarehouseBUS();
                 cbbControl.DataSource = warehouseBus.LoadWarehouses(Constants.EMPTY_TEXT, Constants.MAIN_WAREHOUSE, -1);
+                cbbControl.ValueMember = Constants.WAREHOUSE_VALUEMEMBER;
+                cbbControl.DisplayMember = Constants.WAREHOUSE_DISPLAYMEMBER;
+            }
+
+            if (obj.Equals(Constants.MAIN_WAREHOUSE_SEARCH))
+            {                
+                var warehouseBus = new WarehouseBUS();
+                var listwh = warehouseBus.LoadWarehouses(Constants.EMPTY_TEXT, Constants.MAIN_WAREHOUSE, -1);                
+                cbbControl.Items.Clear();
+                WarehouseDTO constr = new WarehouseDTO(0, "Tất Cả");
+                cbbControl.Items.Add(constr);
+                cbbControl.Items.AddRange(listwh.ToArray());
                 cbbControl.ValueMember = Constants.WAREHOUSE_VALUEMEMBER;
                 cbbControl.DisplayMember = Constants.WAREHOUSE_DISPLAYMEMBER;
             }
@@ -744,7 +763,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
             groupBox.StateCommon.Back.Color1 = Color.NavajoWhite;
             groupBox.StateCommon.Back.Color2 = Color.White;
             groupBox.StateCommon.Back.ColorStyle = PaletteColorStyle.GlassNormalFull;
-            groupBox.StateCommon.Border.Color1 = Color.Red;
+            groupBox.StateCommon.Border.Color1 = Color.Red;            
             groupBox.StateCommon.Border.Color2 = Color.White;
             groupBox.StateCommon.Border.ColorStyle = PaletteColorStyle.SolidInside;
             groupBox.StateCommon.Border.DrawBorders = PaletteDrawBorders.TopLeftRight;
@@ -780,6 +799,20 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.Global
             }
             string year = DateTime.Today.Year.ToString();
             string firstDateInMonthStr = month + "/01/" + year + " 00:00:00";
+            return DateTime.ParseExact(firstDateInMonthStr, "MM/dd/yyyy hh:mm:ss", null);
+        }
+
+        public static DateTime GetLastDateInMonth()
+        {            
+            int month = DateTime.Today.Month;
+            string strmonth = month.ToString();
+            if (strmonth.Length < 1)
+            {
+                strmonth = "0" + strmonth;
+            }
+            int year = DateTime.Today.Year;
+            int date = DateTime.DaysInMonth(year, month);
+            string firstDateInMonthStr = strmonth + date + year + " 00:00:00";
             return DateTime.ParseExact(firstDateInMonthStr, "MM/dd/yyyy hh:mm:ss", null);
         }
 

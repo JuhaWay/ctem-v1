@@ -9,7 +9,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
     public class FinalAccountDetailDTO
     {
         public long FinalAccountDetailID { get; set; }
-        public long FinalAccountID { get; set; }
+        public string FinalAccountID { get; set; }
         public long MaterialID { get; set; }
         public string MaterialName { get; set; }
         public string RealCalUnit { get; set; }

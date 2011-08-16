@@ -191,6 +191,8 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         WarehouseID = Convert.ToInt64(reader["WarehouseID"]),
                         MaterialID = Convert.ToInt64(reader["MaterialID"]),
                         Quantity = Convert.ToDouble(reader["Quantity"]),
+                        UnitCal = Convert.ToString(reader["RealCalUnit"]),
+                        Ratio = Convert.ToDouble(reader["Ratio"]),
                         AveragePrice = Convert.ToInt64(reader["AveragePrice"]),
                         TotalCost = Convert.ToInt64(reader["TotalCost"]),
                     };
@@ -357,6 +359,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             }
             try
             {
+                cmd.Parameters.Add(new SqlParameter("@StockOutID", stockout.StockOutId));
                 cmd.Parameters.Add(new SqlParameter("@DateStockOut", stockout.DateStockOut));
                 cmd.Parameters.Add(new SqlParameter("@StockOutFrom", stockout.StockOutFrom));
                 cmd.Parameters.Add(new SqlParameter("@StockOutTo", stockout.StockOutTo));
@@ -394,6 +397,8 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.Parameters.Add(new SqlParameter("@StockOutID", stockoutDetailDto.StockOutId));
                 cmd.Parameters.Add(new SqlParameter("@MaterialID", stockoutDetailDto.MaterialId));
                 cmd.Parameters.Add(new SqlParameter("@Quantity", stockoutDetailDto.Quantity));
+                cmd.Parameters.Add(new SqlParameter("@Price", stockoutDetailDto.Price));
+                cmd.Parameters.Add(new SqlParameter("@TotalCost", stockoutDetailDto.TotalCost));
                 cmd.Parameters.Add(new SqlParameter("@Note", stockoutDetailDto.Note));
                 cmd.ExecuteNonQuery();
                 return true;
@@ -430,7 +435,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 {
                     var stockout = new StockOutDTO()
                     {
-                        StockOutId = Convert.ToInt64(reader["StockOutId"]),
+                        StockOutId = Convert.ToString(reader["StockOutId"]),
                         StockOutFrom = Convert.ToString(reader["StockOutFrom"]),
                         StockOutTo = Convert.ToString(reader["StockOutTo"]),
                         TransportationCost = Convert.ToInt64(reader["TransportationCost"]),
@@ -509,6 +514,44 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 if (Transaction == null)
                     Connection.Close();
             }
+        }
+
+        public bool UpdateStockOut(StockOutDTO stockout)
+        {
+            var cmd = new SqlCommand("[dbo].[Warehouse_UpdateStockOut]", Connection) { CommandType = CommandType.StoredProcedure };
+            if (Transaction != null)
+            {
+                cmd.Transaction = Transaction;
+            }
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@StockOutID", stockout.StockOutId));
+                cmd.Parameters.Add(new SqlParameter("@DateStockOut", stockout.DateStockOut));
+                cmd.Parameters.Add(new SqlParameter("@StockOutFrom", stockout.StockOutFrom));
+                cmd.Parameters.Add(new SqlParameter("@StockOutTo", stockout.StockOutTo));
+                cmd.Parameters.Add(new SqlParameter("@Driver", stockout.DriverName));
+                cmd.Parameters.Add(new SqlParameter("@TransportationCost", stockout.TransportationCost));
+                cmd.Parameters.Add(new SqlParameter("@NoVehicle", stockout.NoVehicle));
+                cmd.Parameters.Add(new SqlParameter("@Note", stockout.Note));
+                cmd.Parameters.Add(new SqlParameter("@CreatedBy", Global.Global.CurrentUser.Username));
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException sql)
+            {
+                MessageBox.Show(sql.Message);
+                return false;
+            }
+            finally
+            {
+                if (Transaction == null)
+                    Connection.Close();
+            }
+        }
+
+        public StockOutDetailDTO FindStockOutItem(string stockid, long materialid)
+        {
+            return null;
         }
     }
 }
