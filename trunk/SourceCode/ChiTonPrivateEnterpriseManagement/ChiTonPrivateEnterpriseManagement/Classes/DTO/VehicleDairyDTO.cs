@@ -34,5 +34,9 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DTO
         public string Taker { get; set; }
 
 
+        public long DebtID { get; set; }
+        public long WarehouseID { get; set; }
+
+
     }
 }
