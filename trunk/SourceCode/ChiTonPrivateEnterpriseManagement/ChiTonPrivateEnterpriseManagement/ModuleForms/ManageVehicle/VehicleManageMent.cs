@@ -42,7 +42,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
 
             cbHouse.Items.AddRange(_warehouseBUS.LoadWarehouses("", Constants.MAIN_WAREHOUSE, -1).ToArray());
             cbHouse.DisplayMember = "WarehouseName";
-           
+            dtDate.ShowCheckBox = true;
             SetLayout();
 
 
@@ -139,7 +139,9 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
                     cbHouse.SelectedItem = item;
             }
             cbStatus.Text = dtoTemp.Status;
-            dtDate.Value = dtoTemp.Date;
+            if (dtoTemp.Date != DateTime.MinValue.Date)
+                dtDate.Value = dtoTemp.Date;
+            else dtDate.Checked = false;
            
         }
 
@@ -163,7 +165,10 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
             else
                 dtoTemp.WarehouseID = 0;
             dtoTemp.Status = cbStatus.Text;
-            dtoTemp.Date = dtDate.Value.Date;
+            if (dtDate.Checked)
+                dtoTemp.Date = dtDate.Value.Date;
+            else
+                dtoTemp.Date = DateTime.MinValue.Date;
             _vehicleBUS.UpdateVehicle(dtoTemp);
             KryptonMessageBox.Show("Cập nhật thành công", Constants.CONFIRM, MessageBoxButtons.OK,
                                MessageBoxIcon.Information);

@@ -45,6 +45,14 @@
             this.ipName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.lbName = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.dgvVehicle = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.NameVM = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ConstructionName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WarehouseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ManagerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vehicleDTOBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.kryptonLabel3 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
@@ -105,14 +113,6 @@
             this.warehouseDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.debtDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.finalAccountDetailDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.NameVM = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ConstructionName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WarehouseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ManagerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).BeginInit();
@@ -323,6 +323,57 @@
             this.dgvVehicle.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
             this.dgvVehicle.TabIndex = 5;
             this.dgvVehicle.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvVehicle_MouseClick);
+            // 
+            // NameVM
+            // 
+            this.NameVM.DataPropertyName = "Name";
+            this.NameVM.HeaderText = "Loại";
+            this.NameVM.Name = "NameVM";
+            // 
+            // ConstructionName
+            // 
+            this.ConstructionName.DataPropertyName = "ConstructionName";
+            this.ConstructionName.HeaderText = "Công trường";
+            this.ConstructionName.Name = "ConstructionName";
+            this.ConstructionName.Width = 200;
+            // 
+            // WarehouseName
+            // 
+            this.WarehouseName.DataPropertyName = "WarehouseName";
+            this.WarehouseName.HeaderText = "Kho chứa";
+            this.WarehouseName.Name = "WarehouseName";
+            this.WarehouseName.Width = 150;
+            // 
+            // ManagerName
+            // 
+            this.ManagerName.DataPropertyName = "ManagerName";
+            this.ManagerName.HeaderText = "Người quản lý";
+            this.ManagerName.Name = "ManagerName";
+            this.ManagerName.Width = 150;
+            // 
+            // Number
+            // 
+            this.Number.DataPropertyName = "Number";
+            this.Number.HeaderText = "Biến số xe";
+            this.Number.Name = "Number";
+            // 
+            // Category
+            // 
+            this.Category.DataPropertyName = "Category";
+            this.Category.HeaderText = "Chức năng";
+            this.Category.Name = "Category";
+            // 
+            // Status
+            // 
+            this.Status.DataPropertyName = "Status";
+            this.Status.HeaderText = "Tình trạng xe";
+            this.Status.Name = "Status";
+            // 
+            // Date
+            // 
+            this.Date.DataPropertyName = "DateFormated";
+            this.Date.HeaderText = "Ngày mua";
+            this.Date.Name = "Date";
             // 
             // vehicleDTOBindingSource3
             // 
@@ -860,57 +911,6 @@
             // finalAccountDetailDTOBindingSource
             // 
             this.finalAccountDetailDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.FinalAccountDetailDTO);
-            // 
-            // NameVM
-            // 
-            this.NameVM.DataPropertyName = "Name";
-            this.NameVM.HeaderText = "Loại";
-            this.NameVM.Name = "NameVM";
-            // 
-            // ConstructionName
-            // 
-            this.ConstructionName.DataPropertyName = "ConstructionName";
-            this.ConstructionName.HeaderText = "Công trường";
-            this.ConstructionName.Name = "ConstructionName";
-            this.ConstructionName.Width = 200;
-            // 
-            // WarehouseName
-            // 
-            this.WarehouseName.DataPropertyName = "WarehouseName";
-            this.WarehouseName.HeaderText = "Kho chứa";
-            this.WarehouseName.Name = "WarehouseName";
-            this.WarehouseName.Width = 150;
-            // 
-            // ManagerName
-            // 
-            this.ManagerName.DataPropertyName = "ManagerName";
-            this.ManagerName.HeaderText = "Người quản lý";
-            this.ManagerName.Name = "ManagerName";
-            this.ManagerName.Width = 150;
-            // 
-            // Number
-            // 
-            this.Number.DataPropertyName = "Number";
-            this.Number.HeaderText = "Biến số xe";
-            this.Number.Name = "Number";
-            // 
-            // Category
-            // 
-            this.Category.DataPropertyName = "Category";
-            this.Category.HeaderText = "Chức năng";
-            this.Category.Name = "Category";
-            // 
-            // Status
-            // 
-            this.Status.DataPropertyName = "Status";
-            this.Status.HeaderText = "Tình trạng xe";
-            this.Status.Name = "Status";
-            // 
-            // Date
-            // 
-            this.Date.DataPropertyName = "DateFormated";
-            this.Date.HeaderText = "Ngày mua";
-            this.Date.Name = "Date";
             // 
             // VehicleManageMent
             // 

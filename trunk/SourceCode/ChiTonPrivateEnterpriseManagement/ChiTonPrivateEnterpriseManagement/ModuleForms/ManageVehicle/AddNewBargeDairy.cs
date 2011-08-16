@@ -77,6 +77,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
                 if (dto.employeeID == _vehicleDairyDTO.DriverID)
                     cbDriver.SelectedItem = dto;
             }
+            ipOtherCost.Text = _vehicleDairyDTO.DamagedCostFormated;
             ipFualCost.Text = _vehicleDairyDTO.FualCostFormated;
             cbPaid.Checked = _vehicleDairyDTO.isPaid.Value;
             dtDay.Value = _vehicleDairyDTO.Date;
@@ -165,7 +166,9 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
                 dto.isPaid = cbPaid.Checked;
                 dto.Taker = ipTaker.Text;
                 dto.Task = ipTask.Text;
-                dto.Totalcost = dto.FualCost + dto.DamagedCost;
+                dto.DamagedCost = Global.ConvertMoneyToLong(ipOtherCost.Text, Global.SEP);
+                dto.Totalcost = (long)Global.ConvertMoneyToDouble(ipSumCost.Text, Global.SEP) +
+                dto.DamagedCost + dto.FualCost;
                 long ID = _vehicleDairyBUS.CreateVehicleDairy(dto);
                 foreach (VehicleDairyCostDTO item in _costs)
                 {
@@ -187,7 +190,9 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
                 _vehicleDairyDTO.isPaid = cbPaid.Checked;
                 _vehicleDairyDTO.Task = ipTask.Text;
                 _vehicleDairyDTO.Taker = ipTaker.Text;
-                _vehicleDairyDTO.Totalcost = (long)Global.ConvertMoneyToDouble(ipSumCost.Text, Global.SEP);
+                _vehicleDairyDTO.DamagedCost = Global.ConvertMoneyToLong(ipOtherCost.Text, Global.SEP);
+                _vehicleDairyDTO.Totalcost = (long)Global.ConvertMoneyToDouble(ipSumCost.Text, Global.SEP) + 
+                    _vehicleDairyDTO.DamagedCost+_vehicleDairyDTO.FualCost;
                 _vehicleDairyBUS.UpdateVehicleDairy(_vehicleDairyDTO);
                 _vehicleDairyBUS.deleteVehicleDairyCost(_ID);
                 foreach (VehicleDairyCostDTO item in _costs)
@@ -305,6 +310,15 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
         private void ipQuantity_MouseLeave(object sender, EventArgs e)
         {
             ipQuantity.Text = Global.ConvertDoubleToMoney(Global.ConvertMoneyToDouble(ipQuantity.Text, Global.SEP), Global.SEP);
+        }
+        private void ipOtherCost_MouseLeave(object sender, EventArgs e)
+        {
+            ipOtherCost.Text = Global.ConvertLongToMoney(Global.ConvertMoneyToLong(ipOtherCost.Text, Global.SEP), Global.SEP);
+        }
+
+        private void ipOtherCost_Leave(object sender, EventArgs e)
+        {
+            ipOtherCost.Text = Global.ConvertLongToMoney(Global.ConvertMoneyToLong(ipOtherCost.Text, Global.SEP), Global.SEP);
         }
     }
 }

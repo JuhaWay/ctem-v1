@@ -15,8 +15,11 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
     {
         private VehicleDairyBUS _vehicleDairyBUS = new VehicleDairyBUS();
         private EmployeeBUS _employeeBUS = new EmployeeBUS();
+        private WarehouseBUS _warehouseBUS = new WarehouseBUS();
         private ConstructionBus _constructionBus = new ConstructionBus();
         private VehicleBUS _vehicleBUS = new VehicleBUS();
+        private DebtBUS _debtBUS = new DebtBUS();
+        private FinalAccountBUS _finalAccountBUS = new FinalAccountBUS();
         private List<RoadMapDTO> list = new List<RoadMapDTO>();
         private List<VehicleDairyCostDTO> _costs = new List<VehicleDairyCostDTO>();
         private RoadMapDTO dtoTemp = new RoadMapDTO();
@@ -49,6 +52,27 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
             cbVehicle.DisplayMember = "Number";
 
             cbTypeCost.Items.AddRange(VehicleDairyCostDTO.getTypeCost().ToArray());
+
+            cbCons.Items.AddRange(_constructionBus.LoadAllConstructions().ToArray());
+            cbCons.DisplayMember = "ConstructionName";
+            cbType.SelectedIndex = 0;
+
+            WarehouseDTO ware = new WarehouseDTO();
+            ware.WarehouseID = 0;
+            ware.WarehouseName = "";
+            cbHouse.Items.Add(ware);
+            cbHouse.Items.AddRange(_warehouseBUS.LoadWarehouses("", Constants.MAIN_WAREHOUSE, -1).ToArray());
+            cbHouse.DisplayMember = "WarehouseName";
+
+
+
+
+            DebtDTO debt = new DebtDTO();
+            debt.DebtID = 0;
+            debt.DebtName = "";
+            cbProvider.Items.Add(debt);
+            cbProvider.Items.AddRange(_debtBUS.GetDebt(0,"",-1).ToArray());
+            cbProvider.DisplayMember = "DebtName";
 
 
             Global.SetLayoutForm(this, Constants.DIALOG_FORM);
@@ -88,7 +112,22 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
                 if (dto.employeeID == _vehicleDairyDTO.DriverID)
                     cbDriver.SelectedItem = dto;
             }
-          
+            foreach (ConstructionDTO dto in cbCons.Items)
+            {
+                if (dto.ConstructionID == _vehicleDairyDTO.ConstructionID)
+                    cbCons.SelectedItem = dto;
+            }
+            foreach (WarehouseDTO dto in cbHouse.Items)
+            {
+                if (dto.WarehouseID == _vehicleDairyDTO.WarehouseID)
+                    cbHouse.SelectedItem = dto;
+            }
+            foreach (DebtDTO dto in cbProvider.Items)
+            {
+                if (dto.DebtID == _vehicleDairyDTO.DebtID)
+                    cbProvider.SelectedItem = dto;
+            }
+            ipOtherCost.Text = _vehicleDairyDTO.DamagedCostFormated;
             cbPaid.Checked = _vehicleDairyDTO.isPaid.Value;
             dtDay.Value = _vehicleDairyDTO.Date;
             ipTaker.Text = _vehicleDairyDTO.Taker;
@@ -206,8 +245,29 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
                 dto.isPaid = cbPaid.Checked;
                 dto.Task = "";
                 dto.Taker = ipTaker.Text;
-                dto.Totalcost =(long) Global.ConvertMoneyToDouble(ipSumCost.Text, Global.SEP); 
+                dto.DamagedCost = Global.ConvertMoneyToLong(ipOtherCost.Text, Global.SEP);
+                dto.Totalcost = (long)Global.ConvertMoneyToDouble(ipSumCost.Text, Global.SEP) + dto.DamagedCost;
+                if (cbHouse.SelectedIndex > 0)
+                    dto.WarehouseID = (cbHouse.SelectedItem as WarehouseDTO).WarehouseID;
+                else dto.WarehouseID = 0;
+                if (cbProvider.SelectedIndex > 0)
+                    dto.DebtID = (cbProvider.SelectedItem as DebtDTO).DebtID;
+                else dto.DebtID = 0;
+                if (cbCons.SelectedIndex > -1)
+                    dto.ConstructionID = (cbCons.SelectedItem as ConstructionDTO).ConstructionID;
                 long ID = _vehicleDairyBUS.CreateVehicleDairy(dto);
+                if (dto.isPaid == false)
+                {
+                    FinalAccountDTO faccount = new FinalAccountDTO();
+                    faccount.FinalAccountID = "AUTOVEHICEL";
+                    faccount.TotalCost = dto.Totalcost;
+                    faccount.WarehouseID = dto.WarehouseID;
+                    faccount.DebtID = dto.DebtID;
+                    faccount.DateAccount = DateTime.Today.Date;
+                    faccount.PersonAccount = "";
+                    faccount.Note = "";
+                    _finalAccountBUS.CreateFinalAccount(faccount);
+                }
                 foreach (RoadMapDTO item in list)
                 {
                     item.VehicleDairyID = ID;
@@ -220,6 +280,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
                      item.Price =Global.ConvertMoneyToDouble(item.PriceFormated, Global.SEP); 
                      _vehicleDairyBUS.CreateVehicleDairyCost(item);
                  }
+                 
             }
             else
             {
@@ -230,7 +291,17 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
                 _vehicleDairyDTO.isPaid = cbPaid.Checked;
                 _vehicleDairyDTO.Task = "";
                 _vehicleDairyDTO.Taker = ipTaker.Text;
-                _vehicleDairyDTO.Totalcost = (long)Global.ConvertMoneyToDouble(ipSumCost.Text, Global.SEP); 
+                _vehicleDairyDTO.DamagedCost = Global.ConvertMoneyToLong(ipOtherCost.Text, Global.SEP);
+                _vehicleDairyDTO.Totalcost = (long)Global.ConvertMoneyToDouble(ipSumCost.Text, Global.SEP) + _vehicleDairyDTO.DamagedCost;
+                if (cbHouse.SelectedIndex > 0)
+                    _vehicleDairyDTO.WarehouseID = (cbHouse.SelectedItem as WarehouseDTO).WarehouseID;
+                else _vehicleDairyDTO.WarehouseID = 0;
+                if (cbProvider.SelectedIndex > 0)
+                    _vehicleDairyDTO.DebtID = (cbProvider.SelectedItem as DebtDTO).DebtID;
+                else _vehicleDairyDTO.DebtID = 0;
+                if (cbCons.SelectedIndex > -1)
+                    _vehicleDairyDTO.ConstructionID = (cbCons.SelectedItem as ConstructionDTO).ConstructionID;
+                else _vehicleDairyDTO.ConstructionID = 0;
                 _vehicleDairyBUS.UpdateVehicleDairy(_vehicleDairyDTO);
                 foreach (RoadMapDTO item in list)
                 {
@@ -378,6 +449,51 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
         private void ipQuantity_MouseLeave(object sender, EventArgs e)
         {
             ipQuantity.Text = Global.ConvertDoubleToMoney(Global.ConvertMoneyToDouble(ipQuantity.Text, Global.SEP), Global.SEP);
+        }
+
+        private void cbType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbType.SelectedIndex == 0)
+            {
+                cbCons.SelectedIndex = -1;
+                cbCons.Enabled = false;
+            }
+            else
+            {
+                cbCons.Enabled = true;
+            }
+        }
+
+        private void cbHouse_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbHouse.SelectedIndex > 0)
+                cbProvider.Enabled = false;
+            else
+                cbProvider.Enabled = true;
+        }
+
+        private void cbProvider_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbProvider.SelectedIndex > 0)
+                cbHouse.Enabled = false;
+            else
+                cbHouse.Enabled = true;
+        }
+
+       
+        private void ipOtherCost_MouseLeave(object sender, EventArgs e)
+        {
+            ipOtherCost.Text = Global.ConvertLongToMoney(Global.ConvertMoneyToLong(ipOtherCost.Text, Global.SEP), Global.SEP);
+        }
+
+        private void ipOtherCost_Leave(object sender, EventArgs e)
+        {
+            ipOtherCost.Text = Global.ConvertLongToMoney(Global.ConvertMoneyToLong(ipOtherCost.Text, Global.SEP), Global.SEP);
+        }
+
+        private void kryptonGroupBox2_Panel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
        
     }
