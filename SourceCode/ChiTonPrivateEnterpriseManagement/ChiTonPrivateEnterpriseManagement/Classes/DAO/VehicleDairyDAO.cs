@@ -95,7 +95,11 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         isPaid = Convert.ToBoolean(reader["isPaid"]),
                         Category = Convert.ToString(reader["Category"]),
                         Task = Convert.ToString(reader["Task"]),
-                        Totalcost = Convert.ToInt64(reader["TotalCost"])
+                        Totalcost = Convert.ToInt64(reader["TotalCost"]),
+                        DebtID = reader["DebtID"] == DBNull.Value ? 0 :
+                        Convert.ToInt64(reader["DebtID"]),
+                        WarehouseID = reader["WareHouseID"] == DBNull.Value ? 0 :
+                        Convert.ToInt64(reader["WareHouseID"])
 
 
                     };
@@ -151,15 +155,22 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         Task = Convert.ToString(reader["Task"]),
                         FualCost = reader["FualCost"]==DBNull.Value?0:
                         Convert.ToInt64(reader["FualCost"]),
+                        DamagedCost = reader["DamagedCost"] == DBNull.Value ? 0 :
+                        Convert.ToInt64(reader["DamagedCost"]),
                         Taker = Convert.ToString(reader["Taker"]),
                         Totalcost = reader["TotalCost"]==null?0:
-                        Convert.ToInt64(reader["TotalCost"])
+                        Convert.ToInt64(reader["TotalCost"]),
+                        DebtID = reader["DebtID"] == DBNull.Value ? 0 :
+                        Convert.ToInt64(reader["DebtID"]),
+                        WarehouseID = reader["WareHouseID"] == DBNull.Value ? 0 :
+                        Convert.ToInt64(reader["WareHouseID"])
 
 
                     };
               
                     dto.DateFormated = dto.Date.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
                     dto.FualCostFormated = Global.Global.ConvertLongToMoney(dto.FualCost, Global.Global.SEP);
+                    dto.DamagedCostFormated = Global.Global.ConvertLongToMoney(dto.DamagedCost, Global.Global.SEP);
                     dto.TotalcostFormated = Global.Global.ConvertLongToMoney(dto.Totalcost, Global.Global.SEP);
                     return dto;
 
@@ -194,6 +205,9 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.Parameters.Add(new SqlParameter("@Task", dto.Task));
                 cmd.Parameters.Add(new SqlParameter("@FualCost", dto.FualCost));
                 cmd.Parameters.Add(new SqlParameter("@Taker", dto.Taker));
+                cmd.Parameters.Add(new SqlParameter("@DebtID", dto.DebtID));
+                cmd.Parameters.Add(new SqlParameter("@WarehouseID", dto.WarehouseID));
+                cmd.Parameters.Add(new SqlParameter("@DamagedCost", dto.DamagedCost));
 
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.Read())
@@ -231,7 +245,9 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                 cmd.Parameters.Add(new SqlParameter("@Task", dto.Task));
                 cmd.Parameters.Add(new SqlParameter("@FualCost", dto.FualCost));
                 cmd.Parameters.Add(new SqlParameter("@Taker", dto.Taker));
-                
+                cmd.Parameters.Add(new SqlParameter("@DebtID", dto.DebtID));
+                cmd.Parameters.Add(new SqlParameter("@WarehouseID", dto.WarehouseID));
+                cmd.Parameters.Add(new SqlParameter("@DamagedCost", dto.DamagedCost));
 
 
                 cmd.ExecuteNonQuery();
