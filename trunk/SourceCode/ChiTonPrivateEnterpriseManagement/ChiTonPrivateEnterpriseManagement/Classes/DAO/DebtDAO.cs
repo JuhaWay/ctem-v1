@@ -172,18 +172,14 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         DebtName = Convert.ToString(reader["DebtName"]),
                         Address = Convert.ToString(reader["Address"]),
                         PhoneNumber = Convert.ToString(reader["PhoneNumber"]),
-                        TotalOwe = Convert.ToInt64(reader["TotalOwe"]),
-                        OldOwe = reader["OldOwe"] != DBNull.Value ? Convert.ToInt64(reader["OldOwe"]) : 0,
-                        NewestOwe = reader["NewestOwe"] != DBNull.Value ? Convert.ToInt64(reader["NewestOwe"]) : 0,
+                        TotalOwe = Convert.ToInt64(reader["TotalOwe"]),                        
                         Note = Convert.ToString(reader["Note"]),
                         CreatedBy = Convert.ToString(reader["CreatedBy"]),
                         CreatedDate = Convert.ToDateTime(reader["CreatedDate"]),
                         UpdatedBy = Convert.ToString(reader["UpdatedBy"]),
                         LastUpdated = Convert.ToDateTime(reader["UpdatedDate"])
                     };
-                    debt.TotalOweFomated = Global.Global.ConvertLongToMoney(debt.TotalOwe, Constants.SPLIP_MONEY);
-                    debt.OldOweFormated = Global.Global.ConvertLongToMoney(debt.OldOwe, Constants.SPLIP_MONEY);
-                    debt.NewestOweFormated = Global.Global.ConvertLongToMoney(debt.NewestOwe, Constants.SPLIP_MONEY);
+                    debt.TotalOweFomated = Global.Global.ConvertLongToMoney(debt.TotalOwe, Constants.SPLIP_MONEY);                    
                     if (Convert.ToBoolean(reader["IsActive"]))
                     {
                         debt.IsActive = 1;
@@ -230,8 +226,10 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         ComparationDebtID = Convert.ToInt64(reader["ComparationDebtID"]),                        
                         DebtID = Convert.ToInt64(reader["DebtID"]),
                         DebtName = Convert.ToString(reader["DebtName"]),
-                        TotalOwe = Convert.ToInt64(reader["TotalOwe"]),
-                        TotalPayed = Convert.ToInt64(reader["TotalPayed"]),
+                        RepresentationDebtName = Convert.ToString(reader["RepresentationDebtName"]),
+                        TotalNewOwe = reader["TotalNewOwe"] != DBNull.Value ? Convert.ToInt64(reader["TotalNewOwe"]) : 0,
+                        TotalOldOwe = reader["TotalOldOwe"] != DBNull.Value ? Convert.ToInt64(reader["TotalOldOwe"]) : 0,
+                        TotalPayed = reader["TotalPayed"] != DBNull.Value ? Convert.ToInt64(reader["TotalPayed"]) : 0,
                         DateCompare = Convert.ToDateTime(reader["DateCompare"]),
                         FromDate = Convert.ToDateTime(reader["FromDate"]),
                         ToDate = Convert.ToDateTime(reader["ToDate"]),
@@ -241,8 +239,13 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
                         CreatedDate = Convert.ToDateTime(reader["CreatedDate"]),
                         LastUpdated = Convert.ToDateTime(reader["LastUpdated"])
                     };
+                    debt.TotalOwe = debt.TotalNewOwe + debt.TotalOldOwe;
+                    debt.Con = debt.TotalOwe - debt.TotalPayed;
                     debt.TotalOweFormat = Global.Global.ConvertLongToMoney(debt.TotalOwe, Constants.SPLIP_MONEY);
+                    debt.TotalNewOweFormat = Global.Global.ConvertLongToMoney(debt.TotalNewOwe, Constants.SPLIP_MONEY);
+                    debt.TotalOldOweFormat = Global.Global.ConvertLongToMoney(debt.TotalOldOwe, Constants.SPLIP_MONEY);
                     debt.TotalPayedFormat = Global.Global.ConvertLongToMoney(debt.TotalPayed, Constants.SPLIP_MONEY);
+                    debt.ConFormat = Global.Global.ConvertLongToMoney(debt.Con, Constants.SPLIP_MONEY);
                     debt.DateCompareFormated = debt.DateCompare.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
                     debt.FromDateFormated = debt.FromDate.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
                     debt.ToDateFormated = debt.ToDate.ToString(Constants.DATETIME_FORMAT_SHORTDATE);
@@ -272,11 +275,14 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             try
             {
                 cmd.Parameters.Add(new SqlParameter("@DebtID", CompareDebt.DebtID));
+                cmd.Parameters.Add(new SqlParameter("@RepresentationDebtName", CompareDebt.RepresentationDebtName));
                 cmd.Parameters.Add(new SqlParameter("@DateCompare", CompareDebt.DateCompare));
                 cmd.Parameters.Add(new SqlParameter("@FromDate", CompareDebt.FromDate));
                 cmd.Parameters.Add(new SqlParameter("@ToDate", CompareDebt.ToDate));
-                cmd.Parameters.Add(new SqlParameter("@TotalOwe", CompareDebt.TotalOwe));
+                cmd.Parameters.Add(new SqlParameter("@TotalNewOwe", CompareDebt.TotalNewOwe));
+                cmd.Parameters.Add(new SqlParameter("@TotalOldOwe", CompareDebt.TotalOldOwe));
                 cmd.Parameters.Add(new SqlParameter("@TotalPayed", CompareDebt.TotalPayed));
+                cmd.Parameters.Add(new SqlParameter("@Con", CompareDebt.Con));
                 cmd.Parameters.Add(new SqlParameter("@Note", CompareDebt.Note));
                 cmd.Parameters.Add(new SqlParameter("@CreatedBy", Global.Global.CurrentUser.Username));                
                 SqlDataReader reader = cmd.ExecuteReader();
@@ -318,7 +324,7 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             }
         }
 
-        public bool UpdateCompare(CompareDebtDTO compareDebtDto)
+        public bool UpdateCompare(CompareDebtDTO CompareDebt)
         {
             var cmd = new SqlCommand("[dbo].[Debt_UpdateCompare]", Connection) { CommandType = CommandType.StoredProcedure };
             if (Transaction != null)
@@ -327,15 +333,18 @@ namespace ChiTonPrivateEnterpriseManagement.Classes.DAO
             }
             try
             {
-                cmd.Parameters.Add(new SqlParameter("@CompareDebtId", compareDebtDto.ComparationDebtID));
-                cmd.Parameters.Add(new SqlParameter("@DebtID", compareDebtDto.DebtID));               
-                cmd.Parameters.Add(new SqlParameter("@DateCompare", compareDebtDto.DateCompare));
-                cmd.Parameters.Add(new SqlParameter("@FromDate", compareDebtDto.FromDate));
-                cmd.Parameters.Add(new SqlParameter("@ToDate", compareDebtDto.ToDate));
-                cmd.Parameters.Add(new SqlParameter("@TotalOwe", compareDebtDto.TotalOwe));
-                cmd.Parameters.Add(new SqlParameter("@TotalPayed", compareDebtDto.TotalPayed));
-                cmd.Parameters.Add(new SqlParameter("@Note", compareDebtDto.Note));
-                cmd.Parameters.Add(new SqlParameter("@UpdatedBy", Global.Global.CurrentUser.Username));
+                cmd.Parameters.Add(new SqlParameter("@CompareDebtId", CompareDebt.ComparationDebtID));
+                cmd.Parameters.Add(new SqlParameter("@DebtID", CompareDebt.DebtID));
+                cmd.Parameters.Add(new SqlParameter("@RepresentationDebtName", CompareDebt.RepresentationDebtName));
+                cmd.Parameters.Add(new SqlParameter("@DateCompare", CompareDebt.DateCompare));
+                cmd.Parameters.Add(new SqlParameter("@FromDate", CompareDebt.FromDate));
+                cmd.Parameters.Add(new SqlParameter("@ToDate", CompareDebt.ToDate));
+                cmd.Parameters.Add(new SqlParameter("@TotalNewOwe", CompareDebt.TotalNewOwe));
+                cmd.Parameters.Add(new SqlParameter("@TotalOldOwe", CompareDebt.TotalOldOwe));
+                cmd.Parameters.Add(new SqlParameter("@TotalPayed", CompareDebt.TotalPayed));
+                cmd.Parameters.Add(new SqlParameter("@Con", CompareDebt.Con));
+                cmd.Parameters.Add(new SqlParameter("@Note", CompareDebt.Note));
+                cmd.Parameters.Add(new SqlParameter("@UpdatedBy", Global.Global.CurrentUser.Username));  
                 cmd.ExecuteNonQuery();
                 return true;
             }

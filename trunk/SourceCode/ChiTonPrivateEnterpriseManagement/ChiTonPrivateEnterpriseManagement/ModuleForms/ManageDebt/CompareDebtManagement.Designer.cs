@@ -34,8 +34,11 @@
             this.dgvComDebt = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.ComparationDebtID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DebtName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalOldOweFormat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalNewOweFormat = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalOweFormat = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalPayedFormat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ConFormat = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DateCompare = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FromDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ToDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,13 +66,11 @@
             this.kryptonLabel10 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel9 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.hdDebt = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
-            this.btnDetailDebt = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.btnDebtDetail = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.btnRefresh = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.btnLoadAll = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.btnAdd = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.btnDelete = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.btnDeleteAll = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.btnHideShowSearch = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.gbcRightBot = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.slcEdit = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
@@ -90,18 +91,20 @@
             this.kryptonLabel11 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.gbxEdit2 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.txtPayed = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.btnDetail = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny3 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.cmsGen = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.GenMoneyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.txtNotPayed = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.buttonSpecAny4 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.kryptonLabel12 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel7 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.txtNote = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.txtTotalOwe = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.buttonSpecAny2 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.kryptonLabel6 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.hdEdit = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
-            this.buttonSpecAny1 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.btnSave = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.cmsMain = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
@@ -149,8 +152,11 @@
             this.dgvComDebt.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ComparationDebtID,
             this.DebtName,
+            this.TotalOldOweFormat,
+            this.TotalNewOweFormat,
             this.TotalOweFormat,
             this.TotalPayedFormat,
+            this.ConFormat,
             this.DateCompare,
             this.FromDate,
             this.ToDate,
@@ -185,10 +191,24 @@
             this.DebtName.ReadOnly = true;
             this.DebtName.Width = 150;
             // 
+            // TotalOldOweFormat
+            // 
+            this.TotalOldOweFormat.DataPropertyName = "TotalOldOweFormat";
+            this.TotalOldOweFormat.HeaderText = "Nợ Củ (VND)";
+            this.TotalOldOweFormat.Name = "TotalOldOweFormat";
+            this.TotalOldOweFormat.ReadOnly = true;
+            // 
+            // TotalNewOweFormat
+            // 
+            this.TotalNewOweFormat.DataPropertyName = "TotalNewOweFormat";
+            this.TotalNewOweFormat.HeaderText = "Nợ Mới (VND)";
+            this.TotalNewOweFormat.Name = "TotalNewOweFormat";
+            this.TotalNewOweFormat.ReadOnly = true;
+            // 
             // TotalOweFormat
             // 
             this.TotalOweFormat.DataPropertyName = "TotalOweFormat";
-            this.TotalOweFormat.HeaderText = "Tổng Tiền (VND)";
+            this.TotalOweFormat.HeaderText = "Tổng Nợ (VND)";
             this.TotalOweFormat.Name = "TotalOweFormat";
             this.TotalOweFormat.ReadOnly = true;
             // 
@@ -198,6 +218,13 @@
             this.TotalPayedFormat.HeaderText = "Đã Trả (VND)";
             this.TotalPayedFormat.Name = "TotalPayedFormat";
             this.TotalPayedFormat.ReadOnly = true;
+            // 
+            // ConFormat
+            // 
+            this.ConFormat.DataPropertyName = "ConFormat";
+            this.ConFormat.HeaderText = "Còn Lại (VND)";
+            this.ConFormat.Name = "ConFormat";
+            this.ConFormat.ReadOnly = true;
             // 
             // DateCompare
             // 
@@ -476,13 +503,11 @@
             // hdDebt
             // 
             this.hdDebt.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
-            this.btnDetailDebt,
             this.btnDebtDetail,
             this.btnRefresh,
             this.btnLoadAll,
             this.btnAdd,
             this.btnDelete,
-            this.btnDeleteAll,
             this.btnHideShowSearch});
             this.hdDebt.Dock = System.Windows.Forms.DockStyle.Top;
             this.hdDebt.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.DockActive;
@@ -493,13 +518,6 @@
             this.hdDebt.Values.Description = "";
             this.hdDebt.Values.Heading = "Danh Nhà Lịch Đọ Sổ";
             this.hdDebt.Values.Image = null;
-            // 
-            // btnDetailDebt
-            // 
-            this.btnDetailDebt.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.classic_folder_projects;
-            this.btnDetailDebt.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
-            this.btnDetailDebt.Text = "Tình Hình Nợ";
-            this.btnDetailDebt.UniqueName = "AA392AC580104344449A97039D7260A7";
             // 
             // btnDebtDetail
             // 
@@ -541,14 +559,6 @@
             this.btnDelete.UniqueName = "46715A2AEC0143074F81325F50887305";
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // btnDeleteAll
-            // 
-            this.btnDeleteAll.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.cancel;
-            this.btnDeleteAll.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
-            this.btnDeleteAll.Text = "Xóa Tất Cả";
-            this.btnDeleteAll.UniqueName = "CD7065CA8BA743FB00B53BCE567E60B8";
-            this.btnDeleteAll.Click += new System.EventHandler(this.btnDeleteAll_Click);
-            // 
             // btnHideShowSearch
             // 
             this.btnHideShowSearch.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
@@ -575,7 +585,7 @@
             this.slcEdit.ContextMenuStrip = this.cmsEdit;
             this.slcEdit.Cursor = System.Windows.Forms.Cursors.Default;
             this.slcEdit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.slcEdit.Location = new System.Drawing.Point(0, 30);
+            this.slcEdit.Location = new System.Drawing.Point(0, 29);
             this.slcEdit.Name = "slcEdit";
             // 
             // slcEdit.Panel1
@@ -588,7 +598,7 @@
             // 
             this.slcEdit.Panel2.Controls.Add(this.gbxEdit2);
             this.slcEdit.Panel2.StateCommon.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(57)))), ((int)(((byte)(85)))));
-            this.slcEdit.Size = new System.Drawing.Size(829, 174);
+            this.slcEdit.Size = new System.Drawing.Size(829, 175);
             this.slcEdit.SplitterDistance = 412;
             this.slcEdit.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(57)))), ((int)(((byte)(85)))));
             this.slcEdit.TabIndex = 4;
@@ -645,7 +655,7 @@
             this.gbxEdit1.Panel.Controls.Add(this.kryptonLabel4);
             this.gbxEdit1.Panel.Controls.Add(this.dtpDateCompare);
             this.gbxEdit1.Panel.Controls.Add(this.kryptonLabel11);
-            this.gbxEdit1.Size = new System.Drawing.Size(407, 169);
+            this.gbxEdit1.Size = new System.Drawing.Size(407, 170);
             this.gbxEdit1.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(92)))), ((int)(((byte)(144)))));
             this.gbxEdit1.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
             this.gbxEdit1.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -766,7 +776,7 @@
             this.gbxEdit2.Panel.Controls.Add(this.txtNote);
             this.gbxEdit2.Panel.Controls.Add(this.txtTotalOwe);
             this.gbxEdit2.Panel.Controls.Add(this.kryptonLabel6);
-            this.gbxEdit2.Size = new System.Drawing.Size(412, 174);
+            this.gbxEdit2.Size = new System.Drawing.Size(412, 175);
             this.gbxEdit2.TabIndex = 5;
             this.gbxEdit2.Values.Heading = "Thông Tin Thêm";
             // 
@@ -775,21 +785,20 @@
             this.txtPayed.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPayed.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
-            this.btnDetail});
+            this.buttonSpecAny3});
             this.txtPayed.ContextMenuStrip = this.cmsGen;
             this.txtPayed.Location = new System.Drawing.Point(98, 38);
             this.txtPayed.Name = "txtPayed";
-            this.txtPayed.ReadOnly = true;
-            this.txtPayed.Size = new System.Drawing.Size(270, 27);
+            this.txtPayed.Size = new System.Drawing.Size(270, 25);
             this.txtPayed.TabIndex = 54;
+            this.txtPayed.TextChanged += new System.EventHandler(this.txtPayed_TextChanged);
+            this.txtPayed.Enter += new System.EventHandler(this.txtPay_Enter);
+            this.txtPayed.Leave += new System.EventHandler(this.txtPay_Leave);
             // 
-            // btnDetail
+            // buttonSpecAny3
             // 
-            this.btnDetail.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.application_view_detail;
-            this.btnDetail.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
-            this.btnDetail.Text = "Chi Tiết";
-            this.btnDetail.UniqueName = "280DA7FBF8334C764BB32EA4D7823568";
-            this.btnDetail.Click += new System.EventHandler(this.btnDetail_Click);
+            this.buttonSpecAny3.Text = "(VND)";
+            this.buttonSpecAny3.UniqueName = "7AB57C068BDB45787499ED7D9C954096";
             // 
             // cmsGen
             // 
@@ -820,16 +829,23 @@
             // 
             this.txtNotPayed.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtNotPayed.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
+            this.buttonSpecAny4});
             this.txtNotPayed.ContextMenuStrip = this.cmsGen;
-            this.txtNotPayed.Location = new System.Drawing.Point(98, 71);
+            this.txtNotPayed.Location = new System.Drawing.Point(98, 66);
             this.txtNotPayed.Name = "txtNotPayed";
             this.txtNotPayed.ReadOnly = true;
-            this.txtNotPayed.Size = new System.Drawing.Size(270, 22);
+            this.txtNotPayed.Size = new System.Drawing.Size(270, 25);
             this.txtNotPayed.TabIndex = 52;
+            // 
+            // buttonSpecAny4
+            // 
+            this.buttonSpecAny4.Text = "(VND)";
+            this.buttonSpecAny4.UniqueName = "5973E05F51D343CEE89EF5C648B68893";
             // 
             // kryptonLabel12
             // 
-            this.kryptonLabel12.Location = new System.Drawing.Point(40, 74);
+            this.kryptonLabel12.Location = new System.Drawing.Point(40, 71);
             this.kryptonLabel12.Name = "kryptonLabel12";
             this.kryptonLabel12.Size = new System.Drawing.Size(47, 19);
             this.kryptonLabel12.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
@@ -849,52 +865,60 @@
             // 
             this.txtNote.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNote.Location = new System.Drawing.Point(98, 99);
+            this.txtNote.Location = new System.Drawing.Point(98, 94);
             this.txtNote.Multiline = true;
             this.txtNote.Name = "txtNote";
-            this.txtNote.Size = new System.Drawing.Size(270, 45);
+            this.txtNote.Size = new System.Drawing.Size(270, 50);
             this.txtNote.TabIndex = 36;
             // 
             // txtTotalOwe
             // 
             this.txtTotalOwe.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTotalOwe.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
+            this.buttonSpecAny2});
             this.txtTotalOwe.ContextMenuStrip = this.cmsGen;
-            this.txtTotalOwe.Location = new System.Drawing.Point(98, 11);
+            this.txtTotalOwe.Location = new System.Drawing.Point(98, 10);
             this.txtTotalOwe.Name = "txtTotalOwe";
-            this.txtTotalOwe.Size = new System.Drawing.Size(270, 22);
+            this.txtTotalOwe.ReadOnly = true;
+            this.txtTotalOwe.Size = new System.Drawing.Size(270, 25);
             this.txtTotalOwe.TabIndex = 50;
-            this.txtTotalOwe.TextChanged += new System.EventHandler(this.txtTotalOwe_TextChanged);
-            this.txtTotalOwe.Enter += new System.EventHandler(this.txtTotalOwe_Enter);
-            this.txtTotalOwe.Leave += new System.EventHandler(this.txtTotalOwe_Leave);
+            // 
+            // buttonSpecAny2
+            // 
+            this.buttonSpecAny2.Text = "(VND)";
+            this.buttonSpecAny2.UniqueName = "61C9B6EAE46742AE029C7F7E24815CD8";
             // 
             // kryptonLabel6
             // 
-            this.kryptonLabel6.Location = new System.Drawing.Point(11, 16);
+            this.kryptonLabel6.Location = new System.Drawing.Point(33, 16);
             this.kryptonLabel6.Name = "kryptonLabel6";
-            this.kryptonLabel6.Size = new System.Drawing.Size(76, 19);
+            this.kryptonLabel6.Size = new System.Drawing.Size(54, 19);
             this.kryptonLabel6.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.kryptonLabel6.TabIndex = 43;
-            this.kryptonLabel6.Values.Text = "Tổng Số Tiền";
+            this.kryptonLabel6.Values.Text = "Tổng Nợ";
             // 
             // hdEdit
             // 
             this.hdEdit.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
-            this.buttonSpecAny1});
+            this.btnSave});
             this.hdEdit.Dock = System.Windows.Forms.DockStyle.Top;
             this.hdEdit.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.DockActive;
             this.hdEdit.Location = new System.Drawing.Point(0, 0);
             this.hdEdit.Name = "hdEdit";
-            this.hdEdit.Size = new System.Drawing.Size(829, 30);
+            this.hdEdit.Size = new System.Drawing.Size(829, 29);
             this.hdEdit.TabIndex = 3;
             this.hdEdit.Values.Description = "";
             this.hdEdit.Values.Heading = "Thông Tin Chi Tiết";
             this.hdEdit.Values.Image = null;
             // 
-            // buttonSpecAny1
+            // btnSave
             // 
-            this.buttonSpecAny1.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
-            this.buttonSpecAny1.UniqueName = "7014640F711A4020F993BDD7563D2895";
+            this.btnSave.Image = global::ChiTonPrivateEnterpriseManagement.Properties.Resources.save_edit;
+            this.btnSave.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
+            this.btnSave.Text = "Lưu";
+            this.btnSave.UniqueName = "7014640F711A4020F993BDD7563D2895";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // cmsMain
             // 
@@ -1019,7 +1043,6 @@
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnLoadAll;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnAdd;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnDelete;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnDeleteAll;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnHideShowSearch;
         private ComponentFactory.Krypton.Toolkit.KryptonGroupBox gbcRightBot;
         private ComponentFactory.Krypton.Toolkit.KryptonSplitContainer slcEdit;
@@ -1064,14 +1087,18 @@
         private System.Windows.Forms.ToolStripMenuItem HideSearchToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn RepresentationDebtName;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtPayed;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnDetail;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel2;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtNotPayed;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel12;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnSave;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnDebtDetail;
         private System.Windows.Forms.DataGridViewTextBoxColumn ComparationDebtID;
         private System.Windows.Forms.DataGridViewTextBoxColumn DebtName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalOldOweFormat;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalNewOweFormat;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalOweFormat;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalPayedFormat;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ConFormat;
         private System.Windows.Forms.DataGridViewTextBoxColumn DateCompare;
         private System.Windows.Forms.DataGridViewTextBoxColumn FromDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn ToDate;
@@ -1080,9 +1107,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CreatedDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn UpdatedBy;
         private System.Windows.Forms.DataGridViewTextBoxColumn LastUpdated;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny1;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnDebtDetail;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnDetailDebt;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny3;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny4;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny2;
     }
 }
 

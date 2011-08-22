@@ -33,12 +33,24 @@
             this.slcMain = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
             this.gbxLeftBot = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.dgvDebt = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.DebtID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DebtName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalOwe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IsActive = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.createdByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.createdDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.updatedByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastUpdatedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmsDGV = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.RefreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.LoadAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AddToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DeleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DeleteAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.debtDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pnlSearch = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.gbxSearch = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.cbbNameSearch = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
@@ -95,20 +107,6 @@
             this.lưuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.HideSearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.debtDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.DebtID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DebtName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalOwe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OldOweFormated = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NewestOweFormated = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IsActive = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.createdByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.createdDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.updatedByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastUpdatedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.slcMain)).BeginInit();
             this.slcMain.Panel1.SuspendLayout();
             this.slcMain.Panel2.SuspendLayout();
@@ -118,6 +116,7 @@
             this.gbxLeftBot.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDebt)).BeginInit();
             this.cmsDGV.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.debtDTOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlSearch)).BeginInit();
             this.pnlSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gbxSearch)).BeginInit();
@@ -142,7 +141,6 @@
             this.gbxEdit2.Panel.SuspendLayout();
             this.gbxEdit2.SuspendLayout();
             this.cmsMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.debtDTOBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // slcMain
@@ -187,8 +185,6 @@
             this.DebtID,
             this.DebtName,
             this.TotalOwe,
-            this.OldOweFormated,
-            this.NewestOweFormated,
             this.Address,
             this.PhoneNumber,
             this.IsActive,
@@ -205,6 +201,81 @@
             this.dgvDebt.Size = new System.Drawing.Size(821, 175);
             this.dgvDebt.TabIndex = 0;
             this.dgvDebt.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDebt_CellClick);
+            // 
+            // DebtID
+            // 
+            this.DebtID.DataPropertyName = "DebtID";
+            this.DebtID.HeaderText = "Mã";
+            this.DebtID.Name = "DebtID";
+            this.DebtID.Width = 70;
+            // 
+            // DebtName
+            // 
+            this.DebtName.DataPropertyName = "DebtName";
+            this.DebtName.HeaderText = "Tên";
+            this.DebtName.Name = "DebtName";
+            this.DebtName.Width = 150;
+            // 
+            // TotalOwe
+            // 
+            this.TotalOwe.DataPropertyName = "TotalOweFomated";
+            this.TotalOwe.HeaderText = "Tổng Nợ (VND)";
+            this.TotalOwe.Name = "TotalOwe";
+            this.TotalOwe.Width = 150;
+            // 
+            // Address
+            // 
+            this.Address.DataPropertyName = "Address";
+            this.Address.HeaderText = "Địa Chỉ";
+            this.Address.Name = "Address";
+            this.Address.Width = 200;
+            // 
+            // PhoneNumber
+            // 
+            this.PhoneNumber.DataPropertyName = "PhoneNumber";
+            this.PhoneNumber.HeaderText = "Điện Thoại";
+            this.PhoneNumber.Name = "PhoneNumber";
+            this.PhoneNumber.Width = 150;
+            // 
+            // IsActive
+            // 
+            this.IsActive.DataPropertyName = "IsActive";
+            this.IsActive.HeaderText = "Còn Liên Hệ";
+            this.IsActive.Name = "IsActive";
+            // 
+            // Note
+            // 
+            this.Note.DataPropertyName = "Note";
+            this.Note.HeaderText = "Ghi Chú";
+            this.Note.Name = "Note";
+            // 
+            // createdByDataGridViewTextBoxColumn
+            // 
+            this.createdByDataGridViewTextBoxColumn.DataPropertyName = "CreatedBy";
+            this.createdByDataGridViewTextBoxColumn.HeaderText = "Người Tạo";
+            this.createdByDataGridViewTextBoxColumn.Name = "createdByDataGridViewTextBoxColumn";
+            this.createdByDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // createdDateDataGridViewTextBoxColumn
+            // 
+            this.createdDateDataGridViewTextBoxColumn.DataPropertyName = "CreatedDate";
+            this.createdDateDataGridViewTextBoxColumn.HeaderText = "Ngày Tạo";
+            this.createdDateDataGridViewTextBoxColumn.Name = "createdDateDataGridViewTextBoxColumn";
+            this.createdDateDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // updatedByDataGridViewTextBoxColumn
+            // 
+            this.updatedByDataGridViewTextBoxColumn.DataPropertyName = "UpdatedBy";
+            this.updatedByDataGridViewTextBoxColumn.HeaderText = "Người Sửa";
+            this.updatedByDataGridViewTextBoxColumn.Name = "updatedByDataGridViewTextBoxColumn";
+            this.updatedByDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // lastUpdatedDataGridViewTextBoxColumn
+            // 
+            this.lastUpdatedDataGridViewTextBoxColumn.DataPropertyName = "LastUpdated";
+            this.lastUpdatedDataGridViewTextBoxColumn.HeaderText = "Ngày Sửa";
+            this.lastUpdatedDataGridViewTextBoxColumn.Name = "lastUpdatedDataGridViewTextBoxColumn";
+            this.lastUpdatedDataGridViewTextBoxColumn.Width = 150;
             // 
             // cmsDGV
             // 
@@ -257,6 +328,10 @@
             this.DeleteAllToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.DeleteAllToolStripMenuItem.Text = "Xóa Tất Cả";
             this.DeleteAllToolStripMenuItem.Click += new System.EventHandler(this.btnDeleteAll_Click);
+            // 
+            // debtDTOBindingSource
+            // 
+            this.debtDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.DebtDTO);
             // 
             // pnlSearch
             // 
@@ -811,97 +886,6 @@
             this.HideSearchToolStripMenuItem.Text = "Ẩn Tìm Kiếm";
             this.HideSearchToolStripMenuItem.Click += new System.EventHandler(this.HideSearchToolStripMenuItem_Click);
             // 
-            // debtDTOBindingSource
-            // 
-            this.debtDTOBindingSource.DataSource = typeof(ChiTonPrivateEnterpriseManagement.Classes.DTO.DebtDTO);
-            // 
-            // DebtID
-            // 
-            this.DebtID.DataPropertyName = "DebtID";
-            this.DebtID.HeaderText = "Mã";
-            this.DebtID.Name = "DebtID";
-            this.DebtID.Width = 70;
-            // 
-            // DebtName
-            // 
-            this.DebtName.DataPropertyName = "DebtName";
-            this.DebtName.HeaderText = "Tên";
-            this.DebtName.Name = "DebtName";
-            this.DebtName.Width = 150;
-            // 
-            // TotalOwe
-            // 
-            this.TotalOwe.DataPropertyName = "TotalOweFomated";
-            this.TotalOwe.HeaderText = "Tổng Nợ (VND)";
-            this.TotalOwe.Name = "TotalOwe";
-            this.TotalOwe.Width = 150;
-            // 
-            // OldOweFormated
-            // 
-            this.OldOweFormated.DataPropertyName = "OldOweFormated";
-            this.OldOweFormated.HeaderText = "Nợ Củ Hiện Tại (VND)";
-            this.OldOweFormated.Name = "OldOweFormated";
-            // 
-            // NewestOweFormated
-            // 
-            this.NewestOweFormated.DataPropertyName = "NewestOweFormated";
-            this.NewestOweFormated.HeaderText = "Nợ Mới Nhất (VND)";
-            this.NewestOweFormated.Name = "NewestOweFormated";
-            // 
-            // Address
-            // 
-            this.Address.DataPropertyName = "Address";
-            this.Address.HeaderText = "Địa Chỉ";
-            this.Address.Name = "Address";
-            this.Address.Width = 200;
-            // 
-            // PhoneNumber
-            // 
-            this.PhoneNumber.DataPropertyName = "PhoneNumber";
-            this.PhoneNumber.HeaderText = "Điện Thoại";
-            this.PhoneNumber.Name = "PhoneNumber";
-            this.PhoneNumber.Width = 150;
-            // 
-            // IsActive
-            // 
-            this.IsActive.DataPropertyName = "IsActive";
-            this.IsActive.HeaderText = "Còn Liên Hệ";
-            this.IsActive.Name = "IsActive";
-            // 
-            // Note
-            // 
-            this.Note.DataPropertyName = "Note";
-            this.Note.HeaderText = "Ghi Chú";
-            this.Note.Name = "Note";
-            // 
-            // createdByDataGridViewTextBoxColumn
-            // 
-            this.createdByDataGridViewTextBoxColumn.DataPropertyName = "CreatedBy";
-            this.createdByDataGridViewTextBoxColumn.HeaderText = "Người Tạo";
-            this.createdByDataGridViewTextBoxColumn.Name = "createdByDataGridViewTextBoxColumn";
-            this.createdByDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // createdDateDataGridViewTextBoxColumn
-            // 
-            this.createdDateDataGridViewTextBoxColumn.DataPropertyName = "CreatedDate";
-            this.createdDateDataGridViewTextBoxColumn.HeaderText = "Ngày Tạo";
-            this.createdDateDataGridViewTextBoxColumn.Name = "createdDateDataGridViewTextBoxColumn";
-            this.createdDateDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // updatedByDataGridViewTextBoxColumn
-            // 
-            this.updatedByDataGridViewTextBoxColumn.DataPropertyName = "UpdatedBy";
-            this.updatedByDataGridViewTextBoxColumn.HeaderText = "Người Sửa";
-            this.updatedByDataGridViewTextBoxColumn.Name = "updatedByDataGridViewTextBoxColumn";
-            this.updatedByDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // lastUpdatedDataGridViewTextBoxColumn
-            // 
-            this.lastUpdatedDataGridViewTextBoxColumn.DataPropertyName = "LastUpdated";
-            this.lastUpdatedDataGridViewTextBoxColumn.HeaderText = "Ngày Sửa";
-            this.lastUpdatedDataGridViewTextBoxColumn.Name = "lastUpdatedDataGridViewTextBoxColumn";
-            this.lastUpdatedDataGridViewTextBoxColumn.Width = 150;
-            // 
             // DebtManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -923,6 +907,7 @@
             this.gbxLeftBot.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDebt)).EndInit();
             this.cmsDGV.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.debtDTOBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlSearch)).EndInit();
             this.pnlSearch.ResumeLayout(false);
             this.gbxSearch.Panel.ResumeLayout(false);
@@ -951,7 +936,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gbxEdit2)).EndInit();
             this.gbxEdit2.ResumeLayout(false);
             this.cmsMain.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.debtDTOBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1028,8 +1012,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DebtID;
         private System.Windows.Forms.DataGridViewTextBoxColumn DebtName;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalOwe;
-        private System.Windows.Forms.DataGridViewTextBoxColumn OldOweFormated;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NewestOweFormated;
         private System.Windows.Forms.DataGridViewTextBoxColumn Address;
         private System.Windows.Forms.DataGridViewTextBoxColumn PhoneNumber;
         private System.Windows.Forms.DataGridViewCheckBoxColumn IsActive;
