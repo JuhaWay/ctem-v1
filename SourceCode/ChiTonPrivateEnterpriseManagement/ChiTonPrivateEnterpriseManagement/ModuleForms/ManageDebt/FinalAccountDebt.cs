@@ -95,6 +95,16 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
             DateTime fromdate = dtpSearchFrom.Value;
             DateTime todate = dtpSearchTo.Value.AddDays(1);
             ListFinalAccount = FinalAcc.GetFinalAccount(0, debtName, fromdate, todate, 0, 0);
+            foreach (FinalAccountDTO finalAccountDTO in ListFinalAccount)
+            {
+                if (finalAccountDTO.TotalCost > 0)
+                {
+                    finalAccountDTO.IsPay = 1;
+                    ListDebtAccount.Add(finalAccountDTO);
+                    totalDebt += finalAccountDTO.TotalCost;
+                    hdEdit.Values.Heading = String.Format("Tổng Số Nợ: {0} (VND)", Global.ConvertLongToMoney(totalDebt, Constants.SPLIP_MONEY));
+                }
+            }
             dgvAccount.DataSource = ListFinalAccount;                               
         }
 
@@ -202,7 +212,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
                     totalDebt -= finalAccountDTO.TotalCost;
                     hdEdit.Values.Heading = String.Format("Tổng Số Nợ: {0} (VND)", Global.ConvertLongToMoney(totalDebt, Constants.SPLIP_MONEY));                     
                 }
-            }
-        }
+            }                        
+        }        
     }
 }

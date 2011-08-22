@@ -40,16 +40,25 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
                 var compareDate = dtpDateCompare.Value;
                 var fromDate = dtpFromDate.Value;
                 var toDate = dtpToDate.Value;
+                string representationDebtName = txtRepresentationDebtName.Text;
                 long totalOwe = Global.ConvertMoneyToLong(txtTotalOwe.Text, Constants.SPLIP_MONEY);
+                long totalNewOwe = Global.ConvertMoneyToLong(txtTotalNewOwe.Text, Constants.SPLIP_MONEY);
+                long totalOldOwe = Global.ConvertMoneyToLong(txtOldOwe.Text, Constants.SPLIP_MONEY);
+                long pay = Global.ConvertMoneyToLong(txtPay.Text, Constants.SPLIP_MONEY);
+                long con = Global.ConvertMoneyToLong(txtCon.Text, Constants.SPLIP_MONEY);
                 string note = txtNote.Text;
                 var compareDebtDto = new CompareDebtDTO()
                 {
                     DebtID = debtId,
+                    RepresentationDebtName = representationDebtName,
                     DateCompare = compareDate,
                     FromDate = fromDate,
                     ToDate = toDate,
                     TotalOwe = totalOwe,
-                    TotalPayed = 0,
+                    TotalNewOwe = totalNewOwe,
+                    TotalOldOwe = totalOldOwe,
+                    TotalPayed = pay,
+                    Con = con,
                     Note = note
                 };
                 long id = _debtBus.Create(compareDebtDto);
@@ -85,7 +94,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
 
         private bool ValidateInput()
         {
-            Global.SetTextBoxMoneyLeave(txtTotalOwe);
+            Global.SetTextBoxMoneyLeave(txtTotalNewOwe);
             Global.ListError.Clear();
             if (!Global.ValidateDateFromTo(dtpFromDate.Value, dtpToDate.Value) || !Global.ValidateDateFromTo(dtpToDate.Value, dtpDateCompare.Value))
             {
@@ -102,6 +111,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
 
         private void SetInnitValue()
         {
+            long totaloldowe = 0;
             for (int i = 0; i < cbbDebt.Items.Count; i++)
             {
                 DebtDTO debt = cbbDebt.Items[i] as DebtDTO;
@@ -109,18 +119,22 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
                 {
                     cbbDebt.SelectedIndex = i;
                     i = cbbDebt.Items.Count;
+                    txtTotalOwe.Text = debt.TotalOweFomated;
+                    totaloldowe = debt.TotalOwe - _totalCost;
                 }
             }
+            txtOldOwe.Text = Global.ConvertLongToMoney(totaloldowe, Constants.SPLIP_MONEY);
             dtpFromDate.Value = _from;
             dtpToDate.Value = _to;
-            txtTotalOwe.Text = Global.ConvertLongToMoney(_totalCost, Constants.SPLIP_MONEY);
+            txtTotalNewOwe.Text = Global.ConvertLongToMoney(_totalCost, Constants.SPLIP_MONEY);
+            Global.SetTextBoxNumberEnter(txtPay);
         }
 
         private void SetLayout()
         {
             CenterToParent();
             cbbDebt.Focus();
-            Global.SetTextBoxNumberLeave(txtTotalOwe);
+            Global.SetTextBoxNumberLeave(txtTotalNewOwe);
             Global.SetLayoutForm(this, Constants.DIALOG_FORM);
             Global.SetLayoutPanelNewForm(pnlButton);
             Global.SetLayoutGroupBoxNewForm(gbxAdd1);
@@ -157,7 +171,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
         }
         private void ClearLayout()
         {
-            Global.SetTextBoxNumberLeave(txtTotalOwe);            
+            Global.SetTextBoxNumberLeave(txtTotalNewOwe);            
             txtNote.Text = Constants.EMPTY_TEXT;
             dtpDateCompare.Value = DateTime.Today;
             dtpFromDate.Value = Global.GetFirstDateInMonth();
@@ -166,6 +180,24 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
             {
                 cbbDebt.SelectedIndex = 0;                
             }
+        }
+
+        private void txtPay_Enter(object sender, EventArgs e)
+        {
+            Global.SetTextBoxNumberEnter(txtPay);
+        }
+
+        private void txtPay_Leave(object sender, EventArgs e)
+        {
+            Global.SetTextBoxMoneyLeave(txtPay);
+        }
+
+        private void txtPay_TextChanged(object sender, EventArgs e)
+        {
+            long pay = Global.ConvertMoneyToLong(txtPay.Text, Constants.SPLIP_MONEY);
+            long total = Global.ConvertMoneyToLong(txtTotalOwe.Text, Constants.SPLIP_MONEY);
+            long con = total - pay;
+            txtCon.Text = Global.ConvertLongToMoney(con, Constants.SPLIP_MONEY);
         }
     }
 }

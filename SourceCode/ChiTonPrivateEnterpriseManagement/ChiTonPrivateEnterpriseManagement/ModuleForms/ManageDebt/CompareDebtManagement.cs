@@ -151,23 +151,10 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
         {
             if (ValidateInput())
             {
-                long compareDebtId = Convert.ToInt64(txtId.Text);
-                long debtId = Global.GetDataCombobox(cbbDebt, Constants.DEBT);                
-                var compareDate = dtpDateCompare.Value;
-                var fromDate = dtpFromDate.Value;
-                var toDate = dtpToDate.Value;
-                long totalOwe = Global.ConvertMoneyToLong(txtTotalOwe.Text, Constants.SPLIP_MONEY);
-                string note = txtNote.Text;
-                var compareDebtDto = new CompareDebtDTO()
-                {
-                    ComparationDebtID = compareDebtId,
-                    DebtID = debtId,                    
-                    DateCompare = compareDate,
-                    FromDate = fromDate,
-                    ToDate = toDate,
-                    TotalOwe = totalOwe,
-                    Note = note
-                };
+                CompareDebtDTO compareDebtDto = dgvComDebt.SelectedRows[0].DataBoundItem as CompareDebtDTO;
+                compareDebtDto.TotalPayed = Global.ConvertMoneyToLong(txtPayed.Text, Constants.SPLIP_MONEY);
+                compareDebtDto.Note = txtNote.Text;
+                compareDebtDto.Con = Global.ConvertMoneyToLong(txtNotPayed.Text, Constants.SPLIP_MONEY);
                 bool success = _debtBus.UpdateCompare(compareDebtDto);
                 KryptonMessageBox.Show(success ? Constants.UPDATE_SUCCESS : Constants.ERROR, Constants.ANNOUNCE);
                 RefreshData();
@@ -185,8 +172,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
         }
 
         private bool ValidateInput()
-        {
-            Global.SetTextBoxNumberLeave(txtTotalOwe);
+        {            
             Global.ListError.Clear();
             if (!Global.ValidateDateFromTo(dtpFromDate.Value, dtpToDate.Value) || !Global.ValidateDateFromTo(dtpToDate.Value, dtpDateCompare.Value))
             {
@@ -269,29 +255,17 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
 
         private void txtTotalOwe_TextChanged(object sender, EventArgs e)
         {
-            if (!txtTotalOwe.Text.Equals(Constants.EMPTY_TEXT))
-            {
-                if (Global.ValidateMoney(txtTotalOwe))
-                {
-                    long number = Convert.ToInt64(txtTotalOwe.Text.Trim().Replace(Constants.SPLIP_MONEY, ""));
-                    txtTotalOwe.Text = Global.ConvertLongToMoney(number, Constants.SPLIP_MONEY);
-                }
-                else
-                {                    
-                    txtTotalOwe.Text = Constants.EMPTY_TEXT;
-                    txtTotalOwe.Focus();
-                }
-            }
+
         }
 
-        private void txtTotalOwe_Enter(object sender, EventArgs e)
+        private void txtPay_Enter(object sender, EventArgs e)
         {
-            Global.SetTextBoxNumberEnter(txtTotalOwe);
+            Global.SetTextBoxNumberEnter(txtPayed);
         }
 
-        private void txtTotalOwe_Leave(object sender, EventArgs e)
+        private void txtPay_Leave(object sender, EventArgs e)
         {
-            txtTotalOwe.Text = Constants.ZERO_NUMBER;
+            Global.SetTextBoxMoneyLeave(txtPayed);
         }
 
         private void btnDetail_Click(object sender, EventArgs e)
@@ -337,6 +311,14 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageDebt
             {                
             }
             
+        }
+
+        private void txtPayed_TextChanged(object sender, EventArgs e)
+        {
+            long pay = Global.ConvertMoneyToLong(txtPayed.Text, Constants.SPLIP_MONEY);
+            long total = Global.ConvertMoneyToLong(txtTotalOwe.Text, Constants.SPLIP_MONEY);
+            long con = total - pay;
+            txtNotPayed.Text = Global.ConvertLongToMoney(con, Constants.SPLIP_MONEY);
         }
     }
 }
