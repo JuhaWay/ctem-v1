@@ -16,6 +16,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
         private VehicleDairyBUS _vehicleDairyBUS = new VehicleDairyBUS();
         private EmployeeBUS _employeeBUS = new EmployeeBUS();
         private ConstructionBus _constructionBus = new ConstructionBus();
+        private MaterialBUS _materialBUS = new MaterialBUS();
         private VehicleBUS _vehicleBUS = new VehicleBUS();
         private List<RoadMapDTO> list = new List<RoadMapDTO>();
         private RoadMapDTO dtoTemp = new RoadMapDTO();
@@ -59,6 +60,11 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
             cbVehicle.Items.AddRange(_vehicleBUS.searchVehicle(dto).ToArray());
             cbVehicle.DisplayMember = "Number";
             cbTypeCost.Items.AddRange(VehicleDairyCostDTO.getTypeCost().ToArray());
+
+
+            cbMaterial.Items.Add(new MaterialDTO("", 0));
+            cbMaterial.Items.AddRange(_materialBUS.LoadAllMaterials().ToArray());
+            cbMaterial.DisplayMember = "MaterialName";
 
             if (_ID > 0)
                 loadUpdateForm();
@@ -117,7 +123,12 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
             entity.TotalCost = entity.Quantity * entity.Price;
             entity.Unit = ipUnit.Text.Trim();
             entity.Taker = ipTaker.Text.Trim();
-            entity.Name = ipName.Text.Trim();
+            entity.Name = "";
+            if (cbMaterial.SelectedIndex > 0)
+            {
+                entity.MaterialID = (cbMaterial.SelectedItem as MaterialDTO).MaterialID;
+                entity.MaterialName = (cbMaterial.SelectedItem as MaterialDTO).MaterialName;
+            }
             entity.Date = dtDate.Value.Date;
 
             entity.PriceFormated = Global.ConvertDoubleToMoney(entity.Price, Global.SEP);
@@ -132,7 +143,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
             cbTypeCost.SelectedIndex = -1;
             ipQuantity.Text = "";
             ipPrice.Text = "";
-            ipName.Text = "";
             ipUnit.Text = "";
         }
         public void reloadCosts()
@@ -248,7 +258,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
         private void dgvCost_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
             if (dgvCost.Rows.Count == 0) return;
-            if (e.ColumnIndex == 1)
+            if (e.ColumnIndex == 2)
             {
                 if (!Global.ValidateDoubleNumber(e.FormattedValue.ToString()))
                 {
@@ -272,14 +282,14 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
         private void dgvCost_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvCost.Rows.Count == 0) return;
-            if (e.ColumnIndex == 1 || e.ColumnIndex == 3)
+            if (e.ColumnIndex == 2 || e.ColumnIndex == 4)
             {
                 double total = 0;
-                string sprice = dgvCost.Rows[e.RowIndex].Cells[3].Value.ToString();
+                string sprice = dgvCost.Rows[e.RowIndex].Cells[4].Value.ToString();
                 double price = Global.ConvertMoneyToDouble(sprice, Global.SEP);
-                double quantity = (double)dgvCost.Rows[e.RowIndex].Cells[1].Value;
+                double quantity = (double)dgvCost.Rows[e.RowIndex].Cells[2].Value;
                 total = price * quantity;
-                dgvCost.Rows[e.RowIndex].Cells[4].Value = total;
+                dgvCost.Rows[e.RowIndex].Cells[5].Value = total;
 
 
                 double totalCost = 0;
@@ -319,6 +329,16 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
         private void ipOtherCost_Leave(object sender, EventArgs e)
         {
             ipOtherCost.Text = Global.ConvertLongToMoney(Global.ConvertMoneyToLong(ipOtherCost.Text, Global.SEP), Global.SEP);
+        }
+        private void cbMaterial_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbMaterial.SelectedIndex > 0)
+                ipUnit.Text = (cbMaterial.SelectedItem as MaterialDTO).RealCalUnit;
+        }
+        private void dgvCost_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            if (e.ColumnIndex == 0 || e.ColumnIndex == 1 || e.ColumnIndex == 3 || e.ColumnIndex == 5)
+                e.Cancel = true;
         }
     }
 }

@@ -19,6 +19,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
         private VehicleBUS _vehicleBUS = new VehicleBUS();
         private FinalAccountBUS _finalAccountBUS = new FinalAccountBUS();
         private EstimateDetailBUS _estimateDetailBUS = new EstimateDetailBUS();
+        private MaterialBUS _materialBUS = new MaterialBUS();
         private WarehouseBUS _warehouseBUS = new WarehouseBUS();
         private DebtBUS _debtBUS = new DebtBUS();
         private List<RoadMapDTO> list = new List<RoadMapDTO>();
@@ -72,20 +73,20 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
             WarehouseDTO ware = new WarehouseDTO();
             ware.WarehouseID = 0;
             ware.WarehouseName = "";
-            cbHouse.Items.Add(ware);
-            cbHouse.Items.AddRange(_warehouseBUS.LoadWarehouses("", Constants.MAIN_WAREHOUSE, -1).ToArray());
-            cbHouse.DisplayMember = "WarehouseName";
-
+           
 
 
 
             DebtDTO debt = new DebtDTO();
             debt.DebtID = 0;
             debt.DebtName = "";
-            cbProvider.Items.Add(debt);
-            cbProvider.Items.AddRange(_debtBUS.GetDebt(0, "", -1).ToArray());
-            cbProvider.DisplayMember = "DebtName";
-            
+           
+
+
+            cbMaterial.Items.Add(new MaterialDTO("", 0));
+            cbMaterial.Items.AddRange(_materialBUS.LoadAllMaterials().ToArray());
+            cbMaterial.DisplayMember = "MaterialName";
+
             
             if (_ID > 0)
                 loadUpdateForm();
@@ -108,16 +109,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
                 if (dto.ConstructionID == _vehicleDairyDTO.ConstructionID)
                     cbCons.SelectedItem = dto;
             }
-            foreach (WarehouseDTO dto in cbHouse.Items)
-            {
-                if (dto.WarehouseID == _vehicleDairyDTO.WarehouseID)
-                    cbHouse.SelectedItem = dto;
-            }
-            foreach (DebtDTO dto in cbProvider.Items)
-            {
-                if (dto.DebtID == _vehicleDairyDTO.DebtID)
-                    cbProvider.SelectedItem = dto;
-            }
+            
             ipOtherCost.Text = _vehicleDairyDTO.DamagedCostFormated;
             cbPaid.Checked = _vehicleDairyDTO.isPaid.Value;
             dtDay.Value = _vehicleDairyDTO.Date;
@@ -173,7 +165,12 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
             entity.TotalCost = entity.Quantity * entity.Price;
             entity.Unit = ipUnit.Text.Trim();
             entity.Taker = ipTaker.Text.Trim();
-            entity.Name = ipName.Text.Trim();
+            entity.Name = "";
+            if (cbMaterial.SelectedIndex > 0)
+            {
+                entity.MaterialID = (cbMaterial.SelectedItem as MaterialDTO).MaterialID;
+                entity.MaterialName = (cbMaterial.SelectedItem as MaterialDTO).MaterialName;
+            }
             entity.Date = dtDate.Value.Date;
 
             entity.PriceFormated = Global.ConvertDoubleToMoney(entity.Price, Global.SEP);
@@ -187,7 +184,6 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
             cbTypeCost.SelectedIndex = -1;
             ipQuantity.Text = "";
             ipPrice.Text = "";
-            ipName.Text = "";
             ipUnit.Text = "";
         }
         private void btSave_Click(object sender, EventArgs e)
@@ -207,73 +203,19 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
                 dto.Task = ipTask.Text.Trim();
                 dto.DamagedCost = Global.ConvertMoneyToLong(ipOtherCost.Text, Global.SEP);
                 dto.Totalcost = (long)Global.ConvertMoneyToDouble(ipSumCost.Text, Global.SEP) + dto.DamagedCost;
-                if (cbHouse.SelectedIndex > 0)
-                    dto.WarehouseID = (cbHouse.SelectedItem as WarehouseDTO).WarehouseID;
-                else dto.WarehouseID = 0;
-                if (cbProvider.SelectedIndex > 0)
-                    dto.DebtID = (cbProvider.SelectedItem as DebtDTO).DebtID;
-                else dto.DebtID = 0;
-                double totalEst = _estimateDetailBUS.getTotal(dto.ConstructionID,EstimateDetailDTO.TYPE_MACHINE);
-                if (dto.ConstructionID>0 && dto.Totalcost > totalEst)
+                //double totalEst = _estimateDetailBUS.getTotal(dto.ConstructionID,EstimateDetailDTO.TYPE_MACHINE);
+                long ID = _vehicleDairyBUS.CreateVehicleDairy(dto);
+                
+                foreach (VehicleDairyCostDTO item in _costs)
                 {
-                    if (KryptonMessageBox.Show("Tổng chi phí máy cơ đã vượt dự toán máy cơ, dự toán máy hiện tại là :" +
-                        totalEst + " bạn có muốn tiếp tục lưu",
-                        Constants.CONFIRM, MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Warning) == DialogResult.Yes)
-                    {
-                        long ID = _vehicleDairyBUS.CreateVehicleDairy(dto);
-                        if (dto.isPaid == false)
-                        {
-                            FinalAccountDTO faccount = new FinalAccountDTO();
-                            faccount.FinalAccountID = "AUTOVEHICEL";
-                            faccount.TotalCost = dto.Totalcost;
-                            faccount.WarehouseID = dto.WarehouseID;
-                            faccount.DebtID = dto.DebtID;
-                            faccount.DateAccount = DateTime.Today.Date;
-                            faccount.PersonAccount = "";
-                            faccount.Note = "";
-                            _finalAccountBUS.CreateFinalAccount(faccount);
-                        }
-                        foreach (VehicleDairyCostDTO item in _costs)
-                        {
-                            item.VehicleID = dto.VehicleID;
-                            item.VehicleDairyID = ID;
-                            item.TotalCost = (long)Global.ConvertMoneyToDouble(item.TotalCostFormated, Global.SEP);
-                            item.Price = Global.ConvertMoneyToDouble(item.PriceFormated, Global.SEP);
-                            _vehicleDairyBUS.CreateVehicleDairyCost(item);
-                        }
-                        this.Close();
-                    }
-
-
+                    item.VehicleID = dto.VehicleID;
+                    item.VehicleDairyID = ID;
+                    item.TotalCost = (long)Global.ConvertMoneyToDouble(item.TotalCostFormated, Global.SEP);
+                    item.Price = Global.ConvertMoneyToDouble(item.PriceFormated, Global.SEP);
+                    _vehicleDairyBUS.CreateVehicleDairyCost(item);
+                    
                 }
-                else
-                {
-                    long ID = _vehicleDairyBUS.CreateVehicleDairy(dto);
-                    if (dto.isPaid == false)
-                    {
-                        FinalAccountDTO faccount = new FinalAccountDTO();
-                        faccount.FinalAccountID = "AUTOVEHICEL";
-                        faccount.TotalCost = dto.Totalcost;
-                        faccount.WarehouseID = dto.WarehouseID;
-                        faccount.DebtID = dto.DebtID;
-                        faccount.DateAccount = DateTime.Today.Date;
-                        faccount.PersonAccount = "";
-                        faccount.Note = "";
-                        _finalAccountBUS.CreateFinalAccount(faccount);
-                    }
-                    foreach (VehicleDairyCostDTO item in _costs)
-                    {
-                        item.VehicleID = dto.VehicleID;
-                        item.VehicleDairyID = ID;
-                        item.TotalCost = (long)Global.ConvertMoneyToDouble(item.TotalCostFormated, Global.SEP);
-                        item.Price = Global.ConvertMoneyToDouble(item.PriceFormated, Global.SEP);
-                        _vehicleDairyBUS.CreateVehicleDairyCost(item);
-                    }
-                    this.Close();
-                }
-               
-
+                this.Close();
             }
             else
             {
@@ -289,47 +231,19 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
                 _vehicleDairyDTO.Task = ipTask.Text.Trim();
                 _vehicleDairyDTO.DamagedCost = Global.ConvertMoneyToLong(ipOtherCost.Text, Global.SEP);
                 _vehicleDairyDTO.Totalcost = (long)Global.ConvertMoneyToDouble(ipSumCost.Text, Global.SEP) + _vehicleDairyDTO.DamagedCost;
-                if (cbHouse.SelectedIndex > 0)
-                    _vehicleDairyDTO.WarehouseID = (cbHouse.SelectedItem as WarehouseDTO).WarehouseID;
-                else _vehicleDairyDTO.WarehouseID = 0;
-                if (cbProvider.SelectedIndex > 0)
-                    _vehicleDairyDTO.DebtID = (cbProvider.SelectedItem as DebtDTO).DebtID;
-                else _vehicleDairyDTO.DebtID = 0;
-                double totalEst = _estimateDetailBUS.getTotal(_vehicleDairyDTO.ConstructionID, EstimateDetailDTO.TYPE_MACHINE);
-                if (_vehicleDairyDTO.ConstructionID > 0 && _vehicleDairyDTO.Totalcost > totalEst)
+               
+                //double totalEst = _estimateDetailBUS.getTotal(_vehicleDairyDTO.ConstructionID, EstimateDetailDTO.TYPE_MACHINE);             
+                _vehicleDairyBUS.UpdateVehicleDairy(_vehicleDairyDTO);
+                _vehicleDairyBUS.deleteVehicleDairyCost(_ID);
+                foreach (VehicleDairyCostDTO item in _costs)
                 {
-                    if (KryptonMessageBox.Show("Tổng chi phí máy cơ đã vượt dự toán máy cơ, dự toán máy hiện tại là :" +
-                        totalEst + " bạn có muốn tiếp tục lưu",
-                        Constants.CONFIRM, MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Warning) == DialogResult.Yes)
-                    {
-                        _vehicleDairyBUS.UpdateVehicleDairy(_vehicleDairyDTO);
-                        _vehicleDairyBUS.deleteVehicleDairyCost(_ID);
-                        foreach (VehicleDairyCostDTO item in _costs)
-                        {
-                            item.VehicleID = _vehicleDairyDTO.VehicleID;
-                            item.VehicleDairyID = _ID;
-                            item.TotalCost = (long)Global.ConvertMoneyToDouble(item.TotalCostFormated, Global.SEP);
-                            item.Price = Global.ConvertMoneyToDouble(item.PriceFormated, Global.SEP);
-                            _vehicleDairyBUS.CreateVehicleDairyCost(item);
-                        }
-                        this.Close();
-                    }
+                    item.VehicleID = _vehicleDairyDTO.VehicleID;
+                    item.VehicleDairyID = _ID;
+                    item.TotalCost = (long)Global.ConvertMoneyToDouble(item.TotalCostFormated, Global.SEP);
+                    item.Price = Global.ConvertMoneyToDouble(item.PriceFormated, Global.SEP);
+                    _vehicleDairyBUS.CreateVehicleDairyCost(item);
                 }
-                else
-                {
-                    _vehicleDairyBUS.UpdateVehicleDairy(_vehicleDairyDTO);
-                    _vehicleDairyBUS.deleteVehicleDairyCost(_ID);
-                    foreach (VehicleDairyCostDTO item in _costs)
-                    {
-                        item.VehicleID = _vehicleDairyDTO.VehicleID;
-                        item.VehicleDairyID = _ID;
-                        item.TotalCost = (long)Global.ConvertMoneyToDouble(item.TotalCostFormated, Global.SEP);
-                        item.Price = Global.ConvertMoneyToDouble(item.PriceFormated, Global.SEP);
-                        _vehicleDairyBUS.CreateVehicleDairyCost(item);
-                    }
-                    this.Close();
-                }
+                this.Close();
             }
            
         }
@@ -368,7 +282,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
         private void dgvCost_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
             if (dgvCost.Rows.Count == 0) return;
-            if (e.ColumnIndex == 1)
+            if (e.ColumnIndex == 2)
             {
                 if (!Global.ValidateDoubleNumber(e.FormattedValue.ToString()))
                 {
@@ -392,14 +306,14 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
         private void dgvCost_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvCost.Rows.Count == 0) return;
-            if (e.ColumnIndex == 1 || e.ColumnIndex == 3)
+            if (e.ColumnIndex == 2 || e.ColumnIndex == 4)
             {
                 double total = 0;
-                string sprice = dgvCost.Rows[e.RowIndex].Cells[3].Value.ToString();
+                string sprice = dgvCost.Rows[e.RowIndex].Cells[4].Value.ToString();
                 double price = Global.ConvertMoneyToDouble(sprice, Global.SEP);
-                double quantity = (double)dgvCost.Rows[e.RowIndex].Cells[1].Value;
+                double quantity = (double)dgvCost.Rows[e.RowIndex].Cells[2].Value;
                 total = price * quantity;
-                dgvCost.Rows[e.RowIndex].Cells[4].Value = total;
+                dgvCost.Rows[e.RowIndex].Cells[5].Value = total;
 
 
                 double totalCost = 0;
@@ -430,21 +344,7 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
         {
             ipQuantity.Text = Global.ConvertDoubleToMoney(Global.ConvertMoneyToDouble(ipQuantity.Text, Global.SEP), Global.SEP);
         }
-        private void cbHouse_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cbHouse.SelectedIndex > 0)
-                cbProvider.Enabled = false;
-            else
-                cbProvider.Enabled = true;
-        }
-
-        private void cbProvider_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cbProvider.SelectedIndex > 0)
-                cbHouse.Enabled = false;
-            else
-                cbHouse.Enabled = true;
-        }
+        
 
 
         private void ipOtherCost_MouseLeave(object sender, EventArgs e)
@@ -455,6 +355,17 @@ namespace ChiTonPrivateEnterpriseManagement.ModuleForms.ManageVehicle
         private void ipOtherCost_Leave(object sender, EventArgs e)
         {
             ipOtherCost.Text = Global.ConvertLongToMoney(Global.ConvertMoneyToLong(ipOtherCost.Text, Global.SEP), Global.SEP);
+        }
+
+        private void cbMaterial_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbMaterial.SelectedIndex > 0)
+                ipUnit.Text = (cbMaterial.SelectedItem as MaterialDTO).RealCalUnit;
+        }
+        private void dgvCost_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            if (e.ColumnIndex == 0 || e.ColumnIndex == 1 || e.ColumnIndex == 3 || e.ColumnIndex == 5)
+                e.Cancel = true;
         }
     }
 }
